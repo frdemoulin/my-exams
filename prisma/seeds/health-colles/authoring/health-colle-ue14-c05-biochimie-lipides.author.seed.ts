@@ -356,25 +356,17 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       "theme:acide-palmitique"
     ],
     "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "16"
-      ],
-      "normalization": {
-        "trim": true,
-        "collapseWhitespace": true,
-        "caseSensitive": false,
-        "ignoreAccents": true,
-        "normalizeUnicode": true
-      }
+      "type": "number",
+      "value": 16,
+      "tolerance": 0
     }
   },
   {
     "order": 11,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel alcool polaire est associé au phosphate dans une phosphatidylcholine ?",
-    "explanation": "Le nom de la classe indique la tête polaire : la phosphatidylcholine contient une choline liée au phosphate.",
+    "question": "Dans la molécule A, quel alcool polaire correspond au groupement X porté par le phosphate ?",
+    "explanation": "La molécule A est une phosphatidylcholine : le phosphate porté par le glycérol est estérifié par la choline. La nature de l’alcool fixé au phosphate contribue à définir la classe du glycérophospholipide.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -414,8 +406,8 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 12,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Comparez triacylglycérols et glycérophospholipides. Quelles propositions sont exactes ?",
-    "explanation": "Les triacylglycérols sont des réserves énergétiques très hydrophobes formées de trois acides gras estérifiant le glycérol. Les glycérophospholipides possèdent deux chaînes acyles et une tête phosphatée, ce qui leur confère un caractère amphiphile adapté aux membranes.",
+    "question": "En comparant les molécules A et B, quelles propositions sont exactes ?",
+    "explanation": "Un triacylglycérol est un glycérol dont les trois fonctions alcool sont estérifiées par des acides gras. Un acide phosphatidique possède deux chaînes acyles en sn-1 et sn-2 et un phosphate en sn-3 ; l’ajout d’un alcool sur ce phosphate conduit à différentes classes de glycérophospholipides. Un lysophospholipide résulte de la perte d’une chaîne acyle d’un phospholipide diacylé.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -425,24 +417,24 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     ],
     "choices": [
       {
-        "content": "Un triacylglycérol comporte trois acides gras estérifiant les trois fonctions alcool du glycérol.",
+        "content": "La molécule B comporte trois acides gras estérifiant les trois fonctions alcool du glycérol.",
         "correct": true,
         "explanation": "C’est la structure fondamentale d’un triglycéride."
       },
       {
-        "content": "Un acide phosphatidique comporte deux acides gras sur le glycérol et un phosphate en troisième position.",
+        "content": "Dans la molécule A, deux acides gras estérifient les positions sn-1 et sn-2 du glycérol tandis qu’un phosphate est lié au sn-3.",
         "correct": true,
         "explanation": "Il constitue un précurseur structural de nombreux glycérophospholipides."
       },
       {
-        "content": "La tête polaire d’un glycérophospholipide peut contenir de la sérine, de l’éthanolamine, de la choline ou de l’inositol.",
+        "content": "La tête polaire d’un glycérophospholipide peut contenir notamment de la sérine, de l’éthanolamine, de la choline ou de l’inositol.",
         "correct": true,
         "explanation": "La nature de l’alcool lié au phosphate définit plusieurs classes de phospholipides."
       },
       {
-        "content": "Un triacylglycérol possède obligatoirement un phosphate central responsable de son amphiphilie.",
+        "content": "La molécule B possède obligatoirement un phosphate central responsable de son amphiphilie.",
         "correct": false,
-        "explanation": "Le triacylglycérol ne contient pas de phosphate et est fortement hydrophobe."
+        "explanation": "Le triacylglycérol ne contient pas de phosphate et est strongly hydrophobe."
       },
       {
         "content": "Un lysophospholipide possède nécessairement trois chaînes acyles.",
@@ -455,8 +447,8 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 13,
     "difficulty": "MEDIUM",
     "format": "QRP",
-    "question": "Sélectionnez exactement les deux associations enzyme–site de coupure correctes pour un glycérophospholipide.",
-    "explanation": "Les phospholipases sont définies par la liaison qu’elles hydrolysent : A1 en sn-1, A2 en sn-2, C entre glycérol et phosphate, D entre phosphate et alcool polaire.",
+    "question": "En vous appuyant sur l’organisation de la molécule A, sélectionnez exactement les deux associations enzyme–site de coupure correctes.",
+    "explanation": "La phospholipase A1 hydrolyse l’ester portant l’acide gras en sn-1. La phospholipase A2 agit sur l’ester en sn-2. La phospholipase C coupe du côté glycérol du phosphodiester, alors que la phospholipase D hydrolyse la liaison entre le phosphate et l’alcool de la tête polaire.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -497,8 +489,8 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 14,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos des glycérophospholipides membranaires et de la signalisation, quelles propositions sont exactes ?",
-    "explanation": "Leur caractère amphiphile favorise la formation de bicouches. Certains phosphatidylinositols, bien que minoritaires, jouent un rôle important dans la signalisation intracellulaire.",
+    "question": "À propos de la molécule A, de son organisation membranaire et de la signalisation phospholipidique, quelles propositions sont exactes ?",
+    "explanation": "Les glycérophospholipides sont amphiphiles : les chaînes acyles forment une région hydrophobe, tandis que le phosphate et l’alcool de tête contribuent à la région polaire. Cette organisation favorise leur association en structures membranaires en milieu aqueux. Certains phosphatidylinositols sont également des précurseurs ou acteurs de voies de signalisation.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -832,8 +824,8 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 23,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Plusieurs grandes familles lipidiques peuvent être distinguées par leur squelette et leurs liaisons. Quelles propositions sont exactes ?",
-    "explanation": "Les triacylglycérols, glycérophospholipides, sphingolipides et stérols reposent sur des architectures différentes. Savoir reconnaître le squelette glycérol, la sphingosine, le céramide et le noyau stérane évite les confusions entre familles.",
+    "question": "En vous appuyant sur les molécules A, B et C et sur les grandes familles lipidiques qu’elles illustrent, quelles propositions sont exactes ?",
+    "explanation": "Les glycérophospholipides reposent sur un squelette glycérol, alors que les sphingolipides dérivent de la sphingosine. L’acylation de la fonction amine de la sphingosine forme un céramide. Le cholestérol appartient aux stérols et possède le noyau stérane caractéristique. Les eicosanoïdes constituent une famille différente, dérivée notamment de l’acide arachidonique.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -873,8 +865,8 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 24,
     "difficulty": "HARD",
     "format": "QZONE",
-    "question": "Sélectionnez le groupement phosphate du glycérophospholipide représenté.",
-    "explanation": "Le phosphate appartient à la tête polaire du glycérophospholipide et relie le squelette glycérol à l’alcool constituant la tête polaire.",
+    "question": "Sur la molécule A, sélectionnez le groupement phosphate du glycérophospholipide.",
+    "explanation": "Dans un glycérophospholipide, le phosphate est lié au troisième carbone du glycérol et porte l’alcool constituant la tête polaire. Dans une phosphatidylcholine, cet alcool est la choline.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -883,21 +875,21 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       "theme:qzone-phosphate-phospholipide"
     ],
     "image": {
-      "src": "/images/training/ue14/colles/c05/phospholipid-phosphate-qzone.svg",
-      "alt": "Glycérophospholipide schématique",
-      "width": 960,
-      "height": 560
+      "src": "/images/training/ue14/colles/c05/lipid-families-linked-q23-q24.svg",
+      "alt": "Comparaison de trois structures lipidiques A, B et C représentant un glycérophospholipide, un céramide et un stérol, sans légende donnant leur nom.",
+      "width": 1200,
+      "height": 700
     },
     "expectedZones": [
       {
-        "id": "target",
+        "id": "target-phosphate",
         "label": "Groupement phosphate",
-        "x": 0.54,
-        "y": 0.3,
-        "tolerance": 0.08
+        "x": 0.15,
+        "y": 0.52,
+        "tolerance": 0.05
       }
     ],
-    "defaultTolerance": 0.08
+    "defaultTolerance": 0.05
   },
   {
     "order": 25,

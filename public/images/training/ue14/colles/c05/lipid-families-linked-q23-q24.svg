@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .card { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; rx: 14px; }
+      .label-text { font-family: system-ui, -apple-system, sans-serif; font-size: 24px; font-weight: 800; fill: #1e293b; text-anchor: start; }
+      .chem-text { font-family: 'Courier New', Courier, monospace; font-size: 18px; font-weight: 700; fill: #0f172a; }
+      .chem-bond { stroke: #0f172a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+      .chain-line { stroke: #475569; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+      .p-highlight { fill: #eff6ff; stroke: #2563eb; stroke-width: 2.5; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="1200" height="700" rx="16" />
+
+  <!-- ==================== MOLÉCULE A (GLYCÉROPHOSPHOLIPIDE - PHOSPHATIDYLCHOLINE) ==================== -->
+  <g transform="translate(30, 30)">
+    <rect class="card" width="360" height="640" />
+    <text x="25" y="45" class="label-text">Molécule A</text>
+
+    <g transform="translate(40, 110)">
+      <!-- Glycérol -->
+      <text x="0" y="20" class="chem-text">CH<tspan font-size="13" dy="3">2</tspan><tspan font-size="18" dy="-3">—O</tspan></text>
+      <path class="chem-bond" d="M 65 14 L 95 14" />
+      <text x="105" y="-5" class="chem-text" font-size="15">C=O</text>
+      <path class="chain-line" d="M 130 14 L 150 0 L 170 14 L 190 0 L 210 14 L 230 0 L 250 14" />
+
+      <line x1="15" y1="28" x2="15" y2="105" class="chem-bond" />
+
+      <text x="0" y="125" class="chem-text">CH—O</text>
+      <path class="chem-bond" d="M 55 119 L 95 119" />
+      <text x="105" y="100" class="chem-text" font-size="15">C=O</text>
+      <path class="chain-line" d="M 130 119 L 150 105 L 170 119 L 190 105 L 210 119 L 230 105 L 250 119" />
+
+      <line x1="15" y1="135" x2="15" y2="210" class="chem-bond" />
+
+      <text x="0" y="230" class="chem-text">CH<tspan font-size="13" dy="3">2</tspan><tspan font-size="18" dy="-3">—O</tspan></text>
+      <line x1="65" y1="224" x2="110" y2="224" class="chem-bond" />
+
+      <!-- GROUPEMENT PHOSPHATE (CIBLE QZONE Q24) -->
+      <!-- Center in canvas: X = 30 + 40 + 110 = 180, Y = 30 + 110 + 224 = 364 -->
+      <!-- Normalized: x = 180 / 1200 = 0.1500, y = 364 / 700 = 0.5200 -->
+      <g id="target-phosphate" transform="translate(110, 224)">
+        <circle cx="0" cy="0" r="28" class="p-highlight" />
+        <text x="-7" y="6" class="chem-text" fill="#2563eb" font-size="20">P</text>
+        <line x1="0" y1="-14" x2="0" y2="-25" class="chem-bond" stroke="#2563eb" />
+        <line x1="-14" y1="0" x2="-25" y2="0" class="chem-bond" stroke="#2563eb" />
+      </g>
+
+      <!-- Choline -->
+      <line x1="138" y1="224" x2="175" y2="224" class="chem-bond" />
+      <text x="175" y="230" class="chem-text">CH<tspan font-size="13" dy="3">2</tspan><tspan font-size="18" dy="-3">—CH</tspan><tspan font-size="13" dy="3">2</tspan><tspan font-size="18" dy="-3">—N</tspan><tspan font-size="13" dy="-6">+</tspan><tspan font-size="18" dy="6">(CH</tspan><tspan font-size="13" dy="3">3</tspan><tspan font-size="18" dy="-3">)</tspan><tspan font-size="13" dy="3">3</tspan></text>
+    </g>
+  </g>
+
+  <!-- ==================== MOLÉCULE B (CÉRAMIDE) ==================== -->
+  <g transform="translate(420, 30)">
+    <rect class="card" width="360" height="640" />
+    <text x="25" y="45" class="label-text">Molécule B</text>
+
+    <g transform="translate(40, 140)">
+      <!-- Squelette Sphingosine -->
+      <text x="0" y="25" class="chem-text">CH<tspan font-size="13" dy="3">2</tspan><tspan font-size="18" dy="-3">OH</tspan></text>
+      <line x1="20" y1="35" x2="20" y2="120" class="chem-bond" />
+
+      <!-- C2 avec liaison Amide NH-C(=O) -->
+      <text x="0" y="145" class="chem-text">CH—NH</text>
+      <line x1="85" y1="139" x2="125" y2="139" class="chem-bond" />
+      <!-- Amide C=O -->
+      <text x="130" y="120" class="chem-text" font-size="15">C=O</text>
+      <path class="chain-line" d="M 155 139 L 175 125 L 195 139 L 215 125 L 235 139 L 255 125 L 275 139" />
+
+      <line x1="20" y1="155" x2="20" y2="240" class="chem-bond" />
+
+      <!-- C3 avec OH et longue chaîne -->
+      <text x="0" y="265" class="chem-text">CH(OH)—CH=CH—(CH<tspan font-size="13" dy="3">2</tspan><tspan font-size="18" dy="-3">)</tspan><tspan font-size="13" dy="3">12</tspan><tspan font-size="18" dy="-3">—CH</tspan><tspan font-size="13" dy="3">3</tspan></text>
+    </g>
+  </g>
+
+  <!-- ==================== MOLÉCULE C (CHOLESTÉROL) ==================== -->
+  <g transform="translate(810, 30)">
+    <rect class="card" width="360" height="640" />
+    <text x="25" y="45" class="label-text">Molécule C</text>
+
+    <!-- Noyau Stérane (4 cycles fusionnés : 3 hexagones A, B, C + 1 pentagone D) -->
+    <g transform="translate(30, 200)">
+      <!-- Hydroxyle C3 -->
+      <text x="0" y="85" class="chem-text" font-size="20">HO</text>
+      <line x1="30" y1="80" x2="55" y2="80" class="chem-bond" />
+
+      <!-- Hexagone A -->
+      <polygon points="55,80 80,40 120,40 145,80 120,120 80,120" class="chem-bond" />
+      
+      <!-- Hexagone B -->
+      <polygon points="145,80 170,40 210,40 235,80 210,120 170,120" class="chem-bond" />
+      <!-- Double liaison dans B -->
+      <line x1="150" y1="88" x2="168" y2="115" class="chem-bond" stroke-width="2.5" />
+
+      <!-- Hexagone C -->
+      <polygon points="170,40 195,0 235,0 260,40 235,80 195,80" class="chem-bond" />
+
+      <!-- Pentagone D -->
+      <polygon points="260,40 295,20 310,60 280,85 260,40" class="chem-bond" />
+
+      <!-- Chaîne aliphatique latérale -->
+      <path class="chain-line" d="M 310 60 L 325 45 L 340 60 L 350 45" />
+    </g>
+  </g>
+</svg>
+
