@@ -10,12 +10,12 @@ export const UE14_COLLE_C09_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     order: 1,
     difficulty: 'MEDIUM',
     format: 'QRM',
-    question: "À propos de l’organisation fonctionnelle de la mitochondrie, quelles propositions sont exactes ?",
-    explanation: "La mitochondrie possède deux membranes aux propriétés différentes. La membrane externe constitue la première étape de l’import de nombreuses protéines via le complexe TOM, tandis que la membrane interne porte la chaîne respiratoire et l’ATP synthase.",
+    question: "En vous appuyant sur l’organisation de la mitochondrie représentée, quelles propositions sont exactes ?",
+    explanation: "La mitochondrie est délimitée par deux membranes. Le complexe TOM intervient au niveau de la membrane externe dans l’import de nombreuses protéines synthétisées dans le cytosol. Les principaux complexes de la chaîne respiratoire et l’ATP synthase sont associés à la membrane interne. La glycolyse est cytosolique et l’autonomie génétique mitochondriale reste limitée : la majorité des protéines mitochondriales est codée par le noyau.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C09', 'ec:BIOLOGIE_CELLULAIRE', 'theme:mitochondrie-organisation'],
     choices: [
       {
-        content: "Le complexe TOM participe au passage initial de nombreuses protéines mitochondriales à travers la membrane externe.",
+        content: "Le complexe TOM participe au passage initial de me nombreuses protéines mitochondriales à travers la membrane externe.".replace("me ", ""),
         correct: true,
         explanation: "TOM constitue la porte d’entrée principale de nombreuses protéines synthétisées dans le cytosol et destinées à la mitochondrie.",
       },
@@ -45,8 +45,8 @@ export const UE14_COLLE_C09_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     order: 2,
     difficulty: 'EASY',
     format: 'QROC',
-    question: "Quel est l’accepteur final des électrons de la chaîne respiratoire mitochondriale ?",
-    explanation: "Au niveau du complexe IV, le dioxygène accepte les électrons et est réduit en eau.",
+    question: "Quel accepteur terminal reçoit les électrons au terme de la chaîne respiratoire, au niveau du complexe IV ?",
+    explanation: "Le dioxygène est l’accepteur terminal des électrons de la chaîne respiratoire. Au niveau du complexe IV, il est réduit et participe à la formation d’eau.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C09', 'ec:BIOLOGIE_CELLULAIRE', 'theme:chaine-respiratoire'],
     answer: {
       type: 'text',
@@ -64,8 +64,8 @@ export const UE14_COLLE_C09_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     order: 3,
     difficulty: 'MEDIUM',
     format: 'QRU',
-    question: "Quelle proposition décrit correctement la chaîne respiratoire mitochondriale ?",
-    explanation: "Les complexes I, III et IV contribuent au pompage des protons de la matrice vers l’espace intermembranaire. Le complexe II transfère des électrons à l’ubiquinone sans pomper directement de protons.",
+    question: "Parmi les propositions suivantes sur les complexes représentés, laquelle est exacte ?",
+    explanation: "Le complexe II transfère des électrons vers l’ubiquinone mais, contrairement aux complexes I, III et IV, il ne pompe pas directement de protons à travers la membrane interne. L’ubiquinone est liposoluble dans la membrane interne tandis que le cytochrome c relaie les électrons entre les complexes III et IV.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C09', 'ec:BIOLOGIE_CELLULAIRE', 'theme:chaine-respiratoire'],
     choices: [
       {
@@ -610,15 +610,9 @@ export const UE14_COLLE_C09_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     explanation: "Après la réplication de l’ADN, chaque chromosome est constitué de deux chromatides sœurs reliées notamment au niveau du centromère jusqu’à leur séparation en anaphase.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C09', 'ec:BIOLOGIE_CELLULAIRE', 'theme:chromatides-metaphase'],
     answer: {
-      type: 'text',
-      acceptedAnswers: ['2'],
-      normalization: {
-        trim: true,
-        collapseWhitespace: true,
-        caseSensitive: false,
-        ignoreAccents: true,
-        normalizeUnicode: true,
-      },
+      type: 'number',
+      value: 2,
+      tolerance: 0,
     },
   },
   {
@@ -695,8 +689,8 @@ export const UE14_COLLE_C09_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     order: 22,
     difficulty: 'EASY',
     format: 'QRM',
-    question: "En remobilisant les chapitres sur le trafic intracellulaire, quelles propositions sont exactes ?",
-    explanation: "Le trafic RE–Golgi et l’adressage lysosomal obéissent à des signaux et revêtements spécifiques. COPII assure principalement la sortie du RE vers le Golgi, tandis que le mannose-6-phosphate permet le tri de nombreuses hydrolases lysosomales.",
+    question: "En vous appuyant sur le panneau A et sur les mécanismes de trafic intracellulaire, quelles propositions sont exactes ?",
+    explanation: "Les protéines de la voie sécrétoire quittent classiquement le réticulum endoplasmique dans des vésicules COPII avant de rejoindre le Golgi. De nombreuses hydrolases lysosomales sont triées grâce au mannose-6-phosphate. Les mitochondries ne sont pas transportées vers le Golgi par COPI ; TOM est une translocase mitochondriale et les kinésines sont principalement des moteurs associés aux microtubules.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C09', 'ec:BIOLOGIE_CELLULAIRE', 'theme:rappels-trafic'],
     choices: [
       {
@@ -730,8 +724,8 @@ export const UE14_COLLE_C09_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     order: 23,
     difficulty: 'MEDIUM',
     format: 'QRM',
-    question: "Une cellule sécrétrice augmente simultanément sa synthèse protéique, ses besoins énergétiques et l’expression de certains gènes. Quelles propositions sont exactes ?",
-    explanation: "Une réponse cellulaire intégrée mobilise plusieurs compartiments : les protéines destinées à la sécrétion entrent dans la voie du RER, les mitochondries fournissent une part majeure de l’ATP aérobie et le noyau ajuste l’expression génique.",
+    question: "La cellule du panneau A augmente simultanément sa synthèse de protéines sécrétées, ses besoins énergétiques et l’expression de certains gènes. Quelles propositions sont exactes ?",
+    explanation: "Une cellule sécrétrice mobilise de façon coordonnée plusieurs compartiments. La voie RER–Golgi prend en charge de nombreuses protéines sécrétées, les mitochondries contribuent à fournir l’ATP nécessaire et le noyau peut ajuster durablement l’expression des gènes.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C09', 'ec:BIOLOGIE_CELLULAIRE', 'theme:integration-compartiments'],
     choices: [
       {
@@ -765,25 +759,25 @@ export const UE14_COLLE_C09_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     order: 24,
     difficulty: 'HARD',
     format: 'QZONE',
-    question: "Sélectionnez la plaque métaphasique.",
-    explanation: "En métaphase, les chromosomes condensés sont alignés dans le plan équatorial de la cellule : cette zone constitue la plaque métaphasique.",
+    question: "Sur le panneau B, sélectionnez la zone où les chromosomes sont alignés dans le plan équatorial de la cellule.",
+    explanation: "En métaphase, l’attachement bipolaire des chromosomes est achevé et les chromosomes s’alignent dans le plan équatorial de la cellule. Cet alignement constitue la plaque métaphasique. Le checkpoint du fuseau contrôle notamment la qualité de l’attachement des kinétochores avant l’entrée en anaphase.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C09', 'ec:BIOLOGIE_CELLULAIRE', 'theme:qzone-metaphase'],
     image: {
-      src: '/images/training/ue14/colles/c09/metaphase-plate-qzone.svg',
-      alt: 'Cellule en métaphase avec chromosomes alignés',
-      width: 960,
-      height: 560,
+      src: '/images/training/ue14/colles/c09/integrated-cell-states-linked-q22-q24.svg',
+      alt: 'Deux panneaux montrant une cellule sécrétrice en interphase avec ses principaux compartiments et une cellule de même lignée en métaphase avec son fuseau mitotique.',
+      width: 1200,
+      height: 700,
     },
     expectedZones: [
       {
-        id: 'target',
-        label: 'Plaque métaphasique',
-        x: 0.5,
-        y: 0.5,
-        tolerance: 0.1,
+        id: 'target-metaphase-equatorial-plate',
+        label: 'Alignement équatorial des chromosomes en métaphase',
+        x: 0.7458,
+        y: 0.5429,
+        tolerance: 0.06,
       },
     ],
-    defaultTolerance: 0.1,
+    defaultTolerance: 0.06,
   },
   {
     order: 25,
