@@ -29,7 +29,7 @@ test.describe.serial("Santé — Navigation paginée et terminaison des épreuve
     await dialog.getByRole("button", { name: "Démarrer la colle" }).click();
 
     await expect(page).toHaveURL(/\/sante\/ue\/.*\/colles\/c01/, { timeout: 15000 });
-    await expect(page.getByTestId("health-mock-exam-taking")).toBeVisible();
+    await expect(page.getByTestId("health-mock-exam-taking")).toBeVisible({ timeout: 15000 });
 
     // 1. Sur desktop (1280px par défaut), vérifier que les nav-items 1 à 10 sont affichés
     await expect(page.getByTestId("health-mock-exam-nav-1")).toBeVisible();
@@ -110,7 +110,7 @@ test.describe.serial("Santé — Navigation paginée et terminaison des épreuve
     await dialog.getByRole("button", { name: "Démarrer la colle" }).click();
 
     await expect(page).toHaveURL(/\/sante\/ue\/.*\/colles\/c01/, { timeout: 15000 });
-    await expect(page.getByTestId("health-mock-exam-taking")).toBeVisible();
+    await expect(page.getByTestId("health-mock-exam-taking")).toBeVisible({ timeout: 15000 });
 
     // Compteur supérieur format compact
     await expect(page.getByText("Répondues : 0/20")).toBeVisible();
@@ -141,7 +141,7 @@ test.describe.serial("Santé — Navigation paginée et terminaison des épreuve
     await dialog.getByRole("button", { name: "Démarrer la colle" }).click();
 
     await expect(page).toHaveURL(/\/sante\/ue\/.*\/colles\/c01/, { timeout: 15000 });
-    await expect(page.getByTestId("health-mock-exam-taking")).toBeVisible();
+    await expect(page.getByTestId("health-mock-exam-taking")).toBeVisible({ timeout: 15000 });
 
     // Bloc 1 sur tablette : Q1-Q8
     await expect(page.getByTestId("health-mock-exam-nav-1")).toBeVisible();

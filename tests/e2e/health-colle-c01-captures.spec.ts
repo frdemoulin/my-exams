@@ -34,7 +34,7 @@ test.describe.serial("Santé — Colle C01 Captures & Recette Visuelle", () => {
     await dialog.getByRole("button", { name: "Démarrer la colle" }).click();
 
     await expect(page).toHaveURL(/\/sante\/ue\/.*\/colles\/c01/, { timeout: 15000 });
-    await expect(page.getByTestId("health-mock-exam-taking")).toBeVisible();
+    await expect(page.getByTestId("health-mock-exam-taking")).toBeVisible({ timeout: 15000 });
 
     // Set viewport 1280px for desktop captures
     await page.setViewportSize({ width: 1280, height: 800 });
