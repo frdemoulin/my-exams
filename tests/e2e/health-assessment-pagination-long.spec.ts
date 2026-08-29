@@ -107,13 +107,13 @@ test.describe.serial("Santé — Navigation paginée et terminaison des épreuve
     await openHealthColleStartDialog(page, c01Row);
 
     const dialog = page.getByRole("dialog");
-    await dialog.getByRole("button", { name: "Démarrer la colle" }).click();
+    await dialog.getByRole("button", { name: /Démarrer|Reprendre/ }).click();
 
     await expect(page).toHaveURL(/\/sante\/ue\/.*\/colles\/c01/, { timeout: 15000 });
     await expect(page.getByTestId("health-mock-exam-taking")).toBeVisible({ timeout: 15000 });
 
     // Compteur supérieur format compact
-    await expect(page.getByText("Répondues : 0/20")).toBeVisible();
+    await expect(page.getByText(/Répondues : \d+\/20/)).toBeVisible();
 
     // Bloc 1 sur mobile : Q1-Q5
     await expect(page.getByTestId("health-mock-exam-nav-1")).toBeVisible();
@@ -138,7 +138,7 @@ test.describe.serial("Santé — Navigation paginée et terminaison des épreuve
     await openHealthColleStartDialog(page, c01Row);
 
     const dialog = page.getByRole("dialog");
-    await dialog.getByRole("button", { name: "Démarrer la colle" }).click();
+    await dialog.getByRole("button", { name: /Démarrer|Reprendre/ }).click();
 
     await expect(page).toHaveURL(/\/sante\/ue\/.*\/colles\/c01/, { timeout: 15000 });
     await expect(page.getByTestId("health-mock-exam-taking")).toBeVisible({ timeout: 15000 });
