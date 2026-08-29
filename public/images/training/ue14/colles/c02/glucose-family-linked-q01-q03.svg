@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .card { fill: #f8fafc; stroke: #e2e8f0; stroke-width: 2; rx: 12px; }
+      .title { font-family: system-ui, -apple-system, sans-serif; font-size: 22px; font-weight: 700; fill: #0f172a; text-anchor: middle; }
+      .subtitle { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: 600; fill: #475569; text-anchor: middle; }
+      .chem-text { font-family: 'Courier New', Courier, monospace, sans-serif; font-size: 20px; font-weight: 700; fill: #1e293b; text-anchor: middle; }
+      .chem-label { font-family: system-ui, -apple-system, sans-serif; font-size: 13px; font-weight: 600; fill: #64748b; text-anchor: start; }
+      .line { stroke: #334155; stroke-width: 2.5; stroke-linecap: round; }
+      .arrow { stroke: #2563eb; stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .arrow-head { fill: #2563eb; }
+      .box-prod { fill: #eff6ff; stroke: #3b82f6; stroke-width: 2; rx: 10px; }
+      .prod-title { font-family: system-ui, -apple-system, sans-serif; font-size: 20px; font-weight: 800; fill: #1d4ed8; text-anchor: middle; }
+      .reaction-text { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: 600; fill: #1e40af; text-anchor: middle; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" class="arrow-head" />
+    </marker>
+  </defs>
+
+  <!-- Background container -->
+  <rect class="bg" width="1200" height="650" rx="16" />
+
+  <!-- SECTION HAUTE : PROJECTIONS DE FISCHER (3 CARDS) -->
+  
+  <!-- 1. D-mannose -->
+  <g transform="translate(50, 30)">
+    <rect class="card" width="340" height="360" />
+    <text x="170" y="40" class="title">D-mannose</text>
+
+    <!-- Vertical backbone -->
+    <line x1="170" y1="80" x2="170" y2="310" class="line" />
+
+    <!-- Horizontal bonds C2..C5 -->
+    <line x1="100" y1="130" x2="240" y2="130" class="line" />
+    <line x1="100" y1="175" x2="240" y2="175" class="line" />
+    <line x1="100" y1="220" x2="240" y2="220" class="line" />
+    <line x1="100" y1="265" x2="240" y2="265" class="line" />
+
+    <!-- Carbon numbering -->
+    <text x="252" y="90" class="chem-label">C1</text>
+    <text x="252" y="135" class="chem-label">C2</text>
+    <text x="252" y="180" class="chem-label">C3</text>
+    <text x="252" y="225" class="chem-label">C4</text>
+    <text x="252" y="270" class="chem-label">C5</text>
+    <text x="252" y="315" class="chem-label">C6</text>
+
+    <!-- Groups -->
+    <!-- C1 -->
+    <text x="170" y="85" class="chem-text">CHO</text>
+    <!-- C2: HO-C-H -->
+    <text x="80" y="136" class="chem-text">HO</text>
+    <text x="255" y="136" class="chem-text">H</text>
+    <!-- C3: HO-C-H -->
+    <text x="80" y="181" class="chem-text">HO</text>
+    <text x="255" y="181" class="chem-text">H</text>
+    <!-- C4: H-C-OH -->
+    <text x="85" y="226" class="chem-text">H</text>
+    <text x="260" y="226" class="chem-text">OH</text>
+    <!-- C5: H-C-OH -->
+    <text x="85" y="271" class="chem-text">H</text>
+    <text x="260" y="271" class="chem-text">OH</text>
+    <!-- C6 -->
+    <text x="170" y="325" class="chem-text">CH₂OH</text>
+  </g>
+
+  <!-- 2. D-glucose -->
+  <g transform="translate(430, 30)">
+    <rect class="card" width="340" height="360" style="stroke: #3b82f6; stroke-width: 3;" />
+    <text x="170" y="40" class="title" style="fill: #1d4ed8;">D-glucose</text>
+
+    <!-- Vertical backbone -->
+    <line x1="170" y1="80" x2="170" y2="310" class="line" />
+
+    <!-- Horizontal bonds C2..C5 -->
+    <line x1="100" y1="130" x2="240" y2="130" class="line" />
+    <line x1="100" y1="175" x2="240" y2="175" class="line" />
+    <line x1="100" y1="220" x2="240" y2="220" class="line" />
+    <line x1="100" y1="265" x2="240" y2="265" class="line" />
+
+    <!-- Carbon numbering -->
+    <text x="252" y="90" class="chem-label">C1</text>
+    <text x="252" y="135" class="chem-label">C2</text>
+    <text x="252" y="180" class="chem-label">C3</text>
+    <text x="252" y="225" class="chem-label">C4</text>
+    <text x="252" y="270" class="chem-label">C5</text>
+    <text x="252" y="315" class="chem-label">C6</text>
+
+    <!-- Groups -->
+    <!-- C1 -->
+    <text x="170" y="85" class="chem-text">CHO</text>
+    <!-- C2: H-C-OH -->
+    <text x="85" y="136" class="chem-text">H</text>
+    <text x="260" y="136" class="chem-text">OH</text>
+    <!-- C3: HO-C-H -->
+    <text x="80" y="181" class="chem-text">HO</text>
+    <text x="255" y="181" class="chem-text">H</text>
+    <!-- C4: H-C-OH -->
+    <text x="85" y="226" class="chem-text">H</text>
+    <text x="260" y="226" class="chem-text">OH</text>
+    <!-- C5: H-C-OH -->
+    <text x="85" y="271" class="chem-text">H</text>
+    <text x="260" y="271" class="chem-text">OH</text>
+    <!-- C6 -->
+    <text x="170" y="325" class="chem-text">CH₂OH</text>
+  </g>
+
+  <!-- 3. D-galactose -->
+  <g transform="translate(810, 30)">
+    <rect class="card" width="340" height="360" />
+    <text x="170" y="40" class="title">D-galactose</text>
+
+    <!-- Vertical backbone -->
+    <line x1="170" y1="80" x2="170" y2="310" class="line" />
+
+    <!-- Horizontal bonds C2..C5 -->
+    <line x1="100" y1="130" x2="240" y2="130" class="line" />
+    <line x1="100" y1="175" x2="240" y2="175" class="line" />
+    <line x1="100" y1="220" x2="240" y2="220" class="line" />
+    <line x1="100" y1="265" x2="240" y2="265" class="line" />
+
+    <!-- Carbon numbering -->
+    <text x="252" y="90" class="chem-label">C1</text>
+    <text x="252" y="135" class="chem-label">C2</text>
+    <text x="252" y="180" class="chem-label">C3</text>
+    <text x="252" y="225" class="chem-label">C4</text>
+    <text x="252" y="270" class="chem-label">C5</text>
+    <text x="252" y="315" class="chem-label">C6</text>
+
+    <!-- Groups -->
+    <!-- C1 -->
+    <text x="170" y="85" class="chem-text">CHO</text>
+    <!-- C2: H-C-OH -->
+    <text x="85" y="136" class="chem-text">H</text>
+    <text x="260" y="136" class="chem-text">OH</text>
+    <!-- C3: HO-C-H -->
+    <text x="80" y="181" class="chem-text">HO</text>
+    <text x="255" y="181" class="chem-text">H</text>
+    <!-- C4: HO-C-H -->
+    <text x="80" y="226" class="chem-text">HO</text>
+    <text x="255" y="226" class="chem-text">H</text>
+    <!-- C5: H-C-OH -->
+    <text x="85" y="271" class="chem-text">H</text>
+    <text x="260" y="271" class="chem-text">OH</text>
+    <!-- C6 -->
+    <text x="170" y="325" class="chem-text">CH₂OH</text>
+  </g>
+
+  <!-- SECTION BASSE : TRANSFORMATIONS DU D-GLUCOSE -->
+  <g transform="translate(0, 410)">
+    <rect x="50" y="10" width="1100" height="210" rx="14" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" />
+
+    <!-- Central Node: D-glucose origin -->
+    <rect x="480" y="30" width="240" height="44" rx="8" fill="#1e293b" />
+    <text x="600" y="58" class="title" style="fill: #ffffff; font-size: 18px;">D-glucose</text>
+
+    <!-- Left Branch: Produit A -->
+    <!-- Path from D-glucose to Produit A -->
+    <path d="M 520 74 L 520 110 L 280 110 L 280 140" class="arrow" marker-end="url(#arrowhead)" />
+    <text x="400" y="102" class="reaction-text">Réduction de la fonction aldéhyde en C1</text>
+    
+    <g transform="translate(160, 145)">
+      <rect class="box-prod" width="240" height="56" />
+      <text x="120" y="35" class="prod-title">Produit A</text>
+    </g>
+
+    <!-- Right Branch: Produit B -->
+    <!-- Path from D-glucose to Produit B -->
+    <path d="M 680 74 L 680 110 L 920 110 L 920 140" class="arrow" marker-end="url(#arrowhead)" />
+    <text x="800" y="102" class="reaction-text">Oxydation sélective de l'alcool primaire en C6</text>
+    
+    <g transform="translate(800, 145)">
+      <rect class="box-prod" width="240" height="56" />
+      <text x="120" y="35" class="prod-title">Produit B</text>
+    </g>
+  </g>
+</svg>

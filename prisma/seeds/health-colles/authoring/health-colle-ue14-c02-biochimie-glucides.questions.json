@@ -1,0 +1,941 @@
+[
+  {
+    "order": 1,
+    "difficulty": "HARD",
+    "question": "En vous appuyant sur les projections de Fischer et sur la cyclisation des oses, quelles propositions sont exactes ?",
+    "statement": "En vous appuyant sur les projections de Fischer et sur la cyclisation des oses, quelles propositions sont exactes ?",
+    "explanation": "Deux épimères ne diffèrent que par la configuration d’un seul carbone asymétrique : le D-mannose diffère du D-glucose en C2 et le D-galactose en C4. La notation D/L décrit une configuration et ne prédit pas le signe du pouvoir rotatoire. Lors de la cyclisation du glucose, le carbone carbonylé C1 devient le carbone anomérique et constitue un nouveau centre stéréogène.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C02",
+      "ec:BIOCHIMIE",
+      "theme:stereochimie-cyclisation"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le D-glucose et le D-mannose sont épimères en C2.",
+      "Le D-glucose et le D-galactose sont épimères en C4.",
+      "Le D-mannose et le D-galactose sont énantiomères.",
+      "La série D ou L d'un ose permet de prévoir le signe de son pouvoir rotatoire.",
+      "La cyclisation du D-glucose crée un nouveau centre stéréogène au niveau du carbone C1."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      4
+    ],
+    "choiceExplanations": [
+      "Vrai. Les deux projections diffèrent uniquement par la configuration du C2.",
+      "Vrai. Les deux projections diffèrent uniquement par la configuration du C4.",
+      "Faux. Ils ne sont pas images l’un de l’autre dans un miroir avec inversion de tous les centres stéréogènes.",
+      "Faux. D/L et (+)/(−) décrivent deux propriétés différentes.",
+      "Vrai. Le C1 aldéhydique de la forme ouverte devient le carbone anomérique lors de la cyclisation."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C02",
+        "ec:BIOCHIMIE",
+        "theme:stereochimie-cyclisation"
+      ]
+    }
+  },
+  {
+    "order": 2,
+    "difficulty": "MEDIUM",
+    "question": "Quel est le nom du produit A obtenu par réduction de la fonction aldéhyde du D-glucose ?",
+    "statement": "Quel est le nom du produit A obtenu par réduction de la fonction aldéhyde du D-glucose ?",
+    "explanation": "La réduction de la fonction aldéhyde portée par le C1 du D-glucose transforme ce groupement en alcool primaire. Le polyol obtenu est le sorbitol, également appelé glucitol.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C02",
+      "ec:BIOCHIMIE",
+      "theme:polyols"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "sorbitol"
+        },
+        {
+          "value": "D-sorbitol"
+        },
+        {
+          "value": "glucitol"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C02",
+        "ec:BIOCHIMIE",
+        "theme:polyols"
+      ]
+    }
+  },
+  {
+    "order": 3,
+    "difficulty": "MEDIUM",
+    "question": "Le produit B résulte de l’oxydation sélective de l’alcool primaire porté par le C6 du D-glucose. Quelle proposition l’identifie et décrit correctement une de ses fonctions biologiques ?",
+    "statement": "Le produit B résulte de l’oxydation sélective de l’alcool primaire porté par le C6 du D-glucose. Quelle proposition l’identifie et décrit correctement une de ses fonctions biologiques ?",
+    "explanation": "L’oxydation de l’alcool primaire en C6 du glucose conduit à l’acide glucuronique. Sa conjugaison à certaines molécules augmente leur caractère hydrophile et peut ainsi favoriser leur élimination, notamment par voie urinaire.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C02",
+      "ec:BIOCHIMIE",
+      "theme:acide-glucuronique"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Il s’agit de l’acide gluconique, utilisé pour former le glycogène hépatique.",
+      "Il s’agit de l’acide glucuronique, qui peut être conjugué à certaines molécules afin d’en favoriser la solubilisation et l’élimination.",
+      "Il s’agit du sorbitol, dont la fonction principale est de sulfater les glycosaminoglycanes.",
+      "Il s’agit de l’acide sialique, obtenu directement par réduction du C6 du glucose.",
+      "Il s’agit du L-fucose, formé par oxydation du C6 du D-glucose."
+    ],
+    "correctChoiceIndexes": [
+      1
+    ],
+    "choiceExplanations": [
+      "Faux. L'oxydation du C6 donne l'acide glucuronique.",
+      "Vrai. L'acide glucuronique est issu de l'oxydation en C6 et intervient dans la glucuronoconjugaison.",
+      "Faux. Le sorbitol est issu d'une réduction.",
+      "Faux. L'acide sialique est un dérivé complexe d'osamine.",
+      "Faux. Le L-fucose est un désoxyose."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C02",
+        "ec:BIOCHIMIE",
+        "theme:acide-glucuronique"
+      ]
+    }
+  },
+  {
+    "order": 4,
+    "difficulty": "EASY",
+    "question": "Les glucides exercent des fonctions très diverses dans l'organisme. Sélectionnez exactement les deux propositions correctes.",
+    "statement": "Les glucides exercent des fonctions très diverses dans l'organisme. Sélectionnez exactement les deux propositions correctes.",
+    "explanation": "Les glucides ont notamment un rôle énergétique et interviennent à la surface cellulaire dans la reconnaissance et les interactions entre cellules.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C02",
+      "ec:BIOCHIMIE",
+      "theme:roles-glucides"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Ils peuvent constituer une source d'énergie importante.",
+      "Ils participent à des phénomènes de reconnaissance à la surface des cellules.",
+      "Ils sont absents des acides nucléiques.",
+      "Ils sont exclusivement rencontrés dans le monde végétal.",
+      "Ils n'interviennent jamais dans la structure de macromolécules complexes."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Le glucose occupe notamment une place centrale dans l'apport énergétique.",
+      "Des structures glucidiques membranaires contribuent aux interactions et aux déterminants antigéniques.",
+      "Des pentoses entrent dans la constitution des acides nucléiques.",
+      "Les glucides sont également présents et utilisés dans le monde animal.",
+      "Ils participent notamment à la constitution de glycoprotéines, glycolipides et protéoglycanes."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C02",
+        "ec:BIOCHIMIE",
+        "theme:roles-glucides"
+      ]
+    }
+  },
+  {
+    "order": 5,
+    "difficulty": "MEDIUM",
+    "question": "Concernant quelques oses simples d'intérêt biologique, quelles propositions sont exactes ?",
+    "statement": "Concernant quelques oses simples d'intérêt biologique, quelles propositions sont exactes ?",
+    "explanation": "Glucose, galactose, mannose et fructose partagent des structures proches mais diffèrent par leur fonction carbonylée, leur stéréochimie et leurs rôles biologiques.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C02",
+      "ec:BIOCHIMIE",
+      "theme:oses-simples"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le galactose entre dans la composition du lactose.",
+      "Le mannose est un épimère du glucose en C2.",
+      "Le fructose est un cétose présent notamment dans le saccharose.",
+      "Le glucose est un cétose dont la forme furanique est la forme majoritaire.",
+      "Le galactose et le mannose sont chacun des cétoses."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Le lactose associe un résidu de galactose à un résidu de glucose.",
+      "La différence de configuration porte sur le carbone C2.",
+      "Le saccharose associe glucose et fructose.",
+      "Le glucose est un aldose et sa forme pyranique est la forme cyclique privilégiée.",
+      "Galactose et mannose sont des aldoses."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C02",
+        "ec:BIOCHIMIE",
+        "theme:oses-simples"
+      ]
+    }
+  },
+  {
+    "order": 6,
+    "difficulty": "MEDIUM",
+    "question": "Dans la forme ouverte du D-glucose, combien d’atomes de carbone asymétriques possède la molécule ? Donnez uniquement la valeur numérique.",
+    "statement": "Dans la forme ouverte du D-glucose, combien d’atomes de carbone asymétriques possède la molécule ? Donnez uniquement la valeur numérique.",
+    "explanation": "Dans la forme ouverte du D-glucose, les carbones C2, C3, C4 et C5 sont asymétriques. Le carbone C1 est le carbone du groupement aldéhyde et C6 est un carbone terminal de type CH₂OH : ils ne sont pas chiraux.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C02",
+      "ec:BIOCHIMIE",
+      "theme:d-glucose"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "number",
+      "numericAnswer": {
+        "value": 4,
+        "tolerance": 0
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C02",
+        "ec:BIOCHIMIE",
+        "theme:d-glucose"
+      ]
+    }
+  },
+  {
+    "order": 7,
+    "difficulty": "MEDIUM",
+    "question": "Un étudiant compare les trois diholosides lactose, saccharose et maltose. Quelle proposition est correcte ?",
+    "statement": "Un étudiant compare les trois diholosides lactose, saccharose et maltose. Quelle proposition est correcte ?",
+    "explanation": "Le lactose est hydrolysé par la lactase ou β-galactosidase en glucose et galactose.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C02",
+      "ec:BIOCHIMIE",
+      "theme:diholosides"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Le saccharose est formé de deux résidus de glucose.",
+      "Le maltose est le principal diholoside libre du lait des mammifères.",
+      "Le lactose est non réducteur car ses deux fonctions hémiacétaliques sont engagées.",
+      "Le lactose est hydrolysé en glucose et galactose par la lactase.",
+      "Le saccharose est hydrolysé par la maltase en deux molécules de glucose."
+    ],
+    "correctChoiceIndexes": [
+      3
+    ],
+    "choiceExplanations": [
+      "Le saccharose associe un résidu de glucose et un résidu de fructose.",
+      "Le diholoside caractéristique du lait est le lactose.",
+      "Le lactose conserve une fonction hémiacétalique libre et reste réducteur.",
+      "La lactase, également appelée β-galactosidase, permet l'hydrolyse intestinale du lactose.",
+      "La maltase agit sur le maltose ; l'hydrolyse du saccharose donne glucose et fructose."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C02",
+        "ec:BIOCHIMIE",
+        "theme:diholosides"
+      ]
+    }
+  },
+  {
+    "order": 8,
+    "difficulty": "EASY",
+    "question": "Sélectionnez exactement les deux associations correctes concernant les polyosides de réserve.",
+    "statement": "Sélectionnez exactement les deux associations correctes concernant les polyosides de réserve.",
+    "explanation": "L'amylose constitue une fraction essentiellement linéaire de l'amidon, tandis que le glycogène constitue la réserve glucidique des cellules animales.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C02",
+      "ec:BIOCHIMIE",
+      "theme:polyosides-reserve"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Amylose — chaîne de glucose principalement liée en α(1→4).",
+      "Glycogène — polyoside de réserve des cellules animales.",
+      "Cellulose — principal polyoside de réserve du muscle humain.",
+      "Amylopectine — polymère totalement dépourvu de ramifications.",
+      "Glycogène — polymère exclusivement constitué de liaisons β(1→4)."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "L'amylose est la fraction essentiellement linéaire de l'amidon.",
+      "Il est particulièrement abondant dans le foie et le muscle.",
+      "La cellulose est un polyoside structural végétal.",
+      "L'amylopectine est ramifiée grâce à des liaisons α(1→6).",
+      "Le glycogène associe des liaisons α(1→4) et des embranchements α(1→6)."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C02",
+        "ec:BIOCHIMIE",
+        "theme:polyosides-reserve"
+      ]
+    }
+  },
+  {
+    "order": 9,
+    "difficulty": "MEDIUM",
+    "question": "Parmi ces dix propositions couvrant les glucides, les oses dérivés et les osides, sélectionnez exactement les cinq correctes.",
+    "statement": "Parmi ces dix propositions couvrant les glucides, les oses dérivés et les osides, sélectionnez exactement les cinq correctes.",
+    "explanation": "Cette synthèse croise structure, propriétés et rôles : le carbone anomérique apparaît lors de la cyclisation, certains dérivés d'oses participent à la conjugaison ou aux structures membranaires, et les osides se distinguent notamment par leurs liaisons et leur fonction biologique.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C02",
+      "ec:BIOCHIMIE",
+      "theme:synthese-glucides"
+    ],
+    "format": "QRPL",
+    "questionFormat": "QRPL",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "La cyclisation du glucose rend son carbone C1 asymétrique.",
+      "La série D/L d'un ose est définie par le sens de déviation de la lumière polarisée.",
+      "L'acide glucuronique peut participer à des réactions de conjugaison favorisant l'élimination de composés peu solubles.",
+      "Le saccharose est un diholoside réducteur possédant une fonction hémiacétalique libre.",
+      "La cellulose repose sur des unités de cellobiose constituées de deux glucoses liés en β(1→4).",
+      "Le glycogène est moins ramifié que l'amylose.",
+      "L'acide hyaluronique est un glycosaminoglycane non sulfaté.",
+      "Une osamine correspond au remplacement d'une fonction alcool en C2 par une fonction amine primaire.",
+      "Les glycoprotéines sont dépourvues de fraction glucidique.",
+      "L'héparine est un polyoside de réserve stocké dans le muscle."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      2,
+      4,
+      6,
+      7
+    ],
+    "choiceExplanations": [
+      "Le carbone carbonylé C1 devient le carbone anomérique lors de la cyclisation du glucose.",
+      "La configuration D/L est indépendante du caractère dextrogyre ou lévogyre.",
+      "La glucuronoconjugaison augmente la solubilité de diverses substances.",
+      "Dans le saccharose, les deux carbones anomériques sont engagés ; il est non réducteur.",
+      "La liaison β(1→4) distingue notamment la cellulose des polymères de réserve en α.",
+      "L'amylose est essentiellement linéaire, alors que le glycogène est fortement ramifié.",
+      "Il est décrit comme un GAG simple, non sulfaté et non lié aux protéines.",
+      "Cette modification caractérise les osamines présentées dans le chapitre sur les dérivés des oses.",
+      "Elles associent au contraire une fraction protéique et une fraction glucidique.",
+      "L'héparine est un GAG très sulfaté à activité anticoagulante, stocké notamment dans les granulations des mastocytes."
+    ],
+    "requiredSelectionCount": 5,
+    "answerPayload": {
+      "requiredSelectionCount": 5,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C02",
+        "ec:BIOCHIMIE",
+        "theme:synthese-glucides"
+      ]
+    }
+  },
+  {
+    "order": 10,
+    "difficulty": "EASY",
+    "question": "À propos des principales transformations donnant des dérivés d'oses, quelles propositions sont exactes ?",
+    "statement": "À propos des principales transformations donnant des dérivés d'oses, quelles propositions sont exactes ?",
+    "explanation": "Oxydation, réduction, amination et estérification permettent de produire de nombreux dérivés glucidiques d'intérêt biologique.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C02",
+      "ec:BIOCHIMIE",
+      "theme:derives-oses"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "L'oxydation du glucose en C6 peut conduire à l'acide glucuronique.",
+      "La réduction du mannose conduit au mannitol.",
+      "La réduction du glucose conduit au sorbitol.",
+      "Une osamine résulte du remplacement d'une fonction alcool en C2 par une fonction amine primaire.",
+      "La phosphorylation d'un ose correspond à la suppression de tous ses groupements alcool."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "choiceExplanations": [
+      "Le groupement CH2OH du C6 est oxydé en fonction acide.",
+      "Le mannitol est le polyol obtenu par réduction du mannose.",
+      "Le sorbitol est le polyol dérivé du glucose par réduction.",
+      "C'est la transformation structurale caractéristique d'une osamine.",
+      "La phosphorylation correspond à une estérification phosphorique sur un ou plusieurs groupements alcool."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C02",
+        "ec:BIOCHIMIE",
+        "theme:derives-oses"
+      ]
+    }
+  },
+  {
+    "order": 11,
+    "difficulty": "HARD",
+    "question": "Quel glycosaminoglycane non sulfaté, très impliqué dans l'hydratation et la viscoélasticité tissulaires, n'est pas lié à une protéine cœur ?",
+    "statement": "Quel glycosaminoglycane non sulfaté, très impliqué dans l'hydratation et la viscoélasticité tissulaires, n'est pas lié à une protéine cœur ?",
+    "explanation": "L'acide hyaluronique est présenté comme le GAG le plus simple : il est non sulfaté, non lié aux protéines et contribue notamment à l'hydratation et à la viscoélasticité des tissus.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C02",
+      "ec:BIOCHIMIE",
+      "theme:gag-acide-hyaluronique"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "acide hyaluronique"
+        },
+        {
+          "value": "hyaluronate"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C02",
+        "ec:BIOCHIMIE",
+        "theme:gag-acide-hyaluronique"
+      ]
+    }
+  },
+  {
+    "order": 12,
+    "difficulty": "MEDIUM",
+    "question": "Quelle proposition caractérise correctement l'héparine ?",
+    "statement": "Quelle proposition caractérise correctement l'héparine ?",
+    "explanation": "L'héparine est un glycosaminoglycane très sulfaté, stocké dans les granulations des mastocytes, avec une puissante activité anticoagulante.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C02",
+      "ec:BIOCHIMIE",
+      "theme:heparine"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Elle est très sulfatée, stockée dans les granulations des mastocytes et possède une activité anticoagulante importante.",
+      "Elle est le principal polyoside de réserve du foie et du muscle.",
+      "Elle est constituée uniquement de résidus de glucose reliés en β(1→4).",
+      "Elle est un diholoside formed de glucose et de fructose.",
+      "Elle est dépourvue de charges négatives car elle ne contient aucun groupement sulfate."
+    ],
+    "correctChoiceIndexes": [
+      0
+    ],
+    "choiceExplanations": [
+      "Ces trois caractéristiques sont associées à l'héparine.",
+      "Cette fonction correspond au glycogène.",
+      "Cette description correspond à la cellulose, pas à l'héparine.",
+      "Cette composition correspond au saccharose.",
+      "L'héparine est au contraire très fortement sulfatée."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C02",
+        "ec:BIOCHIMIE",
+        "theme:heparine"
+      ]
+    }
+  },
+  {
+    "order": 13,
+    "difficulty": "HARD",
+    "question": "Sélectionnez exactement les deux propositions correctes concernant protéoglycanes et glycoprotéines.",
+    "statement": "Sélectionnez exactement les deux propositions correctes concernant protéoglycanes et glycoprotéines.",
+    "explanation": "Les protéoglycanes associent des GAGs sulfatés à une protéine cœur, tandis que les glycoprotéines possèdent une fraction glucidique ramifiée pouvant être liée à certains résidus d'acides aminés par liaison O- ou N-glycosidique.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C02",
+      "ec:BIOCHIMIE",
+      "theme:glycoconjugues"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Des protéoglycanes peuvent s'agréger autour d'un long filament d'acide hyaluronique.",
+      "Dans une glycoprotéine, une liaison O-glycosidique peut impliquer la fonction alcool d'une sérine ou d'une thréonine.",
+      "Les glycoprotéines ne participent jamais à la reconnaissance cellulaire.",
+      "Les protéoglycanes sont constitués uniquement d'oses et ne comportent aucune protéine.",
+      "Une liaison N-glycosidique des glycoprotéines se fait obligatoirement sur un acide gras."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Le chapitre décrit des protéoglycanes agrégés reliés à un filament d'acide hyaluronique.",
+      "Une fraction glucidique peut être liée à la fonction alcool de certains acides aminés.",
+      "La reconnaissance spécifique et les interactions cellulaires font partie de leurs rôles.",
+      "Ils comportent une protéine dite cœur à laquelle sont liés des GAGs.",
+      "Elle relie la fraction glucidique à une fonction amide d'un acide aminé approprié."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C02",
+        "ec:BIOCHIMIE",
+        "theme:glycoconjugues"
+      ]
+    }
+  },
+  {
+    "order": 14,
+    "difficulty": "MEDIUM",
+    "question": "Quelles propositions décrivent correctement l'amidon, le glycogène ou la cellulose ?",
+    "statement": "Quelles propositions décrivent correctement l'amidon, le glycogène ou la cellulose ?",
+    "explanation": "Ces trois polyosides sont formés de glucose mais diffèrent par leur organisation et leur fonction : réserve végétale pour l'amidon, réserve animale pour le glycogène, structure végétale pour la cellulose.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C02",
+      "ec:BIOCHIMIE",
+      "theme:polyosides-comparaison"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "L'amidon associe amylose et amylopectine.",
+      "Le glycogène est un polymère de réserve particulièrement abondant dans le foie et le muscle.",
+      "La cellulose est construite à partir d'unités de cellobiose contenant des glucoses liés en β(1→4).",
+      "L'amylose comporte des embranchements α(1→6) plus fréquents que ceux du glycogène.",
+      "L'Homme hydrolyse efficacement la cellulose grâce à une β-glucosidase digestive abondante."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "L'amylose représente la fraction essentiellement linéaire, l'amylopectine la fraction ramifiée.",
+      "Il s'agit de la principale réserve glucidique des cellules animales.",
+      "Cette liaison β(1→4) participe à sa fonction structurale.",
+      "L'amylose est essentiellement linéaire ; les ramifications α(1→6) concernent l'amylopectine et le glycogène.",
+      "L'absence de l'enzyme appropriée explique que la cellulose ne soit pas digérée par l'Homme."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C02",
+        "ec:BIOCHIMIE",
+        "theme:polyosides-comparaison"
+      ]
+    }
+  },
+  {
+    "order": 15,
+    "difficulty": "EASY",
+    "question": "Quel diholoside est hydrolysé par la maltase pour donner deux résidus de glucose ?",
+    "statement": "Quel diholoside est hydrolysé par la maltase pour donner deux résidus de glucose ?",
+    "explanation": "La maltase hydrolyse le maltose en deux résidus de glucose.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C02",
+      "ec:BIOCHIMIE",
+      "theme:maltose"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "maltose"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C02",
+        "ec:BIOCHIMIE",
+        "theme:maltose"
+      ]
+    }
+  },
+  {
+    "order": 16,
+    "difficulty": "EASY",
+    "question": "Quelle définition correspond à un hétéroside ?",
+    "statement": "Quelle définition correspond à un hétéroside ?",
+    "explanation": "Un hétéroside associe une partie glucidique à une partie non glucidique appelée aglycone.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C02",
+      "ec:BIOCHIMIE",
+      "theme:heterosides"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Un polymère constitué exclusivement d'un même ose.",
+      "Un diholoside dont les deux carbones anomériques sont engagés.",
+      "Un ose dont la fonction carbonyle a été réduite en alcool.",
+      "Un glycosaminoglycane obligatoirement dépourvu de protéine.",
+      "Une molécule associant une partie glucidique à une partie non glucidique appelée aglycone."
+    ],
+    "correctChoiceIndexes": [
+      4
+    ],
+    "choiceExplanations": [
+      "Cette définition correspond à un homoglycane ou polyoside homogène.",
+      "Cette propriété peut définir un diholoside non réducteur, mais pas l'ensemble des hétérosides.",
+      "Cette transformation conduit à un polyol.",
+      "De nombreux GAGs peuvent être associés à des protéines dans les protéoglycanes.",
+      "C'est la définition générale d'un hétéroside."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C02",
+        "ec:BIOCHIMIE",
+        "theme:heterosides"
+      ]
+    }
+  },
+  {
+    "order": 17,
+    "difficulty": "HARD",
+    "question": "À propos de la formation des liaisons osidiques et du pouvoir réducteur des diholosides, quelles propositions sont exactes ?",
+    "statement": "À propos de la formation des liaisons osidiques et du pouvoir réducteur des diholosides, quelles propositions sont exactes ?",
+    "explanation": "Le pouvoir réducteur dépend de la présence d’un carbone anomérique encore susceptible de retrouver une forme carbonylée ouverte. Si les deux carbones anomériques sont engagés dans la liaison osidique, cette possibilité disparaît. L’hydrolyse d’une liaison osidique consomme une molécule d’eau ; c’est la condensation qui en libère une.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C02",
+      "ec:BIOCHIMIE",
+      "theme:pouvoir-reducteur"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Une liaison osidique peut engager le carbone anomérique d’un ose et une fonction alcool d’un autre ose.",
+      "Lorsqu’un carbone anomérique reste libre dans un diholoside, celui-ci peut conserver un pouvoir réducteur.",
+      "Lorsqu’une liaison osidique engage les deux carbones anomériques, le diholoside est non réducteur.",
+      "L’hydrolyse d’une liaison osidique est une réaction de condensation qui libère une molécule d’eau.",
+      "Le caractère réducteur d’un diholoside dépend uniquement de son nombre total d’atomes de carbone."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Vrai. C'est le cas des diholosides dicarbonyles ou monocarbonyles.",
+      "Vrai. Un C1 anomérique libre conserve la mutarotation et le pouvoir réducteur.",
+      "Vrai. Si les deux carbones anomériques sont bloqués dans la liaison, le diholoside est non réducteur.",
+      "Faux. L'hydrolyse consomme une molécule d'eau (dégradation), alors que la condensation libère de l'eau (synthèse).",
+      "Faux. Le caractère réducteur dépend de la disponibilité d'un carbone anomérique libre, non du nombre de carbones."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C02",
+        "ec:BIOCHIMIE",
+        "theme:pouvoir-reducteur"
+      ]
+    }
+  },
+  {
+    "order": 18,
+    "difficulty": "HARD",
+    "question": "En vous appuyant sur les représentations du lactose et du saccharose, quelles propositions sont exactes ?",
+    "statement": "En vous appuyant sur les représentations du lactose et du saccharose, quelles propositions sont exactes ?",
+    "explanation": "Le lactose est constitué de galactose et de glucose liés en β(1→4) ; le carbone anomérique du glucose reste libre, ce qui explique son caractère réducteur. Dans le saccharose, les carbones anomériques du glucose et du fructose participent tous deux à la liaison osidique : le saccharose est donc non réducteur.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C02",
+      "ec:BIOCHIMIE",
+      "theme:gag-comparaison"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le lactose associe un résidu de galactose à un résidu de glucose par une liaison β(1→4).",
+      "Dans le lactose, le carbone anomérique du résidu de glucose reste libre.",
+      "Dans le saccharose, la liaison osidique engage le carbone anomérique du glucose et celui du fructose.",
+      "L’hydrolyse du saccharose fournit du glucose et du galactose.",
+      "Le lactose est non réducteur car ses deux carbones anomériques sont engagés dans sa liaison osidique."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Vrai. Le lactose est bien le β-D-galactopyranosyl-(1→4)-D-glucopyranose.",
+      "Vrai. Le C1 du glucose est libre, conférant le caractère réducteur au lactose.",
+      "Vrai. Le saccharose est une liaison dicarbonylée α1-β2.",
+      "Faux. L'hydrolyse du saccharose donne du glucose et du fructose.",
+      "Faux. Le lactose est réducteur car le C1 du glucose reste libre."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C02",
+        "ec:BIOCHIMIE",
+        "theme:gag-comparaison"
+      ]
+    }
+  },
+  {
+    "order": 19,
+    "difficulty": "MEDIUM",
+    "question": "Sur la représentation du lactose, sélectionnez le carbone anomérique du résidu de glucose resté libre et responsable du caractère réducteur de ce diholoside.",
+    "statement": "Sur la représentation du lactose, sélectionnez le carbone anomérique du résidu de glucose resté libre et responsable du caractère réducteur de ce diholoside.",
+    "explanation": "Dans le lactose, le C1 anomérique du galactose participe à la liaison β(1→4) avec le C4 du glucose. En revanche, le carbone anomérique C1 du glucose reste libre : il peut retrouver une forme ouverte carbonylée, ce qui confère au lactose son caractère réducteur.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C02",
+      "ec:BIOCHIMIE",
+      "theme:qzone-carbone-anomerique"
+    ],
+    "format": "QZONE",
+    "questionFormat": "QZONE",
+    "questionType": "hotspot",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "image": {
+        "src": "/images/training/ue14/colles/c02/diholosides-reducing-linked-q17-q19.svg",
+        "alt": "Représentations cycliques simplifiées du lactose et du saccharose montrant leurs deux résidus osidiques et leur liaison glycosidique.",
+        "width": 1200,
+        "height": 650
+      },
+      "expectedZones": [
+        {
+          "id": "target-free-c1-glucose",
+          "label": "Carbone anomérique C1 libre du résidu glucose",
+          "x": 0.4417,
+          "y": 0.5231,
+          "tolerance": 0.04
+        }
+      ],
+      "defaultTolerance": 0.04,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C02",
+        "ec:BIOCHIMIE",
+        "theme:qzone-carbone-anomerique"
+      ]
+    }
+  },
+  {
+    "order": 20,
+    "difficulty": "MEDIUM",
+    "question": "Concernant les oses aminés, l'acide sialique et les oses estérifiés, quelles propositions sont exactes ?",
+    "statement": "Concernant les oses aminés, l'acide sialique et les oses estérifiés, quelles propositions sont exactes ?",
+    "explanation": "Les dérivés d'oses contribuent à la structure et au métabolisme cellulaires : osamines dans les glycoconjugués, acide sialique à la surface cellulaire, esters phosphoriques dans plusieurs voies métaboliques et esters sulfuriques dans les GAGs.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C02",
+      "ec:BIOCHIMIE",
+      "theme:derives-complexes"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Les osamines peuvent entrer dans la composition de glycoprotéines, protéoglycanes ou glycolipides.",
+      "L'acide sialique peut participer à la reconnaissance cellulaire à la surface de cellules eucaryotes.",
+      "La phosphorylation du ribose en C5 est associée à la synthèse des acides nucléiques.",
+      "Les esters sulfuriques des oses rendent les glycosaminoglycanes électriquement neutres.",
+      "Une osamine-N-acétylée correspond à la suppression complète de l'atome d'azote de l'osamine."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Ces glycoconjugués peuvent contenir des osamines, souvent sous forme N-acétylée.",
+      "Le NANA est présenté comme un constituant de glycoprotéines et glycolipides impliqué dans la reconnaissance cellulaire.",
+      "Le ribose-5-phosphate est relié aux nucléotides de l'ARN.",
+      "Les groupements sulfate contribuent au contraire à la charge négative de ces molécules.",
+      "Le groupement acétyl est ajouté sur la fonction amine ; l'azote reste présent."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C02",
+        "ec:BIOCHIMIE",
+        "theme:derives-complexes"
+      ]
+    }
+  }
+]

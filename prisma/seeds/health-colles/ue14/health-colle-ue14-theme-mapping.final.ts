@@ -81,10 +81,10 @@ export const UE14_COLLE_THEME_IDS_BY_QUESTION_STABLE_ID = {
   "c02-q16": ["6a7e2072cd27601b0acc15ba"],
   // C02 Q17 — Diholosides : applications
   "c02-q17": ["6a7e2073cd27601b0acc15bc"],
-  // C02 Q18 — GAG sulfatés et glycoconjugués : repères
-  "c02-q18": ["6a7e2074cd27601b0acc15c2"],
-  // C02 Q19 — Cyclisation et anomères : repères
-  "c02-q19": ["6a7dda61689c52db81009ee1"],
+  // C02 Q18 — Diholosides : applications
+  "c02-q18": ["6a7e2073cd27601b0acc15bc"],
+  // C02 Q19 — Cyclisation et anomères : repères + Diholosides : applications
+  "c02-q19": ["6a7dda61689c52db81009ee1", "6a7e2073cd27601b0acc15bc"],
   // C02 Q20 — Maîtrise transversale des oses et dérivés
   "c02-q20": ["6a7e11d075d63c56a9d1e860"],
   // C03 Q01 — Marquages moléculaires et imagerie
