@@ -39,6 +39,20 @@ test.describe.serial("Santé — Colle C12 Captures & Recette Visuelle", () => {
     // Set viewport 1280px for desktop captures
     await page.setViewportSize({ width: 1280, height: 800 });
 
+    // Assertions sur le bloc d'accroche C12
+    await expect(page.getByRole("heading", { name: "C12 — Grande colle UE14" })).toBeVisible();
+    await expect(page.getByText("3 EC · Chimie + Biochimie + Biologie cellulaire")).toBeVisible();
+    await expect(
+      page.getByText(
+        "Chimie : toute l’EC · Biochimie : toute l’EC · Biologie cellulaire : toute l’EC"
+      )
+    ).toBeVisible();
+    await expect(page.getByText("50 questions", { exact: true })).toBeVisible();
+    await expect(page.getByText("75 min", { exact: true })).toBeVisible();
+    await expect(page.getByText("Notation UNESS", { exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Consignes" })).not.toBeVisible();
+    await page.screenshot({ path: path.join(screenshotsTmpDir, "c12-intro-desktop.png") });
+
     // Jump to Q13 (Group 1: Molécule polyfonctionnelle et transformations)
     const scrollRightBtn = page.getByRole("button", { name: "Faire défiler les questions vers la droite" });
     while (await scrollRightBtn.isVisible()) {

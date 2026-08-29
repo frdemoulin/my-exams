@@ -39,6 +39,16 @@ test.describe.serial("Santé — Colle C11 Captures & Recette Visuelle", () => {
     // Set viewport 1280px for desktop captures
     await page.setViewportSize({ width: 1280, height: 800 });
 
+    // Assertions sur le bloc d'accroche C11
+    await expect(page.getByRole("heading", { name: "C11 — Biochimie — Colle cumulative EC" })).toBeVisible();
+    await expect(page.getByText("Toute la Biochimie · cumulative")).toBeVisible();
+    await expect(page.getByText("Glucides · Lipides · Protéines · Enzymologie (15 chapitres)")).toBeVisible();
+    await expect(page.getByText("30 questions", { exact: true })).toBeVisible();
+    await expect(page.getByText("45 min", { exact: true })).toBeVisible();
+    await expect(page.getByText("Notation UNESS", { exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Consignes" })).not.toBeVisible();
+    await page.screenshot({ path: path.join(screenshotsTmpDir, "c11-intro-desktop.png") });
+
     // Jump to Q5 (Group 1: Lipides membranaires et médiateurs)
     const scrollRightBtn = page.getByRole("button", { name: "Faire défiler les questions vers la droite" });
     while (await scrollRightBtn.isVisible()) {

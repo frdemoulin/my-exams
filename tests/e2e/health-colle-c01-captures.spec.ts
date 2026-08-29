@@ -39,6 +39,24 @@ test.describe.serial("Santé — Colle C01 Captures & Recette Visuelle", () => {
     // Set viewport 1280px for desktop captures
     await page.setViewportSize({ width: 1280, height: 800 });
 
+    // Assertions sur le bloc d'accroche C01
+    await expect(page.getByRole("heading", { name: "C01 — Chimie — Fondamentaux" })).toBeVisible();
+    await expect(page.getByText("Chimie générale · Ch. 1 à 4")).toBeVisible();
+    await expect(
+      page.getByText(
+        "Éléments chimiques et classification · Liaisons et électronégativité · Orbitales moléculaires · Forces intermoléculaires"
+      )
+    ).toBeVisible();
+    await expect(page.getByText("20 questions", { exact: true })).toBeVisible();
+    await expect(page.getByText("30 min", { exact: true })).toBeVisible();
+    await expect(page.getByText("Notation UNESS", { exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Consignes" })).not.toBeVisible();
+
+    // Capture C01 mobile 375 px
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.screenshot({ path: path.join(screenshotsTmpDir, "c01-intro-mobile-375.png") });
+    await page.setViewportSize({ width: 1280, height: 800 });
+
     // Capture 1: Q1 desktop (contexte partagé + nucléides)
     await expect(page.getByText("Données communes aux questions 1 et 2")).toBeVisible();
     await expect(page.getByTestId("shared-question-group-panel").getByText("Isotopes du chlore")).toBeVisible();

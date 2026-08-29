@@ -39,6 +39,20 @@ test.describe.serial("Santé — Colle C04 Captures & Recette Visuelle", () => {
     // Set viewport 1280px for desktop captures
     await page.setViewportSize({ width: 1280, height: 800 });
 
+    // Assertions sur le bloc d'accroche C04
+    await expect(page.getByRole("heading", { name: "C04 — Chimie — Des atomes aux molécules organiques" })).toBeVisible();
+    await expect(page.getByText("Chimie générale + Orga · Ch. 1 à 7")).toBeVisible();
+    await expect(
+      page.getByText(
+        "Chimie générale complète (Ch. 1 à 4) · Nomenclature et fonctions · Isomérie et énantiomérie · Hydrocarbures"
+      )
+    ).toBeVisible();
+    await expect(page.getByText("25 questions", { exact: true })).toBeVisible();
+    await expect(page.getByText("37 min 30 s", { exact: true })).toBeVisible();
+    await expect(page.getByText("Notation UNESS", { exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Consignes" })).not.toBeVisible();
+    await page.screenshot({ path: path.join(screenshotsTmpDir, "c04-intro-desktop.png") });
+
     // Jump to Q18 (Group 1: Glycine, alanine et chiralité)
     const scrollRightBtn = page.getByRole("button", { name: "Faire défiler les questions vers la droite" });
     while (await scrollRightBtn.isVisible()) {

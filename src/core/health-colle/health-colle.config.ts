@@ -48,7 +48,7 @@ export const HEALTH_COLLES_UE14_V1: HealthColleV1[] = [
       'Chimie générale complète (Ch. 1 à 4) · Nomenclature et fonctions · Isomérie et énantiomérie · Hydrocarbures',
     questionCount: 25,
     durationMinutes: 37.5,
-    durationLabel: '37 min 30',
+    durationLabel: '37 min 30 s',
     ecCode: 'Chimie',
     description: 'Décloisonnement de la chimie générale et début de la chimie organique.',
   },
@@ -61,7 +61,7 @@ export const HEALTH_COLLES_UE14_V1: HealthColleV1[] = [
       'Introduction aux lipides et acides gras · Eicosanoïdes · Glycérides · Sphingolipides · Stérols et stéroïdes',
     questionCount: 25,
     durationMinutes: 37.5,
-    durationLabel: '37 min 30',
+    durationLabel: '37 min 30 s',
     badgeType: 'CUMULATIVE',
     badgeLabel: 'Cumulative',
     ecCode: 'Biochimie',
@@ -91,7 +91,7 @@ export const HEALTH_COLLES_UE14_V1: HealthColleV1[] = [
       'Alcools, amines et dérivés halogénés · Esters et amides · Aldéhydes et cétones · Acides carboxyliques',
     questionCount: 25,
     durationMinutes: 37.5,
-    durationLabel: '37 min 30',
+    durationLabel: '37 min 30 s',
     badgeType: 'CUMULATIVE',
     badgeLabel: 'Cumulative',
     ecCode: 'Chimie',
@@ -106,7 +106,7 @@ export const HEALTH_COLLES_UE14_V1: HealthColleV1[] = [
       'Structure et rôles des acides aminés, peptides et protéines (parties 1 et 2) · Rappels glucides et lipides',
     questionCount: 25,
     durationMinutes: 37.5,
-    durationLabel: '37 min 30',
+    durationLabel: '37 min 30 s',
     badgeType: 'CUMULATIVE',
     badgeLabel: 'Cumulative',
     ecCode: 'Biochimie',
@@ -121,7 +121,7 @@ export const HEALTH_COLLES_UE14_V1: HealthColleV1[] = [
       'Mitochondrie · Le noyau · Le cycle cellulaire · Synthèse compartiments et architecture',
     questionCount: 25,
     durationMinutes: 37.5,
-    durationLabel: '37 min 30',
+    durationLabel: '37 min 30 s',
     badgeType: 'CUMULATIVE',
     badgeLabel: 'Cumulative',
     ecCode: 'Biologie cellulaire',
@@ -163,10 +163,76 @@ export const HEALTH_COLLES_UE14_V1: HealthColleV1[] = [
     contentLine: 'Chimie : toute l’EC · Biochimie : toute l’EC · Biologie cellulaire : toute l’EC',
     questionCount: 50,
     durationMinutes: 75,
-    durationLabel: '75 min (1 h 15)',
+    durationLabel: '75 min',
     badgeType: 'GRANDE_COLLE',
     badgeLabel: 'Cumulative',
     ecCode: 'UE14',
     description: 'Épreuve transversale d’évaluation globale UE14.',
   },
 ];
+
+/**
+ * Recherche une colle Santé par son slug ou son code (ex: 'c01' ou 'C01').
+ */
+export function getHealthColleBySlug(slug: string | null | undefined): HealthColleV1 | undefined {
+  if (!slug) return undefined;
+  const normalized = slug.trim().toLowerCase();
+  return HEALTH_COLLES_UE14_V1.find(
+    (c) => c.id.toLowerCase() === normalized || c.code.toLowerCase() === normalized
+  );
+}
+
+/**
+ * Formate une durée d'évaluation Santé en chaîne canonique.
+ * Exemples:
+ * - 1800 s (30 min) -> "30 min"
+ * - 2250 s (37.5 min) -> "37 min 30 s"
+ * - 2700 s (45 min) -> "45 min"
+ * - 4500 s (75 min) -> "75 min"
+ * - 9000 s (150 min) -> "150 min"
+ */
+export function formatHealthEvaluationDuration(
+  durationSeconds?: number | null,
+  durationMinutes?: number | null
+): string {
+  let totalSeconds = 0;
+  if (typeof durationSeconds === 'number' && Number.isFinite(durationSeconds) && durationSeconds > 0) {
+    totalSeconds = Math.round(durationSeconds);
+  } else if (typeof durationMinutes === 'number' && Number.isFinite(durationMinutes) && durationMinutes > 0) {
+    totalSeconds = Math.round(durationMinutes * 60);
+  }
+
+  if (totalSeconds <= 0) return '0 min';
+
+  const mins = Math.floor(totalSeconds / 60);
+  const secs = totalSeconds % 60;
+
+  if (secs > 0) {
+    return `${mins} min ${secs} s`;
+  }
+  return `${mins} min`;
+}
+
+/**
+ * Détermine si les instructions d'une évaluation contiennent une consigne spécifique réelle
+ * (ex: "Calculatrice interdite") plutôt qu'un texte de métadonnées standard
+ * ("Colle UE14 Reims — 20 questions — 30 min — Notation UNESS").
+ */
+export function isSpecificInstruction(instructions: string | null | undefined): boolean {
+  if (!instructions) return false;
+  const trimmed = instructions.trim();
+  if (trimmed.length === 0) return false;
+
+  // Métadonnées standard explicitement identifiées
+  const isBoilerplateMetadata =
+    /^colle\s+ue\d+\s+reims\s*—\s*\d+\s+questions\s*—\s*[\d.]+\s*(?:min|s|h)?(?:\s*\d+\s*s)?\s*—\s*notation\s+uness$/i.test(
+      trimmed
+    );
+  if (isBoilerplateMetadata) return false;
+
+  const isGenericTakingNotice =
+    /^cette\s+colle\s+comporte\s+\d+\s+questions\s+de\s+diff[ée]rents\s+formats\./i.test(trimmed);
+  if (isGenericTakingNotice) return false;
+
+  return true;
+}

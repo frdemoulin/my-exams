@@ -627,6 +627,8 @@ export async function fetchHealthMockExamTakingState(input: {
           description: true,
           instructions: true,
           questionCount: true,
+          durationMinutes: true,
+          durationSeconds: true,
           courseUnit: {
             select: {
               id: true,
@@ -702,6 +704,8 @@ export async function fetchHealthMockExamTakingState(input: {
       description: passageAttempt.mockExam.description,
       instructions: passageAttempt.mockExam.instructions ?? null,
       questionCount: passageAttempt.mockExam.questionCount,
+      durationMinutes: passageAttempt.mockExam.durationMinutes,
+      durationSeconds: passageAttempt.mockExam.durationSeconds,
       courseUnit: passageAttempt.mockExam.courseUnit,
       sections: passageAttempt.mockExam.sections,
       questions: passageAttempt.attemptQuestions.map((attemptQuestion) => {

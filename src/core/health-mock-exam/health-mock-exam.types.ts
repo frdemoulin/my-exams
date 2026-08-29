@@ -60,6 +60,8 @@ export type HealthMockExamPassage = {
   description?: string | null;
   instructions: string | null;
   questionCount: number;
+  durationMinutes?: number;
+  durationSeconds?: number | null;
   courseUnit?: {
     id: string;
     code: string | null;

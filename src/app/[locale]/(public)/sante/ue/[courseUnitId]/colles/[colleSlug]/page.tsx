@@ -3,13 +3,13 @@ import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
 
+import { HealthEvaluationIntroHeader } from "@/components/health/HealthEvaluationIntroHeader";
 import { HealthMockExamSession } from "@/components/health/HealthMockExamSession";
 import { PublicBreadcrumb } from "@/components/shared/public-breadcrumb";
 import { PublicHeader } from "@/components/shared/public-header";
 import { SiteFooter } from "@/components/shared/site-footer";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import { getHealthColleBySlug } from "@/core/health-colle";
 import { fetchHealthMockExamTakingState } from "@/core/health-mock-exam/health-mock-exam.service";
 import { auth } from "@/lib/auth/auth";
 import { getSessionEffectiveUserId } from "@/lib/auth/session";
@@ -56,13 +56,14 @@ export default async function HealthCollePage({ params }: PageProps) {
   }
 
   const passage = state.passage;
+  const colle = getHealthColleBySlug(colleSlug);
   const courseUnitLabel = passage.courseUnit?.code
     ? `${passage.courseUnit.code} · ${passage.courseUnit.title}`
     : passage.courseUnit?.title ?? "UE";
   const courseUnitHref = `/sante/ue/${courseUnitId}`;
   const evaluationsHref = `${courseUnitHref}?ec=evaluations`;
-  const colleCode = passage.slug ? passage.slug.toUpperCase() : "COLLE";
-  const colleHeading = `${colleCode} — ${passage.title}`;
+  const colleCode = colle?.code ?? (passage.slug ? passage.slug.toUpperCase() : "COLLE");
+  const colleHeading = colle ? `${colle.code} — ${colle.title}` : `${colleCode} — ${passage.title}`;
 
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
@@ -86,39 +87,7 @@ export default async function HealthCollePage({ params }: PageProps) {
             </Link>
           </Button>
 
-          <Card className="rounded-3xl border-border bg-card hover:bg-card">
-            <CardHeader>
-              <div className="space-y-3">
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                  <div className="space-y-1">
-                    <CardTitle className="text-xl text-heading">{colleHeading}</CardTitle>
-                    {passage.description ? (
-                      <p className="text-sm text-muted-foreground">{passage.description}</p>
-                    ) : null}
-                  </div>
-                  <div className="flex flex-wrap items-start gap-2 sm:justify-end">
-                    <Badge variant="outline" className="w-fit">
-                      {passage.sections[0]?.title ?? "Évaluation"}
-                    </Badge>
-                    <Badge variant="secondary" className="w-fit">
-                      {passage.questionCount} questions
-                    </Badge>
-                    <Badge variant="outline" className="font-semibold text-fg-brand border-brand/30">
-                      Notation UNESS
-                    </Badge>
-                  </div>
-                </div>
-
-                <div className="rounded-xl border border-default bg-neutral-secondary-soft p-4 text-xs text-muted-foreground space-y-1.5">
-                  <p className="font-semibold text-heading text-sm">Consignes</p>
-                  <p className="text-body">
-                    {passage.instructions ||
-                      `Cette colle comporte ${passage.questionCount} questions de différents formats. La consigne propre à chaque question est indiquée au moment où elle s'affiche. Navigation libre pendant l'épreuve avec barème UNESS.`}
-                  </p>
-                </div>
-              </div>
-            </CardHeader>
-          </Card>
+          <HealthEvaluationIntroHeader passage={passage} colle={colle} />
 
           <HealthMockExamSession
             courseUnitId={courseUnitId}
