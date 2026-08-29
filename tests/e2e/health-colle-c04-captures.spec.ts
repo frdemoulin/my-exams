@@ -49,7 +49,8 @@ test.describe.serial("Santé — Colle C04 Captures & Recette Visuelle", () => {
     await page.getByTestId("health-mock-exam-nav-18").click();
 
     // Capture 1: Q18 desktop
-    await expect(page.getByText("Données communes — Glycine, alanine et chiralité")).toBeVisible();
+    await expect(page.getByText("Données communes aux questions 18 à 20")).toBeVisible();
+    await expect(page.getByText("Glycine, alanine et chiralité")).toBeVisible();
     await expect(page.getByAltText("Comparaison de la glycine et de deux représentations tridimensionnelles de l’alanine.")).toBeVisible();
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c04-q18-desktop.png") });
 
@@ -77,7 +78,8 @@ test.describe.serial("Santé — Colle C04 Captures & Recette Visuelle", () => {
     await page.getByRole("button", { name: "Suivante" }).click();
 
     // Capture 4: Q21 desktop (Group 2: Quatre hydrocarbures à six carbones)
-    await expect(page.getByText("Données communes — Quatre hydrocarbures à six carbones")).toBeVisible();
+    await expect(page.getByText("Données communes aux questions 21 à 24")).toBeVisible();
+    await expect(page.getByText("Quatre hydrocarbures à six carbones")).toBeVisible();
     await expect(page.getByAltText("Quatre représentations topologiques d’hydrocarbures à six atomes de carbone, notées A à D.")).toBeVisible();
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c04-q21-desktop.png") });
 

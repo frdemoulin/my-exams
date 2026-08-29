@@ -10,3 +10,4 @@ export * from "./health-author-question-validation";
 export * from "./health-author-question-compiler";
 export * from "./health-authoring";
 export * from "./reims-migrated-chapters";
+export * from "./shared-question-group";

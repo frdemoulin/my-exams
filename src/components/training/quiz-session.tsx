@@ -51,6 +51,7 @@ import { MathContent } from './math-content';
 import { QuestionFormatBadge } from './question-format-badge';
 import { TrainingChoiceContentView } from './training-choice-content-view';
 import { TrainingQuestionContentView } from './training-question-content-view';
+import { SharedQuestionGroupPanel } from './shared-question-group-panel';
 
 type QuizSessionProps = {
   questions: TrainingQuestion[];
@@ -573,34 +574,6 @@ const getSummaryProgressBarClassName = (successRate: number) => {
   return 'bg-rose-500 dark:bg-rose-400';
 };
 
-const formatQuestionNumbers = (questionNumbers: number[]) => {
-  if (questionNumbers.length === 0) return '';
-  if (questionNumbers.length === 1) return String(questionNumbers[0]);
-  if (questionNumbers.length === 2) {
-    return `${questionNumbers[0]} et ${questionNumbers[1]}`;
-  }
-
-  return `${questionNumbers.slice(0, -1).join(', ')} et ${questionNumbers.at(-1)}`;
-};
-
-const getSharedStatementTitle = (
-  questions: TrainingQuestion[],
-  groupId: string,
-  title: string | null
-) => {
-  const questionNumbers = questions.flatMap((question, index) =>
-    question.group?.id === groupId ? [index + 1] : []
-  );
-  const normalizedTitle = title
-    ?.trim()
-    .replace(/^énoncé commun\s*(?:[-–—:]\s*)?/i, '')
-    .trim();
-  const questionLabel = questionNumbers.length === 1 ? 'à la question' : 'aux questions';
-  const heading = `Énoncé commun ${questionLabel} ${formatQuestionNumbers(questionNumbers)}`;
-
-  return normalizedTitle ? `${heading} – ${normalizedTitle}` : heading;
-};
-
 const getThemePerformance = ({
   correctItems,
   incorrectItems,
@@ -867,9 +840,6 @@ export function QuizSession({
 
   const currentQuestion = sessionQuestions[currentIndex];
   const currentGroup = currentQuestion.group;
-  const currentGroupTitle = currentGroup
-    ? getSharedStatementTitle(sessionQuestions, currentGroup.id, currentGroup.title)
-    : null;
   const isPathMode = Boolean(pathContext);
   const currentSelections = selectedChoiceIndexesByQuestion[currentIndex] ?? [];
   const currentShortAnswerValue = shortAnswerValuesByQuestion[currentIndex] ?? '';
@@ -1789,14 +1759,13 @@ export function QuizSession({
       </div>
 
       {currentGroup ? (
-        <div className="rounded-xl border border-brand/15 bg-brand-soft/10 p-4 text-sm text-heading">
-          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            {currentGroupTitle}
-          </p>
-          <div className="mt-2 leading-6">
-            <MathContent value={currentGroup.sharedStatement} blockMathVariant="compact" />
-          </div>
-        </div>
+        <SharedQuestionGroupPanel
+          questionNumbers={sessionQuestions.flatMap((q, idx) =>
+            q.group?.id === currentGroup.id ? [idx + 1] : []
+          )}
+          title={currentGroup.title}
+          sharedStatement={currentGroup.sharedStatement}
+        />
       ) : null}
 
       <div

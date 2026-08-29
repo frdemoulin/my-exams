@@ -19,6 +19,7 @@ import { QuestionFormatBadge } from "@/components/training/question-format-badge
 import { TrainingChoiceContentView } from "@/components/training/training-choice-content-view";
 import { TrainingQuestionContentView } from "@/components/training/training-question-content-view";
 import { MathContent } from "@/components/training/math-content";
+import { SharedQuestionGroupPanel } from "@/components/training/shared-question-group-panel";
 import { HotspotQuestionView } from "@/components/training/hotspot-question-view";
 import {
   formatShortAnswerExpectedAnswer,
@@ -315,29 +316,19 @@ export function HealthMockExamCorrectionView({
           <CardContent className="space-y-6 p-4 sm:p-6">
             {/* Shared group context if present */}
             {activeQuestion.group ? (
-              <div className="rounded-xl border border-brand/15 bg-brand-soft/10 p-4 text-sm text-heading space-y-3">
-                <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                  {activeQuestion.group.title ?? "Énoncé commun"}
-                </p>
-                <div className="leading-6">
-                  <MathContent value={activeQuestion.group.sharedStatement} blockMathVariant="compact" />
-                </div>
-                {activeQuestion.group.sharedMedia &&
-                !(
+              <SharedQuestionGroupPanel
+                questionNumbers={result.questions.flatMap((q) =>
+                  q.group?.id === activeQuestion.group?.id ? [q.globalOrder] : []
+                )}
+                title={activeQuestion.group.title}
+                sharedStatement={activeQuestion.group.sharedStatement}
+                sharedMedia={activeQuestion.group.sharedMedia}
+                hideSharedMedia={
                   activeQuestion.questionType === "hotspot" &&
-                  activeQuestion.group.sharedMedia.src ===
+                  activeQuestion.group.sharedMedia?.src ===
                     (activeQuestion.canonicalQuestion as HotspotQuestion).image?.src
-                ) ? (
-                  <div className="overflow-hidden rounded-lg border border-border bg-background/50 p-2 flex justify-center">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={activeQuestion.group.sharedMedia.src}
-                      alt={activeQuestion.group.sharedMedia.alt ?? "Donnée commune"}
-                      className="max-h-[300px] w-auto object-contain rounded-md"
-                    />
-                  </div>
-                ) : null}
-              </div>
+                }
+              />
             ) : null}
 
             {/* Statement */}

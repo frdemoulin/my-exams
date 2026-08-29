@@ -49,7 +49,8 @@ test.describe.serial("Santé — Colle C10 Captures & Recette Visuelle", () => {
     await page.getByTestId("health-mock-exam-nav-10").click();
 
     // Q10 desktop
-    await expect(page.getByText("Données communes — Alcènes et stéréochimie")).toBeVisible();
+    await expect(page.getByText("Données communes aux questions 10 à 13")).toBeVisible();
+    await expect(page.getByText("Alcènes et stéréochimie")).toBeVisible();
     await expect(page.getByAltText("Deux représentations géométriques A et B du but-2-ène montrant des dispositions différentes des groupes méthyle autour de la double liaison.")).toBeVisible();
 
     // Capture 1: Q10 desktop
@@ -100,7 +101,8 @@ test.describe.serial("Santé — Colle C10 Captures & Recette Visuelle", () => {
     await page.getByTestId("health-mock-exam-nav-27").click();
 
     // Q27 (Group 2 QRM)
-    await expect(page.getByText("Données communes — Réactivité et stéréochimie intégrées")).toBeVisible();
+    await expect(page.getByText("Données communes aux questions 27 à 30")).toBeVisible();
+    await expect(page.getByText("Réactivité et stéréochimie intégrées")).toBeVisible();
     await expect(page.getByAltText("Schéma de transformations reliant propan-1-ol, propanal et acide propanoïque, addition d’un organomagnésien sur la propanone, et structure d’une molécule polyfonctionnelle chirale F.")).toBeVisible();
 
     // Capture 5: Q27 desktop

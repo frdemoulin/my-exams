@@ -68,7 +68,8 @@ test.describe.serial("Santé — Colle C07 Captures & Recette Visuelle", () => {
     await page.getByTestId("health-mock-exam-nav-12").click();
 
     // Q12 (Group 1: Réactivité du groupe carbonyle)
-    await expect(page.getByText("Données communes — Réactivité du groupe carbonyle")).toBeVisible();
+    await expect(page.getByText("Données communes aux questions 12 à 14")).toBeVisible();
+    await expect(page.getByText("Réactivité du groupe carbonyle")).toBeVisible();
     await expect(page.getByAltText("Trois schémas réactionnels montrant la réduction d’un aldéhyde, l’addition d’un organomagnésien sur une cétone et la carboxylation d’un organomagnésien par le dioxyde de carbone.")).toBeVisible();
 
     // Capture 1: Q12 desktop

@@ -40,7 +40,8 @@ test.describe.serial("Santé — Colle C03 Captures & Recette Visuelle", () => {
     await page.setViewportSize({ width: 1280, height: 800 });
 
     // Capture 1: Q1 desktop (contexte partagé étude cellules épithéliales)
-    await expect(page.getByText("Données communes — Étude de cellules épithéliales")).toBeVisible();
+    await expect(page.getByText("Données communes aux questions 1 à 3")).toBeVisible();
+    await expect(page.getByText("Étude de cellules épithéliales")).toBeVisible();
     await expect(page.getByText("Un laboratoire étudie des cellules épithéliales obtenues après dissociation")).toBeVisible();
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c03-q01-desktop.png") });
 
@@ -70,7 +71,8 @@ test.describe.serial("Santé — Colle C03 Captures & Recette Visuelle", () => {
     await q17Tile.click();
 
     // Capture 4: Q17 desktop
-    await expect(page.getByText("Données communes — Entérocyte polarisé")).toBeVisible();
+    await expect(page.getByText("Données communes aux questions 17 à 19")).toBeVisible();
+    await expect(page.getByTestId("shared-question-group-panel").getByText("Entérocyte polarisé")).toBeVisible();
     await expect(page.getByAltText("Schéma d’un entérocyte polarisé avec microvillosités apicales, membranes apicale et basolatérale, jonction apico-latérale et agrandissement d’une microvillosité.")).toBeVisible();
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c03-q17-desktop.png") });
 

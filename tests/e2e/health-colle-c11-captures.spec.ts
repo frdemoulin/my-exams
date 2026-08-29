@@ -49,7 +49,8 @@ test.describe.serial("Santé — Colle C11 Captures & Recette Visuelle", () => {
     await page.getByTestId("health-mock-exam-nav-5").click();
 
     // Q5 desktop
-    await expect(page.getByText("Données communes — Lipides membranaires et médiateurs")).toBeVisible();
+    await expect(page.getByText("Données communes aux questions 5 à 8")).toBeVisible();
+    await expect(page.getByText("Lipides membranaires et médiateurs")).toBeVisible();
     await expect(page.getByAltText("Schéma intégratif montrant deux acides gras notés L et A, un glycérophospholipide P portant A en sn-2, une structure de céramide C et une structure de cholestérol S accompagnée de sa forme estérifiée.")).toBeVisible();
 
     // Capture 1: Q5 desktop
@@ -99,7 +100,8 @@ test.describe.serial("Santé — Colle C11 Captures & Recette Visuelle", () => {
     await page.getByTestId("health-mock-exam-nav-26").click();
 
     // Q26 (Group 2 QRM)
-    await expect(page.getByText("Données communes — Cinétique enzymatique expérimentale")).toBeVisible();
+    await expect(page.getByText("Données communes aux questions 26 à 29")).toBeVisible();
+    await expect(page.getByText("Cinétique enzymatique expérimentale")).toBeVisible();
     await expect(page.getByAltText("Étude de cinétique enzymatique avec une courbe d’absorbance en fonction du temps et plusieurs droites de Lineweaver-Burk obtenues avec ou sans inhibiteurs.")).toBeVisible();
 
     // Capture 5: Q26 desktop

@@ -29,6 +29,7 @@ import { QuestionFormatBadge } from "@/components/training/question-format-badge
 import { TrainingChoiceContentView } from "@/components/training/training-choice-content-view";
 import { TrainingQuestionContentView } from "@/components/training/training-question-content-view";
 import { MathContent } from "@/components/training/math-content";
+import { SharedQuestionGroupPanel } from "@/components/training/shared-question-group-panel";
 import type {
   HealthMockExamPassage,
   HealthMockExamPassageQuestion,
@@ -640,29 +641,19 @@ export function HealthMockExamSession({
       </div>
 
       {currentQuestion.group ? (
-        <div className="rounded-xl border border-brand/15 bg-brand-soft/10 p-4 text-sm text-heading space-y-3">
-          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            {currentQuestion.group.title ?? "Énoncé commun"}
-          </p>
-          <div className="leading-6">
-            <MathContent value={currentQuestion.group.sharedStatement} blockMathVariant="compact" />
-          </div>
-          {currentQuestion.group.sharedMedia &&
-          !(
+        <SharedQuestionGroupPanel
+          questionNumbers={passage.questions.flatMap((q, idx) =>
+            q.group?.id === currentQuestion.group?.id ? [idx + 1] : []
+          )}
+          title={currentQuestion.group.title}
+          sharedStatement={currentQuestion.group.sharedStatement}
+          sharedMedia={currentQuestion.group.sharedMedia}
+          hideSharedMedia={
             currentQuestion.canonicalQuestion.type === "hotspot" &&
-            currentQuestion.group.sharedMedia.src ===
+            currentQuestion.group.sharedMedia?.src ===
               (currentQuestion.canonicalQuestion as HotspotQuestion).image?.src
-          ) ? (
-            <div className="overflow-hidden rounded-lg border border-border bg-background/50 p-2 flex justify-center">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={currentQuestion.group.sharedMedia.src}
-                alt={currentQuestion.group.sharedMedia.alt ?? "Donnée commune"}
-                className="max-h-[300px] w-auto object-contain rounded-md"
-              />
-            </div>
-          ) : null}
-        </div>
+          }
+        />
       ) : null}
 
       {/* 3. PANNEAU DE L'ÉNONCÉ */}

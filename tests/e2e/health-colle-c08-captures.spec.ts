@@ -40,7 +40,8 @@ test.describe.serial("Santé — Colle C08 Captures & Recette Visuelle", () => {
     await page.setViewportSize({ width: 1280, height: 800 });
 
     // Q1 (Group 1: Acides aminés et liaison peptidique)
-    await expect(page.getByText("Données communes — Acides aminés et liaison peptidique")).toBeVisible();
+    await expect(page.getByText("Données communes aux questions 1 à 3")).toBeVisible();
+    await expect(page.getByText("Acides aminés et liaison peptidique")).toBeVisible();
     await expect(page.getByAltText("Structures zwitterioniques de la cystéine A et de la glycine B, puis schéma du dipeptide A–B mettant en évidence son squelette sans nommer la liaison peptidique.")).toBeVisible();
 
     // Capture 1: Q1 desktop
@@ -77,7 +78,8 @@ test.describe.serial("Santé — Colle C08 Captures & Recette Visuelle", () => {
     await page.getByTestId("health-mock-exam-nav-22").click();
 
     // Q22 (Group 2: Chaînes latérales et conformation QRM)
-    await expect(page.getByText("Données communes — Chaînes latérales et conformation")).toBeVisible();
+    await expect(page.getByText("Données communes aux questions 22 à 24")).toBeVisible();
+    await expect(page.getByText("Chaînes latérales et conformation")).toBeVisible();
     await expect(page.getByAltText("Segment peptidique Tyr–His–Asp à pH 7,4 avec extrémités N- et C-terminales, accompagné d’une représentation schématique d’une protéine native et d’une forme dénaturée.")).toBeVisible();
 
     // Capture 4: Q22 desktop

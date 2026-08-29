@@ -40,7 +40,8 @@ test.describe.serial("Santé — Colle C09 Captures & Recette Visuelle", () => {
     await page.setViewportSize({ width: 1280, height: 800 });
 
     // Q1 (Group 1: Mitochondrie et chaîne respiratoire)
-    await expect(page.getByText("Données communes — Mitochondrie et chaîne respiratoire")).toBeVisible();
+    await expect(page.getByText("Données communes aux questions 1 à 3")).toBeVisible();
+    await expect(page.getByText("Mitochondrie et chaîne respiratoire")).toBeVisible();
     await expect(page.getByAltText("Schéma d’une mitochondrie montrant les membranes externe et interne, le complexe TOM, les complexes respiratoires I à IV, l’ubiquinone, le cytochrome c et l’ATP synthase.")).toBeVisible();
 
     // Capture 1: Q1 desktop
@@ -76,7 +77,8 @@ test.describe.serial("Santé — Colle C09 Captures & Recette Visuelle", () => {
     await page.getByTestId("health-mock-exam-nav-22").click();
 
     // Q22 (Group 2: Une cellule, deux états fonctionnels QRM)
-    await expect(page.getByText("Données communes — Une cellule, deux états fonctionnels")).toBeVisible();
+    await expect(page.getByText("Données communes aux questions 22 à 24")).toBeVisible();
+    await expect(page.getByText("Une cellule, deux états fonctionnels")).toBeVisible();
     await expect(page.getByAltText("Deux panneaux montrant une cellule sécrétrice en interphase avec ses principaux compartiments et une cellule de même lignée en métaphase avec son fuseau mitotique.")).toBeVisible();
 
     // Capture 4: Q22 desktop

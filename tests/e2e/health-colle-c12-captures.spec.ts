@@ -49,7 +49,8 @@ test.describe.serial("Santé — Colle C12 Captures & Recette Visuelle", () => {
     await page.getByTestId("health-mock-exam-nav-13").click();
 
     // Q13 desktop (QRU)
-    await expect(page.getByText("Données communes — Molécule polyfonctionnelle et transformations")).toBeVisible();
+    await expect(page.getByText("Données communes aux questions 13 à 16")).toBeVisible();
+    await expect(page.getByText("Molécule polyfonctionnelle et transformations")).toBeVisible();
     await expect(page.getByAltText("Molécule polyfonctionnelle M portant un acide carboxylique, une cétone et une amine, accompagnée de plusieurs transformations simples entre alcool, aldéhyde, acide carboxylique et cétone.")).toBeVisible();
 
     // Capture 1: Q13 desktop
@@ -122,11 +123,17 @@ test.describe.serial("Santé — Colle C12 Captures & Recette Visuelle", () => {
     await page.getByTestId("health-mock-exam-nav-40").click();
 
     // Q40 desktop (QRM Group 2)
-    await expect(page.getByText("Données communes — Noyau et mitochondrie")).toBeVisible();
+    await expect(page.getByText("Données communes aux questions 40 à 43")).toBeVisible();
+    await expect(page.getByText("Noyau et mitochondrie")).toBeVisible();
     await expect(page.getByAltText("Schéma d’une cellule eucaryote montrant un noyau avec nucléole, pores, chromatine et lamines, ainsi qu’une mitochondrie à double membrane avec complexe TOM et ADN mitochondrial.")).toBeVisible();
 
     // Capture 8: Q40 desktop
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c12-q40-desktop.png") });
+
+    // Capture Q40 mobile 375 px
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.screenshot({ path: path.join(screenshotsTmpDir, "c12-q40-mobile-375.png") });
+    await page.setViewportSize({ width: 1280, height: 800 });
 
     // Q40 answer: A, B, C, D
     await page.getByTestId("health-mock-exam-choice-0").click();

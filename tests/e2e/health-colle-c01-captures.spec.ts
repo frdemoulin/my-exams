@@ -40,7 +40,8 @@ test.describe.serial("Santé — Colle C01 Captures & Recette Visuelle", () => {
     await page.setViewportSize({ width: 1280, height: 800 });
 
     // Capture 1: Q1 desktop (contexte partagé + nucléides)
-    await expect(page.getByText("Données communes — Isotopes du chlore")).toBeVisible();
+    await expect(page.getByText("Données communes aux questions 1 et 2")).toBeVisible();
+    await expect(page.getByTestId("shared-question-group-panel").getByText("Isotopes du chlore")).toBeVisible();
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c01-q01-desktop.png") });
 
     // Q1 answer A, C, D
@@ -63,7 +64,8 @@ test.describe.serial("Santé — Colle C01 Captures & Recette Visuelle", () => {
     await q17Tile.click();
 
     // Capture 2: Q17 avec badge + tuile QRPL
-    await expect(page.getByText("Données communes — Classification périodique")).toBeVisible();
+    await expect(page.getByText("Données communes aux questions 17 à 19")).toBeVisible();
+    await expect(page.getByText("Classification périodique", { exact: true })).toBeVisible();
     await expect(page.getByTestId("question-format-badge")).toContainText("QRPL");
     await expect(q17Tile).toContainText("QRPL");
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c01-q17-desktop.png") });
@@ -82,7 +84,8 @@ test.describe.serial("Santé — Colle C01 Captures & Recette Visuelle", () => {
 
     // Test de non-duplication du média pour Q19 :
     // Le titre et l'énoncé commun restent visibles, mais l'image du sharedMedia n'est pas rendue deux fois
-    await expect(page.getByText("Données communes — Classification périodique")).toBeVisible();
+    await expect(page.getByText("Données communes aux questions 17 à 19")).toBeVisible();
+    await expect(page.getByText("Classification périodique", { exact: true })).toBeVisible();
     await expect(page.getByText("La classification périodique simplifiée ci-dessous")).toBeVisible();
     
     // Vérification de la présence unique du SVG interactif QZONE (1 seul SVG/img de classification dans le DOM)

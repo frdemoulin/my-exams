@@ -40,7 +40,8 @@ test.describe.serial("Santé — Colle C02 Captures & Recette Visuelle", () => {
     await page.setViewportSize({ width: 1280, height: 800 });
 
     // Capture 1: Q1 desktop (contexte partagé D-glucose)
-    await expect(page.getByText("Données communes — Autour du D-glucose")).toBeVisible();
+    await expect(page.getByText("Données communes aux questions 1 à 3")).toBeVisible();
+    await expect(page.getByTestId("shared-question-group-panel").getByText("Autour du D-glucose")).toBeVisible();
     await expect(page.getByAltText("Comparaison des projections de Fischer du D-mannose, du D-glucose et du D-galactose, avec deux transformations du D-glucose conduisant aux produits A et B.")).toBeVisible();
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c02-q01-desktop.png") });
 
@@ -70,7 +71,8 @@ test.describe.serial("Santé — Colle C02 Captures & Recette Visuelle", () => {
     await q17Tile.click();
 
     // Capture 4: Q17 desktop
-    await expect(page.getByText("Données communes — Diholosides et pouvoir réducteur")).toBeVisible();
+    await expect(page.getByText("Données communes aux questions 17 à 19")).toBeVisible();
+    await expect(page.getByText("Diholosides et pouvoir réducteur")).toBeVisible();
     await expect(page.getByAltText("Représentations cycliques simplifiées du lactose et du saccharose montrant leurs deux résidus osidiques et leur liaison glycosidique.")).toBeVisible();
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c02-q17-desktop.png") });
 

@@ -52,7 +52,8 @@ test.describe.serial("Santé — Colle C05 Captures & Recette Visuelle", () => {
     await page.getByRole("button", { name: "Suivante" }).click();
 
     // Q11 (Group 1: Glycérophospholipide et phospholipases)
-    await expect(page.getByText("Données communes — Glycérophospholipide et phospholipases")).toBeVisible();
+    await expect(page.getByText("Données communes aux questions 11 à 14")).toBeVisible();
+    await expect(page.getByText("Glycérophospholipide et phospholipases")).toBeVisible();
     await expect(page.getByAltText("Schémas comparatifs d’un glycérophospholipide A et d’un triacylglycérol B, avec repérage sn-1, sn-2 et sn-3 du glycérol et une tête polaire X sur la molécule A.")).toBeVisible();
     
     // Capture 1: Q11 desktop
@@ -99,7 +100,8 @@ test.describe.serial("Santé — Colle C05 Captures & Recette Visuelle", () => {
     await page.getByTestId("health-mock-exam-nav-23").click();
 
     // Capture 5: Q23 desktop
-    await expect(page.getByText("Données communes — Trois architectures lipidiques")).toBeVisible();
+    await expect(page.getByText("Données communes aux questions 23 et 24")).toBeVisible();
+    await expect(page.getByText("Trois architectures lipidiques")).toBeVisible();
     await expect(page.getByAltText("Comparaison de trois structures lipidiques A, B et C représentant un glycérophospholipide, un céramide et un stérol, sans légende donnant leur nom.")).toBeVisible();
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c05-q23-desktop.png") });
 
