@@ -12,7 +12,7 @@ const appBaseUrl =
   process.env.E2E_BASE_URL ?? `http://localhost:${process.env.E2E_PORT ?? "3000"}`;
 
 const screenshotsTmpDir = path.join(process.cwd(), "tmp", "screenshots");
-const artifactsDir = "/Users/frdemoulin/.gemini/antigravity/brain/0fd9632c-605e-45de-a4db-cdd05f613f7a";
+const artifactsDir = "/Users/frdemoulin/.gemini/antigravity-ide/brain/9522d4a5-fc1d-4ad7-8456-62dacd1ceef6";
 
 test.describe.serial("Santé — Colle C11 Captures & Recette Visuelle", () => {
   test.use({ storageState: authFile });
@@ -61,7 +61,7 @@ test.describe.serial("Santé — Colle C11 Captures & Recette Visuelle", () => {
     // Q5 desktop
     await expect(page.getByText("Données communes aux questions 5 à 8")).toBeVisible();
     await expect(page.getByText("Lipides membranaires et médiateurs")).toBeVisible();
-    await expect(page.getByAltText("Schéma intégratif montrant deux acides gras notés L et A, un glycérophospholipide P portant A en sn-2, une structure de céramide C et une structure de cholestérol S accompagnée de sa forme estérifiée.")).toBeVisible();
+    await expect(page.locator("img[src*='lipid-integration-linked']")).toBeVisible();
 
     // Capture 1: Q5 desktop
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c11-q05-desktop.png") });
@@ -72,7 +72,7 @@ test.describe.serial("Santé — Colle C11 Captures & Recette Visuelle", () => {
     await page.getByRole("button", { name: "Suivante" }).click();
 
     // Q6 desktop (QROC)
-    await expect(page.getByText("Quel est le nom générique de la classe lipidique à laquelle appartient la molécule P, hydrolysée en position sn-2 par la phospholipase A2 ?")).toBeVisible();
+    await expect(page.getByText("Quel est le nom générique de la classe lipidique")).toBeVisible();
     
     // Capture 2: Q6 desktop
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c11-q06-desktop.png") });
@@ -111,8 +111,8 @@ test.describe.serial("Santé — Colle C11 Captures & Recette Visuelle", () => {
 
     // Q26 (Group 2 QRM)
     await expect(page.getByText("Données communes aux questions 26 à 29")).toBeVisible();
-    await expect(page.getByText("Cinétique enzymatique expérimentale")).toBeVisible();
-    await expect(page.getByAltText("Étude de cinétique enzymatique avec une courbe d’absorbance en fonction du temps et plusieurs droites de Lineweaver-Burk obtenues avec ou sans inhibiteurs.")).toBeVisible();
+    await expect(page.getByText("Cinétique et régulation enzymatiques")).toBeVisible();
+    await expect(page.locator("img[src*='enzyme-kinetics-linked']")).toBeVisible();
 
     // Capture 5: Q26 desktop
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c11-q26-desktop.png") });
@@ -151,7 +151,7 @@ test.describe.serial("Santé — Colle C11 Captures & Recette Visuelle", () => {
     await page.getByRole("button", { name: "Suivante" }).click();
 
     // Q29 (QZONE) avant selection
-    await expect(page.getByText("Sur le panneau B, sélectionnez sur l’axe des abscisses l’intersection de la droite Témoin correspondant à −1/Km.")).toBeVisible();
+    await expect(page.getByText("Sur le panneau B, sélectionnez sur l’axe des abscisses l’intersection")).toBeVisible();
 
     // Non-duplication test on Q29:
     const enzymeKineticsImages = page.locator("img[src*='enzyme-kinetics-linked-q26-q29.svg']");

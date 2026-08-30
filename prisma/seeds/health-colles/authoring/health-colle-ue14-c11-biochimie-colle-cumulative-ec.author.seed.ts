@@ -86,7 +86,7 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Le caractère réducteur dépend de la disponibilité d’un carbone anomérique, pas de la simple présence d’une liaison osidique.",
       },
       {
-        content: "Le pouvoir réducteur impose une liaison β(1→4).",
+        content: "Le pouvoir réducteur impose une liaison $\beta(1\rightarrow 4)$.",
         correct: false,
         explanation: "Plusieurs architectures de liaison sont compatibles avec un carbone anomérique libre.",
       },
@@ -102,9 +102,9 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C11', 'ec:BIOCHIMIE', 'theme:polyosides-gag'],
     choices: [
       {
-        content: "Le glycogène contient principalement des liaisons α(1→4) et des branchements α(1→6).",
+        content: "Le glycogène contient principalement des liaisons $\alpha(1\rightarrow 4)$ et des branchements $\alpha(1\rightarrow 6)$.",
         correct: true,
-        explanation: "Les liaisons α(1→4) forment les chaînes et les liaisons α(1→6) les points de branchement.",
+        explanation: "Les liaisons $\alpha(1\rightarrow 4)$ forment les chaînes et les liaisons $\alpha(1\rightarrow 6)$ les points de branchement.",
       },
       {
         content: "L’héparine appartient aux glycosaminoglycanes et possède une activité anticoagulante.",
@@ -112,9 +112,9 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Elle potentialise notamment l’action de l’antithrombine.",
       },
       {
-        content: "Le glycogène est un polymère linéaire de glucose exclusivement relié en β(1→4).",
+        content: "Le glycogène est un polymère linéaire de glucose exclusivement relié en $\beta(1\rightarrow 4)$.",
         correct: false,
-        explanation: "Cette description ne correspond pas au glycogène, qui est ramifié et utilise des liaisons α.",
+        explanation: "Cette description ne correspond pas au glycogène, qui est ramifié et utilise des liaisons $\alpha$.",
       },
       {
         content: "Un protéoglycane est constitué uniquement d’une chaîne polypeptidique sans fraction glucidique.",
@@ -133,23 +133,23 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     difficulty: 'MEDIUM',
     format: 'QRM',
     question: "À partir des acides gras L et A et des voies lipidiques de l’EC, quelles propositions sont exactes ?",
-    explanation: "Pour un acide gras de la série n, la position est repérée depuis l’extrémité méthyle. L’acide linoléique 18:2 Δ9,12 appartient à la série n-6 et fait partie des acides gras indispensables. L’acide α-linolénique appartient à la série n-3. L’acide arachidonique A peut servir de précurseur à des eicosanoïdes : les leucotriènes relèvent notamment des lipoxygénases, et ces médiateurs sont généralement synthétisés à la demande.",
+    explanation: "Pour un acide gras de la série n, la position est repérée depuis l’extrémité méthyle. L’acide linoléique 18:2 $\Delta^{9,12}$ appartient à la série $\mathrm{n{-}6}$ et fait partie des acides gras indispensables. L’acide $\alpha$-linolénique appartient à la série $\mathrm{n{-}3}$. L’acide arachidonique A peut servir de précurseur à des eicosanoïdes : les leucotriènes relèvent notamment des lipoxygénases, et ces médiateurs sont généralement synthétisés à la demande.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C11', 'ec:BIOCHIMIE', 'theme:acides-gras-eicosanoides'],
     choices: [
       {
-        content: "La série n-6 se détermine en comptant la position de la première double liaison depuis l’extrémité méthyle.",
+        content: "La série $\mathrm{n{-}6}$ se détermine en comptant la position de la première double liaison depuis l’extrémité méthyle.",
         correct: true,
         explanation: "La nomenclature oméga part du carbone méthyle terminal.",
       },
       {
-        content: "L correspond à l’acide linoléique, un acide gras indispensable de la série n-6.",
+        content: "L correspond à l’acide linoléique, un acide gras indispensable de la série $\mathrm{n{-}6}$.",
         correct: true,
         explanation: "L’Homme ne peut pas introduire de novo certaines doubles liaisons nécessaires à sa synthèse.",
       },
       {
-        content: "L correspond à l’acide α-linolénique de la série n-3.",
+        content: "L correspond à l’acide $\alpha$-linolénique de la série $\mathrm{n{-}3}$.",
         correct: false,
-        explanation: "L’acide α-linolénique appartient à la série n-3.",
+        explanation: "L’acide $\alpha$-linolénique appartient à la série $\mathrm{n{-}3}$.",
       },
       {
         content: "Les leucotriènes dérivent principalement de l’action des cyclo-oxygénases sur A.",
@@ -167,8 +167,8 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     order: 6,
     difficulty: 'MEDIUM',
     format: 'QROC',
-    question: "Quel est le nom générique de la classe lipidique à laquelle appartient la molécule P, hydrolysée en position sn-2 par la phospholipase A2 ?",
-    explanation: "P est un glycérophospholipide : son squelette glycérol porte deux chaînes acyles et un phosphate. La phospholipase A2 hydrolyse la liaison ester en sn-2 et peut ainsi libérer un acide gras tel que l’acide arachidonique.",
+    question: "Quel est le nom générique de la classe lipidique à laquelle appartient la molécule P, hydrolysée en position $\mathrm{sn{-}2}$ par la phospholipase $\mathrm{A_2}$ ?",
+    explanation: "P est un glycérophospholipide : son squelette glycérol porte deux chaînes acyles et un phosphate. La phospholipase $\mathrm{A_2}$ hydrolyse la liaison ester en $\mathrm{sn{-}2}$ et peut ainsi libérer un acide gras tel que l’acide arachidonique.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C11', 'ec:BIOCHIMIE', 'theme:phospholipases'],
     answer: {
       type: 'text',
@@ -272,7 +272,7 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         content: "La mutarotation traduit l’interconversion des anomères en solution.",
         correct: true,
-        explanation: "Le passage transitoire par la forme ouverte permet l’interconversion α ↔ β.",
+        explanation: "Le passage transitoire par la forme ouverte permet l’interconversion $\alpha \leftrightarrow \beta$.",
       },
       {
         content: "Le saccharose est non réducteur car ses deux carbones anomériques sont engagés.",
@@ -282,7 +282,7 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         content: "Le glycogène est généralement plus ramifié que l’amylopectine.",
         correct: true,
-        explanation: "Ses points de branchement α(1→6) sont globalement plus fréquents.",
+        explanation: "Ses points de branchement $\alpha(1\rightarrow 6)$ sont globalement plus fréquents.",
       },
       {
         content: "Une double liaison cis tend à introduire un coude dans une chaîne d’acide gras.",
@@ -300,14 +300,14 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Ils sont épimères en C4.",
       },
       {
-        content: "La cellulose est constituée de glucose relié principalement en α(1→4).",
+        content: "La cellulose est constituée de glucose relié principalement en $\alpha(1\rightarrow 4)$.",
         correct: false,
-        explanation: "La cellulose comporte des liaisons β(1→4).",
+        explanation: "La cellulose comporte des liaisons $\beta(1\rightarrow 4)$.",
       },
       {
-        content: "La phospholipase A2 coupe la liaison entre le phosphate et la tête polaire.",
+        content: "La phospholipase $\mathrm{A_2}$ coupe la liaison entre le phosphate et la tête polaire.",
         correct: false,
-        explanation: "Elle hydrolyse la liaison ester de l’acide gras en sn-2.",
+        explanation: "Elle hydrolyse la liaison ester de l’acide gras en $\mathrm{sn{-}2}$.",
       },
       {
         content: "Un céramide est composé de glycérol et de trois acides gras.",
@@ -326,31 +326,31 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     difficulty: 'EASY',
     format: 'QRM',
     question: "À propos de la structure des acides aminés et des protéines, quelles propositions sont exactes ?",
-    explanation: "Les acides aminés protéinogènes partagent une structure α commune, à l’exception de particularités comme la glycine achirale et la proline cyclique.",
+    explanation: "Les acides aminés protéinogènes partagent une structure $\alpha$ commune, à l’exception de particularités comme la glycine achirale et la proline cyclique.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C11', 'ec:BIOCHIMIE', 'theme:aa-structure'],
     choices: [
       {
-        content: "La glycine est achirale car son carbone α porte deux hydrogènes.",
+        content: "La glycine est achirale car son carbone $\alpha$ porte deux hydrogènes.",
         correct: true,
-        explanation: "Le carbone α ne possède donc pas quatre substituants différents.",
+        explanation: "Le carbone $\alpha$ ne possède donc pas quatre substituants différents.",
       },
       {
-        content: "La proline possède une chaîne latérale cyclisée sur l’azote α.",
+        content: "La proline possède une chaîne latérale cyclisée sur l’azote $\alpha$.",
         correct: true,
         explanation: "Cette structure réduit la flexibilité locale de la chaîne polypeptidique.",
       },
       {
-        content: "Le point isoélectrique correspond au pH où la charge nette moyenne de l’espèce est nulle.",
+        content: "Le point isoélectrique correspond au $\mathrm{pH}$ où la charge nette moyenne de l’espèce est nulle.",
         correct: true,
         explanation: "Des charges positives et négatives internes peuvent cependant rester présentes.",
       },
       {
-        content: "Tous les acides aminés protéinogènes ont un carbone α asymétrique.",
+        content: "Tous les acides aminés protéinogènes ont un carbone $\alpha$ asymétrique.",
         correct: false,
         explanation: "La glycine est l’exception classique.",
       },
       {
-        content: "À pH physiologique, un acide aminé libre ne peut porter simultanément une charge positive et une charge négative.",
+        content: "À $\mathrm{pH}$ physiologique, un acide aminé libre ne peut porter simultanément une charge positive et une charge négative.",
         correct: false,
         explanation: "De nombreux acides aminés libres sont majoritairement zwitterioniques.",
       },
@@ -380,13 +380,13 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     difficulty: 'HARD',
     format: 'QRU',
     question: "Quelle proposition décrit correctement la liaison peptidique ?",
-    explanation: "La délocalisation électronique entre l’azote et le carbonyle confère à la liaison C–N peptidique un caractère partiel de double liaison, limitant sa rotation.",
+    explanation: "La délocalisation électronique entre l’azote et le carbonyle confère à la liaison $\mathrm{C{-}N}$ peptidique un caractère partiel de double liaison, limitant sa rotation.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C11', 'ec:BIOCHIMIE', 'theme:liaison-peptidique'],
     choices: [
       {
         content: "Elle possède une rotation totalement libre comparable à une liaison C–C simple.",
         correct: false,
-        explanation: "La mésomérie limite fortement la rotation autour de C–N.",
+        explanation: "La mésomérie limite fortement la rotation autour de $\mathrm{C{-}N}$.",
       },
       {
         content: "Elle ne contient jamais d’atome d’azote.",
@@ -401,10 +401,10 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         content: "Elle correspond à un pont disulfure entre deux cystéines.",
         correct: false,
-        explanation: "Un pont disulfure est une liaison covalente S–S distincte.",
+        explanation: "Un pont disulfure est une liaison covalente $\mathrm{S{-}S}$ distincte.",
       },
       {
-        content: "Elle est rompue spontanément et instantanément dans l’eau à pH neutre.",
+        content: "Elle est rompue spontanément et instantanément dans l’eau à $\mathrm{pH}$ neutre.",
         correct: false,
         explanation: "Son hydrolyse non catalysée est lente dans les conditions physiologiques.",
       },
@@ -416,23 +416,23 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     format: 'QRP',
     requiredSelectionCount: 2,
     question: "Sélectionnez exactement les deux propositions correctes concernant les structures secondaires des protéines.",
-    explanation: "L’hélice α et le feuillet β reposent principalement sur des liaisons hydrogène du squelette peptidique. La proline tend à perturber une hélice α lorsqu’elle est placée en position interne.",
+    explanation: "L’hélice $\alpha$ et le feuillet $\beta$ reposent principalement sur des liaisons hydrogène du squelette peptidique. La proline tend à perturber une hélice $\alpha$ lorsqu’elle est placée en position interne.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C11', 'ec:BIOCHIMIE', 'theme:structures-secondaires'],
     choices: [
       {
-        content: "Dans une hélice α, une liaison hydrogène relie classiquement C=O(i) à N–H(i+4).",
+        content: "Dans une hélice $\alpha$, une liaison hydrogène relie classiquement $\mathrm{C=O}(i)$ à $\mathrm{N{-}H}(i+4)$.",
         correct: true,
         explanation: "Ce motif répétitif stabilise l’hélice.",
       },
       {
-        content: "Les feuillets β peuvent être parallèles ou antiparallèles.",
+        content: "Les feuillets $\beta$ peuvent être parallèles ou antiparallèles.",
         correct: true,
         explanation: "Les deux organisations existent dans les protéines.",
       },
       {
-        content: "La proline interne stabilise toujours une hélice α longue et régulière.",
+        content: "La proline interne stabilise toujours une hélice $\alpha$ longue et régulière.",
         correct: false,
-        explanation: "Sa rigidité et l’absence d’un N–H peptidique classique tendent à perturber l’hélice.",
+        explanation: "Sa rigidité et l’absence d’un $\mathrm{N{-}H}$ peptidique classique tendent à perturber l’hélice.",
       },
       {
         content: "Une structure secondaire est définie uniquement par des ponts disulfure entre cystéines.",
@@ -440,7 +440,7 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Les liaisons hydrogène du squelette constituent l’élément majeur des hélices et feuillets.",
       },
       {
-        content: "Un feuillet β est nécessairement constitué d’une seule chaîne polypeptidique continue.",
+        content: "Un feuillet $\beta$ est nécessairement constitué d’une seule chaîne polypeptidique continue.",
         correct: false,
         explanation: "Il peut associer des segments éloignés d’une même chaîne ou appartenant à des chaînes différentes.",
       },
@@ -485,8 +485,8 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     order: 15,
     difficulty: 'MEDIUM',
     format: 'QROC',
-    question: "Quelle mutation classique de la chaîne β de l’hémoglobine est associée à l’HbS dans la drépanocytose ? Répondez sous la forme « acide aminé → acide aminé ».",
-    explanation: "L’HbS comporte classiquement une substitution Glu6Val sur la chaîne β : un glutamate est remplacé par une valine en position 6.",
+    question: "Quelle mutation classique de la chaîne $\beta$ de l’hémoglobine est associée à l’HbS dans la drépanocytose ? Répondez sous la forme « acide aminé → acide aminé ».",
+    explanation: "L’HbS comporte classiquement une substitution Glu6Val sur la chaîne $\beta$ : un glutamate est remplacé par une valine en position 6.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C11', 'ec:BIOCHIMIE', 'theme:hemoglobine-hbs'],
     answer: {
       type: 'text',
@@ -526,7 +526,7 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         content: "Elle possède deux chaînes lourdes et deux chaînes légères reliées notamment par des ponts disulfure.",
         correct: true,
-        explanation: "C’est l’organisation H2L2 caractéristique de l’IgG monomérique.",
+        explanation: "C’est l’organisation $\mathrm{H_2L_2}$ caractéristique de l’IgG monomérique.",
       },
       {
         content: "Elle appartient aux glycosaminoglycanes de la matrice extracellulaire.",
@@ -565,9 +565,9 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "La myosine II est un moteur moléculaire associé à l’actine.",
       },
       {
-        content: "Hémoglobine A — homotétramère β4 chez l’adulte sain.",
+        content: "Hémoglobine A — homotétramère $\beta_4$ chez l’adulte sain.",
         correct: false,
-        explanation: "L’HbA principale est α2β2.",
+        explanation: "L’HbA principale est $\alpha_2\beta_2$.",
       },
     ],
   },
@@ -583,7 +583,7 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         content: "Une liaison peptidique possède un caractère partiel de double liaison.",
         correct: true,
-        explanation: "La mésomérie C–N explique sa planéité et la rotation limitée.",
+        explanation: "La mésomérie $\mathrm{C{-}N}$ explique sa planéité et la rotation limitée.",
       },
       {
         content: "La proinsuline est maturée par clivage avec libération du peptide C.",
@@ -591,27 +591,27 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "L’insuline mature conserve les chaînes A et B reliées par des ponts disulfure.",
       },
       {
-        content: "Le récepteur de l’insuline possède une activité tyrosine kinase portée par ses chaînes β.",
+        content: "Le récepteur de l’insuline possède une activité tyrosine kinase portée par ses chaînes $\beta$.",
         correct: true,
-        explanation: "Les domaines cytoplasmiques des chaînes β portent l’activité kinase.",
+        explanation: "Les domaines cytoplasmiques des chaînes $\beta$ portent l’activité kinase.",
       },
       {
-        content: "Le fer fonctionnel de l’hème doit être à l’état Fe2+ pour lier réversiblement O2.",
+        content: "Le fer fonctionnel de l’hème doit être à l’état $\ce{Fe^2+}$ pour lier réversiblement $\ce{O2}$.",
         correct: true,
-        explanation: "L’oxydation en Fe3+ produit de la méthémoglobine, incapable de fixer normalement O2.",
+        explanation: "L’oxydation en $\ce{Fe^3+}$ produit de la méthémoglobine, incapable de fixer normalement $\ce{O2}$.",
       },
       {
-        content: "Les intégrines sont des hétérodimères α/β transmembranaires impliqués dans l’adhérence.",
+        content: "Les intégrines sont des hétérodimères $\alpha/\beta$ transmembranaires impliqués dans l’adhérence.",
         correct: true,
         explanation: "Elles relient notamment la matrice extracellulaire à des complexes intracellulaires associés au cytosquelette.",
       },
       {
         content: "La glycine possède deux centres stéréogènes.",
         correct: false,
-        explanation: "Elle est achirale au carbone α.",
+        explanation: "Elle est achirale au carbone $\alpha$.",
       },
       {
-        content: "Une hélice α est stabilisée principalement par des ponts disulfure répétés entre résidus successifs.",
+        content: "Une hélice $\alpha$ est stabilisée principalement par des ponts disulfure répétés entre résidus successifs.",
         correct: false,
         explanation: "Sa stabilisation repose surtout sur les liaisons hydrogène du squelette.",
       },
@@ -656,7 +656,7 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Lorsque le cofacteur est requis, l’holoenzyme correspond à l’apoenzyme associée à ce cofacteur.",
       },
       {
-        content: "Une enzyme modifie la constante d’équilibre Keq afin de rendre une réaction spontanée.",
+        content: "Une enzyme modifie la constante d’équilibre $K_{\\mathrm{eq}}$ afin de rendre une réaction spontanée.",
         correct: false,
         explanation: "Elle modifie la cinétique, pas l’équilibre thermodynamique.",
       },
@@ -671,8 +671,8 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     order: 20,
     difficulty: 'MEDIUM',
     format: 'QROC',
-    question: "Pour une enzyme suivant le modèle de Michaelis-Menten, quelle fraction de Vmax vaut v0 lorsque [S] = Km ? Donnez uniquement la valeur numérique.",
-    explanation: "En remplaçant [S] par Km dans v0 = Vmax[S]/(Km+[S]), on obtient v0 = Vmax/2.",
+    question: "Pour une enzyme suivant le modèle de Michaelis-Menten, quelle fraction de $V_{\max}$ vaut $v_0$ lorsque $[\mathrm{S}] = K_{\mathrm{m}}$ ? Donnez uniquement la valeur numérique.",
+    explanation: "En remplaçant [S] par Km dans $v_0 = V_{\max}[\mathrm{S}]/(K_{\mathrm{m}}+[\mathrm{S}])$, on obtient $v_0 = V_{\max}/2$.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C11', 'ec:BIOCHIMIE', 'theme:michaelis-menten'],
     answer: {
       type: 'number',
@@ -685,18 +685,18 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     difficulty: 'MEDIUM',
     format: 'QRU',
     question: "Quelle proposition décrit correctement l’action d’une enzyme sur une réaction chimique ?",
-    explanation: "Une enzyme accélère l’approche de l’équilibre en abaissant l’énergie libre d’activation ΔG‡, sans modifier ΔG° ni Keq.",
+    explanation: "Une enzyme accélère l’approche de l’équilibre en abaissant l’énergie libre d’activation $\Delta G^\ddagger$, sans modifier $\Delta G^\circ$ ni $K_{\mathrm{eq}}$.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C11', 'ec:BIOCHIMIE', 'theme:catalyse-thermodynamique'],
     choices: [
       {
-        content: "Elle rend toujours ΔG° plus négatif.",
+        content: "Elle rend toujours $\Delta G^\circ$ plus négatif.",
         correct: false,
-        explanation: "ΔG° est une grandeur thermodynamique indépendante de la présence du catalyseur.",
+        explanation: "$\Delta G^\circ$ est une grandeur thermodynamique indépendante de la présence du catalyseur.",
       },
       {
         content: "Elle déplace obligatoirement l’équilibre vers les produits.",
         correct: false,
-        explanation: "Keq n’est pas modifiée par le catalyseur.",
+        explanation: "$K_{\mathrm{eq}}$ n’est pas modifiée par le catalyseur.",
       },
       {
         content: "Elle est consommée stœchiométriquement à chaque cycle catalytique.",
@@ -772,33 +772,33 @@ Données : $${texQuantity(1, U.ENZYME_UNIT)} = ${texQuantity(1, U.MICROMOL_PER_M
     difficulty: 'MEDIUM',
     format: 'QRU',
     question: "Quel effet cinétique caractérise une inhibition compétitive pure dans le modèle de Michaelis-Menten ?",
-    explanation: "Un inhibiteur compétitif pur augmente le Km apparent sans modifier Vmax, car un excès de substrat peut surmonter la compétition au site actif.",
+    explanation: "Un inhibiteur compétitif pur augmente le $K_{\mathrm{m}}$ apparent sans modifier $V_{\max}$, car un excès de substrat peut surmonter la compétition au site actif.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C11', 'ec:BIOCHIMIE', 'theme:inhibition-competitive'],
     choices: [
       {
-        content: "Km diminue et Vmax diminue dans la même proportion.",
+        content: "$K_{\mathrm{m}}$ diminue et $V_{\max}$ diminue dans la même proportion.",
         correct: false,
         explanation: "Ce motif correspond à une inhibition incompétitive idéale.",
       },
       {
-        content: "Km apparent augmente et Vmax reste inchangée.",
+        content: "$K_{\mathrm{m}}$ apparent augmente et $V_{\max}$ reste inchangée.",
         correct: true,
         explanation: "C’est le comportement attendu d’une inhibition compétitive pure.",
       },
       {
-        content: "Km reste inchangé et Vmax augmente.",
+        content: "$K_{\mathrm{m}}$ reste inchangé et $V_{\max}$ augmente.",
         correct: false,
         explanation: "Ce n’est pas le comportement d’une inhibition compétitive.",
       },
       {
-        content: "Km et Vmax deviennent tous deux nuls.",
+        content: "$K_{\mathrm{m}}$ et $V_{\max}$ deviennent tous deux nuls.",
         correct: false,
         explanation: "Une inhibition réversible ne conduit pas à cette situation générale.",
       },
       {
-        content: "Km n’a plus d’unité et devient un temps caractéristique.",
+        content: "$K_{\mathrm{m}}$ n’a plus d’unité et devient un temps caractéristique.",
         correct: false,
-        explanation: "Km conserve l’unité d’une concentration.",
+        explanation: "$K_{\mathrm{m}}$ conserve l’unité d’une concentration.",
       },
     ],
   },
@@ -826,9 +826,9 @@ Données : $${texQuantity(1, U.ENZYME_UNIT)} = ${texQuantity(1, U.MICROMOL_PER_M
         explanation: "L’activité spécifique rapporte typiquement une activité à une masse de protéines, par exemple en U/mg.",
       },
       {
-        content: "Km s’exprime nécessairement en secondes.",
+        content: "$K_{\mathrm{m}}$ s’exprime nécessairement en secondes.",
         correct: false,
-        explanation: "Km possède l’unité d’une concentration.",
+        explanation: "$K_{\mathrm{m}}$ possède l’unité d’une concentration.",
       },
       {
         content: "La vitesse initiale doit être mesurée seulement après épuisement complet du substrat.",
@@ -842,33 +842,33 @@ Données : $${texQuantity(1, U.ENZYME_UNIT)} = ${texQuantity(1, U.MICROMOL_PER_M
     difficulty: 'MEDIUM',
     format: 'QRM',
     question: "À propos du modèle de Michaelis-Menten et de la représentation du panneau B, quelles propositions sont exactes ?",
-    explanation: "Pour une enzyme michaelienne simple, v0 = Vmax[S]/(Km + [S]), donc v0 = Vmax/2 lorsque [S] = Km. La linéarisation de Lineweaver-Burk donne une ordonnée à l’origine 1/Vmax, une abscisse à l’origine −1/Km et une pente Km/Vmax. À saturation, la vitesse tend vers Vmax, avec Vmax = kcat[E]t.",
+    explanation: "Pour une enzyme michaelienne simple, $v_0 = V_{\max}[\mathrm{S}]/(K_{\mathrm{m}} + [\mathrm{S}])$, donc $v_0 = V_{\max}/2$ lorsque $[\mathrm{S}] = K_{\mathrm{m}}$. La linéarisation de Lineweaver-Burk donne une ordonnée à l’origine $1/V_{\max}$, une abscisse à l’origine $-1/K_{\mathrm{m}}$ et une pente $K_{\mathrm{m}}/V_{\max}$. À saturation, la vitesse tend vers $V_{\max}$, avec $V_{\max} = k_{\cat}[\mathrm{E}]_{\mathrm{t}}$.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C11', 'ec:BIOCHIMIE', 'theme:michaelis-lineweaver'],
     choices: [
       {
-        content: "À [S] = Km, v0 = Vmax/2.",
+        content: "À $[\mathrm{S}] = K_{\mathrm{m}}$, $v_0 = V_{\max}/2$.",
         correct: true,
         explanation: "C’est une conséquence directe de l’équation de Michaelis-Menten.",
       },
       {
-        content: "Sur Lineweaver-Burk, l’ordonnée à l’origine vaut 1/Vmax.",
+        content: "Sur Lineweaver-Burk, l’ordonnée à l’origine vaut $1/V_{\max}$.",
         correct: true,
-        explanation: "On l’obtient pour 1/[S] = 0.",
+        explanation: "On l’obtient pour $1/[\mathrm{S}] = 0$.",
       },
       {
-        content: "Sur Lineweaver-Burk, l’abscisse à l’origine vaut −1/Km.",
+        content: "Sur Lineweaver-Burk, l’abscisse à l’origine vaut $-1/K_{\mathrm{m}}$.",
         correct: true,
-        explanation: "La droite coupe l’axe des abscisses lorsque 1/v0 = 0.",
+        explanation: "La droite coupe l’axe des abscisses lorsque $1/v_0 = 0$.",
       },
       {
-        content: "Dans le modèle michaelien simple, Vmax = kcat[E]t.",
+        content: "Dans le modèle michaelien simple, $V_{\max} = k_{\cat}[\mathrm{E}]_{\mathrm{t}}$.",
         correct: true,
         explanation: "La vitesse maximale dépend directement de la concentration enzymatique totale.",
       },
       {
-        content: "À très forte concentration de substrat, v0 croît sans limite de façon proportionnelle à [S].",
+        content: "À très forte concentration de substrat, $v_0$ croît sans limite de façon proportionnelle à $[\mathrm{S}]$.",
         correct: false,
-        explanation: "L’enzyme se sature et v0 tend de façon asymptotique vers Vmax.",
+        explanation: "L’enzyme se sature et $v_0$ tend de façon asymptotique vers $V_{\max}$.",
       },
     ],
   },
@@ -877,23 +877,23 @@ Données : $${texQuantity(1, U.ENZYME_UNIT)} = ${texQuantity(1, U.MICROMOL_PER_M
     difficulty: 'MEDIUM',
     format: 'QRM',
     question: "Le panneau A correspond à un suivi spectrophotométrique de la réaction. Quelles propositions sont exactes ?",
-    explanation: "Dans le domaine de validité de Beer-Lambert, A = ε·l·c : à coefficient d’extinction et trajet optique constants, l’absorbance est proportionnelle à la concentration. La pente initiale d’un signal d’absorbance peut donc être convertie en variation de concentration par unité de temps. L’absorbance est sans dimension.",
+    explanation: "Dans le domaine de validité de Beer-Lambert, $A = \varepsilon \cdot l \cdot c$ : à coefficient d’extinction et trajet optique constants, l’absorbance $A$ est proportionnelle à la concentration. La pente initiale $dA/dt$ d’un signal d’absorbance peut donc être convertie en variation de concentration $dc/dt$ par unité de temps. L’absorbance $A$ est sans dimension.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C11', 'ec:BIOCHIMIE', 'theme:beer-lambert'],
     choices: [
       {
-        content: "La loi de Beer-Lambert s’écrit A = ε·l·c.",
+        content: "La loi de Beer-Lambert s’écrit $A = \varepsilon \cdot l \cdot c$.",
         correct: true,
-        explanation: "A est proportionnelle au coefficient d’extinction, au trajet optique et à la concentration.",
+        explanation: "$A$ est proportionnelle au coefficient d’extinction, au trajet optique et à la concentration.",
       },
       {
-        content: "À ε et l constants, si l’absorbance est divisée par deux, la concentration correspondante est divisée par deux.",
+        content: "À $\varepsilon$ et $l$ constants, si l’absorbance est divisée par deux, la concentration correspondante est divisée par deux.",
         correct: true,
-        explanation: "La relation entre A et c est strictement linéaire.",
+        explanation: "La relation entre $A$ et $c$ est strictement linéaire.",
       },
       {
         content: "Une vitesse enzymatique peut être déterminée à partir de la pente initiale d’absorbance si ε et l sont connus.",
         correct: true,
-        explanation: "La pente dA/dt permet de remonter à dc/dt en la divisant par ε·l.",
+        explanation: "La pente $dA/dt$ permet de remonter à $dc/dt$ en la divisant par $\varepsilon \cdot l$.",
       },
       {
         content: "L’absorbance est une grandeur sans dimension.",
@@ -912,33 +912,33 @@ Données : $${texQuantity(1, U.ENZYME_UNIT)} = ${texQuantity(1, U.MICROMOL_PER_M
     difficulty: 'HARD',
     format: 'QRM',
     question: "En comparant les droites X, Y et Z au témoin du panneau B, quelles propositions sont exactes ?",
-    explanation: "Sur Lineweaver-Burk, une inhibition compétitive pure conserve 1/Vmax mais déplace −1/Km vers 0. Une inhibition incompétitive pure produit une droite parallèle au témoin puisque Km et Vmax diminuent dans la même proportion. Une inhibition non compétitive pure conserve −1/Km mais augmente 1/Vmax. Dans une inhibition mixte, Vmax diminue et Km peut varier dans un sens ou dans l’autre.",
+    explanation: "Sur Lineweaver-Burk, une inhibition compétitive pure conserve $1/V_{\max}$ mais déplace $-1/K_{\mathrm{m}}$ vers 0. Une inhibition incompétitive pure produit une droite parallèle au témoin puisque $K_{\mathrm{m}}$ et $V_{\max}$ diminuent dans la même proportion. Une inhibition non compétitive pure conserve $-1/K_{\mathrm{m}}$ mais augmente $1/V_{\max}$. Dans une inhibition mixte, $V_{\max}$ diminue et $K_{\mathrm{m}}$ peut varier dans un sens ou dans l’autre.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C11', 'ec:BIOCHIMIE', 'theme:inhibitions-reversibles'],
     choices: [
       {
-        content: "Le tracé X est compatible avec une inhibition compétitive pure : Km apparent augmente tandis que Vmax reste inchangée.",
+        content: "Le tracé X est compatible avec une inhibition compétitive pure : $K_{\mathrm{m}}$ apparent augmente tandis que $V_{\max}$ reste inchangée.",
         correct: true,
         explanation: "L’effet de l’inhibiteur compétitif est surmontable à forte concentration de substrat.",
       },
       {
-        content: "Le tracé Y est compatible avec une inhibition incompétitive pure : Km et Vmax diminuent dans la même proportion.",
+        content: "Le tracé Y est compatible avec une inhibition incompétitive pure : $K_{\mathrm{m}}$ et $V_{\max}$ diminuent dans la même proportion.",
         correct: true,
         explanation: "Cette diminution proportionnelle produit des droites parallèles sur le graphe de Lineweaver-Burk.",
       },
       {
-        content: "Le tracé Z est compatible avec une inhibition non compétitive pure : Vmax diminue tandis que Km reste inchangé.",
+        content: "Le tracé Z est compatible avec une inhibition non compétitive pure : $V_{\max}$ diminue tandis que $K_{\mathrm{m}}$ reste inchangé.",
         correct: true,
-        explanation: "Le point d’intersection sur l’axe des abscisses −1/Km reste identique au témoin.",
+        explanation: "Le point d’intersection sur l’axe des abscisses $-1/K_{\mathrm{m}}$ reste identique au témoin.",
       },
       {
-        content: "Dans une inhibition mixte générale, Vmax diminue et Km peut augmenter ou diminuer selon les affinités relatives de l’inhibiteur.",
+        content: "Dans une inhibition mixte générale, $V_{\max}$ diminue et $K_{\mathrm{m}}$ peut augmenter ou diminuer selon les affinités relatives de l’inhibiteur.",
         correct: true,
-        explanation: "La variation de Km dépend des constantes d’association de l’inhibiteur pour E et pour ES.",
+        explanation: "La variation de $K_{\mathrm{m}}$ dépend des constantes d’association de l’inhibiteur pour $\mathrm{E}$ et pour $\mathrm{ES}$.",
       },
       {
-        content: "Une inhibition compétitive pure impose une diminution de Vmax jusqu’à zéro, quelle que soit la concentration de substrat.",
+        content: "Une inhibition compétitive pure impose une diminution de $V_{\max}$ jusqu’à zéro, quelle que soit la concentration de substrat.",
         correct: false,
-        explanation: "Dans une inhibition compétitive pure, Vmax n’est pas modifiée à saturation par le substrat.",
+        explanation: "Dans une inhibition compétitive pure, $V_{\max}$ n’est pas modifiée à saturation par le substrat.",
       },
     ],
   },
@@ -946,8 +946,8 @@ Données : $${texQuantity(1, U.ENZYME_UNIT)} = ${texQuantity(1, U.MICROMOL_PER_M
     order: 29,
     difficulty: 'MEDIUM',
     format: 'QZONE',
-    question: "Sur le panneau B, sélectionnez sur l’axe des abscisses l’intersection de la droite Témoin correspondant à −1/Km.",
-    explanation: "Dans une représentation de Lineweaver-Burk, l’équation peut s’écrire 1/v0 = (Km/Vmax)(1/[S]) + 1/Vmax. L’intersection de la droite avec l’axe des abscisses correspond donc à −1/Km. Ici, il fallait sélectionner celle de la droite Témoin.",
+    question: "Sur le panneau B, sélectionnez sur l’axe des abscisses l’intersection de la droite Témoin correspondant à $-1/K_{\mathrm{m}}$.",
+    explanation: "Dans une représentation de Lineweaver-Burk, l’équation peut s’écrire $1/v_0 = (K_{\mathrm{m}}/V_{\max})(1/[\mathrm{S}]) + 1/V_{\max}$. L’intersection de la droite avec l’axe des abscisses correspond donc à $-1/K_{\mathrm{m}}$. Ici, il fallait sélectionner celle de la droite Témoin.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C11', 'ec:BIOCHIMIE', 'theme:qzone-lineweaver-burk'],
     image: {
       src: '/images/training/ue14/colles/c11/enzyme-kinetics-linked-q26-q29.svg',
@@ -958,7 +958,7 @@ Données : $${texQuantity(1, U.ENZYME_UNIT)} = ${texQuantity(1, U.MICROMOL_PER_M
     expectedZones: [
       {
         id: 'target-temoin-x-intercept',
-        label: 'Intersection de la droite Témoin avec l’axe 1/[S] (−1/Km)',
+        label: 'Intersection de la droite Témoin avec l’axe $1/[\mathrm{S}]$ ($-1/K_{\mathrm{m}}$)',
         x: 0.6417,
         y: 0.6842,
         tolerance: 0.04,
@@ -980,24 +980,24 @@ Données : $${texQuantity(1, U.ENZYME_UNIT)} = ${texQuantity(1, U.MICROMOL_PER_M
         explanation: "Aucun carbone anomérique libre n’est disponible pour retrouver directement une forme carbonylée.",
       },
       {
-        content: "La phospholipase A2 peut libérer un acide gras en position sn-2 d’un glycérophospholipide.",
+        content: "La phospholipase $\mathrm{A_2}$ peut libérer un acide gras en position $\mathrm{sn{-}2}$ d’un glycérophospholipide.",
         correct: true,
         explanation: "Cette position peut notamment porter de l’acide arachidonique.",
       },
       {
-        content: "Une enzyme accélère l’approche de l’équilibre sans modifier Keq.",
+        content: "Une enzyme accélère l’approche de l’équilibre sans modifier $K_{\mathrm{eq}}$.",
         correct: true,
         explanation: "Elle abaisse l’énergie d’activation des réactions directe et inverse.",
       },
       {
-        content: "L’HbA adulte principale est constituée de quatre chaînes β.",
+        content: "L’HbA adulte principale est constituée de quatre chaînes $\beta$.",
         correct: false,
-        explanation: "La forme principale est α2β2.",
+        explanation: "La forme principale est $\alpha_2\beta_2$.",
       },
       {
-        content: "À très forte [S], une enzyme michaelienne non inhibée produit une vitesse qui dépasse indéfiniment Vmax.",
+        content: "À très forte $[\mathrm{S}]$, une enzyme michaelienne non inhibée produit une vitesse qui dépasse indéfiniment $V_{\max}$.",
         correct: false,
-        explanation: "La saturation conduit vers une asymptote Vmax.",
+        explanation: "La saturation conduit vers une asymptote $V_{\max}$.",
       },
     ],
   },
