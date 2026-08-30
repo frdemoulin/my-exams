@@ -4,14 +4,12 @@ if (typeof window !== 'undefined') {
   throw new Error('This module cannot be imported in the browser.');
 }
 
-const DEFAULT_FALLBACK_SECRET = 'my-exams-internal-watermark-secret-key-2026';
-
 function getWatermarkSecret(): string {
   const secret = process.env.WATERMARK_SECRET;
   if (secret && secret.trim().length > 0) {
     return secret.trim();
   }
-  return DEFAULT_FALLBACK_SECRET;
+  throw new Error('WATERMARK_SECRET is required');
 }
 
 export type GenerateWatermarkInput = {
@@ -22,6 +20,7 @@ export type GenerateWatermarkInput = {
 /**
  * Génère un code de filigrane court, opaque et pseudonymisé via HMAC-SHA256.
  * Ne divulgue jamais l'identifiant utilisateur ni le secret côté client.
+ * Utilise exclusivement WATERMARK_SECRET de manière stricte.
  *
  * @returns Code court au format "SESSION <8_HEX>"
  */
