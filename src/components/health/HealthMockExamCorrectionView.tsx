@@ -19,6 +19,7 @@ import {
   type QuestionNavigatorCorrectionItem,
   type CorrectionQuestionState,
 } from "@/components/health/HealthQuestionNavigator";
+import { HealthEvaluationColorLegend } from "@/components/health/HealthEvaluationColorLegend";
 import { QuestionFormatBadge } from "@/components/training/question-format-badge";
 import { TrainingChoiceContentView } from "@/components/training/training-choice-content-view";
 import { TrainingQuestionContentView } from "@/components/training/training-question-content-view";
@@ -205,6 +206,8 @@ export function HealthMockExamCorrectionView({
             Plein crédit ({fullCreditQuestions.length})
           </Button>
         </div>
+
+        <HealthEvaluationColorLegend />
       </div>
 
       {/* Question by question navigation bar */}

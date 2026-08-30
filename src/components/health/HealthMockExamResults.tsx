@@ -23,6 +23,8 @@ import type {
 } from "@/core/health-mock-exam/health-mock-exam.types";
 import { cn } from "@/lib/utils";
 
+import { HealthEvaluationColorLegend } from "@/components/health/HealthEvaluationColorLegend";
+
 type HealthMockExamResultsProps = {
   result: HealthMockExamResults;
   restartHref: string;
@@ -56,35 +58,10 @@ function formatScore(score: number, forceTwoDecimalsForFractions = true): string
   return fixed.endsWith("0") ? fixed.slice(0, -1) : fixed;
 }
 
-function getFeedbackMessage(percentage: number) {
-  if (percentage >= 80) {
-    return {
-      title: "Excellent travail !",
-      message:
-        "Vous maîtrisez très bien les notions évaluées dans cette épreuve. Vos résultats sont solides.",
-      toneClassName:
-        "border-emerald-300/70 bg-emerald-500/10 text-emerald-950 dark:border-emerald-800 dark:bg-emerald-950/30 dark:text-emerald-100",
-      progressClassName: "bg-emerald-600 dark:bg-emerald-500",
-    };
-  }
-  if (percentage >= 60) {
-    return {
-      title: "Bonne performance !",
-      message:
-        "Vous avez de solides bases sur ce programme. Quelques précisions sont à consolider sur la correction.",
-      toneClassName:
-        "border-brand/30 bg-brand-soft/15 text-heading dark:border-brand/40 dark:bg-brand-soft/20",
-      progressClassName: "bg-brand",
-    };
-  }
-  return {
-    title: "Points à consolider",
-    message:
-      "Cette épreuve a mis en évidence des notions clés à revoir. Analysez la correction détaillée pour progresser.",
-    toneClassName:
-      "border-amber-300/80 bg-amber-500/10 text-amber-950 dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-100",
-    progressClassName: "bg-amber-600 dark:bg-amber-500",
-  };
+function getProgressBarColor(percentage: number): string {
+  if (percentage >= 80) return "bg-emerald-600 dark:bg-emerald-500";
+  if (percentage >= 60) return "bg-brand";
+  return "bg-amber-600 dark:bg-amber-500";
 }
 
 export function HealthMockExamResults({
@@ -94,7 +71,7 @@ export function HealthMockExamResults({
   headingLabel = "BILAN DE LA COLLE",
   restartLabel = "Recommencer la colle",
 }: HealthMockExamResultsProps) {
-  const feedback = useMemo(() => getFeedbackMessage(result.percentage), [result.percentage]);
+  const progressBarColor = useMemo(() => getProgressBarColor(result.percentage), [result.percentage]);
 
   const fullCreditCount = useMemo(
     () =>
@@ -214,7 +191,7 @@ export function HealthMockExamResults({
           </div>
         </CardHeader>
 
-        <CardContent className="space-y-4">
+        <CardContent className="pb-6">
           <div className="space-y-2">
             <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wide text-muted-foreground">
               <span>Score global</span>
@@ -222,15 +199,10 @@ export function HealthMockExamResults({
             </div>
             <div className="h-2.5 w-full overflow-hidden rounded-full bg-neutral-secondary-soft dark:bg-neutral-800">
               <div
-                className={cn("h-full transition-all duration-500", feedback.progressClassName)}
+                className={cn("h-full transition-all duration-500", progressBarColor)}
                 style={{ width: `${Math.min(100, Math.max(0, result.percentage))}%` }}
               />
             </div>
-          </div>
-
-          <div className={cn("rounded-xl border p-4 text-xs sm:text-sm", feedback.toneClassName)}>
-            <p className="font-bold">{feedback.title}</p>
-            <p className="mt-1 leading-relaxed">{feedback.message}</p>
           </div>
         </CardContent>
       </Card>
@@ -279,11 +251,14 @@ export function HealthMockExamResults({
       {/* 3. Bilan Pédagogique */}
       <Card className="rounded-2xl border-border bg-card shadow-xs">
         <CardHeader className="pb-3">
-          <div className="flex items-center gap-2">
-            <BookOpen className="h-4 w-4 text-brand" aria-hidden="true" />
-            <CardTitle className="text-base font-bold text-heading">
-              Bilan pédagogique
-            </CardTitle>
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex items-center gap-2">
+              <BookOpen className="h-4 w-4 text-brand" aria-hidden="true" />
+              <CardTitle className="text-base font-bold text-heading">
+                Bilan pédagogique
+              </CardTitle>
+            </div>
+            <HealthEvaluationColorLegend />
           </div>
           <p className="text-xs text-muted-foreground">
             Synthèse déterministe de votre maîtrise par notion et chapitre sur cette évaluation.
@@ -301,7 +276,7 @@ export function HealthMockExamResults({
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
                   <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-900 dark:text-emerald-200">
-                    Points forts ({pedagogy?.strengths.length ?? 0})
+                    TOP 5 — POINTS FORTS ({pedagogy?.strengths.length ?? 0})
                   </h4>
                 </div>
 
@@ -338,7 +313,7 @@ export function HealthMockExamResults({
                 <div className="flex items-center gap-2">
                   <AlertCircle className="h-4 w-4 text-rose-600 dark:text-rose-400" />
                   <h4 className="text-xs font-bold uppercase tracking-wider text-rose-900 dark:text-rose-200">
-                    À retravailler ({pedagogy?.toReview.length ?? 0})
+                    TOP 5 — À RETRAVAILLER ({pedagogy?.toReview.length ?? 0})
                   </h4>
                 </div>
 

@@ -13,6 +13,24 @@ type GroupAccumulator = {
   questionIds: Set<string>;
 };
 
+export const PEDAGOGICAL_SUMMARY_LIMIT = 5;
+
+export function calculateEvidenceWeight(questionCount: number): number {
+  return Math.min(questionCount / 3, 1);
+}
+
+export function calculateStrengthRank(masteryRate: number, questionCount: number): number {
+  const normalizedMasteryRate = Math.min(1, Math.max(0, masteryRate));
+  const evidenceWeight = calculateEvidenceWeight(questionCount);
+  return normalizedMasteryRate * evidenceWeight;
+}
+
+export function calculateReviewRank(masteryRate: number, questionCount: number): number {
+  const normalizedMasteryRate = Math.min(1, Math.max(0, masteryRate));
+  const evidenceWeight = calculateEvidenceWeight(questionCount);
+  return (1 - normalizedMasteryRate) * evidenceWeight;
+}
+
 export function buildHealthMockExamPedagogicalAssessment(
   questions: HealthMockExamResultQuestion[]
 ): HealthMockExamPedagogicalAssessment {
@@ -79,13 +97,45 @@ export function buildHealthMockExamPedagogicalAssessment(
 
   const strengths = validThemes
     .filter((t) => t.masteryPercentage >= 80)
-    .sort((a, b) => b.masteryPercentage - a.masteryPercentage || b.questionCount - a.questionCount)
-    .slice(0, 3);
+    .sort((a, b) => {
+      const rateA = Math.min(1, Math.max(0, a.score / a.maxScore));
+      const rateB = Math.min(1, Math.max(0, b.score / b.maxScore));
+      const rankA = calculateStrengthRank(rateA, a.questionCount);
+      const rankB = calculateStrengthRank(rateB, b.questionCount);
+
+      if (rankB !== rankA) {
+        return rankB - rankA;
+      }
+      if (rateB !== rateA) {
+        return rateB - rateA;
+      }
+      if (b.questionCount !== a.questionCount) {
+        return b.questionCount - a.questionCount;
+      }
+      return a.id.localeCompare(b.id, "fr");
+    })
+    .slice(0, PEDAGOGICAL_SUMMARY_LIMIT);
 
   const toReview = validThemes
     .filter((t) => t.masteryPercentage < 60)
-    .sort((a, b) => a.masteryPercentage - b.masteryPercentage || b.questionCount - a.questionCount)
-    .slice(0, 3);
+    .sort((a, b) => {
+      const rateA = Math.min(1, Math.max(0, a.score / a.maxScore));
+      const rateB = Math.min(1, Math.max(0, b.score / b.maxScore));
+      const rankA = calculateReviewRank(rateA, a.questionCount);
+      const rankB = calculateReviewRank(rateB, b.questionCount);
+
+      if (rankB !== rankA) {
+        return rankB - rankA;
+      }
+      if (rateA !== rateB) {
+        return rateA - rateB;
+      }
+      if (b.questionCount !== a.questionCount) {
+        return b.questionCount - a.questionCount;
+      }
+      return a.id.localeCompare(b.id, "fr");
+    })
+    .slice(0, PEDAGOGICAL_SUMMARY_LIMIT);
 
   const neutralMessage =
     strengths.length === 0 && toReview.length === 0
@@ -98,3 +148,4 @@ export function buildHealthMockExamPedagogicalAssessment(
     neutralMessage,
   };
 }
+

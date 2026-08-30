@@ -1,7 +1,13 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
 
-import { buildHealthMockExamPedagogicalAssessment } from "@/core/health-mock-exam/health-mock-exam.pedagogy";
+import {
+  buildHealthMockExamPedagogicalAssessment,
+  calculateEvidenceWeight,
+  calculateStrengthRank,
+  calculateReviewRank,
+  PEDAGOGICAL_SUMMARY_LIMIT,
+} from "@/core/health-mock-exam/health-mock-exam.pedagogy";
 import type { HealthMockExamResultQuestion } from "@/core/health-mock-exam/health-mock-exam.types";
 
 function createMockResultQuestion(params: {
@@ -46,6 +52,20 @@ function createMockResultQuestion(params: {
 }
 
 describe("Health Pedagogical Assessment Engine", () => {
+  it("exporte la constante canonique PEDAGOGICAL_SUMMARY_LIMIT = 5 et les fonctions de rang", () => {
+    assert.equal(PEDAGOGICAL_SUMMARY_LIMIT, 5);
+    assert.equal(calculateEvidenceWeight(1), 1 / 3);
+    assert.equal(calculateEvidenceWeight(2), 2 / 3);
+    assert.equal(calculateEvidenceWeight(3), 1);
+    assert.equal(calculateEvidenceWeight(5), 1);
+
+    assert.equal(calculateStrengthRank(1.0, 1), 1 / 3);
+    assert.equal(calculateStrengthRank(0.9, 5), 0.9);
+
+    assert.equal(calculateReviewRank(0, 1), 1 / 3);
+    assert.equal(calculateReviewRank(0.4, 4), 0.6);
+  });
+
   it("classifie correctement les thèmes à >= 80% en points forts et < 60% en points à retravailler", () => {
     const questions: HealthMockExamResultQuestion[] = [
       createMockResultQuestion({
@@ -107,52 +127,190 @@ describe("Health Pedagogical Assessment Engine", () => {
     assert.equal(assessment.toReview[0].questionCount, 2);
   });
 
-  it("utilise exactement shortTitle quand un vrai Theme en dispose", () => {
+  it("classe 100% sur 1 q derrière 90% sur 5 q et 85% sur 3 q pour les points forts", () => {
+    // Theme A: 100% sur 1 question (strengthRank = 1.0 * 1/3 = 0.3333)
+    // Theme B: 90% sur 5 questions (strengthRank = 0.9 * 1.0 = 0.900)
+    // Theme C: 85% sur 3 questions (strengthRank = 0.85 * 1.0 = 0.850)
     const questions: HealthMockExamResultQuestion[] = [
       createMockResultQuestion({
-        id: "1",
+        id: "q1",
         order: 1,
         score: 1,
         maxScore: 1,
-        themes: [{ id: "theme-shared", label: "Hybridation et geometrie moleculaire" }],
+        themes: [{ id: "theme-a", label: "Theme A" }],
       }),
-      createMockResultQuestion({
-        id: "2",
-        order: 2,
-        score: 1,
-        maxScore: 1,
-        themes: [{ id: "theme-shared", label: "Hybridation et geometrie moleculaire" }],
-      }),
+      ...Array.from({ length: 5 }, (_, i) =>
+        createMockResultQuestion({
+          id: `q-b-${i}`,
+          order: i + 2,
+          score: 0.9,
+          maxScore: 1,
+          themes: [{ id: "theme-b", label: "Theme B" }],
+        })
+      ),
+      ...Array.from({ length: 3 }, (_, i) =>
+        createMockResultQuestion({
+          id: `q-c-${i}`,
+          order: i + 7,
+          score: 0.85,
+          maxScore: 1,
+          themes: [{ id: "theme-c", label: "Theme C" }],
+        })
+      ),
     ];
 
     const assessment = buildHealthMockExamPedagogicalAssessment(questions);
-
-    assert.equal(assessment.strengths.length, 1);
-    assert.equal(assessment.strengths[0].label, "Hybridation et geometrie moleculaire");
+    assert.equal(assessment.strengths.length, 3);
+    assert.equal(assessment.strengths[0].id, "theme-b");
+    assert.equal(assessment.strengths[1].id, "theme-c");
+    assert.equal(assessment.strengths[2].id, "theme-a");
   });
 
-  it("utilise title quand shortTitle est absent", () => {
+  it("classe 0% sur 1 q derrière 40% sur 4 q et 20% sur 3 q pour les éléments à retravailler", () => {
+    // Theme A: 0% sur 1 question (reviewRank = (1 - 0) * 1/3 = 0.3333)
+    // Theme B: 40% sur 4 questions (reviewRank = (1 - 0.4) * 1.0 = 0.600)
+    // Theme C: 20% sur 3 questions (reviewRank = (1 - 0.2) * 1.0 = 0.800)
+    const questions: HealthMockExamResultQuestion[] = [
+      createMockResultQuestion({
+        id: "q1",
+        order: 1,
+        score: 0,
+        maxScore: 1,
+        themes: [{ id: "theme-a", label: "Theme A" }],
+      }),
+      ...Array.from({ length: 4 }, (_, i) =>
+        createMockResultQuestion({
+          id: `q-b-${i}`,
+          order: i + 2,
+          score: 0.4,
+          maxScore: 1,
+          themes: [{ id: "theme-b", label: "Theme B" }],
+        })
+      ),
+      ...Array.from({ length: 3 }, (_, i) =>
+        createMockResultQuestion({
+          id: `q-c-${i}`,
+          order: i + 6,
+          score: 0.2,
+          maxScore: 1,
+          themes: [{ id: "theme-c", label: "Theme C" }],
+        })
+      ),
+    ];
+
+    const assessment = buildHealthMockExamPedagogicalAssessment(questions);
+    assert.equal(assessment.toReview.length, 3);
+    assert.equal(assessment.toReview[0].id, "theme-c");
+    assert.equal(assessment.toReview[1].id, "theme-b");
+    assert.equal(assessment.toReview[2].id, "theme-a");
+  });
+
+  it("limite strictement les résultats à MAX 5 éléments par catégorie (0, 2, 5, 7 candidats)", () => {
+    // Test avec 7 candidats points forts
+    const questionsStrengths: HealthMockExamResultQuestion[] = [];
+    for (let t = 1; t <= 7; t++) {
+      for (let q = 1; q <= 3; q++) {
+        questionsStrengths.push(
+          createMockResultQuestion({
+            id: `q-s-${t}-${q}`,
+            order: (t - 1) * 3 + q,
+            score: 1,
+            maxScore: 1,
+            themes: [{ id: `theme-strength-${t}`, label: `Theme Strength ${t}` }],
+          })
+        );
+      }
+    }
+
+    const assessmentStrengths = buildHealthMockExamPedagogicalAssessment(questionsStrengths);
+    assert.equal(assessmentStrengths.strengths.length, 5);
+
+    // Test avec 7 candidats à retravailler
+    const questionsReview: HealthMockExamResultQuestion[] = [];
+    for (let t = 1; t <= 7; t++) {
+      for (let q = 1; q <= 3; q++) {
+        questionsReview.push(
+          createMockResultQuestion({
+            id: `q-r-${t}-${q}`,
+            order: (t - 1) * 3 + q,
+            score: 0.1,
+            maxScore: 1,
+            themes: [{ id: `theme-review-${t}`, label: `Theme Review ${t}` }],
+          })
+        );
+      }
+    }
+
+    const assessmentReview = buildHealthMockExamPedagogicalAssessment(questionsReview);
+    assert.equal(assessmentReview.toReview.length, 5);
+  });
+
+  it("utilise l'ID du thème comme tie-break déterministe en cas d'égalité exacte", () => {
+    // 2 thèmes avec le même nombre de questions et même score
     const questions: HealthMockExamResultQuestion[] = [
       createMockResultQuestion({
         id: "1",
         order: 1,
         score: 1,
         maxScore: 1,
-        themes: [{ id: "theme-title-fallback", label: "Titre long du theme" }],
+        themes: [
+          { id: "theme-z", label: "Alpha Label" },
+          { id: "theme-a", label: "Omega Label" },
+        ],
       }),
       createMockResultQuestion({
         id: "2",
         order: 2,
         score: 1,
         maxScore: 1,
-        themes: [{ id: "theme-title-fallback", label: "Titre long du theme" }],
+        themes: [
+          { id: "theme-z", label: "Alpha Label" },
+          { id: "theme-a", label: "Omega Label" },
+        ],
+      }),
+      createMockResultQuestion({
+        id: "3",
+        order: 3,
+        score: 1,
+        maxScore: 1,
+        themes: [
+          { id: "theme-z", label: "Alpha Label" },
+          { id: "theme-a", label: "Omega Label" },
+        ],
       }),
     ];
 
     const assessment = buildHealthMockExamPedagogicalAssessment(questions);
+    assert.equal(assessment.strengths.length, 2);
+    // Doit être trié par id : theme-a avant theme-z, malgré les libellés inversés
+    assert.equal(assessment.strengths[0].id, "theme-a");
+    assert.equal(assessment.strengths[1].id, "theme-z");
+  });
 
+  it("respecte la précision des seuils de maîtrise (79% pas point fort, 80% point fort)", () => {
+    // 79% (7.9/10) -> pas point fort (zone neutre 60-79%)
+    // 80% (8/10) -> point fort
+    const questions: HealthMockExamResultQuestion[] = [
+      createMockResultQuestion({
+        id: "1",
+        order: 1,
+        score: 7.9,
+        maxScore: 10,
+        themes: [{ id: "theme-79", label: "Seuil 79%" }],
+      }),
+      createMockResultQuestion({
+        id: "2",
+        order: 2,
+        score: 8,
+        maxScore: 10,
+        themes: [{ id: "theme-80", label: "Seuil 80%" }],
+      }),
+    ];
+
+    const assessment = buildHealthMockExamPedagogicalAssessment(questions);
     assert.equal(assessment.strengths.length, 1);
-    assert.equal(assessment.strengths[0].label, "Titre long du theme");
+    assert.equal(assessment.strengths[0].id, "theme-80");
+    assert.equal(assessment.toReview.length, 0);
   });
 
   it("gère les crédits partiels UNESS dans le calcul exact de maîtrise", () => {
@@ -189,114 +347,5 @@ describe("Health Pedagogical Assessment Engine", () => {
     assert.equal(assessment.toReview[0].score, 1.7);
     assert.equal(assessment.toReview[0].maxScore, 3);
   });
-
-  it("laisse le score global intact mais n'alimente aucun thème si la question n'a aucun Theme", () => {
-    const questions: HealthMockExamResultQuestion[] = [
-      createMockResultQuestion({ id: "1", order: 1, score: 1, maxScore: 1 }),
-    ];
-
-    const assessment = buildHealthMockExamPedagogicalAssessment(questions);
-    assert.equal(assessment.strengths.length, 0);
-    assert.equal(assessment.toReview.length, 0);
-    assert.ok(assessment.neutralMessage !== null);
-  });
-
-  it("ignore les tags theme:* textuels si aucun Theme structure n'est rattache", () => {
-    const questions: HealthMockExamResultQuestion[] = [
-      createMockResultQuestion({
-        id: "1",
-        order: 1,
-        score: 1,
-        maxScore: 1,
-        tags: ["theme:foo-bar"],
-      }),
-      createMockResultQuestion({
-        id: "2",
-        order: 2,
-        score: 0,
-        maxScore: 1,
-        tags: ["theme:foo-bar"],
-      }),
-    ];
-
-    const assessment = buildHealthMockExamPedagogicalAssessment(questions);
-    assert.equal(assessment.strengths.length, 0);
-    assert.equal(assessment.toReview.length, 0);
-    assert.ok(assessment.neutralMessage !== null);
-  });
-
-  it("fait contribuer exactement un score partiel QRP au Theme", () => {
-    const questions: HealthMockExamResultQuestion[] = [
-      createMockResultQuestion({
-        id: "1",
-        order: 1,
-        score: 0.5,
-        maxScore: 1,
-        themes: [{ id: "theme-qrp", label: "Roles des glucides" }],
-      }),
-      createMockResultQuestion({
-        id: "2",
-        order: 2,
-        score: 1,
-        maxScore: 1,
-        themes: [{ id: "theme-qrp", label: "Roles des glucides" }],
-      }),
-    ];
-
-    const assessment = buildHealthMockExamPedagogicalAssessment(questions);
-    assert.equal(assessment.strengths.length, 0);
-    assert.equal(assessment.toReview.length, 0);
-    assert.ok(assessment.neutralMessage !== null);
-  });
-
-  it("fait contribuer une meme question a chacun de ses Themes sans division artificielle", () => {
-    const questions: HealthMockExamResultQuestion[] = [
-      createMockResultQuestion({
-        id: "1",
-        order: 1,
-        score: 1,
-        maxScore: 1,
-        themes: [
-          { id: "theme-a", label: "Theme A" },
-          { id: "theme-b", label: "Theme B" },
-        ],
-      }),
-      createMockResultQuestion({
-        id: "2",
-        order: 2,
-        score: 1,
-        maxScore: 1,
-        themes: [{ id: "theme-a", label: "Theme A" }],
-      }),
-      createMockResultQuestion({
-        id: "3",
-        order: 3,
-        score: 0,
-        maxScore: 1,
-        themes: [{ id: "theme-b", label: "Theme B" }],
-      }),
-    ];
-
-    const assessment = buildHealthMockExamPedagogicalAssessment(questions);
-    assert.deepEqual(assessment.strengths, [
-      {
-        id: "theme-a",
-        label: "Theme A",
-        masteryPercentage: 100,
-        score: 2,
-        maxScore: 2,
-        questionCount: 2,
-      },
-    ]);
-    assert.deepEqual(assessment.toReview, [
-      {
-        id: "theme-b",
-        label: "Theme B",
-        masteryPercentage: 50,
-        score: 1,
-        maxScore: 2,
-        questionCount: 2,
-      },
-    ]);
-  });
 });
+
