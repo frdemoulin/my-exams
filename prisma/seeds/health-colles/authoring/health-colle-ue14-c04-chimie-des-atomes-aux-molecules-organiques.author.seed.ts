@@ -39,9 +39,9 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Pour $\\ell = 1$, le nombre d’orbitales vaut $2\\ell + 1 = 3$."
       },
       {
-        "content": "Le nombre de masse $\\mathrm{A}$ est égal à $\\mathrm{Z} - \\mathrm{N}$.",
+        "content": "Le nombre de neutrons $\\mathrm{N}$ est égal à $\\mathrm{A} + \\mathrm{Z}$.",
         "correct": false,
-        "explanation": "Le nombre de masse est $\\mathrm{A} = \\mathrm{Z} + \\mathrm{N}$."
+        "explanation": "Le nombre de neutrons est $\\mathrm{N} = \\mathrm{A} - \\mathrm{Z}$ (soit un nombre de masse $\\mathrm{A} = \\mathrm{Z} + \\mathrm{N}$)."
       },
       {
         "content": "Un atome neutre possède toujours plus d’électrons que de protons.",
@@ -82,7 +82,7 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRU",
     "question": "Quel ion possède la même configuration électronique que le néon après perte d’électrons par l’atome neutre correspondant ?",
-    "explanation": "Le magnésium perd deux électrons pour former $\\mathrm{Mg^{2+}}$, qui possède alors dix électrons comme le néon.",
+    "explanation": "Le magnésium perd deux électrons pour former $\\ce{Mg^2+}$, qui possède alors dix électrons comme le néon.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -92,29 +92,29 @@ export const UE14_COLLE_C04_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     ],
     "choices": [
       {
-        "content": "$\\mathrm{Mg^{2+}}$",
+        "content": "$\\ce{Mg^2+}$",
         "correct": true,
-        "explanation": "$\\mathrm{Mg}$ possède $\\mathrm{Z} = 12$ ; $\\mathrm{Mg^{2+}}$ possède donc 10 électrons."
+        "explanation": "$\\ce{Mg}$ possède $\\mathrm{Z} = 12$ ; $\\ce{Mg^2+}$ possède donc 10 électrons."
       },
       {
-        "content": "$\\mathrm{Cl^-}$",
+        "content": "$\\ce{Cl-}$",
         "correct": false,
-        "explanation": "$\\mathrm{Cl^-}$ possède 18 électrons, comme l’argon."
+        "explanation": "$\\ce{Cl-}$ possède 18 électrons, comme l’argon."
       },
       {
-        "content": "$\\mathrm{K^+}$",
+        "content": "$\\ce{K+}$",
         "correct": false,
-        "explanation": "$\\mathrm{K^+}$ possède 18 électrons, comme l’argon."
+        "explanation": "$\\ce{K+}$ possède 18 électrons, comme l’argon."
       },
       {
-        "content": "$\\mathrm{F^-}$ formé par perte d’un électron",
+        "content": "$\\ce{F-}$ formé par perte d’un électron",
         "correct": false,
-        "explanation": "$\\mathrm{F^-}$ est obtenu par gain d’un électron, pas par perte."
+        "explanation": "$\\ce{F-}$ est obtenu par gain d’un électron, pas par perte."
       },
       {
-        "content": "$\\mathrm{Na^{2+}}$ comme ion monoatomique usuel",
+        "content": "$\\ce{Na^2+}$ comme ion monoatomique usuel",
         "correct": false,
-        "explanation": "Le sodium forme préférentiellement $\\mathrm{Na^+}$ en perdant un électron."
+        "explanation": "Le sodium forme préférentiellement $\\ce{Na+}$ en perdant un électron."
       }
     ]
   },
