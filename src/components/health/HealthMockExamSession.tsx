@@ -25,6 +25,11 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import {
+  HealthQuestionNavigator,
+  type QuestionNavigatorSessionItem,
+  type SessionQuestionState,
+} from "@/components/health/HealthQuestionNavigator";
 import { QuestionFormatBadge } from "@/components/training/question-format-badge";
 import { TrainingChoiceContentView } from "@/components/training/training-choice-content-view";
 import { TrainingQuestionContentView } from "@/components/training/training-question-content-view";
@@ -222,51 +227,6 @@ export function HealthMockExamSession({
     return `Il reste ${parts.join(" et ")}.`;
   };
 
-  const navScrollRef = useRef<HTMLDivElement | null>(null);
-  const navItemRefs = useRef<Array<HTMLButtonElement | null>>([]);
-  const [blockSize, setBlockSize] = useState(10);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      if (width < 640) {
-        setBlockSize(5);
-      } else if (width < 1024) {
-        setBlockSize(8);
-      } else {
-        setBlockSize(10);
-      }
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const totalBlocks = Math.ceil(passage.questions.length / blockSize);
-  const hasMultipleBlocks = totalBlocks > 1;
-  const targetBlockIndex = Math.floor(currentIndex / blockSize);
-
-  const [activeBlockIndex, setActiveBlockIndex] = useState(0);
-
-  useEffect(() => {
-    setActiveBlockIndex(targetBlockIndex);
-  }, [targetBlockIndex]);
-
-  const canGoPreviousBlock = activeBlockIndex > 0;
-  const canGoNextBlock = activeBlockIndex < totalBlocks - 1;
-
-  const goToPreviousBlock = () => {
-    if (canGoPreviousBlock) {
-      setActiveBlockIndex((prev) => Math.max(0, prev - 1));
-    }
-  };
-
-  const goToNextBlock = () => {
-    if (canGoNextBlock) {
-      setActiveBlockIndex((prev) => Math.min(totalBlocks - 1, prev + 1));
-    }
-  };
-
   const persistAnswer = (
     attemptQuestionId: string,
     nextAnswer: HealthMockExamSessionAnswer,
@@ -418,150 +378,43 @@ export function HealthMockExamSession({
     setCurrentIndex(index);
   };
 
-  const getQuestionStatus = (index: number): QuestionNavStatus => {
+  const getQuestionStatus = (index: number): SessionQuestionState => {
     const question = passage.questions[index];
     const answer = answersByAttemptQuestionId[question.attemptQuestionId];
-    if (index === currentIndex) return "current";
     if (answer?.markedForReview) return "marked";
     if (isAnswerRecorded(question, answer)) return "answered";
     return "unanswered";
   };
 
-  const getQuestionNavButtonClass = (status: QuestionNavStatus) => {
-    switch (status) {
-      case "current":
-        return "border-brand bg-brand text-white hover:bg-brand-strong hover:text-white";
-      case "marked":
-        return "bg-amber-500 text-white shadow-xs hover:bg-amber-600 hover:text-white";
-      case "answered":
-        return "bg-slate-300 text-slate-950 hover:bg-slate-400 hover:text-slate-950 dark:bg-slate-600 dark:text-white dark:hover:bg-slate-500 dark:hover:text-white";
-      case "unanswered":
-      default:
-        return "bg-slate-50 text-slate-500 hover:bg-slate-100 hover:text-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-200";
-    }
-  };
+  const navigatorItems: QuestionNavigatorSessionItem[] = passage.questions.map(
+    (question, index) => {
+      const status = getQuestionStatus(index);
+      const formatCode =
+        question.canonicalQuestion?.format ?? question.questionType.toUpperCase();
+      return {
+        id: question.attemptQuestionId,
+        order: index + 1,
+        formatCode,
+        state: status,
+        markedForReview: status === "marked",
+        testId: `health-mock-exam-nav-${index + 1}`,
+        ariaLabel: `Question ${index + 1} sur ${passage.questionCount} — ${formatCode}`,
+      };
+    },
+  );
 
   return (
     <section className="space-y-6" data-testid="health-mock-exam-taking">
       {/* 1. BARRE DE NAVIGATION DES QUESTIONS (STYLE PLAYER SANTÉ V2) */}
-      <nav
-        aria-label="Navigation des questions"
-        className="rounded-2xl border border-border bg-card p-2 sm:p-3 shadow-xs space-y-3"
-      >
-        <div className="flex items-center justify-between gap-2">
-          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            Questions
-          </p>
-          <span className="text-xs font-medium text-muted-foreground">
-            Répondues : {answeredCount}/{passage.questionCount}
-          </span>
-        </div>
-
-        <div className="flex items-center overflow-hidden rounded-xl border border-border bg-background">
-          {hasMultipleBlocks ? (
-            <button
-              type="button"
-              onClick={goToPreviousBlock}
-              disabled={!canGoPreviousBlock}
-              aria-label="Faire défiler les questions vers la gauche"
-              className={cn(
-                "shrink-0 flex h-14 w-7 sm:w-8 items-center justify-center text-foreground transition-colors border-r border-border",
-                !canGoPreviousBlock
-                  ? "opacity-30 cursor-not-allowed bg-muted/40"
-                  : "bg-background hover:bg-neutral-secondary-medium cursor-pointer",
-              )}
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </button>
-          ) : null}
-
-          <div ref={navScrollRef} className="flex-1 min-w-0 overflow-x-auto no-scrollbar">
-            <ol className="flex min-w-full">
-              {passage.questions
-                .slice(activeBlockIndex * blockSize, (activeBlockIndex + 1) * blockSize)
-                .map((question, sliceIndex) => {
-                  const globalIndex = activeBlockIndex * blockSize + sliceIndex;
-                  const isCurrent = globalIndex === currentIndex;
-                  const status = getQuestionStatus(globalIndex);
-                  const formatCode =
-                    question.canonicalQuestion?.format ?? question.questionType.toUpperCase();
-
-                  return (
-                    <li
-                      key={question.attemptQuestionId}
-                      className="min-w-0 flex-1 border-r border-border last:border-r-0"
-                    >
-                      <button
-                        ref={(el) => {
-                          navItemRefs.current[globalIndex] = el;
-                        }}
-                        type="button"
-                        onClick={() => goToQuestion(globalIndex)}
-                        aria-current={isCurrent ? "page" : undefined}
-                        aria-label={`Question ${globalIndex + 1} sur ${passage.questionCount} — ${formatCode}`}
-                        data-testid={`health-mock-exam-nav-${globalIndex + 1}`}
-                        className={cn(
-                          "flex h-14 w-full flex-col items-center justify-center px-0.5 py-1.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-inset",
-                          getQuestionNavButtonClass(status),
-                        )}
-                      >
-                        <div className="flex items-center gap-0.5">
-                          <span className="text-base font-bold leading-none">{globalIndex + 1}</span>
-                          {status === "marked" && !isCurrent ? (
-                            <Flag className="h-2.5 w-2.5 fill-current" aria-hidden="true" />
-                          ) : null}
-                        </div>
-                        <span className="mt-1 text-xs font-semibold uppercase font-mono tracking-tight leading-none opacity-90">
-                          {formatCode}
-                        </span>
-                      </button>
-                    </li>
-                  );
-                })}
-            </ol>
-          </div>
-
-          {hasMultipleBlocks ? (
-            <button
-              type="button"
-              onClick={goToNextBlock}
-              disabled={!canGoNextBlock}
-              aria-label="Faire défiler les questions vers la droite"
-              className={cn(
-                "shrink-0 flex h-14 w-7 sm:w-8 items-center justify-center text-foreground transition-colors border-l border-border",
-                !canGoNextBlock
-                  ? "opacity-30 cursor-not-allowed bg-muted/40"
-                  : "bg-background hover:bg-neutral-secondary-medium cursor-pointer",
-              )}
-            >
-              <ChevronRight className="h-4 w-4" />
-            </button>
-          ) : null}
-        </div>
-
-        {/* LÉGENDE DES ÉTATS */}
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pt-1 text-xs text-muted-foreground">
-          <span className="inline-flex items-center gap-1.5">
-            <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-brand" />
-            Question en cours
-          </span>
-          <span className="inline-flex items-center gap-1.5">
-            <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-slate-400 dark:bg-slate-500" />
-            Réponse enregistrée
-          </span>
-          <span className="inline-flex items-center gap-1.5">
-            <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-amber-500" />
-            À revoir
-          </span>
-          <span className="inline-flex items-center gap-1.5">
-            <span
-              aria-hidden="true"
-              className="h-2.5 w-2.5 rounded-full border border-slate-300 dark:border-slate-600 bg-transparent"
-            />
-            Non répondue
-          </span>
-        </div>
-      </nav>
+      <HealthQuestionNavigator
+        mode="session"
+        items={navigatorItems}
+        currentIndex={currentIndex}
+        onSelectIndex={goToQuestion}
+        counterText={`Répondues : ${answeredCount}/${passage.questionCount}`}
+        ariaLabel="Navigation des questions"
+        testId="health-mock-exam-taking-nav"
+      />
 
       {/* 2. EN-TÊTE ET CONTEXTE DE LA QUESTION COURANTE */}
       <div className="space-y-2 pt-1">

@@ -126,14 +126,48 @@ test.describe.serial("Santé — Colle C01 Captures & Recette Visuelle", () => {
     await page.setViewportSize({ width: 375, height: 667 });
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c01-q19-mobile-375.png") });
 
-    // Restore desktop size
+    // Restore desktop size and capture passation desktop
     await page.setViewportSize({ width: 1280, height: 800 });
+    await page.screenshot({ path: path.join(screenshotsTmpDir, "c01-passation-desktop.png") });
 
     // Finish exam
     await page.getByRole("button", { name: /Terminer la colle|Terminer l'examen/ }).first().click();
     await page.getByRole("button", { name: "Terminer et voir les résultats" }).click();
 
     await expect(page).toHaveURL(/\/sante\/ue\/.*\/colles\/c01\/resultats\//, { timeout: 15000 });
+
+    // Go to detailed correction
+    const seeCorrectionBtn = page.getByRole("link", { name: "Voir la correction détaillée" });
+    await expect(seeCorrectionBtn).toBeVisible();
+    await seeCorrectionBtn.click();
+    await expect(page).toHaveURL(/\/sante\/ue\/.*\/colles\/c01\/resultats\/.*\/correction/, { timeout: 15000 });
+
+    // Vérifier la présence et la structure du composant canonique de navigation en correction
+    const correctionNav = page.getByTestId("health-mock-exam-correction-nav");
+    await expect(correctionNav).toBeVisible();
+    await expect(correctionNav.getByText("Questions", { exact: true })).toBeVisible();
+    await expect(correctionNav.getByText(/Question 1 sur 20/)).toBeVisible();
+
+    // Vérifier numéro + format sur les tuiles visibles
+    await expect(page.getByTestId("health-mock-exam-correction-nav-1").getByText("1")).toBeVisible();
+    await expect(page.getByTestId("health-mock-exam-correction-nav-1").getByText("QRM")).toBeVisible();
+    await expect(page.getByTestId("health-mock-exam-correction-nav-2").getByText("2")).toBeVisible();
+    await expect(page.getByTestId("health-mock-exam-correction-nav-2").getByText("QROC")).toBeVisible();
+
+    // Vérifier la légende de correction
+    await expect(correctionNav.getByText("Question en cours")).toBeVisible();
+    await expect(correctionNav.getByText("Plein crédit")).toBeVisible();
+    await expect(correctionNav.getByText("Crédit partiel")).toBeVisible();
+    await expect(correctionNav.getByText("Incorrecte")).toBeVisible();
+    await expect(correctionNav.getByText("Non répondue")).toBeVisible();
+
+    // Capture correction desktop
+    await page.screenshot({ path: path.join(screenshotsTmpDir, "c01-correction-desktop.png") });
+
+    // Capture correction mobile 375 px
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.screenshot({ path: path.join(screenshotsTmpDir, "c01-correction-mobile-375.png") });
+    await page.setViewportSize({ width: 1280, height: 800 });
 
     // Copy screenshots to artifacts directory
     const screenshotFiles = [
@@ -142,6 +176,9 @@ test.describe.serial("Santé — Colle C01 Captures & Recette Visuelle", () => {
       "c01-q17-desktop.png",
       "c01-q19-desktop.png",
       "c01-q19-mobile-375.png",
+      "c01-passation-desktop.png",
+      "c01-correction-desktop.png",
+      "c01-correction-mobile-375.png",
     ];
 
     for (const file of screenshotFiles) {

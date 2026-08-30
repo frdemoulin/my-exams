@@ -52,6 +52,7 @@ test.describe.serial("Santé — Colle C12 Captures & Recette Visuelle", () => {
     await expect(page.getByText("Notation UNESS", { exact: true })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Consignes" })).not.toBeVisible();
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c12-intro-desktop.png") });
+    await page.screenshot({ path: path.join(screenshotsTmpDir, "c12-passation-desktop.png") });
 
     // Jump to Q13 (Group 1: Molécule polyfonctionnelle et transformations)
     const scrollRightBtn = page.getByRole("button", { name: "Faire défiler les questions vers la droite" });
@@ -212,21 +213,26 @@ test.describe.serial("Santé — Colle C12 Captures & Recette Visuelle", () => {
     await expect(page).toHaveURL(/\/sante\/ue\/.*\/colles\/c12\/resultats\//, { timeout: 15000 });
 
     // Go to detailed correction
+    // Arrivée sur la correction détaillée
     await page.getByRole("link", { name: "Voir la correction détaillée" }).click();
     await expect(page).toHaveURL(/\/sante\/ue\/.*\/colles\/c12\/resultats\/.*\/correction/, { timeout: 15000 });
 
+    // Capture C12 correction desktop
+    await expect(page.getByTestId("health-mock-exam-correction-nav")).toBeVisible();
+    await page.screenshot({ path: path.join(screenshotsTmpDir, "c12-correction-desktop.png") });
+
     // Navigate to Q16 in correction view
-    const q16CorrTile = page.locator('button[aria-label="Question 16"]');
+    const q16CorrTile = page.getByTestId("health-mock-exam-correction-nav-16");
     if (await q16CorrTile.isVisible()) {
       await q16CorrTile.click();
     } else {
-      const corrNextBlockBtn = page.getByRole("button", { name: "Bloc de questions suivant" });
+      const corrNextBlockBtn = page.getByRole("button", { name: "Faire défiler les questions vers la droite" });
       while (await corrNextBlockBtn.isVisible()) {
-        const tile = page.locator('button[aria-label="Question 16"]');
+        const tile = page.getByTestId("health-mock-exam-correction-nav-16");
         if (await tile.isVisible()) break;
         await corrNextBlockBtn.click();
       }
-      await page.locator('button[aria-label="Question 16"]').click();
+      await page.getByTestId("health-mock-exam-correction-nav-16").click();
     }
 
     // Capture 7: Q16 correction
@@ -234,13 +240,13 @@ test.describe.serial("Santé — Colle C12 Captures & Recette Visuelle", () => {
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c12-q16-correction.png") });
 
     // Navigate to Q43 in correction view
-    const corrNextBlockBtn = page.getByRole("button", { name: "Bloc de questions suivant" });
+    const corrNextBlockBtn = page.getByRole("button", { name: "Faire défiler les questions vers la droite" });
     while (await corrNextBlockBtn.isVisible()) {
-      const tile = page.locator('button[aria-label="Question 43"]');
+      const tile = page.getByTestId("health-mock-exam-correction-nav-43");
       if (await tile.isVisible()) break;
       await corrNextBlockBtn.click();
     }
-    await page.locator('button[aria-label="Question 43"]').click();
+    await page.getByTestId("health-mock-exam-correction-nav-43").click();
 
     // Capture 14: Q43 correction
     await expect(page.getByText("Question 43", { exact: true })).toBeVisible();
@@ -248,6 +254,9 @@ test.describe.serial("Santé — Colle C12 Captures & Recette Visuelle", () => {
 
     // Copy screenshots to artifacts directory
     const screenshotFiles = [
+      "c12-intro-desktop.png",
+      "c12-passation-desktop.png",
+      "c12-correction-desktop.png",
       "c12-q13-desktop.png",
       "c12-q14-desktop.png",
       "c12-q15-desktop.png",

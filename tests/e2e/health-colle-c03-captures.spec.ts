@@ -132,12 +132,13 @@ test.describe.serial("Santé — Colle C03 Captures & Recette Visuelle", () => {
     await expect(page).toHaveURL(/\/sante\/ue\/.*\/colles\/c03\/resultats\/.*\/correction/, { timeout: 15000 });
 
     // Navigate to Q19 in correction view
-    const corrNextBlockBtn = page.getByRole("button", { name: "Bloc de questions suivant" });
-    if (await corrNextBlockBtn.isVisible()) {
+    const corrNextBlockBtn = page.getByRole("button", { name: "Faire défiler les questions vers la droite" });
+    while (await corrNextBlockBtn.isVisible()) {
+      const tile = page.getByTestId("health-mock-exam-correction-nav-19");
+      if (await tile.isVisible()) break;
       await corrNextBlockBtn.click();
     }
-    const q19CorrTile = page.locator('button[aria-label="Question 19"]');
-    await q19CorrTile.click();
+    await page.getByTestId("health-mock-exam-correction-nav-19").click();
 
     // Capture 8: Q19 correction
     await expect(page.getByText("Question 19", { exact: true })).toBeVisible();

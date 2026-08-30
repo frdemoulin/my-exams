@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useEffect, useRef } from "react";
+import { useMemo, useState, useEffect } from "react";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -9,12 +9,16 @@ import {
   CheckCircle2,
   XCircle,
   AlertCircle,
-  Clock3,
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  HealthQuestionNavigator,
+  type QuestionNavigatorCorrectionItem,
+  type CorrectionQuestionState,
+} from "@/components/health/HealthQuestionNavigator";
 import { QuestionFormatBadge } from "@/components/training/question-format-badge";
 import { TrainingChoiceContentView } from "@/components/training/training-choice-content-view";
 import { TrainingQuestionContentView } from "@/components/training/training-question-content-view";
@@ -43,10 +47,7 @@ type HealthMockExamCorrectionViewProps = {
 type FilterMode = "all" | "errors" | "correct";
 
 function formatScore(score: number): string {
-  if (Number.isInteger(score)) {
-    return score.toString();
-  }
-  return score.toFixed(2).replace(".", ",");
+  return Number.isInteger(score) ? score.toString() : score.toFixed(2);
 }
 
 function formatChoiceLetters(choiceIndexes: readonly number[]) {
@@ -63,25 +64,6 @@ export function HealthMockExamCorrectionView({
 }: HealthMockExamCorrectionViewProps) {
   const [filterMode, setFilterMode] = useState<FilterMode>("all");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
-  const [pageSize, setPageSize] = useState<number>(10);
-  const [blockIndex, setBlockIndex] = useState<number>(0);
-  const paginationContainerRef = useRef<HTMLDivElement>(null);
-
-  // Responsive page size for navigation
-  useEffect(() => {
-    const updatePageSize = () => {
-      if (window.innerWidth < 640) {
-        setPageSize(5);
-      } else if (window.innerWidth < 1024) {
-        setPageSize(8);
-      } else {
-        setPageSize(10);
-      }
-    };
-    updatePageSize();
-    window.addEventListener("resize", updatePageSize);
-    return () => window.removeEventListener("resize", updatePageSize);
-  }, []);
 
   const fullCreditQuestions = useMemo(
     () =>
@@ -108,23 +90,41 @@ export function HealthMockExamCorrectionView({
   // Ensure current question index is valid when filter changes
   useEffect(() => {
     setCurrentQuestionIndex(0);
-    setBlockIndex(0);
   }, [filterMode]);
-
-  // Keep block in sync with current question index
-  useEffect(() => {
-    const newBlock = Math.floor(currentQuestionIndex / pageSize);
-    setBlockIndex(newBlock);
-  }, [currentQuestionIndex, pageSize]);
 
   const activeQuestion: HealthMockExamResultQuestion | undefined =
     filteredQuestions[currentQuestionIndex];
 
   const totalQuestions = filteredQuestions.length;
-  const totalBlocks = Math.max(1, Math.ceil(totalQuestions / pageSize));
-  const startQuestionIndex = blockIndex * pageSize;
-  const endQuestionIndex = Math.min(startQuestionIndex + pageSize, totalQuestions);
-  const visibleQuestions = filteredQuestions.slice(startQuestionIndex, endQuestionIndex);
+
+  const navigatorItems: QuestionNavigatorCorrectionItem[] = useMemo(() => {
+    return filteredQuestions.map((q) => {
+      const isCorrect = q.score === q.maxScore && q.evaluationStatus === "correct";
+      const isPartial = q.score > 0 && q.score < q.maxScore;
+      const isUnanswered = q.evaluationStatus === "unanswered";
+      const state: CorrectionQuestionState = isCorrect
+        ? "full_credit"
+        : isPartial
+          ? "partial_credit"
+          : isUnanswered
+            ? "unanswered"
+            : "incorrect";
+
+      const formatCode =
+        q.canonicalQuestion?.format ?? q.questionType.toUpperCase();
+
+      return {
+        id: q.attemptQuestionId,
+        order: q.globalOrder,
+        formatCode,
+        state,
+        score: q.score,
+        maxScore: q.maxScore,
+        testId: `health-mock-exam-correction-nav-${q.globalOrder}`,
+        ariaLabel: `Question ${q.globalOrder} sur ${result.questions.length} — ${formatCode}`,
+      };
+    });
+  }, [filteredQuestions, result.questions.length]);
 
   const handlePrevQuestion = () => {
     if (currentQuestionIndex > 0) {
@@ -205,71 +205,18 @@ export function HealthMockExamCorrectionView({
             Plein crédit ({fullCreditQuestions.length})
           </Button>
         </div>
-
-        <span className="text-xs text-muted-foreground font-medium">
-          Question {currentQuestionIndex + 1} sur {totalQuestions}
-        </span>
       </div>
 
       {/* Question by question navigation bar */}
-      <div className="relative rounded-2xl border border-border bg-card/70 p-2 sm:p-3 shadow-xs">
-        <div className="flex items-center justify-between gap-1 sm:gap-2" ref={paginationContainerRef}>
-          <Button
-            type="button"
-            variant="ghost"
-            size="sm"
-            className="h-8 w-8 p-0 shrink-0"
-            disabled={blockIndex === 0}
-            onClick={() => setBlockIndex((prev) => Math.max(0, prev - 1))}
-            aria-label="Bloc de questions précédent"
-          >
-            <ChevronLeft className="h-4 w-4" />
-          </Button>
-
-          <div className="flex flex-1 items-center justify-center gap-1.5 sm:gap-2">
-            {visibleQuestions.map((q, idx) => {
-              const questionIdx = startQuestionIndex + idx;
-              const isSelected = questionIdx === currentQuestionIndex;
-              const isCorrect = q.score === q.maxScore && q.evaluationStatus === "correct";
-              const isPartial = q.score > 0 && q.score < q.maxScore;
-
-              return (
-                <button
-                  key={q.attemptQuestionId}
-                  type="button"
-                  onClick={() => setCurrentQuestionIndex(questionIdx)}
-                  className={cn(
-                    "flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl text-xs font-semibold transition-all",
-                    isSelected
-                      ? "ring-2 ring-brand ring-offset-2 ring-offset-background font-bold scale-105 shadow-xs"
-                      : "opacity-85 hover:opacity-100 hover:scale-105",
-                    isCorrect
-                      ? "bg-emerald-500/15 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300 border border-emerald-500/30"
-                      : isPartial
-                        ? "bg-amber-500/15 text-amber-800 dark:bg-amber-950/40 dark:text-amber-300 border border-amber-500/30"
-                        : "bg-rose-500/15 text-rose-800 dark:bg-rose-950/40 dark:text-rose-300 border border-rose-500/30"
-                  )}
-                  aria-label={`Question ${q.globalOrder}`}
-                >
-                  {q.globalOrder}
-                </button>
-              );
-            })}
-          </div>
-
-          <Button
-            type="button"
-            variant="ghost"
-            size="sm"
-            className="h-8 w-8 p-0 shrink-0"
-            disabled={blockIndex >= totalBlocks - 1}
-            onClick={() => setBlockIndex((prev) => Math.min(totalBlocks - 1, prev + 1))}
-            aria-label="Bloc de questions suivant"
-          >
-            <ChevronRight className="h-4 w-4" />
-          </Button>
-        </div>
-      </div>
+      <HealthQuestionNavigator
+        mode="correction"
+        items={navigatorItems}
+        currentIndex={currentQuestionIndex}
+        onSelectIndex={setCurrentQuestionIndex}
+        counterText={`Question ${totalQuestions > 0 ? currentQuestionIndex + 1 : 0} sur ${totalQuestions}`}
+        ariaLabel="Navigation de la correction détaillée"
+        testId="health-mock-exam-correction-nav"
+      />
 
       {/* Active Question Detail Card */}
       {activeQuestion ? (
@@ -314,7 +261,7 @@ export function HealthMockExamCorrectionView({
           </div>
 
           <CardContent className="space-y-6 p-4 sm:p-6">
-            {/* Shared group context if present */}
+            {/* Shared group banner */}
             {activeQuestion.group ? (
               <SharedQuestionGroupPanel
                 questionNumbers={result.questions.flatMap((q) =>
