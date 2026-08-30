@@ -29,35 +29,6 @@ export async function seedHealthColleUE14C01(prisma: PrismaClient) {
     throw new Error("Impossible de trouver l'élément pédagogique Chimie pour l'UE14.");
   }
 
-  const existingColle = await prisma.healthMockExam.findFirst({
-    where: {
-      courseUnitId: courseUnit.id,
-      slug: "c01",
-    },
-  });
-
-  if (existingColle) {
-    const attemptCount = await prisma.userHealthMockExamAttempt.count({
-      where: { mockExamId: existingColle.id },
-    });
-
-    if (attemptCount === 0) {
-      // Pas de tentative utilisateur : suppression propre et re-création intégrale
-      await prisma.healthMockExam.delete({
-        where: { id: existingColle.id },
-      });
-    } else {
-      // Preserver les tentatives utilisateur existantes — ne jamais exécuter deleteMany silencieux !
-      console.warn(
-        `[SEED C01] ${attemptCount} tentative(s) utilisateur conservée(s). Mise à jour du contenu.`
-      );
-      // Supprimer les sections existantes pour mettre à jour la colle sans purger les attempts
-      await prisma.healthMockExamSection.deleteMany({
-        where: { mockExamId: existingColle.id },
-      });
-    }
-  }
-
   const compiledQuestions = UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS.map((q) =>
     compileHealthTrainingAuthorQuestion(q)
   );
@@ -87,27 +58,168 @@ export async function seedHealthColleUE14C01(prisma: PrismaClient) {
     },
   ];
 
-  // Création de l'examen s'il n'existe plus ou mise à jour
-  const mockExam = existingColle && (await prisma.userHealthMockExamAttempt.count({ where: { mockExamId: existingColle.id } })) > 0
-    ? existingColle
-    : await prisma.healthMockExam.create({
-        data: {
-          courseUnitId: courseUnit.id,
-          type: "COLLE",
-          title: "Chimie — Fondamentaux",
-          slug: "c01",
-          description: "Chimie générale · Ch. 1 à 4",
-          instructions: "Colle UE14 Reims — 20 questions — 30 min — Notation UNESS",
-          durationMinutes: 30,
-          durationSeconds: 1800,
-          questionCount: 20,
-          version: 1,
-          order: 1,
-          isPublished: true,
-        },
-      });
+  const existingColle = await prisma.healthMockExam.findFirst({
+    where: {
+      courseUnitId: courseUnit.id,
+      slug: "c01",
+    },
+  });
 
-  // Création de la section
+  if (existingColle) {
+    const attemptCount = await prisma.userHealthMockExamAttempt.count({
+      where: { mockExamId: existingColle.id },
+    });
+
+    if (attemptCount === 0) {
+      // Pas de tentative utilisateur : suppression propre et re-création intégrale
+      await prisma.healthMockExam.delete({
+        where: { id: existingColle.id },
+      });
+    } else {
+      // Preserver les tentatives utilisateur existantes — mise à jour en place des questions et groupes !
+      console.log(
+        `[SEED C01] ${attemptCount} tentative(s) utilisateur conservée(s). Mise à jour du contenu des questions en place.`
+      );
+
+      let section = await prisma.healthMockExamSection.findFirst({
+        where: { mockExamId: existingColle.id },
+      });
+      if (!section) {
+        section = await prisma.healthMockExamSection.create({
+          data: {
+            mockExamId: existingColle.id,
+            teachingElementId: chemistryElement.id,
+            title: "Chimie — Fondamentaux",
+            order: 1,
+            questionCount: 20,
+            firstQuestion: 1,
+            lastQuestion: 20,
+          },
+        });
+      }
+
+      // Mettre à jour les groupes
+      for (const groupSeed of groupsData) {
+        const existingGroup = await prisma.healthMockExamQuestionGroup.findFirst({
+          where: { examSectionId: section.id, order: groupSeed.order },
+        });
+        if (existingGroup) {
+          await prisma.healthMockExamQuestionGroup.update({
+            where: { id: existingGroup.id },
+            data: {
+              title: groupSeed.title,
+              sharedStatement: groupSeed.sharedStatement,
+              sharedMedia: groupSeed.sharedMedia as any,
+            },
+          });
+        } else {
+          await prisma.healthMockExamQuestionGroup.create({
+            data: {
+              examSectionId: section.id,
+              title: groupSeed.title,
+              sharedStatement: groupSeed.sharedStatement,
+              sharedMedia: groupSeed.sharedMedia as any,
+              order: groupSeed.order,
+            },
+          });
+        }
+      }
+
+      // Mettre à jour les 20 questions en place
+      const groupMap = new Map<number, string>();
+      const currentGroups = await prisma.healthMockExamQuestionGroup.findMany({
+        where: { examSectionId: section.id },
+      });
+      for (const g of currentGroups) {
+        const gSeed = groupsData.find((gs) => gs.order === g.order);
+        if (gSeed) {
+          for (const qOrder of gSeed.questionOrders) {
+            groupMap.set(qOrder, g.id);
+          }
+        }
+      }
+
+      for (let index = 0; index < compiledQuestions.length; index++) {
+        const q = compiledQuestions[index];
+        const questionOrder = index + 1;
+        const stableId = `c01-q${String(questionOrder).padStart(2, "0")}`;
+        const groupId = groupMap.get(questionOrder) ?? null;
+        const themeIds = [
+          ...((UE14_COLLE_THEME_IDS_BY_QUESTION_STABLE_ID as Record<string, readonly string[]>)[stableId] ?? []),
+        ];
+
+        const existingQuestion = await prisma.healthMockExamQuestion.findFirst({
+          where: { examSectionId: section.id, slug: stableId },
+        });
+
+        if (existingQuestion) {
+          await prisma.healthMockExamQuestion.update({
+            where: { id: existingQuestion.id },
+            data: {
+              groupId,
+              difficulty: (q.difficulty as "EASY" | "MEDIUM" | "HARD") ?? "MEDIUM",
+              questionType: q.questionType ?? "mcq",
+              question: q.question,
+              questionDiagram: (q.questionDiagram as any) ?? undefined,
+              choices: (q.choices as any) ?? [],
+              answerFormat: q.answerFormat ?? "SINGLE",
+              correctChoiceIndexes: q.correctChoiceIndexes ?? [],
+              correctChoiceIndex: q.correctChoiceIndexes?.[0] ?? 0,
+              answerPayload: (q.answerPayload as any) ?? undefined,
+              explanation: q.explanation ?? "",
+              choiceExplanations: (q.choiceExplanations as any) ?? [],
+              isPublished: true,
+              themeIds,
+            },
+          });
+        } else {
+          await prisma.healthMockExamQuestion.create({
+            data: {
+              examSectionId: section.id,
+              groupId,
+              slug: stableId,
+              difficulty: (q.difficulty as "EASY" | "MEDIUM" | "HARD") ?? "MEDIUM",
+              questionType: q.questionType ?? "mcq",
+              question: q.question,
+              questionDiagram: (q.questionDiagram as any) ?? undefined,
+              choices: (q.choices as any) ?? [],
+              answerFormat: q.answerFormat ?? "SINGLE",
+              correctChoiceIndexes: q.correctChoiceIndexes ?? [],
+              correctChoiceIndex: q.correctChoiceIndexes?.[0] ?? 0,
+              answerPayload: (q.answerPayload as any) ?? undefined,
+              explanation: q.explanation ?? "",
+              choiceExplanations: (q.choiceExplanations as any) ?? [],
+              order: questionOrder,
+              globalOrder: questionOrder,
+              isPublished: true,
+              themeIds,
+            },
+          });
+        }
+      }
+
+      return existingColle;
+    }
+  }
+
+  // Création initiale si n'existait pas du tout
+  const mockExam = await prisma.healthMockExam.create({
+    data: {
+      courseUnitId: courseUnit.id,
+      type: "COLLE",
+      title: "Chimie — Fondamentaux",
+      slug: "c01",
+      description: "Chimie générale · Ch. 1 à 4",
+      instructions: "Colle UE14 Reims — 20 questions — 30 min — Notation UNESS",
+      durationMinutes: 30,
+      durationSeconds: 1800,
+      questionCount: 20,
+      version: 1,
+      order: 1,
+      isPublished: true,
+    },
+  });
+
   const section = await prisma.healthMockExamSection.create({
     data: {
       mockExamId: mockExam.id,
@@ -120,7 +232,6 @@ export async function seedHealthColleUE14C01(prisma: PrismaClient) {
     },
   });
 
-  // Création des groupes
   const groupIdsByOrder = new Map<number, string>();
   for (const groupSeed of groupsData) {
     const group = await prisma.healthMockExamQuestionGroup.create({
@@ -137,7 +248,6 @@ export async function seedHealthColleUE14C01(prisma: PrismaClient) {
     }
   }
 
-  // Création des questions avec groupe et themeIds
   for (let index = 0; index < compiledQuestions.length; index++) {
     const q = compiledQuestions[index];
     const questionOrder = index + 1;

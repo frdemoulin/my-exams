@@ -175,6 +175,7 @@ test.describe.serial("Santé — Colle C01 Captures & Recette Visuelle", () => {
 
     // Capture correction desktop
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c01-correction-desktop.png") });
+    await page.screenshot({ path: path.join(process.cwd(), "tmp", "c01-q01-correction-katex-after.png") });
 
     // Capture correction mobile 375 px
     await page.setViewportSize({ width: 375, height: 667 });

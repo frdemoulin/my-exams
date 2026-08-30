@@ -10,7 +10,7 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
     "difficulty": "EASY",
     "format": "QRM",
     "question": "À propos de ces deux atomes, quelles propositions sont exactes ?",
-    "explanation": "Les deux atomes ont le même numéro atomique $Z=17$ : ils appartiennent donc au même élément chimique et possèdent chacun 17 protons. Comme ils sont neutres, ils possèdent également chacun 17 électrons. Leur nombre de neutrons diffère puisque leur nombre de masse $A$ est différent : ce sont deux isotopes du chlore.",
+    "explanation": "Les deux atomes ont le même numéro atomique $\\mathrm{Z} = 17$ : ils appartiennent donc au même élément chimique et possèdent chacun 17 protons. Comme ils sont neutres, ils possèdent également chacun 17 électrons. Leur nombre de neutrons diffère puisque leur nombre de masse $\\mathrm{A}$ est différent : ce sont deux isotopes du chlore.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -28,7 +28,7 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
       {
         "content": "Ils possèdent le même nombre de neutrons.",
         "correct": false,
-        "explanation": "Le nombre de neutrons vaut $\\mathrm{N}=\\mathrm{A}-\\mathrm{Z}$ : 18 pour $\\ce{^{35}Cl}$ et 20 pour $\\ce{^{37}Cl}$."
+        "explanation": "Le nombre de neutrons vaut $\\mathrm{N} = \\mathrm{A} - \\mathrm{Z}$ : 18 pour $\\ce{^{35}Cl}$ et 20 pour $\\ce{^{37}Cl}$."
       },
       {
         "content": "Ce sont deux isotopes du chlore.",
@@ -52,7 +52,7 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
     "difficulty": "EASY",
     "format": "QROC",
     "question": "Combien de neutrons contient le noyau de $\\ce{^{37}_{17}Cl}$ ?",
-    "explanation": "Le nombre de neutrons vaut $\\mathrm{N}=\\mathrm{A}-\\mathrm{Z}=37-17=20$.",
+    "explanation": "Le nombre de neutrons vaut $\\mathrm{N} = \\mathrm{A} - \\mathrm{Z} = 37 - 17 = 20$.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -72,7 +72,7 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
     "difficulty": "MEDIUM",
     "format": "QRU",
     "question": "Un atome neutre possède la configuration électronique de valence $3\\mathrm{s}^2\\,3\\mathrm{p}^5$. À quelle famille appartient-il ?",
-    "explanation": "Une configuration externe $n\\mathrm{s}^2\\,n\\mathrm{p}^5$ caractérise les halogènes du groupe 17. Pour $\\mathrm{n}=3$, il s’agit du chlore.",
+    "explanation": "Une configuration externe $n\\mathrm{s}^2\\,n\\mathrm{p}^5$ caractérise les halogènes du groupe 17. Pour $n = 3$, il s’agit du chlore.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -158,7 +158,7 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
     "difficulty": "MEDIUM",
     "format": "QRM",
     "question": "À propos d’une liaison de coordination, quelles propositions sont exactes ?",
-    "explanation": "Une liaison de coordination se forme lorsqu’un donneur apporte un doublet déjà constitué vers une orbitale vacante d’un accepteur. Une fois formée, elle est une liaison covalente ; dans $\\ce{NH4+}$, les quatre liaisons N–H sont équivalentes.",
+    "explanation": "Une liaison de coordination se forme lorsqu’un donneur apporte un doublet déjà constitué vers une orbitale vacante d’un accepteur. Une fois formée, elle est une liaison covalente ; dans $\\ce{NH4+}$, les quatre liaisons $\\ce{N-H}$ sont équivalentes.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -186,12 +186,12 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
       {
         "content": "La formation de $\\ce{NH4+}$ à partir de $\\ce{NH3}$ et $\\ce{H+}$ peut être décrite par une donation du doublet libre de l’azote.",
         "correct": true,
-        "explanation": "Le doublet non liant de l’azote est donné au proton pour former une nouvelle liaison N–H."
+        "explanation": "Le doublet non liant de l’azote est donné au proton pour former une nouvelle liaison $\\ce{N-H}$."
       },
       {
-        "content": "Après formation de $\\ce{NH4+}$, une seule liaison N–H reste chimiquement distinguable comme « liaison dative ».",
+        "content": "Après formation de $\\ce{NH4+}$, une seule liaison $\\ce{N-H}$ reste chimiquement distinguable comme « liaison dative ».",
         "correct": false,
-        "explanation": "Dans l’ion ammonium tétraédrique, les quatre liaisons N–H sont équivalentes."
+        "explanation": "Dans l’ion ammonium tétraédrique, les quatre liaisons $\\ce{N-H}$ sont équivalentes."
       }
     ]
   },
@@ -199,8 +199,8 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
     "order": 6,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Le fer a pour numéro atomique $\\mathrm{Z}=26$. Combien d’électrons possède l’ion $\\ce{Fe^{3+}}$ ?",
-    "explanation": "Un atome neutre de fer possède 26 électrons. La charge $3+$ correspond à la perte de trois électrons : $26-3=23$.",
+    "question": "Le fer a pour numéro atomique $\\mathrm{Z} = 26$. Combien d’électrons possède l’ion $\\ce{Fe^{3+}}$ ?",
+    "explanation": "Un atome neutre de fer possède 26 électrons. La charge $3+$ correspond à la perte de trois électrons : $26 - 3 = 23$.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -233,12 +233,12 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
     ],
     "choices": [
       {
-        "content": "Dans une liaison C–O, la densité électronique est davantage attirée vers l’oxygène.",
+        "content": "Dans une liaison $\\ce{C-O}$, la densité électronique est davantage attirée vers l’oxygène.",
         "correct": true,
         "explanation": "L’oxygène est plus électronégatif que le carbone."
       },
       {
-        "content": "Électronégativité et affinité électronique sont deux noms strictement synonymes d’une même grandeur.",
+        "content": "Électronégativité et affinité électronique sont deux noms strictly synonymes d’une même grandeur.",
         "correct": false,
         "explanation": "L’électronégativité décrit l’attraction des électrons dans une liaison, alors que l’affinité électronique est liée à l’ajout d’un électron à une espèce isolée."
       },
@@ -248,14 +248,14 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
         "explanation": "Les moments de liaison peuvent s’annuler par symétrie, comme dans $\\ce{CO2}$ ou $\\ce{BCl3}$."
       },
       {
-        "content": "Dans la convention chimique usuelle, le vecteur moment dipolaire est orienté du pôle $\\delta+$ vers le pôle $\\delta-$.",
+        "content": "Dans la convention chimique usuelle, le vecteur moment dipolaire est orienté du pôle $\\delta^+$ vers le pôle $\\delta^-$.",
         "correct": true,
         "explanation": "Le vecteur pointe vers la zone la plus électronégative dans la convention chimique."
       },
       {
-        "content": "Une liaison C–H est totalement incapable d’être polarisée ou polarisable.",
+        "content": "Une liaison $\\ce{C-H}$ est totalement incapable d’être polarisée ou polarisable.",
         "correct": false,
-        "explanation": "La liaison C–H est peu polarisée, mais sa densité électronique reste polarisable."
+        "explanation": "La liaison $\\ce{C-H}$ est peu polarisée, mais sa densité électronique reste polarisable."
       }
     ]
   },
@@ -306,7 +306,7 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
     "difficulty": "HARD",
     "format": "QRM",
     "question": "À propos de l’hybridation et de la géométrie moléculaire, quelles propositions sont exactes ?",
-    "explanation": "L’hybridation $sp$ est associée à une disposition digonale, c’est-à-dire linéaire à 180°. Le terme « diagonale » est une confusion lexicale. $sp^2$ conduit à une organisation trigonale plane et $sp^3$ à une organisation tétraédrique des domaines électroniques.",
+    "explanation": "L’hybridation $\\mathrm{sp}$ est associée à une disposition digonale, c’est-à-dire linéaire à 180°. Le terme « diagonale » est une confusion lexicale. $\\mathrm{sp}^2$ conduit à une organisation trigonale plane et $\\mathrm{sp}^3$ à une organisation tétraédrique des domaines électroniques.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -318,29 +318,29 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
     ],
     "choices": [
       {
-        "content": "Une hybridation $sp$ est associée à une géométrie digonale, donc linéaire à 180°.",
+        "content": "Une hybridation $\\mathrm{sp}$ est associée à une géométrie digonale, donc linéaire à 180°.",
         "correct": true,
-        "explanation": "Deux orbitales hybrides $sp$ s’orientent en sens opposés."
+        "explanation": "Deux orbitales hybrides $\\mathrm{sp}$ s’orientent en sens opposés."
       },
       {
-        "content": "Le terme scientifique attendu pour la géométrie $sp$ est « diagonale », car les orbitales se disposent en diagonale.",
+        "content": "Le terme scientifique attendu pour la géométrie $\\mathrm{sp}$ est « diagonale », car les orbitales se disposent en diagonale.",
         "correct": false,
         "explanation": "Le terme est « digonale » (ou plus couramment linéaire), pas « diagonale »."
       },
       {
-        "content": "Une hybridation $sp^2$ est compatible avec une disposition trigonale plane à environ 120°.",
+        "content": "Une hybridation $\\mathrm{sp}^2$ est compatible avec une disposition trigonale plane à environ 120°.",
         "correct": true,
-        "explanation": "Trois orbitales $sp^2$ coplanaires sont séparées d’environ 120°."
+        "explanation": "Trois orbitales $\\mathrm{sp}^2$ coplanaires sont séparées d’environ 120°."
       },
       {
-        "content": "Quatre domaines électroniques associés à une hybridation $sp^3$ adoptent une organisation tétraédrique.",
+        "content": "Quatre domaines électroniques associés à une hybridation $\\mathrm{sp}^3$ adoptent une organisation tétraédrique.",
         "correct": true,
         "explanation": "L’angle tétraédrique idéal vaut environ 109,5°."
       },
       {
-        "content": "La liaison $\\pi$ d’une double liaison C=C autorise la libre rotation autour de l’axe C–C.",
+        "content": "La liaison $\\pi$ d’une double liaison $\\ce{C=C}$ autorise la libre rotation autour de l’axe $\\ce{C-C}$.",
         "correct": false,
-        "explanation": "La rotation détruirait le recouvrement latéral des orbitales p ; elle est donc fortement empêchée."
+        "explanation": "La rotation détruirait le recouvrement latéral des orbitales $\\mathrm{p}$ ; elle est donc fortement empêchée."
       }
     ]
   },
@@ -392,17 +392,17 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
       {
         "content": "$\\ce{CO2}$ : linéaire et globalement apolaire.",
         "correct": true,
-        "explanation": "Les deux moments C=O opposés s’annulent dans la géométrie linéaire."
+        "explanation": "Les deux moments $\\ce{C=O}$ opposés s’annulent dans la géométrie linéaire."
       },
       {
         "content": "$\\ce{H2O}$ : coudée et polaire.",
         "correct": true,
-        "explanation": "La géométrie coudée empêche l’annulation des moments O–H."
+        "explanation": "La géométrie coudée empêche l’annulation des moments $\\ce{O-H}$."
       },
       {
         "content": "$\\ce{BCl3}$ : trigonale plane et nécessairement polaire.",
         "correct": false,
-        "explanation": "La molécule est trigonale plane et symétrique ; les moments B–Cl s’annulent."
+        "explanation": "La molécule est trigonale plane et symétrique ; les moments $\\ce{B-Cl}$ s’annulent."
       },
       {
         "content": "$\\ce{NH3}$ : trigonale plane et apolaire.",
@@ -410,9 +410,9 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
         "explanation": "$\\ce{NH3}$ est pyramidale trigonale et possède un moment dipolaire net."
       },
       {
-        "content": "$\\ce{CH4}$ : tétraédrique avec un carbone central $sp^2$.",
+        "content": "$\\ce{CH4}$ : tétraédrique avec un carbone central $\\mathrm{sp}^2$.",
         "correct": false,
-        "explanation": "Le carbone de $\\ce{CH4}$ est classiquement décrit comme $sp^3$."
+        "explanation": "Le carbone de $\\ce{CH4}$ est classiquement décrit comme $\\mathrm{sp}^3$."
       }
     ]
   },
@@ -437,22 +437,22 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
         "explanation": "Des moments de liaison peuvent s’annuler par symétrie."
       },
       {
-        "content": "Dans $\\ce{BCl3}$, les trois moments de liaison B–Cl s’annulent dans la géométrie trigonale plane.",
+        "content": "Dans $\\ce{BCl3}$, les trois moments de liaison $\\ce{B-Cl}$ s’annulent dans la géométrie trigonale plane.",
         "correct": true,
         "explanation": "Les trois vecteurs de même intensité sont séparés de 120° et leur somme est nulle."
       },
       {
         "content": "L’isomère cis-1,2-dichloroéthène possède un moment dipolaire global non nul.",
         "correct": true,
-        "explanation": "Les moments C–Cl ne sont pas opposés et ne s’annulent pas."
+        "explanation": "Les moments $\\ce{C-Cl}$ ne sont pas opposés et ne s’annulent pas."
       },
       {
-        "content": "Dans l’isomère trans-1,2-dichloroéthène symétrique, les moments C–Cl peuvent s’annuler.",
+        "content": "Dans l’isomère trans-1,2-dichloroéthène symétrique, les moments $\\ce{C-Cl}$ peuvent s’annuler.",
         "correct": true,
         "explanation": "La disposition opposée conduit idéalement à une somme vectorielle nulle."
       },
       {
-        "content": "$\\ce{CCl4}$ est fortement polaire uniquement parce que chaque liaison C–Cl est polarisée.",
+        "content": "$\\ce{CCl4}$ est fortement polaire uniquement parce que chaque liaison $\\ce{C-Cl}$ est polarisée.",
         "correct": false,
         "explanation": "La géométrie tétraédrique symétrique annule les moments de liaison."
       }
@@ -484,7 +484,7 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
         "explanation": "Elles proviennent des fluctuations de la distribution électronique."
       },
       {
-        "content": "Elles nécessitent obligatoirement une liaison O–H, N–H ou F–H.",
+        "content": "Elles nécessitent obligatoirement une liaison $\\ce{O-H}$, $\\ce{N-H}$ ou $\\ce{F-H}$.",
         "correct": false,
         "explanation": "Cette condition concerne la donation d’une liaison hydrogène, pas les forces de London."
       },
@@ -518,27 +518,27 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
       {
         "content": "Le méthanol peut donner et accepter des liaisons hydrogène.",
         "correct": true,
-        "explanation": "Son groupe O–H fournit un hydrogène donneur et l’oxygène possède des doublets accepteurs."
+        "explanation": "Son groupe $\\ce{O-H}$ fournit un hydrogène donneur et l’oxygène possède des doublets accepteurs."
       },
       {
-        "content": "L’acétone peut accepter une liaison hydrogène mais ne possède pas de groupe O–H ou N–H capable d’en donner une.",
+        "content": "L’acétone peut accepter une liaison hydrogène mais ne possède pas de groupe $\\ce{O-H}$ ou $\\ce{N-H}$ capable d’en donner une.",
         "correct": true,
         "explanation": "L’oxygène carbonylé est accepteur, mais l’acétone ne porte pas d’hydrogène donneur lié à O, N ou F."
       },
       {
         "content": "L’ammoniac peut participer comme donneur et comme accepteur de liaison hydrogène.",
         "correct": true,
-        "explanation": "Les liaisons N–H peuvent donner et le doublet libre de l’azote peut accepter."
+        "explanation": "Les liaisons $\\ce{N-H}$ peuvent donner et le doublet libre de l’azote peut accepter."
       },
       {
-        "content": "Le méthane est un donneur classique de liaison hydrogène forte grâce à ses liaisons C–H.",
+        "content": "Le méthane est un donneur classique de liaison hydrogène forte grâce à ses liaisons $\\ce{C-H}$.",
         "correct": false,
-        "explanation": "Les liaisons C–H ordinaires ne constituent pas les donneurs classiques O–H/N–H/F–H de liaison hydrogène."
+        "explanation": "Les liaisons $\\ce{C-H}$ ordinaires ne constituent pas les donneurs classiques $\\ce{O-H}/\\ce{N-H}/\\ce{F-H}$ de liaison hydrogène."
       },
       {
-        "content": "Une liaison hydrogène entre deux molécules est identique à la liaison covalente O–H interne à une molécule d’eau.",
+        "content": "Une liaison hydrogène entre deux molécules est identique à la liaison covalente $\\ce{O-H}$ interne à une molécule d’eau.",
         "correct": false,
-        "explanation": "La liaison hydrogène est une interaction non covalente distincte de la liaison O–H covalente."
+        "explanation": "La liaison hydrogène est une interaction non covalente distincte de la liaison $\\ce{O-H}$ covalente."
       }
     ]
   },
@@ -547,7 +547,7 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
     "difficulty": "MEDIUM",
     "format": "QROC",
     "question": "Combien de liaisons $\\pi$ comporte la molécule d’éthyne $\\ce{HC#CH}$ ?",
-    "explanation": "La triple liaison C≡C comporte une liaison $\\sigma$ et deux liaisons $\\pi$.",
+    "explanation": "La triple liaison $\\ce{C#C}$ comporte une liaison $\\sigma$ et deux liaisons $\\pi$.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -610,7 +610,7 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
     "difficulty": "HARD",
     "format": "QRPL",
     "question": "En vous appuyant sur la classification périodique proposée et sur les propriétés périodiques étudiées, sélectionnez exactement les cinq propositions correctes.",
-    "explanation": "La position dans le tableau permet de relier famille chimique, configuration électronique externe et propriétés périodiques. Na et K sont des alcalins de configuration externe $ns^1$ et forment couramment des cations $+1$. C et Si appartiennent au groupe 14, tandis que Cl et Br sont des halogènes de configuration externe $ns^2np^5$. Dans une même famille, l'électronégativité augmente globalement vers le haut : O est donc plus électronégatif que S, et Cl plus électronégatif que Br.",
+    "explanation": "La position dans le tableau permet de relier famille chimique, configuration électronique externe et propriétés périodiques. $\\ce{Na}$ et $\\ce{K}$ sont des alcalins de configuration externe $n\\mathrm{s}^1$ et forment couramment des cations $+1$. $\\ce{C}$ et $\\ce{Si}$ appartiennent au groupe 14, tandis que $\\ce{Cl}$ et $\\ce{Br}$ sont des halogènes de configuration externe $n\\mathrm{s}^2\\,n\\mathrm{p}^5$. Dans une même famille, l'électronégativité augmente globalement vers le haut : $\\ce{O}$ est donc plus électronégatif que $\\ce{S}$, et $\\ce{Cl}$ plus électronégatif que $\\ce{Br}$.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -623,9 +623,9 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
     "requiredSelectionCount": 5,
     "choices": [
       {
-        "content": "$\\ce{Na}$ et $\\ce{K}$ appartiennent à la même famille chimique et leur configuration électronique externe est de type $ns^1$.",
+        "content": "$\\ce{Na}$ et $\\ce{K}$ appartiennent à la même famille chimique et leur configuration électronique externe est de type $n\\mathrm{s}^1$.",
         "correct": true,
-        "explanation": "Vrai. Na et K sont dans le groupe 1 ; leur couche externe est de type $ns^1$."
+        "explanation": "Vrai. Na et K sont dans le groupe 1 ; leur couche externe est de type $n\\mathrm{s}^1$."
       },
       {
         "content": "$\\ce{C}$ et $\\ce{Si}$ appartiennent à la même famille chimique et possèdent chacun quatre électrons de valence dans leur état fondamental.",
@@ -633,9 +633,9 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
         "explanation": "Vrai. C et Si appartiennent au groupe 14 et possèdent quatre électrons de valence."
       },
       {
-        "content": "$\\ce{Cl}$ et $\\ce{Br}$ appartiennent à la famille des halogènes et leur configuration électronique externe est de type $ns^2np^5$.",
+        "content": "$\\ce{Cl}$ et $\\ce{Br}$ appartiennent à la famille des halogènes et leur configuration électronique externe est de type $n\\mathrm{s}^2\\,n\\mathrm{p}^5$.",
         "correct": true,
-        "explanation": "Vrai. Les halogènes appartiennent au groupe 17 et présentent une configuration externe générale $ns^2np^5$."
+        "explanation": "Vrai. Les halogènes appartiennent au groupe 17 et présentent une configuration externe générale $n\\mathrm{s}^2\\,n\\mathrm{p}^5$."
       },
       {
         "content": "L'oxygène est plus électronégatif que le soufre.",
@@ -648,9 +648,9 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
         "explanation": "Vrai. Les alcalins perdent facilement leur électron externe et donnent couramment des cations $+1$."
       },
       {
-        "content": "Le calcium appartient au bloc $p$.",
+        "content": "Le calcium appartient au bloc $\\mathrm{p}$.",
         "correct": false,
-        "explanation": "Faux. Ca appartient au groupe 2 et au bloc $s$."
+        "explanation": "Faux. Ca appartient au groupe 2 et au bloc $\\mathrm{s}$."
       },
       {
         "content": "Le fer et le cobalt appartiennent à la même famille chimique puisqu'ils sont situés sur la même période.",
@@ -663,7 +663,7 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
         "explanation": "Faux. Dans le groupe 17, l'électronégativité augmente vers le haut : Cl est plus électronégatif que Br."
       },
       {
-        "content": "Le silicium possède six électrons de valence puisqu'il se trouve dans le bloc $p$.",
+        "content": "Le silicium possède six électrons de valence puisqu'il se trouve dans le bloc $\\mathrm{p}$.",
         "correct": false,
         "explanation": "Faux. Si appartient au groupe 14 et possède quatre électrons de valence."
       },
@@ -712,7 +712,7 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
       {
         "content": "Le nombre de masse.",
         "correct": false,
-        "explanation": "Le nombre de masse $A$ est le nombre total de nucléons."
+        "explanation": "Le nombre de masse $\\mathrm{A}$ est le nombre total de nucléons."
       }
     ]
   },
@@ -766,7 +766,7 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
     ],
     "choices": [
       {
-        "content": "Les liaisons C–O et O–H sont polarisées vers l’oxygène.",
+        "content": "Les liaisons $\\ce{C-O}$ et $\\ce{O-H}$ sont polarisées vers l’oxygène.",
         "correct": true,
         "explanation": "L’oxygène est plus électronégatif que le carbone et l’hydrogène."
       },
@@ -778,7 +778,7 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
       {
         "content": "L’hydrogène porté par l’oxygène peut participer comme donneur de liaison hydrogène.",
         "correct": true,
-        "explanation": "Le groupe O–H est un donneur classique."
+        "explanation": "Le groupe $\\ce{O-H}$ est un donneur classique."
       },
       {
         "content": "Le méthanol possède un moment dipolaire moléculaire global non nul.",
@@ -786,9 +786,9 @@ export const UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS: HealthTrainingAuthorQ
         "explanation": "La géométrie ne permet pas l’annulation de ses moments de liaison polarisés."
       },
       {
-        "content": "Le carbone du groupe $\\ce{CH3}$ est décrit comme $sp^2$ et trigonal plan.",
+        "content": "Le carbone du groupe $\\ce{CH3}$ est décrit comme $\\mathrm{sp}^2$ et trigonal plan.",
         "correct": false,
-        "explanation": "Dans le méthanol, le carbone forme quatre liaisons $\\sigma$ et est classiquement décrit comme $sp^3$ tétraédrique."
+        "explanation": "Dans le méthanol, le carbone forme quatre liaisons $\\sigma$ et est classiquement décrit comme $\\mathrm{sp}^3$ tétraédrique."
       }
     ]
   }
