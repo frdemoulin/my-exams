@@ -15,29 +15,63 @@ export function ProtectedAssessmentContent({
   containerClassName,
 }: ProtectedAssessmentContentProps) {
   const normalizedWatermark = watermarkCode?.trim() || null;
+  const patternId = React.useId().replace(/:/g, '-');
 
   return (
     <div className={cn('relative w-full', containerClassName)}>
       {/* Contenu protégé affiché à l'écran, masqué en @media print */}
       <div className={cn('protected-assessment-content relative w-full', className)}>
-        {/* Filigrane discret : pointer-events none, non obstructif */}
+        {/* Contenu effectif */}
+        <div className="relative z-0">{children}</div>
+
+        {/* Filigrane discret placé AU-DESSUS des cartes pédagogiques (z-10) avec pointer-events-none et user-select-none */}
         {normalizedWatermark ? (
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 z-0 select-none overflow-hidden opacity-[0.04] dark:opacity-[0.06]"
+            className="pointer-events-none absolute inset-0 z-10 select-none overflow-hidden"
           >
-            <div className="flex h-full w-full flex-wrap items-center justify-around gap-x-16 gap-y-24 p-6 font-mono text-xs font-bold uppercase tracking-[0.25em] text-foreground -rotate-12">
-              {Array.from({ length: 12 }).map((_, i) => (
-                <span key={i} className="whitespace-nowrap">
-                  MY EXAMS · USAGE PERSONNEL · {normalizedWatermark}
-                </span>
-              ))}
-            </div>
+            <svg
+              className="h-full w-full opacity-[0.055] dark:opacity-[0.08] text-foreground"
+              xmlns="http://www.w3.org/2000/svg"
+              width="100%"
+              height="100%"
+            >
+              <defs>
+                <pattern
+                  id={`watermark-pattern-${patternId}`}
+                  width="360"
+                  height="180"
+                  patternUnits="userSpaceOnUse"
+                  patternTransform="rotate(-15)"
+                >
+                  <text
+                    x="20"
+                    y="60"
+                    fill="currentColor"
+                    fontFamily="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
+                    fontSize="11"
+                    fontWeight="700"
+                    letterSpacing="0.22em"
+                  >
+                    MY EXAMS · {normalizedWatermark}
+                  </text>
+                  <text
+                    x="180"
+                    y="150"
+                    fill="currentColor"
+                    fontFamily="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
+                    fontSize="11"
+                    fontWeight="700"
+                    letterSpacing="0.22em"
+                  >
+                    USAGE PERSONNEL · {normalizedWatermark}
+                  </text>
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill={`url(#watermark-pattern-${patternId})`} />
+            </svg>
           </div>
         ) : null}
-
-        {/* Contenu effectif */}
-        <div className="relative z-10">{children}</div>
       </div>
 
       {/* Message standardisé affiché exclusivement lors d'un print/export PDF */}
