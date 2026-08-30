@@ -54,7 +54,7 @@ test.describe.serial("Santé — Colle C07 Captures & Recette Visuelle", () => {
 
     // Q11 QROC numérique test (Answer: 2)
     await page.getByTestId("health-mock-exam-nav-11").click();
-    await expect(page.getByText("Combien d’atomes d’oxygène comporte le groupe fonctionnel d’un ester simple de type R–C(=O)–O–R′ ?")).toBeVisible();
+    await expect(page.getByText(/Combien d’atomes d’oxygène comporte le groupe fonctionnel d’un ester simple/)).toBeVisible();
     await page.getByTestId("health-mock-exam-short-answer-input").fill("2");
 
     // Scroll nav right to find Q12
@@ -74,6 +74,7 @@ test.describe.serial("Santé — Colle C07 Captures & Recette Visuelle", () => {
 
     // Capture 1: Q12 desktop
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c07-q12-desktop.png") });
+    await page.screenshot({ path: path.join(process.cwd(), "tmp", "c07-katex-after.png") });
 
     // Q12 answer: Choice C (Un alcool primaire)
     await page.getByTestId("health-mock-exam-choice-2").click();
