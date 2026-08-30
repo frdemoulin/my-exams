@@ -26,7 +26,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         content: "Deux isotopes d’un même élément ont le même nombre de protons.",
         correct: true,
-        explanation: "Ils ont le même numéro atomique $Z$ mais diffèrent par leur nombre de neutrons."
+        explanation: "Ils ont le même numéro atomique $\mathrm{Z}$ mais diffèrent par leur nombre de neutrons."
       },
       {
         content: "Un cation $2+$ possède deux électrons de plus que l’atome neutre correspondant.",
@@ -39,9 +39,9 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "L’attraction exercée sur les électrons de liaison augmente globalement dans ce sens."
       },
       {
-        content: "Le nombre de masse $A$ est égal au nombre d’électrons de l’atome neutre.",
+        content: "Le nombre de masse $\mathrm{A}$ est égal au nombre d’électrons de l’atome neutre.",
         correct: false,
-        explanation: "$A$ correspond au nombre total de nucléons, protons plus neutrons."
+        explanation: "$\mathrm{A}$ correspond au nombre total de nucléons, protons plus neutrons."
       },
       {
         content: "L’affinité électronique et l’électronégativité sont deux noms strictement synonymes.",
@@ -94,7 +94,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Une seule composante est $\sigma$."
       },
       {
-        content: "Elle autorise une rotation libre autour de l’axe $\mathrm{C{-}C}$ sans modifier le recouvrement orbitalaire.",
+        content: "Elle autorise une rotation libre autour de l’axe $\ce{C-C}$ sans modifier le recouvrement orbitalaire.",
         correct: false,
         explanation: "Les deux liaisons $\pi$ s’opposent à une rotation libre."
       },
@@ -115,7 +115,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     difficulty: "EASY",
     format: "QRP",
     question: "Sélectionnez exactement les deux propositions correctes concernant les interactions intermoléculaires.",
-    explanation: "Les forces de London existent entre toutes les espèces polarisables. Une liaison hydrogène exige un donneur $\mathrm{X{-}H}$ adapté et un accepteur disposant d’un doublet.",
+    explanation: "Les forces de London existent entre toutes les espèces polarisables. Une liaison hydrogène exige un donneur $\ce{X-H}$ adapté et un accepteur disposant d’un doublet.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
@@ -132,7 +132,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         content: "Un éther peut accepter une liaison hydrogène grâce aux doublets de son oxygène.",
         correct: true,
-        explanation: "L’oxygène éthéré est accepteur mais la molécule n’est pas donneuse en l’absence de $\mathrm{O{-}H}$."
+        explanation: "L’oxygène éthéré est accepteur mais la molécule n’est pas donneuse en l’absence de $\ce{O-H}$."
       },
       {
         content: "Toute molécule contenant de l’oxygène est nécessairement donneuse de liaison hydrogène.",
@@ -221,7 +221,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     difficulty: "HARD",
     format: "QRM",
     question: "À propos de la stéréochimie des molécules organiques, quelles propositions sont exactes ?",
-    explanation: "Les descripteurs $\mathrm{R/S}$ concernent des centres stéréogènes tétraédriques ; *E/Z* concernent les doubles liaisons lorsque chaque carbone porte deux substituants différents.",
+    explanation: "Les descripteurs $\mathrm{R/S}$ concernent des centres stéréogènes tétraédriques ; $E/Z$ concernent les doubles liaisons lorsque chaque carbone porte deux substituants différents.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
@@ -236,7 +236,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "Ils possèdent des configurations opposées dans une relation miroir."
       },
       {
-        content: "L’attribution *E/Z* nécessite de comparer les priorités CIP sur chacun des deux carbones de la double liaison.",
+        content: "L’attribution $E/Z$ nécessite de comparer les priorités CIP sur chacun des deux carbones de la double liaison.",
         correct: true,
         explanation: "Les groupes de plus haute priorité déterminent E ou Z."
       },
@@ -251,7 +251,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "Cette relation définit les énantiomères."
       },
       {
-        content: "La présence d’une double liaison $\mathrm{C=C}$ suffit toujours à définir une configuration *E/Z*.",
+        content: "La présence d’une double liaison $\mathrm{C=C}$ suffit toujours à définir une configuration $E/Z$.",
         correct: false,
         explanation: "Chaque carbone doit porter deux substituants différents."
       }
@@ -360,7 +360,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "La polarisation $\mathrm{C}^{\delta+}$–$\mathrm{O}^{\delta-}$ appauvrit le carbone en densité électronique."
       },
       {
-        content: "La liaison $\mathrm{C{-}N}$ d’un amide possède un caractère partiel de double liaison.",
+        content: "La liaison $\ce{C-N}$ d’un amide possède un caractère partiel de double liaison.",
         correct: true,
         explanation: "Le doublet de l’azote est délocalisé vers le carbonyle."
       },
@@ -521,7 +521,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     difficulty: "MEDIUM",
     format: "QRM",
     question: "À propos de la fonction acide carboxylique portée par M et de sa base conjuguée, quelles propositions sont exactes ?",
-    explanation: "La perte du proton acide conduit au carboxylate. Ses deux formes mésomères limites délocalisent la charge négative sur les deux oxygènes, de sorte que les deux liaisons $\mathrm{C{-}O}$ sont équivalentes dans la description moyenne. Le carbone du motif carboxyle reste associé à un système $\pi$ délocalisé et la fonction acide comporte bien un carbonyle.",
+    explanation: "La perte du proton acide conduit au carboxylate. Ses deux formes mésomères limites délocalisent la charge négative sur les deux oxygènes, de sorte que les deux liaisons $\ce{C-O}$ sont équivalentes dans la description moyenne. Le carbone du motif carboxyle reste associé à un système $\pi$ délocalisé et la fonction acide comporte bien un carbonyle.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
@@ -536,7 +536,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "La perte de $\ce{H+}$ concerne le groupe $-\mathrm{COOH}$."
       },
       {
-        content: "Dans le carboxylate, les deux liaisons $\mathrm{C{-}O}$ deviennent équivalentes dans la description mésomère moyenne.",
+        content: "Dans le carboxylate, les deux liaisons $\ce{C-O}$ deviennent équivalentes dans la description mésomère moyenne.",
         correct: true,
         explanation: "La charge et le caractère de liaison sont délocalisés sur les deux oxygènes."
       },
@@ -793,12 +793,12 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
       {
         content: "La liaison peptidique présente un caractère partiel de double liaison.",
         correct: true,
-        explanation: "La résonance limite la rotation autour de $\mathrm{C{-}N}$."
+        explanation: "La résonance limite la rotation autour de $\ce{C-N}$."
       },
       {
         content: "Une hélice $\alpha$ est notamment stabilisée par des liaisons hydrogène du squelette peptidique.",
         correct: true,
-        explanation: "Le motif classique relie $\mathrm{C=O}(i)$ à $\mathrm{N{-}H}(i+4)$."
+        explanation: "Le motif classique relie $\mathrm{C=O}(i)$ à $\ce{N-H}(i+4)$."
       },
       {
         content: "La proline interne stabilise toujours une hélice $\alpha$ longue et régulière.",
@@ -1042,9 +1042,9 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "Elle accélère l’approche de l’équilibre sans le déplacer."
       },
       {
-        content: "La mésomérie de la liaison peptidique limite la rotation autour de la liaison $\\mathrm{C{-}N}$.",
+        content: "La mésomérie de la liaison peptidique limite la rotation autour de la liaison $\\ce{C-N}$.",
         correct: true,
-        explanation: "La délocalisation du doublet de l’azote vers le carbonyle confère à la liaison peptidique $\mathrm{C{-}N}$ un caractère partiel de double liaison et en limite la rotation."
+        explanation: "La délocalisation du doublet de l’azote vers le carbonyle confère à la liaison peptidique $\ce{C-N}$ un caractère partiel de double liaison et en limite la rotation."
       },
       {
         content: "Le saccharose possède deux carbones anomériques libres.",
@@ -1240,12 +1240,12 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
       {
         content: "Un pont disulfure peut résulter de l’oxydation de deux résidus cystéine.",
         correct: true,
-        explanation: "L’oxydation des fonctions thiol de deux cystéines peut former une liaison covalente $\mathrm{S{-}S}$."
+        explanation: "L’oxydation des fonctions thiol de deux cystéines peut former une liaison covalente $\ce{S-S}$."
       },
       {
         content: "Des liaisons hydrogène du squelette peptidique contribuent à stabiliser les hélices $\alpha$ et les feuillets $\beta$.",
         correct: true,
-        explanation: "Les structures secondaires reposent notamment sur des liaisons hydrogène entre groupements $\mathrm{C=O}$ et $\mathrm{N{-}H}$ du squelette."
+        explanation: "Les structures secondaires reposent notamment sur des liaisons hydrogène entre groupements $\mathrm{C=O}$ et $\ce{N-H}$ du squelette."
       },
       {
         content: "La dénaturation d’une protéine hydrolyse nécessairement toutes ses liaisons peptidiques.",

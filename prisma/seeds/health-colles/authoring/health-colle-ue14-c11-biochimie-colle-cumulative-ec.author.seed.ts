@@ -380,13 +380,13 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     difficulty: 'HARD',
     format: 'QRU',
     question: "Quelle proposition décrit correctement la liaison peptidique ?",
-    explanation: "La délocalisation électronique entre l’azote et le carbonyle confère à la liaison $\mathrm{C{-}N}$ peptidique un caractère partiel de double liaison, limitant sa rotation.",
+    explanation: "La délocalisation électronique entre l’azote et le carbonyle confère à la liaison $\ce{C-N}$ peptidique un caractère partiel de double liaison, limitant sa rotation.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C11', 'ec:BIOCHIMIE', 'theme:liaison-peptidique'],
     choices: [
       {
         content: "Elle possède une rotation totalement libre comparable à une liaison C–C simple.",
         correct: false,
-        explanation: "La mésomérie limite fortement la rotation autour de $\mathrm{C{-}N}$.",
+        explanation: "La mésomérie limite fortement la rotation autour de $\ce{C-N}$.",
       },
       {
         content: "Elle ne contient jamais d’atome d’azote.",
@@ -401,7 +401,7 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         content: "Elle correspond à un pont disulfure entre deux cystéines.",
         correct: false,
-        explanation: "Un pont disulfure est une liaison covalente $\mathrm{S{-}S}$ distincte.",
+        explanation: "Un pont disulfure est une liaison covalente $\ce{S-S}$ distincte.",
       },
       {
         content: "Elle est rompue spontanément et instantanément dans l’eau à $\mathrm{pH}$ neutre.",
@@ -420,7 +420,7 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C11', 'ec:BIOCHIMIE', 'theme:structures-secondaires'],
     choices: [
       {
-        content: "Dans une hélice $\alpha$, une liaison hydrogène relie classiquement $\mathrm{C=O}(i)$ à $\mathrm{N{-}H}(i+4)$.",
+        content: "Dans une hélice $\alpha$, une liaison hydrogène relie classiquement $\mathrm{C=O}(i)$ à $\ce{N-H}(i+4)$.",
         correct: true,
         explanation: "Ce motif répétitif stabilise l’hélice.",
       },
@@ -432,7 +432,7 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         content: "La proline interne stabilise toujours une hélice $\alpha$ longue et régulière.",
         correct: false,
-        explanation: "Sa rigidité et l’absence d’un $\mathrm{N{-}H}$ peptidique classique tendent à perturber l’hélice.",
+        explanation: "Sa rigidité et l’absence d’un $\ce{N-H}$ peptidique classique tendent à perturber l’hélice.",
       },
       {
         content: "Une structure secondaire est définie uniquement par des ponts disulfure entre cystéines.",
@@ -583,7 +583,7 @@ export const UE14_COLLE_C11_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         content: "Une liaison peptidique possède un caractère partiel de double liaison.",
         correct: true,
-        explanation: "La mésomérie $\mathrm{C{-}N}$ explique sa planéité et la rotation limitée.",
+        explanation: "La mésomérie $\ce{C-N}$ explique sa planéité et la rotation limitée.",
       },
       {
         content: "La proinsuline est maturée par clivage avec libération du peptide C.",
