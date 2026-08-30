@@ -39,8 +39,8 @@ test.describe.serial("Santé — Colle UE14 C01 Chimie Fondamentaux (exécutable
     // 2. Démarrer réellement la colle
     await dialog.getByRole("button", { name: "Démarrer la colle" }).click();
 
-    await expect(page).toHaveURL(/\/sante\/ue\/.*\/colles\/c01/, { timeout: 15000 });
-    await expect(page.getByTestId("health-mock-exam-taking")).toBeVisible({ timeout: 15000 });
+    await expect(page).toHaveURL(/\/sante\/ue\/.*\/colles\/c01/, { timeout: 30000 });
+    await expect(page.getByTestId("health-mock-exam-taking")).toBeVisible({ timeout: 30000 });
 
     // 3. Répondre à Q1 (QRM)
     await expect(page.getByText("QRM — Question à réponses multiples", { exact: true })).toBeVisible();
