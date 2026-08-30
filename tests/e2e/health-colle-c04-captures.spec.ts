@@ -171,6 +171,7 @@ test.describe.serial("Santé — Colle C04 Captures & Recette Visuelle", () => {
     // Capture 9: Q24 correction
     await expect(page.getByText("Question 24", { exact: true })).toBeVisible();
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c04-q24-correction.png") });
+    await page.screenshot({ path: path.join(process.cwd(), "tmp", "c04-katex-after.png") });
 
     // Copy screenshots to artifacts directory
     const screenshotFiles = [
