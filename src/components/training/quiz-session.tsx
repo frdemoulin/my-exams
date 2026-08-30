@@ -30,6 +30,7 @@ import {
   evaluateQuestion,
   calculateUnessFormatStats,
   evaluateMcqQuestion,
+  getChoiceIdFromIndex,
   getQuestionFormatStudentInstruction,
   getQuestionSelectionLimit,
   normalizePersistedQuestion,
@@ -53,15 +54,32 @@ import { QuestionFormatBadge } from './question-format-badge';
 import { TrainingChoiceContentView } from './training-choice-content-view';
 import { TrainingQuestionContentView } from './training-question-content-view';
 import { SharedQuestionGroupPanel } from './shared-question-group-panel';
+import { ProtectedAssessmentContent } from '@/components/shared/ProtectedAssessmentContent';
 
 type QuizSessionProps = {
   questions: TrainingQuestion[];
+  watermarkCode?: string;
   pathContext?: QuizSessionPathContext;
   onAttemptComplete?: (payload: {
     score: number;
     targetScore: number;
     totalQuestions: number;
   }) => void | Promise<void>;
+  onSubmitAnswers?: (payload: {
+    answers: Array<{
+      questionId: string;
+      selectedChoiceIndexes: number[];
+      shortAnswerRawValue?: string;
+      hotspotPoints?: Array<{ x: number; y: number }>;
+      responsePayload?: any;
+    }>;
+  }) => Promise<{
+    score: number;
+    maxScore: number;
+    totalQuestions: number;
+    percentage: number;
+    questions?: TrainingQuestion[];
+  }>;
   correctionMode?: 'instant' | 'final';
   canEditQuestions?: boolean;
 };
@@ -451,9 +469,23 @@ const prepareQuestions = (questions: TrainingQuestion[], variant: number) => {
       correctChoiceIndexes: rotatedQuestionChoices.correctChoiceIndexes,
     };
 
+    let canonicalQuestion = question.canonicalQuestion;
+    if (!canonicalQuestion) {
+      canonicalQuestion = normalizeTrainingQuestionForEvaluation(preparedQuestion);
+    } else if (canonicalQuestion.type === 'mcq') {
+      canonicalQuestion = {
+        ...canonicalQuestion,
+        choices: preparedQuestion.choices.map((choice, i) => ({
+          id: getChoiceIdFromIndex(i),
+          content: choice,
+          correct: false,
+        })),
+      };
+    }
+
     return {
       ...preparedQuestion,
-      canonicalQuestion: normalizeTrainingQuestionForEvaluation(preparedQuestion),
+      canonicalQuestion,
     };
   });
 };
@@ -647,8 +679,10 @@ const getThemePerformance = ({
 
 export function QuizSession({
   questions,
+  watermarkCode,
   pathContext,
   onAttemptComplete,
+  onSubmitAnswers,
   correctionMode = 'instant',
   canEditQuestions = false,
 }: QuizSessionProps) {
@@ -656,6 +690,8 @@ export function QuizSession({
   const [sessionQuestions, setSessionQuestions] = useState(() =>
     prepareQuestions(questions, 0)
   );
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [serverEvaluations, setServerEvaluations] = useState<EvaluationResult[] | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedChoiceIndexesByQuestion, setSelectedChoiceIndexesByQuestion] = useState<Array<number[]>>(
     () => questions.map(() => [])
@@ -722,8 +758,11 @@ export function QuizSession({
     [sessionQuestions]
   );
   const evaluationsByQuestion = useMemo(
-    () =>
-      canonicalQuestions.map((question, index) => {
+    () => {
+      if (serverEvaluations && serverEvaluations.length === sessionQuestions.length) {
+        return serverEvaluations;
+      }
+      return canonicalQuestions.map((question, index) => {
         if (question.type === 'mcq') {
           return evaluateMcqQuestion(
             question,
@@ -752,8 +791,9 @@ export function QuizSession({
         }
 
         return getUnansweredEvaluation(question);
-      }),
-    [canonicalQuestions, selectedChoiceIndexesByQuestion, shortAnswerValuesByQuestion, hotspotPointsByQuestion]
+      });
+    },
+    [serverEvaluations, sessionQuestions.length, canonicalQuestions, selectedChoiceIndexesByQuestion, shortAnswerValuesByQuestion, hotspotPointsByQuestion]
   );
 
   const isFinalCorrectionOnly = correctionMode === 'final';
@@ -1130,17 +1170,73 @@ export function QuizSession({
   };
 
   const openSummary = async () => {
+    if (isSubmitting) return;
+
+    let computedScore = score;
+    let computedTotalQuestions = sessionQuestions.length;
+
+    if (onSubmitAnswers) {
+      setIsSubmitting(true);
+      try {
+        const answers = sessionQuestions.map((question, index) => {
+          const selectedChoiceIndexes = selectedChoiceIndexesByQuestion[index] ?? [];
+          const shortAnswerRawValue = shortAnswerValuesByQuestion[index];
+          const hotspotPoint = hotspotPointsByQuestion[index];
+
+          let responsePayload: any = null;
+          if (question.questionType === 'short-answer') {
+            responsePayload = {
+              questionId: question.id,
+              type: 'short-answer',
+              rawValue: shortAnswerRawValue ?? '',
+            };
+          } else if (question.questionType === 'hotspot') {
+            responsePayload = {
+              questionId: question.id,
+              type: 'hotspot',
+              points: hotspotPoint ? [hotspotPoint] : [],
+            };
+          } else if (question.canonicalQuestion?.type === 'mcq') {
+            responsePayload = createMcqStudentAnswerFromIndexes({
+              question: question.canonicalQuestion,
+              selectedChoiceIndexes,
+            });
+          }
+
+          return {
+            questionId: question.id,
+            selectedChoiceIndexes,
+            shortAnswerRawValue,
+            hotspotPoints: hotspotPoint ? [hotspotPoint] : undefined,
+            responsePayload,
+          };
+        });
+
+        const result = await onSubmitAnswers({ answers });
+        if (result?.questions && result.questions.length > 0) {
+          setSessionQuestions(result.questions);
+          setServerEvaluations(result.questions.map((q: any) => q.evaluation));
+          computedScore = result.score;
+          computedTotalQuestions = result.totalQuestions;
+        }
+      } catch (err) {
+        console.error('Quiz submission error:', err);
+      } finally {
+        setIsSubmitting(false);
+      }
+    }
+
     if (isPathMode && pathContext) {
       await pathContext.onAttemptComplete?.({
-        score,
+        score: computedScore,
         targetScore,
-        totalQuestions: sessionQuestions.length,
+        totalQuestions: computedTotalQuestions,
       });
     } else {
       await onAttemptComplete?.({
-        score,
+        score: computedScore,
         targetScore,
-        totalQuestions: sessionQuestions.length,
+        totalQuestions: computedTotalQuestions,
       });
     }
 
@@ -1154,10 +1250,11 @@ export function QuizSession({
 
   if (viewMode === 'summary' && isComplete) {
     return (
-      <section
-        data-testid="quiz-summary"
-        className="space-y-6 rounded-2xl border border-border bg-card p-4 shadow-sm md:p-6"
-      >
+      <ProtectedAssessmentContent watermarkCode={watermarkCode}>
+        <section
+          data-testid="quiz-summary"
+          className="space-y-6 rounded-2xl border border-border bg-card p-4 shadow-sm md:p-6"
+        >
         <div className={cn('overflow-hidden rounded-2xl border', effectiveSummaryFeedback.toneClassName)}>
           <div className="space-y-5 p-5 md:p-6">
             <div className="space-y-4">
@@ -1525,15 +1622,17 @@ export function QuizSession({
             </Button>
           ) : null}
         </div>
-      </section>
+        </section>
+      </ProtectedAssessmentContent>
     );
   }
 
   return (
-    <section
-      data-testid={isReviewMode ? 'quiz-review' : 'quiz-taking'}
-      className="space-y-4 rounded-2xl border border-border bg-card p-4 shadow-sm md:p-6"
-    >
+    <ProtectedAssessmentContent watermarkCode={watermarkCode}>
+      <section
+        data-testid={isReviewMode ? 'quiz-review' : 'quiz-taking'}
+        className="space-y-4 rounded-2xl border border-border bg-card p-4 shadow-sm md:p-6"
+      >
       {/* 1. NAVIGATION GLOBALE DU QUIZ (AU-DESSUS DU BLOC DE QUESTION) */}
       <nav
         aria-label="Navigation entre les questions du quiz"
@@ -2247,5 +2346,6 @@ export function QuizSession({
         </div>
       </div>
     </section>
+  </ProtectedAssessmentContent>
   );
 }

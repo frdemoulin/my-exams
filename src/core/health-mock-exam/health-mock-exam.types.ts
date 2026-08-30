@@ -76,6 +76,7 @@ export type HealthMockExamPassage = {
     lastQuestion: number;
   }>;
   questions: HealthMockExamPassageQuestion[];
+  watermarkCode?: string;
 };
 
 export type HealthMockExamSummary = {
@@ -187,4 +188,5 @@ export type HealthMockExamResults = {
     maxScore: number;
     percentage: number;
   }>;
+  watermarkCode?: string;
 };

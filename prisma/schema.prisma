@@ -828,6 +828,7 @@ model Chapter {
   sections                    ChapterSection[]
   trainingQuizzes             TrainingQuiz[]
   trainingQuizProgressEntries UserTrainingQuizProgress[]
+  trainingQuizAttempts        UserTrainingQuizAttempt[]
   assignments                 ChapterAssignment[]
 
   createdAt DateTime @default(now())
@@ -920,6 +921,7 @@ model TrainingQuiz {
   questionGroups  TrainingQuizQuestionGroup[]
   questionLinks   TrainingQuizQuestion[]
   progressEntries UserTrainingQuizProgress[]
+  attempts        UserTrainingQuizAttempt[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -969,6 +971,7 @@ model QuizQuestion {
   chapter   Chapter @relation(fields: [chapterId], references: [id], onDelete: Cascade)
 
   quizLinks TrainingQuizQuestion[]
+  attemptQuestions UserTrainingQuizAttemptQuestion[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -1195,6 +1198,7 @@ model User {
   subscriptions               UserSubscription[]
   exerciseHistory             UserExerciseHistory[]
   trainingQuizProgressEntries UserTrainingQuizProgress[]
+  trainingQuizAttempts        UserTrainingQuizAttempt[]
   healthMockExamAttempts      UserHealthMockExamAttempt[]
   createdAt                   DateTime                   @default(now())
   updatedAt                   DateTime                   @updatedAt
@@ -1248,6 +1252,58 @@ model UserTrainingQuizProgress {
   @@unique([userId, quizId])
   @@index([userId, chapterId])
   @@index([quizId])
+}
+
+enum TrainingQuizAttemptStatus {
+  IN_PROGRESS
+  COMPLETED
+  ABANDONED
+}
+
+model UserTrainingQuizAttempt {
+  id             String                    @id @default(auto()) @map("_id") @db.ObjectId
+  userId         String                    @db.ObjectId
+  chapterId      String                    @db.ObjectId
+  quizId         String                    @db.ObjectId
+  status         TrainingQuizAttemptStatus @default(IN_PROGRESS)
+  startedAt      DateTime                  @default(now())
+  submittedAt    DateTime?
+  score          Float?
+  maxScore       Float?
+  successRate    Int?
+  totalQuestions Int                       @default(0)
+
+  user             User                              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  chapter          Chapter                           @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+  quiz             TrainingQuiz                      @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  attemptQuestions UserTrainingQuizAttemptQuestion[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId, quizId, status])
+  @@index([userId, chapterId])
+  @@index([quizId, status])
+}
+
+model UserTrainingQuizAttemptQuestion {
+  id                    String    @id @default(auto()) @map("_id") @db.ObjectId
+  attemptId             String    @db.ObjectId
+  questionId            String    @db.ObjectId
+  order                 Int
+  responsePayload       Json?
+  questionUpdatedAt     DateTime?
+  answeredAt            DateTime?
+
+  attempt  UserTrainingQuizAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  question QuizQuestion            @relation(fields: [questionId], references: [id], onDelete: Restrict)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([attemptId, questionId])
+  @@index([attemptId, order])
+  @@index([questionId])
 }
 
 model UserActivity {

@@ -52,6 +52,8 @@ import { HotspotQuestionView } from "@/components/training/hotspot-question-view
 import { LongChoiceListView } from "@/components/training/long-choice-list-view";
 import { cn } from "@/lib/utils";
 
+import { ProtectedAssessmentContent } from "@/components/shared/ProtectedAssessmentContent";
+
 type HealthMockExamSessionProps = {
   courseUnitId: string;
   examSlug: string;
@@ -404,7 +406,8 @@ export function HealthMockExamSession({
   );
 
   return (
-    <section className="space-y-6" data-testid="health-mock-exam-taking">
+    <ProtectedAssessmentContent watermarkCode={passage.watermarkCode}>
+      <section className="space-y-6" data-testid="health-mock-exam-taking">
       {/* 1. BARRE DE NAVIGATION DES QUESTIONS (STYLE PLAYER SANTÉ V2) */}
       <HealthQuestionNavigator
         mode="session"
@@ -684,5 +687,6 @@ export function HealthMockExamSession({
         </p>
       ) : null}
     </section>
+  </ProtectedAssessmentContent>
   );
 }

@@ -38,6 +38,8 @@ import type {
 import { getQuestionFormatStudentInstruction, type HotspotQuestion } from "@/core/questions";
 import { cn } from "@/lib/utils";
 
+import { ProtectedAssessmentContent } from "@/components/shared/ProtectedAssessmentContent";
+
 type HealthMockExamCorrectionViewProps = {
   result: HealthMockExamResults;
   bilanHref: string;
@@ -140,272 +142,241 @@ export function HealthMockExamCorrectionView({
   };
 
   return (
-    <div className="space-y-6" data-testid="health-mock-exam-correction">
-      {/* Header bar with Back to Bilan */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-4">
-        <Button asChild variant="outline" size="sm" className="gap-2">
-          <Link href={bilanHref}>
-            <ArrowLeft className="h-4 w-4" />
-            Retour au bilan
-          </Link>
-        </Button>
-
-        <div className="flex items-center gap-3">
-          <Badge variant="outline" className="text-xs">
-            {result.score} / {result.maxScore} pts ({result.percentage} %)
-          </Badge>
-          <Button asChild variant="ghost" size="sm" className="gap-1.5 text-xs text-muted-foreground hover:text-foreground">
-            <Link href={restartHref}>
-              Recommencer
+    <ProtectedAssessmentContent watermarkCode={result.watermarkCode}>
+      <div className="space-y-6" data-testid="health-mock-exam-correction">
+        {/* Header bar with Back to Bilan */}
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-4">
+          <Button asChild variant="outline" size="sm" className="gap-2">
+            <Link href={bilanHref}>
+              <ArrowLeft className="h-4 w-4" />
+              Retour au bilan
             </Link>
           </Button>
-        </div>
-      </div>
 
-      {/* Filter Tabs / Pills */}
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mr-1">
-            Filtres :
-          </span>
-          <Button
-            type="button"
-            variant={filterMode === "all" ? "default" : "outline"}
-            size="sm"
-            className="h-8 text-xs font-medium"
-            onClick={() => setFilterMode("all")}
-          >
-            Toutes ({result.questions.length})
-          </Button>
-          <Button
-            type="button"
-            variant={filterMode === "errors" ? "default" : "outline"}
-            size="sm"
-            className={cn(
-              "h-8 text-xs font-medium",
-              filterMode === "errors"
-                ? "bg-rose-600 hover:bg-rose-700 text-white"
-                : "border-rose-300 text-rose-800 hover:bg-rose-50 dark:border-rose-900/60 dark:text-rose-300 dark:hover:bg-rose-950/30"
-            )}
-            onClick={() => setFilterMode("errors")}
-          >
-            À revoir ({reviewQuestions.length})
-          </Button>
-          <Button
-            type="button"
-            variant={filterMode === "correct" ? "default" : "outline"}
-            size="sm"
-            className={cn(
-              "h-8 text-xs font-medium",
-              filterMode === "correct"
-                ? "bg-emerald-600 hover:bg-emerald-700 text-white"
-                : "border-emerald-300 text-emerald-800 hover:bg-emerald-50 dark:border-emerald-900/60 dark:text-emerald-300 dark:hover:bg-emerald-950/30"
-            )}
-            onClick={() => setFilterMode("correct")}
-          >
-            Plein crédit ({fullCreditQuestions.length})
-          </Button>
+          <div className="flex items-center gap-3">
+            <Badge variant="outline" className="text-xs">
+              {result.score} / {result.maxScore} pts ({result.percentage} %)
+            </Badge>
+            <Button asChild variant="ghost" size="sm" className="gap-1.5 text-xs text-muted-foreground hover:text-foreground">
+              <Link href={restartHref}>
+                Recommencer
+              </Link>
+            </Button>
+          </div>
         </div>
 
-        <HealthEvaluationColorLegend />
-      </div>
+        {/* Filter Tabs / Pills */}
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mr-1">
+              Filtres :
+            </span>
+            <Button
+              type="button"
+              variant={filterMode === "all" ? "default" : "outline"}
+              size="sm"
+              className="h-8 text-xs font-medium"
+              onClick={() => setFilterMode("all")}
+            >
+              Toutes ({result.questions.length})
+            </Button>
+            <Button
+              type="button"
+              variant={filterMode === "errors" ? "default" : "outline"}
+              size="sm"
+              className={cn(
+                "h-8 text-xs font-medium",
+                filterMode === "errors"
+                  ? "bg-rose-600 hover:bg-rose-700 text-white"
+                  : "border-rose-300 text-rose-800 hover:bg-rose-50 dark:border-rose-900/60 dark:text-rose-300 dark:hover:bg-rose-950/30"
+              )}
+              onClick={() => setFilterMode("errors")}
+            >
+              À revoir ({reviewQuestions.length})
+            </Button>
+            <Button
+              type="button"
+              variant={filterMode === "correct" ? "default" : "outline"}
+              size="sm"
+              className={cn(
+                "h-8 text-xs font-medium",
+                filterMode === "correct"
+                  ? "bg-emerald-600 hover:bg-emerald-700 text-white"
+                  : "border-emerald-300 text-emerald-800 hover:bg-emerald-50 dark:border-emerald-900/60 dark:text-emerald-300 dark:hover:bg-emerald-950/30"
+              )}
+              onClick={() => setFilterMode("correct")}
+            >
+              Plein crédit ({fullCreditQuestions.length})
+            </Button>
+          </div>
 
-      {/* Question by question navigation bar */}
-      <HealthQuestionNavigator
-        mode="correction"
-        items={navigatorItems}
-        currentIndex={currentQuestionIndex}
-        onSelectIndex={setCurrentQuestionIndex}
-        counterText={`Question ${totalQuestions > 0 ? currentQuestionIndex + 1 : 0} sur ${totalQuestions}`}
-        ariaLabel="Navigation de la correction détaillée"
-        testId="health-mock-exam-correction-nav"
-      />
+          <HealthEvaluationColorLegend />
+        </div>
 
-      {/* Active Question Detail Card */}
-      {activeQuestion ? (
-        <Card className="overflow-hidden rounded-2xl border-border bg-card shadow-xs">
-          <div className="border-b border-border bg-neutral-secondary-soft/50 p-4 sm:p-5">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="text-sm font-bold text-heading">
-                  Question {activeQuestion.globalOrder}
-                </span>
-                <QuestionFormatBadge
-                  format={activeQuestion.scoringDetails?.format ?? "QRM"}
-                  className="text-xs"
+        {/* Question by question navigation bar */}
+        <HealthQuestionNavigator
+          mode="correction"
+          items={navigatorItems}
+          currentIndex={currentQuestionIndex}
+          onSelectIndex={setCurrentQuestionIndex}
+          counterText={`Question ${totalQuestions > 0 ? currentQuestionIndex + 1 : 0} sur ${totalQuestions}`}
+          ariaLabel="Navigation de la correction détaillée"
+          testId="health-mock-exam-correction-nav"
+        />
+
+        {/* Active Question Detail Card */}
+        {activeQuestion ? (
+          <Card className="overflow-hidden rounded-2xl border-border bg-card shadow-xs">
+            <div className="border-b border-border bg-neutral-secondary-soft/50 p-4 sm:p-5">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-sm font-bold text-heading">
+                    Question {activeQuestion.globalOrder}
+                  </span>
+                  <QuestionFormatBadge
+                    format={activeQuestion.scoringDetails?.format ?? "QRM"}
+                    className="text-xs"
+                  />
+                </div>
+
+                <div className="flex items-center gap-2">
+                  {activeQuestion.score === activeQuestion.maxScore &&
+                  activeQuestion.evaluationStatus === "correct" ? (
+                    <Badge className="bg-emerald-600 text-white gap-1 text-xs">
+                      <CheckCircle2 className="h-3.5 w-3.5" />
+                      +{formatScore(activeQuestion.score)} / {activeQuestion.maxScore} pt
+                    </Badge>
+                  ) : activeQuestion.score > 0 ? (
+                    <Badge className="bg-amber-600 text-white gap-1 text-xs">
+                      <AlertCircle className="h-3.5 w-3.5" />
+                      +{formatScore(activeQuestion.score)} / {activeQuestion.maxScore} pt
+                    </Badge>
+                  ) : (
+                    <Badge className="bg-rose-600 text-white gap-1 text-xs">
+                      <XCircle className="h-3.5 w-3.5" />
+                      0 / {activeQuestion.maxScore} pt
+                    </Badge>
+                  )}
+                </div>
+              </div>
+
+              {/* Instruction if available */}
+              <p className="mt-2 text-xs italic text-muted-foreground">
+                {getQuestionFormatStudentInstruction(activeQuestion.canonicalQuestion)}
+              </p>
+            </div>
+
+            <CardContent className="space-y-6 p-4 sm:p-6">
+              {/* Shared group banner */}
+              {activeQuestion.group ? (
+                <SharedQuestionGroupPanel
+                  questionNumbers={result.questions.flatMap((q) =>
+                    q.group?.id === activeQuestion.group?.id ? [q.globalOrder] : []
+                  )}
+                  title={activeQuestion.group.title}
+                  sharedStatement={activeQuestion.group.sharedStatement}
+                  sharedMedia={activeQuestion.group.sharedMedia}
+                  hideSharedMedia={
+                    activeQuestion.questionType === "hotspot" &&
+                    activeQuestion.group.sharedMedia?.src ===
+                      (activeQuestion.canonicalQuestion as HotspotQuestion).image?.src
+                  }
+                />
+              ) : null}
+
+              {/* Statement */}
+              <div className="text-sm sm:text-base font-medium leading-relaxed text-heading">
+                <TrainingQuestionContentView
+                  question={activeQuestion.question}
+                  questionDiagram={activeQuestion.questionDiagram}
                 />
               </div>
 
-              <div className="flex items-center gap-2">
-                {activeQuestion.score === activeQuestion.maxScore &&
-                activeQuestion.evaluationStatus === "correct" ? (
-                  <Badge className="bg-emerald-600 text-white gap-1 text-xs">
-                    <CheckCircle2 className="h-3.5 w-3.5" />
-                    +{formatScore(activeQuestion.score)} / {activeQuestion.maxScore} pt
-                  </Badge>
-                ) : activeQuestion.score > 0 ? (
-                  <Badge className="bg-amber-600 text-white gap-1 text-xs">
-                    <AlertCircle className="h-3.5 w-3.5" />
-                    +{formatScore(activeQuestion.score)} / {activeQuestion.maxScore} pt
-                  </Badge>
-                ) : (
-                  <Badge className="bg-rose-600 text-white gap-1 text-xs">
-                    <XCircle className="h-3.5 w-3.5" />
-                    0 / {activeQuestion.maxScore} pt
-                  </Badge>
-                )}
-              </div>
-            </div>
+              {/* Choices / Responses */}
+              {activeQuestion.questionType === "mcq" && (
+                <div className="space-y-2.5">
+                  {activeQuestion.choices.map((choice, choiceIdx) => {
+                    const letter = String.fromCharCode(65 + choiceIdx);
+                    const isSelected = activeQuestion.selectedChoiceIndexes.includes(choiceIdx);
+                    const isCorrect = activeQuestion.correctChoiceIndexes.includes(choiceIdx);
 
-            {/* Instruction if available */}
-            <p className="mt-2 text-xs italic text-muted-foreground">
-              {getQuestionFormatStudentInstruction(activeQuestion.canonicalQuestion)}
-            </p>
-          </div>
+                    // 4 visual states:
+                    // 1. Correctly selected (Vraie cochée) -> Green
+                    // 2. Correctly omitted (Fausse non cochée) -> Neutral/Subtle Green border
+                    // 3. Incorrectly selected (Fausse cochée) -> Red
+                    // 4. Incorrectly omitted (Vraie non cochée) -> Orange/Amber
+                    const isTrueSelected = isCorrect && isSelected;
+                    const isFalseOmitted = !isCorrect && !isSelected;
+                    const isFalseSelected = !isCorrect && isSelected;
+                    const isTrueOmitted = isCorrect && !isSelected;
 
-          <CardContent className="space-y-6 p-4 sm:p-6">
-            {/* Shared group banner */}
-            {activeQuestion.group ? (
-              <SharedQuestionGroupPanel
-                questionNumbers={result.questions.flatMap((q) =>
-                  q.group?.id === activeQuestion.group?.id ? [q.globalOrder] : []
-                )}
-                title={activeQuestion.group.title}
-                sharedStatement={activeQuestion.group.sharedStatement}
-                sharedMedia={activeQuestion.group.sharedMedia}
-                hideSharedMedia={
-                  activeQuestion.questionType === "hotspot" &&
-                  activeQuestion.group.sharedMedia?.src ===
-                    (activeQuestion.canonicalQuestion as HotspotQuestion).image?.src
-                }
-              />
-            ) : null}
+                    let borderClass = "border-border bg-background/60";
+                    let badgeText = "";
+                    let badgeColor = "";
 
-            {/* Statement */}
-            <div className="text-sm sm:text-base font-medium leading-relaxed text-heading">
-              <TrainingQuestionContentView
-                question={activeQuestion.question}
-                questionDiagram={activeQuestion.questionDiagram}
-              />
-            </div>
+                    if (isTrueSelected) {
+                      borderClass = "border-emerald-400 bg-emerald-500/10 dark:border-emerald-800 dark:bg-emerald-950/20";
+                      badgeText = "Exacte (sélectionnée)";
+                      badgeColor = "bg-emerald-600 text-white";
+                    } else if (isFalseSelected) {
+                      borderClass = "border-rose-400 bg-rose-500/10 dark:border-rose-800 dark:bg-rose-950/20";
+                      badgeText = "Inexacte (sélectionnée à tort)";
+                      badgeColor = "bg-rose-600 text-white";
+                    } else if (isTrueOmitted) {
+                      borderClass = "border-amber-400 bg-amber-500/10 dark:border-amber-800 dark:bg-amber-950/20";
+                      badgeText = "Exacte (omise)";
+                      badgeColor = "bg-amber-600 text-white";
+                    } else if (isFalseOmitted) {
+                      borderClass = "border-border/70 bg-card/40 opacity-80";
+                      badgeText = "Inexacte (non sélectionnée)";
+                      badgeColor = "bg-neutral-200 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-300";
+                    }
 
-            {/* Choices / Responses */}
-            {activeQuestion.questionType === "mcq" && (
-              <div className="space-y-2.5">
-                {activeQuestion.choices.map((choice, choiceIdx) => {
-                  const letter = String.fromCharCode(65 + choiceIdx);
-                  const isSelected = activeQuestion.selectedChoiceIndexes.includes(choiceIdx);
-                  const isCorrect = activeQuestion.correctChoiceIndexes.includes(choiceIdx);
-
-                  // 4 visual states:
-                  // 1. Correctly selected (Vraie cochée) -> Green
-                  // 2. Correctly omitted (Fausse non cochée) -> Neutral/Subtle Green border
-                  // 3. Incorrectly selected (Fausse cochée) -> Red
-                  // 4. Incorrectly omitted (Vraie non cochée) -> Orange/Amber
-                  const isTrueSelected = isCorrect && isSelected;
-                  const isFalseOmitted = !isCorrect && !isSelected;
-                  const isFalseSelected = !isCorrect && isSelected;
-                  const isTrueOmitted = isCorrect && !isSelected;
-
-                  let borderClass = "border-border bg-background/60";
-                  let badgeText = "";
-                  let badgeColor = "";
-
-                  if (isTrueSelected) {
-                    borderClass = "border-emerald-400 bg-emerald-500/10 dark:border-emerald-800 dark:bg-emerald-950/20";
-                    badgeText = "Exacte (sélectionnée)";
-                    badgeColor = "bg-emerald-600 text-white";
-                  } else if (isFalseSelected) {
-                    borderClass = "border-rose-400 bg-rose-500/10 dark:border-rose-800 dark:bg-rose-950/20";
-                    badgeText = "Inexacte (sélectionnée à tort)";
-                    badgeColor = "bg-rose-600 text-white";
-                  } else if (isTrueOmitted) {
-                    borderClass = "border-amber-400 bg-amber-500/10 dark:border-amber-800 dark:bg-amber-950/20";
-                    badgeText = "Exacte (omise)";
-                    badgeColor = "bg-amber-600 text-white";
-                  } else if (isFalseOmitted) {
-                    borderClass = "border-border/70 bg-card/40 opacity-80";
-                    badgeText = "Inexacte (non sélectionnée)";
-                    badgeColor = "bg-neutral-200 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-300";
-                  }
-
-                  const choiceExplanation = activeQuestion.choiceExplanations[choiceIdx];
-
-                  return (
-                    <div
-                      key={choiceIdx}
-                      className={cn(
-                        "rounded-xl border p-3.5 transition-colors space-y-2",
-                        borderClass
-                      )}
-                    >
-                      <div className="flex items-start justify-between gap-3">
-                        <div className="flex items-start gap-2.5">
-                          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-neutral-200/70 text-xs font-bold text-heading dark:bg-neutral-800">
+                    return (
+                      <div
+                        key={choiceIdx}
+                        className={cn(
+                          "flex flex-col gap-2 rounded-xl border p-3.5 transition-colors sm:flex-row sm:items-start sm:justify-between",
+                          borderClass
+                        )}
+                      >
+                        <div className="flex items-start gap-3 min-w-0 flex-1">
+                          <span
+                            className={cn(
+                              "flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold font-mono",
+                              isCorrect
+                                ? "bg-emerald-600 text-white"
+                                : "bg-neutral-200 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300"
+                            )}
+                          >
                             {letter}
                           </span>
-                          <div className="pt-0.5 text-sm text-foreground">
+                          <div className="text-sm flex-1 pt-0.5">
                             <TrainingChoiceContentView choice={choice} />
                           </div>
                         </div>
 
-                        <span className={cn("shrink-0 rounded-md px-2 py-0.5 text-[11px] font-semibold", badgeColor)}>
-                          {badgeText}
-                        </span>
-                      </div>
-
-                      {choiceExplanation ? (
-                        <div className="ml-8 text-xs text-muted-foreground bg-background/50 rounded-lg p-2 border border-border/50">
-                          <MathContent value={choiceExplanation} />
+                        <div className="flex items-center gap-2 shrink-0 self-end sm:self-start">
+                          <span
+                            className={cn(
+                              "rounded-full px-2 py-0.5 text-[11px] font-medium whitespace-nowrap",
+                              badgeColor
+                            )}
+                          >
+                            {badgeText}
+                          </span>
                         </div>
-                      ) : null}
-                    </div>
-                  );
-                })}
-              </div>
-            )}
-
-            {/* QROC short answer view */}
-            {activeQuestion.questionType === "short-answer" && (
-              <div className="space-y-3 rounded-xl border border-border p-4 bg-neutral-secondary-soft/30">
-                <div className="flex flex-wrap items-center justify-between gap-2 text-sm">
-                  <span className="font-semibold text-heading">Votre réponse :</span>
-                  <span className="font-mono font-medium">
-                    {getShortAnswerRawValue(activeQuestion.responsePayload) || "(Aucune saisie)"}
-                  </span>
+                      </div>
+                    );
+                  })}
                 </div>
-                <div className="flex flex-wrap items-center justify-between gap-2 text-sm border-t border-border/60 pt-2">
-                  <span className="font-semibold text-emerald-700 dark:text-emerald-300">
-                    Réponse attendue :
-                  </span>
-                  <span className="font-mono font-bold text-emerald-700 dark:text-emerald-300">
-                    {formatShortAnswerExpectedAnswer(activeQuestion.canonicalQuestion as any)}
-                  </span>
-                </div>
-              </div>
-            )}
+              )}
 
-            {/* QZONE hotspot view */}
-            {activeQuestion.questionType === "hotspot" && (
-              <div className="space-y-3">
-                <HotspotQuestionView
-                  question={activeQuestion.canonicalQuestion as HotspotQuestion}
-                  selectedPoint={getHotspotPoints(activeQuestion.responsePayload)[0] ?? null}
-                  readOnly={true}
-                  showCorrection={true}
-                />
-              </div>
-            )}
-
-            {/* UNESS Discordances / scoring info box */}
-            {activeQuestion.scoringDetails && (
-              <div className="rounded-xl border border-border bg-neutral-secondary-soft/40 p-3.5 text-xs space-y-1">
-                <p className="font-semibold uppercase tracking-wider text-[10px] text-muted-foreground">
-                  Détail de la notation UNESS :
-                </p>
-                {activeQuestion.scoringDetails.discordanceCount !== undefined ? (
+              {/* Scoring recap */}
+              <div className="rounded-xl border border-border/80 bg-muted/30 p-3.5 space-y-1.5 text-xs sm:text-sm">
+                {activeQuestion.scoringDetails ? (
                   <p className="text-muted-foreground">
-                    Nombre de discordance(s) :{" "}
+                    Discordances :{" "}
                     <span className="font-bold text-heading">
                       {activeQuestion.scoringDetails.discordanceCount}
                     </span>{" "}
@@ -427,7 +398,6 @@ export function HealthMockExamCorrectionView({
                   </span>
                 </p>
               </div>
-            )}
 
             {/* Detailed Scientific Explanation */}
             {activeQuestion.explanation ? (
@@ -475,5 +445,6 @@ export function HealthMockExamCorrectionView({
         </Button>
       </div>
     </div>
+  </ProtectedAssessmentContent>
   );
 }

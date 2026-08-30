@@ -28,6 +28,7 @@ import { HealthEvaluationColorLegend } from "@/components/health/HealthEvaluatio
 import { formatCountMetric, formatDurationMetric } from "@/lib/format-metrics";
 import { getHealthColleBySlug } from "@/core/health-colle";
 import { getHealthMockExamBlueprint } from "@/core/health-mock-exam/health-mock-exam.config";
+import { ProtectedAssessmentContent } from "@/components/shared/ProtectedAssessmentContent";
 
 type HealthMockExamResultsProps = {
   result: HealthMockExamResults;
@@ -98,7 +99,8 @@ export function HealthMockExamResults({
   const pedagogy = result.pedagogicalAssessment;
 
   return (
-    <div className="space-y-6" data-testid="health-mock-exam-results">
+    <ProtectedAssessmentContent watermarkCode={result.watermarkCode}>
+      <div className="space-y-6" data-testid="health-mock-exam-results">
       {/* 1. Carte Bilan Principal */}
       <Card className="overflow-hidden rounded-2xl border-border bg-card shadow-xs">
         <CardHeader className="space-y-4 pb-4">
@@ -366,6 +368,7 @@ export function HealthMockExamResults({
         </CardContent>
       </Card>
 
-    </div>
+      </div>
+    </ProtectedAssessmentContent>
   );
 }

@@ -343,9 +343,16 @@ export function resolvePersistedQuestionFormat(input: {
   choicesCount?: unknown;
   answerPayload?: unknown;
 }): QuestionFormatCode {
+  const payloadFormat = isRecord(input.answerPayload)
+    ? normalizeQuestionFormatCode(input.answerPayload.format) ??
+      normalizeQuestionFormatCode(input.answerPayload.type) ??
+      (input.answerPayload.image || input.answerPayload.imageSrc ? 'QZONE' : undefined)
+    : undefined;
+
   const explicitFormat =
     normalizeQuestionFormatCode(input.questionFormat) ??
-    normalizeQuestionFormatCode(input.format);
+    normalizeQuestionFormatCode(input.format) ??
+    payloadFormat;
 
   if (explicitFormat) {
     return explicitFormat;

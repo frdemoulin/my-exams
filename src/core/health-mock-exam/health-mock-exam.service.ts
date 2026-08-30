@@ -22,6 +22,7 @@ import {
   getSelectedChoiceIndexesForQuestion,
   getSelectedChoiceIndexesFromHealthMockExamAnswer,
   isHealthMockExamQuestionAnswered,
+  normalizeHealthMockExamPassageQuestion,
   normalizeHealthMockExamQuestion,
   normalizeHealthMockExamQuestionType,
   normalizeHealthMockExamStudentAnswer,
@@ -40,6 +41,7 @@ import {
   assertHealthMockExamCanBePublished,
   type HealthMockExamValidationInput,
 } from "./health-mock-exam.validation";
+import { generateWatermarkCode } from "@/lib/watermark.server";
 
 const objectIdPattern = /^[a-f0-9]{24}$/i;
 
@@ -662,11 +664,7 @@ export async function fetchHealthMockExamTakingState(input: {
               question: true,
               questionDiagram: true,
               choices: true,
-              correctChoiceIndex: true,
-              correctChoiceIndexes: true,
               answerPayload: true,
-              explanation: true,
-              choiceExplanations: true,
               themeIds: true,
               group: {
                 select: {
@@ -692,6 +690,11 @@ export async function fetchHealthMockExamTakingState(input: {
     passageAttempt.attemptQuestions.flatMap((attemptQuestion) => attemptQuestion.question.themeIds)
   );
 
+  const watermarkCode = generateWatermarkCode({
+    userId: input.userId,
+    sessionId: passageAttempt.id,
+  });
+
   return {
     kind: "in-progress",
     passage: {
@@ -708,8 +711,9 @@ export async function fetchHealthMockExamTakingState(input: {
       durationSeconds: passageAttempt.mockExam.durationSeconds,
       courseUnit: passageAttempt.mockExam.courseUnit,
       sections: passageAttempt.mockExam.sections,
+      watermarkCode,
       questions: passageAttempt.attemptQuestions.map((attemptQuestion) => {
-        const canonicalQuestion = normalizeHealthMockExamQuestion(attemptQuestion.question);
+        const canonicalQuestion = normalizeHealthMockExamPassageQuestion(attemptQuestion.question);
         const responsePayload = normalizeHealthMockExamStudentAnswer({
           question: canonicalQuestion,
           selectedChoiceIndexes: attemptQuestion.selectedChoiceIndexes,
@@ -733,7 +737,7 @@ export async function fetchHealthMockExamTakingState(input: {
             attemptQuestion.question.questionDiagram ?? null,
           ),
           choices: normalizeTrainingChoiceContents(attemptQuestion.question.choices),
-          answerPayload: attemptQuestion.question.answerPayload ?? null,
+          answerPayload: null,
           canonicalQuestion,
           group: attemptQuestion.question.group
             ? {
@@ -944,9 +948,14 @@ export async function fetchHealthMockExamResults(input: {
   });
 
   const pedagogicalAssessment = buildHealthMockExamPedagogicalAssessment(questions);
+  const watermarkCode = generateWatermarkCode({
+    userId: input.userId,
+    sessionId: attempt.id,
+  });
 
   return {
     attemptId: attempt.id,
+    watermarkCode,
     status: attempt.status as "SUBMITTED" | "EXPIRED" | "ABANDONED",
     submittedAt: attempt.submittedAt?.toISOString() ?? null,
     elapsedSeconds: attempt.elapsedSeconds ?? 0,

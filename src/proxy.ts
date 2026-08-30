@@ -47,6 +47,26 @@ function isSharedAppPath(pathname: string) {
   );
 }
 
+function isAssessmentPath(pathname: string): boolean {
+  return (
+    pathname.includes('/qcm/') ||
+    pathname.includes('/colles/') ||
+    pathname.includes('/examens-blancs/') ||
+    pathname.startsWith('/entrainement/') ||
+    pathname.startsWith('/api/health/mock-exams/') ||
+    pathname.startsWith('/api/training/quiz-session/') ||
+    pathname.startsWith('/api/training/path-progress')
+  );
+}
+
+function applySecurityHeaders(response: NextResponse, pathname: string): NextResponse {
+  if (isAssessmentPath(pathname)) {
+    response.headers.set('Cache-Control', 'private, no-store, no-cache, must-revalidate');
+    response.headers.set('X-Robots-Tag', 'noindex, nofollow');
+  }
+  return response;
+}
+
 export default function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
@@ -61,7 +81,8 @@ export default function proxy(request: NextRequest) {
     pathname === '/manifest.json' ||
     PUBLIC_FILE.test(pathname)
   ) {
-    return NextResponse.next();
+    const response = NextResponse.next();
+    return applySecurityHeaders(response, pathname);
   }
 
   const localeMatch = pathname.match(/^\/(fr|en)(\/|$)/);
@@ -76,5 +97,6 @@ export default function proxy(request: NextRequest) {
     request.nextUrl.pathname = getHealthInternalPath(pathname);
   }
 
-  return intlMiddleware(request);
+  const response = intlMiddleware(request);
+  return applySecurityHeaders(response, pathname);
 }

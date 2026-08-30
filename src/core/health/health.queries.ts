@@ -5,6 +5,7 @@ import {
     resolveQuizAnswerFormat,
 } from "@/core/quiz/quiz-answer-format";
 import {
+    normalizePersistedPassageQuestion,
     normalizePersistedQuestion,
     normalizePersistedQuestionType,
     type Question,
@@ -1799,7 +1800,7 @@ export async function fetchHealthStudentChapterDetail(input: {
                             questionLink.question.questionType,
                         );
                         const answerPayload = questionLink.question.answerPayload ?? null;
-                        const canonicalQuestion = normalizePersistedQuestion({
+                        const canonicalQuestion = normalizePersistedPassageQuestion({
                             id: questionLink.question.id,
                             questionType,
                             answerPayload,
@@ -1821,11 +1822,11 @@ export async function fetchHealthStudentChapterDetail(input: {
                                 questionLink.question.questionDiagram ?? null
                             ),
                             choices: reorderedQuestionChoices.choices,
-                            correctChoiceIndexes: reorderedQuestionChoices.correctChoiceIndexes,
-                            answerPayload,
+                            correctChoiceIndexes: [],
+                            answerPayload: null,
                             canonicalQuestion,
-                            explanation: resolvedCorrectionContent.explanation,
-                            choiceExplanations: resolvedCorrectionContent.choiceExplanations,
+                            explanation: "",
+                            choiceExplanations: [],
                             order: questionLink.order,
                             group: questionLink.group
                                 ? {

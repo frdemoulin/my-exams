@@ -5,6 +5,7 @@ import {
   resolveQuizAnswerFormat,
 } from '@/core/quiz/quiz-answer-format';
 import {
+  normalizePersistedPassageQuestion,
   normalizePersistedQuestion,
   normalizePersistedQuestionType,
 } from '@/core/questions';
@@ -155,7 +156,7 @@ const toTrainingQuestion = (question: {
   });
   const questionType = normalizePersistedQuestionType(question.questionType);
   const answerPayload = question.answerPayload ?? null;
-  const canonicalQuestion = normalizePersistedQuestion({
+  const canonicalQuestion = normalizePersistedPassageQuestion({
     id: question.id,
     questionType,
     answerPayload,
@@ -177,11 +178,11 @@ const toTrainingQuestion = (question: {
       question.questionDiagram ?? null
     ),
     choices: normalizedQuestionChoices.choices,
-    correctChoiceIndexes: normalizedQuestionChoices.correctChoiceIndexes,
-    answerPayload,
+    correctChoiceIndexes: [],
+    answerPayload: null,
     canonicalQuestion,
-    explanation: resolvedCorrectionContent.explanation,
-    choiceExplanations: resolvedCorrectionContent.choiceExplanations,
+    explanation: '',
+    choiceExplanations: [],
     order: question.order,
     themeLabels: getQuestionThemeLabels({
       themeIds: question.themeIds,
