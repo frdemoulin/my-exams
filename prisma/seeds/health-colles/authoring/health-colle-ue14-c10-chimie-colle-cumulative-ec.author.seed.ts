@@ -877,7 +877,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     order: 27,
     difficulty: 'MEDIUM',
     format: 'QRM',
-    question: "En vous appuyant sur les composés carbonylés B et D et sur la réaction de D avec $\\mathrm{CH_3MgBr}$, quelles propositions sont exactes ?",
+    question: "En vous appuyant sur les composés carbonylés B et D et sur la réaction de D avec $\ce{CH3MgBr}$, quelles propositions sont exactes ?",
     explanation: "La liaison C=O est polarisée vers l’oxygène : le carbone carbonylé est appauvri en densité électronique et constitue un centre électrophile. Dans un organomagnésien, le fragment carboné présente au contraire un fort caractère nucléophile et peut attaquer ce carbone. La conjugaison d’une amide diminue la disponibilité du doublet de l’azote et un éther ne possède pas de liaison O–H lui permettant d’être donneur classique de liaison hydrogène.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C10', 'ec:CHIMIE', 'theme:polarite-reactivite'],
     choices: [
@@ -887,7 +887,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "Le carbone porte une charge partielle positive en raison de l’électronégativité supérieure de l’oxygène.",
       },
       {
-        content: "Dans $\\mathrm{CH_3MgBr}$, le fragment carboné se comporte comme un nucléophile vis-à-vis du carbone carbonylé de D.",
+        content: "Dans $\ce{CH3MgBr}$, le fragment carboné se comporte comme un nucléophile vis-à-vis du carbone carbonylé de D.",
         correct: true,
         explanation: "Le fragment carboné de l’organomagnésien est fortement nucléophile.",
       },
@@ -913,7 +913,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     difficulty: 'HARD',
     format: 'QRM',
     question: "À partir des transformations représentées, quelles propositions sont exactes ?",
-    explanation: "A est un alcool primaire qui peut être oxydé en aldéhyde B puis en acide C. La réduction de B par un hydrure peut reformer A. L’addition de $\\mathrm{CH_3MgBr}$ sur la propanone D suivie d’une hydrolyse donne le 2-méthylpropan-2-ol, un alcool tertiaire. Un organomagnésien est détruit par l’eau et doit être utilisé en milieu anhydre avant l’étape d’hydrolyse.",
+    explanation: "A est un alcool primaire qui peut être oxydé en aldéhyde B puis en acide C. La réduction de B par un hydrure peut reformer A. L’addition de $\ce{CH3MgBr}$ sur la propanone D suivie d’une hydrolyse donne le 2-méthylpropan-2-ol, un alcool tertiaire. Un organomagnésien est détruit par l’eau et doit être utilisé en milieu anhydre avant l’étape d’hydrolyse.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C10', 'ec:CHIMIE', 'theme:enchaînements-reactionnels'],
     choices: [
       {
@@ -932,7 +932,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "La réduction de l’aldéhyde B par un hydrure régénère l’alcool primaire A.",
       },
       {
-        content: "L’addition de $\\mathrm{CH_3MgBr}$ sur D puis hydrolyse peut former le 2-méthylpropan-2-ol.",
+        content: "L’addition de $\ce{CH3MgBr}$ sur D puis hydrolyse peut former le 2-méthylpropan-2-ol.",
         correct: true,
         explanation: "L’addition d’un méthyle sur la propanone D suivie d’hydrolyse produit le 2-méthylpropan-2-ol.",
       },
