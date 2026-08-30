@@ -26,12 +26,12 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         content: "Deux isotopes d’un même élément ont le même nombre de protons.",
         correct: true,
-        explanation: "Ils ont le même numéro atomique Z mais diffèrent par leur nombre de neutrons."
+        explanation: "Ils ont le même numéro atomique $Z$ mais diffèrent par leur nombre de neutrons."
       },
       {
-        content: "Un cation 2+ possède deux électrons de plus que l’atome neutre correspondant.",
+        content: "Un cation $2+$ possède deux électrons de plus que l’atome neutre correspondant.",
         correct: false,
-        explanation: "Une charge 2+ correspond à une perte de deux électrons."
+        explanation: "Une charge $2+$ correspond à une perte de deux électrons."
       },
       {
         content: "Dans une période, l’électronégativité tend globalement à augmenter de gauche à droite.",
@@ -39,9 +39,9 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "L’attraction exercée sur les électrons de liaison augmente globalement dans ce sens."
       },
       {
-        content: "Le nombre de masse A est égal au nombre d’électrons de l’atome neutre.",
+        content: "Le nombre de masse $A$ est égal au nombre d’électrons de l’atome neutre.",
         correct: false,
-        explanation: "A correspond au nombre total de nucléons, protons plus neutrons."
+        explanation: "$A$ correspond au nombre total de nucléons, protons plus neutrons."
       },
       {
         content: "L’affinité électronique et l’électronégativité sont deux noms strictement synonymes.",
@@ -54,8 +54,8 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     order: 2,
     difficulty: "MEDIUM",
     format: "QROC",
-    question: "Dans sa configuration électronique fondamentale 1s² 2s² 2p², combien d’électrons non appariés possède l’atome de carbone selon la règle de Hund ? Donnez uniquement la valeur numérique.",
-    explanation: "Les deux électrons 2p occupent d’abord deux orbitales p différentes avec des spins parallèles. L’atome de carbone fondamental possède donc deux électrons non appariés.",
+    question: "Dans sa configuration électronique fondamentale $1\mathrm{s}^2\,2\mathrm{s}^2\,2\mathrm{p}^2$, combien d’électrons non appariés possède l’atome de carbone selon la règle de Hund ? Donnez uniquement la valeur numérique.",
+    explanation: "Les deux électrons $2\mathrm{p}$ occupent d’abord deux orbitales p différentes avec des spins parallèles. L’atome de carbone fondamental possède donc deux électrons non appariés.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
@@ -74,7 +74,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     difficulty: "MEDIUM",
     format: "QRU",
     question: "Quelle proposition décrit correctement les liaisons d’une triple liaison carbone-carbone ?",
-    explanation: "Une triple liaison C≡C associe une liaison σ axiale et deux liaisons π issues de recouvrements latéraux.",
+    explanation: "Une triple liaison $\ce{C#C}$ associe une liaison $\sigma$ axiale et deux liaisons $\pi$ issues de recouvrements latéraux.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
@@ -84,29 +84,29 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     ],
     choices: [
       {
-        content: "Elle comporte une liaison σ et deux liaisons π.",
+        content: "Elle comporte une liaison $\sigma$ et deux liaisons $\pi$.",
         correct: true,
         explanation: "C’est l’architecture classique d’une triple liaison."
       },
       {
-        content: "Elle comporte trois liaisons σ et aucune liaison π.",
+        content: "Elle comporte trois liaisons $\sigma$ et aucune liaison $\pi$.",
         correct: false,
-        explanation: "Une seule composante est σ."
+        explanation: "Une seule composante est $\sigma$."
       },
       {
-        content: "Elle autorise une rotation libre autour de l’axe C–C sans modifier le recouvrement orbitalaire.",
+        content: "Elle autorise une rotation libre autour de l’axe $\mathrm{C{-}C}$ sans modifier le recouvrement orbitalaire.",
         correct: false,
-        explanation: "Les deux liaisons π s’opposent à une rotation libre."
+        explanation: "Les deux liaisons $\pi$ s’opposent à une rotation libre."
       },
       {
-        content: "Elle impose une hybridation sp3 aux deux carbones.",
+        content: "Elle impose une hybridation $\mathrm{sp}^3$ aux deux carbones.",
         correct: false,
-        explanation: "Les carbones d’un alcyne sont classiquement sp."
+        explanation: "Les carbones d’un alcyne sont classiquement $\mathrm{sp}$."
       },
       {
         content: "Elle correspond à une liaison ionique entre les deux carbones.",
         correct: false,
-        explanation: "La triple liaison C≡C est covalente."
+        explanation: "La triple liaison $\ce{C#C}$ est covalente."
       }
     ]
   },
@@ -115,7 +115,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     difficulty: "EASY",
     format: "QRP",
     question: "Sélectionnez exactement les deux propositions correctes concernant les interactions intermoléculaires.",
-    explanation: "Les forces de London existent entre toutes les espèces polarisables. Une liaison hydrogène exige un donneur X–H adapté et un accepteur disposant d’un doublet.",
+    explanation: "Les forces de London existent entre toutes les espèces polarisables. Une liaison hydrogène exige un donneur $\mathrm{X{-}H}$ adapté et un accepteur disposant d’un doublet.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
@@ -132,7 +132,7 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         content: "Un éther peut accepter une liaison hydrogène grâce aux doublets de son oxygène.",
         correct: true,
-        explanation: "L’oxygène éthéré est accepteur mais la molécule n’est pas donneuse en l’absence de O–H."
+        explanation: "L’oxygène éthéré est accepteur mais la molécule n’est pas donneuse en l’absence de $\mathrm{O{-}H}$."
       },
       {
         content: "Toute molécule contenant de l’oxygène est nécessairement donneuse de liaison hydrogène.",
@@ -167,14 +167,14 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     ],
     choices: [
       {
-        content: "Le motif R–C(=O)–NH2 correspond à un amide.",
+        content: "Le motif $\mathrm{R{-}C(=O){-}NH_2}$ correspond à un amide.",
         correct: true,
         explanation: "L’azote est directement lié au carbone carbonylé."
       },
       {
-        content: "Le motif R–C≡N correspond à un nitrile.",
+        content: "Le motif $\mathrm{R{-}C\equiv N}$ correspond à un nitrile.",
         correct: true,
-        explanation: "La triple liaison C≡N caractérise le nitrile."
+        explanation: "La triple liaison $\mathrm{C\equiv N}$ caractérise le nitrile."
       },
       {
         content: "Un ammonium quaternaire porte quatre substituants sur un azote chargé positivement.",
@@ -182,14 +182,14 @@ export const UE14_COLLE_C12_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "L’azote possède alors quatre liaisons et une charge formelle positive."
       },
       {
-        content: "Un thiol est défini par le motif R–OH.",
+        content: "Un thiol est défini par le motif $\mathrm{R{-}OH}$.",
         correct: false,
-        explanation: "Le thiol porte R–SH."
+        explanation: "Le thiol porte $\mathrm{R{-}SH}$."
       },
       {
         content: "Un ester simple contient obligatoirement un atome d’azote.",
         correct: false,
-        explanation: "Le motif ester est R–C(=O)–O–R′."
+        explanation: "Le motif ester est $\mathrm{R{-}C(=O){-}O{-}R'}$."
       }
     ]
   },
@@ -221,7 +221,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     difficulty: "HARD",
     format: "QRM",
     question: "À propos de la stéréochimie des molécules organiques, quelles propositions sont exactes ?",
-    explanation: "Les descripteurs R/S concernent des centres stéréogènes tétraédriques ; E/Z concernent les doubles liaisons lorsque chaque carbone porte deux substituants différents.",
+    explanation: "Les descripteurs $\mathrm{R/S}$ concernent des centres stéréogènes tétraédriques ; *E/Z* concernent les doubles liaisons lorsque chaque carbone porte deux substituants différents.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
@@ -236,12 +236,12 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "Ils possèdent des configurations opposées dans une relation miroir."
       },
       {
-        content: "L’attribution E/Z nécessite de comparer les priorités CIP sur chacun des deux carbones de la double liaison.",
+        content: "L’attribution *E/Z* nécessite de comparer les priorités CIP sur chacun des deux carbones de la double liaison.",
         correct: true,
         explanation: "Les groupes de plus haute priorité déterminent E ou Z."
       },
       {
-        content: "Une SN2 sur un centre stéréogène procède par attaque arrière et inversion géométrique au centre attaqué.",
+        content: "Une $\text{S}_\text{N}2$ sur un centre stéréogène procède par attaque arrière et inversion géométrique au centre attaqué.",
         correct: true,
         explanation: "Le mécanisme concerté impose l’attaque opposée au groupe partant."
       },
@@ -251,7 +251,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "Cette relation définit les énantiomères."
       },
       {
-        content: "La présence d’une double liaison C=C suffit toujours à définir une configuration E/Z.",
+        content: "La présence d’une double liaison $\mathrm{C=C}$ suffit toujours à définir une configuration *E/Z*.",
         correct: false,
         explanation: "Chaque carbone doit porter deux substituants différents."
       }
@@ -262,7 +262,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     difficulty: "MEDIUM",
     format: "QRU",
     question: "Quelle transformation décrit correctement la réactivité d’un hydrocarbure insaturé ?",
-    explanation: "L’hydrogénation catalytique d’un alcène ajoute H2 sur la double liaison et conduit à l’alcane correspondant.",
+    explanation: "L’hydrogénation catalytique d’un alcène ajoute $\ce{H2}$ sur la double liaison et conduit à l’alcane correspondant.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
@@ -279,22 +279,22 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
       {
         content: "L’hydrogénation catalytique d’un alcène réduit la double liaison en liaison simple.",
         correct: true,
-        explanation: "Deux hydrogènes s’ajoutent sur les carbones de C=C."
+        explanation: "Deux hydrogènes s’ajoutent sur les carbones de $\mathrm{C=C}$."
       },
       {
-        content: "Une addition de HX sur un alcène conserve obligatoirement la liaison π.",
+        content: "Une addition de $\mathrm{HX}$ sur un alcène conserve obligatoirement la liaison $\pi$.",
         correct: false,
-        explanation: "L’addition consomme la liaison π."
+        explanation: "L’addition consomme la liaison $\pi$."
       },
       {
-        content: "Un alcyne est défini par une double liaison C=C.",
+        content: "Un alcyne est défini par une double liaison $\mathrm{C=C}$.",
         correct: false,
-        explanation: "Il contient une triple liaison C≡C."
+        explanation: "Il contient une triple liaison $\ce{C#C}$."
       },
       {
-        content: "L’addition électrophile d’un alcène est impossible car la liaison π est dépourvue d’électrons.",
+        content: "L’addition électrophile d’un alcène est impossible car la liaison $\pi$ est dépourvue d’électrons.",
         correct: false,
-        explanation: "La liaison π est riche en électrons et peut réagir avec des électrophiles."
+        explanation: "La liaison $\pi$ est riche en électrons et peut réagir avec des électrophiles."
       }
     ]
   },
@@ -318,7 +318,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "Une oxydation plus poussée peut ensuite donner l’acide carboxylique."
       },
       {
-        content: "La réduction d’une cétone par NaBH4 peut conduire à un alcool secondaire.",
+        content: "La réduction d’une cétone par $\ce{NaBH4}$ peut conduire à un alcool secondaire.",
         correct: true,
         explanation: "Le carbone carbonylé conserve ses deux substituants carbonés."
       },
@@ -328,7 +328,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "Elle conduit à une cétone."
       },
       {
-        content: "Une SN2 sur un carbone très encombré est favorisée par l’encombrement stérique.",
+        content: "Une $\text{S}_\text{N}2$ sur un carbone très encombré est favorisée par l’encombrement stérique.",
         correct: false,
         explanation: "L’encombrement défavorise l’attaque arrière."
       },
@@ -357,10 +357,10 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
       {
         content: "Le carbone d’un aldéhyde ou d’une cétone est électrophile.",
         correct: true,
-        explanation: "La polarisation Cδ+–Oδ− appauvrit le carbone en densité électronique."
+        explanation: "La polarisation $\mathrm{C}^{\delta+}$–$\mathrm{O}^{\delta-}$ appauvrit le carbone en densité électronique."
       },
       {
-        content: "La liaison C–N d’un amide possède un caractère partiel de double liaison.",
+        content: "La liaison $\mathrm{C{-}N}$ d’un amide possède un caractère partiel de double liaison.",
         correct: true,
         explanation: "Le doublet de l’azote est délocalisé vers le carbonyle."
       },
@@ -401,9 +401,9 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "Une géométrie symétrique peut conduire à une compensation vectorielle."
       },
       {
-        content: "Un carbone sp adopte classiquement une géométrie linéaire, également dite digonale.",
+        content: "Un carbone $\mathrm{sp}$ adopte classiquement une géométrie linéaire, également dite digonale.",
         correct: true,
-        explanation: "Deux directions de liaison opposées sont associées à l’hybridation sp."
+        explanation: "Deux directions de liaison opposées sont associées à l’hybridation $\mathrm{sp}$."
       },
       {
         content: "Un carboxylate est stabilisé par délocalisation de la charge sur les deux oxygènes.",
@@ -411,17 +411,17 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "Les formes mésomères principales contribuent à cette stabilisation."
       },
       {
-        content: "Un organomagnésien réagit avec CO2 puis, après hydrolyse, peut donner un acide carboxylique.",
+        content: "Un organomagnésien réagit avec $\ce{CO2}$ puis, après hydrolyse, peut donner un acide carboxylique.",
         correct: true,
-        explanation: "Le carbone du CO2 devient le carbone carboxylique."
+        explanation: "Le carbone du $\ce{CO2}$ devient le carbone carboxylique."
       },
       {
         content: "La réduction d’un aldéhyde par un hydrure peut donner un alcool primaire.",
         correct: true,
-        explanation: "R–CHO est transformé en R–CH2OH."
+        explanation: "$\mathrm{R{-}CHO}$ est transformé en $\mathrm{R{-}CH_2OH}$."
       },
       {
-        content: "La géométrie correcte d’un carbone sp est dite diagonale.",
+        content: "La géométrie correcte d’un carbone $\mathrm{sp}$ est dite diagonale.",
         correct: false,
         explanation: "Le terme correct est linéaire ou digonale."
       },
@@ -436,9 +436,9 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "Ils peuvent s’interconvertir par rotation autour de liaisons simples."
       },
       {
-        content: "Une double liaison C=C est constituée de deux liaisons σ.",
+        content: "Une double liaison $\mathrm{C=C}$ est constituée de deux liaisons $\sigma$.",
         correct: false,
-        explanation: "Elle associe une σ et une π."
+        explanation: "Elle associe une $\sigma$ et une $\pi$."
       },
       {
         content: "L’électronégativité est l’énergie libérée lors de l’ajout d’un électron à un atome gazeux.",
@@ -452,8 +452,8 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     order: 12,
     difficulty: "EASY",
     format: "QROC",
-    question: "Quel est l’état d’hybridation classique d’un carbone engagé dans une triple liaison C≡C ?",
-    explanation: "Un carbone alcynique utilise deux orbitales hybrides sp et conserve deux orbitales p non hybridées.",
+    question: "Quel est l’état d’hybridation classique d’un carbone engagé dans une triple liaison $\ce{C#C}$ ?",
+    explanation: "Un carbone alcynique utilise deux orbitales hybrides $\mathrm{sp}$ et conserve deux orbitales $\mathrm{p}$ non hybridées.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
@@ -521,7 +521,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     difficulty: "MEDIUM",
     format: "QRM",
     question: "À propos de la fonction acide carboxylique portée par M et de sa base conjuguée, quelles propositions sont exactes ?",
-    explanation: "La perte du proton acide conduit au carboxylate. Ses deux formes mésomères limites délocalisent la charge négative sur les deux oxygènes, de sorte que les deux liaisons C–O sont équivalentes dans la description moyenne. Le carbone du motif carboxyle reste associé à un système π délocalisé et la fonction acide comporte bien un carbonyle.",
+    explanation: "La perte du proton acide conduit au carboxylate. Ses deux formes mésomères limites délocalisent la charge négative sur les deux oxygènes, de sorte que les deux liaisons $\mathrm{C{-}O}$ sont équivalentes dans la description moyenne. Le carbone du motif carboxyle reste associé à un système $\pi$ délocalisé et la fonction acide comporte bien un carbonyle.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
@@ -533,17 +533,17 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
       {
         content: "Sa déprotonation conduit à un ion carboxylate.",
         correct: true,
-        explanation: "La perte de H+ concerne le groupe –COOH."
+        explanation: "La perte de $\ce{H+}$ concerne le groupe $-\mathrm{COOH}$."
       },
       {
-        content: "Dans le carboxylate, les deux liaisons C–O deviennent équivalentes dans la description mésomère moyenne.",
+        content: "Dans le carboxylate, les deux liaisons $\mathrm{C{-}O}$ deviennent équivalentes dans la description mésomère moyenne.",
         correct: true,
         explanation: "La charge et le caractère de liaison sont délocalisés sur les deux oxygènes."
       },
       {
         content: "La fonction acide carboxylique de M contient elle-même un groupe carbonyle.",
         correct: true,
-        explanation: "Le motif carboxyle associe un groupe C=O et un groupe OH."
+        explanation: "Le motif carboxyle associe un groupe $\mathrm{C=O}$ et un groupe $\mathrm{OH}$."
       },
       {
         content: "La charge négative du carboxylate est stabilisée par délocalisation sur les deux oxygènes.",
@@ -551,9 +551,9 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "Les formes mésomères limites contribuent à cette stabilisation."
       },
       {
-        content: "La déprotonation transforme le carbone carboxylique en carbone tétraédrique sp³ dépourvu de toute délocalisation.",
+        content: "La déprotonation transforme le carbone carboxylique en carbone tétraédrique $\mathrm{sp}^3$ dépourvu de toute délocalisation.",
         correct: false,
-        explanation: "Le carbone carboxylique reste hybride sp² avec délocalisation π."
+        explanation: "Le carbone carboxylique reste hybride $\mathrm{sp}^2$ avec délocalisation $\pi$."
       }
     ]
   },
@@ -579,7 +579,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
       {
         content: "La transformation 2 correspond à une réduction de l’aldéhyde en alcool primaire.",
         correct: true,
-        explanation: "Le carbonyle aldéhydique est réduit en alcool primaire par NaBH4."
+        explanation: "Le carbonyle aldéhydique est réduit en alcool primaire par $\ce{NaBH4}$."
       },
       {
         content: "La transformation 3 correspond à une oxydation de l’aldéhyde en acide carboxylique.",
@@ -658,9 +658,9 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "Ils sont épimères en C4."
       },
       {
-        content: "La cellulose est un polymère de glucose principalement lié en α(1→4).",
+        content: "La cellulose est un polymère de glucose principalement lié en $\alpha(1\rightarrow 4)$.",
         correct: false,
-        explanation: "Elle comporte des liaisons β(1→4)."
+        explanation: "Elle comporte des liaisons $\beta(1\rightarrow 4)$."
       },
       {
         content: "La lettre D impose un pouvoir rotatoire positif.",
@@ -710,7 +710,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
       {
         content: "La phospholipase A2 coupe principalement la liaison entre phosphate et tête polaire.",
         correct: false,
-        explanation: "Elle hydrolyse l’ester acyle en sn-2."
+        explanation: "Elle hydrolyse l’ester acyle en $\mathrm{sn{-}2}$."
       },
       {
         content: "Un stéride est un GAG fortement sulfaté.",
@@ -744,12 +744,12 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     ],
     choices: [
       {
-        content: "Le glycogène possède des liaisons α(1→4) et des branchements α(1→6).",
+        content: "Le glycogène possède des liaisons $\alpha(1\rightarrow 4)$ et des branchements $\alpha(1\rightarrow 6)$.",
         correct: true,
         explanation: "Ces liaisons structurent ses chaînes et leurs ramifications."
       },
       {
-        content: "L’acide linoléique appartient à la série n-6 et doit être apporté par l’alimentation.",
+        content: "L’acide linoléique appartient à la série $\mathrm{n{-}6}$ et doit être apporté par l’alimentation.",
         correct: true,
         explanation: "Il fait partie des acides gras indispensables."
       },
@@ -786,27 +786,27 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     ],
     choices: [
       {
-        content: "La glycine est achirale au niveau de son carbone α.",
+        content: "La glycine est achirale au niveau de son carbone $\alpha$.",
         correct: true,
-        explanation: "Son carbone α porte deux hydrogènes."
+        explanation: "Son carbone $\alpha$ porte deux hydrogènes."
       },
       {
         content: "La liaison peptidique présente un caractère partiel de double liaison.",
         correct: true,
-        explanation: "La résonance limite la rotation autour de C–N."
+        explanation: "La résonance limite la rotation autour de $\mathrm{C{-}N}$."
       },
       {
-        content: "Une hélice α est notamment stabilisée par des liaisons hydrogène du squelette peptidique.",
+        content: "Une hélice $\alpha$ est notamment stabilisée par des liaisons hydrogène du squelette peptidique.",
         correct: true,
-        explanation: "Le motif classique relie C=O(i) à N–H(i+4)."
+        explanation: "Le motif classique relie $\mathrm{C=O}(i)$ à $\mathrm{N{-}H}(i+4)$."
       },
       {
-        content: "La proline interne stabilise toujours une hélice α longue et régulière.",
+        content: "La proline interne stabilise toujours une hélice $\alpha$ longue et régulière.",
         correct: false,
         explanation: "Elle tend au contraire à la perturber."
       },
       {
-        content: "Les feuillets β ne peuvent exister qu’en organisation antiparallèle.",
+        content: "Les feuillets $\beta$ ne peuvent exister qu’en organisation antiparallèle.",
         correct: false,
         explanation: "Ils peuvent être parallèles ou antiparallèles."
       }
@@ -859,7 +859,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
       {
         content: "Une IgG monomérique possède deux chaînes lourdes et deux chaînes légères.",
         correct: true,
-        explanation: "L’organisation H2L2 forme les deux Fab et la région Fc."
+        explanation: "L’organisation $\mathrm{H_2L_2}$ forme les deux Fab et la région Fc."
       },
       {
         content: "La myoglobine est une protéine monomérique contenant un groupement hème capable de fixer l’oxygène.",
@@ -867,7 +867,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "La myoglobine est une protéine monomérique riche dans le muscle ; son hème contient un fer capable de lier réversiblement le dioxygène."
       },
       {
-        content: "L’HbA adulte principale est un tétramère α2β2.",
+        content: "L’HbA adulte principale est un tétramère $\alpha_2\beta_2$.",
         correct: true,
         explanation: "C’est la forme majoritaire chez l’adulte sain."
       },
@@ -971,7 +971,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     difficulty: "HARD",
     format: "QRM",
     question: "À propos des inhibitions réversibles d’une enzyme michaelienne, quelles propositions sont exactes ?",
-    explanation: "Les profils idéaux permettent de distinguer les effets sur Km apparent et Vmax.",
+    explanation: "Les profils idéaux permettent de distinguer les effets sur $K_{\mathrm{m}}$ apparent et $V_{\max}$.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
@@ -981,29 +981,29 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     ],
     choices: [
       {
-        content: "Une inhibition compétitive pure augmente Km apparent sans modifier Vmax.",
+        content: "Une inhibition compétitive pure augmente $K_{\mathrm{m}}$ apparent sans modifier $V_{\max}$.",
         correct: true,
         explanation: "Un excès de substrat peut surmonter la compétition dans le modèle idéal."
       },
       {
-        content: "Une inhibition incompétitive pure diminue Km et Vmax dans la même proportion.",
+        content: "Une inhibition incompétitive pure diminue $K_{\mathrm{m}}$ et $V_{\max}$ dans la même proportion.",
         correct: true,
         explanation: "Les droites de Lineweaver-Burk idéales sont parallèles."
       },
       {
-        content: "Une inhibition non compétitive pure augmente nécessairement Km et Vmax.",
+        content: "Une inhibition non compétitive pure augmente nécessairement $K_{\mathrm{m}}$ et $V_{\max}$.",
         correct: false,
-        explanation: "Dans le cas pur, Km reste inchangé et Vmax diminue."
+        explanation: "Dans le cas pur, $K_{\mathrm{m}}$ reste inchangé et $V_{\max}$ diminue."
       },
       {
-        content: "Une inhibition mixte générale conserve toujours exactement la même valeur de Km.",
+        content: "Une inhibition mixte générale conserve toujours exactement la même valeur de $K_{\mathrm{m}}$.",
         correct: false,
-        explanation: "Km peut augmenter ou diminuer selon les affinités relatives de l’inhibiteur."
+        explanation: "$K_{\mathrm{m}}$ peut augmenter ou diminuer selon les affinités relatives de l’inhibiteur."
       },
       {
-        content: "Une inhibition compétitive pure impose Vmax = 0.",
+        content: "Une inhibition compétitive pure impose $V_{\max} = 0$.",
         correct: false,
-        explanation: "Vmax reste inchangée dans le modèle idéal."
+        explanation: "$V_{\max}$ reste inchangée dans le modèle idéal."
       }
     ]
   },
@@ -1027,24 +1027,24 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "Sa forme ouverte contient une cétone et six carbones."
       },
       {
-        content: "La phospholipase A2 peut libérer l’acide gras porté en sn-2 d’un glycérophospholipide.",
+        content: "La phospholipase A2 peut libérer l’acide gras porté en $\mathrm{sn{-}2}$ d’un glycérophospholipide.",
         correct: true,
         explanation: "Cette position peut notamment contenir de l’acide arachidonique."
       },
       {
-        content: "Le point isoélectrique est le pH où la charge nette moyenne d’un acide aminé ou d’une protéine est nulle.",
+        content: "Le point isoélectrique est le $\mathrm{pH}$ où la charge nette moyenne d’un acide aminé ou d’une protéine est nulle.",
         correct: true,
         explanation: "Des charges internes peuvent néanmoins subsister."
       },
       {
-        content: "Une enzyme diminue ΔG‡ sans modifier Keq.",
+        content: "Une enzyme diminue $\Delta G^\ddagger$ sans modifier $K_{\mathrm{eq}}$.",
         correct: true,
         explanation: "Elle accélère l’approche de l’équilibre sans le déplacer."
       },
       {
-        content: "La mésomérie de la liaison peptidique limite la rotation autour de la liaison C–N.",
+        content: "La mésomérie de la liaison peptidique limite la rotation autour de la liaison $\\mathrm{C{-}N}$.",
         correct: true,
-        explanation: "La délocalisation du doublet de l’azote vers le carbonyle confère à la liaison peptidique C–N un caractère partiel de double liaison et en limite la rotation."
+        explanation: "La délocalisation du doublet de l’azote vers le carbonyle confère à la liaison peptidique $\mathrm{C{-}N}$ un caractère partiel de double liaison et en limite la rotation."
       },
       {
         content: "Le saccharose possède deux carbones anomériques libres.",
@@ -1062,9 +1062,9 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "Son caractère partiel de double liaison limite la rotation."
       },
       {
-        content: "Km est toujours strictement égal à Kd.",
+        content: "$K_{\mathrm{m}}$ est toujours strictement égal à $K_{\mathrm{d}}$.",
         correct: false,
-        explanation: "Km dépend des constantes cinétiques et n’est pas une constante universelle d’affinité."
+        explanation: "$K_{\mathrm{m}}$ dépend des constantes cinétiques et n’est pas une constante universelle d’affinité."
       },
       {
         content: "Un katal vaut une micromole par minute.",
@@ -1079,7 +1079,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     difficulty: "MEDIUM",
     format: "QROC",
     question: "Une préparation enzymatique présente une activité totale de 12 U pour 3 mg de protéines. Quelle est son activité spécifique ? Donnez uniquement la valeur numérique, en U/mg.",
-    explanation: "L’activité spécifique est l’activité enzymatique totale divisée par la masse totale de protéines : 12 U / 3 mg = 4 U·mg⁻¹.",
+    explanation: "L’activité spécifique est l’activité enzymatique totale divisée par la masse totale de protéines : 12 U / 3 mg = $4\,\mathrm{U}\cdot\mathrm{mg}^{-1}$.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
@@ -1099,8 +1099,8 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     order: 29,
     difficulty: "MEDIUM",
     format: "QRU",
-    question: "Pour une enzyme suivant Michaelis-Menten, quelle relation est exacte lorsque la concentration de substrat est égale à Km ?",
-    explanation: "Lorsque [S] = Km, l’équation donne v0 = Vmax/2.",
+    question: "Pour une enzyme suivant Michaelis-Menten, quelle relation est exacte lorsque la concentration de substrat est égale à $K_{\mathrm{m}}$ ?",
+    explanation: "Lorsque $[\mathrm{S}] = K_{\mathrm{m}}$, l’équation donne $v_0 = V_{\max}/2$.",
     tags: [
       "usage:COLLE",
       "ue:UE14",
@@ -1110,24 +1110,24 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     ],
     choices: [
       {
-        content: "v0 = Vmax/2.",
+        content: "$v_0 = V_{\max}/2$.",
         correct: true,
-        explanation: "Le numérateur et le dénominateur deviennent respectivement Vmax·Km et 2Km."
+        explanation: "Le numérateur et le dénominateur deviennent respectivement $V_{\max} \cdot K_{\mathrm{m}}$ et $2K_{\mathrm{m}}$."
       },
       {
-        content: "v0 = 2Vmax.",
+        content: "$v_0 = 2V_{\max}$.",
         correct: false,
-        explanation: "La vitesse ne dépasse pas Vmax dans ce modèle."
+        explanation: "La vitesse ne dépasse pas $V_{\max}$ dans ce modèle."
       },
       {
-        content: "v0 = 0.",
+        content: "$v_0 = 0$.",
         correct: false,
-        explanation: "Une concentration égale à Km ne correspond pas à une absence de réaction."
+        explanation: "Une concentration égale à $K_{\mathrm{m}}$ ne correspond pas à une absence de réaction."
       },
       {
-        content: "Km devient sans unité.",
+        content: "$K_{\mathrm{m}}$ devient sans unité.",
         correct: false,
-        explanation: "Km garde l’unité d’une concentration."
+        explanation: "$K_{\mathrm{m}}$ garde l’unité d’une concentration."
       },
       {
         content: "La réaction est nécessairement à l’équilibre thermodynamique.",
@@ -1171,7 +1171,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "C’est un aldose."
       },
       {
-        content: "Les anomères α et β sont des énantiomères.",
+        content: "Les anomères $\alpha$ et $\beta$ sont des énantiomères.",
         correct: false,
         explanation: "Ce sont des diastéréoisomères qui diffèrent au carbone anomérique."
       }
@@ -1240,12 +1240,12 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
       {
         content: "Un pont disulfure peut résulter de l’oxydation de deux résidus cystéine.",
         correct: true,
-        explanation: "L’oxydation des fonctions thiol de deux cystéines peut former une liaison covalente S–S."
+        explanation: "L’oxydation des fonctions thiol de deux cystéines peut former une liaison covalente $\mathrm{S{-}S}$."
       },
       {
-        content: "Des liaisons hydrogène du squelette peptidique contribuent à stabiliser les hélices α et les feuillets β.",
+        content: "Des liaisons hydrogène du squelette peptidique contribuent à stabiliser les hélices $\alpha$ et les feuillets $\beta$.",
         correct: true,
-        explanation: "Les structures secondaires reposent notamment sur des liaisons hydrogène entre groupements C=O et N–H du squelette."
+        explanation: "Les structures secondaires reposent notamment sur des liaisons hydrogène entre groupements $\mathrm{C=O}$ et $\mathrm{N{-}H}$ du squelette."
       },
       {
         content: "La dénaturation d’une protéine hydrolyse nécessairement toutes ses liaisons peptidiques.",
@@ -1319,7 +1319,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "Ils sont principalement orientés vers le côté extracellulaire."
       },
       {
-        content: "Les microfilaments sont constitués de tubuline α/β.",
+        content: "Les microfilaments sont constitués de tubuline $\alpha/\beta$.",
         correct: false,
         explanation: "Ils sont constitués d’actine."
       },
@@ -1756,7 +1756,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "Le récepteur M6P les dirige vers la voie endosomale."
       },
       {
-        content: "La β-oxydation peroxysomale participe au raccourcissement d’acides gras à très longue chaîne.",
+        content: "La $\beta$-oxydation peroxysomale participe au raccourcissement d’acides gras à très longue chaîne.",
         correct: true,
         explanation: "Les produits raccourcis peuvent ensuite être pris en charge par d’autres compartiments."
       },
@@ -1766,7 +1766,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "Cette transcription a lieu dans le nucléole."
       },
       {
-        content: "Les filaments intermédiaires sont constitués de tubuline α/β.",
+        content: "Les filaments intermédiaires sont constitués de tubuline $\alpha/\beta$.",
         correct: false,
         explanation: "La tubuline forme les microtubules."
       },
@@ -1788,7 +1788,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
       {
         content: "Une cellule diploïde en G2 est classiquement 4n/4C.",
         correct: false,
-        explanation: "Elle est 2n/4C."
+        explanation: "Elle est $2\mathrm{n}/4\mathrm{C}$."
       }
     ],
     requiredSelectionCount: 5
@@ -1797,8 +1797,8 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     order: 47,
     difficulty: "HARD",
     format: "QRU",
-    question: "Une protéine soluble normalement nucléaire porte un NLS fonctionnel. Une mutation d’importine β empêche son interaction avec les nucléoporines du pore nucléaire, sans altérer la protéine cargo. Quelle conséquence est la plus directe ?",
-    explanation: "L’importine β interagit avec les nucléoporines du complexe du pore nucléaire et participe à la translocation du complexe d’import. Si cette interaction est empêchée, l’import nucléaire efficace du cargo diminue et le cargo tend à rester cytosolique. Les voies lysosomale, réticulaire et mitochondriale ne compensent pas ce défaut.",
+    question: "Une protéine soluble normalement nucléaire porte un NLS fonctionnel. Une mutation d’importine $\beta$ empêche son interaction avec les nucléoporines du pore nucléaire, sans altérer la protéine cargo. Quelle conséquence est la plus directe ?",
+    explanation: "L’importine $\beta$ interagit avec les nucléoporines du complexe du pore nucléaire et participe à la translocation du complexe d’import. Si cette interaction est empêchée, l’import nucléaire efficace du cargo diminue et le cargo tend à rester cytosolique. Les voies lysosomale, réticulaire et mitochondriale ne compensent pas ce défaut.",
     tags: [
       "usage:COLLE",
       "ue:UE14",

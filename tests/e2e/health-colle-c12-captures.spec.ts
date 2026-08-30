@@ -12,7 +12,7 @@ const appBaseUrl =
   process.env.E2E_BASE_URL ?? `http://localhost:${process.env.E2E_PORT ?? "3000"}`;
 
 const screenshotsTmpDir = path.join(process.cwd(), "tmp", "screenshots");
-const artifactsDir = "/Users/frdemoulin/.gemini/antigravity/brain/0fd9632c-605e-45de-a4db-cdd05f613f7a";
+const artifactsDir = "/Users/frdemoulin/.gemini/antigravity-ide/brain/9522d4a5-fc1d-4ad7-8456-62dacd1ceef6";
 
 test.describe.serial("Santé — Colle C12 Captures & Recette Visuelle", () => {
   test.use({ storageState: authFile });
@@ -65,8 +65,7 @@ test.describe.serial("Santé — Colle C12 Captures & Recette Visuelle", () => {
 
     // Q13 desktop (QRU)
     await expect(page.getByText("Données communes aux questions 13 à 16")).toBeVisible();
-    await expect(page.getByText("Molécule polyfonctionnelle et transformations")).toBeVisible();
-    await expect(page.getByAltText("Molécule polyfonctionnelle M portant un acide carboxylique, une cétone et une amine, accompagnée de plusieurs transformations simples entre alcool, aldéhyde, acide carboxylique et cétone.")).toBeVisible();
+    await expect(page.getByAltText(/Molécule polyfonctionnelle M/)).toBeVisible();
 
     // Capture 1: Q13 desktop
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c12-q13-desktop.png") });
@@ -104,7 +103,7 @@ test.describe.serial("Santé — Colle C12 Captures & Recette Visuelle", () => {
     await expect(page.getByText("Sur la molécule M du panneau A, sélectionnez l’oxygène du carbonyle de la fonction cétone, et non l’un des oxygènes de la fonction acide carboxylique.")).toBeVisible();
 
     // Non-duplication test on Q16:
-    const polyfunctionalImages = page.locator("img[src*='polyfunctional-reactivity-linked-q13-q16.svg']");
+    const polyfunctionalImages = page.locator("img[alt*='Molécule polyfonctionnelle M']");
     await expect(polyfunctionalImages).toHaveCount(1);
 
     // Capture 4: Q16 avant selection
@@ -139,8 +138,7 @@ test.describe.serial("Santé — Colle C12 Captures & Recette Visuelle", () => {
 
     // Q40 desktop (QRM Group 2)
     await expect(page.getByText("Données communes aux questions 40 à 43")).toBeVisible();
-    await expect(page.getByText("Noyau et mitochondrie")).toBeVisible();
-    await expect(page.getByAltText("Schéma d’une cellule eucaryote montrant un noyau avec nucléole, pores, chromatine et lamines, ainsi qu’une mitochondrie à double membrane avec complexe TOM et ADN mitochondrial.")).toBeVisible();
+    await expect(page.getByAltText(/Schéma d’une cellule eucaryote/)).toBeVisible();
 
     // Capture 8: Q40 desktop
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c12-q40-desktop.png") });

@@ -32,46 +32,149 @@ export async function seedHealthColleUE14C12(prisma: PrismaClient) {
 
   const existingColle = await prisma.healthMockExam.findFirst({
     where: { courseUnitId: courseUnit.id, slug: "c12" },
+    include: {
+      sections: {
+        include: {
+          questionGroups: true,
+          questions: true,
+        },
+      },
+    },
   });
-
-  if (existingColle) {
-    const attemptCount = await prisma.userHealthMockExamAttempt.count({
-      where: { mockExamId: existingColle.id },
-    });
-    if (attemptCount === 0) {
-      await prisma.healthMockExam.delete({ where: { id: existingColle.id } });
-    } else {
-      console.warn(`[SEED C12] ${attemptCount} tentative(s) conservée(s). Mise à jour du contenu.`);
-      await prisma.healthMockExamSection.deleteMany({
-        where: { mockExamId: existingColle.id },
-      });
-    }
-  }
 
   const compiledQuestions = UE14_COLLE_C12_QUESTIONS.map((q) =>
     compileHealthTrainingAuthorQuestion(q)
   );
 
-  const mockExam =
-    existingColle &&
-    (await prisma.userHealthMockExamAttempt.count({ where: { mockExamId: existingColle.id } })) > 0
-      ? existingColle
-      : await prisma.healthMockExam.create({
-          data: {
-            courseUnitId: courseUnit.id,
-            type: "COLLE",
-            title: "Grande colle UE14",
-            slug: "c12",
-            description: "3 EC · Chimie + Biochimie + Biologie cellulaire",
-            instructions: "Colle UE14 Reims — 50 questions — 75 min — Notation UNESS",
-            durationMinutes: 75,
-            durationSeconds: 4500,
-            questionCount: 50,
-            version: 1,
-            order: 12,
-            isPublished: true,
-          },
-        });
+  const group1Seed = {
+    order: 1,
+    title: "Données communes — Molécule polyfonctionnelle et transformations",
+    sharedStatement:
+      "Le panneau A présente une molécule M portant simultanément une fonction acide carboxylique, une cétone et une amine. Le panneau B rassemble plusieurs transformations simples de fonctions oxygénées. Les deux panneaux servent aux quatre questions suivantes.",
+    sharedMedia: {
+      type: "image",
+      src: "/images/training/ue14/colles/c12/polyfunctional-reactivity-linked-q13-q16.svg",
+      alt: "Molécule polyfonctionnelle M portant un acide carboxylique, une cétone et une amine, accompagnée de plusieurs transformations simples entre alcool, aldéhyde, acide carboxylique et cétone.",
+    },
+    questionOrders: [13, 14, 15, 16],
+  };
+
+  const group2Seed = {
+    order: 1,
+    title: "Données communes — Noyau et mitochondrie",
+    sharedStatement:
+      "Le schéma représente une cellule eucaryote avec un noyau et une mitochondrie. Deux agrandissements montrent l’organisation de la chromatine au voisinage de l’enveloppe nucléaire et les membranes mitochondriales. Le même support sert aux quatre questions suivantes.",
+    sharedMedia: {
+      type: "image",
+      src: "/images/training/ue14/colles/c12/nucleus-mitochondrion-linked-q40-q43.svg",
+      alt: "Schéma d’une cellule eucaryote montrant un noyau avec nucléole, pores, chromatine et lamines, ainsi qu’une mitochondrie à double membrane avec complexe TOM et ADN mitochondrial.",
+    },
+    questionOrders: [40, 41, 42, 43],
+  };
+
+  if (existingColle) {
+    const attemptCount = await prisma.userHealthMockExamAttempt.count({
+      where: { mockExamId: existingColle.id },
+    });
+
+    if (attemptCount > 0) {
+      console.warn(`[SEED C12] ${attemptCount} tentative(s) conservée(s). Mise à jour du contenu des questions en place.`);
+
+      const chimieSection = existingColle.sections.find((s) => s.title === "Chimie" || s.order === 1);
+      const biocellSection = existingColle.sections.find((s) => s.title === "Biologie cellulaire" || s.order === 3);
+
+      let group1Id: string | null = null;
+      let group2Id: string | null = null;
+
+      if (chimieSection) {
+        const existingG1 = chimieSection.questionGroups.find((g) => (g.title ?? "").includes("polyfonctionnelle") || g.order === 1);
+        if (existingG1) {
+          group1Id = existingG1.id;
+          await prisma.healthMockExamQuestionGroup.update({
+            where: { id: existingG1.id },
+            data: {
+              title: group1Seed.title,
+              sharedStatement: group1Seed.sharedStatement,
+              sharedMedia: group1Seed.sharedMedia as any,
+            },
+          });
+        }
+      }
+
+      if (biocellSection) {
+        const existingG2 = biocellSection.questionGroups.find((g) => (g.title ?? "").includes("Noyau") || g.order === 1);
+        if (existingG2) {
+          group2Id = existingG2.id;
+          await prisma.healthMockExamQuestionGroup.update({
+            where: { id: existingG2.id },
+            data: {
+              title: group2Seed.title,
+              sharedStatement: group2Seed.sharedStatement,
+              sharedMedia: group2Seed.sharedMedia as any,
+            },
+          });
+        }
+      }
+
+      const groupIdsMap = new Map<number, string | null>();
+      [13, 14, 15, 16].forEach((o) => groupIdsMap.set(o, group1Id));
+      [40, 41, 42, 43].forEach((o) => groupIdsMap.set(o, group2Id));
+
+      const allQuestions = existingColle.sections.flatMap((s) => s.questions);
+
+      // Update questions
+      for (let index = 0; index < compiledQuestions.length; index++) {
+        const q = compiledQuestions[index];
+        const globalOrder = index + 1;
+        const stableId = `c12-q${String(globalOrder).padStart(2, "0")}`;
+        const existingQ = allQuestions.find((sq) => sq.slug === stableId || sq.globalOrder === globalOrder);
+        const themeIds = [
+          ...((UE14_COLLE_THEME_IDS_BY_QUESTION_STABLE_ID as Record<string, readonly string[]>)[stableId] ?? []),
+        ];
+        const targetGroupId = groupIdsMap.has(globalOrder) ? groupIdsMap.get(globalOrder) : undefined;
+
+        if (existingQ) {
+          await prisma.healthMockExamQuestion.update({
+            where: { id: existingQ.id },
+            data: {
+              groupId: targetGroupId !== undefined ? targetGroupId : existingQ.groupId,
+              questionType: q.questionType ?? "mcq",
+              question: q.question,
+              questionDiagram: (q.questionDiagram as any) ?? undefined,
+              choices: (q.choices as any) ?? [],
+              answerFormat: q.answerFormat ?? "SINGLE",
+              correctChoiceIndexes: q.correctChoiceIndexes ?? [],
+              correctChoiceIndex: q.correctChoiceIndexes?.[0] ?? 0,
+              answerPayload: (q.answerPayload as any) ?? undefined,
+              explanation: q.explanation ?? "",
+              choiceExplanations: (q.choiceExplanations as any) ?? [],
+              themeIds,
+            },
+          });
+        }
+      }
+      return existingColle;
+    } else {
+      await prisma.healthMockExam.delete({ where: { id: existingColle.id } });
+    }
+  }
+
+  const mockExam = await prisma.healthMockExam.create({
+    data: {
+      courseUnitId: courseUnit.id,
+      type: "COLLE",
+      title: "Grande colle UE14",
+      slug: "c12",
+      description: "3 EC · Chimie + Biochimie + Biologie cellulaire",
+      instructions: "Colle UE14 Reims — 50 questions — 75 min — Notation UNESS",
+      durationMinutes: 75,
+      durationSeconds: 4500,
+      questionCount: 50,
+      version: 1,
+      order: 12,
+      isPublished: true,
+    },
+  });
 
   // Section 1: Chimie (Q1 à Q16)
   const sectionChimie = await prisma.healthMockExamSection.create({
@@ -116,14 +219,9 @@ export async function seedHealthColleUE14C12(prisma: PrismaClient) {
   const group1 = await prisma.healthMockExamQuestionGroup.create({
     data: {
       examSectionId: sectionChimie.id,
-      title: "Données communes — Molécule polyfonctionnelle et transformations",
-      sharedStatement:
-        "Le panneau A présente une molécule M portant simultanément une fonction acide carboxylique, une cétone et une amine. Le panneau B rassemble plusieurs transformations simples de fonctions oxygénées. Les deux panneaux servent aux quatre questions suivantes.",
-      sharedMedia: {
-        type: "image",
-        src: "/images/training/ue14/colles/c12/polyfunctional-reactivity-linked-q13-q16.svg",
-        alt: "Molécule polyfonctionnelle M portant un acide carboxylique, une cétone et une amine, accompagnée de plusieurs transformations simples entre alcool, aldéhyde, acide carboxylique et cétone.",
-      } as any,
+      title: group1Seed.title,
+      sharedStatement: group1Seed.sharedStatement,
+      sharedMedia: group1Seed.sharedMedia as any,
       order: 1,
     },
   });
@@ -132,21 +230,16 @@ export async function seedHealthColleUE14C12(prisma: PrismaClient) {
   const group2 = await prisma.healthMockExamQuestionGroup.create({
     data: {
       examSectionId: sectionBiocell.id,
-      title: "Données communes — Noyau et mitochondrie",
-      sharedStatement:
-        "Le schéma représente une cellule eucaryote avec un noyau et une mitochondrie. Deux agrandissements montrent l’organisation de la chromatine au voisinage de l’enveloppe nucléaire et les membranes mitochondriales. Le même support sert aux quatre questions suivantes.",
-      sharedMedia: {
-        type: "image",
-        src: "/images/training/ue14/colles/c12/nucleus-mitochondrion-linked-q40-q43.svg",
-        alt: "Schéma d’une cellule eucaryote montrant un noyau avec nucléole, pores, chromatine et lamines, ainsi qu’une mitochondrie à double membrane avec complexe TOM et ADN mitochondrial.",
-      } as any,
+      title: group2Seed.title,
+      sharedStatement: group2Seed.sharedStatement,
+      sharedMedia: group2Seed.sharedMedia as any,
       order: 1,
     },
   });
 
   const groupIdsByQuestionOrder = new Map<number, string>();
-  [13, 14, 15, 16].forEach((o) => groupIdsByQuestionOrder.set(o, group1.id));
-  [40, 41, 42, 43].forEach((o) => groupIdsByQuestionOrder.set(o, group2.id));
+  group1Seed.questionOrders.forEach((o) => groupIdsByQuestionOrder.set(o, group1.id));
+  group2Seed.questionOrders.forEach((o) => groupIdsByQuestionOrder.set(o, group2.id));
 
   const sectionByQuestionOrder = (o: number) => {
     if (o <= 16) return sectionChimie;
