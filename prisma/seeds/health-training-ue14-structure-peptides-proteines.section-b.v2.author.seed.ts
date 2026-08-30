@@ -1,658 +1,665 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
+/** UE14 Biochimie — Structure des peptides et protéines — Section B — Structure primaire et modifications post-traductionnelles */
 export const UE14_BIOCH_CH10_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 23,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant la structure primaire :",
+    "question": "Concernant la structure primaire, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle correspond à l’enchaînement des acides aminés.",
+        "content": "Elle correspond à l’ordre linéaire des résidus.",
         "correct": true,
-        "explanation": "La structure primaire est la séquence des résidus."
+        "explanation": "Exact. La structure primaire est la séquence covalente des résidus d’une chaîne."
       },
       {
-        "content": "L’ordre des résidus dépend de l’information portée par le gène et l’ARNm.",
-        "correct": true,
-        "explanation": "La structure primaire est la séquence des résidus."
-      },
-      {
-        "content": "Elle correspond à l’association de plusieurs sous-unités déjà repliées.",
+        "content": "Elle disparaît automatiquement lors d’une dénaturation sans protéolyse.",
         "correct": false,
-        "explanation": "La structure primaire est la séquence des résidus."
+        "explanation": "Incorrect. La structure primaire est la séquence covalente des résidus d’une chaîne."
       },
       {
         "content": "Elle est indépendante de la séquence.",
         "correct": false,
-        "explanation": "La structure primaire est la séquence des résidus."
+        "explanation": "Incorrect. La structure primaire est la séquence covalente des résidus d’une chaîne."
+      },
+      {
+        "content": "Elle désigne uniquement les hélices alpha.",
+        "correct": false,
+        "explanation": "Incorrect. La structure primaire est la séquence covalente des résidus d’une chaîne."
+      },
+      {
+        "content": "Une substitution d’un seul résidu modifie la structure primaire.",
+        "correct": true,
+        "explanation": "Exact. La structure primaire est la séquence covalente des résidus d’une chaîne."
       }
     ],
-    "explanation": "La structure primaire est la séquence des résidus."
+    "explanation": "La structure primaire est la séquence covalente des résidus d’une chaîne."
   },
   {
     "order": 24,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel niveau décrit directement l’ordre des acides aminés ?",
+    "question": "Parmi les affirmations suivantes concernant la structure primaire, laquelle est correcte ?",
     "choices": [
       {
-        "content": "la structure primaire",
+        "content": "Elle désigne uniquement les hélices alpha.",
+        "correct": false,
+        "explanation": "Incorrect. La structure primaire est la séquence covalente des résidus d’une chaîne."
+      },
+      {
+        "content": "Elle disparaît automatiquement lors d’une dénaturation sans protéolyse.",
+        "correct": false,
+        "explanation": "Incorrect. La structure primaire est la séquence covalente des résidus d’une chaîne."
+      },
+      {
+        "content": "Elle est indépendante de la séquence.",
+        "correct": false,
+        "explanation": "Incorrect. La structure primaire est la séquence covalente des résidus d’une chaîne."
+      },
+      {
+        "content": "Elle correspond uniquement à l’association de plusieurs sous-unités.",
+        "correct": false,
+        "explanation": "Incorrect. La structure primaire est la séquence covalente des résidus d’une chaîne."
+      },
+      {
+        "content": "Une substitution d’un seul résidu modifie la structure primaire.",
         "correct": true,
-        "explanation": "La structure primaire est la séquence des résidus."
-      },
-      {
-        "content": "la structure quaternaire",
-        "correct": false,
-        "explanation": "La structure primaire est la séquence des résidus."
-      },
-      {
-        "content": "la structure tertiaire",
-        "correct": false,
-        "explanation": "La structure primaire est la séquence des résidus."
-      },
-      {
-        "content": "la membrane plasmique",
-        "correct": false,
-        "explanation": "La structure primaire est la séquence des résidus."
+        "explanation": "Exact. La structure primaire est la séquence covalente des résidus d’une chaîne."
       }
     ],
-    "explanation": "La structure primaire est la séquence des résidus."
+    "explanation": "La structure primaire est la séquence covalente des résidus d’une chaîne."
   },
   {
     "order": 25,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant la liaison peptidique dans la structure primaire :",
-    "choices": [
-      {
-        "content": "Elle est plane et sa rotation autour de l’axe C–N est fortement limitée.",
-        "correct": true,
-        "explanation": "Le caractère partiellement double de C–N explique la rigidité."
-      },
-      {
-        "content": "La résonance limite la rotation autour de la liaison C–N.",
-        "correct": true,
-        "explanation": "Le caractère partiellement double de C–N explique la rigidité."
-      },
-      {
-        "content": "La liaison C–N tourne librement à 360° sans contrainte.",
-        "correct": false,
-        "explanation": "Le caractère partiellement double de C–N explique la rigidité."
-      },
-      {
-        "content": "Elle est une liaison ionique.",
-        "correct": false,
-        "explanation": "Le caractère partiellement double de C–N explique la rigidité."
+    "format": "QROC",
+    "question": "Autour de quelle liaison du groupe peptidique la rotation est-elle fortement limitée ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "liaison C-N peptidique",
+        "C-N",
+        "liaison peptidique C-N",
+        "C–N"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le caractère partiellement double de C–N explique la rigidité."
+    },
+    "explanation": "La résonance confère à C–N un caractère partiellement double qui rigidifie le groupe peptidique."
   },
   {
     "order": 26,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Autour de quelle liaison la rotation est-elle fortement limitée ?",
+    "format": "QRM",
+    "question": "Concernant la rigidité de la liaison peptidique, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "la liaison peptidique C–N",
+        "content": "Le groupe peptidique est toujours fortement non plan.",
+        "correct": false,
+        "explanation": "Incorrect. La résonance confère à C–N un caractère partiellement double qui rigidifie le groupe peptidique."
+      },
+      {
+        "content": "Les rotations autour de N–Cα et Cα–C’ restent possibles.",
         "correct": true,
-        "explanation": "Le caractère partiellement double de C–N explique la rigidité."
+        "explanation": "Exact. La résonance confère à C–N un caractère partiellement double qui rigidifie le groupe peptidique."
       },
       {
-        "content": "la liaison N–Cα",
-        "correct": false,
-        "explanation": "Le caractère partiellement double de C–N explique la rigidité."
+        "content": "La liaison C–N peptidique possède un caractère partiellement double.",
+        "correct": true,
+        "explanation": "Exact. La résonance confère à C–N un caractère partiellement double qui rigidifie le groupe peptidique."
       },
       {
-        "content": "la liaison Cα–CO",
-        "correct": false,
-        "explanation": "Le caractère partiellement double de C–N explique la rigidité."
+        "content": "Le groupe peptidique est approximativement plan.",
+        "correct": true,
+        "explanation": "Exact. La résonance confère à C–N un caractère partiellement double qui rigidifie le groupe peptidique."
       },
       {
-        "content": "toutes les liaisons simples de la chaîne",
+        "content": "La liaison peptidique est ionique.",
         "correct": false,
-        "explanation": "Le caractère partiellement double de C–N explique la rigidité."
+        "explanation": "Incorrect. La résonance confère à C–N un caractère partiellement double qui rigidifie le groupe peptidique."
       }
     ],
-    "explanation": "Le caractère partiellement double de C–N explique la rigidité."
+    "explanation": "La résonance confère à C–N un caractère partiellement double qui rigidifie le groupe peptidique."
   },
   {
     "order": 27,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant les angles du squelette peptidique :",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant les angles phi et psi, laquelle est correcte ?",
     "choices": [
       {
-        "content": "L’angle φ concerne la liaison N–Cα.",
-        "correct": true,
-        "explanation": "Les angles φ et ψ décrivent respectivement les rotations autour des liaisons N–Cα et Cα–C du squelette peptidique."
-      },
-      {
-        "content": "L’angle ψ concerne la liaison Cα–CO.",
-        "correct": true,
-        "explanation": "Les angles φ et ψ décrivent respectivement les rotations autour des liaisons N–Cα et Cα–C du squelette peptidique."
-      },
-      {
-        "content": "φ désigne la liaison C–N peptidique elle-même.",
+        "content": "Psi est le point isoélectrique.",
         "correct": false,
-        "explanation": "Les angles φ et ψ décrivent respectivement les rotations autour des liaisons N–Cα et Cα–C du squelette peptidique."
+        "explanation": "Incorrect. Phi décrit N–Cα et psi décrit Cα–C’; les contraintes stériques limitent leurs valeurs."
       },
       {
-        "content": "ψ est une mesure de masse molaire.",
+        "content": "Toutes les valeurs de phi et psi sont également favorables.",
         "correct": false,
-        "explanation": "Les angles φ et ψ décrivent respectivement les rotations autour des liaisons N–Cα et Cα–C du squelette peptidique."
+        "explanation": "Incorrect. Phi décrit N–Cα et psi décrit Cα–C’; les contraintes stériques limitent leurs valeurs."
+      },
+      {
+        "content": "Le diagramme de Ramachandran représente les régions conformationnelles permises.",
+        "correct": true,
+        "explanation": "Exact. Phi décrit N–Cα et psi décrit Cα–C’; les contraintes stériques limitent leurs valeurs."
+      },
+      {
+        "content": "Phi et psi n’ont aucun lien avec la conformation.",
+        "correct": false,
+        "explanation": "Incorrect. Phi décrit N–Cα et psi décrit Cα–C’; les contraintes stériques limitent leurs valeurs."
+      },
+      {
+        "content": "Phi correspond à la rotation libre autour du C–N peptidique.",
+        "correct": false,
+        "explanation": "Incorrect. Phi décrit N–Cα et psi décrit Cα–C’; les contraintes stériques limitent leurs valeurs."
       }
     ],
-    "explanation": "Les angles φ et ψ décrivent respectivement les rotations autour des liaisons N–Cα et Cα–C du squelette peptidique."
+    "explanation": "Phi décrit N–Cα et psi décrit Cα–C’; les contraintes stériques limitent leurs valeurs."
   },
   {
     "order": 28,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel angle correspond à la rotation autour de N–Cα ?",
+    "format": "QRP",
+    "question": "Concernant les angles phi et psi, sélectionnez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "φ",
+        "content": "Phi correspond à la rotation libre autour du C–N peptidique.",
+        "correct": false,
+        "explanation": "Incorrect. Phi décrit N–Cα et psi décrit Cα–C’; les contraintes stériques limitent leurs valeurs."
+      },
+      {
+        "content": "Psi est le point isoélectrique.",
+        "correct": false,
+        "explanation": "Incorrect. Phi décrit N–Cα et psi décrit Cα–C’; les contraintes stériques limitent leurs valeurs."
+      },
+      {
+        "content": "Toutes les valeurs de phi et psi sont également favorables.",
+        "correct": false,
+        "explanation": "Incorrect. Phi décrit N–Cα et psi décrit Cα–C’; les contraintes stériques limitent leurs valeurs."
+      },
+      {
+        "content": "Le diagramme de Ramachandran représente les régions conformationnelles permises.",
         "correct": true,
-        "explanation": "Les angles φ et ψ décrivent respectivement les rotations autour des liaisons N–Cα et Cα–C du squelette peptidique."
+        "explanation": "Exact. Phi décrit N–Cα et psi décrit Cα–C’; les contraintes stériques limitent leurs valeurs."
       },
       {
-        "content": "ψ",
-        "correct": false,
-        "explanation": "Les angles φ et ψ décrivent respectivement les rotations autour des liaisons N–Cα et Cα–C du squelette peptidique."
-      },
-      {
-        "content": "ω seulement",
-        "correct": false,
-        "explanation": "Les angles φ et ψ décrivent respectivement les rotations autour des liaisons N–Cα et Cα–C du squelette peptidique."
-      },
-      {
-        "content": "pHi",
-        "correct": false,
-        "explanation": "Les angles φ et ψ décrivent respectivement les rotations autour des liaisons N–Cα et Cα–C du squelette peptidique."
+        "content": "Phi correspond à la rotation autour de N–Cα.",
+        "correct": true,
+        "explanation": "Exact. Phi décrit N–Cα et psi décrit Cα–C’; les contraintes stériques limitent leurs valeurs."
       }
     ],
-    "explanation": "Les angles φ et ψ décrivent respectivement les rotations autour des liaisons N–Cα et Cα–C du squelette peptidique."
+    "explanation": "Phi décrit N–Cα et psi décrit Cα–C’; les contraintes stériques limitent leurs valeurs.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 29,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant l’hydroxylation post-traductionnelle :",
+    "question": "Concernant l’hydroxylation post-traductionnelle, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La proline peut devenir 4-hydroxyproline.",
+        "content": "La proline peut être hydroxylée en hydroxyproline.",
         "correct": true,
-        "explanation": "L’hydroxylation ajoute un groupement hydroxyle à certaines chaînes latérales."
+        "explanation": "Exact. Proline et lysine peuvent être hydroxylées après traduction; la vitamine C est indispensable à cette maturation du collagène."
       },
       {
-        "content": "La lysine peut donner une hydroxylysine.",
+        "content": "L’hydroxyproline est directement codée par un codon standard spécifique.",
+        "correct": false,
+        "explanation": "Incorrect. Proline et lysine peuvent être hydroxylées après traduction; la vitamine C est indispensable à cette maturation du collagène."
+      },
+      {
+        "content": "La lysine peut être hydroxylée en hydroxylysine.",
         "correct": true,
-        "explanation": "L’hydroxylation ajoute un groupement hydroxyle à certaines chaînes latérales."
+        "explanation": "Exact. Proline et lysine peuvent être hydroxylées après traduction; la vitamine C est indispensable à cette maturation du collagène."
       },
       {
-        "content": "L’hydroxylation enlève toujours un oxygène.",
-        "correct": false,
-        "explanation": "L’hydroxylation ajoute un groupement hydroxyle à certaines chaînes latérales."
+        "content": "La vitamine C est nécessaire au fonctionnement des hydroxylases du collagène.",
+        "correct": true,
+        "explanation": "Exact. Proline et lysine peuvent être hydroxylées après traduction; la vitamine C est indispensable à cette maturation du collagène."
       },
       {
-        "content": "Elle transforme la cystéine en méthionine.",
-        "correct": false,
-        "explanation": "L’hydroxylation ajoute un groupement hydroxyle à certaines chaînes latérales."
+        "content": "Ces hydroxylations sont importantes dans le collagène.",
+        "correct": true,
+        "explanation": "Exact. Proline et lysine peuvent être hydroxylées après traduction; la vitamine C est indispensable à cette maturation du collagène."
       }
     ],
-    "explanation": "L’hydroxylation ajoute un groupement hydroxyle à certaines chaînes latérales."
+    "explanation": "Proline et lysine peuvent être hydroxylées après traduction; la vitamine C est indispensable à cette maturation du collagène."
   },
   {
     "order": 30,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel résidu peut être transformé en 4-hydroxyproline ?",
-    "choices": [
-      {
-        "content": "la proline",
-        "correct": true,
-        "explanation": "L’hydroxylation ajoute un groupement hydroxyle à certaines chaînes latérales."
-      },
-      {
-        "content": "la valine",
-        "correct": false,
-        "explanation": "L’hydroxylation ajoute un groupement hydroxyle à certaines chaînes latérales."
-      },
-      {
-        "content": "le tryptophane",
-        "correct": false,
-        "explanation": "L’hydroxylation ajoute un groupement hydroxyle à certaines chaînes latérales."
-      },
-      {
-        "content": "l’arginine",
-        "correct": false,
-        "explanation": "L’hydroxylation ajoute un groupement hydroxyle à certaines chaînes latérales."
+    "format": "QROC",
+    "question": "Quel acide aminé du collagène est transformé en hydroxyproline ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "proline",
+        "la proline",
+        "Pro"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "L’hydroxylation ajoute un groupement hydroxyle à certaines chaînes latérales."
+    },
+    "explanation": "Proline et lysine peuvent être hydroxylées après traduction; la vitamine C est indispensable à cette maturation du collagène."
   },
   {
     "order": 31,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant la carboxylation post-traductionnelle :",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant la gamma-carboxylation du glutamate ?",
     "choices": [
       {
-        "content": "L’acide glutamique peut devenir acide γ-carboxyglutamique.",
-        "correct": true,
-        "explanation": "La carboxylation du glutamate crée un motif important pour la fixation du calcium."
-      },
-      {
-        "content": "Cette modification favorise la fixation du calcium par certains facteurs de coagulation.",
-        "correct": true,
-        "explanation": "La carboxylation du glutamate crée un motif important pour la fixation du calcium."
-      },
-      {
-        "content": "Elle enlève une fonction carboxyle.",
+        "content": "Elle empêche toute fixation du calcium.",
         "correct": false,
-        "explanation": "La carboxylation du glutamate crée un motif important pour la fixation du calcium."
+        "explanation": "Incorrect. La gamma-carboxylation vitamine K-dépendante crée des sites de liaison au calcium."
       },
       {
-        "content": "Elle est décrite comme inutile à la coagulation.",
+        "content": "Elle dépend exclusivement de la vitamine C.",
         "correct": false,
-        "explanation": "La carboxylation du glutamate crée un motif important pour la fixation du calcium."
+        "explanation": "Incorrect. La gamma-carboxylation vitamine K-dépendante crée des sites de liaison au calcium."
+      },
+      {
+        "content": "Elle enlève le carboxyle alpha du glutamate.",
+        "correct": false,
+        "explanation": "Incorrect. La gamma-carboxylation vitamine K-dépendante crée des sites de liaison au calcium."
+      },
+      {
+        "content": "Elle transforme le glutamate en glucose.",
+        "correct": false,
+        "explanation": "Incorrect. La gamma-carboxylation vitamine K-dépendante crée des sites de liaison au calcium."
+      },
+      {
+        "content": "Elle forme des résidus gamma-carboxyglutamate.",
+        "correct": true,
+        "explanation": "Exact. La gamma-carboxylation vitamine K-dépendante crée des sites de liaison au calcium."
       }
     ],
-    "explanation": "La carboxylation du glutamate crée un motif important pour la fixation du calcium."
+    "explanation": "La gamma-carboxylation vitamine K-dépendante crée des sites de liaison au calcium."
   },
   {
     "order": 32,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel ion peut être complexé par les résidus γ-carboxyglutamate des facteurs de coagulation ?",
+    "format": "QRM",
+    "question": "Concernant la gamma-carboxylation du glutamate, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Ca2+",
+        "content": "Elle enlève le carboxyle alpha du glutamate.",
+        "correct": false,
+        "explanation": "Incorrect. La gamma-carboxylation vitamine K-dépendante crée des sites de liaison au calcium."
+      },
+      {
+        "content": "Elle favorise la liaison de Ca2+ dans plusieurs protéines de coagulation.",
         "correct": true,
-        "explanation": "La carboxylation du glutamate crée un motif important pour la fixation du calcium."
+        "explanation": "Exact. La gamma-carboxylation vitamine K-dépendante crée des sites de liaison au calcium."
       },
       {
-        "content": "Na+",
-        "correct": false,
-        "explanation": "La carboxylation du glutamate crée un motif important pour la fixation du calcium."
+        "content": "Il s’agit d’une modification post-traductionnelle.",
+        "correct": true,
+        "explanation": "Exact. La gamma-carboxylation vitamine K-dépendante crée des sites de liaison au calcium."
       },
       {
-        "content": "Cl−",
+        "content": "Elle empêche toute fixation du calcium.",
         "correct": false,
-        "explanation": "La carboxylation du glutamate crée un motif important pour la fixation du calcium."
+        "explanation": "Incorrect. La gamma-carboxylation vitamine K-dépendante crée des sites de liaison au calcium."
       },
       {
-        "content": "Fe3+ uniquement",
+        "content": "Elle dépend exclusivement de la vitamine C.",
         "correct": false,
-        "explanation": "La carboxylation du glutamate crée un motif important pour la fixation du calcium."
+        "explanation": "Incorrect. La gamma-carboxylation vitamine K-dépendante crée des sites de liaison au calcium."
       }
     ],
-    "explanation": "La carboxylation du glutamate crée un motif important pour la fixation du calcium."
+    "explanation": "La gamma-carboxylation vitamine K-dépendante crée des sites de liaison au calcium."
   },
   {
     "order": 33,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant le clivage protéolytique :",
-    "choices": [
-      {
-        "content": "Il peut activer un précurseur protéique.",
-        "correct": true,
-        "explanation": "La protéolyse limitée est un mécanisme classique de maturation."
-      },
-      {
-        "content": "La trypsine est produite par clivage protéolytique du trypsinogène.",
-        "correct": true,
-        "explanation": "La protéolyse limitée est un mécanisme classique de maturation."
-      },
-      {
-        "content": "Il consiste à ajouter un sucre sur la protéine.",
-        "correct": false,
-        "explanation": "La protéolyse limitée est un mécanisme classique de maturation."
-      },
-      {
-        "content": "Il ne modifie jamais une protéine précurseur.",
-        "correct": false,
-        "explanation": "La protéolyse limitée est un mécanisme classique de maturation."
+    "format": "QROC",
+    "question": "Comment appelle-t-on une hydrolyse ciblée de liaison(s) peptidique(s) utilisée pour maturer ou activer un précurseur ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "clivage protéolytique",
+        "protéolyse limitée",
+        "proteolyse limitee"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La protéolyse limitée est un mécanisme classique de maturation."
+    },
+    "explanation": "Le clivage protéolytique est une maturation covalente pouvant activer un précurseur."
   },
   {
     "order": 34,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel processus peut convertir un précurseur en protéine active ?",
-    "choices": [
-      {
-        "content": "un clivage protéolytique",
-        "correct": true,
-        "explanation": "La protéolyse limitée est un mécanisme classique de maturation."
-      },
-      {
-        "content": "une hydrogénation",
-        "correct": false,
-        "explanation": "La protéolyse limitée est un mécanisme classique de maturation."
-      },
-      {
-        "content": "une photosynthèse",
-        "correct": false,
-        "explanation": "La protéolyse limitée est un mécanisme classique de maturation."
-      },
-      {
-        "content": "une saponification",
-        "correct": false,
-        "explanation": "La protéolyse limitée est un mécanisme classique de maturation."
+    "format": "QROC",
+    "question": "Quel nom porte le précurseur inactif de la trypsine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "trypsinogène",
+        "trypsinogene"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La protéolyse limitée est un mécanisme classique de maturation."
+    },
+    "explanation": "Le clivage protéolytique est une maturation covalente pouvant activer un précurseur."
   },
   {
     "order": 35,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant les ponts disulfure :",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant les ponts disulfure ?",
     "choices": [
       {
-        "content": "Ils résultent de l’oxydation de deux cystéines.",
-        "correct": true,
-        "explanation": "Le thiol de la cystéine permet la formation de la liaison S–S covalente."
+        "content": "Ils sont obligatoires dans toutes les protéines.",
+        "correct": false,
+        "explanation": "Incorrect. Un pont disulfure est une liaison covalente S–S entre deux cystéines."
       },
       {
         "content": "Ils peuvent être intra-chaîne ou inter-chaînes.",
         "correct": true,
-        "explanation": "Le thiol de la cystéine permet la formation de la liaison S–S covalente."
+        "explanation": "Exact. Un pont disulfure est une liaison covalente S–S entre deux cystéines."
       },
       {
-        "content": "Ils se forment entre deux méthionines uniquement.",
+        "content": "Ils se forment entre deux méthionines.",
         "correct": false,
-        "explanation": "Le thiol de la cystéine permet la formation de la liaison S–S covalente."
+        "explanation": "Incorrect. Un pont disulfure est une liaison covalente S–S entre deux cystéines."
       },
       {
-        "content": "Ils sont toujours des interactions non covalentes.",
+        "content": "Ils ne peuvent jamais relier deux chaînes.",
         "correct": false,
-        "explanation": "Le thiol de la cystéine permet la formation de la liaison S–S covalente."
+        "explanation": "Incorrect. Un pont disulfure est une liaison covalente S–S entre deux cystéines."
+      },
+      {
+        "content": "Ce sont des liaisons hydrogène.",
+        "correct": false,
+        "explanation": "Incorrect. Un pont disulfure est une liaison covalente S–S entre deux cystéines."
       }
     ],
-    "explanation": "Le thiol de la cystéine permet la formation de la liaison S–S covalente."
+    "explanation": "Un pont disulfure est une liaison covalente S–S entre deux cystéines."
   },
   {
     "order": 36,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Quel acide aminé peut former un pont disulfure par oxydation de sa fonction thiol ?",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "cystéine",
-        "cysteine",
-        "Cys"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRM",
+    "question": "Concernant les ponts disulfure, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Ils se forment entre deux méthionines.",
+        "correct": false,
+        "explanation": "Incorrect. Un pont disulfure est une liaison covalente S–S entre deux cystéines."
+      },
+      {
+        "content": "Ce sont des liaisons covalentes S–S.",
+        "correct": true,
+        "explanation": "Exact. Un pont disulfure est une liaison covalente S–S entre deux cystéines."
+      },
+      {
+        "content": "Ils résultent de l’oxydation de deux thiols de cystéine.",
+        "correct": true,
+        "explanation": "Exact. Un pont disulfure est une liaison covalente S–S entre deux cystéines."
+      },
+      {
+        "content": "Ils sont fréquents dans de nombreuses protéines sécrétées ou extracellulaires.",
+        "correct": true,
+        "explanation": "Exact. Un pont disulfure est une liaison covalente S–S entre deux cystéines."
+      },
+      {
+        "content": "Ils peuvent être intra-chaîne ou inter-chaînes.",
+        "correct": true,
+        "explanation": "Exact. Un pont disulfure est une liaison covalente S–S entre deux cystéines."
       }
-    },
-    "explanation": "Deux cystéines peuvent former un pont disulfure."
+    ],
+    "explanation": "Un pont disulfure est une liaison covalente S–S entre deux cystéines."
   },
   {
     "order": 37,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant les ponts disulfure intra-chaîne :",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant les ponts disulfure intra-chaîne, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "Ils peuvent rapprocher deux cystéines éloignées dans une même chaîne.",
-        "correct": true,
-        "explanation": "Un pont intra-chaîne est une contrainte covalente interne à la chaîne."
-      },
-      {
-        "content": "Ils peuvent stabiliser des boucles.",
-        "correct": true,
-        "explanation": "Un pont intra-chaîne est une contrainte covalente interne à la chaîne."
-      },
-      {
-        "content": "Ils relient obligatoirement deux protéines différentes.",
+        "content": "Ils résultent de deux lysines.",
         "correct": false,
-        "explanation": "Un pont intra-chaîne est une contrainte covalente interne à la chaîne."
+        "explanation": "Incorrect. Un pont disulfure intra-chaîne stabilise des régions éloignées d’une même chaîne."
       },
       {
-        "content": "Ils sont impossibles dans une seule chaîne.",
+        "content": "Ils ne modifient jamais la stabilité.",
         "correct": false,
-        "explanation": "Un pont intra-chaîne est une contrainte covalente interne à la chaîne."
+        "explanation": "Incorrect. Un pont disulfure intra-chaîne stabilise des régions éloignées d’une même chaîne."
+      },
+      {
+        "content": "Ils rapprochent covalemment des segments éloignés dans la séquence.",
+        "correct": true,
+        "explanation": "Exact. Un pont disulfure intra-chaîne stabilise des régions éloignées d’une même chaîne."
+      },
+      {
+        "content": "Ils sont des liaisons peptidiques supplémentaires.",
+        "correct": false,
+        "explanation": "Incorrect. Un pont disulfure intra-chaîne stabilise des régions éloignées d’une même chaîne."
+      },
+      {
+        "content": "Leur réduction peut déstabiliser la structure tertiaire.",
+        "correct": true,
+        "explanation": "Exact. Un pont disulfure intra-chaîne stabilise des régions éloignées d’une même chaîne."
       }
     ],
-    "explanation": "Un pont intra-chaîne est une contrainte covalente interne à la chaîne."
+    "explanation": "Un pont disulfure intra-chaîne stabilise des régions éloignées d’une même chaîne.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 38,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Que stabilise un pont disulfure intra-chaîne ?",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant les ponts disulfure intra-chaîne ?",
     "choices": [
       {
-        "content": "une boucle ou un repliement de la même chaîne",
+        "content": "Ils ne modifient jamais la stabilité.",
+        "correct": false,
+        "explanation": "Incorrect. Un pont disulfure intra-chaîne stabilise des régions éloignées d’une même chaîne."
+      },
+      {
+        "content": "Ils sont des liaisons peptidiques supplémentaires.",
+        "correct": false,
+        "explanation": "Incorrect. Un pont disulfure intra-chaîne stabilise des régions éloignées d’une même chaîne."
+      },
+      {
+        "content": "Leur réduction peut déstabiliser la structure tertiaire.",
         "correct": true,
-        "explanation": "Un pont intra-chaîne est une contrainte covalente interne à la chaîne."
+        "explanation": "Exact. Un pont disulfure intra-chaîne stabilise des régions éloignées d’une même chaîne."
       },
       {
-        "content": "une liaison glycosidique",
+        "content": "Ils relient obligatoirement deux sous-unités différentes.",
         "correct": false,
-        "explanation": "Un pont intra-chaîne est une contrainte covalente interne à la chaîne."
+        "explanation": "Incorrect. Un pont disulfure intra-chaîne stabilise des régions éloignées d’une même chaîne."
       },
       {
-        "content": "un acide gras",
-        "correct": false,
-        "explanation": "Un pont intra-chaîne est une contrainte covalente interne à la chaîne."
-      },
-      {
-        "content": "un nucléotide libre",
-        "correct": false,
-        "explanation": "Un pont intra-chaîne est une contrainte covalente interne à la chaîne."
+        "content": "Ils peuvent stabiliser une boucle ou un domaine.",
+        "correct": true,
+        "explanation": "Exact. Un pont disulfure intra-chaîne stabilise des régions éloignées d’une même chaîne."
       }
     ],
-    "explanation": "Un pont intra-chaîne est une contrainte covalente interne à la chaîne."
+    "explanation": "Un pont disulfure intra-chaîne stabilise des régions éloignées d’une même chaîne."
   },
   {
     "order": 39,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant le domaine Kringle :",
-    "choices": [
-      {
-        "content": "Il forme un module en boucle stabilisé par trois ponts disulfure.",
-        "correct": true,
-        "explanation": "Un domaine Kringle est un module protéique en boucle stabilisé par trois ponts disulfure ; le plasminogène en contient plusieurs."
-      },
-      {
-        "content": "Le plasminogène contient plusieurs domaines Kringle.",
-        "correct": true,
-        "explanation": "Un domaine Kringle est un module protéique en boucle stabilisé par trois ponts disulfure ; le plasminogène en contient plusieurs."
-      },
-      {
-        "content": "Il est constitué uniquement de lipides.",
-        "correct": false,
-        "explanation": "Un domaine Kringle est un module protéique en boucle stabilisé par trois ponts disulfure ; le plasminogène en contient plusieurs."
-      },
-      {
-        "content": "Il est dépourvu de cystéine par définition.",
-        "correct": false,
-        "explanation": "Un domaine Kringle est un module protéique en boucle stabilisé par trois ponts disulfure ; le plasminogène en contient plusieurs."
+    "format": "QROC",
+    "question": "Quelle protéine de la fibrinolyse contient plusieurs domaines Kringle ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "plasminogène",
+        "plasminogene",
+        "le plasminogène"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Un domaine Kringle est un module protéique en boucle stabilisé par trois ponts disulfure ; le plasminogène en contient plusieurs."
+    },
+    "explanation": "Les domaines Kringle sont des modules riches en disulfures présents notamment dans le plasminogène."
   },
   {
     "order": 40,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Combien de ponts disulfure stabilisent classiquement un domaine Kringle ?",
+    "question": "Parmi les affirmations suivantes concernant les domaines Kringle, laquelle est correcte ?",
     "choices": [
       {
-        "content": "3",
+        "content": "Un domaine est un module d’une protéine plus grande.",
         "correct": true,
-        "explanation": "Un domaine Kringle est un module protéique en boucle stabilisé par trois ponts disulfure ; le plasminogène en contient plusieurs."
+        "explanation": "Exact. Les domaines Kringle sont des modules riches en disulfures présents notamment dans le plasminogène."
       },
       {
-        "content": "1",
+        "content": "Il correspond nécessairement à une hélice alpha unique.",
         "correct": false,
-        "explanation": "Un domaine Kringle est un module protéique en boucle stabilisé par trois ponts disulfure ; le plasminogène en contient plusieurs."
+        "explanation": "Incorrect. Les domaines Kringle sont des modules riches en disulfures présents notamment dans le plasminogène."
       },
       {
-        "content": "10",
+        "content": "Le plasminogène ne contient aucun Kringle.",
         "correct": false,
-        "explanation": "Un domaine Kringle est un module protéique en boucle stabilisé par trois ponts disulfure ; le plasminogène en contient plusieurs."
+        "explanation": "Incorrect. Les domaines Kringle sont des modules riches en disulfures présents notamment dans le plasminogène."
       },
       {
-        "content": "0",
+        "content": "Un Kringle est un polysaccharide.",
         "correct": false,
-        "explanation": "Un domaine Kringle est un module protéique en boucle stabilisé par trois ponts disulfure ; le plasminogène en contient plusieurs."
+        "explanation": "Incorrect. Les domaines Kringle sont des modules riches en disulfures présents notamment dans le plasminogène."
+      },
+      {
+        "content": "Il est dépourvu de cystéines.",
+        "correct": false,
+        "explanation": "Incorrect. Les domaines Kringle sont des modules riches en disulfures présents notamment dans le plasminogène."
       }
     ],
-    "explanation": "Un domaine Kringle est un module protéique en boucle stabilisé par trois ponts disulfure ; le plasminogène en contient plusieurs."
+    "explanation": "Les domaines Kringle sont des modules riches en disulfures présents notamment dans le plasminogène."
   },
   {
     "order": 41,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant l’insuline et les ponts disulfure :",
+    "question": "Quelles propositions sont exactes concernant l’insuline et les ponts disulfure ?",
     "choices": [
       {
-        "content": "Les chaînes A et B de l’insuline mature sont reliées par des ponts disulfure.",
+        "content": "Le peptide C est clivé lors de la maturation de la proinsuline.",
         "correct": true,
-        "explanation": "L’insuline illustre maturation protéolytique et ponts disulfure inter-chaînes."
+        "explanation": "Exact. L’insuline mature possède deux ponts inter-chaînes et un pont intra-chaîne, soit trois au total."
       },
       {
-        "content": "La proinsuline contient aussi un peptide C qui sera clivé.",
+        "content": "L’insuline mature ne possède aucun pont disulfure.",
+        "correct": false,
+        "explanation": "Incorrect. L’insuline mature possède deux ponts inter-chaînes et un pont intra-chaîne, soit trois au total."
+      },
+      {
+        "content": "L’insuline mature comporte deux chaînes A et B.",
         "correct": true,
-        "explanation": "L’insuline illustre maturation protéolytique et ponts disulfure inter-chaînes."
+        "explanation": "Exact. L’insuline mature possède deux ponts inter-chaînes et un pont intra-chaîne, soit trois au total."
       },
       {
         "content": "L’insuline mature comporte trois chaînes A, B et C permanentes.",
         "correct": false,
-        "explanation": "L’insuline illustre maturation protéolytique et ponts disulfure inter-chaînes."
+        "explanation": "Incorrect. L’insuline mature possède deux ponts inter-chaînes et un pont intra-chaîne, soit trois au total."
       },
       {
-        "content": "Le peptide C est un pont disulfure.",
-        "correct": false,
-        "explanation": "L’insuline illustre maturation protéolytique et ponts disulfure inter-chaînes."
+        "content": "Les chaînes A et B sont reliées par deux ponts disulfure.",
+        "correct": true,
+        "explanation": "Exact. L’insuline mature possède deux ponts inter-chaînes et un pont intra-chaîne, soit trois au total."
       }
     ],
-    "explanation": "L’insuline illustre maturation protéolytique et ponts disulfure inter-chaînes."
+    "explanation": "L’insuline mature possède deux ponts inter-chaînes et un pont intra-chaîne, soit trois au total."
   },
   {
     "order": 42,
     "difficulty": "MEDIUM",
     "format": "QZONE",
-    "question": "Sur ce schéma simplifié d’une liaison peptidique, cliquez sur la liaison C–N dont la rotation est fortement limitée.",
+    "question": "Sur ce schéma simplifié d’une liaison peptidique, cliquez sur la liaison C–N dont la rotation est fortement limitée par la résonance.",
     "image": {
       "src": "/images/training/ue14/biochimie/structure-peptides-proteines/liaison-peptidique-cn-qzone.svg",
-      "alt": "Schéma simplifié d’une liaison peptidique",
+      "alt": "Schéma simplifié d’une liaison peptidique avec la liaison carbone carbonylé–azote",
       "width": 900,
       "height": 420
     },
     "expectedZones": [
       {
         "id": "peptide-cn",
-        "label": "liaison C–N peptidique",
+        "label": "Liaison C–N peptidique",
         "x": 0.455,
         "y": 0.5,
         "tolerance": 0.075
       }
     ],
-    "explanation": "La liaison entre le carbone carbonylé et l’azote est rigidifiée par la résonance."
+    "explanation": "Le caractère partiellement double de la liaison entre le carbone carbonylé et l’azote limite fortement sa rotation."
   },
   {
     "order": 43,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant les modifications post-traductionnelles :",
+    "question": "Parmi les affirmations suivantes concernant les modifications post-traductionnelles, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "Elles peuvent modifier les chaînes latérales.",
+        "content": "Elles surviennent après la synthèse initiale de la chaîne.",
         "correct": true,
-        "explanation": "Le terme post-traductionnel désigne les transformations après synthèse de la chaîne."
+        "explanation": "Exact. Les modifications post-traductionnelles diversifient les propriétés d’une même séquence protéique."
       },
       {
-        "content": "Elles peuvent aussi inclure clivages et formation de ponts disulfure.",
+        "content": "Elles peuvent modifier activité, localisation ou stabilité.",
         "correct": true,
-        "explanation": "Le terme post-traductionnel désigne les transformations après synthèse de la chaîne."
+        "explanation": "Exact. Les modifications post-traductionnelles diversifient les propriétés d’une même séquence protéique."
       },
       {
-        "content": "Elles se produisent uniquement avant toute traduction.",
+        "content": "Elles sont toutes réversibles.",
         "correct": false,
-        "explanation": "Le terme post-traductionnel désigne les transformations après synthèse de la chaîne."
+        "explanation": "Incorrect. Les modifications post-traductionnelles diversifient les propriétés d’une même séquence protéique."
       },
       {
-        "content": "Elles remplacent systématiquement la séquence codée par un autre gène.",
-        "correct": false,
-        "explanation": "Le terme post-traductionnel désigne les transformations après synthèse de la chaîne."
+        "content": "Elles incluent notamment phosphorylation, hydroxylation et glycosylation.",
+        "correct": true,
+        "explanation": "Exact. Les modifications post-traductionnelles diversifient les propriétés d’une même séquence protéique."
+      },
+      {
+        "content": "Un clivage protéolytique peut constituer une maturation post-traductionnelle.",
+        "correct": true,
+        "explanation": "Exact. Les modifications post-traductionnelles diversifient les propriétés d’une même séquence protéique."
       }
     ],
-    "explanation": "Le terme post-traductionnel désigne les transformations après synthèse de la chaîne."
+    "explanation": "Les modifications post-traductionnelles diversifient les propriétés d’une même séquence protéique."
   },
   {
     "order": 44,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "À propos de la structure primaire et de ses modifications, sélectionnez exactement les cinq affirmations correctes.",
-    "choices": [
-      {
-        "content": "La liaison peptidique C–N est plane et rigide.",
-        "correct": true,
-        "explanation": "Ces repères décrivent le squelette, les rotations et les principales modifications post-traductionnelles."
-      },
-      {
-        "content": "φ concerne N–Cα.",
-        "correct": true,
-        "explanation": "Ces repères décrivent le squelette, les rotations et les principales modifications post-traductionnelles."
-      },
-      {
-        "content": "ψ concerne Cα–CO.",
-        "correct": true,
-        "explanation": "Ces repères décrivent le squelette, les rotations et les principales modifications post-traductionnelles."
-      },
-      {
-        "content": "Deux cystéines peuvent former un pont disulfure.",
-        "correct": true,
-        "explanation": "Ces repères décrivent le squelette, les rotations et les principales modifications post-traductionnelles."
-      },
-      {
-        "content": "Un clivage protéolytique peut activer un précurseur.",
-        "correct": true,
-        "explanation": "Ces repères décrivent le squelette, les rotations et les principales modifications post-traductionnelles."
-      },
-      {
-        "content": "φ désigne le pHi.",
-        "correct": false,
-        "explanation": "Ces repères décrivent le squelette, les rotations et les principales modifications post-traductionnelles."
-      },
-      {
-        "content": "La carboxylation enlève toujours un COOH.",
-        "correct": false,
-        "explanation": "Ces repères décrivent le squelette, les rotations et les principales modifications post-traductionnelles."
-      },
-      {
-        "content": "Les ponts disulfure sont des liaisons hydrogène.",
-        "correct": false,
-        "explanation": "Ces repères décrivent le squelette, les rotations et les principales modifications post-traductionnelles."
-      },
-      {
-        "content": "La proinsuline conserve toujours le peptide C dans l’insuline mature.",
-        "correct": false,
-        "explanation": "Ces repères décrivent le squelette, les rotations et les principales modifications post-traductionnelles."
-      },
-      {
-        "content": "La structure primaire est l’association de plusieurs sous-unités.",
-        "correct": false,
-        "explanation": "Ces repères décrivent le squelette, les rotations et les principales modifications post-traductionnelles."
+    "format": "QROC",
+    "question": "Comment appelle-t-on les transformations d’une protéine après sa synthèse ribosomale ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "modifications post-traductionnelles",
+        "modifications post traductionnelles",
+        "PTM"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Ces repères décrivent le squelette, les rotations et les principales modifications post-traductionnelles."
+    },
+    "explanation": "Les modifications post-traductionnelles diversifient les propriétés d’une même séquence protéique."
   }
 ];

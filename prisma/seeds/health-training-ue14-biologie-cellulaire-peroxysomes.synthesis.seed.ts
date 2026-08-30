@@ -1,472 +1,729 @@
-/**
- * UE14 – Biologie cellulaire – Chapitre 6
- * Contenu pédagogique fondé sur la fiche 2024-2025 du Tutorat Santé de Reims.
- */
 import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
 
+/** UE14 Biologie cellulaire — Ch6 — Peroxysomes — Synthèse transversale — V2 active */
 export const SYNTHESIS_QUESTIONS: SeedQuestion[] = [
   {
-    order: 121,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `À propos de l’identité du peroxysome :`,
-    choices: [
-      `Organite à membrane unique.`,
-      `Organite sans génome.`,
-      `Organite indépendant du SEM.`,
-      `Organite dépourvu d’enzymes.`,
+    "order": 101,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Identifiez les affirmations justes sur le thème suivant : les différences entre peroxysomes, mitochondries, lysosomes et système endomembranaire.",
+    "choices": [
+      {
+        "content": "La β-oxydation mitochondriale est couplée indirectement à la production d’ATP via la chaîne respiratoire.",
+        "correct": true,
+        "explanation": "Les équivalents réducteurs alimentent la phosphorylation oxydative."
+      },
+      {
+        "content": "Le peroxysome appartient à la voie sécrétoire RE–Golgi au même titre qu’un lysosome.",
+        "correct": false,
+        "explanation": "Il ne fait pas partie du système endomembranaire classique."
+      },
+      {
+        "content": "La β-oxydation peroxysomale forme du H2O2 lors de la première oxydation.",
+        "correct": true,
+        "explanation": "L’acyl-CoA oxydase transfère directement les électrons à O2."
+      },
+      {
+        "content": "Les lysosomes sont des compartiments acides riches en hydrolases.",
+        "correct": true,
+        "explanation": "Leur pH bas est maintenu notamment par la V-ATPase."
+      },
+      {
+        "content": "La catalase est l’hydrolase acide principale du lysosome.",
+        "correct": false,
+        "explanation": "La catalase est surtout peroxysomale ; les lysosomes contiennent des hydrolases acides."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le peroxysome est un organite enzymatique à membrane unique, sans génome et hors du SEM.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Le peroxysome est un organite à membrane unique sans génome, spécialisé notamment dans des oxydations ; il se distingue des mitochondries à double membrane et des lysosomes acides du système endomembranaire."
   },
   {
-    order: 122,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `La biogenèse peroxysomale associe :`,
-    choices: [
-      `Bourgeonnement d’un réseau préexistant.`,
-      `Import de protéines cytosoliques.`,
-      `Apport de phospholipides depuis le RE.`,
-      `Formation obligatoire à partir d’un lysosome.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La biogenèse dépend du réseau peroxysomal et des apports cytosoliques, non d’une conversion lysosomale.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "order": 102,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Le peroxysome possède-t-il un ADN propre comme la mitochondrie ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "non"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "À la différence de la mitochondrie, le peroxysome ne possède pas de génome."
   },
   {
-    order: 123,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Les PPAR permettent de relier :`,
-    choices: [
-      `Des signaux lipidiques.`,
-      `Des récepteurs nucléaires.`,
-      `La transcription de gènes peroxysomaux.`,
-      `La production directe de H2O2 par le noyau.`,
+    "order": 103,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Repérez l’unique affirmation exacte concernant le thème suivant : l’adressage et l’import des protéines peroxysomales.",
+    "choices": [
+      {
+        "content": "PEX5 est un récepteur lysosomal du mannose-6-phosphate.",
+        "correct": false,
+        "explanation": "PEX5 est un récepteur d’import peroxysomal des cargos PTS1."
+      },
+      {
+        "content": "PEX7 reconnaît principalement le motif KDEL.",
+        "correct": false,
+        "explanation": "PEX7 reconnaît le signal PTS2 ; KDEL concerne la récupération de protéines du RE."
+      },
+      {
+        "content": "Toutes les protéines peroxysomales sont codées par un ADN peroxysomal.",
+        "correct": false,
+        "explanation": "Le peroxysome n’a pas de génome propre."
+      },
+      {
+        "content": "La translocation des protéines peroxysomales utilise le canal Sec61 du réticulum endoplasmique.",
+        "correct": false,
+        "explanation": "Sec61 appartient à la translocation dans le RE, pas à l’import matriciel peroxysomal."
+      },
+      {
+        "content": "Le signal PTS1 est généralement situé à l’extrémité C-terminale de la protéine.",
+        "correct": true,
+        "explanation": "Le tripeptide de type SKL est le prototype classique du PTS1."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les PPAR régulent l’expression génique, alors que le H2O2 est produit par les oxydases dans la matrice.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les protéines matricielles peroxysomales sont synthétisées dans le cytosol puis importées grâce aux signaux PTS et aux peroxines, notamment PEX5 et PEX7."
   },
   {
-    order: 124,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `La membrane peroxysomale comporte :`,
-    choices: [
-      `Des perméases ABC utilisant l’ATP.`,
-      `Des complexes d’import de protéines.`,
-      `Des systèmes de récepteurs et d’adressage.`,
-      `Une enveloppe nucléaire.`,
+    "order": 104,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Sélectionnez toutes les affirmations exactes concernant le thème suivant : les oxydases, la catalase et le peroxyde d’hydrogène.",
+    "choices": [
+      {
+        "content": "La β-oxydation peroxysomale n’est pas directement couplée à une chaîne respiratoire productrice d’ATP.",
+        "correct": true,
+        "explanation": "L’énergie de la première oxydation est en partie dissipée sous forme de chaleur via la formation de H2O2."
+      },
+      {
+        "content": "La catalase peut aussi exercer une activité peroxydatique sur certains substrats.",
+        "correct": true,
+        "explanation": "Elle peut utiliser H2O2 pour oxyder certains donneurs d’électrons."
+      },
+      {
+        "content": "La catalase a pour rôle principal de produire du H2O2 à partir d’eau.",
+        "correct": false,
+        "explanation": "Elle consomme surtout le H2O2 et le convertit en eau et O2."
+      },
+      {
+        "content": "Chez l’humain, l’alcool déshydrogénase et CYP2E1 sont des voies majeures du métabolisme de l’éthanol.",
+        "correct": true,
+        "explanation": "La contribution de la catalase existe mais n’est pas la voie quantitativement principale habituelle."
+      },
+      {
+        "content": "La compartimentation peroxysomale rapproche enzymes productrices et consommatrices de H2O2.",
+        "correct": true,
+        "explanation": "Cette organisation favorise le contrôle local des espèces réactives de l’oxygène."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La membrane peroxysomale est spécialisée dans les échanges de solutés et de protéines.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les oxydases peroxysomales transfèrent des électrons à l’oxygène et peuvent former du H2O2 ; la catalase le consomme et limite sa toxicité."
   },
   {
-    order: 125,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `L’équilibre oxydases–catalase permet :`,
-    choices: [
-      `La production contrôlée de H2O2.`,
-      `L’utilisation du H2O2 dans certaines oxydations.`,
-      `La destruction de l’excès de H2O2.`,
-      `La synthèse d’un génome peroxysomal.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Cette coopération assure des fonctions oxydatives tout en limitant l’accumulation de H2O2.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "order": 105,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Les hématies humaines matures possèdent-elles des peroxysomes ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "non"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Les hématies matures ont perdu leurs organites intracellulaires."
   },
   {
-    order: 126,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Le peroxysome et la mitochondrie coopèrent car :`,
-    choices: [
-      `Le peroxysome raccourcit les très longues chaînes.`,
-      `Les produits peuvent rejoindre la mitochondrie.`,
-      `L’acétyl-CoA peut être utilisé pour produire de l’énergie.`,
-      `Les deux organites fusionnent définitivement.`,
+    "order": 106,
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "question": "Sur le thème suivant, deux affirmations seulement sont exactes ; sélectionnez-les : les autres fonctions métaboliques et leur régulation.",
+    "choices": [
+      {
+        "content": "PPARα est un récepteur nucléaire impliqué dans la régulation de gènes du métabolisme lipidique.",
+        "correct": true,
+        "explanation": "Son activation modifie la transcription de nombreux gènes d’oxydation des acides gras."
+      },
+      {
+        "content": "Tous les mammifères sont dépourvus d’urate oxydase.",
+        "correct": false,
+        "explanation": "De nombreuses espèces mammifères possèdent une uricase fonctionnelle."
+      },
+      {
+        "content": "Chez l’humain, l’urate oxydase convertit normalement l’acide urique en allantoïne.",
+        "correct": false,
+        "explanation": "L’humain ne possède pas d’urate oxydase fonctionnelle."
+      },
+      {
+        "content": "Les fibrates sont des agonistes pharmacologiques de PPARα.",
+        "correct": true,
+        "explanation": "Ils sont utilisés notamment pour réduire les triglycérides plasmatiques."
+      },
+      {
+        "content": "L’adénine et la guanine sont des bases pyrimidiques.",
+        "correct": false,
+        "explanation": "Ce sont des bases puriques."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La coopération repose sur un transfert de métabolites, non sur une fusion permanente.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les peroxysomes participent à plusieurs voies métaboliques ; chez l’humain, l’absence d’urate oxydase fait de l’acide urique le produit final majeur du catabolisme des purines, et PPARα régule de nombreux gènes du métabolisme lipidique.",
+    "requiredSelectionCount": 2
   },
   {
-    order: 127,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Les fonctions peroxysomales citées comprennent :`,
-    choices: [
-      `La β-oxydation.`,
-      `La synthèse d’acides biliaires.`,
-      `La dégradation d’acides aminés.`,
-      `Le catabolisme de l’acide urique chez les animaux possédant l’urate oxydase.`,
+    "order": 107,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles propositions doivent être retenues comme exactes pour le thème suivant : les maladies peroxysomales ?",
+    "choices": [
+      {
+        "content": "La maladie de Refsum est liée à un défaut du catabolisme peroxysomal de l’acide phytanique.",
+        "correct": true,
+        "explanation": "Un défaut d’α-oxydation provoque l’accumulation de phytanate."
+      },
+      {
+        "content": "Un défaut de β-oxydation peroxysomale améliore nécessairement la myélinisation.",
+        "correct": false,
+        "explanation": "L’accumulation lipidique peut au contraire être associée à une atteinte de la myéline."
+      },
+      {
+        "content": "La maladie de Refsum classique est habituellement autosomique récessive.",
+        "correct": true,
+        "explanation": "Elle est souvent liée à des variants bialléliques de PHYH."
+      },
+      {
+        "content": "Les gènes PEX sont portés par le génome peroxysomal.",
+        "correct": false,
+        "explanation": "Le peroxysome n’a pas de génome ; les gènes PEX sont nucléaires."
+      },
+      {
+        "content": "L’adrénoleucodystrophie liée à l’X est due à une mutation de l’ADN mitochondrial.",
+        "correct": false,
+        "explanation": "Elle est due au gène nucléaire ABCD1 situé sur le chromosome X."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2, 3],
-    explanation: `La fiche présente plusieurs fonctions lipidiques, oxydatives et cataboliques.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-    ],
+    "explanation": "Les maladies peroxysomales comprennent des défauts de biogenèse, comme le spectre de Zellweger, et des défauts de protéines spécifiques, comme l’adrénoleucodystrophie liée à l’X due à ABCD1."
   },
   {
-    order: 128,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `En observant la figure suivante :
-
-![Adressage et régulation](/images/training/ue14/biologie-cellulaire/peroxysomes/adressage-regulation-peroxysome.png)
-
-Quelle(s) proposition(s) est(sont) correcte(s) ?`,
-    choices: [
-      `La construction de l’organite dépend du cytosol.`,
-      `Le RE apporte des phospholipides.`,
-      `Les PPAR modulent l’expression de protéines peroxysomales.`,
-      `Le peroxysome possède une autonomie génétique complète.`,
+    "order": 108,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Parmi ces propositions relatives au thème suivant, laquelle est correcte : les différences entre peroxysomes, mitochondries, lysosomes et système endomembranaire ?",
+    "choices": [
+      {
+        "content": "Le cycle de Krebs est une voie majeure de la matrice peroxysomale.",
+        "correct": false,
+        "explanation": "Il se déroule dans la matrice mitochondriale."
+      },
+      {
+        "content": "La présence de H2O2 dans le peroxysome signifie que la catalase y est inutile.",
+        "correct": false,
+        "explanation": "La catalase est précisément essentielle au contrôle du H2O2."
+      },
+      {
+        "content": "La β-oxydation mitochondriale est couplée indirectement à la production d’ATP via la chaîne respiratoire.",
+        "correct": true,
+        "explanation": "Les équivalents réducteurs alimentent la phosphorylation oxydative."
+      },
+      {
+        "content": "Toutes les protéines des peroxysomes transitent obligatoirement par le Golgi avant leur import.",
+        "correct": false,
+        "explanation": "Les protéines matricielles sont importées directement depuis le cytosol."
+      },
+      {
+        "content": "Le peroxysome et la mitochondrie possèdent tous deux un ADN circulaire propre.",
+        "correct": false,
+        "explanation": "Seule la mitochondrie possède un génome propre parmi ces deux organites."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La figure illustre la dépendance envers le cytosol, le RE et la régulation nucléaire.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Le peroxysome est un organite à membrane unique sans génome, spécialisé notamment dans des oxydations ; il se distingue des mitochondries à double membrane et des lysosomes acides du système endomembranaire."
   },
   {
-    order: 129,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Les pathologies peroxysomales peuvent associer :`,
-    choices: [
-      `Accumulation d’acides gras à très longue chaîne.`,
-      `Leucodystrophie.`,
-      `Atteinte surrénale dans l’adrénoleucodystrophie liée à l’X.`,
-      `Polymalformations dans le syndrome de Zellweger.`,
+    "order": 109,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur l’organisation générale et la dynamique des peroxysomes, lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "La dégradation des peroxysomes se fait exclusivement par le protéasome cytosolique.",
+        "correct": false,
+        "explanation": "L’élimination de l’organite entier peut se faire par pexophagie puis voie lysosomale."
+      },
+      {
+        "content": "Une biogenèse de novo à partir de précurseurs membranaires liés notamment au RE est possible.",
+        "correct": true,
+        "explanation": "La biogenèse ne dépend pas exclusivement de la division d’un peroxysome préexistant."
+      },
+      {
+        "content": "Les peroxysomes peuvent être éliminés sélectivement par pexophagie.",
+        "correct": true,
+        "explanation": "La pexophagie est une forme d’autophagie sélective dirigée contre les peroxysomes."
+      },
+      {
+        "content": "La membrane peroxysomale porte une chaîne respiratoire assurant la phosphorylation oxydative.",
+        "correct": false,
+        "explanation": "La phosphorylation oxydative est mitochondriale ; le peroxysome ne possède pas de chaîne respiratoire complète."
+      },
+      {
+        "content": "Les déplacements peroxysomaux utilisent le cytosquelette.",
+        "correct": true,
+        "explanation": "Leur distribution intracellulaire est couplée aux systèmes de transport cytosquelettiques."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2, 3],
-    explanation: `Les exemples cliniques reflètent la diversité et la gravité des déficits peroxysomaux.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-    ],
+    "explanation": "Les peroxysomes sont des organites à membrane unique, sans génome ni ribosomes, dynamiques et distincts du système endomembranaire."
   },
   {
-    order: 130,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Quelle synthèse générale est correcte ?`,
-    choices: [
-      `Le peroxysome est dynamique et renouvelé.`,
-      `Il assure des fonctions métaboliques et détoxifiantes.`,
-      `Il coopère avec d’autres organites sans appartenir au SEM.`,
-      `Il est inutile dans le métabolisme lipidique.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le peroxysome combine dynamique structurale, échanges et fonctions métaboliques essentielles.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "order": 110,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel récepteur reconnaît principalement les cargos porteurs d’un signal PTS2 ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "PEX7",
+        "pex7"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "PEX7 reconnaît le signal PTS2 N-terminal de certaines protéines matricielles."
   },
   {
-    order: 131,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Après administration d’un fibrate, on observe une augmentation du nombre de peroxysomes dans des hépatocytes. Cette observation est cohérente avec :`,
-    choices: [
-      `La stimulation de la synthèse de peroxysomes.`,
-      `Une augmentation potentielle de la prise en charge des acides gras à très longue chaîne.`,
-      `Une action hypolipémiante décrite dans la fiche.`,
-      `Une suppression de toute β-oxydation.`,
+    "order": 111,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Sélectionnez les propositions exactes sur le thème suivant : les oxydases, la catalase et le peroxyde d’hydrogène.",
+    "choices": [
+      {
+        "content": "La β-oxydation peroxysomale n’est pas directement couplée à une chaîne respiratoire productrice d’ATP.",
+        "correct": true,
+        "explanation": "L’énergie de la première oxydation est en partie dissipée sous forme de chaleur via la formation de H2O2."
+      },
+      {
+        "content": "La catalase peut aussi exercer une activité peroxydatique sur certains substrats.",
+        "correct": true,
+        "explanation": "Elle peut utiliser H2O2 pour oxyder certains donneurs d’électrons."
+      },
+      {
+        "content": "Chez l’humain, l’alcool déshydrogénase et CYP2E1 sont des voies majeures du métabolisme de l’éthanol.",
+        "correct": true,
+        "explanation": "La contribution de la catalase existe mais n’est pas la voie quantitativement principale habituelle."
+      },
+      {
+        "content": "La compartimentation peroxysomale rapproche enzymes productrices et consommatrices de H2O2.",
+        "correct": true,
+        "explanation": "Cette organisation favorise le contrôle local des espèces réactives de l’oxygène."
+      },
+      {
+        "content": "Chez l’humain, la catalase assure à elle seule la quasi-totalité du catabolisme hépatique de l’éthanol.",
+        "correct": false,
+        "explanation": "L’alcool déshydrogénase et CYP2E1 ont des rôles majeurs ; la catalase est minoritaire."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les fibrates stimulent la prolifération peroxysomale et favorisent la diminution des très longues chaînes.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les oxydases peroxysomales transfèrent des électrons à l’oxygène et peuvent former du H2O2 ; la catalase le consomme et limite sa toxicité."
   },
   {
-    order: 132,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Dans la même expérience, la concentration d’acides gras à très longue chaîne diminue. On peut relier ce résultat à :`,
-    choices: [
-      `La β-oxydation peroxysomale.`,
-      `L’augmentation de la capacité de raccourcissement des chaînes.`,
-      `La coopération ultérieure avec les mitochondries.`,
-      `Une nouvelle synthèse d’acides gras à très longue chaîne par les fibrates.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `L’augmentation du nombre de peroxysomes améliore la prise en charge initiale de ces acides gras.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "order": 112,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Quelle propriété remarquable distingue l’import matriciel peroxysomal concernant l’état de repliement du cargo ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "import de protéines repliées",
+        "protéines repliées",
+        "peut importer des protéines repliées",
+        "import de protéines déjà repliées"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Le système d’import peroxysomal peut accepter certaines protéines déjà repliées, voire oligomériques."
   },
   {
-    order: 133,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Lors du catabolisme hépatique de l’alcool, l’acétaldéhyde s’accumule. Cela peut être cohérent avec :`,
-    choices: [
-      `Une détoxification insuffisante par la catalase.`,
-      `Une toxicité pour le cytosquelette.`,
-      `Un blocage possible du transport axonal.`,
-      `Une fonction protectrice directe de l’acétaldéhyde.`,
+    "order": 113,
+    "difficulty": "HARD",
+    "format": "QRP",
+    "question": "Pour le thème suivant — les autres fonctions métaboliques et leur régulation — identifiez exactement les deux affirmations exactes.",
+    "choices": [
+      {
+        "content": "L’effet des fibrates se résume à fabriquer mécaniquement des milliers de peroxysomes chez l’humain.",
+        "correct": false,
+        "explanation": "Leur effet clinique repose surtout sur la régulation transcriptionnelle du métabolisme lipidique ; la prolifération massive est surtout observée chez certains rongeurs."
+      },
+      {
+        "content": "L’urate est un produit du catabolisme des pyrimidines uniquement.",
+        "correct": false,
+        "explanation": "Il provient principalement du catabolisme des purines."
+      },
+      {
+        "content": "PPARα est un récepteur nucléaire impliqué dans la régulation de gènes du métabolisme lipidique.",
+        "correct": true,
+        "explanation": "Son activation modifie la transcription de nombreux gènes d’oxydation des acides gras."
+      },
+      {
+        "content": "Les fibrates sont des agonistes pharmacologiques de PPARα.",
+        "correct": true,
+        "explanation": "Ils sont utilisés notamment pour réduire les triglycérides plasmatiques."
+      },
+      {
+        "content": "Une hyperuricémie protège de la formation de cristaux articulaires.",
+        "correct": false,
+        "explanation": "Elle augmente au contraire le risque de dépôts d’urate et de goutte."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La fiche présente l’acétaldéhyde comme un intermédiaire dangereux détruit grâce à la catalase.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les peroxysomes participent à plusieurs voies métaboliques ; chez l’humain, l’absence d’urate oxydase fait de l’acide urique le produit final majeur du catabolisme des purines, et PPARα régule de nombreux gènes du métabolisme lipidique.",
+    "requiredSelectionCount": 2
   },
   {
-    order: 134,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Dans cette situation, une catalase fonctionnelle contribue à :`,
-    choices: [
-      `Utiliser le H2O2 produit par les oxydases.`,
-      `Oxyder et détruire l’acétaldéhyde.`,
-      `Limiter l’excès de H2O2.`,
-      `Produire le génome peroxysomal.`,
+    "order": 114,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Concernant les maladies peroxysomales, quelles propositions sont incorrectes ?",
+    "choices": [
+      {
+        "content": "Un défaut de β-oxydation peroxysomale améliore nécessairement la myélinisation.",
+        "correct": true,
+        "explanation": "L’accumulation lipidique peut au contraire être associée à une atteinte de la myéline."
+      },
+      {
+        "content": "ABCD1 participe au transport de substrats lipidiques à très longue chaîne vers le peroxysome.",
+        "correct": false,
+        "explanation": "Son déficit réduit leur entrée efficace dans la voie de β-oxydation peroxysomale."
+      },
+      {
+        "content": "Les gènes PEX sont portés par le génome peroxysomal.",
+        "correct": true,
+        "explanation": "Le peroxysome n’a pas de génome ; les gènes PEX sont nucléaires."
+      },
+      {
+        "content": "Le spectre de Zellweger correspond à des troubles de la biogenèse peroxysomale.",
+        "correct": false,
+        "explanation": "Des mutations de gènes PEX perturbent l’assemblage ou l’import de protéines peroxysomales."
+      },
+      {
+        "content": "Les troubles du spectre de Zellweger sont le plus souvent transmis sur un mode autosomique récessif.",
+        "correct": false,
+        "explanation": "Ils sont dus à des variants bialléliques de gènes de biogenèse peroxysomale."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La catalase combine détoxification de substrats et contrôle du H2O2.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les maladies peroxysomales comprennent des défauts de biogenèse, comme le spectre de Zellweger, et des défauts de protéines spécifiques, comme l’adrénoleucodystrophie liée à l’X due à ABCD1."
   },
   {
-    order: 135,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Un enfant présente une hypotonie, une épilepsie, une dysfonction rénale et des malformations. Le tableau est compatible avec :`,
-    choices: [
-      `Le syndrome de Zellweger.`,
-      `Un syndrome hépato-cérébro-rénal.`,
-      `Une maladie peroxysomale.`,
-      `Une simple crise de goutte isolée.`,
+    "order": 115,
+    "difficulty": "HARD",
+    "format": "QRU",
+    "question": "Repérez l’unique affirmation exacte concernant le thème suivant : les différences entre peroxysomes, mitochondries, lysosomes et système endomembranaire.",
+    "choices": [
+      {
+        "content": "La catalase est l’hydrolase acide principale du lysosome.",
+        "correct": false,
+        "explanation": "La catalase est surtout peroxysomale ; les lysosomes contiennent des hydrolases acides."
+      },
+      {
+        "content": "La β-oxydation peroxysomale est directement couplée à une chaîne respiratoire située dans la membrane peroxysomale.",
+        "correct": false,
+        "explanation": "Le peroxysome n’a pas de chaîne respiratoire de phosphorylation oxydative."
+      },
+      {
+        "content": "La mitochondrie est l’organite principal du marquage PTS1/PEX5.",
+        "correct": false,
+        "explanation": "PTS1/PEX5 correspond à l’adressage peroxysomal."
+      },
+      {
+        "content": "La β-oxydation mitochondriale est couplée indirectement à la production d’ATP via la chaîne respiratoire.",
+        "correct": true,
+        "explanation": "Les équivalents réducteurs alimentent la phosphorylation oxydative."
+      },
+      {
+        "content": "Le lysosome possède normalement un génome autonome codant ses hydrolases.",
+        "correct": false,
+        "explanation": "Il ne possède pas de génome propre."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La fiche décrit ce regroupement de manifestations dans le syndrome de Zellweger.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Le peroxysome est un organite à membrane unique sans génome, spécialisé notamment dans des oxydations ; il se distingue des mitochondries à double membrane et des lysosomes acides du système endomembranaire."
   },
   {
-    order: 136,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Un adolescent présente une démyélinisation progressive et une insuffisance surrénale. Le diagnostic évoqué dans la fiche est :`,
-    choices: [
-      `L’adrénoleucodystrophie liée à l’X.`,
-      `Une leucodystrophie peroxysomale.`,
-      `Une maladie neurodégénérative sévère.`,
-      `Une conséquence normale de l’urate oxydase humaine.`,
+    "order": 116,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Sélectionnez toutes les affirmations exactes concernant le thème suivant : l’organisation générale et la dynamique des peroxysomes.",
+    "choices": [
+      {
+        "content": "Une biogenèse de novo à partir de précurseurs membranaires liés notamment au RE est possible.",
+        "correct": true,
+        "explanation": "La biogenèse ne dépend pas exclusivement de la division d’un peroxysome préexistant."
+      },
+      {
+        "content": "Les peroxysomes sont des citernes spécialisées de l’appareil de Golgi.",
+        "correct": false,
+        "explanation": "Ils sont distincts du Golgi et du système endomembranaire classique."
+      },
+      {
+        "content": "Toutes les cellules eucaryotes, sans exception, conservent des peroxysomes à l’état mature.",
+        "correct": false,
+        "explanation": "Certaines cellules spécialisées, notamment les hématies humaines matures, n’en possèdent pas."
+      },
+      {
+        "content": "Les peroxysomes peuvent être éliminés sélectivement par pexophagie.",
+        "correct": true,
+        "explanation": "La pexophagie est une forme d’autophagie sélective dirigée contre les peroxysomes."
+      },
+      {
+        "content": "Les déplacements peroxysomaux utilisent le cytosquelette.",
+        "correct": true,
+        "explanation": "Leur distribution intracellulaire est couplée aux systèmes de transport cytosquelettiques."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Ces caractéristiques correspondent à l’adrénoleucodystrophie liée à l’X.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les peroxysomes sont des organites à membrane unique, sans génome ni ribosomes, dynamiques et distincts du système endomembranaire."
   },
   {
-    order: 137,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `À partir de la figure suivante :
-
-![Structure et biogenèse](/images/training/ue14/biologie-cellulaire/peroxysomes/structure-biogenese-peroxysome.png)
-
-Quelle(s) proposition(s) est(sont) correcte(s) ?`,
-    choices: [
-      `La structure représentée est limitée par une seule membrane.`,
-      `Le réseau peroxysomal peut bourgeonner.`,
-      `La région paracristalline contient des enzymes oxydatives.`,
-      `Le schéma représente un compartiment du Golgi.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La figure reprend la morphologie et la biogenèse propres aux peroxysomes.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "order": 117,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Quel métabolite s’accumule dans la maladie de Refsum classique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "acide phytanique",
+        "phytanate"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Un défaut d’α-oxydation peroxysomale provoque l’accumulation d’acide phytanique."
   },
   {
-    order: 138,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `À partir de la figure suivante :
-
-![β-oxydation et mitochondrie](/images/training/ue14/biologie-cellulaire/peroxysomes/beta-oxydation-cooperation-mitochondrie.png)
-
-Quelle(s) proposition(s) est(sont) correcte(s) ?`,
-    choices: [
-      `Le peroxysome intervient en amont de la mitochondrie pour les très longues chaînes.`,
-      `Les acides gras raccourcis peuvent être transférés.`,
-      `L’acétyl-CoA peut rejoindre le cycle de Krebs mitochondrial.`,
-      `Les fibrates inhibent la synthèse des peroxysomes.`,
+    "order": 118,
+    "difficulty": "HARD",
+    "format": "QRPL",
+    "question": "Sur le thème suivant, cinq affirmations seulement sont exactes ; sélectionnez-les : les oxydases, la catalase et le peroxyde d’hydrogène.",
+    "choices": [
+      {
+        "content": "Les oxydases peroxysomales détruisent toutes le H2O2 sans en former.",
+        "correct": false,
+        "explanation": "Plusieurs oxydases en génèrent au cours de leur réaction."
+      },
+      {
+        "content": "Le H2O2 est chimiquement inerte et ne participe jamais au stress oxydant.",
+        "correct": false,
+        "explanation": "C’est une espèce réactive de l’oxygène pouvant contribuer aux dommages oxydatifs."
+      },
+      {
+        "content": "La β-oxydation peroxysomale alimente directement une ATP synthase située dans la membrane peroxysomale.",
+        "correct": false,
+        "explanation": "Le peroxysome ne possède pas de phosphorylation oxydative comparable à la mitochondrie."
+      },
+      {
+        "content": "La β-oxydation peroxysomale n’est pas directement couplée à une chaîne respiratoire productrice d’ATP.",
+        "correct": true,
+        "explanation": "L’énergie de la première oxydation est en partie dissipée sous forme de chaleur via la formation de H2O2."
+      },
+      {
+        "content": "La catalase peut aussi exercer une activité peroxydatique sur certains substrats.",
+        "correct": true,
+        "explanation": "Elle peut utiliser H2O2 pour oxyder certains donneurs d’électrons."
+      },
+      {
+        "content": "Chez l’humain, l’alcool déshydrogénase et CYP2E1 sont des voies majeures du métabolisme de l’éthanol.",
+        "correct": true,
+        "explanation": "La contribution de la catalase existe mais n’est pas la voie quantitativement principale habituelle."
+      },
+      {
+        "content": "La compartimentation peroxysomale rapproche enzymes productrices et consommatrices de H2O2.",
+        "correct": true,
+        "explanation": "Cette organisation favorise le contrôle local des espèces réactives de l’oxygène."
+      },
+      {
+        "content": "L’acyl-CoA oxydase peroxysomale transfère ses électrons directement à la chaîne respiratoire mitochondriale.",
+        "correct": false,
+        "explanation": "Elle transfère directement les électrons à O2 et produit du H2O2."
+      },
+      {
+        "content": "Les transporteurs ABC de la membrane peroxysomale utilisent l’énergie de l’ATP.",
+        "correct": true,
+        "explanation": "ABC signifie ATP-Binding Cassette."
+      },
+      {
+        "content": "La catalase est une protéine spécifique des lysosomes.",
+        "correct": false,
+        "explanation": "Elle est emblématique de la matrice peroxysomale."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le schéma illustre le relais métabolique entre peroxysome et mitochondrie et l’effet stimulant des fibrates.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les oxydases peroxysomales transfèrent des électrons à l’oxygène et peuvent former du H2O2 ; la catalase le consomme et limite sa toxicité.",
+    "requiredSelectionCount": 5
   },
   {
-    order: 139,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Les trois figures suivantes présentent l’organisation, les réactions oxydatives et les conséquences métaboliques des peroxysomes.
-
-![Structure](/images/training/ue14/biologie-cellulaire/peroxysomes/structure-biogenese-peroxysome.png)
-
-![Oxydases et catalase](/images/training/ue14/biologie-cellulaire/peroxysomes/oxydases-catalase-h2o2.png)
-
-![Pathologies](/images/training/ue14/biologie-cellulaire/peroxysomes/acide-urique-pathologies-peroxysomales.png)
-
-En croisant ces informations :`,
-    choices: [
-      `Le peroxysome est un organite dynamique et enzymatique.`,
-      `Ses oxydases produisent du H2O2 contrôlé par la catalase.`,
-      `Ses déficits peuvent provoquer une accumulation de métabolites.`,
-      `Son rôle est exclusivement structural.`,
+    "order": 119,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Quelles propositions doivent être retenues comme exactes pour le thème suivant : les fonctions lipidiques des peroxysomes ?",
+    "choices": [
+      {
+        "content": "La β-oxydation peroxysomale prend en charge préférentiellement des acides gras à très longue chaîne.",
+        "correct": true,
+        "explanation": "Elle raccourcit des substrats que la mitochondrie oxyde moins efficacement au départ."
+      },
+      {
+        "content": "La β-oxydation peroxysomale raccourcit les chaînes carbonées par cycles successifs.",
+        "correct": true,
+        "explanation": "Elle produit des acyl-CoA plus courts et de l’acétyl-CoA."
+      },
+      {
+        "content": "L’acétyl-CoA peut être produit lors de la β-oxydation peroxysomale.",
+        "correct": true,
+        "explanation": "Chaque cycle libère une unité à deux carbones sous forme d’acétyl-CoA."
+      },
+      {
+        "content": "La β-oxydation peroxysomale est spécialisée exclusivement dans les acides gras à chaîne courte.",
+        "correct": false,
+        "explanation": "Elle intervient particulièrement pour les acides gras à très longue chaîne."
+      },
+      {
+        "content": "Des produits raccourcis de la β-oxydation peroxysomale peuvent être transférés vers la mitochondrie.",
+        "correct": true,
+        "explanation": "La mitochondrie peut alors poursuivre leur oxydation énergétique."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les figures montrent une articulation entre organisation, métabolisme oxydatif et pathologies.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les peroxysomes raccourcissent notamment les acides gras à très longue chaîne, participent à la synthèse des plasmalogènes et à certaines étapes du métabolisme des acides biliaires."
   },
   {
-    order: 140,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Quelle conclusion générale est la plus fidèle au chapitre ?`,
-    choices: [
-      `Les peroxysomes sont des organites sans génome mais riches en enzymes importées.`,
-      `Ils participent à la détoxification et au métabolisme lipidique.`,
-      `Ils se renouvellent et coopèrent avec le cytosquelette, le RE, les lysosomes et les mitochondries.`,
-      `Ils appartiennent au système endomembranaire.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le peroxysome est un organite autonome sur le plan structural mais dépendant d’imports et de coopérations, tout en restant hors du SEM.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "order": 120,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Quel organite est éliminé lors de la pexophagie ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "peroxysome",
+        "peroxysomes"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "La pexophagie est l’autophagie sélective des peroxysomes."
   },
+  {
+    "order": 121,
+    "difficulty": "HARD",
+    "format": "QRP",
+    "question": "Sur le thème suivant — les maladies peroxysomales — choisissez exactement les deux propositions exactes.",
+    "choices": [
+      {
+        "content": "Les gènes PEX sont portés par le génome peroxysomal.",
+        "correct": false,
+        "explanation": "Le peroxysome n’a pas de génome ; les gènes PEX sont nucléaires."
+      },
+      {
+        "content": "L’adrénoleucodystrophie liée à l’X est due à une mutation de l’ADN mitochondrial.",
+        "correct": false,
+        "explanation": "Elle est due au gène nucléaire ABCD1 situé sur le chromosome X."
+      },
+      {
+        "content": "La maladie de Refsum est liée à un défaut du catabolisme peroxysomal de l’acide phytanique.",
+        "correct": true,
+        "explanation": "Un défaut d’α-oxydation provoque l’accumulation de phytanate."
+      },
+      {
+        "content": "La maladie de Refsum classique est habituellement autosomique récessive.",
+        "correct": true,
+        "explanation": "Elle est souvent liée à des variants bialléliques de PHYH."
+      },
+      {
+        "content": "ABCD1 code une hydrolase lysosomale du mannose-6-phosphate.",
+        "correct": false,
+        "explanation": "ABCD1 est un transporteur ABC peroxysomal."
+      }
+    ],
+    "explanation": "Les maladies peroxysomales comprennent des défauts de biogenèse, comme le spectre de Zellweger, et des défauts de protéines spécifiques, comme l’adrénoleucodystrophie liée à l’X due à ABCD1.",
+    "requiredSelectionCount": 2
+  },
+  {
+    "order": 122,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Quel organite assure les premières étapes de biosynthèse des plasmalogènes ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "peroxysome",
+        "peroxysomes"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Les premières réactions de la synthèse des plasmalogènes ont lieu dans le peroxysome avant relais par le RE."
+  }
 ];
 
 export const SYNTHESIS_QUIZZES: SeedQuiz[] = [
   {
-    order: 13,
-    slug: `organisation-metabolisme-pathologies-peroxysomes`,
-    title: `Organisation, métabolisme et pathologies des peroxysomes`,
-    description: `Révision transversale de la structure, des fonctions et des principales pathologies.`,
-    stage: 'PRACTICE',
-    sectionOrder: 5,
-    questionOrders: [121, 122, 123, 124, 125, 126, 127, 128, 129, 130],
+    "order": 10,
+    "slug": "peroxysomes-10",
+    "title": "Synthèse des peroxysomes",
+    "description": "Synthèse : synthèse des peroxysomes.",
+    "stage": "PRACTICE",
+    "sectionOrder": 5,
+    "questionOrders": [
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110
+    ]
   },
   {
-    order: 14,
-    slug: `synthese-clinique-experimentale-peroxysomes`,
-    title: `Synthèse clinique et expérimentale du chapitre`,
-    description: `Situations intégratives sur les fibrates, la détoxification et les maladies peroxysomales.`,
-    stage: 'MASTER',
-    sectionOrder: 5,
-    items: [
-      {
-        type: 'GROUP',
-        title: `Fibrates et acides gras à très longue chaîne`,
-        sharedStatement: `Des hépatocytes sont exposés à un médicament hypolipémiant de la famille des fibrates. Le nombre de peroxysomes augmente et la concentration en acides gras à très longue chaîne diminue.`,
-        questionOrders: [131, 132],
-      },
-      {
-        type: 'GROUP',
-        title: `Détoxification de l’alcool`,
-        sharedStatement: `Une équipe analyse l’accumulation d’acétaldéhyde dans des cellules hépatiques et le rôle du système oxydases–catalase.`,
-        questionOrders: [133, 134],
-      },
-      {
-        type: 'GROUP',
-        title: `Maladies peroxysomales`,
-        sharedStatement: `Deux dossiers cliniques sont comparés : un enfant présentant une polymalformation hépato-cérébro-rénale et un adolescent présentant une démyélinisation progressive associée à une insuffisance surrénale.`,
-        questionOrders: [135, 136],
-      },
-      { type: 'QUESTION', questionOrder: 137 },
-      { type: 'QUESTION', questionOrder: 138 },
-      { type: 'QUESTION', questionOrder: 139 },
-      { type: 'QUESTION', questionOrder: 140 },
-    ],
-  },
+    "order": 11,
+    "slug": "peroxysomes-11",
+    "title": "Maîtriser les peroxysomes",
+    "description": "Maîtriser : maîtriser les peroxysomes.",
+    "stage": "MASTER",
+    "sectionOrder": 5,
+    "questionOrders": [
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122
+    ]
+  }
 ];

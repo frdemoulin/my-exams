@@ -11,6 +11,7 @@ import {
   seedHealthMockExam,
   type HealthMockExamSeed,
 } from "../prisma/seeds/health-mock-exams.seed";
+import { getThemeDisplayLabel } from "../src/core/theme/theme-label";
 import { loadProjectEnv } from "./lib/load-env";
 
 loadProjectEnv();
@@ -264,6 +265,7 @@ function buildMockExamSeed(): HealthMockExamSeed {
     version: 1,
     order: 1,
     isPublished: true,
+    themeIdsByQuestionStableId: {},
     sections: [
       {
         teachingElementSlug: healthMockExamFixture.teachingElementSlug,
@@ -401,11 +403,37 @@ function buildMockExamSeed(): HealthMockExamSeed {
   };
 }
 
+async function resolveFixtureTheme(prisma: PrismaClient) {
+  const theme = await prisma.theme.findFirst({
+    where: {
+      title: {
+        not: "",
+      },
+    },
+    orderBy: [{ shortTitle: "asc" }, { title: "asc" }],
+    select: {
+      id: true,
+      title: true,
+      shortTitle: true,
+    },
+  });
+
+  if (!theme) {
+    throw new Error("Aucun Theme existant n'est disponible pour la fixture examen blanc.");
+  }
+
+  return {
+    id: theme.id,
+    label: getThemeDisplayLabel(theme),
+  };
+}
+
 export async function seedHealthMockExamFixture(prisma: PrismaClient) {
   const [program, institution] = await Promise.all([
     upsertProgram(prisma),
     upsertInstitution(prisma),
   ]);
+  const fixtureTheme = await resolveFixtureTheme(prisma);
   const programVersion = await upsertProgramVersion(prisma, {
     institutionId: institution.id,
     programId: program.id,
@@ -420,7 +448,13 @@ export async function seedHealthMockExamFixture(prisma: PrismaClient) {
 
   await upsertTeachingElement(prisma, { courseUnitId: courseUnit.id });
   await deleteFixtureAttempts(prisma, courseUnit.id);
-  await seedHealthMockExam(prisma, buildMockExamSeed());
+  const seed = buildMockExamSeed();
+  seed.themeIdsByQuestionStableId = {
+    "fixture-qru-reponse-unique": [fixtureTheme.id],
+    "fixture-qrm-reponses-multiples": [fixtureTheme.id],
+    "fixture-qrp-nombre-precise": [fixtureTheme.id],
+  };
+  await seedHealthMockExam(prisma, seed);
 
   const exam = await prisma.healthMockExam.findFirstOrThrow({
     where: {
@@ -442,6 +476,7 @@ export async function seedHealthMockExamFixture(prisma: PrismaClient) {
     examSlug: exam.slug,
     examTitle: exam.title,
     questionCount: exam.questionCount,
+    themeLabel: fixtureTheme.label,
   };
 }
 

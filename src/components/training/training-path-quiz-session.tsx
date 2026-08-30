@@ -265,6 +265,25 @@ export function TrainingPathQuizSession({
       key={quizSlug}
       questions={questions}
       canEditQuestions={canEditQuestions}
+      onSubmitAnswers={async ({ answers }) => {
+        const response = await fetch('/api/training/quiz-session/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            sessionId: `guest_${quizId}`,
+            targetScore,
+            answers,
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error('Échec de la soumission de la session.');
+        }
+
+        return response.json();
+      }}
       pathContext={{
         chapterHref,
         hasLockedSections: derivedState.hasLockedSections,

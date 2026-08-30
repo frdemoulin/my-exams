@@ -1,632 +1,715 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie — Introduction générale sur les lipides et acides gras — Section B
- * Banque éditoriale auteur — à intégrer via le helper partagé du repo.
- */
-
+/** UE14 Biochimie — Chapitre 2.1–2.2 — Lipides et acides gras — Section B — Acides gras saturés et longueurs */
 export const UE14_BIOCH_CH4_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 23,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Chez les mammifères, la majorité des acides gras :",
+    "question": "Concernant la parité des acides gras chez les mammifères, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Possèdent un nombre pair de carbones.",
+        "content": "La parité du nombre de carbones est indépendante de la présence d'une double liaison.",
         "correct": true,
-        "explanation": "La synthèse des acides gras procède principalement par ajouts successifs d’unités à deux carbones."
+        "explanation": "Un acide gras impair peut être saturé ou insaturé."
       },
       {
-        "content": "Sont liés à des voies de synthèse/dégradation par unités à deux carbones.",
-        "correct": true,
-        "explanation": "Explication."
-      },
-      {
-        "content": "Peuvent néanmoins présenter des exceptions impaires.",
-        "correct": true,
-        "explanation": "Des acides gras à nombre impair, notamment C15:0 ou C17:0, existent chez les mammifères."
-      },
-      {
-        "content": "Possèdent obligatoirement 18 carbones.",
+        "content": "La parité permet à elle seule d'identifier le nom commun d'un acide gras.",
         "correct": false,
-        "explanation": "Plusieurs longueurs existent."
+        "explanation": "Plusieurs structures peuvent partager la même longueur."
+      },
+      {
+        "content": "Un nombre impair de carbones implique automatiquement une double liaison.",
+        "correct": false,
+        "explanation": "Parité et insaturation sont distinctes."
+      },
+      {
+        "content": "L'acétyl-CoA fournit des unités à deux carbones dans de nombreuses voies lipidiques.",
+        "correct": true,
+        "explanation": "Cela favorise les longueurs paires."
+      },
+      {
+        "content": "La bêta-oxydation enlève des unités de cinq carbones.",
+        "correct": false,
+        "explanation": "Elle enlève classiquement des unités à deux carbones."
       }
     ],
-    "explanation": "Les chaînons dicarbonés expliquent la prédominance des longueurs paires."
+    "explanation": "La prédominance des chaînes paires s'explique par un métabolisme construit autour d'unités à deux carbones."
   },
   {
     "order": 24,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "L’acide palmitique :",
+    "format": "QRU",
+    "question": "À propos de l'acide palmitique, quelle affirmation est correcte ?",
     "choices": [
       {
-        "content": "Possède 16 carbones.",
-        "correct": true,
-        "explanation": "16:0."
-      },
-      {
-        "content": "Est saturé.",
-        "correct": true,
-        "explanation": "0 double liaison."
-      },
-      {
-        "content": "A pour symbole 16:0.",
-        "correct": true,
-        "explanation": "Notation."
-      },
-      {
-        "content": "Est un acide gras ω3 polydésaturé.",
+        "content": "Il appartient à la série oméga-3.",
         "correct": false,
-        "explanation": "Il est saturé."
+        "explanation": "Une série oméga concerne les acides gras insaturés."
+      },
+      {
+        "content": "Son nom systématique est acide octadécanoïque.",
+        "correct": false,
+        "explanation": "C'est celui du stéarique."
+      },
+      {
+        "content": "L'acide palmitique est 18:0.",
+        "correct": false,
+        "explanation": "18:0 correspond à l'acide stéarique."
+      },
+      {
+        "content": "Il possède une double liaison Δ9.",
+        "correct": false,
+        "explanation": "Cela décrit le palmitoléique en C16."
+      },
+      {
+        "content": "Il est fréquent dans les lipides biologiques.",
+        "correct": true,
+        "explanation": "C'est un acide gras saturé majeur."
       }
     ],
-    "explanation": "L’acide palmitique est le repère saturé 16:0."
+    "explanation": "L'acide palmitique est l'acide hexadécanoïque saturé 16:0."
   },
   {
     "order": 25,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "L’acide stéarique :",
-    "choices": [
-      {
-        "content": "Possède 18 carbones.",
-        "correct": true,
-        "explanation": "18:0."
-      },
-      {
-        "content": "Est saturé.",
-        "correct": true,
-        "explanation": "0 double liaison."
-      },
-      {
-        "content": "A pour symbole 18:0.",
-        "correct": true,
-        "explanation": "Notation."
-      },
-      {
-        "content": "Possède trois doubles liaisons cis.",
-        "correct": false,
-        "explanation": "Il n’en possède aucune."
+    "format": "QROC",
+    "question": "Quelle notation abrégée correspond à l'acide stéarique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "18:0",
+        "C18:0"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "L’acide stéarique est le repère saturé 18:0."
+    },
+    "explanation": "L'acide stéarique est l'acide octadécanoïque saturé 18:0."
   },
   {
     "order": 26,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel est le nom systématique de l’acide palmitique ?",
+    "format": "QRM",
+    "question": "Concernant les catégories de longueur de chaîne, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Acide hexadécanoïque.",
+        "content": "Un acide gras C24 est classiquement qualifié de très longue chaîne.",
         "correct": true,
-        "explanation": "Nom systématique du 16:0."
+        "explanation": "Les très longues chaînes dépassent le domaine des acides gras usuels C16-C18."
       },
       {
-        "content": "Acide octadécanoïque.",
+        "content": "Une chaîne C18 est classiquement une chaîne courte.",
         "correct": false,
-        "explanation": "Acide stéarique."
+        "explanation": "C18 est une longue chaîne."
       },
       {
-        "content": "Acide linoléique.",
-        "correct": false,
-        "explanation": "18:2."
+        "content": "Les termes courte, moyenne, longue et très longue chaîne décrivent la longueur du squelette carboné.",
+        "correct": true,
+        "explanation": "Ils ne décrivent pas le nombre de doubles liaisons."
       },
       {
-        "content": "Acide oléique.",
+        "content": "Tous les domaines de la biochimie utilisent exactement les mêmes seuils sans variation.",
         "correct": false,
-        "explanation": "18:1."
+        "explanation": "Les conventions de seuil peuvent varier."
+      },
+      {
+        "content": "C16 et C18 sont classiquement des acides gras à longue chaîne.",
+        "correct": true,
+        "explanation": "Palmitique et stéarique en sont des exemples."
       }
     ],
-    "explanation": "Le 16:0 est l’acide hexadécanoïque, appelé usuellement acide palmitique."
+    "explanation": "Les catégories de longueur sont utiles, mais leurs frontières exactes peuvent varier ; C16-C18 sont des longues chaînes et C24 une très longue chaîne."
   },
   {
     "order": 27,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel est le nom systématique de l’acide stéarique ?",
+    "question": "À propos de la lecture du symbole C:D, quelle affirmation est correcte ?",
     "choices": [
       {
-        "content": "Acide octadécanoïque.",
+        "content": "Un symbole :0 décrit un acide gras polyinsaturé.",
+        "correct": false,
+        "explanation": "Il décrit un saturé."
+      },
+      {
+        "content": "16:0 et 18:0 ont la même longueur de chaîne.",
+        "correct": false,
+        "explanation": "Ils diffèrent de deux carbones."
+      },
+      {
+        "content": "Dans 18:2, le nombre 2 désigne deux atomes d'oxygène.",
+        "correct": false,
+        "explanation": "Il désigne deux doubles liaisons."
+      },
+      {
+        "content": "Dans 16:0, 16 est le nombre de carbones.",
         "correct": true,
-        "explanation": "Nom systématique du 18:0."
+        "explanation": "Le premier nombre décrit la longueur de chaîne."
       },
       {
-        "content": "Acide hexadécanoïque.",
+        "content": "18:1 suffit à distinguer toutes les positions possibles de la double liaison.",
         "correct": false,
-        "explanation": "Palmitique."
-      },
-      {
-        "content": "Acide cis-9-octadécénoïque.",
-        "correct": false,
-        "explanation": "Oléique."
-      },
-      {
-        "content": "Acide eicosatétraénoïque.",
-        "correct": false,
-        "explanation": "Arachidonique."
+        "explanation": "La position doit être précisée."
       }
     ],
-    "explanation": "Le 18:0 est l’acide octadécanoïque."
+    "explanation": "La notation C:D code la longueur puis le nombre de doubles liaisons, mais pas leur position."
   },
   {
     "order": 28,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos de l’acide undécylénique :",
+    "format": "QRP",
+    "question": "Parmi les propositions suivantes sur la relation entre longueur de chaîne et propriétés, sélectionnez exactement les deux exactes.",
     "choices": [
       {
-        "content": "Possède 11 carbones.",
-        "correct": true,
-        "explanation": "L’acide undécylénique est un acide gras mono-insaturé comportant onze carbones."
-      },
-      {
-        "content": "Constitue un exemple d’acide gras impair.",
-        "correct": true,
-        "explanation": "Exception au caractère pair dominant."
-      },
-      {
-        "content": "Est utilisé dans certaines préparations antifongiques topiques.",
-        "correct": true,
-        "explanation": "L’acide undécylénique et certains de ses sels possèdent une activité antifongique."
-      },
-      {
-        "content": "Est l’acide palmitique.",
+        "content": "Un C24 possède toujours un point de fusion inférieur à un C16 de même saturation.",
         "correct": false,
-        "explanation": "Palmitique = 16:0."
+        "explanation": "Une chaîne plus longue tend à augmenter le point de fusion."
+      },
+      {
+        "content": "La comparaison doit se faire à degré d'insaturation comparable.",
+        "correct": true,
+        "explanation": "Les doubles liaisons modifient aussi fortement le point de fusion."
+      },
+      {
+        "content": "Le degré d'insaturation est sans influence sur la fusion.",
+        "correct": false,
+        "explanation": "Il est également déterminant."
+      },
+      {
+        "content": "Allonger une chaîne rend toujours l'acide gras plus soluble dans l'eau.",
+        "correct": false,
+        "explanation": "La tendance est inverse."
+      },
+      {
+        "content": "Une chaîne plus longue renforce globalement la composante hydrophobe.",
+        "correct": true,
+        "explanation": "La solubilité aqueuse diminue généralement."
       }
     ],
-    "explanation": "L’acide undécylénique illustre qu’un acide gras peut avoir un nombre impair de carbones."
+    "explanation": "Une chaîne plus longue renforce généralement les interactions et élève le point de fusion, à insaturation comparable.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 29,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos des acides gras à chaîne courte :",
+    "question": "Concernant la nomenclature des acides gras saturés, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Ils comportent généralement jusqu’à six carbones.",
+        "content": "Les noms communs palmitique et stéarique restent très utilisés en biochimie.",
         "correct": true,
-        "explanation": "Les acides gras à chaîne courte sont généralement définis par une chaîne ne dépassant pas six carbones."
+        "explanation": "Ils coexistent avec les noms systématiques."
       },
       {
-        "content": "Une catégorie distincte des chaînes moyennes.",
+        "content": "Hexadécanoïque correspond à 16 carbones.",
         "correct": true,
-        "explanation": "Classification."
+        "explanation": "C'est l'acide palmitique."
       },
       {
-        "content": "Ils peuvent être produits par fermentation microbienne dans le côlon.",
-        "correct": true,
-        "explanation": "Le microbiote colique produit notamment acétate, propionate et butyrate."
-      },
-      {
-        "content": "16 et 20 carbones.",
+        "content": "Les noms communs sont interdits en biochimie.",
         "correct": false,
-        "explanation": "Chaînes longues."
+        "explanation": "Ils restent d'usage courant."
+      },
+      {
+        "content": "Le suffixe -anoïque indique un acide carboxylique saturé dans la nomenclature systématique.",
+        "correct": true,
+        "explanation": "Aucune double liaison n'est indiquée."
+      },
+      {
+        "content": "Octadécanoïque correspond à 18 carbones.",
+        "correct": true,
+        "explanation": "C'est l'acide stéarique."
       }
     ],
-    "explanation": "Les acides gras à chaîne courte se distinguent des chaînes moyennes et peuvent provenir de la fermentation colique."
+    "explanation": "Les acides palmitique et stéarique correspondent respectivement aux acides hexadécanoïque 16:0 et octadécanoïque 18:0."
   },
   {
     "order": 30,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Les acides gras à chaîne moyenne :",
-    "choices": [
-      {
-        "content": "Comportent généralement de 6 à 12 carbones.",
-        "correct": true,
-        "explanation": "Plage."
-      },
-      {
-        "content": "Sont distingués des chaînes courtes et longues.",
-        "correct": true,
-        "explanation": "Classification."
-      },
-      {
-        "content": "Sont notamment présents dans les matières grasses laitières et certaines huiles tropicales.",
-        "correct": true,
-        "explanation": "Sources."
-      },
-      {
-        "content": "Ont toujours plus de 20 carbones.",
-        "correct": false,
-        "explanation": "Très longues chaînes."
+    "format": "QROC",
+    "question": "Comment note-t-on un acide gras à 17 carbones sans double liaison ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "17:0",
+        "C17:0"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les acides gras à chaîne moyenne sont généralement définis par une longueur de 6 à 12 carbones."
+    },
+    "explanation": "Le symbole C:D reste valable pour les chaînes impaires ; la parité ne renseigne pas sur l'insaturation."
   },
   {
     "order": 31,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Les acides gras à longue chaîne :",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur la parité des acides gras chez les mammifères, laquelle est exacte ?",
     "choices": [
       {
-        "content": "Comportent généralement de 13 à 21 carbones.",
+        "content": "Les acides gras à nombre pair de carbones sont très fréquents chez les mammifères.",
         "correct": true,
-        "explanation": "Plage."
+        "explanation": "La synthèse et la bêta-oxydation utilisent largement des unités à deux carbones."
       },
       {
-        "content": "Incluent les acides palmitique et stéarique.",
-        "correct": true,
-        "explanation": "16C et 18C."
-      },
-      {
-        "content": "Sont présents dans des graisses animales et végétales.",
-        "correct": true,
-        "explanation": "Sources."
-      },
-      {
-        "content": "Sont définis par 4 à 8 carbones.",
+        "content": "Un nombre impair de carbones implique automatiquement une double liaison.",
         "correct": false,
-        "explanation": "Chaînes courtes."
+        "explanation": "Parité et insaturation sont distinctes."
+      },
+      {
+        "content": "La bêta-oxydation enlève des unités de cinq carbones.",
+        "correct": false,
+        "explanation": "Elle enlève classiquement des unités à deux carbones."
+      },
+      {
+        "content": "Tous les acides gras biologiques ont obligatoirement un nombre pair de carbones.",
+        "correct": false,
+        "explanation": "Des chaînes impaires existent."
+      },
+      {
+        "content": "La parité permet à elle seule d'identifier le nom commun d'un acide gras.",
+        "correct": false,
+        "explanation": "Plusieurs structures peuvent partager la même longueur."
       }
     ],
-    "explanation": "Palmitique et stéarique appartiennent aux longues chaînes selon cette classification."
+    "explanation": "La prédominance des chaînes paires s'explique par un métabolisme construit autour d'unités à deux carbones."
   },
   {
     "order": 32,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Un acide gras comportant au moins 22 carbones est classé comme :",
+    "format": "QRM",
+    "question": "Concernant l'acide palmitique, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Très longue chaîne.",
+        "content": "L'acide palmitique est 18:0.",
+        "correct": false,
+        "explanation": "18:0 correspond à l'acide stéarique."
+      },
+      {
+        "content": "Il possède une double liaison Δ9.",
+        "correct": false,
+        "explanation": "Cela décrit le palmitoléique en C16."
+      },
+      {
+        "content": "Son nom systématique est acide octadécanoïque.",
+        "correct": false,
+        "explanation": "C'est celui du stéarique."
+      },
+      {
+        "content": "L'acide palmitique comporte 16 carbones.",
         "correct": true,
-        "explanation": "Les acides gras comportant au moins 22 carbones sont qualifiés de très longue chaîne."
+        "explanation": "Sa notation est 16:0."
       },
       {
-        "content": "Courte chaîne.",
-        "correct": false,
-        "explanation": "Une chaîne courte ne dépasse généralement pas six carbones."
-      },
-      {
-        "content": "Moyenne chaîne.",
-        "correct": false,
-        "explanation": "Une chaîne moyenne comporte généralement de 6 à 12 carbones."
-      },
-      {
-        "content": "Longue chaîne uniquement.",
-        "correct": false,
-        "explanation": "À partir de 22 carbones, la catégorie très longue chaîne est utilisée."
+        "content": "Il est saturé.",
+        "correct": true,
+        "explanation": "Il ne possède aucune double liaison C=C."
       }
     ],
-    "explanation": "La catégorie des acides gras à très longue chaîne débute généralement à 22 carbones."
+    "explanation": "L'acide palmitique est l'acide hexadécanoïque saturé 16:0."
   },
   {
     "order": 33,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Un acide gras noté 16:0 :",
+    "question": "Concernant la parité des acides gras chez les mammifères, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Possède 16 carbones.",
-        "correct": true,
-        "explanation": "Premier nombre."
-      },
-      {
-        "content": "Ne possède aucune double liaison.",
-        "correct": true,
-        "explanation": "Second nombre."
-      },
-      {
-        "content": "Peut correspondre à l’acide palmitique.",
-        "correct": true,
-        "explanation": "La notation 16:0 correspond à l’acide palmitique."
-      },
-      {
-        "content": "Est nécessairement un ω6.",
+        "content": "La bêta-oxydation enlève des unités de cinq carbones.",
         "correct": false,
-        "explanation": "La série ω n’est pas définie ici en l’absence de double liaison."
+        "explanation": "Elle enlève classiquement des unités à deux carbones."
+      },
+      {
+        "content": "La parité du nombre de carbones est indépendante de la présence d'une double liaison.",
+        "correct": true,
+        "explanation": "Un acide gras impair peut être saturé ou insaturé."
+      },
+      {
+        "content": "Les acides gras à nombre pair de carbones sont très fréquents chez les mammifères.",
+        "correct": true,
+        "explanation": "La synthèse et la bêta-oxydation utilisent largement des unités à deux carbones."
+      },
+      {
+        "content": "Un nombre impair de carbones implique automatiquement une double liaison.",
+        "correct": false,
+        "explanation": "Parité et insaturation sont distinctes."
+      },
+      {
+        "content": "La parité permet à elle seule d'identifier le nom commun d'un acide gras.",
+        "correct": false,
+        "explanation": "Plusieurs structures peuvent partager la même longueur."
       }
     ],
-    "explanation": "La notation C:D indique nombre de carbones et nombre de doubles liaisons."
+    "explanation": "La prédominance des chaînes paires s'explique par un métabolisme construit autour d'unités à deux carbones."
   },
   {
     "order": 34,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Un acide gras noté 18:0 :",
-    "choices": [
-      {
-        "content": "Possède 18 carbones.",
-        "correct": true,
-        "explanation": "Premier nombre."
-      },
-      {
-        "content": "Est saturé.",
-        "correct": true,
-        "explanation": "0 double liaison."
-      },
-      {
-        "content": "Peut correspondre à l’acide stéarique.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Est l’acide palmitoléique.",
-        "correct": false,
-        "explanation": "Palmitoléique = 16:1."
+    "format": "QROC",
+    "question": "Quelle notation abrégée correspond à l'acide palmitique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "16:0",
+        "C16:0"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le 18:0 correspond à l’acide stéarique."
+    },
+    "explanation": "L'acide palmitique est l'acide hexadécanoïque saturé 16:0."
   },
   {
     "order": 35,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Combien de doubles liaisons possède l’acide palmitique 16:0 ?",
-    "answer": {
-      "type": "number",
-      "value": 0,
-      "tolerance": 0
-    },
-    "explanation": "Le second nombre du symbole 16:0 donne le nombre de doubles liaisons."
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur l'acide stéarique, laquelle est exacte ?",
+    "choices": [
+      {
+        "content": "Son nom systématique est acide octadécanoïque.",
+        "correct": true,
+        "explanation": "Octadéc- correspond à 18 carbones."
+      },
+      {
+        "content": "Il est polyinsaturé.",
+        "correct": false,
+        "explanation": "Il est saturé."
+      },
+      {
+        "content": "L'acide stéarique est 16:0.",
+        "correct": false,
+        "explanation": "16:0 correspond au palmitique."
+      },
+      {
+        "content": "Son nom systématique est acide hexadécanoïque.",
+        "correct": false,
+        "explanation": "C'est celui du palmitique."
+      },
+      {
+        "content": "Il possède obligatoirement une double liaison trans.",
+        "correct": false,
+        "explanation": "Il ne possède aucune double liaison."
+      }
+    ],
+    "explanation": "L'acide stéarique est l'acide octadécanoïque saturé 18:0."
   },
   {
     "order": 36,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Combien d’atomes de carbone possède l’acide stéarique 18:0 ?",
-    "answer": {
-      "type": "number",
-      "value": 18,
-      "tolerance": 0
-    },
-    "explanation": "Le premier nombre du symbole 18:0 donne le nombre de carbones."
+    "format": "QRM",
+    "question": "Concernant les catégories de longueur de chaîne, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Une très longue chaîne contient nécessairement moins de huit carbones.",
+        "correct": false,
+        "explanation": "C'est l'inverse."
+      },
+      {
+        "content": "C16 et C18 sont classiquement des acides gras à longue chaîne.",
+        "correct": true,
+        "explanation": "Palmitique et stéarique en sont des exemples."
+      },
+      {
+        "content": "Un acide gras C24 est classiquement qualifié de très longue chaîne.",
+        "correct": true,
+        "explanation": "Les très longues chaînes dépassent le domaine des acides gras usuels C16-C18."
+      },
+      {
+        "content": "Les termes courte, moyenne, longue et très longue chaîne décrivent la longueur du squelette carboné.",
+        "correct": true,
+        "explanation": "Ils ne décrivent pas le nombre de doubles liaisons."
+      },
+      {
+        "content": "Une chaîne C18 est classiquement une chaîne courte.",
+        "correct": false,
+        "explanation": "C18 est une longue chaîne."
+      }
+    ],
+    "explanation": "Les catégories de longueur sont utiles, mais leurs frontières exactes peuvent varier ; C16-C18 sont des longues chaînes et C24 une très longue chaîne."
   },
   {
     "order": 37,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "La prédominance d’acides gras à nombre pair chez les mammifères est expliquée par :",
+    "format": "QRP",
+    "question": "À propos de la lecture du symbole C:D, retenez exactement les deux affirmations correctes.",
     "choices": [
       {
-        "content": "Des réactions de synthèse par ajout de chaînons dicarbonés.",
-        "correct": true,
-        "explanation": "La synthèse des acides gras allonge la chaîne par unités de deux carbones."
-      },
-      {
-        "content": "Des réactions de dégradation par clivage de chaînons dicarbonés.",
-        "correct": true,
-        "explanation": "La β-oxydation retire successivement des unités à deux carbones."
-      },
-      {
-        "content": "Un mécanisme cohérent avec l’abondance des 16C et 18C.",
-        "correct": true,
-        "explanation": "Conséquence."
-      },
-      {
-        "content": "L’impossibilité absolue d’avoir un acide gras impair.",
+        "content": "18:1 suffit à distinguer toutes les positions possibles de la double liaison.",
         "correct": false,
-        "explanation": "Des acides gras à nombre impair existent, même s’ils sont minoritaires."
+        "explanation": "La position doit être précisée."
+      },
+      {
+        "content": "La position des doubles liaisons nécessite une information supplémentaire, telle que Δ9.",
+        "correct": true,
+        "explanation": "Le symbole C:D seul ne donne pas leur emplacement."
+      },
+      {
+        "content": "16:0 et 18:0 ont la même longueur de chaîne.",
+        "correct": false,
+        "explanation": "Ils diffèrent de deux carbones."
+      },
+      {
+        "content": "Dans 18:1, une seule double liaison est présente.",
+        "correct": true,
+        "explanation": "Il s'agit d'un acide gras mono-insaturé."
+      },
+      {
+        "content": "Un symbole :0 décrit un acide gras polyinsaturé.",
+        "correct": false,
+        "explanation": "Il décrit un saturé."
       }
     ],
-    "explanation": "Les unités à deux carbones expliquent la distribution majoritairement paire."
+    "explanation": "La notation C:D code la longueur puis le nombre de doubles liaisons, mais pas leur position.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 38,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Un acide gras à 12 carbones serait classé :",
+    "question": "Parmi les propositions suivantes sur la relation entre longueur de chaîne et propriétés, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "À chaîne moyenne.",
+        "content": "Une chaîne plus longue renforce globalement la composante hydrophobe.",
         "correct": true,
-        "explanation": "Douze carbones se situent à la borne supérieure des chaînes moyennes."
+        "explanation": "La solubilité aqueuse diminue généralement."
       },
       {
-        "content": "Dans une catégorie distincte du 16:0.",
+        "content": "La longueur de chaîne influence l'organisation des lipides dans les membranes.",
         "correct": true,
-        "explanation": "Le 16:0 appartient aux acides gras à chaîne longue."
+        "explanation": "Elle modifie les interactions entre chaînes."
       },
       {
-        "content": "Par le nombre de carbones indépendamment de son degré d’insaturation.",
+        "content": "La comparaison doit se faire à degré d'insaturation comparable.",
         "correct": true,
-        "explanation": "Deux critères séparés."
+        "explanation": "Les doubles liaisons modifient aussi fortement le point de fusion."
       },
       {
-        "content": "À très longue chaîne.",
+        "content": "Allonger une chaîne rend toujours l'acide gras plus soluble dans l'eau.",
         "correct": false,
-        "explanation": "Une très longue chaîne comporte au moins 22 carbones."
+        "explanation": "La tendance est inverse."
+      },
+      {
+        "content": "À degré d'insaturation comparable, une chaîne plus longue tend à avoir un point de fusion plus élevé.",
+        "correct": true,
+        "explanation": "Les interactions de dispersion augmentent avec la taille."
       }
     ],
-    "explanation": "Le classement par longueur repose seulement sur le nombre de carbones."
+    "explanation": "Une chaîne plus longue renforce généralement les interactions et élève le point de fusion, à insaturation comparable."
   },
   {
     "order": 39,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Un acide gras à 22 carbones serait classé :",
-    "choices": [
-      {
-        "content": "À très longue chaîne.",
-        "correct": true,
-        "explanation": "Une chaîne de 22 carbones appartient aux très longues chaînes."
-      },
-      {
-        "content": "Au-delà de la plage usuelle 13–21 des longues chaînes.",
-        "correct": true,
-        "explanation": "Comparaison."
-      },
-      {
-        "content": "Dans une catégorie comprenant des constituants de cires et de sphingolipides.",
-        "correct": true,
-        "explanation": "Des acides gras à très longue chaîne sont présents notamment dans certaines cires et sphingolipides."
-      },
-      {
-        "content": "À courte chaîne.",
-        "correct": false,
-        "explanation": "Une chaîne courte ne comporte que quelques carbones."
+    "format": "QROC",
+    "question": "Quel est le nom systématique de l'acide palmitique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "acide hexadécanoïque",
+        "acide hexadecanoique",
+        "hexadécanoïque",
+        "hexadecanoique"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Un acide gras à 22 carbones appartient à la catégorie des très longues chaînes."
+    },
+    "explanation": "Les acides palmitique et stéarique correspondent respectivement aux acides hexadécanoïque 16:0 et octadécanoïque 18:0."
   },
   {
     "order": 40,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Dans une formule topologique d’acide gras saturé :",
+    "format": "QRU",
+    "question": "À propos d'un acide gras impair ou atypique, quelle affirmation est correcte ?",
     "choices": [
       {
-        "content": "Le carbone du carboxyle compte dans le nombre total de carbones.",
+        "content": "Un acide gras à 17 carbones et aucune double liaison s'écrit 17:0.",
         "correct": true,
-        "explanation": "C1 officiel."
+        "explanation": "Le premier nombre code les carbones, le second les doubles liaisons."
       },
       {
-        "content": "Chaque sommet/angle de la chaîne représente un carbone implicite.",
-        "correct": true,
-        "explanation": "Rappel de représentation."
-      },
-      {
-        "content": "L’absence de double liaison est cohérente avec un symbole x:0.",
-        "correct": true,
-        "explanation": "Notation."
-      },
-      {
-        "content": "Le carbone carboxylique est exclu de la numérotation officielle.",
+        "content": "Tout acide gras impair est saturé.",
         "correct": false,
-        "explanation": "Il est C1."
+        "explanation": "Il peut être saturé ou insaturé."
+      },
+      {
+        "content": "17:0 signifie 17 doubles liaisons.",
+        "correct": false,
+        "explanation": "Il signifie 17 carbones et zéro double liaison."
+      },
+      {
+        "content": "Les chaînes impaires sont chimiquement impossibles.",
+        "correct": false,
+        "explanation": "Elles existent."
+      },
+      {
+        "content": "11:1 indique nécessairement une série oméga-3.",
+        "correct": false,
+        "explanation": "La position de la double liaison est inconnue."
       }
     ],
-    "explanation": "Le comptage topologique doit inclure le carbone carboxylique."
+    "explanation": "Le symbole C:D reste valable pour les chaînes impaires ; la parité ne renseigne pas sur l'insaturation."
   },
   {
     "order": 41,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Quel est le nom commun de l’acide gras saturé 16:0 ?",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "acide palmitique",
-        "palmitique",
-        "l’acide palmitique",
-        "l'acide palmitique"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRM",
+    "question": "Parmi les propositions suivantes sur la parité des acides gras chez les mammifères, lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "La parité permet à elle seule d'identifier le nom commun d'un acide gras.",
+        "correct": false,
+        "explanation": "Plusieurs structures peuvent partager la même longueur."
+      },
+      {
+        "content": "Tous les acides gras biologiques ont obligatoirement un nombre pair de carbones.",
+        "correct": false,
+        "explanation": "Des chaînes impaires existent."
+      },
+      {
+        "content": "Des acides gras à nombre impair existent néanmoins.",
+        "correct": true,
+        "explanation": "La règle de parité est une tendance, pas une impossibilité."
+      },
+      {
+        "content": "Les acides gras à nombre pair de carbones sont très fréquents chez les mammifères.",
+        "correct": true,
+        "explanation": "La synthèse et la bêta-oxydation utilisent largement des unités à deux carbones."
+      },
+      {
+        "content": "La bêta-oxydation enlève des unités de cinq carbones.",
+        "correct": false,
+        "explanation": "Elle enlève classiquement des unités à deux carbones."
       }
-    },
-    "explanation": "Le 16:0 est l’acide palmitique."
+    ],
+    "explanation": "La prédominance des chaînes paires s'explique par un métabolisme construit autour d'unités à deux carbones."
   },
   {
     "order": 42,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Quel est le nom commun de l’acide gras saturé 18:0 ?",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "acide stearique",
-        "acide stéarique",
-        "stearique",
-        "stéarique",
-        "l'acide stéarique"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
+    "choices": [
+      {
+        "content": "Dans 18:0, 0 indique l'absence de double liaison.",
+        "correct": true,
+        "explanation": "Le second nombre décrit le nombre de doubles liaisons."
+      },
+      {
+        "content": "Son nom systématique est acide hexadécanoïque.",
+        "correct": true,
+        "explanation": "Hexadéc- correspond à 16 carbones."
+      },
+      {
+        "content": "L'acide palmitique comporte 16 carbones.",
+        "correct": true,
+        "explanation": "Sa notation est 16:0."
+      },
+      {
+        "content": "Dans 18:2, le nombre 2 désigne deux atomes d'oxygène.",
+        "correct": false,
+        "explanation": "Il désigne deux doubles liaisons."
+      },
+      {
+        "content": "Il appartient à la série oméga-3.",
+        "correct": false,
+        "explanation": "Une série oméga concerne les acides gras insaturés."
+      },
+      {
+        "content": "Il est fréquent dans les lipides biologiques.",
+        "correct": true,
+        "explanation": "C'est un acide gras saturé majeur."
+      },
+      {
+        "content": "L'acide palmitique est 18:0.",
+        "correct": false,
+        "explanation": "18:0 correspond à l'acide stéarique."
+      },
+      {
+        "content": "La position des doubles liaisons nécessite une information supplémentaire, telle que Δ9.",
+        "correct": true,
+        "explanation": "Le symbole C:D seul ne donne pas leur emplacement."
+      },
+      {
+        "content": "Il possède une double liaison Δ9.",
+        "correct": false,
+        "explanation": "Cela décrit le palmitoléique en C16."
+      },
+      {
+        "content": "16:0 et 18:0 ont la même longueur de chaîne.",
+        "correct": false,
+        "explanation": "Ils diffèrent de deux carbones."
       }
-    },
-    "explanation": "Le 18:0 est l’acide stéarique."
+    ],
+    "explanation": "L'acide palmitique est l'acide hexadécanoïque saturé 16:0. La notation C:D code la longueur puis le nombre de doubles liaisons, mais pas leur position."
   },
   {
     "order": 43,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux acides gras saturés parmi les propositions suivantes.",
+    "format": "QRM",
+    "question": "À propos de l'acide stéarique, quelles affirmations sont correctes ?",
     "choices": [
       {
-        "content": "Acide palmitique 16:0.",
+        "content": "Il est un acide gras à longue chaîne.",
         "correct": true,
-        "explanation": "Saturé."
+        "explanation": "C16 et C18 sont des représentants classiques de cette catégorie."
       },
       {
-        "content": "Acide stéarique 18:0.",
+        "content": "Son nom systématique est acide hexadécanoïque.",
+        "correct": false,
+        "explanation": "C'est celui du palmitique."
+      },
+      {
+        "content": "Il est polyinsaturé.",
+        "correct": false,
+        "explanation": "Il est saturé."
+      },
+      {
+        "content": "Son nom systématique est acide octadécanoïque.",
         "correct": true,
-        "explanation": "Saturé."
+        "explanation": "Octadéc- correspond à 18 carbones."
       },
       {
-        "content": "Acide oléique 18:1.",
-        "correct": false,
-        "explanation": "Monodésaturé."
-      },
-      {
-        "content": "Acide linoléique 18:2.",
-        "correct": false,
-        "explanation": "Polydésaturé."
+        "content": "L'acide stéarique comporte 18 carbones.",
+        "correct": true,
+        "explanation": "Sa notation est 18:0."
       }
     ],
-    "explanation": "Les acides palmitique 16:0 et stéarique 18:0 sont deux acides gras saturés usuels."
+    "explanation": "L'acide stéarique est l'acide octadécanoïque saturé 18:0."
   },
   {
     "order": 44,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Acides gras saturés et classes de longueur : sélectionnez exactement cinq propositions correctes.",
-    "choices": [
-      {
-        "content": "Le 16:0 est l’acide palmitique.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Le 18:0 est l’acide stéarique.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Les chaînes moyennes comportent généralement 6 à 12 carbones.",
-        "correct": true,
-        "explanation": "Classification."
-      },
-      {
-        "content": "Les chaînes longues comportent généralement 13 à 21 carbones.",
-        "correct": true,
-        "explanation": "Classification."
-      },
-      {
-        "content": "Les très longues chaînes comportent au moins 22 carbones.",
-        "correct": true,
-        "explanation": "Classification."
-      },
-      {
-        "content": "Le 16:0 possède une double liaison.",
-        "correct": false,
-        "explanation": "0 DL."
-      },
-      {
-        "content": "L’acide stéarique possède 16 carbones.",
-        "correct": false,
-        "explanation": "18 C."
-      },
-      {
-        "content": "Les chaînes courtes ont 16 à 20 carbones.",
-        "correct": false,
-        "explanation": "Une chaîne courte ne comporte généralement pas plus de six carbones."
-      },
-      {
-        "content": "Tous les acides gras des mammifères ont un nombre pair.",
-        "correct": false,
-        "explanation": "Il existe des exceptions."
-      },
-      {
-        "content": "L’acide undécylénique possède 18 carbones.",
-        "correct": false,
-        "explanation": "11 C."
+    "format": "QROC",
+    "question": "Comment qualifie-t-on classiquement un acide gras à 24 carbones ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "très longue chaîne",
+        "tres longue chaine",
+        "acide gras à très longue chaîne",
+        "acide gras a tres longue chaine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Cette QRPL consolide longueurs de chaîne et acides gras saturés de référence."
+    },
+    "explanation": "Les catégories de longueur sont utiles, mais leurs frontières exactes peuvent varier ; C16-C18 sont des longues chaînes et C24 une très longue chaîne."
   }
 ];

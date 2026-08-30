@@ -60,7 +60,7 @@ test.describe("Santé - tutoriel interface examen", () => {
       },
     });
 
-    await page.getByRole("button", { name: "Terminer le tutoriel" }).click();
+    await page.getByRole("button", { name: "Terminer le tutoriel" }).first().click();
     await page.getByRole("button", { name: "Voir le récapitulatif" }).click();
 
     await expect(page.getByRole("heading", { name: "Récapitulatif pédagogique" })).toBeVisible();
@@ -68,5 +68,23 @@ test.describe("Santé - tutoriel interface examen", () => {
     await expect(page.getByText("1 sans réponse", { exact: true })).toBeVisible();
     await expect(page.getByText("1 à revoir", { exact: true })).toBeVisible();
     await expect(page.getByText("Fin du tutoriel d'interface", { exact: true })).toBeVisible();
+  });
+
+  test("un étudiant peut consulter le guide 'Comprendre les évaluations'", async ({ page }) => {
+    await page.goto("/sante/evaluations/comprendre");
+
+    await expect(
+      page.getByRole("heading", { name: "Guide des formats de questions et de la notation UNESS" }),
+    ).toBeVisible();
+    await expect(page.getByRole("heading", { name: "1. Les 6 formats de questions" })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "2. La notation UNESS & le principe de discordance" }),
+    ).toBeVisible();
+    await expect(page.getByText("QRU", { exact: true }).first()).toBeVisible();
+    await expect(page.getByText("QRM", { exact: true }).first()).toBeVisible();
+    await expect(page.getByText("QRP", { exact: true }).first()).toBeVisible();
+    await expect(page.getByText("QRPL", { exact: true }).first()).toBeVisible();
+    await expect(page.getByText("QROC", { exact: true }).first()).toBeVisible();
+    await expect(page.getByText("QZONE", { exact: true }).first()).toBeVisible();
   });
 });

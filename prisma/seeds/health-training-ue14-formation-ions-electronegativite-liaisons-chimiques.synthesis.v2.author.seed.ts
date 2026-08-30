@@ -1,490 +1,604 @@
-import { TEX_UNITS, texQuantity } from './tex-units';
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-const U = TEX_UNITS;
-
-/**
- * UE14 – Chimie générale
- * Chapitre 2 – Formation des ions, électronégativité et liaisons chimiques
- * Section C – Synthèse
- */
-
+/** UE14 – Chimie générale – Chapitre 1.2 – Synthèse */
 export const UE14_CH2_SYNTHESIS_PRACTICE_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
-    order: 51,
-    difficulty: 'MEDIUM',
-    format: 'QROC',
-    question: `Dans le sérum physiologique décrit dans l'énoncé commun, combien d'électrons possède l'ion $\\ce{Na+}$ ?`,
-    answer: { type: 'number', value: 10, tolerance: 0 },
-    explanation:
-      `Le sodium possède $\\mathrm{Z}=11$ et perd un électron pour former $\\ce{Na+}$ : il reste 10 électrons.`,
+    "order": 51,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Dans le sérum physiologique, combien d'électrons possède l'ion $\\ce{Na+}$ si $Z(\\ce{Na})=11$ ?",
+    "answer": {
+      "type": "number",
+      "value": 10,
+      "tolerance": 0
+    },
+    "explanation": "Le sodium perd un électron."
   },
   {
-    order: 52,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `Concernant le chlorure de sodium de l'énoncé commun, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 52,
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "question": "Concernant le chlorure de sodium dissous dans l'eau, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `$\\ce{Na+}$ et $\\ce{Cl-}$ portent des charges opposées.`,
-        correct: true,
-        explanation: `Le sodium forme un cation et le chlore un anion.`,
+        "content": "$\\ce{Na+}$ et $\\ce{Cl-}$ possèdent chacun 18 électrons.",
+        "correct": false,
+        "explanation": "Na+ en possède 10 ; Cl− en possède 18."
       },
       {
-        content: `L'ensemble $\\ce{NaCl}$ est électriquement neutre.`,
-        correct: true,
-        explanation: `Les charges $+1$ et $-1$ se compensent.`,
+        "content": "Le sodium a perdu un électron lors de la formation de $\\ce{Na+}$.",
+        "correct": true,
+        "explanation": "La charge +1 correspond à cette perte."
       },
       {
-        content: `Le chlore a perdu un électron pour former $\\ce{Cl-}$.`,
-        correct: false,
-        explanation: `Il a gagné un électron.`,
+        "content": "Le chlore devient cationique en gagnant un électron.",
+        "correct": false,
+        "explanation": "Il devient anionique."
       },
       {
-        content: `Le sodium est plus électronégatif que le chlore.`,
-        correct: false,
-        explanation: `Le chlore est nettement plus électronégatif.`,
+        "content": "La solution contient des ions $\\ce{Na+}$ et $\\ce{Cl-}$.",
+        "correct": true,
+        "explanation": "Le solide ionique se dissocie en solution."
       },
+      {
+        "content": "La somme des charges positives et négatives reste globalement nulle.",
+        "correct": true,
+        "explanation": "La solution macroscopique est électroneutre."
+      }
     ],
-    explanation:
-      `Le chlorure de sodium relie formation des ions, électroneutralité et différence d'électronégativité.`,
+    "explanation": "Le sérum physiologique offre un exemple simple d'ions stables et d'électroneutralité macroscopique.",
+    "requiredSelectionCount": 3
   },
   {
-    order: 53,
-    difficulty: 'MEDIUM',
-    format: 'QRU',
-    question: `Lors de la formation de $\\ce{NH4+}$ à partir de $\\ce{NH3}$ et $\\ce{H+}$, quelle espèce fournit le doublet de la nouvelle liaison ?`,
-    choices: [
-      { content: `$\\ce{NH3}$.`, correct: true, explanation: `Le doublet non liant de l'azote est donné à $\\ce{H+}$.` },
-      { content: `$\\ce{H+}$.`, correct: false, explanation: `$\\ce{H+}$ ne possède pas d'électron à fournir.` },
-      { content: `$\\ce{NH4+}$.`, correct: false, explanation: `Il s'agit du produit formé.` },
-      { content: `Un ion chlorure.`, correct: false, explanation: `Il n'intervient pas dans cette transformation.` },
+    "order": 53,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "À propos de la formation de l'ion ammonium $\\ce{NH4+}$, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Les quatre liaisons N–H de $\\ce{NH4+}$ sont équivalentes.",
+        "correct": true,
+        "explanation": "Le mécanisme de formation ne crée pas une liaison durablement différente."
+      },
+      {
+        "content": "$\\ce{H+}$ agit comme accepteur de doublet.",
+        "correct": true,
+        "explanation": "Le proton reçoit le doublet."
+      },
+      {
+        "content": "Le mécanisme impose une rupture homolytique.",
+        "correct": false,
+        "explanation": "Il s'agit d'une formation de liaison."
+      },
+      {
+        "content": "$\\ce{NH4+}$ est un anion.",
+        "correct": false,
+        "explanation": "Sa charge est positive."
+      },
+      {
+        "content": "$\\ce{NH3}$ fournit un doublet au proton.",
+        "correct": true,
+        "explanation": "L'ammoniac agit comme base de Lewis."
+      }
     ],
-    explanation:
-      `L'ammoniac est le donneur de doublet et le proton l'accepteur. Après formation, les quatre liaisons N–H de l'ammonium sont équivalentes.`,
+    "explanation": "Cet exemple relie acidobasicité de Lewis et liaison de coordination."
   },
   {
-    order: 54,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `Le peroxyde d'hydrogène $\\ce{H2O2}$ contient une liaison $\\ce{O-O}$ simple. Quelles propositions sont exactes ?`,
-    choices: [
+    "order": 54,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant le peroxyde d'hydrogène $\\ce{H-O-O-H}$, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `La liaison $\\ce{O-O}$ est une liaison $\\sigma$.`,
-        correct: true,
-        explanation: `Une liaison simple est une liaison sigma.`,
+        "content": "La molécule possède trois liaisons sigma.",
+        "correct": true,
+        "explanation": "Deux O–H et une O–O."
       },
       {
-        content: `Chaque atome d'oxygène possède des doublets non liants.`,
-        correct: true,
-        explanation: `Une partie de ses électrons de valence reste non liante.`,
+        "content": "La liaison O–O est une liaison triple.",
+        "correct": false,
+        "explanation": "C'est une liaison simple."
       },
       {
-        content: `La liaison $\\ce{O-O}$ comporte nécessairement une composante $\\pi$.`,
-        correct: false,
-        explanation: `Une liaison simple ne comporte pas de liaison pi.`,
+        "content": "La molécule ne possède aucun doublet non liant.",
+        "correct": false,
+        "explanation": "Elle en possède quatre au total."
       },
       {
-        content: `La molécule ne contient aucun électron non liant.`,
-        correct: false,
-        explanation: `Les oxygènes portent des doublets non liants.`,
+        "content": "Les liaisons O–H sont polarisées vers l'oxygène.",
+        "correct": true,
+        "explanation": "O est plus électronégatif que H."
       },
+      {
+        "content": "Chaque oxygène porte deux doublets non liants dans la structure de Lewis neutre usuelle.",
+        "correct": true,
+        "explanation": "Chaque O complète son octet."
+      }
     ],
-    explanation:
-      `La structure de $\\ce{H2O2}$ mobilise à la fois liaison sigma et doublets non liants.`,
+    "explanation": "Le peroxyde d'hydrogène réunit liaisons sigma, doublets non liants et polarisation."
   },
   {
-    order: 55,
-    difficulty: 'MEDIUM',
-    format: 'QROC',
-    question:
-      `L'acide chlorhydrique participe à l'acidité gastrique. Pour une liaison $\\ce{H-Cl}$, on mesure $\\mu=3{,}2\\times10^{-30}\\,\\mathrm{C\\cdot m}$ et $d=160\\,\\mathrm{pm}$. Avec $e=1{,}60\\times10^{-19}\\,\\mathrm{C}$, quelle est la charge partielle $\\delta$ exprimée en fraction de $e$ ?`,
-    answer: { type: 'number', value: 0.125, tolerance: 0.01 },
-    explanation:
-      `$d=1{,}60\\times10^{-10}\\,\\mathrm{m}$ ; $\\delta=\\mu/d=2{,}0\\times10^{-20}\\,\\mathrm{C}$ ; donc $\\delta/e=0{,}125$, soit environ $0{,}13e$.`,
+    "order": 55,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Une liaison H–Cl a un moment dipolaire $\\mu=1{,}08\\,\\mathrm D$ et une longueur $d=127\\,\\mathrm{pm}$. Avec $1\\,\\mathrm D=3{,}34\\times10^{-30}\\,\\mathrm{C\\,m}$, quelle charge partielle q obtient-on en coulombs ?",
+    "answer": {
+      "type": "number",
+      "value": 2.84e-20,
+      "tolerance": 4e-22
+    },
+    "explanation": "q=$\\mu/d=(1{,}08\\times3{,}34\\times10^{-30})/(127\\times10^{-12})\\approx2{,}84\\times10^{-20}\\,\\mathrm C$."
   },
   {
-    order: 56,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `Concernant le cisplatine, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 56,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant le cisplatine, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Le platine constitue un centre accepteur dans des liaisons de coordination.`,
-        correct: true,
-        explanation: `Les ligands lui fournissent des doublets électroniques.`,
+        "content": "$\\ce{NH3}$ agit comme ligand donneur via l'azote.",
+        "correct": true,
+        "explanation": "Le doublet non liant de N participe à la coordination."
       },
       {
-        content: `Des atomes d'azote de l'ADN peuvent devenir des ligands du platine.`,
-        correct: true,
-        explanation: `La fiche cite notamment des azotes de bases nucléiques.`,
+        "content": "Le complexe possède une géométrie carrée plane autour de Pt(II).",
+        "correct": true,
+        "explanation": "C'est la géométrie caractéristique du cisplatine."
       },
       {
-        content: `La fixation du platine sur l'ADN peut perturber réplication et transcription.`,
-        correct: true,
-        explanation: `La modification de la conformation de l'ADN est à l'origine de cet effet.`,
+        "content": "Le platine est un accepteur de doublets électroniques.",
+        "correct": true,
+        "explanation": "Le centre métallique reçoit des doublets des ligands."
       },
       {
-        content: `Le mécanisme décrit repose uniquement sur la formation d'anions chlorure sans coordination.`,
-        correct: false,
-        explanation: `Le point central du mécanisme présenté est la substitution de ligands et la coordination à l'ADN.`,
+        "content": "Les deux chlorures sont absents de la sphère de coordination.",
+        "correct": false,
+        "explanation": "Ils coordonnent directement le platine."
       },
+      {
+        "content": "Le cisplatine agit uniquement par rupture homolytique de l'eau.",
+        "correct": false,
+        "explanation": "Son mécanisme repose notamment sur aquation puis liaison à l'ADN."
+      }
     ],
-    explanation:
-      `Le cisplatine constitue un exemple pharmaceutique direct de liaison de coordination et de substitution de ligands.`,
+    "explanation": "Le cisplatine permet d'appliquer les notions de ligand, centre accepteur et géométrie de coordination."
   },
   {
-    order: 57,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `Dans l'hémoglobine, quelles propositions sont exactes concernant le fer de l'hème ?`,
-    choices: [
+    "order": 57,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant la fixation du dioxygène à l'hémoglobine, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Le fer $\\ce{Fe^2+}$ est un centre métallique de coordination.`,
-        correct: true,
-        explanation: `Il accepte des doublets fournis par les ligands.`,
+        "content": "$\\ce{O2}$ peut occuper une sixième position de coordination.",
+        "correct": true,
+        "explanation": "La liaison est réversible."
       },
       {
-        content: `Quatre azotes de l'hème et un azote d'histidine occupent cinq positions de coordination.`,
-        correct: true,
-        explanation: `La sixième position peut accueillir transitoirement le dioxygène.`,
+        "content": "Le fer n'a aucun rôle dans la fixation du dioxygène.",
+        "correct": false,
+        "explanation": "Il est au centre du site de fixation."
       },
       {
-        content: `Le dioxygène est fixé de façon irréversible sur la sixième position.`,
-        correct: false,
-        explanation: `La fixation est réversible afin de permettre capture et libération de l'oxygène.`,
+        "content": "La fixation de $\\ce{O2}$ nécessite la rupture du noyau de fer.",
+        "correct": false,
+        "explanation": "Aucune transformation nucléaire."
       },
       {
-        content: `Le fer ne peut établir qu'une seule liaison de coordination.`,
-        correct: false,
-        explanation: `La fiche en décrit jusqu'à six.`,
+        "content": "Une histidine proximale fournit également un ligand azoté.",
+        "correct": true,
+        "explanation": "Elle constitue la cinquième coordination."
       },
+      {
+        "content": "Le fer de l'hème est coordonné par les azotes de la porphyrine.",
+        "correct": true,
+        "explanation": "Quatre azotes forment le plan de coordination."
+      }
     ],
-    explanation:
-      `L'hémoglobine illustre une métalloprotéine dans laquelle un centre ferreux établit plusieurs liaisons de coordination.`,
+    "explanation": "La coordination relie directement chimie de Lewis et fonction biologique de l'hémoglobine."
   },
   {
-    order: 58,
-    difficulty: 'MEDIUM',
-    format: 'QRU',
-    question: `Quelle conséquence de la mésomérie de la liaison peptidique est correcte ?`,
-    choices: [
+    "order": 58,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Pourquoi la liaison peptidique présente-t-elle un caractère partiel de double liaison ?",
+    "choices": [
       {
-        content: `La liaison $\\ce{C-N}$ acquiert un caractère partiel de double liaison, ce qui limite sa rotation.`,
-        correct: true,
-        explanation: `La délocalisation électronique rigidifie localement le groupement amide.`,
+        "content": "La liaison C–N est une liaison ionique pure.",
+        "correct": false,
+        "explanation": "Elle est covalente avec délocalisation."
       },
       {
-        content: `La liaison $\\ce{C-N}$ devient une liaison ionique pure.`,
-        correct: false,
-        explanation: `La mésomérie ne transforme pas l'amide en liaison ionique pure.`,
+        "content": "Le doublet de l'azote peut se délocaliser vers le carbonyle.",
+        "correct": true,
+        "explanation": "La mésomérie répartit la densité électronique."
       },
       {
-        content: `Les atomes du groupement changent en permanence de position entre deux molécules différentes.`,
-        correct: false,
-        explanation: `Les formes mésomères ne correspondent pas à des molécules distinctes.`,
+        "content": "La rotation autour de C–N est limitée.",
+        "correct": true,
+        "explanation": "Le caractère de double liaison augmente la rigidité."
       },
       {
-        content: `La mésomérie rend la rotation autour de $\\ce{C-N}$ totalement libre.`,
-        correct: false,
-        explanation: `Elle la limite au contraire.`,
+        "content": "Des formes mésomères contribuent à la structure réelle.",
+        "correct": true,
+        "explanation": "La liaison C–N est intermédiaire entre simple et double."
       },
+      {
+        "content": "Le phénomène exige une rupture permanente de C–N.",
+        "correct": false,
+        "explanation": "La mésomérie ne correspond pas à une rupture."
+      }
     ],
-    explanation:
-      `La liaison peptidique est stabilisée par délocalisation électronique ; le caractère partiel de double liaison contribue à sa planéité et à sa faible liberté de rotation.`,
+    "explanation": "Cette délocalisation explique la planéité locale du squelette peptidique."
   },
   {
-    order: 59,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `Dans la radiolyse de l'eau décrite dans l'énoncé commun, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 59,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Lors d'une radiolyse de l'eau, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Le rayonnement peut fournir l'énergie nécessaire à la rupture d'une liaison $\\ce{O-H}$.`,
-        correct: true,
-        explanation: `La fiche cite notamment les rayonnements gamma, X ou UV comme sources d'énergie.`,
+        "content": "Une rupture homolytique partage les électrons du doublet entre les deux fragments.",
+        "correct": true,
+        "explanation": "Chaque fragment reçoit un électron."
       },
       {
-        content: `La rupture homolytique peut former $\\ce{HO.}$ et $\\ce{H.}$.`,
-        correct: true,
-        explanation: `Chaque fragment récupère un électron de la liaison.`,
+        "content": "La chimie radicalaire est sans conséquence biologique.",
+        "correct": false,
+        "explanation": "Elle peut contribuer aux lésions cellulaires."
       },
       {
-        content: `Les radicaux formés sont généralement très réactifs.`,
-        correct: true,
-        explanation: `Ils possèdent un électron célibataire.`,
+        "content": "Une homolyse produit nécessairement deux ions de charges opposées.",
+        "correct": false,
+        "explanation": "Cela correspond plutôt à une hétérolyse."
       },
       {
-        content: `Le radical hydroxyle correspond à un ion hydroxyle $\\ce{OH-}$.`,
-        correct: false,
-        explanation: `Un radical et un anion sont deux espèces différentes.`,
+        "content": "Le radical hydroxyle est très réactif.",
+        "correct": true,
+        "explanation": "Il peut oxyder rapidement des biomolécules."
       },
+      {
+        "content": "Des radicaux peuvent être générés.",
+        "correct": true,
+        "explanation": "Les rayonnements ionisants peuvent provoquer des homolyses."
+      }
     ],
-    explanation:
-      `La radiolyse relie énergie de liaison, rupture homolytique et formation d'espèces radicalaires très réactives.`,
+    "explanation": "La radiolyse met en évidence le lien entre énergie de liaison et réactivité radicalaire."
   },
   {
-    order: 60,
-    difficulty: 'MEDIUM',
-    format: 'QROC',
-    question:
-      `Pour une énergie de dissociation $E_{\\ce{O-H}}=${texQuantity(460, U.KJ_PER_MOL)}$, quelle énergie correspond à une mole de liaisons en joules ?`,
-    answer: { type: 'number', value: 460000, tolerance: 1000 },
-    explanation:
-      `Il suffit de convertir les kilojoules en joules : $460\\times10^3=${texQuantity('4{,}60\\times10^5', U.J_PER_MOL)}$.`,
-  },
+    "order": 60,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "L'énergie de dissociation d'une liaison O–H vaut $460\\,\\mathrm{kJ\\,mol^{-1}}$. Avec $N_A=6{,}0\\times10^{23}\\,\\mathrm{mol^{-1}}$, quelle énergie moyenne correspond à une liaison en joules ?",
+    "answer": {
+      "type": "number",
+      "value": 7.67e-19,
+      "tolerance": 8e-21
+    },
+    "explanation": "$460000/(6{,}0\\times10^{23})\\approx7{,}67\\times10^{-19}\\,\\mathrm J$ par liaison."
+  }
 ];
 
 export const UE14_CH2_SYNTHESIS_MASTER_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
-    order: 34,
-    difficulty: 'HARD',
-    format: 'QRM',
-    question: `À propos du chlore ($\\mathrm{Z}=17$), quelles propositions sont exactes ?`,
-    choices: [
+    "order": 34,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Concernant le chlore ($Z=17$), quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Sa configuration électronique fondamentale se termine par $3\\mathrm{s}^2\,3\\mathrm{p}^5$.`,
-        correct: true,
-        explanation: `Le chlore possède 17 électrons à l'état neutre.`,
+        "content": "$\\ce{Cl-}$ possède 18 électrons.",
+        "correct": true,
+        "explanation": "17+1=18."
       },
       {
-        content: `Il appartient à la famille des halogènes.`,
-        correct: true,
-        explanation: `Le chlore se situe en colonne 17.`,
+        "content": "Il tend souvent à former $\\ce{Cl-}$ en gagnant un électron.",
+        "correct": true,
+        "explanation": "Il atteint alors la configuration de l'argon."
       },
       {
-        content: `Il est moins électronégatif que le brome situé plus bas dans la même colonne.`,
-        correct: false,
-        explanation: `L'électronégativité diminue en descendant une colonne : le chlore est donc plus électronégatif que le brome.`,
+        "content": "Sa configuration externe est $3s^2 3p^5$.",
+        "correct": true,
+        "explanation": "Le chlore est un halogène."
       },
       {
-        content: `L'ion $\\ce{Cl-}$ possède 18 électrons.`,
-        correct: true,
-        explanation: `Le chlore gagne un électron pour atteindre la configuration de l'argon.`,
+        "content": "L'atome neutre possède 17 électrons.",
+        "correct": true,
+        "explanation": "Neutralité : 17 protons et 17 électrons."
       },
+      {
+        "content": "Il est moins électronégatif que le sodium.",
+        "correct": false,
+        "explanation": "Le chlore est nettement plus électronégatif."
+      }
     ],
-    explanation:
-      `Cette question associe configuration électronique, classification, électronégativité et formation d'un anion.`,
+    "explanation": "Une même espèce permet de relier configuration, famille, électronégativité et formation d'ion."
   },
   {
-    order: 42,
-    difficulty: 'HARD',
-    format: 'QROC',
-    question: `Le fluor possède $\\mathrm{Z}=9$. Combien d'électrons possède l'ion fluorure $\\ce{F-}$ utilisé dans le contexte de prévention dentaire de l'énoncé commun ?`,
-    answer: { type: 'number', value: 10, tolerance: 0 },
-    explanation:
-      `L'ion fluorure a gagné un électron : $9+1=10$. Il est isoélectronique du néon.`,
+    "order": 42,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Le fluor possède $Z=9$. Combien d'électrons possède $\\ce{F-}$ ?",
+    "answer": {
+      "type": "number",
+      "value": 10,
+      "tolerance": 0
+    },
+    "explanation": "Le fluorure a gagné un électron et devient isoélectronique du néon."
   },
   {
-    order: 43,
-    difficulty: 'HARD',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `À propos des espèces de l'énoncé commun, sélectionnez exactement les deux propositions correctes.`,
-    choices: [
+    "order": 43,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "On prend $\\chi(\\ce{Na})=0{,}9$ et $\\chi(\\ce{F})=4{,}0$. Quelles propositions sont exactes pour NaF ?",
+    "choices": [
       {
-        content: `Dans $\\ce{NaF}$, le sodium tend à former $\\ce{Na+}$ et le fluor $\\ce{F-}$.`,
-        correct: true,
-        explanation: `Le sodium perd un électron tandis que le fluor en gagne un.`,
+        "content": "Le fluor attire fortement la densité électronique.",
+        "correct": true,
+        "explanation": "Il est beaucoup plus électronégatif."
       },
       {
-        content: `La grande différence d'électronégativité entre Na et F favorise un caractère ionique marqué.`,
-        correct: true,
-        explanation: `Le sodium est peu électronégatif et le fluor très électronégatif.`,
+        "content": "La liaison doit être considérée comme parfaitement covalente apolaire.",
+        "correct": false,
+        "explanation": "La différence d'électronégativité est au contraire très forte."
       },
       {
-        content: `Le fluor forme préférentiellement le cation $\\ce{F+}$.`,
-        correct: false,
-        explanation: `Il tend au contraire à gagner un électron.`,
+        "content": "Le sodium porte la charge négative dans le cristal.",
+        "correct": false,
+        "explanation": "Le sodium forme le cation."
       },
       {
-        content: `Le sodium est plus électronégatif que le fluor.`,
-        correct: false,
-        explanation: `Le fluor est l'élément le plus électronégatif de l'échelle présentée.`,
+        "content": "Le modèle ionique $\\ce{Na+F-}$ est pertinent.",
+        "correct": true,
+        "explanation": "Le transfert électronique est fortement favorisé dans le modèle simple."
       },
+      {
+        "content": "La différence d'électronégativité est très grande.",
+        "correct": true,
+        "explanation": "$\\Delta\\chi\\approx3{,}1$."
+      }
     ],
-    explanation:
-      `La formation de fluorures permet de relier transfert électronique, configuration de gaz rare et forte différence d'électronégativité.`,
+    "explanation": "Le caractère ionique ou covalent est un continuum ; NaF se situe très près du modèle ionique."
   },
   {
-    order: 44,
-    difficulty: 'HARD',
-    format: 'QRM',
-    question: `Concernant une liaison amide comme la liaison peptidique, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 44,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Concernant la liaison peptidique, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `La mésomérie délocalise des électrons sur le groupement $\\ce{O-C-N}$.`,
-        correct: true,
-        explanation: `Le doublet de l'azote participe à cette délocalisation.`,
+        "content": "La mésomérie délocalise le doublet de l'azote vers le carbonyle.",
+        "correct": true,
+        "explanation": "C'est la contribution électronique essentielle."
       },
       {
-        content: `La liaison $\\ce{C-N}$ acquiert un caractère partiel de double liaison.`,
-        correct: true,
-        explanation: `Cette conséquence explique sa rotation limitée.`,
+        "content": "La liaison C–N possède un caractère partiel de double liaison.",
+        "correct": true,
+        "explanation": "Elle est plus courte et plus rigide qu'une C–N simple ordinaire."
       },
       {
-        content: `La mésomérie impose le déplacement des atomes entre les formes canoniques.`,
-        correct: false,
-        explanation: `L'enchaînement atomique reste inchangé.`,
+        "content": "L'azote amide est généralement plus basique qu'une amine aliphatique ordinaire.",
+        "correct": false,
+        "explanation": "Son doublet est délocalisé et moins disponible."
       },
       {
-        content: `La délocalisation contribue à la planéité locale du groupement amide.`,
-        correct: true,
-        explanation: `C'est une conséquence structurale indiquée dans la fiche.`,
+        "content": "Le groupement peptidique est approximativement plan.",
+        "correct": true,
+        "explanation": "La rotation C–N est restreinte."
       },
+      {
+        "content": "La mésomérie implique le déplacement des noyaux entre plusieurs structures.",
+        "correct": false,
+        "explanation": "Les formes limites diffèrent par la distribution électronique."
+      }
     ],
-    explanation:
-      `La liaison peptidique constitue un exemple biomoléculaire majeur de mésomérie et de délocalisation électronique.`,
+    "explanation": "La structure de la liaison peptidique illustre les conséquences géométriques de la délocalisation électronique."
   },
   {
-    order: 45,
-    difficulty: 'HARD',
-    format: 'QROC',
-    question:
-      `Pour une liaison $\\ce{H-Cl}$, on mesure $\\mu=3{,}2\\times10^{-30}\\,\\mathrm{C\\cdot m}$ et $d=160\\,\\mathrm{pm}$. Avec $e=1{,}60\\times10^{-19}\\,\\mathrm{C}$, quelle est la charge partielle en fraction de $e$ ?`,
-    answer: { type: 'number', value: 0.125, tolerance: 0.01 },
-    explanation:
-      `$d=1{,}60\\times10^{-10}\\,\\mathrm{m}$ ; $\\delta=\\mu/d=2{,}0\\times10^{-20}\\,\\mathrm{C}$ ; $\\delta/e=0{,}125$.`,
+    "order": 45,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Pour H–Cl, on donne $\\mu=1{,}08\\,\\mathrm D$, $d=127\\,\\mathrm{pm}$ et $e=1{,}60\\times10^{-19}\\,\\mathrm C$. La charge partielle calculée vaut environ $2{,}84\\times10^{-20}\\,\\mathrm C$. Quelle fraction de la charge élémentaire e cela représente-t-il ?",
+    "answer": {
+      "type": "number",
+      "value": 0.178,
+      "tolerance": 0.005
+    },
+    "explanation": "$2{,}84\\times10^{-20}/1{,}60\\times10^{-19}\\approx0{,}178$ ; la liaison est polarisée mais ne correspond pas à un transfert d'une charge entière."
   },
   {
-    order: 46,
-    difficulty: 'HARD',
-    format: 'QROC',
-    question: `Dans l'hémoglobine de l'énoncé commun, combien de positions de coordination autour du fer sont occupées par des atomes d'azote de l'hème ou de l'histidine ?`,
-    answer: { type: 'number', value: 5, tolerance: 0 },
-    explanation:
-      `Quatre azotes appartiennent à l'hème et un cinquième à une histidine. La sixième position peut fixer $\\ce{O2}$ ou être occupée par un ligand concurrent.`,
-  },
-  {
-    order: 47,
-    difficulty: 'HARD',
-    format: 'QRM',
-    question: `Lorsque le monoxyde de carbone entre en compétition avec le dioxygène sur l'hème, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 46,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Dans l'hémoglobine oxygénée, quelles propositions sur la coordination du fer sont exactes ?",
+    "choices": [
       {
-        content: `Il s'agit d'une substitution de ligand sur une position de coordination du fer.`,
-        correct: true,
-        explanation: `Le ligand occupant la position est remplacé.`,
+        "content": "Le dioxygène occupe la sixième position disponible.",
+        "correct": true,
+        "explanation": "Il se fixe de manière réversible."
       },
       {
-        content: `Le CO agit comme donneur de doublet et le fer comme accepteur.`,
-        correct: true,
-        explanation: `C'est le schéma général d'une liaison de coordination.`,
+        "content": "Quatre azotes de la porphyrine coordonnent le fer.",
+        "correct": true,
+        "explanation": "Ils forment quatre liaisons de coordination dans le plan."
       },
       {
-        content: `Le changement de ligand impose nécessairement le passage de $\\ce{Fe^2+}$ à $\\ce{Fe^3+}$.`,
-        correct: false,
-        explanation: `Une substitution de ligand ne suppose pas à elle seule un changement d'état d'oxydation.`,
+        "content": "Un azote d'histidine proximale fournit une cinquième coordination.",
+        "correct": true,
+        "explanation": "Il relie le fer à la globine."
       },
       {
-        content: `Une liaison Fe–CO plus stable rendrait sa dissociation plus facile.`,
-        correct: false,
-        explanation: `Une liaison plus stable se dissocie moins facilement.`,
+        "content": "Six atomes d'oxygène de la porphyrine coordonnent le fer.",
+        "correct": false,
+        "explanation": "La porphyrine coordonne par des azotes."
       },
+      {
+        "content": "Le fer n'est lié à aucun ligand azoté.",
+        "correct": false,
+        "explanation": "Les ligands azotés sont essentiels."
+      }
     ],
-    explanation:
-      `La compétition CO/O2 illustre la réversibilité des liaisons de coordination et la substitution de ligands autour du fer.`,
+    "explanation": "La coordination octaédrique déformée autour du fer permet de relier structure moléculaire et fonction respiratoire."
   },
   {
-    order: 35,
-    difficulty: 'HARD',
-    format: 'QRM',
-    question:
-      `Le cisplatine peut substituer des ligands chlorure par des atomes d'azote de l'ADN. Quelles propositions sont exactes ?`,
-    choices: [
+    "order": 47,
+    "difficulty": "HARD",
+    "format": "QRU",
+    "question": "Pourquoi le monoxyde de carbone est-il dangereux pour le transport de l'oxygène par l'hémoglobine ?",
+    "choices": [
       {
-        content: `Le platine constitue le centre accepteur de doublets.`,
-        correct: true,
-        explanation: `Il reçoit des doublets provenant des ligands.`,
+        "content": "Il supprime tous les électrons de l'hémoglobine.",
+        "correct": false,
+        "explanation": "Ce n'est pas le mécanisme."
       },
       {
-        content: `Les azotes des bases nucléiques peuvent agir comme donneurs.`,
-        correct: true,
-        explanation: `Ils disposent de doublets susceptibles de coordonner le platine.`,
+        "content": "Il détruit immédiatement le noyau de fer.",
+        "correct": false,
+        "explanation": "Le mécanisme est chimique, pas nucléaire."
       },
       {
-        content: `La substitution de ligands modifie la coordination sans nécessiter la rupture du squelette covalent de l'ADN.`,
-        correct: true,
-        explanation: `Le mécanisme présenté concerne la fixation du platine sur des sites azotés.`,
+        "content": "Il rend l'oxygène plus électronégatif que le fluor.",
+        "correct": false,
+        "explanation": "Cette affirmation est sans rapport."
       },
       {
-        content: `Le platine doit gagner trois électrons pour former chacune de ses liaisons de coordination.`,
-        correct: false,
-        explanation: `La liaison se forme par donation d'un doublet par le ligand.`,
+        "content": "Il transforme tous les ions fer en sodium.",
+        "correct": false,
+        "explanation": "Aucune transmutation n'a lieu."
       },
+      {
+        "content": "Il se lie fortement au fer de l'hème et concurrence la fixation de $\\ce{O2}$.",
+        "correct": true,
+        "explanation": "Cette compétition réduit la capacité de transport de l'oxygène."
+      }
     ],
-    explanation:
-      `Le cisplatine permet de mobiliser la notion de ligand donneur, centre métallique accepteur et substitution de coordination dans un contexte pharmacologique.`,
+    "explanation": "L'affinité élevée du CO pour l'hème permet d'illustrer l'importance biologique de la coordination compétitive."
   },
   {
-    order: 48,
-    difficulty: 'HARD',
-    format: 'QROC',
-    question:
-      `On donne $E_{\\ce{O-H}}=${texQuantity(460, U.KJ_PER_MOL)}$ et $N_{\\mathrm A}=${texQuantity('6{,}0\\times10^{23}', U.MOL_INV)}$. Quelle énergie moyenne faut-il fournir pour rompre une seule liaison $\\ce{O-H}$, en joules ?`,
-    answer: { type: 'number', value: 7.67e-19, tolerance: 0.15e-19 },
-    explanation:
-      `Une mole correspond à $4{,}60\\times10^5\\,\\mathrm{J}$. Pour une seule liaison : $4{,}60\\times10^5/(6{,}0\\times10^{23})\\approx7{,}7\\times10^{-19}\\,\\mathrm{J}$.`,
+    "order": 48,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Avec $E_{\\ce{O-H}}=460\\,\\mathrm{kJ\\,mol^{-1}}$ et $N_A=6{,}0\\times10^{23}\\,\\mathrm{mol^{-1}}$, quelle énergie vaut une liaison O–H en joules ?",
+    "answer": {
+      "type": "number",
+      "value": 7.67e-19,
+      "tolerance": 8e-21
+    },
+    "explanation": "On convertit d'abord 460 kJ en 460000 J puis on divise par le nombre d'Avogadro."
   },
   {
-    order: 49,
-    difficulty: 'HARD',
-    format: 'QRM',
-    question: `À propos de la radiolyse de l'eau et des radicaux libres, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 49,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Concernant les conséquences chimiques d'une rupture homolytique d'une liaison O–H, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Une rupture homolytique partage les deux électrons de liaison entre les deux fragments.`,
-        correct: true,
-        explanation: `Chaque fragment récupère un électron.`,
+        "content": "Elle ne nécessite aucune énergie.",
+        "correct": false,
+        "explanation": "Rompre une liaison demande un apport énergétique."
       },
       {
-        content: `Le radical hydroxyle peut participer à des réactions dommageables pour des biomolécules.`,
-        correct: true,
-        explanation: `La fiche cite notamment les acides gras insaturés et l'ADN comme cibles possibles.`,
+        "content": "Elle peut produire des radicaux.",
+        "correct": true,
+        "explanation": "Chaque fragment reçoit un électron."
       },
       {
-        content: `Un radical est nécessairement un anion.`,
-        correct: false,
-        explanation: `La présence d'un électron célibataire ne détermine pas une charge négative.`,
+        "content": "Le radical hydroxyle peut oxyder des constituants cellulaires.",
+        "correct": true,
+        "explanation": "Sa réactivité est très élevée."
       },
       {
-        content: `La forte réactivité des radicaux est liée à la présence d'un électron célibataire.`,
-        correct: true,
-        explanation: `Cette configuration favorise leur réactivité.`,
+        "content": "Elle conduit nécessairement à deux ions stables.",
+        "correct": false,
+        "explanation": "Une homolyse produit d'abord des radicaux."
       },
+      {
+        "content": "Les radicaux formés peuvent amorcer des réactions en chaîne.",
+        "correct": true,
+        "explanation": "Un radical peut générer un nouveau radical lors d'une réaction."
+      }
     ],
-    explanation:
-      `Les rayonnements peuvent provoquer des ruptures homolytiques et générer des radicaux particulièrement réactifs dans les milieux biologiques.`,
+    "explanation": "La rupture homolytique est la porte d'entrée de nombreuses réactions radicalaires."
   },
   {
-    order: 65,
-    difficulty: 'HARD',
-    format: 'QRPL',
-    requiredSelectionCount: 5,
-    question: `Dans le cadre simplifié du cours, sélectionnez exactement les cinq espèces citées comme accepteurs possibles de doublets dans des liaisons de coordination.`,
-    choices: [
-      { content: `$\\ce{H+}$.`, correct: true, explanation: `Accepteur cité dans la fiche.` },
-      { content: `$\\ce{Ca^2+}$.`, correct: true, explanation: `Ion métallique accepteur cité.` },
-      { content: `$\\ce{Fe^2+}$.`, correct: true, explanation: `Ion métallique accepteur cité.` },
-      { content: `$\\ce{Zn^2+}$.`, correct: true, explanation: `Ion métallique accepteur cité.` },
-      { content: `$\\ce{Mn^2+}$.`, correct: true, explanation: `Ion métallique accepteur cité.` },
-      { content: `$\\ce{NH3}$.`, correct: false, explanation: `L'ammoniac est plutôt illustré comme donneur de doublet.` },
-      { content: `$\\ce{H2O}$.`, correct: false, explanation: `L'oxygène de l'eau peut agir comme donneur ; ce n'est pas l'accepteur cité ici.` },
-      { content: `$\\ce{Cl-}$.`, correct: false, explanation: `Un anion chlorure n'est pas dans la liste d'accepteurs donnée.` },
-      { content: `$\\ce{O2}$.`, correct: false, explanation: `Le dioxygène est présenté comme ligand sur l'hème, donc donneur dans ce cadre de coordination.` },
-      { content: `$\\ce{CO}$.`, correct: false, explanation: `Le CO est présenté comme ligand concurrent du dioxygène, donc donneur au fer.` },
+    "order": 35,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Concernant le cisplatine et sa coordination à l'ADN, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Après activation en milieu aqueux, des ligands chlorure peuvent être remplacés.",
+        "correct": true,
+        "explanation": "L'aquation facilite ensuite la liaison à l'ADN."
+      },
+      {
+        "content": "Le mécanisme principal nécessite une rupture homolytique du noyau de platine.",
+        "correct": false,
+        "explanation": "Il s'agit d'une chimie de substitution de ligands."
+      },
+      {
+        "content": "Le platine(II) est un centre accepteur de doublets.",
+        "correct": true,
+        "explanation": "Il forme des liaisons de coordination avec les ligands."
+      },
+      {
+        "content": "Le cisplatine ne contient aucun ligand ammoniac.",
+        "correct": false,
+        "explanation": "Il contient deux ligands $\\ce{NH3}$."
+      },
+      {
+        "content": "Les atomes d'azote de bases nucléiques, notamment N7 de la guanine, peuvent coordonner le platine.",
+        "correct": true,
+        "explanation": "Cela conduit à des adduits de l'ADN."
+      }
     ],
-    explanation:
-      `La fiche cite notamment $\\ce{H+}$ et plusieurs cations métalliques comme accepteurs disposant d'orbitales disponibles pour recevoir des doublets.`,
+    "explanation": "Le cisplatine relie chimie de coordination, substitution de ligands et effet pharmacologique."
   },
   {
-    order: 66,
-    difficulty: 'HARD',
-    format: 'QROC',
-    question:
-      `On mesure pour une liaison polarisée $\\mu=6{,}4\\times10^{-30}\\,\\mathrm{C\\cdot m}$ et $d=160\\,\\mathrm{pm}$. Avec $e=1{,}60\\times10^{-19}\\,\\mathrm{C}$, quelle est la charge partielle $\\delta$ exprimée en fraction de $e$ ?`,
-    answer: { type: 'number', value: 0.25, tolerance: 0.01 },
-    explanation:
-      `$d=1{,}60\\times10^{-10}\\,\\mathrm{m}$ ; $\\delta=\\mu/d=4{,}0\\times10^{-20}\\,\\mathrm{C}$ ; puis $\\delta/e=0{,}25$.`,
+    "order": 65,
+    "difficulty": "HARD",
+    "format": "QRP",
+    "question": "Parmi les espèces suivantes, lesquelles peuvent agir comme accepteurs de doublet dans une description de Lewis ?",
+    "choices": [
+      {
+        "content": "$\\ce{Cl-}$ lorsqu'il se coordonne à un métal.",
+        "correct": false,
+        "explanation": "Le chlorure agit comme donneur de doublet."
+      },
+      {
+        "content": "$\\ce{BF3}$.",
+        "correct": true,
+        "explanation": "Le bore est électron-déficient."
+      },
+      {
+        "content": "$\\ce{NH3}$ dans la formation de $\\ce{NH4+}$.",
+        "correct": false,
+        "explanation": "L'ammoniac agit alors comme donneur de doublet."
+      },
+      {
+        "content": "$\\ce{H+}$.",
+        "correct": true,
+        "explanation": "Le proton accepte un doublet."
+      },
+      {
+        "content": "Un cation métallique comme $\\ce{Pt^2+}$.",
+        "correct": true,
+        "explanation": "Les métaux peuvent accepter des doublets de ligands."
+      }
+    ],
+    "explanation": "Un accepteur de Lewis est une espèce capable de recevoir un doublet électronique.",
+    "requiredSelectionCount": 3
   },
+  {
+    "order": 66,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Une liaison a $\\mu=2{,}00\\,\\mathrm D$ et $d=150\\,\\mathrm{pm}$. Avec $1\\,\\mathrm D=3{,}34\\times10^{-30}\\,\\mathrm{C\\,m}$, quelle charge partielle q obtient-on en coulombs ?",
+    "answer": {
+      "type": "number",
+      "value": 4.45e-20,
+      "tolerance": 5e-22
+    },
+    "explanation": "$q=(2{,}00\\times3{,}34\\times10^{-30})/(150\\times10^{-12})\\approx4{,}45\\times10^{-20}\\,\\mathrm C$."
+  }
 ];

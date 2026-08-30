@@ -8,6 +8,16 @@ export const TEX_UNITS = {
   DEGREE: String.raw`^\circ`,
   PERCENT: String.raw`\%`,
   MOL_INV: String.raw`\mathrm{mol}^{-1}`,
+  MIN: String.raw`\mathrm{min}`,
+  S: String.raw`\mathrm{s}`,
+  MICROMOL: String.raw`\mu\mathrm{mol}`,
+  MICROMOL_PER_MIN: String.raw`\mu\mathrm{mol}\cdot\mathrm{min}^{-1}`,
+  MOL_PER_S: String.raw`\mathrm{mol}\cdot\mathrm{s}^{-1}`,
+  U_PER_L: String.raw`\mathrm{U}\cdot\mathrm{L}^{-1}`,
+  U_PER_MG: String.raw`\mathrm{U}\cdot\mathrm{mg}^{-1}`,
+  INVERSE_SECOND: String.raw`\mathrm{s}^{-1}`,
+  NM: String.raw`\mathrm{nm}`,
+  ENZYME_UNIT: String.raw`\mathrm{U}`,
 } as const;
 
 export const texQuantity = (

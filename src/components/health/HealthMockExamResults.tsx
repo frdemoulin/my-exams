@@ -1,251 +1,374 @@
+"use client";
+
+import { useMemo } from "react";
 import Link from "next/link";
-import { CheckCircle2, Clock3, RotateCcw, XCircle } from "lucide-react";
+import {
+  CheckCircle2,
+  Clock3,
+  RotateCcw,
+  Target,
+  XCircle,
+  AlertCircle,
+  ArrowRight,
+  TrendingUp,
+  BookOpen,
+} from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { QuestionFormatBadge } from "@/components/training/question-format-badge";
-import { TrainingChoiceContentView } from "@/components/training/training-choice-content-view";
-import { TrainingQuestionContentView } from "@/components/training/training-question-content-view";
-import { MathContent } from "@/components/training/math-content";
-import { HotspotQuestionView } from "@/components/training/hotspot-question-view";
-import {
-  formatShortAnswerExpectedAnswer,
-  getHotspotPoints,
-  getShortAnswerRawValue,
-} from "@/core/health-mock-exam/health-mock-exam.question";
-import type { HealthMockExamResults } from "@/core/health-mock-exam/health-mock-exam.types";
-import { getQuestionFormatStudentInstruction, type HotspotQuestion } from "@/core/questions";
+import { InfoTooltip } from "@/components/shared/info-tooltip";
+import type {
+  HealthMockExamResults,
+} from "@/core/health-mock-exam/health-mock-exam.types";
 import { cn } from "@/lib/utils";
+
+import { HealthEvaluationColorLegend } from "@/components/health/HealthEvaluationColorLegend";
+
+import { formatCountMetric, formatDurationMetric } from "@/lib/format-metrics";
+import { getHealthColleBySlug } from "@/core/health-colle";
+import { getHealthMockExamBlueprint } from "@/core/health-mock-exam/health-mock-exam.config";
+import { ProtectedAssessmentContent } from "@/components/shared/ProtectedAssessmentContent";
 
 type HealthMockExamResultsProps = {
   result: HealthMockExamResults;
   restartHref: string;
+  correctionHref?: string;
   headingLabel?: string;
   restartLabel?: string;
 };
 
-function formatElapsedTime(elapsedSeconds: number) {
-  const hours = Math.floor(elapsedSeconds / 3600);
-  const minutes = Math.floor((elapsedSeconds % 3600) / 60);
-  const seconds = elapsedSeconds % 60;
-
-  return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(
-    seconds,
-  ).padStart(2, "0")}`;
+function formatScore(score: number, forceTwoDecimalsForFractions = true): string {
+  if (Number.isInteger(score)) {
+    return score.toString();
+  }
+  if (forceTwoDecimalsForFractions) {
+    return score.toFixed(2).replace(".", ",");
+  }
+  const fixed = score.toFixed(2).replace(".", ",");
+  return fixed.endsWith("0") ? fixed.slice(0, -1) : fixed;
 }
 
-function formatChoiceLetters(choiceIndexes: readonly number[]) {
-  return choiceIndexes.length > 0
-    ? choiceIndexes.map((choiceIndex) => String.fromCharCode(65 + choiceIndex)).join(", ")
-    : "Aucune réponse";
-}
-
-function formatEvaluationStatus(status: HealthMockExamResults["questions"][number]["evaluationStatus"]) {
-  if (status === "correct") return "Correcte";
-  if (status === "partial") return "Partielle";
-  if (status === "unanswered") return "Sans réponse";
-  return "À revoir";
+function getProgressBarColor(percentage: number): string {
+  if (percentage >= 80) return "bg-emerald-600 dark:bg-emerald-500";
+  if (percentage >= 60) return "bg-brand";
+  return "bg-amber-600 dark:bg-amber-500";
 }
 
 export function HealthMockExamResults({
   result,
   restartHref,
-  headingLabel = "Résultats de l'examen blanc",
-  restartLabel = "Recommencer l'examen",
+  correctionHref,
+  headingLabel = "BILAN DE LA COLLE",
+  restartLabel = "Recommencer la colle",
 }: HealthMockExamResultsProps) {
-  const answeredQuestionCount = result.questions.filter(
-    (question) => question.evaluationStatus !== "unanswered",
-  ).length;
-  const correctQuestionCount = result.questions.filter(
-    (question) => question.evaluationStatus === "correct",
-  ).length;
-  const incorrectQuestionCount = answeredQuestionCount - correctQuestionCount;
+  const progressBarColor = useMemo(() => getProgressBarColor(result.percentage), [result.percentage]);
+
+  const canonicalLimitSeconds = useMemo(() => {
+    if (typeof result.durationSeconds === "number" && result.durationSeconds > 0) {
+      return result.durationSeconds;
+    }
+    const colle = getHealthColleBySlug(result.slug);
+    if (colle?.durationMinutes) {
+      return Math.round(colle.durationMinutes * 60);
+    }
+    const blueprint = getHealthMockExamBlueprint(result.slug);
+    if (blueprint?.durationMinutes) {
+      return Math.round(blueprint.durationMinutes * 60);
+    }
+    return null;
+  }, [result.durationSeconds, result.slug]);
+
+  const fullCreditCount = useMemo(
+    () =>
+      result.questions.filter(
+        (question) => question.score === question.maxScore && question.evaluationStatus === "correct",
+      ).length,
+    [result.questions],
+  );
+
+  const reviewCount = useMemo(
+    () =>
+      result.questions.filter(
+        (question) => question.score < question.maxScore || question.evaluationStatus !== "correct",
+      ).length,
+    [result.questions],
+  );
+
+  const hasMultipleSections = result.sections.length > 1;
+  const pedagogy = result.pedagogicalAssessment;
 
   return (
-    <section className="space-y-6">
-      <Card className="rounded-base bg-card hover:bg-card">
-        <CardHeader className="gap-4">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-            <div>
-              <p className="text-sm text-muted-foreground">{headingLabel}</p>
-              <CardTitle className="text-xl">{result.title}</CardTitle>
+    <ProtectedAssessmentContent watermarkCode={result.watermarkCode}>
+      <div className="space-y-6" data-testid="health-mock-exam-results">
+      {/* 1. Carte Bilan Principal */}
+      <Card className="overflow-hidden rounded-2xl border-border bg-card shadow-xs">
+        <CardHeader className="space-y-4 pb-4">
+          <div className="flex flex-wrap items-center justify-between gap-3 min-h-9">
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              <Target className="h-4 w-4 text-brand" aria-hidden="true" />
+              <span>{headingLabel}</span>
             </div>
-            <Badge variant={result.status === "EXPIRED" ? "destructive" : "outline"}>
-              {result.status === "EXPIRED" ? "Temps écoulé" : "Soumis"}
-            </Badge>
+
+            <div className="flex flex-wrap items-center gap-2">
+              {result.autoSubmitted ? (
+                <Badge variant="outline" className="border-amber-400 bg-amber-50 text-amber-900 dark:border-amber-800 dark:bg-amber-950/40 dark:text-amber-200">
+                  <Clock3 className="mr-1 h-3 w-3" aria-hidden="true" />
+                  Temps limite atteint
+                </Badge>
+              ) : null}
+              {correctionHref ? (
+                <Button asChild size="sm" className="gap-1.5 text-xs font-semibold">
+                  <Link href={correctionHref}>
+                    Voir la correction détaillée
+                    <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                  </Link>
+                </Button>
+              ) : null}
+              <Button asChild variant="outline" size="sm" className="gap-1.5 text-xs">
+                <Link href={restartHref}>
+                  <RotateCcw className="h-3.5 w-3.5" aria-hidden="true" />
+                  {restartLabel}
+                </Link>
+              </Button>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-3 pt-2 md:grid-cols-4">
+            {/* 1. Score */}
+            <div className="rounded-xl border border-border bg-background/70 p-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                Score
+              </p>
+              <div className="mt-2 flex items-baseline gap-1">
+                <span className="text-2xl font-bold text-heading">
+                  {formatScore(result.score, false)}
+                </span>
+                <span className="text-sm font-medium text-muted-foreground">
+                  / {result.maxScore}
+                </span>
+              </div>
+              <p className="text-xs font-medium text-muted-foreground">
+                soit {result.percentage} %
+              </p>
+            </div>
+
+            {/* 2. Plein crédit */}
+            <div className="rounded-xl border border-border bg-background/70 p-4">
+              <div className="flex items-center gap-1.5">
+                <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                  Plein crédit
+                </p>
+                <InfoTooltip
+                  content="Nombre de questions ayant obtenu 100 % des points (sans aucune erreur)."
+                  label="Information sur le plein crédit"
+                />
+              </div>
+              <div className="mt-2 flex items-baseline gap-1">
+                <span className="text-2xl font-bold text-emerald-700 dark:text-emerald-300">
+                  {fullCreditCount}
+                </span>
+                <span className="text-sm font-medium text-muted-foreground">
+                  / {result.questions.length}
+                </span>
+              </div>
+              <p className="text-xs text-muted-foreground">
+                {result.questions.length > 0 ? `${Math.round((fullCreditCount / result.questions.length) * 100)} % des questions` : ""}
+              </p>
+            </div>
+
+            {/* 3. À revoir */}
+            <div className="rounded-xl border border-border bg-background/70 p-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                À revoir
+              </p>
+              <div className="mt-2 flex items-baseline gap-1">
+                <span className="text-2xl font-bold text-rose-700 dark:text-rose-300">
+                  {reviewCount}
+                </span>
+                <span className="text-sm font-medium text-muted-foreground">
+                  / {result.questions.length}
+                </span>
+              </div>
+              <p className="text-xs text-muted-foreground">
+                question{result.questions.length > 1 ? "s" : ""}
+              </p>
+            </div>
+
+            {/* 4. Durée */}
+            <div className="rounded-xl border border-border bg-background/70 p-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                Durée
+              </p>
+              <p className="mt-2 text-2xl font-bold text-heading">
+                {formatDurationMetric(result.elapsedSeconds, canonicalLimitSeconds)}
+              </p>
+              <p className="text-xs text-muted-foreground">
+                {canonicalLimitSeconds ? "temps effectif / temps alloué" : "temps effectif"}
+              </p>
+            </div>
           </div>
         </CardHeader>
-        <CardContent className="space-y-5">
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="border border-border bg-background p-4">
-              <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Score</p>
-              <p className="mt-1 text-2xl font-semibold text-heading">{result.score}/{result.maxScore}</p>
+
+        <CardContent className="pb-6">
+          <div className="space-y-2">
+            <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              <span>Score global</span>
+              <span>{result.percentage} %</span>
             </div>
-            <div className="border border-border bg-background p-4">
-              <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Pourcentage</p>
-              <p className="mt-1 text-2xl font-semibold text-heading">{result.percentage}%</p>
-            </div>
-            <div className="border border-border bg-background p-4">
-              <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Réponses</p>
-              <p className="mt-1 text-sm text-heading">{correctQuestionCount} justes · {incorrectQuestionCount} fausses · {result.questions.length - answeredQuestionCount} sans réponse</p>
-            </div>
-            <div className="border border-border bg-background p-4">
-              <p className="flex items-center gap-1 text-xs font-medium uppercase tracking-wide text-muted-foreground"><Clock3 className="h-3.5 w-3.5" aria-hidden="true" /> Durée</p>
-              <p className="mt-1 text-2xl font-semibold text-heading">{formatElapsedTime(result.elapsedSeconds)}</p>
+            <div className="h-2.5 w-full overflow-hidden rounded-full bg-neutral-secondary-soft dark:bg-neutral-800">
+              <div
+                className={cn("h-full transition-all duration-500", progressBarColor)}
+                style={{ width: `${Math.min(100, Math.max(0, result.percentage))}%` }}
+              />
             </div>
           </div>
-
-          <div className="grid gap-3 md:grid-cols-3">
-            {result.sections.map((section) => (
-              <div key={section.id} className="border-l-2 border-brand/40 bg-background p-4">
-                <p className="font-semibold text-heading">{section.title}</p>
-                <p className="mt-1 text-sm text-muted-foreground">Questions {section.firstQuestion} à {section.lastQuestion}</p>
-                <p className="mt-2 text-lg font-semibold text-heading">{section.score}/{section.maxScore} · {section.percentage}%</p>
-              </div>
-            ))}
-          </div>
-
-          <Button asChild>
-            <Link href={restartHref}>
-              <RotateCcw className="h-4 w-4" aria-hidden="true" />
-              {restartLabel}
-            </Link>
-          </Button>
         </CardContent>
       </Card>
 
-      <section className="space-y-4" aria-labelledby="mock-exam-correction-heading">
-        <h2 id="mock-exam-correction-heading" className="text-xl font-semibold text-heading">Correction détaillée</h2>
-        {result.questions.map((question) => {
-          const isCorrect = question.evaluationStatus === "correct";
-          const isHotspot = question.canonicalQuestion.type === "hotspot";
-          const hotspotPoint = isHotspot ? getHotspotPoints(question.responsePayload)[0] ?? null : null;
-          const shortAnswerExpectedAnswer =
-            question.canonicalQuestion.type === "short-answer"
-              ? formatShortAnswerExpectedAnswer(question.canonicalQuestion)
-              : null;
-          const isShortAnswer = shortAnswerExpectedAnswer !== null;
-          const shortAnswerValue = getShortAnswerRawValue(question.responsePayload);
-          const formatInstruction = getQuestionFormatStudentInstruction(question.canonicalQuestion);
+      {/* 2. Multi-section synthesis table (e.g. C12 or Mock Exams) */}
+      {hasMultipleSections ? (
+        <Card className="rounded-2xl border-border bg-card shadow-xs">
+          <CardHeader className="pb-3">
+            <CardTitle className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+              Ventilation par section
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="overflow-x-auto rounded-xl border border-border">
+              <table className="w-full text-left text-sm">
+                <thead className="bg-neutral-secondary-soft/60 text-xs uppercase tracking-wide text-muted-foreground">
+                  <tr>
+                    <th className="px-4 py-3 font-semibold">Section</th>
+                    <th className="px-4 py-3 font-semibold text-center">Questions</th>
+                    <th className="px-4 py-3 font-semibold text-center">Score</th>
+                    <th className="px-4 py-3 font-semibold text-right">Résultat</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border">
+                  {result.sections.map((sec) => (
+                    <tr key={sec.id} className="hover:bg-neutral-secondary-soft/30 transition-colors">
+                      <td className="px-4 py-3 font-medium text-heading">{sec.title}</td>
+                      <td className="px-4 py-3 text-center text-muted-foreground">
+                        Q{sec.firstQuestion} à Q{sec.lastQuestion}
+                      </td>
+                      <td className="px-4 py-3 text-center font-medium">
+                        {formatScore(sec.score, false)} / {sec.maxScore}
+                      </td>
+                      <td className="px-4 py-3 text-right font-bold text-heading">
+                        {sec.percentage} %
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </CardContent>
+        </Card>
+      ) : null}
 
-          return (
-            <Card key={question.attemptQuestionId} className="rounded-base bg-card hover:bg-card">
-              <CardHeader className="gap-3">
-                <div className="flex flex-wrap items-center justify-between gap-2">
+      {/* 3. Bilan Pédagogique */}
+      <Card className="rounded-2xl border-border bg-card shadow-xs">
+        <CardHeader className="pb-3">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex items-center gap-2">
+              <BookOpen className="h-4 w-4 text-brand" aria-hidden="true" />
+              <CardTitle className="text-base font-bold text-heading">
+                Bilan pédagogique
+              </CardTitle>
+            </div>
+            <HealthEvaluationColorLegend />
+          </div>
+          <p className="text-xs text-muted-foreground">
+            Synthèse déterministe de votre maîtrise par notion et chapitre sur cette évaluation.
+          </p>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {pedagogy?.neutralMessage ? (
+            <div className="rounded-xl border border-border bg-neutral-secondary-soft/40 p-4 text-xs text-muted-foreground leading-relaxed">
+              {pedagogy.neutralMessage}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+              {/* Points forts */}
+              <div className="rounded-xl border border-emerald-200/60 bg-emerald-500/5 p-4 space-y-3 dark:border-emerald-900/40 dark:bg-emerald-950/15">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-900 dark:text-emerald-200">
+                    TOP 5 — POINTS FORTS ({pedagogy?.strengths.length ?? 0})
+                  </h4>
+                </div>
+
+                {pedagogy && pedagogy.strengths.length > 0 ? (
                   <div className="space-y-2">
-                    <CardTitle className="text-lg">Question {question.globalOrder}</CardTitle>
-                    <QuestionFormatBadge question={question.canonicalQuestion} />
-                    <p className="max-w-2xl text-sm text-muted-foreground">
-                      {formatInstruction}
-                    </p>
-                  </div>
-                  <Badge
-                    variant={
-                      isCorrect
-                        ? "outline"
-                        : question.evaluationStatus === "unanswered"
-                          ? "secondary"
-                          : "destructive"
-                    }
-                  >
-                    {formatEvaluationStatus(question.evaluationStatus)}
-                  </Badge>
-                </div>
-                {question.group ? (
-                  <div className="border border-brand/20 bg-brand-soft/10 p-3 text-sm text-heading">
-                    <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{question.group.title ?? "Énoncé commun"}</p>
-                    <div className="mt-2"><MathContent value={question.group.sharedStatement} blockMathVariant="compact" /></div>
-                  </div>
-                ) : null}
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="border border-border bg-background p-4 text-sm font-medium text-heading">
-                  <TrainingQuestionContentView question={question.question} questionDiagram={question.questionDiagram} />
-                </div>
-
-                {isHotspot ? (
-                  <HotspotQuestionView
-                    question={question.canonicalQuestion as HotspotQuestion}
-                    selectedPoint={hotspotPoint}
-                    readOnly={true}
-                    showCorrection={true}
-                    evaluationResult={{
-                      questionId: question.id,
-                      status:
-                        question.evaluationStatus === "correct"
-                          ? "correct"
-                          : question.evaluationStatus === "incorrect"
-                            ? "incorrect"
-                            : "unanswered",
-                      score: question.score,
-                      maxScore: question.maxScore,
-                    }}
-                    showHeader={false}
-                  />
-                ) : isShortAnswer ? (
-                  <div
-                    className={cn(
-                      "grid gap-3 border p-4 text-sm",
-                      isCorrect && "border-emerald-400 bg-emerald-50 text-emerald-950 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-100",
-                      !isCorrect && question.evaluationStatus !== "unanswered" && "border-rose-400 bg-rose-50 text-rose-950 dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-100",
-                      question.evaluationStatus === "unanswered" && "border-border bg-background text-body",
-                    )}
-                    data-testid="health-mock-exam-short-answer-result"
-                  >
-                    <div>
-                      <p className="mb-1 font-semibold">Votre réponse</p>
-                      <p>{shortAnswerValue.trim() ? shortAnswerValue : "Aucune réponse"}</p>
-                    </div>
-                    <div className="border-t border-current/15 pt-3">
-                      <p className="mb-1 font-semibold">Réponse attendue</p>
-                      <p>{shortAnswerExpectedAnswer}</p>
-                    </div>
+                    {pedagogy.strengths.map((theme) => (
+                      <div
+                        key={theme.id}
+                        className="flex items-center justify-between gap-3 rounded-lg border border-emerald-200/80 bg-background/80 p-2.5 dark:border-emerald-900/50"
+                      >
+                        <div className="space-y-0.5 min-w-0">
+                          <p className="text-xs font-semibold text-heading truncate">
+                            {theme.label}
+                          </p>
+                          <p className="text-[11px] text-muted-foreground">
+                            {theme.questionCount} question{theme.questionCount > 1 ? "s" : ""} · {formatScore(theme.score, false)} / {theme.maxScore} pt
+                          </p>
+                        </div>
+                        <Badge className="bg-emerald-600 text-white font-bold text-xs shrink-0">
+                          {theme.masteryPercentage} %
+                        </Badge>
+                      </div>
+                    ))}
                   </div>
                 ) : (
-                  <div className="grid gap-2">
-                    {question.choices.map((choice, choiceIndex) => {
-                      const selected = question.selectedChoiceIndexes.includes(choiceIndex);
-                      const expected = question.correctChoiceIndexes.includes(choiceIndex);
-
-                      return (
-                        <div
-                          key={`${question.attemptQuestionId}-${choiceIndex}`}
-                          className={cn(
-                            "flex gap-3 border p-3 text-sm",
-                            expected && "border-emerald-400 bg-emerald-50 text-emerald-950 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-100",
-                            selected && !expected && "border-rose-400 bg-rose-50 text-rose-950 dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-100",
-                            !selected && !expected && "border-border bg-background text-body",
-                          )}
-                        >
-                          {expected ? <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" aria-label="Réponse attendue" /> : <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-rose-600" aria-label="Réponse non attendue" />}
-                          <div className="min-w-0 flex-1">
-                            <p className="mb-1 font-semibold">{String.fromCharCode(65 + choiceIndex)}{selected ? " · Votre choix" : ""}{expected ? " · Réponse attendue" : ""}</p>
-                            <TrainingChoiceContentView choice={choice} />
-                            <div className="mt-2 border-t border-current/15 pt-2 text-sm"><MathContent value={question.choiceExplanations[choiceIndex] ?? ""} /></div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
+                  <p className="text-xs text-muted-foreground italic">
+                    Aucun thème n&apos;atteint le seuil de maîtrise de 80 % sur cette tentative.
+                  </p>
                 )}
+              </div>
 
-                <div className="border-l-2 border-brand/40 bg-brand-soft/10 p-4 text-sm text-heading">
-                  <p className="font-semibold">Explication</p>
-                  <div className="mt-1"><MathContent value={question.explanation} /></div>
+              {/* À retravailler */}
+              <div className="rounded-xl border border-rose-200/60 bg-rose-500/5 p-4 space-y-3 dark:border-rose-900/40 dark:bg-rose-950/15">
+                <div className="flex items-center gap-2">
+                  <AlertCircle className="h-4 w-4 text-rose-600 dark:text-rose-400" />
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-rose-900 dark:text-rose-200">
+                    TOP 5 — À RETRAVAILLER ({pedagogy?.toReview.length ?? 0})
+                  </h4>
                 </div>
-                <p className="text-sm text-muted-foreground">
-                  {isHotspot
-                    ? `Votre réponse : ${hotspotPoint ? `Point (${Math.round(hotspotPoint.x * 100)}%, ${Math.round(hotspotPoint.y * 100)}%)` : "Aucune réponse"}`
-                    : isShortAnswer
-                      ? `Votre réponse : ${shortAnswerValue.trim() ? shortAnswerValue : "Aucune réponse"} · Réponse attendue : ${shortAnswerExpectedAnswer}`
-                      : `Votre réponse : ${formatChoiceLetters(question.selectedChoiceIndexes)} · Réponse attendue : ${formatChoiceLetters(question.correctChoiceIndexes)}`}
-                </p>
-              </CardContent>
-            </Card>
-          );
-        })}
-      </section>
-    </section>
+
+                {pedagogy && pedagogy.toReview.length > 0 ? (
+                  <div className="space-y-2">
+                    {pedagogy.toReview.map((theme) => (
+                      <div
+                        key={theme.id}
+                        className="flex items-center justify-between gap-3 rounded-lg border border-rose-200/80 bg-background/80 p-2.5 dark:border-rose-900/50"
+                      >
+                        <div className="space-y-0.5 min-w-0">
+                          <p className="text-xs font-semibold text-heading truncate">
+                            {theme.label}
+                          </p>
+                          <p className="text-[11px] text-muted-foreground">
+                            {theme.questionCount} question{theme.questionCount > 1 ? "s" : ""} · {formatScore(theme.score, false)} / {theme.maxScore} pt
+                          </p>
+                        </div>
+                        <Badge className="bg-rose-600 text-white font-bold text-xs shrink-0">
+                          {theme.masteryPercentage} %
+                        </Badge>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-xs text-muted-foreground italic">
+                    Aucun thème critique (&lt; 60 %) identifié sur cette tentative.
+                  </p>
+                )}
+              </div>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
+      </div>
+    </ProtectedAssessmentContent>
   );
 }

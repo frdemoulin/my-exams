@@ -1,642 +1,1126 @@
-/**
- * UE14 – Biologie cellulaire – Chapitre 8
- * Contenu fondé sur la fiche 2024-2025 du Tutorat Santé de Reims.
- */
 import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
 
+/** UE14 Biologie cellulaire — Ch8 — Chromatine, territoires et nucléole — V2 active */
 export const SECTION_D_QUESTIONS: SeedQuestion[] = [
   {
-    order: 91,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `L’hétérochromatine :`,
-    choices: [
-      `Est condensée.`,
-      `Est peu accessible aux polymérases.`,
-      `Est globalement inactive dans le cadre présenté.`,
-      `Correspond à la forme la plus décondensée de la chromatine.`,
+    "order": 67,
+    "difficulty": "HARD",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur « Compaction de la chromatine », laquelle est exacte ?",
+    "choices": [
+      {
+        "content": "La compaction de la chromatine est impossible à modifier localement.",
+        "correct": false,
+        "explanation": "Elle est dynamique et régulée."
+      },
+      {
+        "content": "Le nucléosome correspond au niveau maximal de condensation du chromosome mitotique.",
+        "correct": false,
+        "explanation": "Il constitue l’unité de base de la chromatine, bien en amont de la condensation mitotique."
+      },
+      {
+        "content": "La chromatine peut adopter localement des degrés de compaction différents.",
+        "correct": true,
+        "explanation": "Cette plasticité permet de moduler l’accessibilité de l’ADN."
+      },
+      {
+        "content": "Une fibre régulière de 30 nm est obligatoire dans tous les noyaux humains.",
+        "correct": false,
+        "explanation": "Ce modèle n’est pas considéré comme une structure universelle stable in vivo."
+      },
+      {
+        "content": "La chromatine interphasique est toujours aussi condensée qu’un chromosome mitotique.",
+        "correct": false,
+        "explanation": "Elle est globalement moins condensée et hétérogène."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Elle est organisée en mottes denses.`,
-      `Exact. La condensation limite l’accès.`,
-      `Exact. Transcription et duplication y sont limitées.`,
-      `Faux. Cette description correspond à l’euchromatine.`,
-    ],
+    "explanation": "La chromatine est organisée de façon hiérarchique et dynamique ; le modèle historique de fibre de 30 nm ne doit pas être présenté comme une structure universelle stable in vivo."
   },
   {
-    order: 92,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `L’euchromatine :`,
-    choices: [
-      `Est décondensée.`,
-      `Est accessible aux ARN et ADN polymérases.`,
-      `Peut contenir des ARN en cours de synthèse.`,
-      `Est inaccessible par définition.`,
+    "order": 68,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant le thème « Euchromatine et hétérochromatine » ?",
+    "choices": [
+      {
+        "content": "L’euchromatine est généralement moins compacte que l’hétérochromatine.",
+        "correct": true,
+        "explanation": "Sa plus grande accessibilité facilite l’activité transcriptionnelle."
+      },
+      {
+        "content": "Une chromatine plus accessible empêche toute transcription.",
+        "correct": false,
+        "explanation": "L’accessibilité favorise généralement la transcription."
+      },
+      {
+        "content": "La compaction chromatinienne peut varier au cours du temps et selon le type cellulaire.",
+        "correct": true,
+        "explanation": "Les états chromatinien sont régulés."
+      },
+      {
+        "content": "Toute hétérochromatine est définitivement inactive dans toutes les cellules.",
+        "correct": false,
+        "explanation": "Certaines régions peuvent changer d’état selon le contexte et l’hétérochromatine n’est pas une catégorie absolue."
+      },
+      {
+        "content": "L’euchromatine est la forme la plus condensée du chromosome mitotique.",
+        "correct": false,
+        "explanation": "Elle correspond à une chromatine relativement décondensée en interphase."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Elle apparaît plus claire.`,
-      `Exact. Elle peut être active en transcription ou duplication.`,
-      `Exact. La transcription y est observable.`,
-      `Faux. L’accessibilité est sa caractéristique fonctionnelle.`,
-    ],
+    "explanation": "L’euchromatine est généralement plus accessible et plus transcriptionnellement active ; l’hétérochromatine est plus compacte et souvent moins active, sans que ces catégories soient absolues."
   },
   {
-    order: 93,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `La relation compaction–activité implique que :`,
-    choices: [
-      `Une chromatine condensée est moins active.`,
-      `Une chromatine décondensée peut être active.`,
-      `La transcription exige un chromosome mitotique.`,
-      `La cellule module localement le degré de condensation.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Les polymérases y accèdent difficilement.`,
-      `Exact. Elle permet transcription et duplication.`,
-      `Faux. Le chromosome mitotique est extrêmement condensé.`,
-      `Exact. Cela permet une régulation régionale.`,
-    ],
+    "order": 69,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Comment nomme-t-on la chromatine relativement décondensée et généralement plus transcriptionnellement active ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "euchromatine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "L’euchromatine est en moyenne moins compacte et plus accessible à la machinerie transcriptionnelle que l’hétérochromatine."
   },
   {
-    order: 94,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Le nucléole :`,
-    choices: [
-      `Est le site de synthèse et de maturation des ARNr.`,
-      `Produit les sous-unités ribosomales.`,
-      `Est limité par une double membrane.`,
-      `Se construit autour de gènes d’ADNr.`,
+    "order": 70,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Sur le thème « Territoires chromosomiques », sélectionnez les affirmations exactes.",
+    "choices": [
+      {
+        "content": "Les territoires chromosomiques contribuent à l’organisation tridimensionnelle du génome.",
+        "correct": true,
+        "explanation": "La position spatiale des chromosomes est structurée."
+      },
+      {
+        "content": "La FISH multicouleur peut mettre en évidence des territoires chromosomiques.",
+        "correct": true,
+        "explanation": "Des sondes spécifiques permettent de visualiser différents chromosomes."
+      },
+      {
+        "content": "En interphase, tous les chromosomes sont uniformément mélangés sans organisation spatiale.",
+        "correct": false,
+        "explanation": "Ils occupent des territoires préférentiels."
+      },
+      {
+        "content": "Un territoire chromosomique est une membrane entourant un chromosome.",
+        "correct": false,
+        "explanation": "Il s’agit d’un volume préférentiel, sans membrane propre."
+      },
+      {
+        "content": "Chaque chromosome interphasique occupe préférentiellement un territoire nucléaire.",
+        "correct": true,
+        "explanation": "Les chromosomes ne sont pas totalement mélangés au hasard."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Il participe à la biogenèse ribosomale.`,
-      `Exact. Elles seront exportées vers le cytoplasme.`,
-      `Faux. Le nucléole n’est pas un organite membranaire.`,
-      `Exact. Ces gènes sont présents en nombreux exemplaires.`,
-    ],
+    "explanation": "En interphase, chaque chromosome occupe préférentiellement un territoire nucléaire distinct, tout en conservant des interfaces et interactions avec d’autres régions du génome."
   },
   {
-    order: 95,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `La fiche attribue aux nucléoles environ :`,
-    choices: [
-      `60 % de la synthèse totale des ARN.`,
-      `0,6 % de la synthèse totale des ARN.`,
-      `Une activité majeure de synthèse d’ARNr.`,
-      `La totalité de la synthèse d’ARNm.`,
+    "order": 71,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant le thème « Nucléole », quelles propositions sont incorrectes ?",
+    "choices": [
+      {
+        "content": "Les chromosomes ne contribuent jamais à l’organisation du nucléole.",
+        "correct": true,
+        "explanation": "Cette affirmation est incorrecte et doit être sélectionnée ici. Les régions organisatrices nucléolaires contenant l’ADNr participent à sa formation."
+      },
+      {
+        "content": "Les ARNr sont synthétisés dans le cytoplasme puis importés dans le nucléole.",
+        "correct": true,
+        "explanation": "Cette affirmation est incorrecte et doit être sélectionnée ici. Ils sont synthétisés dans le noyau à partir des gènes ribosomaux."
+      },
+      {
+        "content": "Le nucléole est le lieu principal de la traduction des protéines cytosoliques.",
+        "correct": true,
+        "explanation": "Cette affirmation est incorrecte et doit être sélectionnée ici. La traduction a lieu sur les ribosomes du cytoplasme ou du RER."
+      },
+      {
+        "content": "L’assemblage précoce des sous-unités ribosomales se déroule dans le nucléole.",
+        "correct": false,
+        "explanation": "Cette affirmation est exacte biologiquement ; elle ne doit donc pas être sélectionnée ici. Les ARNr s’associent à des protéines ribosomales importées."
+      },
+      {
+        "content": "Le nucléole est un organite cytoplasmique à double membrane.",
+        "correct": true,
+        "explanation": "Cette affirmation est incorrecte et doit être sélectionnée ici. Il est intranucléaire et non membranaire."
+      }
     ],
-    correctChoiceIndexes: [0, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Cette proportion souligne l’importance de la production d’ARNr.`,
-      `Faux. La valeur indiquée est bien plus élevée.`,
-      `Exact. La majorité de l’activité nucléolaire concerne ces ARN.`,
-      `Faux. Le nucléole est spécialisé dans les ARNr.`,
-    ],
+    "explanation": "Le nucléole est un domaine nucléaire non membranaire organisé autour de régions portant les gènes ribosomaux ; il assure la transcription et la maturation d’une grande partie des ARNr ainsi que l’assemblage précoce des sous-unités ribosomales."
   },
   {
-    order: 96,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Les nucléoles se construisent autour d’environ :`,
-    choices: [
-      `200 exemplaires d’un gène d’ADNr amplifié.`,
-      `Deux exemplaires seulement.`,
-      `Des gènes localisés sur plusieurs chromosomes.`,
-      `Un unique pore nucléaire.`,
+    "order": 72,
+    "difficulty": "HARD",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Sur le thème « ADNr et ARNr », sélectionnez exactement les cinq propositions exactes parmi les dix proposées.",
+    "choices": [
+      {
+        "content": "Les gènes ribosomaux 45S sont présents en nombreuses copies répétées.",
+        "correct": true,
+        "explanation": "Cette répétition permet une forte production d’ARNr."
+      },
+      {
+        "content": "Le pré-ARNr 45S donne notamment les ARNr 18S, 5,8S et 28S.",
+        "correct": true,
+        "explanation": "Ces ARNr sont produits par clivages et modifications du précurseur."
+      },
+      {
+        "content": "Les ribosomes complets sont assemblés de façon permanente dans le nucléole puis exportés comme une seule particule active.",
+        "correct": false,
+        "explanation": "Les sous-unités sont exportées séparément et s’associent lors de la traduction."
+      },
+      {
+        "content": "L’ARN polymérase II produit directement tous les ARNr du ribosome.",
+        "correct": false,
+        "explanation": "Pol I transcrit le 45S et Pol III le 5S."
+      },
+      {
+        "content": "Les gènes ribosomaux n’existent qu’en un seul exemplaire par cellule humaine.",
+        "correct": false,
+        "explanation": "Ils sont présents en répétitions multicopies."
+      },
+      {
+        "content": "Les protéines ribosomales sont ensuite importées dans le noyau et le nucléole.",
+        "correct": true,
+        "explanation": "Elles y rejoignent les ARNr en cours de maturation."
+      },
+      {
+        "content": "L’ARN polymérase I transcrit le précurseur 45S dans le nucléole.",
+        "correct": true,
+        "explanation": "Pol I assure l’essentiel de la transcription des grands ARNr."
+      },
+      {
+        "content": "Les protéines ribosomales sont synthétisées exclusivement dans le nucléole.",
+        "correct": false,
+        "explanation": "Elles sont traduites dans le cytoplasme."
+      },
+      {
+        "content": "Le précurseur 45S donne l’ARNr 5S comme unique produit.",
+        "correct": false,
+        "explanation": "Il donne 18S, 5,8S et 28S ; le 5S est transcrit séparément."
+      },
+      {
+        "content": "Les protéines ribosomales sont synthétisées dans le cytoplasme.",
+        "correct": true,
+        "explanation": "Comme la plupart des protéines nucléaires, elles sont traduites sur des ribosomes cytosoliques."
+      }
     ],
-    correctChoiceIndexes: [0, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Cette valeur est donnée dans la fiche.`,
-      `Faux. Le nombre est beaucoup plus élevé.`,
-      `Exact. Les foyers d’ADNr proviennent de chromosomes différents.`,
-      `Faux. Les pores ne constituent pas le centre de construction du nucléole.`,
-    ],
+    "explanation": "Chez l’humain, les gènes ribosomaux 45S sont regroupés en répétitions sur les bras courts des chromosomes acrocentriques ; l’ARN polymérase I produit un précurseur donnant les ARNr 18S, 5,8S et 28S, tandis que le 5S est transcrit par l’ARN polymérase III hors du nucléole. Les protéines ribosomales sont synthétisées dans le cytoplasme puis importées dans le noyau ; elles s’associent aux ARNr pour former des pré-sous-unités, qui sont exportées vers le cytoplasme."
   },
   {
-    order: 97,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Dans le nucléole :`,
-    choices: [
-      `Des zones claires contiennent les gènes d’ADNr.`,
-      `D’autres zones participent à la maturation des sous-unités ribosomales.`,
-      `Les sous-unités matures sont exportées par les pores nucléaires.`,
-      `Les ribosomes cytoplasmiques restent définitivement dans le nucléole.`,
+    "order": 73,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur « Biogenèse des sous-unités ribosomales », lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "Les sous-unités ribosomales traversent l’enveloppe nucléaire par diffusion libre non sélective.",
+        "correct": false,
+        "explanation": "Leur export est un transport macromoléculaire sélectif."
+      },
+      {
+        "content": "Les protéines ribosomales sont ensuite importées dans le noyau et le nucléole.",
+        "correct": true,
+        "explanation": "Elles y rejoignent les ARNr en cours de maturation."
+      },
+      {
+        "content": "Les ribosomes complets sont assemblés de façon permanente dans le nucléole puis exportés comme une seule particule active.",
+        "correct": false,
+        "explanation": "Les sous-unités sont exportées séparément et s’associent lors de la traduction."
+      },
+      {
+        "content": "Les protéines ribosomales sont synthétisées exclusivement dans le nucléole.",
+        "correct": false,
+        "explanation": "Elles sont traduites dans le cytoplasme."
+      },
+      {
+        "content": "Les protéines ribosomales sont synthétisées dans le cytoplasme.",
+        "correct": true,
+        "explanation": "Comme la plupart des protéines nucléaires, elles sont traduites sur des ribosomes cytosoliques."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La transcription de ces gènes s’y déroule.`,
-      `Exact. La fiche décrit une zone foncée et une zone plus claire.`,
-      `Exact. Elles rejoignent le cytoplasme.`,
-      `Faux. Les sous-unités quittent le noyau après maturation.`,
-    ],
+    "explanation": "Les protéines ribosomales sont synthétisées dans le cytoplasme puis importées dans le noyau ; elles s’associent aux ARNr pour former des pré-sous-unités, qui sont exportées vers le cytoplasme."
   },
   {
-    order: 98,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Les sous-unités ribosomales produites dans le nucléole :`,
-    choices: [
-      `S’associent ultérieurement dans le cytoplasme.`,
-      `Sortent par les pores nucléaires.`,
-      `Sont des chromosomes.`,
-      `Participent à la traduction protéique.`,
+    "order": 74,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Pour consolider ce repère, parmi les propositions suivantes sur « Compaction de la chromatine », laquelle est exacte ?",
+    "choices": [
+      {
+        "content": "Le nucléosome correspond au niveau maximal de condensation du chromosome mitotique.",
+        "correct": false,
+        "explanation": "Il constitue l’unité de base de la chromatine, bien en amont de la condensation mitotique."
+      },
+      {
+        "content": "Une fibre régulière de 30 nm est obligatoire dans tous les noyaux humains.",
+        "correct": false,
+        "explanation": "Ce modèle n’est pas considéré comme une structure universelle stable in vivo."
+      },
+      {
+        "content": "La chromatine interphasique est toujours aussi condensée qu’un chromosome mitotique.",
+        "correct": false,
+        "explanation": "Elle est globalement moins condensée et hétérogène."
+      },
+      {
+        "content": "Le chromosome mitotique représente un état de très forte compaction de la chromatine.",
+        "correct": true,
+        "explanation": "La condensation mitotique permet la ségrégation des chromosomes."
+      },
+      {
+        "content": "La compaction de la chromatine est impossible à modifier localement.",
+        "correct": false,
+        "explanation": "Elle est dynamique et régulée."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Elles forment les ribosomes responsables de la traduction.`,
-      `Exact. Leur export est contrôlé.`,
-      `Faux. Elles sont constituées d’ARNr et de protéines.`,
-      `Exact. Les ribosomes cytoplasmiques assurent cette fonction.`,
-    ],
+    "explanation": "La chromatine est organisée de façon hiérarchique et dynamique ; le modèle historique de fibre de 30 nm ne doit pas être présenté comme une structure universelle stable in vivo."
   },
   {
-    order: 99,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `À propos des territoires chromosomiques :`,
-    choices: [
-      `Ils concernent les chromosomes interphasiques.`,
-      `Ils limitent le mélange aléatoire des molécules d’ADN.`,
-      `Ils correspondent aux nucléoles.`,
-      `Ils traduisent une organisation nucléaire non aléatoire.`,
+    "order": 75,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant le thème « Euchromatine et hétérochromatine », quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Toute hétérochromatine est définitivement inactive dans toutes les cellules.",
+        "correct": false,
+        "explanation": "Certaines régions peuvent changer d’état selon le contexte et l’hétérochromatine n’est pas une catégorie absolue."
+      },
+      {
+        "content": "L’activité transcriptionnelle est en moyenne plus élevée dans l’euchromatine.",
+        "correct": true,
+        "explanation": "L’accessibilité aux facteurs de transcription y est généralement supérieure."
+      },
+      {
+        "content": "L’euchromatine est généralement moins compacte que l’hétérochromatine.",
+        "correct": true,
+        "explanation": "Sa plus grande accessibilité facilite l’activité transcriptionnelle."
+      },
+      {
+        "content": "L’hétérochromatine apparaît souvent plus dense en microscopie électronique.",
+        "correct": true,
+        "explanation": "Sa compaction accrue donne un aspect plus électron-dense."
+      },
+      {
+        "content": "L’euchromatine est la forme la plus condensée du chromosome mitotique.",
+        "correct": false,
+        "explanation": "Elle correspond à une chromatine relativement décondensée en interphase."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La FISH multicouleur les révèle dans un noyau interphasique.`,
-      `Exact. Chaque chromosome occupe un volume restreint.`,
-      `Faux. Les nucléoles sont des compartiments distincts.`,
-      `Exact. Le génome possède une topologie spatiale.`,
-    ],
+    "explanation": "L’euchromatine est généralement plus accessible et plus transcriptionnellement active ; l’hétérochromatine est plus compacte et souvent moins active, sans que ces catégories soient absolues."
   },
   {
-    order: 100,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Une zone nucléaire claire en MET peut correspondre :`,
-    choices: [
-      `À de l’euchromatine.`,
-      `À une région potentiellement active.`,
-      `À de l’hétérochromatine fortement condensée.`,
-      `À une région où l’on peut observer des ARN en synthèse.`,
+    "order": 76,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Sur le thème « Territoires chromosomiques », repérez l’unique affirmation correcte.",
+    "choices": [
+      {
+        "content": "La FISH détruit nécessairement la séquence d’ADN qu’elle détecte.",
+        "correct": false,
+        "explanation": "Elle utilise des sondes complémentaires pour localiser des séquences."
+      },
+      {
+        "content": "Les territoires chromosomiques n’existent que pendant la mitose.",
+        "correct": false,
+        "explanation": "Ils sont particulièrement étudiés dans le noyau interphasique."
+      },
+      {
+        "content": "En interphase, tous les chromosomes sont uniformément mélangés sans organisation spatiale.",
+        "correct": false,
+        "explanation": "Ils occupent des territoires préférentiels."
+      },
+      {
+        "content": "Un territoire chromosomique est une membrane entourant un chromosome.",
+        "correct": false,
+        "explanation": "Il s’agit d’un volume préférentiel, sans membrane propre."
+      },
+      {
+        "content": "Les territoires chromosomiques contribuent à l’organisation tridimensionnelle du génome.",
+        "correct": true,
+        "explanation": "La position spatiale des chromosomes est structurée."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La chromatine décondensée est plus claire.`,
-      `Exact. Elle est accessible aux polymérases.`,
-      `Faux. Cette dernière apparaît foncée.`,
-      `Exact. La transcription se déroule dans l’euchromatine.`,
-    ],
+    "explanation": "En interphase, chaque chromosome occupe préférentiellement un territoire nucléaire distinct, tout en conservant des interfaces et interactions avec d’autres régions du génome."
   },
   {
-    order: 101,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `En observant la figure :
-
-![Territoires et nucléole](/images/training/ue14/biologie-cellulaire/noyau/territoires-nucleole.png)
-
-Quelle(s) proposition(s) est(sont) correcte(s) ?`,
-    choices: [
-      `Les chromosomes occupent des territoires distincts.`,
-      `Le nucléole s’organise autour de foyers d’ADNr.`,
-      `Les sous-unités ribosomales sont exportées.`,
-      `Le nucléole est représenté comme un organite à double membrane.`,
+    "order": 77,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur « Nucléole », lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "Le nucléole n’est pas entouré d’une membrane.",
+        "correct": true,
+        "explanation": "Il s’agit d’un domaine nucléaire formé par auto-organisation de macromolécules."
+      },
+      {
+        "content": "Le nucléole est un organite cytoplasmique à double membrane.",
+        "correct": false,
+        "explanation": "Il est intranucléaire et non membranaire."
+      },
+      {
+        "content": "L’assemblage précoce des sous-unités ribosomales se déroule dans le nucléole.",
+        "correct": true,
+        "explanation": "Les ARNr s’associent à des protéines ribosomales importées."
+      },
+      {
+        "content": "Les sous-unités ribosomales sont ensuite exportées séparément vers le cytoplasme.",
+        "correct": true,
+        "explanation": "Elles terminent leur maturation avant de participer à la traduction."
+      },
+      {
+        "content": "Le nucléole est un site majeur de transcription et de maturation des ARNr.",
+        "correct": true,
+        "explanation": "Les pré-ARNr y sont synthétisés et transformés."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La partie gauche représente des volumes séparés.`,
-      `Exact. Les points rouges symbolisent les copies de gènes ribosomaux.`,
-      `Exact. La flèche les conduit vers l’extérieur du noyau.`,
-      `Faux. Il n’est pas limité par une enveloppe.`,
-    ],
+    "explanation": "Le nucléole est un domaine nucléaire non membranaire organisé autour de régions portant les gènes ribosomaux ; il assure la transcription et la maturation d’une grande partie des ARNr ainsi que l’assemblage précoce des sous-unités ribosomales."
   },
   {
-    order: 102,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Une région de chromatine accessible aux ARN polymérases est :`,
-    choices: [
-      `De l’euchromatine.`,
-      `De l’hétérochromatine compacte.`,
-      `Potentiellement transcriptionnellement active.`,
-      `Nécessairement un nucléole.`,
+    "order": 78,
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "Sur le thème « ADNr et ARNr », sélectionnez exactement 2 propositions exactes.",
+    "choices": [
+      {
+        "content": "Les gènes ribosomaux n’existent qu’en un seul exemplaire par cellule humaine.",
+        "correct": false,
+        "explanation": "Ils sont présents en répétitions multicopies."
+      },
+      {
+        "content": "Les gènes ribosomaux 45S sont présents en nombreuses copies répétées.",
+        "correct": true,
+        "explanation": "Cette répétition permet une forte production d’ARNr."
+      },
+      {
+        "content": "L’ARN polymérase II produit directement tous les ARNr du ribosome.",
+        "correct": false,
+        "explanation": "Pol I transcrit le 45S et Pol III le 5S."
+      },
+      {
+        "content": "L’ARNr 5S est transcrit par l’ARN polymérase III en dehors du nucléole avant son incorporation à la grande sous-unité.",
+        "correct": true,
+        "explanation": "Le 5S suit une voie de transcription distincte."
+      },
+      {
+        "content": "L’ADNr est situé exclusivement dans les mitochondries.",
+        "correct": false,
+        "explanation": "Les gènes ribosomaux nucléaires sont portés par des chromosomes nucléaires."
+      }
     ],
-    correctChoiceIndexes: [0, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La décondensation permet la transcription.`,
-      `Faux. Elle est inaccessible et inactive.`,
-      `Exact. L’accessibilité autorise l’initiation et l’élongation.`,
-      `Faux. Toute euchromatine n’appartient pas au nucléole.`,
-    ],
+    "explanation": "Chez l’humain, les gènes ribosomaux 45S sont regroupés en répétitions sur les bras courts des chromosomes acrocentriques ; l’ARN polymérase I produit un précurseur donnant les ARNr 18S, 5,8S et 28S, tandis que le 5S est transcrit par l’ARN polymérase III hors du nucléole."
   },
   {
-    order: 103,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Une région sombre et compacte à la périphérie d’un noyau peut correspondre :`,
-    choices: [
-      `À de l’hétérochromatine.`,
-      `À une région peu accessible aux polymérases.`,
-      `À une fibre nucléosomique totalement décondensée.`,
-      `À une région potentiellement associée à la lamina.`,
+    "order": 79,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur « Biogenèse des sous-unités ribosomales », lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "Les pré-sous-unités ribosomales sont exportées par les pores nucléaires.",
+        "correct": true,
+        "explanation": "Petite et grande sous-unités quittent le noyau séparément."
+      },
+      {
+        "content": "Les protéines ribosomales sont synthétisées exclusivement dans le nucléole.",
+        "correct": false,
+        "explanation": "Elles sont traduites dans le cytoplasme."
+      },
+      {
+        "content": "Le nucléole synthétise les protéines ribosomales par traduction.",
+        "correct": false,
+        "explanation": "Il organise surtout la biogenèse des ARNr et l’assemblage des pré-sous-unités."
+      },
+      {
+        "content": "La traduction débute après l’assemblage fonctionnel des sous-unités dans le cytoplasme.",
+        "correct": true,
+        "explanation": "Les sous-unités s’associent sur un ARNm lors de l’initiation de la traduction."
+      },
+      {
+        "content": "Les sous-unités ribosomales traversent l’enveloppe nucléaire par diffusion libre non sélective.",
+        "correct": false,
+        "explanation": "Leur export est un transport macromoléculaire sélectif."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La chromatine condensée apparaît foncée.`,
-      `Exact. La compaction limite l’activité.`,
-      `Faux. Elle serait plus claire.`,
-      `Exact. Certaines LAD sont périphériques.`,
-    ],
+    "explanation": "Les protéines ribosomales sont synthétisées dans le cytoplasme puis importées dans le noyau ; elles s’associent aux ARNr pour former des pré-sous-unités, qui sont exportées vers le cytoplasme."
   },
   {
-    order: 104,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Dans une boucle chromatinienne, plusieurs gènes peuvent être :`,
-    choices: [
-      `Actifs ou inactifs.`,
-      `Régulés localement par le degré de condensation.`,
-      `Tous obligatoirement transcrits simultanément.`,
-      `Organisés autour d’une origine de réplication unique dans le modèle présenté.`,
+    "order": 80,
+    "difficulty": "HARD",
+    "format": "QRU",
+    "question": "Sur le thème « Compaction de la chromatine », repérez l’unique affirmation correcte.",
+    "choices": [
+      {
+        "content": "La fibre nucléosomique peut apparaître comme un « collier de perles » après étalement.",
+        "correct": true,
+        "explanation": "Les nucléosomes successifs donnent cet aspect classique."
+      },
+      {
+        "content": "La chromatine interphasique est toujours aussi condensée qu’un chromosome mitotique.",
+        "correct": false,
+        "explanation": "Elle est globalement moins condensée et hétérogène."
+      },
+      {
+        "content": "La compaction de la chromatine est impossible à modifier localement.",
+        "correct": false,
+        "explanation": "Elle est dynamique et régulée."
+      },
+      {
+        "content": "Le nucléosome correspond au niveau maximal de condensation du chromosome mitotique.",
+        "correct": false,
+        "explanation": "Il constitue l’unité de base de la chromatine, bien en amont de la condensation mitotique."
+      },
+      {
+        "content": "Une fibre régulière de 30 nm est obligatoire dans tous les noyaux humains.",
+        "correct": false,
+        "explanation": "Ce modèle n’est pas considéré comme une structure universelle stable in vivo."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La fiche prévoit plusieurs origines de transcription.`,
-      `Exact. La compaction peut varier selon les régions.`,
-      `Faux. Les gènes peuvent être actifs ou non.`,
-      `Exact. Chaque boucle n’en contient qu’une selon la fiche.`,
-    ],
+    "explanation": "La chromatine est organisée de façon hiérarchique et dynamique ; le modèle historique de fibre de 30 nm ne doit pas être présenté comme une structure universelle stable in vivo."
   },
   {
-    order: 105,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Un nucléole volumineux et irrégulier dans une cellule tumorale :`,
-    choices: [
-      `Peut constituer un critère morphologique.`,
-      `Prouve à lui seul et sans contexte la nature tumorale.`,
-      `Peut refléter une activité ribosomale importante.`,
-      `Doit être interprété avec les autres caractéristiques nucléaires.`,
-    ],
-    correctChoiceIndexes: [0, 2, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Taille, forme et nombre des nucléoles sont examinés.`,
-      `Faux. Le diagnostic repose sur une comparaison et un ensemble de critères.`,
-      `Exact. Le nucléole est le siège de la synthèse d’ARNr.`,
-      `Exact. Rapport nucléocytoplasmique et chromatine sont également évalués.`,
-    ],
+    "order": 81,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Comment nomme-t-on la chromatine plus compacte et généralement moins transcriptionnellement active ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "hétérochromatine",
+        "heterochromatine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "L’hétérochromatine est généralement plus compacte et moins accessible, sans être nécessairement inactive de manière absolue."
   },
   {
-    order: 106,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `La disparition du nucléole en mitose est cohérente avec :`,
-    choices: [
-      `La réorganisation générale du noyau.`,
-      `La condensation du matériel génétique.`,
-      `La destruction définitive des gènes d’ADNr.`,
-      `La reformation ultérieure du nucléole en fin de division.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. L’enveloppe et la chromatine changent profondément.`,
-      `Exact. Les chromosomes mitotiques se forment.`,
-      `Faux. Les gènes sont conservés et réutilisés après mitose.`,
-      `Exact. Le noyau se reconstitue après la mitose.`,
-    ],
+    "order": 82,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel terme désigne le volume nucléaire préférentiellement occupé par un chromosome interphasique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "territoire chromosomique",
+        "territoire chromosome"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "En interphase, chaque chromosome occupe préférentiellement un domaine spatial appelé territoire chromosomique, sans membrane propre."
   },
   {
-    order: 107,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Une forte activité de synthèse d’ARNr se localise :`,
-    choices: [
-      `Dans le nucléole.`,
-      `Autour des copies d’ADNr.`,
-      `Dans l’espace périnucléaire.`,
-      `Dans un compartiment nucléaire sans membrane propre.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. C’est son rôle principal.`,
-      `Exact. Le nucléole se construit autour de ces gènes.`,
-      `Faux. Cet espace se trouve entre les deux membranes.`,
-      `Exact. Le nucléole n’est pas limité par une membrane.`,
-    ],
+    "order": 83,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel domaine nucléaire assure une grande partie de la biogenèse des ribosomes ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "nucléole",
+        "nucleole"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Le nucléole est un domaine nucléaire non membranaire consacré à la transcription et à la maturation d’une grande partie des ARNr et à l’assemblage précoce des sous-unités ribosomales."
   },
   {
-    order: 108,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `La chromatine condensée en mottes :`,
-    choices: [
-      `Correspond à l’hétérochromatine.`,
-      `Est inaccessible aux ARN et ADN polymérases.`,
-      `Permet une transcription maximale.`,
-      `Peut apparaître foncée en microscopie électronique.`,
+    "order": 84,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur « Euchromatine et hétérochromatine », lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "La compaction chromatinienne peut varier au cours du temps et selon le type cellulaire.",
+        "correct": true,
+        "explanation": "Les états chromatinien sont régulés."
+      },
+      {
+        "content": "Une chromatine plus accessible empêche toute transcription.",
+        "correct": false,
+        "explanation": "L’accessibilité favorise généralement la transcription."
+      },
+      {
+        "content": "L’hétérochromatine apparaît souvent plus dense en microscopie électronique.",
+        "correct": true,
+        "explanation": "Sa compaction accrue donne un aspect plus électron-dense."
+      },
+      {
+        "content": "Toute hétérochromatine est définitivement inactive dans toutes les cellules.",
+        "correct": false,
+        "explanation": "Certaines régions peuvent changer d’état selon le contexte et l’hétérochromatine n’est pas une catégorie absolue."
+      },
+      {
+        "content": "L’euchromatine est généralement moins compacte que l’hétérochromatine.",
+        "correct": true,
+        "explanation": "Sa plus grande accessibilité facilite l’activité transcriptionnelle."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Le cours emploie ce terme.`,
-      `Exact. Elle est inactive dans le cadre présenté.`,
-      `Faux. La compaction inhibe l’accès.`,
-      `Exact. La densité est plus élevée.`,
-    ],
+    "explanation": "L’euchromatine est généralement plus accessible et plus transcriptionnellement active ; l’hétérochromatine est plus compacte et souvent moins active, sans que ces catégories soient absolues."
   },
   {
-    order: 109,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `La chromatine décondensée :`,
-    choices: [
-      `Correspond à l’euchromatine.`,
-      `Peut contenir des ARN en cours de synthèse.`,
-      `Est accessible aux polymérases.`,
-      `Est toujours silencieuse.`,
+    "order": 85,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant le thème « Territoires chromosomiques » ?",
+    "choices": [
+      {
+        "content": "Des interactions peuvent tout de même se produire entre régions appartenant à des chromosomes différents.",
+        "correct": true,
+        "explanation": "Les territoires ne sont pas des compartiments étanches."
+      },
+      {
+        "content": "Les territoires chromosomiques contribuent à l’organisation tridimensionnelle du génome.",
+        "correct": true,
+        "explanation": "La position spatiale des chromosomes est structurée."
+      },
+      {
+        "content": "Chaque chromosome interphasique occupe préférentiellement un territoire nucléaire.",
+        "correct": true,
+        "explanation": "Les chromosomes ne sont pas totalement mélangés au hasard."
+      },
+      {
+        "content": "Un territoire chromosomique est une membrane entourant un chromosome.",
+        "correct": false,
+        "explanation": "Il s’agit d’un volume préférentiel, sans membrane propre."
+      },
+      {
+        "content": "La FISH multicouleur peut mettre en évidence des territoires chromosomiques.",
+        "correct": true,
+        "explanation": "Des sondes spécifiques permettent de visualiser différents chromosomes."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Elle est diffuse et accessible.`,
-      `Exact. La transcription y est active.`,
-      `Exact. La décondensation autorise leur action.`,
-      `Faux. Elle peut être active en transcription ou duplication.`,
-    ],
+    "explanation": "En interphase, chaque chromosome occupe préférentiellement un territoire nucléaire distinct, tout en conservant des interfaces et interactions avec d’autres régions du génome."
   },
   {
-    order: 110,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `À propos des sous-unités ribosomales :`,
-    choices: [
-      `Leur maturation se déroule dans le nucléole.`,
-      `Elles sont exportées vers le cytoplasme.`,
-      `Elles participent à la formation des ribosomes.`,
-      `Elles sont constituées uniquement d’ADN.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Plusieurs zones nucléolaires participent au processus.`,
-      `Exact. Les pores nucléaires assurent cette sortie.`,
-      `Exact. Les ribosomes cytoplasmiques assurent la traduction.`,
-      `Faux. Elles reposent notamment sur les ARNr et des protéines.`,
-    ],
+    "order": 86,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel sigle désigne l’ADN ribosomal ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "ADNr",
+        "rDNA",
+        "ADN ribosomal"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "L’ADNr correspond aux gènes ribosomaux présents en répétitions et organisant notamment les régions nucléolaires."
   },
   {
-    order: 111,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une cellule possède beaucoup d’euchromatine et un nucléole développé. On peut raisonnablement envisager :`,
-    choices: [
-      `Une activité transcriptionnelle élevée.`,
-      `Une importante production d’ARNr.`,
-      `Une condensation mitotique maximale de tout le génome.`,
-      `Une forte demande de synthèse protéique.`,
+    "order": 87,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant le thème « Nucléole » ?",
+    "choices": [
+      {
+        "content": "L’assemblage précoce des sous-unités ribosomales se déroule dans le nucléole.",
+        "correct": true,
+        "explanation": "Les ARNr s’associent à des protéines ribosomales importées."
+      },
+      {
+        "content": "Les sous-unités ribosomales sont ensuite exportées séparément vers le cytoplasme.",
+        "correct": true,
+        "explanation": "Elles terminent leur maturation avant de participer à la traduction."
+      },
+      {
+        "content": "Le nucléole est le lieu principal de la traduction des protéines cytosoliques.",
+        "correct": false,
+        "explanation": "La traduction a lieu sur les ribosomes du cytoplasme ou du RER."
+      },
+      {
+        "content": "Le nucléole est un organite cytoplasmique à double membrane.",
+        "correct": false,
+        "explanation": "Il est intranucléaire et non membranaire."
+      },
+      {
+        "content": "Les chromosomes ne contribuent jamais à l’organisation du nucléole.",
+        "correct": false,
+        "explanation": "Les régions organisatrices nucléolaires contenant l’ADNr participent à sa formation."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. L’euchromatine est accessible.`,
-      `Exact. Le nucléole développé est cohérent avec cette activité.`,
-      `Faux. La présence d’euchromatine indique un état interphasique actif.`,
-      `Exact. La production de ribosomes accompagne souvent une activité cellulaire soutenue.`,
-    ],
+    "explanation": "Le nucléole est un domaine nucléaire non membranaire organisé autour de régions portant les gènes ribosomaux ; il assure la transcription et la maturation d’une grande partie des ARNr ainsi que l’assemblage précoce des sous-unités ribosomales."
   },
   {
-    order: 112,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une cellule présente essentiellement de l’hétérochromatine compacte :`,
-    choices: [
-      `Son activité transcriptionnelle globale peut être réduite.`,
-      `Les polymérases accèdent difficilement à l’ADN.`,
-      `La synthèse d’ARN est nécessairement maximale.`,
-      `Cette situation peut être associée à une forte différenciation.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. L’ADN est moins accessible.`,
-      `Exact. La condensation constitue une barrière.`,
-      `Faux. L’hétérochromatine est inactive.`,
-      `Exact. La spermatide tardive montre une chromatine très condensée.`,
-    ],
+    "order": 88,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quelle ARN polymérase transcrit le pré-ARNr 45S ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "ARN polymérase I",
+        "ARN polymerase I",
+        "Pol I",
+        "RNA polymerase I"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "L’ARN polymérase I transcrit dans le nucléole le pré-ARNr 45S, précurseur des ARNr 18S, 5,8S et 28S."
   },
   {
-    order: 113,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `La FISH multicouleur montre des zones chromosomiques distinctes. Cette observation :`,
-    choices: [
-      `Appuie la notion de territoires chromosomiques.`,
-      `Montre une organisation spatiale du génome.`,
-      `Prouve que tous les chromosomes sont fusionnés.`,
-      `Concerne un noyau interphasique.`,
+    "order": 89,
+    "difficulty": "MEDIUM",
+    "format": "QZONE",
+    "question": "Sur ce schéma simplifié d’un noyau interphasique, cliquez sur le nucléole.",
+    "image": {
+      "src": "/images/training/ue14/biologie-cellulaire/noyau/noyau-nucleole-qzone.svg",
+      "alt": "Schéma simplifié d’un noyau avec enveloppe, chromatine et nucléole",
+      "width": 1200,
+      "height": 700
+    },
+    "expectedZones": [
+      {
+        "id": "nucleole",
+        "label": "Nucléole",
+        "x": 0.58,
+        "y": 0.48,
+        "tolerance": 0.12
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Chaque chromosome occupe un volume restreint.`,
-      `Exact. Le noyau n’est pas un mélange aléatoire.`,
-      `Faux. Les signaux distincts montrent l’inverse.`,
-      `Exact. La fiche montre cette organisation en interphase.`,
-    ],
+    "defaultTolerance": 0.12,
+    "explanation": "Le nucléole est le domaine nucléaire non membranaire spécialisé dans la transcription et la maturation d’une grande partie des ARNr et dans l’assemblage précoce des sous-unités ribosomales."
   },
   {
-    order: 114,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Un défaut d’export des sous-unités ribosomales par les pores nucléaires pourrait :`,
-    choices: [
-      `Réduire la formation de ribosomes cytoplasmiques.`,
-      `Perturber la traduction protéique.`,
-      `Augmenter directement la sortie de l’ADN.`,
-      `Provoquer une accumulation de sous-unités dans le noyau.`,
+    "order": 90,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Concernant le thème « ADNr et ARNr », quelle est l’unique proposition exacte ?",
+    "choices": [
+      {
+        "content": "L’ADNr est situé exclusivement dans les mitochondries.",
+        "correct": false,
+        "explanation": "Les gènes ribosomaux nucléaires sont portés par des chromosomes nucléaires."
+      },
+      {
+        "content": "L’ARNr 5S est transcrit par l’ARN polymérase III en dehors du nucléole avant son incorporation à la grande sous-unité.",
+        "correct": true,
+        "explanation": "Le 5S suit une voie de transcription distincte."
+      },
+      {
+        "content": "L’ARN polymérase II produit directement tous les ARNr du ribosome.",
+        "correct": false,
+        "explanation": "Pol I transcrit le 45S et Pol III le 5S."
+      },
+      {
+        "content": "Les gènes ribosomaux n’existent qu’en un seul exemplaire par cellule humaine.",
+        "correct": false,
+        "explanation": "Ils sont présents en répétitions multicopies."
+      },
+      {
+        "content": "Le précurseur 45S donne l’ARNr 5S comme unique produit.",
+        "correct": false,
+        "explanation": "Il donne 18S, 5,8S et 28S ; le 5S est transcrit séparément."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Les sous-unités doivent rejoindre le cytoplasme.`,
-      `Exact. Les ribosomes sont nécessaires à la traduction.`,
-      `Faux. L’ADN ne sort pas du noyau.`,
-      `Exact. L’export étant bloqué, elles peuvent s’y accumuler.`,
-    ],
+    "explanation": "Chez l’humain, les gènes ribosomaux 45S sont regroupés en répétitions sur les bras courts des chromosomes acrocentriques ; l’ARN polymérase I produit un précurseur donnant les ARNr 18S, 5,8S et 28S, tandis que le 5S est transcrit par l’ARN polymérase III hors du nucléole."
   },
   {
-    order: 115,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une région contenant une seule origine de réplication mais plusieurs gènes correspond :`,
-    choices: [
-      `À une boucle nucléosomique dans le modèle du cours.`,
-      `À une structure ancrée par des MAR.`,
-      `À un pore nucléaire.`,
-      `À une organisation pouvant contenir plusieurs origines de transcription.`,
+    "order": 91,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur « Biogenèse des sous-unités ribosomales », lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "Le nucléole synthétise les protéines ribosomales par traduction.",
+        "correct": false,
+        "explanation": "Il organise surtout la biogenèse des ARNr et l’assemblage des pré-sous-unités."
+      },
+      {
+        "content": "La traduction débute après l’assemblage fonctionnel des sous-unités dans le cytoplasme.",
+        "correct": true,
+        "explanation": "Les sous-unités s’associent sur un ARNm lors de l’initiation de la traduction."
+      },
+      {
+        "content": "Les sous-unités ribosomales traversent l’enveloppe nucléaire par diffusion libre non sélective.",
+        "correct": false,
+        "explanation": "Leur export est un transport macromoléculaire sélectif."
+      },
+      {
+        "content": "Les protéines ribosomales sont synthétisées dans le cytoplasme.",
+        "correct": true,
+        "explanation": "Comme la plupart des protéines nucléaires, elles sont traduites sur des ribosomes cytosoliques."
+      },
+      {
+        "content": "Les pré-sous-unités ribosomales sont exportées par les pores nucléaires.",
+        "correct": true,
+        "explanation": "Petite et grande sous-unités quittent le noyau séparément."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. C’est l’unité structurale décrite.`,
-      `Exact. Les extrémités sont fixées à la matrice.`,
-      `Faux. Le pore est un complexe protéique de transport.`,
-      `Exact. Plusieurs gènes peuvent y être actifs ou inactifs.`,
-    ],
+    "explanation": "Les protéines ribosomales sont synthétisées dans le cytoplasme puis importées dans le noyau ; elles s’associent aux ARNr pour former des pré-sous-unités, qui sont exportées vers le cytoplasme."
   },
   {
-    order: 116,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une région chromatinienne passe d’un état foncé à un état plus clair. On peut envisager :`,
-    choices: [
-      `Une décondensation locale.`,
-      `Une augmentation possible de l’accessibilité aux polymérases.`,
-      `Une transformation en pore nucléaire.`,
-      `Une activation transcriptionnelle potentielle.`,
+    "order": 92,
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "requiredSelectionCount": 3,
+    "question": "Parmi ces propositions concernant « Compaction de la chromatine », retenez exactement les 3 affirmations justes.",
+    "choices": [
+      {
+        "content": "La chromatine peut adopter localement des degrés de compaction différents.",
+        "correct": true,
+        "explanation": "Cette plasticité permet de moduler l’accessibilité de l’ADN."
+      },
+      {
+        "content": "Le chromosome mitotique représente un état de très forte compaction de la chromatine.",
+        "correct": true,
+        "explanation": "La condensation mitotique permet la ségrégation des chromosomes."
+      },
+      {
+        "content": "La compaction de la chromatine est impossible à modifier localement.",
+        "correct": false,
+        "explanation": "Elle est dynamique et régulée."
+      },
+      {
+        "content": "La fibre nucléosomique peut apparaître comme un « collier de perles » après étalement.",
+        "correct": true,
+        "explanation": "Les nucléosomes successifs donnent cet aspect classique."
+      },
+      {
+        "content": "La chromatine interphasique est toujours aussi condensée qu’un chromosome mitotique.",
+        "correct": false,
+        "explanation": "Elle est globalement moins condensée et hétérogène."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La diminution de densité traduit une ouverture de la chromatine.`,
-      `Exact. L’euchromatine est plus accessible.`,
-      `Faux. La chromatine ne devient pas un pore.`,
-      `Exact. La décondensation autorise la transcription.`,
-    ],
+    "explanation": "La chromatine est organisée de façon hiérarchique et dynamique ; le modèle historique de fibre de 30 nm ne doit pas être présenté comme une structure universelle stable in vivo."
   },
   {
-    order: 117,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une altération des copies d’ADNr pourrait affecter directement :`,
-    choices: [
-      `La synthèse des ARNr.`,
-      `La biogenèse des sous-unités ribosomales.`,
-      `La structure de la membrane plasmique.`,
-      `L’activité du nucléole.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Ces gènes codent les ARN ribosomaux.`,
-      `Exact. Le nucléole se construit autour de ces gènes.`,
-      `Faux. Ce lien n’est pas direct.`,
-      `Exact. Il dépend des gènes d’ADNr.`,
-    ],
+    "order": 93,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel précurseur d’ARNr donne les ARNr 18S, 5,8S et 28S ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "45S",
+        "pré-ARNr 45S",
+        "pre-ARNr 45S",
+        "pré-rRNA 45S"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Le pré-ARNr 45S est maturé par clivages et modifications pour donner les ARNr 18S, 5,8S et 28S."
   },
   {
-    order: 118,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Le nucléole est un exemple de compartimentation nucléaire car :`,
-    choices: [
-      `Il constitue une zone fonctionnelle distincte du nucléoplasme.`,
-      `Il est entouré d’une double membrane.`,
-      `Il regroupe des gènes d’ADNr de chromosomes différents.`,
-      `Il organise plusieurs étapes de la biogenèse ribosomale.`,
+    "order": 94,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Sur le thème « Euchromatine et hétérochromatine », sélectionnez les affirmations fausses.",
+    "choices": [
+      {
+        "content": "L’euchromatine est la forme la plus condensée du chromosome mitotique.",
+        "correct": true,
+        "explanation": "Cette affirmation est incorrecte et doit être sélectionnée ici. Elle correspond à une chromatine relativement décondensée en interphase."
+      },
+      {
+        "content": "L’hétérochromatine est dépourvue d’ADN.",
+        "correct": true,
+        "explanation": "Cette affirmation est incorrecte et doit être sélectionnée ici. Il s’agit bien de chromatine, donc d’ADN associé à des protéines."
+      },
+      {
+        "content": "Toute hétérochromatine est définitivement inactive dans toutes les cellules.",
+        "correct": true,
+        "explanation": "Cette affirmation est incorrecte et doit être sélectionnée ici. Certaines régions peuvent changer d’état selon le contexte et l’hétérochromatine n’est pas une catégorie absolue."
+      },
+      {
+        "content": "L’hétérochromatine apparaît souvent plus dense en microscopie électronique.",
+        "correct": false,
+        "explanation": "Cette affirmation est exacte biologiquement ; elle ne doit donc pas être sélectionnée ici. Sa compaction accrue donne un aspect plus électron-dense."
+      },
+      {
+        "content": "Une chromatine plus accessible empêche toute transcription.",
+        "correct": true,
+        "explanation": "Cette affirmation est incorrecte et doit être sélectionnée ici. L’accessibilité favorise généralement la transcription."
+      }
     ],
-    correctChoiceIndexes: [0, 2, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Il concentre la synthèse et la maturation des ARNr.`,
-      `Faux. Il n’est pas un organite membranaire.`,
-      `Exact. Ces foyers participent à sa construction.`,
-      `Exact. Transcription et maturation y sont spatialement coordonnées.`,
-    ],
+    "explanation": "L’euchromatine est généralement plus accessible et plus transcriptionnellement active ; l’hétérochromatine est plus compacte et souvent moins active, sans que ces catégories soient absolues."
   },
   {
-    order: 119,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une analyse anatomopathologique met en évidence de gros nucléoles nombreux et irréguliers. Cette donnée :`,
-    choices: [
-      `Fait partie des critères nucléaires évalués.`,
-      `Doit être interprétée avec le rapport nucléocytoplasmique.`,
-      `Doit être comparée aux cellules normales environnantes.`,
-      `Suffit toujours à elle seule pour poser un diagnostic définitif.`,
+    "order": 95,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Concernant le thème « Territoires chromosomiques », quelle est l’unique proposition exacte ?",
+    "choices": [
+      {
+        "content": "Les territoires chromosomiques n’existent que pendant la mitose.",
+        "correct": false,
+        "explanation": "Ils sont particulièrement étudiés dans le noyau interphasique."
+      },
+      {
+        "content": "En interphase, tous les chromosomes sont uniformément mélangés sans organisation spatiale.",
+        "correct": false,
+        "explanation": "Ils occupent des territoires préférentiels."
+      },
+      {
+        "content": "Des interactions peuvent tout de même se produire entre régions appartenant à des chromosomes différents.",
+        "correct": true,
+        "explanation": "Les territoires ne sont pas des compartiments étanches."
+      },
+      {
+        "content": "Un territoire chromosomique est une membrane entourant un chromosome.",
+        "correct": false,
+        "explanation": "Il s’agit d’un volume préférentiel, sans membrane propre."
+      },
+      {
+        "content": "La FISH détruit nécessairement la séquence d’ADN qu’elle détecte.",
+        "correct": false,
+        "explanation": "Elle utilise des sondes complémentaires pour localiser des séquences."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Taille, forme et nombre sont observés.`,
-      `Exact. L’analyse repose sur plusieurs critères.`,
-      `Exact. La comparaison au tissu de référence est essentielle.`,
-      `Faux. Le cours décrit une analyse morphologique globale.`,
-    ],
+    "explanation": "En interphase, chaque chromosome occupe préférentiellement un territoire nucléaire distinct, tout en conservant des interfaces et interactions avec d’autres régions du génome."
   },
   {
-    order: 120,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Synthèse de la section :`,
-    choices: [
-      `L’état de compaction détermine l’accessibilité de l’ADN.`,
-      `Les chromosomes occupent des territoires dans le noyau.`,
-      `Le nucléole coordonne la biogenèse ribosomale.`,
-      `Le nucléole assure l’export de l’ADN.`,
+    "order": 96,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "Parmi ces propositions concernant « Nucléole », retenez exactement les 2 affirmations justes.",
+    "choices": [
+      {
+        "content": "L’assemblage précoce des sous-unités ribosomales se déroule dans le nucléole.",
+        "correct": true,
+        "explanation": "Les ARNr s’associent à des protéines ribosomales importées."
+      },
+      {
+        "content": "Le nucléole est un site majeur de transcription et de maturation des ARNr.",
+        "correct": true,
+        "explanation": "Les pré-ARNr y sont synthétisés et transformés."
+      },
+      {
+        "content": "Le nucléole est le lieu principal de la traduction des protéines cytosoliques.",
+        "correct": false,
+        "explanation": "La traduction a lieu sur les ribosomes du cytoplasme ou du RER."
+      },
+      {
+        "content": "Les chromosomes ne contribuent jamais à l’organisation du nucléole.",
+        "correct": false,
+        "explanation": "Les régions organisatrices nucléolaires contenant l’ADNr participent à sa formation."
+      },
+      {
+        "content": "Les ARNr sont synthétisés dans le cytoplasme puis importés dans le nucléole.",
+        "correct": false,
+        "explanation": "Ils sont synthétisés dans le noyau à partir des gènes ribosomaux."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Euchromatine et hétérochromatine ont des activités différentes.`,
-      `Exact. L’organisation spatiale est non aléatoire.`,
-      `Exact. Il synthétise les ARNr et mature les sous-unités.`,
-      `Faux. L’ADN reste protégé dans le noyau.`,
-    ],
+    "explanation": "Le nucléole est un domaine nucléaire non membranaire organisé autour de régions portant les gènes ribosomaux ; il assure la transcription et la maturation d’une grande partie des ARNr ainsi que l’assemblage précoce des sous-unités ribosomales."
   },
+  {
+    "order": 97,
+    "difficulty": "HARD",
+    "format": "QRU",
+    "question": "Pour distinguer les notions proches, concernant le thème « ADNr et ARNr », quelle est l’unique proposition exacte ?",
+    "choices": [
+      {
+        "content": "L’ARN polymérase II produit directement tous les ARNr du ribosome.",
+        "correct": false,
+        "explanation": "Pol I transcrit le 45S et Pol III le 5S."
+      },
+      {
+        "content": "Les gènes ribosomaux n’existent qu’en un seul exemplaire par cellule humaine.",
+        "correct": false,
+        "explanation": "Ils sont présents en répétitions multicopies."
+      },
+      {
+        "content": "Le précurseur 45S donne l’ARNr 5S comme unique produit.",
+        "correct": false,
+        "explanation": "Il donne 18S, 5,8S et 28S ; le 5S est transcrit séparément."
+      },
+      {
+        "content": "Les gènes ribosomaux 45S sont présents en nombreuses copies répétées.",
+        "correct": true,
+        "explanation": "Cette répétition permet une forte production d’ARNr."
+      },
+      {
+        "content": "L’ADNr est situé exclusivement dans les mitochondries.",
+        "correct": false,
+        "explanation": "Les gènes ribosomaux nucléaires sont portés par des chromosomes nucléaires."
+      }
+    ],
+    "explanation": "Chez l’humain, les gènes ribosomaux 45S sont regroupés en répétitions sur les bras courts des chromosomes acrocentriques ; l’ARN polymérase I produit un précurseur donnant les ARNr 18S, 5,8S et 28S, tandis que le 5S est transcrit par l’ARN polymérase III hors du nucléole."
+  },
+  {
+    "order": 98,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel ARNr est transcrit par l’ARN polymérase III plutôt que par l’ARN polymérase I ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "5S",
+        "ARNr 5S"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "L’ARNr 5S est transcrit par l’ARN polymérase III hors du nucléole avant son incorporation à la grande sous-unité ribosomale."
+  },
+  {
+    "order": 99,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Sur le thème « Biogenèse des sous-unités ribosomales », sélectionnez les affirmations exactes.",
+    "choices": [
+      {
+        "content": "La traduction débute après l’assemblage fonctionnel des sous-unités dans le cytoplasme.",
+        "correct": true,
+        "explanation": "Les sous-unités s’associent sur un ARNm lors de l’initiation de la traduction."
+      },
+      {
+        "content": "Les pré-sous-unités ribosomales sont exportées par les pores nucléaires.",
+        "correct": true,
+        "explanation": "Petite et grande sous-unités quittent le noyau séparément."
+      },
+      {
+        "content": "Le nucléole synthétise les protéines ribosomales par traduction.",
+        "correct": false,
+        "explanation": "Il organise surtout la biogenèse des ARNr et l’assemblage des pré-sous-unités."
+      },
+      {
+        "content": "Les protéines ribosomales sont synthétisées exclusivement dans le nucléole.",
+        "correct": false,
+        "explanation": "Elles sont traduites dans le cytoplasme."
+      },
+      {
+        "content": "Les sous-unités ribosomales traversent l’enveloppe nucléaire par diffusion libre non sélective.",
+        "correct": false,
+        "explanation": "Leur export est un transport macromoléculaire sélectif."
+      }
+    ],
+    "explanation": "Les protéines ribosomales sont synthétisées dans le cytoplasme puis importées dans le noyau ; elles s’associent aux ARNr pour former des pré-sous-unités, qui sont exportées vers le cytoplasme."
+  },
+  {
+    "order": 100,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Par quelle structure les pré-sous-unités ribosomales quittent-elles le noyau ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "pores nucléaires",
+        "pores nucleaires",
+        "complexes du pore nucléaire",
+        "NPC"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Les pré-sous-unités ribosomales sont des cargos macromoléculaires exportés sélectivement à travers les complexes du pore nucléaire."
+  }
 ];
 
 export const SECTION_D_QUIZZES: SeedQuiz[] = [
   {
-    order: 10,
-    slug: `euchromatine-heterochromatine`,
-    title: `Euchromatine et hétérochromatine`,
-    description: `Compaction, accessibilité et activité des polymérases.`,
-    stage: 'DISCOVER',
-    sectionOrder: 4,
-    questionOrders: [91, 92, 93, 94, 95, 96, 97, 98, 99, 100],
+    "order": 7,
+    "slug": "noyau-chromatine-2",
+    "title": "États et territoires de la chromatine",
+    "description": "Distinguer compaction, activité et organisation spatiale.",
+    "stage": "DISCOVER",
+    "sectionOrder": 4,
+    "questionOrders": [
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76
+    ]
   },
   {
-    order: 11,
-    slug: `nucleole-et-ribosomes`,
-    title: `Nucléole et biogenèse ribosomale`,
-    description: `ADNr, synthèse des ARNr, maturation et export des sous-unités.`,
-    stage: 'PRACTICE',
-    sectionOrder: 4,
-    questionOrders: [101, 102, 103, 104, 105, 106, 107, 108, 109, 110],
+    "order": 8,
+    "slug": "noyau-nucleole-1",
+    "title": "Nucléole et ARNr",
+    "description": "Comprendre la biogenèse ribosomale nucléaire.",
+    "stage": "PRACTICE",
+    "sectionOrder": 4,
+    "questionOrders": [
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88
+    ]
   },
   {
-    order: 12,
-    slug: `activite-nucleaire-et-applications`,
-    title: `Activité nucléaire et applications`,
-    description: `Raisonnement intégré sur chromatine, nucléole et pathologie.`,
-    stage: 'MASTER',
-    sectionOrder: 4,
-    questionOrders: [111, 112, 113, 114, 115, 116, 117, 118, 119, 120],
-  },
+    "order": 9,
+    "slug": "noyau-integration",
+    "title": "Chromatine, nucléole et intégration",
+    "description": "Mobiliser plusieurs niveaux d’organisation du noyau.",
+    "stage": "MASTER",
+    "sectionOrder": 4,
+    "questionOrders": [
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100
+    ]
+  }
 ];

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#ffffff"/>
+  <text x="600" y="68" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#111827">Organisation simplifiée d’une mitochondrie</text>
+  <text x="600" y="104" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#4b5563">Schéma non à l’échelle</text>
+
+  <!-- outer membrane -->
+  <ellipse cx="600" cy="380" rx="390" ry="225" fill="#f8fafc" stroke="#111827" stroke-width="8"/>
+  <!-- intermembrane space + inner membrane -->
+  <ellipse cx="600" cy="380" rx="350" ry="188" fill="#eef2f7" stroke="#374151" stroke-width="6"/>
+  <!-- matrix -->
+  <ellipse cx="600" cy="380" rx="305" ry="150" fill="#ffffff" stroke="#9ca3af" stroke-width="2"/>
+
+  <!-- cristae, stylized folds of the inner membrane -->
+  <path d="M330 335 C390 300 410 460 470 425 C525 392 535 275 590 315 C640 350 660 472 720 430 C780 388 790 285 860 330"
+        fill="none" stroke="#374151" stroke-width="11" stroke-linecap="round"/>
+  <path d="M345 405 C405 370 430 505 490 468 C545 434 565 335 620 370 C675 405 690 510 750 470 C810 430 825 350 875 385"
+        fill="none" stroke="#374151" stroke-width="9" stroke-linecap="round"/>
+
+  <!-- mtDNA and ribosome-like landmarks -->
+  <path d="M690 300 C720 275 760 280 775 310 C790 340 760 365 730 350 C700 336 690 318 690 300 Z"
+        fill="none" stroke="#6b7280" stroke-width="4"/>
+  <circle cx="505" cy="315" r="10" fill="#6b7280"/>
+  <circle cx="535" cy="335" r="8" fill="#6b7280"/>
+  <circle cx="480" cy="430" r="9" fill="#6b7280"/>
+
+  <!-- neutral legend outside organelle -->
+  <line x1="160" y1="610" x2="230" y2="610" stroke="#111827" stroke-width="8"/>
+  <text x="245" y="617" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#374151">Membrane externe</text>
+  <line x1="480" y1="610" x2="550" y2="610" stroke="#374151" stroke-width="8"/>
+  <text x="565" y="617" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#374151">Membrane interne et crêtes</text>
+</svg>

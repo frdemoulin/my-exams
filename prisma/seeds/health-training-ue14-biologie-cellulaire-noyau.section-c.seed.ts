@@ -1,642 +1,747 @@
-/**
- * UE14 – Biologie cellulaire – Chapitre 8
- * Contenu fondé sur la fiche 2024-2025 du Tutorat Santé de Reims.
- */
 import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
 
+/** UE14 Biologie cellulaire — Ch8 — Lamina, matrice nucléaire et nucléosome — V2 active */
 export const SECTION_C_QUESTIONS: SeedQuestion[] = [
   {
-    order: 61,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `La matrice nucléaire est définie expérimentalement comme :`,
-    choices: [
-      `Un ensemble de protéines nucléaires persistant après extraction.`,
-      `Une structure comprenant la lamina.`,
-      `Une structure comprenant un réseau fibreux interne.`,
-      `Un ensemble constitué uniquement d’ADN.`,
+    "order": 45,
+    "difficulty": "HARD",
+    "format": "QRU",
+    "question": "Sur le thème « Matrice nucléaire : concept opérationnel », repérez l’unique affirmation correcte.",
+    "choices": [
+      {
+        "content": "La matrice nucléaire est composée uniquement d’ADN.",
+        "correct": false,
+        "explanation": "Le concept décrit au contraire un résidu principalement protéique après extraction des acides nucléiques."
+      },
+      {
+        "content": "La lamina est une couche de laminine extracellulaire.",
+        "correct": false,
+        "explanation": "La lamina nucléaire est formée de lamines, différentes de la laminine de la matrice extracellulaire."
+      },
+      {
+        "content": "NuMA est une histone du cœur nucléosomique.",
+        "correct": false,
+        "explanation": "NuMA est une grande protéine nucléaire et mitotique, pas une histone du nucléosome."
+      },
+      {
+        "content": "Le terme matrice nucléaire a été défini historiquement à partir de résidus obtenus après extractions biochimiques.",
+        "correct": true,
+        "explanation": "Il s’agit d’un concept opérationnel issu de protocoles d’extraction."
+      },
+      {
+        "content": "Un réseau fibreux interne unique et immuable a été démontré comme squelette universel de tous les noyaux vivants.",
+        "correct": false,
+        "explanation": "La notion de matrice nucléaire interne rigide et universelle reste controversée."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Elle reste après élimination de nombreux constituants.`,
-      `Exact. La lamina est sa composante périphérique.`,
-      `Exact. Le réseau NuMA occupe le nucléoplasme.`,
-      `Faux. L’ADN est éliminé par DNase lors de la préparation.`,
-    ],
+    "explanation": "La « matrice nucléaire » désigne historiquement un résidu protéique obtenu après extractions ; certaines structures comme la lamina sont bien établies, tandis que l’existence d’un réseau interne unique et stable reste un concept expérimental à manier avec prudence."
   },
   {
-    order: 62,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `La lamina :`,
-    choices: [
-      `Est au contact de la membrane interne de l’enveloppe.`,
-      `A une épaisseur d’environ 0,2 µm dans la fiche.`,
-      `Est constituée de lamines A, B et C.`,
-      `Est localisée dans le cytoplasme loin du noyau.`,
+    "order": 46,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Sur le thème « Lamina et lamines », sélectionnez les affirmations exactes.",
+    "choices": [
+      {
+        "content": "Les lamines appartiennent à la famille des filaments intermédiaires de type V.",
+        "correct": true,
+        "explanation": "Les lamines sont les filaments intermédiaires nucléaires."
+      },
+      {
+        "content": "La lamina est située au contact de la face nucléoplasmique de la membrane interne.",
+        "correct": true,
+        "explanation": "Elle tapisse la périphérie interne du noyau."
+      },
+      {
+        "content": "Les lamines sont des microtubules constitués de tubuline.",
+        "correct": false,
+        "explanation": "Elles appartiennent aux filaments intermédiaires."
+      },
+      {
+        "content": "Les lamines A et C proviennent du gène LMNA par épissage alternatif.",
+        "correct": true,
+        "explanation": "LMNA code notamment les lamines A et C."
+      },
+      {
+        "content": "La lamina est constituée de laminine.",
+        "correct": false,
+        "explanation": "La laminine est une glycoprotéine extracellulaire ; la lamina nucléaire est faite de lamines."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Elle tapisse sa face nucléoplasmique.`,
-      `Exact. Cette valeur est donnée explicitement.`,
-      `Exact. Ces protéines sont les éléments structuraux de la lamina.`,
-      `Faux. Elle est une structure nucléaire périphérique.`,
-    ],
+    "explanation": "La lamina est un réseau de filaments intermédiaires de type V, constitué de lamines A/C et B, sous la membrane nucléaire interne ; elle participe à la forme nucléaire, à l’organisation des pores et à l’ancrage de domaines chromatinien."
   },
   {
-    order: 63,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Les lamines A, B et C :`,
-    choices: [
-      `Appartiennent à la famille des filaments intermédiaires.`,
-      `Forment un maillage régulier.`,
-      `Sont des histones du nucléosome.`,
-      `Participent au nucléosquelette périphérique.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Le cours les rattache au cytosquelette.`,
-      `Exact. Cette organisation assure la résistance de l’enveloppe.`,
-      `Faux. Les histones sont H2A, H2B, H3, H4 et H1.`,
-      `Exact. Elles constituent la lamina.`,
-    ],
+    "order": 47,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quelle famille de protéines forme l’essentiel de la lamina nucléaire ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "lamines",
+        "lamine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Les lamines sont les filaments intermédiaires nucléaires qui constituent l’armature principale de la lamina."
   },
   {
-    order: 64,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Le réseau fibreux nucléaire :`,
-    choices: [
-      `Est constitué de protéines NuMA.`,
-      `Est présent dans tout le nucléoplasme.`,
-      `Peut être visualisé en fluorescence.`,
-      `Est uniquement localisé dans l’espace périnucléaire.`,
+    "order": 48,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant le thème « LAD et MAR », quelles propositions sont incorrectes ?",
+    "choices": [
+      {
+        "content": "LAD est le nom d’une sous-unité du ribosome.",
+        "correct": true,
+        "explanation": "Cette affirmation est incorrecte et doit être sélectionnée ici. Il s’agit d’un domaine chromatinien associé à la lamina."
+      },
+      {
+        "content": "Les interactions de chromatine avec la périphérie contribuent à l’organisation tridimensionnelle du génome.",
+        "correct": false,
+        "explanation": "Cette affirmation est exacte biologiquement ; elle ne doit donc pas être sélectionnée ici. L’architecture nucléaire influence la disposition et l’activité chromatiniennes."
+      },
+      {
+        "content": "MAR est une protéine motrice des microtubules.",
+        "correct": true,
+        "explanation": "Cette affirmation est incorrecte et doit être sélectionnée ici. MAR désigne une région d’ADN associée à la matrice dans les préparations expérimentales."
+      },
+      {
+        "content": "Toute chromatine associée à la lamina est obligatoirement transcrite à très haut niveau.",
+        "correct": true,
+        "explanation": "Cette affirmation est incorrecte et doit être sélectionnée ici. Les LAD sont au contraire souvent relativement réprimés."
+      },
+      {
+        "content": "L’organisation tridimensionnelle du génome est totalement aléatoire.",
+        "correct": true,
+        "explanation": "Cette affirmation est incorrecte et doit être sélectionnée ici. Les chromosomes et domaines chromatinien occupent des positions organisées."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. NuMA signifie Nuclear Matrix.`,
-      `Exact. Il forme un réseau interne.`,
-      `Exact. Les protéines NuMA apparaissent en vert dans l’exemple.`,
-      `Faux. Il occupe le volume du noyau.`,
-    ],
+    "explanation": "Les LAD désignent des domaines chromatinien associés à la lamina ; les MAR/SAR sont des régions d’ADN identifiées par leur association à la matrice ou au squelette nucléaire dans des préparations expérimentales."
   },
   {
-    order: 65,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `La matrice nucléaire contribue :`,
-    choices: [
-      `À la forme du noyau.`,
-      `À la taille du noyau.`,
-      `À l’organisation des sites de duplication et de transcription.`,
-      `À l’export direct de l’ADN hors du noyau.`,
+    "order": 49,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Sur le thème « Nucléosome », repérez l’unique affirmation correcte.",
+    "choices": [
+      {
+        "content": "Le nucléosome est constitué exclusivement d’ARN.",
+        "correct": false,
+        "explanation": "Il associe ADN et histones."
+      },
+      {
+        "content": "Chaque nucléosome contient une seule histone H3 et aucune H4.",
+        "correct": false,
+        "explanation": "Le cœur contient deux copies de chacune des histones H2A, H2B, H3 et H4."
+      },
+      {
+        "content": "L’ADN reste entièrement rectiligne et ne s’enroule pas autour des histones.",
+        "correct": false,
+        "explanation": "L’enroulement de l’ADN autour du cœur d’histones est la base de la compaction."
+      },
+      {
+        "content": "L’histone H1 fait partie des huit histones du cœur nucléosomique.",
+        "correct": false,
+        "explanation": "H1 est une histone de liaison associée à l’ADN linker et à l’entrée/sortie du nucléosome."
+      },
+      {
+        "content": "Environ 147 paires de bases d’ADN sont enroulées autour de l’octamère.",
+        "correct": true,
+        "explanation": "C’est la longueur canonique de l’ADN du cœur nucléosomique."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Elle joue un rôle de squelette.`,
-      `Exact. La forme et la taille persistent après extraction.`,
-      `Exact. Les polymérases sont ancrées sur ou près de la matrice.`,
-      `Faux. L’ADN reste nucléaire.`,
-    ],
+    "explanation": "Le nucléosome est l’unité fondamentale de la chromatine : environ 147 paires de bases d’ADN s’enroulent en ~1,65 tour autour d’un octamère contenant deux copies de H2A, H2B, H3 et H4."
   },
   {
-    order: 66,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Les domaines LAD et MAR :`,
-    choices: [
-      `Les LAD s’associent à la lamina.`,
-      `Les MAR s’associent à la matrice nucléaire.`,
-      `Participent à l’ancrage de la chromatine.`,
-      `Sont des enzymes de digestion lysosomale.`,
+    "order": 50,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant le thème « Histone H1 et compaction », quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "H1 favorise des états de chromatine plus compacts.",
+        "correct": true,
+        "explanation": "Elle contribue à rapprocher et organiser les nucléosomes."
+      },
+      {
+        "content": "H1 remplace les histones H3 et H4 dans le cœur nucléosomique.",
+        "correct": false,
+        "explanation": "Elle est une histone de liaison distincte du cœur."
+      },
+      {
+        "content": "La chromatine ne peut exister que sous un seul niveau de compaction.",
+        "correct": false,
+        "explanation": "Elle adopte de nombreux états structuraux."
+      },
+      {
+        "content": "Une chromatine plus compacte est toujours plus active transcriptionnellement.",
+        "correct": false,
+        "explanation": "Une compaction élevée est généralement associée à une moindre accessibilité."
+      },
+      {
+        "content": "L’histone H1 est associée à l’ADN linker.",
+        "correct": true,
+        "explanation": "Elle stabilise l’organisation de l’ADN entre nucléosomes."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. LAD signifie Lamina Associated Domains.`,
-      `Exact. MAR signifie Matrix Associated Regions.`,
-      `Exact. Ils organisent la chromatine dans le noyau.`,
-      `Faux. Ce sont des régions d’ADN associées au nucléosquelette.`,
-    ],
+    "explanation": "H1 est une histone de liaison qui interagit avec l’ADN linker et les zones d’entrée/sortie du nucléosome ; elle favorise la compaction sans appartenir à l’octamère du cœur."
   },
   {
-    order: 67,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Dans un noyau 2n en phase G2, la fiche indique environ :`,
-    choices: [
-      `1,8 m d’ADN.`,
-      `1,8 nm d’ADN.`,
-      `Une forte contrainte de rangement dans le noyau.`,
-      `Aucun besoin de compaction.`,
+    "order": 51,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Concernant le thème « Matrice nucléaire : concept opérationnel », quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "NuMA est une histone du cœur nucléosomique.",
+        "correct": false,
+        "explanation": "NuMA est une grande protéine nucléaire et mitotique, pas une histone du nucléosome."
+      },
+      {
+        "content": "Le terme matrice nucléaire a été défini historiquement à partir de résidus obtenus après extractions biochimiques.",
+        "correct": true,
+        "explanation": "Il s’agit d’un concept opérationnel issu de protocoles d’extraction."
+      },
+      {
+        "content": "La lamina nucléaire est une structure protéique bien établie sous la membrane interne.",
+        "correct": true,
+        "explanation": "Elle est constituée principalement de lamines."
+      },
+      {
+        "content": "NuMA est une protéine nucléaire importante notamment pour l’organisation du fuseau mitotique.",
+        "correct": true,
+        "explanation": "NuMA se redistribue en mitose et participe à l’organisation des pôles du fuseau."
+      },
+      {
+        "content": "Un réseau fibreux interne unique et immuable a été démontré comme squelette universel de tous les noyaux vivants.",
+        "correct": false,
+        "explanation": "La notion de matrice nucléaire interne rigide et universelle reste controversée."
+      }
     ],
-    correctChoiceIndexes: [0, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Cette longueur illustre la nécessité de compaction.`,
-      `Faux. La valeur indiquée est de l’ordre du mètre.`,
-      `Exact. La chromatine doit être condensée de façon ordonnée.`,
-      `Faux. La longueur de l’ADN impose une organisation hiérarchique.`,
-    ],
+    "explanation": "La « matrice nucléaire » désigne historiquement un résidu protéique obtenu après extractions ; certaines structures comme la lamina sont bien établies, tandis que l’existence d’un réseau interne unique et stable reste un concept expérimental à manier avec prudence."
   },
   {
-    order: 68,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `L’organisation de la chromatine doit concilier :`,
-    choices: [
-      `La compaction de l’ADN.`,
-      `La décondensation locale pour transcription et duplication.`,
-      `Des niveaux de condensation imbriqués.`,
-      `Une condensation maximale permanente de tout le génome.`,
+    "order": 52,
+    "difficulty": "HARD",
+    "format": "QRU",
+    "question": "Sur le thème « Lamina et lamines », repérez l’unique affirmation correcte.",
+    "choices": [
+      {
+        "content": "Les lamines A et C proviennent du gène LMNA par épissage alternatif.",
+        "correct": true,
+        "explanation": "LMNA code notamment les lamines A et C."
+      },
+      {
+        "content": "La lamina se trouve dans la lumière du réticulum endoplasmique.",
+        "correct": false,
+        "explanation": "Elle est du côté nucléoplasmique de la membrane interne."
+      },
+      {
+        "content": "La lamina n’a aucun lien avec l’organisation de la chromatine.",
+        "correct": false,
+        "explanation": "Elle interagit avec des domaines chromatinien et contribue à l’architecture nucléaire."
+      },
+      {
+        "content": "La lamina est constituée de laminine.",
+        "correct": false,
+        "explanation": "La laminine est une glycoprotéine extracellulaire ; la lamina nucléaire est faite de lamines."
+      },
+      {
+        "content": "Les lamines sont des microtubules constitués de tubuline.",
+        "correct": false,
+        "explanation": "Elles appartiennent aux filaments intermédiaires."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Elle permet de le contenir dans le noyau.`,
-      `Exact. Les polymérases nécessitent l’accessibilité de l’ADN.`,
-      `Exact. La compaction est hiérarchisée.`,
-      `Faux. Cela empêcherait toute activité de polymérase.`,
-    ],
+    "explanation": "La lamina est un réseau de filaments intermédiaires de type V, constitué de lamines A/C et B, sous la membrane nucléaire interne ; elle participe à la forme nucléaire, à l’organisation des pores et à l’ancrage de domaines chromatinien."
   },
   {
-    order: 69,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Le noyau nucléosomique est constitué :`,
-    choices: [
-      `D’un octamère d’histones.`,
-      `De deux exemplaires de H2A, H2B, H3 et H4.`,
-      `D’ADN enroulé autour de l’octamère.`,
-      `Uniquement d’histone H1.`,
+    "order": 53,
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "requiredSelectionCount": 3,
+    "question": "Parmi ces propositions concernant « LAD et MAR », retenez exactement les 3 affirmations justes.",
+    "choices": [
+      {
+        "content": "L’organisation tridimensionnelle du génome est totalement aléatoire.",
+        "correct": false,
+        "explanation": "Les chromosomes et domaines chromatinien occupent des positions organisées."
+      },
+      {
+        "content": "Toute chromatine associée à la lamina est obligatoirement transcrite à très haut niveau.",
+        "correct": false,
+        "explanation": "Les LAD sont au contraire souvent relativement réprimés."
+      },
+      {
+        "content": "Les interactions de chromatine avec la périphérie contribuent à l’organisation tridimensionnelle du génome.",
+        "correct": true,
+        "explanation": "L’architecture nucléaire influence la disposition et l’activité chromatiniennes."
+      },
+      {
+        "content": "LAD signifie Lamina-Associated Domain.",
+        "correct": true,
+        "explanation": "Un LAD est un domaine chromatinien en contact avec la lamina."
+      },
+      {
+        "content": "MAR désigne une région d’ADN associée à la matrice nucléaire dans des approches expérimentales.",
+        "correct": true,
+        "explanation": "Le terme signifie Matrix-Associated Region."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Il comprend deux exemplaires de quatre histones.`,
-      `Exact. C’est la composition de l’octamère.`,
-      `Exact. Le cours décrit environ deux boucles.`,
-      `Faux. H1 stabilise l’ensemble mais ne constitue pas l’octamère central.`,
-    ],
+    "explanation": "Les LAD désignent des domaines chromatinien associés à la lamina ; les MAR/SAR sont des régions d’ADN identifiées par leur association à la matrice ou au squelette nucléaire dans des préparations expérimentales."
   },
   {
-    order: 70,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `L’histone H1 :`,
-    choices: [
-      `Stabilise l’ensemble nucléosomique.`,
-      `Fait partie des huit histones centrales de l’octamère.`,
-      `Intervient dans l’organisation de la fibre.`,
-      `Est une enzyme de réplication de l’ADN.`,
+    "order": 54,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant le thème « Nucléosome », quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "L’ADN effectue environ 1,65 tour autour du cœur d’histones.",
+        "correct": true,
+        "explanation": "Il ne s’agit pas de deux tours complets."
+      },
+      {
+        "content": "Environ 147 paires de bases d’ADN sont enroulées autour de l’octamère.",
+        "correct": true,
+        "explanation": "C’est la longueur canonique de l’ADN du cœur nucléosomique."
+      },
+      {
+        "content": "Des segments d’ADN linker relient les nucléosomes successifs.",
+        "correct": true,
+        "explanation": "L’ADN internucléosomique relie les particules nucléosomiques."
+      },
+      {
+        "content": "L’histone H1 fait partie des huit histones du cœur nucléosomique.",
+        "correct": false,
+        "explanation": "H1 est une histone de liaison associée à l’ADN linker et à l’entrée/sortie du nucléosome."
+      },
+      {
+        "content": "Le cœur nucléosomique contient deux copies de H2A, H2B, H3 et H4.",
+        "correct": true,
+        "explanation": "Ces huit histones forment l’octamère du cœur."
+      }
     ],
-    correctChoiceIndexes: [0, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Elle est associée à l’ADN internucléosomique.`,
-      `Faux. L’octamère contient H2A, H2B, H3 et H4 en double.`,
-      `Exact. Elle contribue à la stabilité de la structure.`,
-      `Faux. C’est une protéine histone structurale.`,
-    ],
+    "explanation": "Le nucléosome est l’unité fondamentale de la chromatine : environ 147 paires de bases d’ADN s’enroulent en ~1,65 tour autour d’un octamère contenant deux copies de H2A, H2B, H3 et H4."
   },
   {
-    order: 71,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `La fibre nucléosomique :`,
-    choices: [
-      `Correspond à un collier de perles.`,
-      `Est la structure chromatinienne la plus décondensée décrite.`,
-      `Peut être observée en microscopie électronique.`,
-      `Est plus compacte qu’un chromosome mitotique.`,
+    "order": 55,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur « Histone H1 et compaction », lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "La chromatine ne peut exister que sous un seul niveau de compaction.",
+        "correct": false,
+        "explanation": "Elle adopte de nombreux états structuraux."
+      },
+      {
+        "content": "La compaction de la chromatine est dynamique et modulable localement.",
+        "correct": true,
+        "explanation": "Elle varie selon l’activité transcriptionnelle et d’autres processus."
+      },
+      {
+        "content": "H1 est une ADN polymérase nucléaire.",
+        "correct": false,
+        "explanation": "H1 est une histone de liaison."
+      },
+      {
+        "content": "H1 remplace les histones H3 et H4 dans le cœur nucléosomique.",
+        "correct": false,
+        "explanation": "Elle est une histone de liaison distincte du cœur."
+      },
+      {
+        "content": "L’histone H1 est associée à l’ADN linker.",
+        "correct": true,
+        "explanation": "Elle stabilise l’organisation de l’ADN entre nucléosomes."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Les nucléosomes sont disposés les uns à la suite des autres.`,
-      `Exact. Elle est visible après étalement de la chromatine.`,
-      `Exact. La fiche présente des images MET.`,
-      `Faux. Le chromosome est l’état le plus condensé.`,
-    ],
+    "explanation": "H1 est une histone de liaison qui interagit avec l’ADN linker et les zones d’entrée/sortie du nucléosome ; elle favorise la compaction sans appartenir à l’octamère du cœur."
   },
   {
-    order: 72,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `La fibre de 30 nm :`,
-    choices: [
-      `Résulte de l’enroulement de la fibre nucléosomique.`,
-      `Représente un premier ordre de compaction.`,
-      `Est plus décondensée que le collier de perles.`,
-      `S’inscrit dans une succession de niveaux conduisant au chromosome.`,
+    "order": 56,
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "Parmi ces propositions concernant « Matrice nucléaire : concept opérationnel », retenez exactement les 2 affirmations justes.",
+    "choices": [
+      {
+        "content": "NuMA est une protéine nucléaire importante notamment pour l’organisation du fuseau mitotique.",
+        "correct": true,
+        "explanation": "NuMA se redistribue en mitose et participe à l’organisation des pôles du fuseau."
+      },
+      {
+        "content": "Des domaines de chromatine peuvent être associés à la lamina nucléaire.",
+        "correct": true,
+        "explanation": "Les LAD correspondent à des régions chromatiniennes associées à la lamina."
+      },
+      {
+        "content": "NuMA est une histone du cœur nucléosomique.",
+        "correct": false,
+        "explanation": "NuMA est une grande protéine nucléaire et mitotique, pas une histone du nucléosome."
+      },
+      {
+        "content": "La lamina est une couche de laminine extracellulaire.",
+        "correct": false,
+        "explanation": "La lamina nucléaire est formée de lamines, différentes de la laminine de la matrice extracellulaire."
+      },
+      {
+        "content": "Un réseau fibreux interne unique et immuable a été démontré comme squelette universel de tous les noyaux vivants.",
+        "correct": false,
+        "explanation": "La notion de matrice nucléaire interne rigide et universelle reste controversée."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Elle constitue un niveau supérieur de compaction.`,
-      `Exact. Le cours l’identifie ainsi.`,
-      `Faux. Elle est au contraire plus condensée.`,
-      `Exact. La compaction est hiérarchique.`,
-    ],
+    "explanation": "La « matrice nucléaire » désigne historiquement un résidu protéique obtenu après extractions ; certaines structures comme la lamina sont bien établies, tandis que l’existence d’un réseau interne unique et stable reste un concept expérimental à manier avec prudence."
   },
   {
-    order: 73,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `En microscopie électronique nucléaire :`,
-    choices: [
-      `Une zone foncée correspond à de la chromatine condensée.`,
-      `Une zone gris clair correspond à de la chromatine décondensée.`,
-      `Une zone blanche peut correspondre au nucléole.`,
-      `Toutes les zones ont la même signification.`,
+    "order": 57,
+    "difficulty": "EASY",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Sur le thème « Lamina et lamines », sélectionnez exactement les cinq propositions exactes parmi les dix proposées.",
+    "choices": [
+      {
+        "content": "La lamina est située au contact de la face nucléoplasmique de la membrane interne.",
+        "correct": true,
+        "explanation": "Elle tapisse la périphérie interne du noyau."
+      },
+      {
+        "content": "Les LAD sont fréquemment enrichis en chromatine peu transcriptionnellement active.",
+        "correct": true,
+        "explanation": "La périphérie nucléaire associée à la lamina est souvent répressive."
+      },
+      {
+        "content": "Les lamines A et C proviennent du gène LMNA par épissage alternatif.",
+        "correct": true,
+        "explanation": "LMNA code notamment les lamines A et C."
+      },
+      {
+        "content": "Les lamines appartiennent à la famille des filaments intermédiaires de type V.",
+        "correct": true,
+        "explanation": "Les lamines sont les filaments intermédiaires nucléaires."
+      },
+      {
+        "content": "LAD est le nom d’une sous-unité du ribosome.",
+        "correct": false,
+        "explanation": "Il s’agit d’un domaine chromatinien associé à la lamina."
+      },
+      {
+        "content": "MAR est une protéine motrice des microtubules.",
+        "correct": false,
+        "explanation": "MAR désigne une région d’ADN associée à la matrice dans les préparations expérimentales."
+      },
+      {
+        "content": "Les lamines sont des microtubules constitués de tubuline.",
+        "correct": false,
+        "explanation": "Elles appartiennent aux filaments intermédiaires."
+      },
+      {
+        "content": "La lamina se trouve dans la lumière du réticulum endoplasmique.",
+        "correct": false,
+        "explanation": "Elle est du côté nucléoplasmique de la membrane interne."
+      },
+      {
+        "content": "La lamina est constituée de laminine.",
+        "correct": false,
+        "explanation": "La laminine est une glycoprotéine extracellulaire ; la lamina nucléaire est faite de lamines."
+      },
+      {
+        "content": "LAD signifie Lamina-Associated Domain.",
+        "correct": true,
+        "explanation": "Un LAD est un domaine chromatinien en contact avec la lamina."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La densité électronique est plus élevée.`,
-      `Exact. Elle est plus accessible.`,
-      `Exact. La fiche utilise cette convention d’interprétation.`,
-      `Faux. Les contrastes renseignent sur la compaction.`,
-    ],
+    "explanation": "La lamina est un réseau de filaments intermédiaires de type V, constitué de lamines A/C et B, sous la membrane nucléaire interne ; elle participe à la forme nucléaire, à l’organisation des pores et à l’ancrage de domaines chromatinien. Les LAD désignent des domaines chromatinien associés à la lamina ; les MAR/SAR sont des régions d’ADN identifiées par leur association à la matrice ou au squelette nucléaire dans des préparations expérimentales."
   },
   {
-    order: 74,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `En observant la figure de compaction :
-
-![Compaction de la chromatine](/images/training/ue14/biologie-cellulaire/noyau/compaction-chromatine.png)
-
-Quelle(s) proposition(s) est(sont) correcte(s) ?`,
-    choices: [
-      `L’ADN s’enroule autour d’octamères d’histones.`,
-      `La fibre nucléosomique peut être compactée en fibre de 30 nm.`,
-      `Les boucles sont ancrées par des régions MAR.`,
-      `L’hétérochromatine est l’état le plus accessible aux polymérases.`,
+    "order": 58,
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "requiredSelectionCount": 3,
+    "question": "Parmi ces propositions concernant « LAD et MAR », retenez exactement les 3 affirmations justes.",
+    "choices": [
+      {
+        "content": "MAR est une protéine motrice des microtubules.",
+        "correct": false,
+        "explanation": "MAR désigne une région d’ADN associée à la matrice dans les préparations expérimentales."
+      },
+      {
+        "content": "Les LAD sont fréquemment enrichis en chromatine peu transcriptionnellement active.",
+        "correct": true,
+        "explanation": "La périphérie nucléaire associée à la lamina est souvent répressive."
+      },
+      {
+        "content": "Les interactions de chromatine avec la périphérie contribuent à l’organisation tridimensionnelle du génome.",
+        "correct": true,
+        "explanation": "L’architecture nucléaire influence la disposition et l’activité chromatiniennes."
+      },
+      {
+        "content": "Toute chromatine associée à la lamina est obligatoirement transcrite à très haut niveau.",
+        "correct": false,
+        "explanation": "Les LAD sont au contraire souvent relativement réprimés."
+      },
+      {
+        "content": "MAR désigne une région d’ADN associée à la matrice nucléaire dans des approches expérimentales.",
+        "correct": true,
+        "explanation": "Le terme signifie Matrix-Associated Region."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Cela forme les nucléosomes.`,
-      `Exact. Le schéma montre cette étape.`,
-      `Exact. Elles relient la chromatine à la matrice.`,
-      `Faux. C’est l’euchromatine qui est accessible.`,
-    ],
+    "explanation": "Les LAD désignent des domaines chromatinien associés à la lamina ; les MAR/SAR sont des régions d’ADN identifiées par leur association à la matrice ou au squelette nucléaire dans des préparations expérimentales."
   },
   {
-    order: 75,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `L’expérience d’extraction de la matrice nucléaire montre que :`,
-    choices: [
-      `La forme générale du noyau peut persister après retrait de nombreux constituants.`,
-      `La matrice joue un rôle de squelette.`,
-      `La forme nucléaire dépend uniquement de l’ADN.`,
-      `Le nucléosquelette comprend des éléments périphériques et internes.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La matrice conserve une forme similaire au noyau initial.`,
-      `Exact. Elle soutient la forme et la taille.`,
-      `Faux. Elle persiste même après extraction de la chromatine.`,
-      `Exact. Lamina et réseau fibreux sont distingués.`,
-    ],
+    "order": 59,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Quel sigle désigne un domaine chromatinien associé à la lamina ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "LAD",
+        "Lamina-Associated Domain",
+        "Lamina Associated Domain"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Un LAD est un domaine chromatinien associé à la lamina nucléaire, souvent lié à une chromatine relativement peu active."
   },
   {
-    order: 76,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Les polymérases nucléaires :`,
-    choices: [
-      `Sont ancrées sur ou à proximité de la matrice nucléaire.`,
-      `Participent à l’organisation fonctionnelle des sites de duplication et transcription.`,
-      `Flottent obligatoirement sans aucune association structurale.`,
-      `Nécessitent une chromatine localement accessible.`,
+    "order": 60,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur « Nucléosome », laquelle est exacte ?",
+    "choices": [
+      {
+        "content": "Chaque nucléosome contient une seule histone H3 et aucune H4.",
+        "correct": false,
+        "explanation": "Le cœur contient deux copies de chacune des histones H2A, H2B, H3 et H4."
+      },
+      {
+        "content": "L’ADN effectue environ 1,65 tour autour du cœur d’histones.",
+        "correct": true,
+        "explanation": "Il ne s’agit pas de deux tours complets."
+      },
+      {
+        "content": "L’ADN reste entièrement rectiligne et ne s’enroule pas autour des histones.",
+        "correct": false,
+        "explanation": "L’enroulement de l’ADN autour du cœur d’histones est la base de la compaction."
+      },
+      {
+        "content": "L’histone H1 fait partie des huit histones du cœur nucléosomique.",
+        "correct": false,
+        "explanation": "H1 est une histone de liaison associée à l’ADN linker et à l’entrée/sortie du nucléosome."
+      },
+      {
+        "content": "Le nucléosome est constitué exclusivement d’ARN.",
+        "correct": false,
+        "explanation": "Il associe ADN et histones."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Le cours relie la matrice aux sites de synthèse.`,
-      `Exact. Leur positionnement contribue à ces activités.`,
-      `Faux. La fiche souligne leur ancrage.`,
-      `Exact. La transcription et la duplication demandent une décondensation locale.`,
-    ],
+    "explanation": "Le nucléosome est l’unité fondamentale de la chromatine : environ 147 paires de bases d’ADN s’enroulent en ~1,65 tour autour d’un octamère contenant deux copies de H2A, H2B, H3 et H4."
   },
   {
-    order: 77,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Les boucles de fibre nucléosomique :`,
-    choices: [
-      `Ont leurs extrémités ancrées à la matrice par des MAR.`,
-      `Contiennent une origine de réplication selon la fiche.`,
-      `Peuvent contenir plusieurs gènes.`,
-      `Sont totalement dépourvues d’ADN non codant.`,
+    "order": 61,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Sur le thème « Histone H1 et compaction », sélectionnez les affirmations exactes.",
+    "choices": [
+      {
+        "content": "H1 ne fait pas partie de l’octamère H2A-H2B-H3-H4 du cœur nucléosomique.",
+        "correct": true,
+        "explanation": "Le cœur est constitué des quatre histones en double exemplaire."
+      },
+      {
+        "content": "La compaction de la chromatine est dynamique et modulable localement.",
+        "correct": true,
+        "explanation": "Elle varie selon l’activité transcriptionnelle et d’autres processus."
+      },
+      {
+        "content": "Une chromatine plus compacte est toujours plus active transcriptionnellement.",
+        "correct": false,
+        "explanation": "Une compaction élevée est généralement associée à une moindre accessibilité."
+      },
+      {
+        "content": "La chromatine ne peut exister que sous un seul niveau de compaction.",
+        "correct": false,
+        "explanation": "Elle adopte de nombreux états structuraux."
+      },
+      {
+        "content": "H1 favorise des états de chromatine plus compacts.",
+        "correct": true,
+        "explanation": "Elle contribue à rapprocher et organiser les nucléosomes."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Ces régions sont des séquences spécifiques d’ADN non codant.`,
-      `Exact. Chaque boucle est organisée comme une unité de réplication.`,
-      `Exact. Plusieurs origines de transcription sont possibles.`,
-      `Faux. Les MAR sont précisément des séquences non codantes.`,
-    ],
+    "explanation": "H1 est une histone de liaison qui interagit avec l’ADN linker et les zones d’entrée/sortie du nucléosome ; elle favorise la compaction sans appartenir à l’octamère du cœur."
   },
   {
-    order: 78,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `La longueur d’une boucle nucléosomique est donnée comme étant d’environ :`,
-    choices: [
-      `500 nucléosomes.`,
-      `5 nucléosomes.`,
-      `Une organisation pouvant porter plusieurs gènes.`,
-      `Un chromosome entier sans organisation interne.`,
-    ],
-    correctChoiceIndexes: [0, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. C’est l’ordre de grandeur indiqué.`,
-      `Faux. La boucle est bien plus longue.`,
-      `Exact. Cette longueur permet plusieurs unités transcriptionnelles.`,
-      `Faux. Un chromosome contient de nombreuses boucles.`,
-    ],
+    "order": 62,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel sigle désigne une région d’ADN associée à la matrice nucléaire dans les approches historiques ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "MAR",
+        "Matrix-Associated Region",
+        "Matrix Associated Region"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Une MAR est une région d’ADN définie expérimentalement par son association à la matrice ou au squelette nucléaire."
   },
   {
-    order: 79,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `À propos des territoires chromosomiques :`,
-    choices: [
-      `Chaque chromosome occupe un volume restreint du noyau.`,
-      `Ils peuvent être visualisés par FISH multicouleur.`,
-      `Ils témoignent d’une organisation spatiale très poussée.`,
-      `Tous les chromosomes occupent exactement le même espace.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Les fibres de chromosomes différents ne sont pas mélangées au hasard.`,
-      `Exact. La fiche montre un noyau interphasique coloré.`,
-      `Exact. La chromatine est structurée dans le nucléoplasme.`,
-      `Faux. Chaque chromosome possède son propre territoire préférentiel.`,
-    ],
+    "order": 63,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Comment nomme-t-on l’unité fondamentale constituée d’ADN enroulé autour d’un octamère d’histones ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "nucléosome",
+        "nucleosome"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Le nucléosome est l’unité fondamentale de la chromatine : environ 147 paires de bases d’ADN s’enroulent autour d’un octamère d’histones."
   },
   {
-    order: 80,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `L’ancrage de la chromatine à la matrice :`,
-    choices: [
-      `Implique les LAD au niveau de la lamina.`,
-      `Implique les MAR au niveau du réseau matriciel.`,
-      `Participe à l’organisation tridimensionnelle du génome.`,
-      `Détruit toute possibilité de transcription.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Ces domaines associent l’ADN à la périphérie nucléaire.`,
-      `Exact. Ces régions ancrent notamment les boucles.`,
-      `Exact. L’ADN n’est pas réparti au hasard.`,
-      `Faux. L’organisation permet au contraire une régulation localisée.`,
-    ],
+    "order": 64,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quelle histone de liaison est associée à l’ADN linker ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "H1",
+        "histone H1"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "H1 est une histone de liaison associée à l’ADN linker ; elle ne fait pas partie de l’octamère d’histones du cœur nucléosomique."
   },
   {
-    order: 81,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une mutation majeure des lamines pourrait théoriquement affecter :`,
-    choices: [
-      `La forme et la résistance du noyau.`,
-      `L’ancrage de certaines régions chromatiniennes LAD.`,
-      `La séquence du NLS de toutes les protéines.`,
-      `L’organisation de la membrane interne.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La lamina constitue le squelette périphérique.`,
-      `Exact. Ces domaines s’associent à la lamina.`,
-      `Faux. Le NLS est porté par les protéines elles-mêmes.`,
-      `Exact. La lamina est directement au contact de cette membrane.`,
-    ],
+    "order": 65,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Combien d’histones composent le cœur d’un nucléosome ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "8",
+        "huit",
+        "octamère",
+        "octamere"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Le cœur nucléosomique est un octamère : deux copies de chacune des histones H2A, H2B, H3 et H4."
   },
   {
-    order: 82,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Après DNase, RNase et extraction des protéines solubles, une structure nucléaire conserve sa forme. Il s’agit :`,
-    choices: [
-      `De la matrice nucléaire.`,
-      `D’un argument en faveur de son rôle de squelette.`,
-      `De la chromatine intacte.`,
-      `D’une structure comprenant lamina et réseau fibreux.`,
+    "order": 66,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant le thème « Matrice nucléaire : concept opérationnel » ?",
+    "choices": [
+      {
+        "content": "Un réseau fibreux interne unique et immuable a été démontré comme squelette universel de tous les noyaux vivants.",
+        "correct": false,
+        "explanation": "La notion de matrice nucléaire interne rigide et universelle reste controversée."
+      },
+      {
+        "content": "La lamina nucléaire est une structure protéique bien établie sous la membrane interne.",
+        "correct": true,
+        "explanation": "Elle est constituée principalement de lamines."
+      },
+      {
+        "content": "Des domaines de chromatine peuvent être associés à la lamina nucléaire.",
+        "correct": true,
+        "explanation": "Les LAD correspondent à des régions chromatiniennes associées à la lamina."
+      },
+      {
+        "content": "NuMA est une protéine nucléaire importante notamment pour l’organisation du fuseau mitotique.",
+        "correct": true,
+        "explanation": "NuMA se redistribue en mitose et participe à l’organisation des pôles du fuseau."
+      },
+      {
+        "content": "Le terme matrice nucléaire a été défini historiquement à partir de résidus obtenus après extractions biochimiques.",
+        "correct": true,
+        "explanation": "Il s’agit d’un concept opérationnel issu de protocoles d’extraction."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Elle est définie par ce résidu structural.`,
-      `Exact. La forme persiste malgré les extractions.`,
-      `Faux. L’ADN a été hydrolysé par DNase.`,
-      `Exact. Ce sont les composantes reconnues en microscopie.`,
-    ],
-  },
-  {
-    order: 83,
-    difficulty: 'HARD',
-    answerFormat: 'SINGLE',
-    question: `Une région d’ADN associée spécifiquement à la lamina est appelée :`,
-    choices: [
-      `LAD.`,
-      `MAR.`,
-      `NLS.`,
-      `M6P.`,
-    ],
-    correctChoiceIndexes: [0],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Lamina Associated Domain est le terme du cours.`,
-      `Faux. MAR désigne l’association à la matrice interne.`,
-      `Faux. NLS est un signal peptidique d’import nucléaire.`,
-      `Faux. M6P est un signal d’adressage lysosomal, hors de ce chapitre.`,
-    ],
-  },
-  {
-    order: 84,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une région MAR se situe préférentiellement :`,
-    choices: [
-      `Aux extrémités d’une boucle nucléosomique.`,
-      `Dans de l’ADN non codant selon la fiche.`,
-      `Dans la membrane externe de l’enveloppe.`,
-      `À l’interface entre chromatine et matrice nucléaire.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Elle permet son ancrage à la matrice.`,
-      `Exact. Ces séquences ont un rôle structural.`,
-      `Faux. Il s’agit d’ADN, non de membrane.`,
-      `Exact. C’est la fonction d’une Matrix Associated Region.`,
-    ],
-  },
-  {
-    order: 85,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Si toute la chromatine restait sous forme de chromosome mitotique :`,
-    choices: [
-      `La transcription serait fortement compromise.`,
-      `La duplication serait compromise.`,
-      `L’accessibilité aux polymérases serait maximale.`,
-      `La cellule perdrait la possibilité de réguler localement la compaction.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Les polymérases n’accèdent pas à l’ADN condensé.`,
-      `Exact. L’ADN doit être décondensé localement.`,
-      `Faux. La condensation maximale réduit l’accessibilité.`,
-      `Exact. La fonction exige des niveaux modulables.`,
-    ],
-  },
-  {
-    order: 86,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une observation en MET montre un aspect « collier de perles ». Il s’agit vraisemblablement :`,
-    choices: [
-      `De la fibre nucléosomique.`,
-      `D’un état relativement décondensé.`,
-      `D’un pore nucléaire vu de face.`,
-      `D’ADN associé à des histones.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Chaque perle correspond à un nucléosome.`,
-      `Exact. C’est la structure la moins compacte décrite.`,
-      `Faux. Le pore présente une symétrie radiaire différente.`,
-      `Exact. Les nucléosomes reposent sur cette association.`,
-    ],
-  },
-  {
-    order: 87,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une boucle chromatinienne comporte une origine de réplication et plusieurs gènes. Cela permet :`,
-    choices: [
-      `De coordonner une unité de duplication avec plusieurs unités transcriptionnelles.`,
-      `Une régulation locale de l’activité.`,
-      `De supprimer tout besoin d’ancrage matriciel.`,
-      `D’organiser l’ADN dans un volume restreint.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La boucle porte une origine de réplication et plusieurs origines de transcription.`,
-      `Exact. Les gènes peuvent être actifs ou inactifs.`,
-      `Faux. Les extrémités restent ancrées par les MAR.`,
-      `Exact. La boucle participe à la compaction hiérarchique.`,
-    ],
-  },
-  {
-    order: 88,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `En observant un noyau interphasique par FISH multicouleur :`,
-    choices: [
-      `Chaque chromosome peut apparaître dans une zone distincte.`,
-      `Les chromosomes ne sont pas complètement mélangés.`,
-      `La chromatine est nécessairement sous forme de chromosomes mitotiques condensés.`,
-      `L’organisation spatiale du génome peut être étudiée.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Cela révèle les territoires chromosomiques.`,
-      `Exact. Ils occupent des volumes restreints.`,
-      `Faux. Il s’agit d’un noyau interphasique.`,
-      `Exact. La méthode met en évidence les territoires.`,
-    ],
-  },
-  {
-    order: 89,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une chromatine localement décondensée au voisinage d’une polymérase ancrée à la matrice :`,
-    choices: [
-      `Peut être en cours de transcription.`,
-      `Peut être en cours de duplication.`,
-      `Est nécessairement inactive.`,
-      `Illustre le lien entre structure et fonction nucléaire.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. L’accessibilité permet l’activité de l’ARN polymérase.`,
-      `Exact. L’ADN polymérase nécessite aussi une chromatine accessible.`,
-      `Faux. La décondensation est associée à l’activité.`,
-      `Exact. La matrice organise les sites actifs.`,
-    ],
-  },
-  {
-    order: 90,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Synthèse de la section :`,
-    choices: [
-      `La matrice nucléaire organise la forme et les activités du noyau.`,
-      `La chromatine est compactée selon plusieurs niveaux.`,
-      `L’organisation spatiale inclut des boucles et des territoires chromosomiques.`,
-      `La chromatine est distribuée au hasard sans ancrage.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Elle sert de squelette et d’ancrage.`,
-      `Exact. Du nucléosome au chromosome, les ordres sont imbriqués.`,
-      `Exact. Le génome est structuré tridimensionnellement.`,
-      `Faux. Les LAD, MAR et territoires montrent le contraire.`,
-    ],
-  },
+    "explanation": "La « matrice nucléaire » désigne historiquement un résidu protéique obtenu après extractions ; certaines structures comme la lamina sont bien établies, tandis que l’existence d’un réseau interne unique et stable reste un concept expérimental à manier avec prudence."
+  }
 ];
 
 export const SECTION_C_QUIZZES: SeedQuiz[] = [
   {
-    order: 7,
-    slug: `matrice-nucleaire-et-lamina`,
-    title: `Matrice nucléaire et lamina`,
-    description: `Lamina, NuMA, LAD, MAR et rôle structural de la matrice.`,
-    stage: 'DISCOVER',
-    sectionOrder: 3,
-    questionOrders: [61, 62, 63, 64, 65, 66, 67, 68, 69, 70],
+    "order": 5,
+    "slug": "noyau-matrice-1",
+    "title": "Lamina et organisation nucléaire",
+    "description": "Identifier les structures de soutien et d’ancrage.",
+    "stage": "DISCOVER",
+    "sectionOrder": 3,
+    "questionOrders": [
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54
+    ]
   },
   {
-    order: 8,
-    slug: `nucleosomes-et-compaction`,
-    title: `Nucléosomes et compaction de la chromatine`,
-    description: `Octamère d’histones, fibres nucléosomique et de 30 nm, boucles.`,
-    stage: 'PRACTICE',
-    sectionOrder: 3,
-    questionOrders: [71, 72, 73, 74, 75, 76, 77, 78, 79, 80],
-  },
-  {
-    order: 9,
-    slug: `organisation-tridimensionnelle-chromatine`,
-    title: `Organisation tridimensionnelle de la chromatine`,
-    description: `Applications sur les territoires chromosomiques et l’ancrage matriciel.`,
-    stage: 'MASTER',
-    sectionOrder: 3,
-    questionOrders: [81, 82, 83, 84, 85, 86, 87, 88, 89, 90],
-  },
+    "order": 6,
+    "slug": "noyau-chromatine-1",
+    "title": "Nucléosome et compaction",
+    "description": "Relier histones, nucléosomes et organisation chromatinienne.",
+    "stage": "PRACTICE",
+    "sectionOrder": 3,
+    "questionOrders": [
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66
+    ]
+  }
 ];

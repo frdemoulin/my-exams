@@ -1,11 +1,13 @@
 import type {
   EvaluationResult,
+  EvaluationStatus,
   HotspotExpectedZone,
   HotspotQuestion,
   HotspotStudentAnswer,
   McqStudentAnswer,
   MultipleChoiceQuestion,
   Question,
+  QuestionScoringStrategy,
   ShortAnswerNormalizationOptions,
   ShortAnswerQuestion,
   ShortAnswerStudentAnswer,
@@ -34,6 +36,7 @@ export function areChoiceIdSetsEqual(
 export function evaluateMcqQuestion(
   question: MultipleChoiceQuestion,
   answer: McqStudentAnswer | null | undefined,
+  scoringStrategy?: QuestionScoringStrategy,
 ): EvaluationResult {
   const maxScore = question.points ?? 1;
   const correctChoiceIds = getCorrectChoiceIds(question);
@@ -66,17 +69,44 @@ export function evaluateMcqQuestion(
   const extraChoiceIds = selectedChoiceIds.filter(
     (choiceId) => !correctChoiceIds.includes(choiceId),
   );
+  const discordanceCount = missingChoiceIds.length + extraChoiceIds.length;
+
+  const isDiscordanceStrategy =
+    question.scoring?.strategy === "discordance" || scoringStrategy === "discordance";
+
+  let score = 0;
+  let status: EvaluationStatus = "incorrect";
+
+  if (isCorrect) {
+    score = maxScore;
+    status = "correct";
+  } else if (isDiscordanceStrategy) {
+    if (discordanceCount === 1) {
+      score = maxScore * 0.5;
+      status = "partial";
+    } else if (discordanceCount === 2) {
+      score = maxScore * 0.2;
+      status = "partial";
+    } else {
+      score = 0;
+      status = "incorrect";
+    }
+  } else {
+    score = 0;
+    status = "incorrect";
+  }
 
   return {
     questionId: question.id,
-    status: isCorrect ? "correct" : "incorrect",
-    score: isCorrect ? maxScore : 0,
+    status,
+    score,
     maxScore,
     details: {
       selectedChoiceIds,
       correctChoiceIds,
       missingChoiceIds,
       extraChoiceIds,
+      discordanceCount,
       expectedSelectionCount: question.requiredSelectionCount ?? null,
     },
   };
@@ -354,11 +384,13 @@ export function evaluateHotspotQuestion(
 export function evaluateQuestion(
   question: Question,
   answer: StudentAnswer | null | undefined,
+  scoringStrategy?: QuestionScoringStrategy,
 ): EvaluationResult {
   if (question.type === "mcq") {
     return evaluateMcqQuestion(
       question,
       answer?.type === "mcq" ? answer : null,
+      scoringStrategy,
     );
   }
   if (question.type === "short-answer") {

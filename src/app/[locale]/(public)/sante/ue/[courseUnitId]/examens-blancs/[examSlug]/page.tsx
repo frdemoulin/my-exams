@@ -1,9 +1,13 @@
+import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
+import { ChevronLeft } from "lucide-react";
 
+import { HealthEvaluationIntroHeader } from "@/components/health/HealthEvaluationIntroHeader";
 import { HealthMockExamSession } from "@/components/health/HealthMockExamSession";
 import { PublicBreadcrumb } from "@/components/shared/public-breadcrumb";
 import { PublicHeader } from "@/components/shared/public-header";
 import { SiteFooter } from "@/components/shared/site-footer";
+import { Button } from "@/components/ui/button";
 import { fetchHealthMockExamTakingState } from "@/core/health-mock-exam/health-mock-exam.service";
 import { auth } from "@/lib/auth/auth";
 import { getSessionEffectiveUserId } from "@/lib/auth/session";
@@ -42,6 +46,10 @@ export default async function HealthMockExamPage({ params }: PageProps) {
     notFound();
   }
 
+  const passage = state.passage;
+  const courseUnitHref = `/sante/ue/${courseUnitId}`;
+  const evaluationsHref = `${courseUnitHref}?ec=synthese`;
+
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <PublicHeader />
@@ -50,15 +58,27 @@ export default async function HealthMockExamPage({ params }: PageProps) {
           items={[
             { label: "Accueil", href: "/" },
             { label: "Santé", href: "/sante" },
-            { label: "UE", href: `/sante/ue/${courseUnitId}?ec=synthese` },
-            { label: state.passage.title },
+            { label: "UE", href: evaluationsHref },
+            { label: passage.title },
           ]}
         />
-        <HealthMockExamSession
-          courseUnitId={courseUnitId}
-          examSlug={examSlug}
-          passage={state.passage}
-        />
+        <section className="space-y-4">
+          <Button asChild variant="outline" size="sm" className="w-fit gap-2">
+            <Link href={evaluationsHref}>
+              <ChevronLeft className="h-4 w-4" />
+              Retour aux évaluations
+            </Link>
+          </Button>
+
+          <HealthEvaluationIntroHeader passage={passage} />
+
+          <HealthMockExamSession
+            courseUnitId={courseUnitId}
+            examSlug={examSlug}
+            passage={passage}
+            resultsHref={`${href}/resultats/${passage.attemptId}`}
+          />
+        </section>
       </main>
       <SiteFooter />
     </div>

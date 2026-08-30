@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="100%" height="100%">
+  <defs>
+    <!-- Background & Box Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+    <linearGradient id="boxAGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#eff6ff"/>
+    </linearGradient>
+    <linearGradient id="boxBGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f0fdf4"/>
+    </linearGradient>
+    <linearGradient id="boxCGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#fdf4ff"/>
+    </linearGradient>
+
+    <!-- Arrow Markers -->
+    <marker id="arrowReact" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#2563eb" />
+    </marker>
+    <marker id="arrowReactB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#16a34a" />
+    </marker>
+    <marker id="arrowReactC" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#c026d3" />
+    </marker>
+
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="106%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="700" fill="url(#bgGrad)" rx="16"/>
+
+  <!-- Title Banner -->
+  <rect x="30" y="25" width="1140" height="46" rx="8" fill="#e2e8f0" opacity="0.7"/>
+  <text x="600" y="55" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#0f172a">
+    Trois transformations réactives du groupe carbonyle et des organomagnésiens
+  </text>
+
+  <!-- ==================== SCHÉMA A ==================== -->
+  <g filter="url(#shadow)">
+    <!-- Card Container A -->
+    <rect x="40" y="95" width="1120" height="175" rx="12" fill="url(#boxAGrad)" stroke="#93c5fd" stroke-width="1.5"/>
+    
+    <!-- Badge A -->
+    <rect x="60" y="115" width="45" height="35" rx="6" fill="#2563eb"/>
+    <text x="82" y="138" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="800" fill="#ffffff">A</text>
+
+    <!-- Reaction A Description -->
+    <text x="120" y="138" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#1e40af">
+      Réduction d’un substrat carbonylé
+    </text>
+
+    <!-- Substrate A: CH3-CH2-CHO -->
+    <g transform="translate(140, 195)">
+      <text font-family="'Courier New', Courier, monospace" font-size="22" font-weight="700" fill="#0f172a">
+        CH<tspan font-size="16" dy="4">3</tspan><tspan font-size="22" dy="-4">—CH</tspan><tspan font-size="16" dy="4">2</tspan><tspan font-size="22" dy="-4">—CHO</tspan>
+      </text>
+    </g>
+
+    <!-- Reaction Arrow A -->
+    <path d="M 390 195 L 680 195" fill="none" stroke="#2563eb" stroke-width="3" marker-end="url(#arrowReact)"/>
+    
+    <!-- Conditions A -->
+    <rect x="440" y="155" width="190" height="32" rx="6" fill="#ffffff" stroke="#bfdbfe" stroke-width="1"/>
+    <text x="535" y="176" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#1d4ed8">
+      1. NaBH<tspan font-size="11" dy="3">4</tspan><tspan font-size="14" dy="-3">  /  2. H</tspan><tspan font-size="11" dy="3">3</tspan><tspan font-size="14" dy="-3">O</tspan><tspan font-size="11" dy="-5">+</tspan>
+    </text>
+
+    <!-- Product X -->
+    <g transform="translate(730, 160)">
+      <rect width="380" height="70" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+      <text x="190" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="800" fill="#1e40af">
+        Produit X
+      </text>
+    </g>
+  </g>
+
+  <!-- ==================== SCHÉMA B ==================== -->
+  <g filter="url(#shadow)">
+    <!-- Card Container B -->
+    <rect x="40" y="290" width="1120" height="175" rx="12" fill="url(#boxBGrad)" stroke="#86efac" stroke-width="1.5"/>
+    
+    <!-- Badge B -->
+    <rect x="60" y="310" width="45" height="35" rx="6" fill="#16a34a"/>
+    <text x="82" y="333" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="800" fill="#ffffff">B</text>
+
+    <!-- Reaction B Description -->
+    <text x="120" y="333" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#15803d">
+      Addition d’un organomagnésien sur un dérivé carbonylé
+    </text>
+
+    <!-- Substrate B: CH3-C(=O)-CH3 + CH3MgBr -->
+    <g transform="translate(120, 390)">
+      <text font-family="'Courier New', Courier, monospace" font-size="22" font-weight="700" fill="#0f172a">
+        CH<tspan font-size="16" dy="4">3</tspan><tspan font-size="22" dy="-4">—C(=O)—CH</tspan><tspan font-size="16" dy="4">3</tspan><tspan font-size="22" dy="-4">  +  CH</tspan><tspan font-size="16" dy="4">3</tspan><tspan font-size="22" dy="-4">MgBr</tspan>
+      </text>
+    </g>
+
+    <!-- Reaction Arrow B -->
+    <path d="M 470 390 L 680 390" fill="none" stroke="#16a34a" stroke-width="3" marker-end="url(#arrowReactB)"/>
+    
+    <!-- Conditions B -->
+    <rect x="500" y="350" width="150" height="32" rx="6" fill="#ffffff" stroke="#bbf7d0" stroke-width="1"/>
+    <text x="575" y="371" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#15803d">
+      puis H<tspan font-size="11" dy="3">3</tspan><tspan font-size="14" dy="-3">O</tspan><tspan font-size="11" dy="-5">+</tspan>
+    </text>
+
+    <!-- Product Y -->
+    <g transform="translate(730, 355)">
+      <rect width="380" height="70" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+      <text x="190" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="800" fill="#15803d">
+        Produit Y
+      </text>
+    </g>
+  </g>
+
+  <!-- ==================== SCHÉMA C ==================== -->
+  <g filter="url(#shadow)">
+    <!-- Card Container C -->
+    <rect x="40" y="485" width="1120" height="175" rx="12" fill="url(#boxCGrad)" stroke="#f0abfc" stroke-width="1.5"/>
+    
+    <!-- Badge C -->
+    <rect x="60" y="505" width="45" height="35" rx="6" fill="#c026d3"/>
+    <text x="82" y="528" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="800" fill="#ffffff">C</text>
+
+    <!-- Reaction C Description -->
+    <text x="120" y="528" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#a21caf">
+      Réaction d’un organomagnésien avec le dioxyde de carbone
+    </text>
+
+    <!-- Substrate C: CH3MgBr + CO2 -->
+    <g transform="translate(140, 585)">
+      <text font-family="'Courier New', Courier, monospace" font-size="22" font-weight="700" fill="#0f172a">
+        CH<tspan font-size="16" dy="4">3</tspan><tspan font-size="22" dy="-4">MgBr  +  CO</tspan><tspan font-size="16" dy="4">2</tspan>
+      </text>
+    </g>
+
+    <!-- Reaction Arrow C -->
+    <path d="M 390 585 L 680 585" fill="none" stroke="#c026d3" stroke-width="3" marker-end="url(#arrowReactC)"/>
+    
+    <!-- Conditions C -->
+    <rect x="450" y="545" width="160" height="32" rx="6" fill="#ffffff" stroke="#f5d0fe" stroke-width="1"/>
+    <text x="530" y="566" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#a21caf">
+      puis H<tspan font-size="11" dy="3">3</tspan><tspan font-size="14" dy="-3">O</tspan><tspan font-size="11" dy="-5">+</tspan>
+    </text>
+
+    <!-- Product Z -->
+    <g transform="translate(730, 550)">
+      <rect width="380" height="70" rx="8" fill="#fae8ff" stroke="#c026d3" stroke-width="2"/>
+      <text x="190" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="800" fill="#a21caf">
+        Produit Z
+      </text>
+    </g>
+  </g>
+</svg>

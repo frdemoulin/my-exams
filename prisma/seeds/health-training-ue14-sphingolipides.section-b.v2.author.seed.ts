@@ -1,392 +1,169 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie — Sphingolipides — Section B
- */
-
+/** UE14 Biochimie — Sphingolipides — Section B — Sphingomyéline et phosphosphingolipides */
 export const UE14_BIOCH_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 23,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de la sphingomyéline :",
+    "question": "Concernant la sphingomyéline, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle associe un céramide, un acide phosphorique et une choline ou éthanolamine.",
+        "content": "Elle est un constituant membranaire important.",
         "correct": true,
-        "explanation": "La sphingomyéline est un phosphosphingolipide."
+        "explanation": "Elle est particulièrement abondante dans la myéline."
       },
       {
-        "content": "La liaison se fait sur l'alcool primaire C1 de la sphingosine.",
+        "content": "La tête phosphatée est reliée au C1 par une liaison phosphodiester.",
         "correct": true,
-        "explanation": "La sphingomyéline est un phosphosphingolipide."
+        "explanation": "Le céramide fournit le squelette hydrophobe."
       },
       {
-        "content": "Une liaison phosphodiester est formée.",
-        "correct": true,
-        "explanation": "La sphingomyéline est un phosphosphingolipide."
+        "content": "Elle est un glycérophospholipide à glycérol.",
+        "correct": false,
+        "explanation": "Son squelette est un céramide."
+      },
+      {
+        "content": "Elle possède obligatoirement plusieurs oses en C1.",
+        "correct": false,
+        "explanation": "Cela décrit des glycosphingolipides."
       },
       {
         "content": "Elle ne contient jamais de phosphate.",
         "correct": false,
-        "explanation": "La sphingomyéline est un phosphosphingolipide."
+        "explanation": "Le phosphate est caractéristique."
       }
     ],
-    "explanation": "La sphingomyéline est un phosphosphingolipide."
+    "explanation": "La sphingomyéline est un phosphosphingolipide à noyau céramide et tête phosphocholine."
   },
   {
     "order": 24,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel type de liaison relie la tête phosphatée en C1 ?",
+    "question": "Parmi les affirmations suivantes concernant la sphingomyélinase, laquelle est correcte ?",
     "choices": [
       {
-        "content": "phosphodiester",
+        "content": "Elle ajoute un acide gras en C2.",
+        "correct": false,
+        "explanation": "Elle hydrolyse une tête de sphingomyéline."
+      },
+      {
+        "content": "Elle produit du glycogène.",
+        "correct": false,
+        "explanation": "Elle agit sur un sphingolipide."
+      },
+      {
+        "content": "Elle est une glycosidase digestive du lactose.",
+        "correct": false,
+        "explanation": "Aucun rapport."
+      },
+      {
+        "content": "Elle hydrolyse directement le céramide en sphingosine.",
+        "correct": false,
+        "explanation": "Cela décrit la céramidase."
+      },
+      {
+        "content": "Elle est distincte de la céramidase.",
         "correct": true,
-        "explanation": "La sphingomyéline est un phosphosphingolipide."
-      },
-      {
-        "content": "amide",
-        "correct": false,
-        "explanation": "La sphingomyéline est un phosphosphingolipide."
-      },
-      {
-        "content": "ester simple de C2",
-        "correct": false,
-        "explanation": "La sphingomyéline est un phosphosphingolipide."
-      },
-      {
-        "content": "β-osidique",
-        "correct": false,
-        "explanation": "La sphingomyéline est un phosphosphingolipide."
+        "explanation": "La céramidase agit en aval sur le céramide."
       }
     ],
-    "explanation": "La sphingomyéline est un phosphosphingolipide."
+    "explanation": "La sphingomyélinase transforme la sphingomyéline en céramide."
   },
   {
     "order": 25,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos de la sphingomyéline chez l’être humain :",
-    "choices": [
-      {
-        "content": "C’est un phosphosphingolipide membranaire majeur.",
-        "correct": true,
-        "explanation": "La sphingomyéline est un sphingolipide membranaire majeur, particulièrement abondant dans la gaine de myéline."
-      },
-      {
-        "content": "Elle est particulièrement abondante dans la gaine de myéline.",
-        "correct": true,
-        "explanation": "La sphingomyéline est un sphingolipide membranaire majeur, particulièrement abondant dans la gaine de myéline."
-      },
-      {
-        "content": "Sa tête polaire contient le plus souvent de la phosphocholine.",
-        "correct": true,
-        "explanation": "La sphingomyéline est un sphingolipide membranaire majeur, particulièrement abondant dans la gaine de myéline."
-      },
-      {
-        "content": "Elle est absente du système nerveux.",
-        "correct": false,
-        "explanation": "La sphingomyéline est un sphingolipide membranaire majeur, particulièrement abondant dans la gaine de myéline."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quelle structure nerveuse est particulièrement riche en sphingomyéline ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "gaine de myéline",
+        "myéline",
+        "la myéline"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La sphingomyéline est un constituant membranaire majeur, enrichi dans la myéline ; sa proportion varie selon les tissus et ne se résume pas à un pourcentage universel."
+    },
+    "explanation": "La sphingomyéline est un sphingolipide membranaire important, notamment dans la gaine de myéline."
   },
   {
     "order": 26,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle structure nerveuse est particulièrement riche en sphingomyéline ?",
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant la sclérose en plaques comme contexte de démyélinisation, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La gaine de myéline",
+        "content": "Ce contexte illustre l'importance structurale des sphingolipides nerveux.",
         "correct": true,
-        "explanation": "La sphingomyéline est un sphingolipide membranaire majeur, particulièrement abondant dans la gaine de myéline."
+        "explanation": "Il ne s'agit pas d'une sphingolipidose lysosomale classique."
       },
       {
-        "content": "Le sarcomère",
-        "correct": false,
-        "explanation": "La sphingomyéline est un sphingolipide membranaire majeur, particulièrement abondant dans la gaine de myéline."
+        "content": "La perte de myéline perturbe la conduction de l'influx nerveux.",
+        "correct": true,
+        "explanation": "Les voies neurologiques deviennent moins efficaces."
       },
       {
-        "content": "La matrice osseuse minéralisée",
-        "correct": false,
-        "explanation": "La sphingomyéline est un sphingolipide membranaire majeur, particulièrement abondant dans la gaine de myéline."
+        "content": "La sphingomyéline est un constituant de la myéline mais la maladie ne se résume pas à un déficit enzymatique de sphingomyéline.",
+        "correct": true,
+        "explanation": "La physiopathologie est immuno-inflammatoire complexe."
       },
       {
-        "content": "L’émail dentaire",
+        "content": "Elle est une maladie de surcharge lysosomale en glucosylcéramide.",
         "correct": false,
-        "explanation": "La sphingomyéline est un sphingolipide membranaire majeur, particulièrement abondant dans la gaine de myéline."
+        "explanation": "Cela décrit Gaucher."
+      },
+      {
+        "content": "Elle n'affecte jamais la myéline.",
+        "correct": false,
+        "explanation": "La démyélinisation est centrale."
       }
     ],
-    "explanation": "La sphingomyéline est particulièrement abondante dans les membranes qui constituent la gaine de myéline."
+    "explanation": "La sclérose en plaques sert de contexte clinique de démyélinisation, distinct des sphingolipidoses enzymatiques."
   },
   {
     "order": 27,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos de la dégradation de la sphingomyéline :",
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant la tête phosphoéthanolamine de sphingolipides, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Elle est dégradée par la sphingomyélinase.",
-        "correct": true,
-        "explanation": "La sphingomyélinase libère un céramide."
-      },
-      {
-        "content": "L’hydrolyse de la sphingomyéline par une sphingomyélinase libère du céramide.",
-        "correct": true,
-        "explanation": "La sphingomyélinase libère un céramide."
-      },
-      {
-        "content": "Cette étape participe au métabolisme des sphingolipides.",
-        "correct": true,
-        "explanation": "La sphingomyélinase libère un céramide."
-      },
-      {
-        "content": "Elle est dégradée en glucose par la lactase.",
+        "content": "L'éthanolamine est un monosaccharide.",
         "correct": false,
-        "explanation": "La sphingomyélinase libère un céramide."
+        "explanation": "C'est un aminoalcool."
+      },
+      {
+        "content": "Une phosphoéthanolamine peut constituer une tête phosphatée de certains sphingolipides.",
+        "correct": true,
+        "explanation": "Elle est moins classique que la phosphocholine dans la sphingomyéline mammalienne."
+      },
+      {
+        "content": "Le céramide disparaît quand une tête phosphatée est ajoutée.",
+        "correct": false,
+        "explanation": "Il reste le noyau lipidique."
+      },
+      {
+        "content": "Les glycosphingolipides contiennent nécessairement un phosphate.",
+        "correct": false,
+        "explanation": "Ils sont définis par une tête glucidique."
+      },
+      {
+        "content": "Une phosphoéthanolamine implique obligatoirement un squelette glycérol.",
+        "correct": false,
+        "explanation": "Des sphingolipides peuvent la porter."
       }
     ],
-    "explanation": "La sphingomyélinase libère un céramide."
+    "explanation": "Les phosphosphingolipides portent une tête phosphatée sur un noyau céramide ; la phosphocholine domine classiquement chez les mammifères."
   },
   {
     "order": 28,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle enzyme dégrade la sphingomyéline ?",
-    "choices": [
-      {
-        "content": "sphingomyélinase",
-        "correct": true,
-        "explanation": "La sphingomyélinase libère un céramide."
-      },
-      {
-        "content": "céramidase",
-        "correct": false,
-        "explanation": "La sphingomyélinase libère un céramide."
-      },
-      {
-        "content": "β-glucosidase",
-        "correct": false,
-        "explanation": "La sphingomyélinase libère un céramide."
-      },
-      {
-        "content": "phospholipase A2",
-        "correct": false,
-        "explanation": "La sphingomyélinase libère un céramide."
-      }
-    ],
-    "explanation": "La sphingomyélinase libère un céramide."
-  },
-  {
-    "order": 29,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos de la localisation nerveuse de la sphingomyéline :",
-    "choices": [
-      {
-        "content": "Elle est présente dans la matière grise.",
-        "correct": true,
-        "explanation": "La sphingomyéline est un constituant majeur du tissu nerveux et de la myéline."
-      },
-      {
-        "content": "Elle est présente dans la substance blanche.",
-        "correct": true,
-        "explanation": "La sphingomyéline est un constituant majeur du tissu nerveux et de la myéline."
-      },
-      {
-        "content": "Elle est particulièrement associée à la gaine de myéline.",
-        "correct": true,
-        "explanation": "La sphingomyéline est un constituant majeur du tissu nerveux et de la myéline."
-      },
-      {
-        "content": "Elle est absente du tissu nerveux.",
-        "correct": false,
-        "explanation": "La sphingomyéline est un constituant majeur du tissu nerveux et de la myéline."
-      }
-    ],
-    "explanation": "La sphingomyéline est un constituant majeur du tissu nerveux et de la myéline."
-  },
-  {
-    "order": 30,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle structure nerveuse est particulièrement associée ?",
-    "choices": [
-      {
-        "content": "gaine de myéline",
-        "correct": true,
-        "explanation": "La sphingomyéline est un constituant majeur du tissu nerveux et de la myéline."
-      },
-      {
-        "content": "sarcomère",
-        "correct": false,
-        "explanation": "La sphingomyéline est un constituant majeur du tissu nerveux et de la myéline."
-      },
-      {
-        "content": "capsule rénale",
-        "correct": false,
-        "explanation": "La sphingomyéline est un constituant majeur du tissu nerveux et de la myéline."
-      },
-      {
-        "content": "émail",
-        "correct": false,
-        "explanation": "La sphingomyéline est un constituant majeur du tissu nerveux et de la myéline."
-      }
-    ],
-    "explanation": "La sphingomyéline est un constituant majeur du tissu nerveux et de la myéline."
-  },
-  {
-    "order": 31,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos de la sphingomyéline et de la cornée :",
-    "choices": [
-      {
-        "content": "La cornée contient de la sphingomyéline dans ses membranes cellulaires.",
-        "correct": true,
-        "explanation": "La sphingomyéline est présente dans les membranes de nombreux tissus, dont la cornée."
-      },
-      {
-        "content": "La molécule a un rôle structural membranaire.",
-        "correct": true,
-        "explanation": "La sphingomyéline est présente dans les membranes de nombreux tissus, dont la cornée."
-      },
-      {
-        "content": "Elle peut aussi participer à la signalisation.",
-        "correct": true,
-        "explanation": "La sphingomyéline est présente dans les membranes de nombreux tissus, dont la cornée."
-      },
-      {
-        "content": "La cornée est dépourvue de sphingolipides.",
-        "correct": false,
-        "explanation": "La sphingomyéline est présente dans les membranes de nombreux tissus, dont la cornée."
-      }
-    ],
-    "explanation": "La sphingomyéline est présente dans les membranes de nombreux tissus, dont la cornée."
-  },
-  {
-    "order": 32,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel tissu oculaire contient notamment de la sphingomyéline ?",
-    "choices": [
-      {
-        "content": "cornée",
-        "correct": true,
-        "explanation": "La sphingomyéline est présente dans les membranes de nombreux tissus, dont la cornée."
-      },
-      {
-        "content": "rétine uniquement",
-        "correct": false,
-        "explanation": "La sphingomyéline est présente dans les membranes de nombreux tissus, dont la cornée."
-      },
-      {
-        "content": "cristallin uniquement",
-        "correct": false,
-        "explanation": "La sphingomyéline est présente dans les membranes de nombreux tissus, dont la cornée."
-      },
-      {
-        "content": "nerf optique uniquement",
-        "correct": false,
-        "explanation": "La sphingomyéline est présente dans les membranes de nombreux tissus, dont la cornée."
-      }
-    ],
-    "explanation": "La sphingomyéline est présente dans les membranes de nombreux tissus, dont la cornée."
-  },
-  {
-    "order": 33,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos de la sphingomyéline et de la signalisation :",
-    "choices": [
-      {
-        "content": "Elle participe à la transduction du signal.",
-        "correct": true,
-        "explanation": "La sphingomyéline est à la fois structurale et fonctionnelle."
-      },
-      {
-        "content": "Dans le tissu nerveux, elle contribue à l’organisation membranaire et à la signalisation cellulaire.",
-        "correct": true,
-        "explanation": "La sphingomyéline est à la fois structurale et fonctionnelle."
-      },
-      {
-        "content": "Sa dégradation peut produire du céramide signalétique.",
-        "correct": true,
-        "explanation": "La sphingomyéline est à la fois structurale et fonctionnelle."
-      },
-      {
-        "content": "Son seul rôle est le stockage énergétique dans les adipocytes.",
-        "correct": false,
-        "explanation": "La sphingomyéline est à la fois structurale et fonctionnelle."
-      }
-    ],
-    "explanation": "La sphingomyéline est à la fois structurale et fonctionnelle."
-  },
-  {
-    "order": 34,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle fonction cellulaire complète le rôle structural de la sphingomyéline ?",
-    "choices": [
-      {
-        "content": "transduction du signal",
-        "correct": true,
-        "explanation": "La sphingomyéline est à la fois structurale et fonctionnelle."
-      },
-      {
-        "content": "synthèse d'ADN uniquement",
-        "correct": false,
-        "explanation": "La sphingomyéline est à la fois structurale et fonctionnelle."
-      },
-      {
-        "content": "glycolyse",
-        "correct": false,
-        "explanation": "La sphingomyéline est à la fois structurale et fonctionnelle."
-      },
-      {
-        "content": "réplication virale",
-        "correct": false,
-        "explanation": "La sphingomyéline est à la fois structurale et fonctionnelle."
-      }
-    ],
-    "explanation": "La sphingomyéline est à la fois structurale et fonctionnelle."
-  },
-  {
-    "order": 35,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos de la sclérose en plaques :",
-    "choices": [
-      {
-        "content": "C’est une maladie inflammatoire démyélinisante du système nerveux central.",
-        "correct": true,
-        "explanation": "La sclérose en plaques est une maladie inflammatoire démyélinisante du système nerveux central."
-      },
-      {
-        "content": "Elle altère la gaine de myéline du système nerveux central.",
-        "correct": true,
-        "explanation": "La sclérose en plaques est une maladie inflammatoire démyélinisante du système nerveux central."
-      },
-      {
-        "content": "La démyélinisation perturbe la conduction de l’influx nerveux.",
-        "correct": true,
-        "explanation": "La sclérose en plaques est une maladie inflammatoire démyélinisante du système nerveux central."
-      },
-      {
-        "content": "Il s’agit d’une maladie d’accumulation de glycogène.",
-        "correct": false,
-        "explanation": "La sclérose en plaques est une maladie inflammatoire démyélinisante du système nerveux central."
-      }
-    ],
-    "explanation": "La sclérose en plaques est une maladie inflammatoire démyélinisante du système nerveux central."
-  },
-  {
-    "order": 36,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QROC",
-    "question": "Quelle enzyme transforme la sphingomyéline en céramide ?",
+    "question": "Quelle enzyme hydrolyse la sphingomyéline pour libérer un céramide ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
@@ -395,275 +172,514 @@ export const UE14_BIOCH_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion
       ],
       "normalization": {
         "trim": true,
-        "caseSensitive": false,
         "collapseWhitespace": true,
+        "caseSensitive": false,
         "ignoreAccents": true
       }
     },
-    "explanation": "La sphingomyélinase dégrade la sphingomyéline."
+    "explanation": "La sphingomyélinase hydrolyse la tête phosphatée et produit du céramide."
+  },
+  {
+    "order": 29,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant la sphingomyélinase, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Son activité relie structure membranaire et signalisation par le céramide.",
+        "correct": true,
+        "explanation": "Le produit céramide est bioactif."
+      },
+      {
+        "content": "Elle agit sur la tête phosphatée du sphingolipide.",
+        "correct": true,
+        "explanation": "La liaison phosphodiester est clivée."
+      },
+      {
+        "content": "Elle hydrolyse la sphingomyéline.",
+        "correct": true,
+        "explanation": "Cette réaction forme notamment du céramide."
+      },
+      {
+        "content": "Elle produit du glycogène.",
+        "correct": false,
+        "explanation": "Elle agit sur un sphingolipide."
+      },
+      {
+        "content": "Elle est distincte de la céramidase.",
+        "correct": true,
+        "explanation": "La céramidase agit en aval sur le céramide."
+      }
+    ],
+    "explanation": "La sphingomyélinase transforme la sphingomyéline en céramide."
+  },
+  {
+    "order": 30,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Dans une situation d'application, quelle structure nerveuse est particulièrement riche en sphingomyéline ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "gaine de myéline",
+        "myéline",
+        "la myéline"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "La sphingomyéline est un sphingolipide membranaire important, notamment dans la gaine de myéline."
+  },
+  {
+    "order": 31,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant la sclérose en plaques comme contexte de démyélinisation ?",
+    "choices": [
+      {
+        "content": "Elle est due à un déficit en alpha-galactosidase A.",
+        "correct": false,
+        "explanation": "Cela décrit Fabry."
+      },
+      {
+        "content": "La sphingomyéline est un constituant de la myéline mais la maladie ne se résume pas à un déficit enzymatique de sphingomyéline.",
+        "correct": true,
+        "explanation": "La physiopathologie est immuno-inflammatoire complexe."
+      },
+      {
+        "content": "Elle est une maladie de surcharge lysosomale en glucosylcéramide.",
+        "correct": false,
+        "explanation": "Cela décrit Gaucher."
+      },
+      {
+        "content": "Elle n'affecte jamais la myéline.",
+        "correct": false,
+        "explanation": "La démyélinisation est centrale."
+      },
+      {
+        "content": "La sclérose en plaques est une maladie d'accumulation de GM2.",
+        "correct": false,
+        "explanation": "Cela décrit Tay-Sachs."
+      }
+    ],
+    "explanation": "La sclérose en plaques sert de contexte clinique de démyélinisation, distinct des sphingolipidoses enzymatiques."
+  },
+  {
+    "order": 32,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant la tête phosphoéthanolamine de sphingolipides, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Le noyau hydrophobe reste fondé sur un céramide.",
+        "correct": true,
+        "explanation": "Le glycérol n'est pas requis."
+      },
+      {
+        "content": "Une phosphoéthanolamine implique obligatoirement un squelette glycérol.",
+        "correct": false,
+        "explanation": "Des sphingolipides peuvent la porter."
+      },
+      {
+        "content": "L'éthanolamine est un aminoalcool.",
+        "correct": true,
+        "explanation": "Elle peut être liée via un phosphate."
+      },
+      {
+        "content": "Les glycosphingolipides contiennent nécessairement un phosphate.",
+        "correct": false,
+        "explanation": "Ils sont définis par une tête glucidique."
+      },
+      {
+        "content": "L'éthanolamine est un monosaccharide.",
+        "correct": false,
+        "explanation": "C'est un aminoalcool."
+      }
+    ],
+    "explanation": "Les phosphosphingolipides portent une tête phosphatée sur un noyau céramide ; la phosphocholine domine classiquement chez les mammifères."
+  },
+  {
+    "order": 33,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant la sphingomyéline, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "La tête phosphatée est reliée au C1 par une liaison phosphodiester.",
+        "correct": true,
+        "explanation": "Le céramide fournit le squelette hydrophobe."
+      },
+      {
+        "content": "Elle possède obligatoirement plusieurs oses en C1.",
+        "correct": false,
+        "explanation": "Cela décrit des glycosphingolipides."
+      },
+      {
+        "content": "L'acide gras est relié à la sphingosine par une liaison ester.",
+        "correct": false,
+        "explanation": "Il est lié par une amide."
+      },
+      {
+        "content": "Elle est un glycérophospholipide à glycérol.",
+        "correct": false,
+        "explanation": "Son squelette est un céramide."
+      },
+      {
+        "content": "Elle associe un céramide et une phosphocholine dans sa forme majeure chez les mammifères.",
+        "correct": true,
+        "explanation": "Le phosphate est porté sur l'alcool C1."
+      }
+    ],
+    "explanation": "La sphingomyéline est un phosphosphingolipide à noyau céramide et tête phosphocholine."
+  },
+  {
+    "order": 34,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quelle molécule lipidique est produite lors de l'hydrolyse de la sphingomyéline par une sphingomyélinase ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "céramide",
+        "ceramide"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "La sphingomyélinase transforme la sphingomyéline en céramide."
+  },
+  {
+    "order": 35,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant la sphingomyéline et la myéline ?",
+    "choices": [
+      {
+        "content": "La démyélinisation accélère toujours la conduction.",
+        "correct": false,
+        "explanation": "Elle la ralentit ou la bloque."
+      },
+      {
+        "content": "La myéline est constituée uniquement de protéines.",
+        "correct": false,
+        "explanation": "Elle contient une forte proportion de lipides."
+      },
+      {
+        "content": "Le seul rôle de la sphingomyéline est le stockage calorique.",
+        "correct": false,
+        "explanation": "C'est surtout un lipide membranaire."
+      },
+      {
+        "content": "La sphingomyéline est absente du tissu nerveux.",
+        "correct": false,
+        "explanation": "Elle y est particulièrement importante."
+      },
+      {
+        "content": "Elle est présente dans le système nerveux central et périphérique.",
+        "correct": true,
+        "explanation": "La myéline est riche en sphingolipides."
+      }
+    ],
+    "explanation": "La sphingomyéline est un sphingolipide membranaire important, notamment dans la gaine de myéline."
+  },
+  {
+    "order": 36,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quelle maladie inflammatoire du système nerveux central illustre une démyélinisation sans être une sphingolipidose lysosomale ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "sclérose en plaques",
+        "SEP",
+        "sclerose en plaques"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "La sclérose en plaques est une maladie inflammatoire démyélinisante, distincte des maladies de surcharge lysosomale."
   },
   {
     "order": 37,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos de la tête de la sphingomyéline :",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant la tête phosphoéthanolamine de sphingolipides, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "La choline peut constituer la tête polaire.",
-        "correct": true,
-        "explanation": "La choline est la tête polaire typique de la sphingomyéline."
-      },
-      {
-        "content": "Une tête phosphoéthanolamine existe aussi dans certains sphingolipides.",
-        "correct": true,
-        "explanation": "La choline est la tête polaire typique de la sphingomyéline."
-      },
-      {
-        "content": "Le phosphate est interposé dans la liaison phosphodiester.",
-        "correct": true,
-        "explanation": "La choline est la tête polaire typique de la sphingomyéline."
-      },
-      {
-        "content": "La tête est toujours un oligosaccharide de 20 résidus.",
+        "content": "Les glycosphingolipides contiennent nécessairement un phosphate.",
         "correct": false,
-        "explanation": "La choline est la tête polaire typique de la sphingomyéline."
+        "explanation": "Ils sont définis par une tête glucidique."
+      },
+      {
+        "content": "L'éthanolamine est un monosaccharide.",
+        "correct": false,
+        "explanation": "C'est un aminoalcool."
+      },
+      {
+        "content": "Le noyau hydrophobe reste fondé sur un céramide.",
+        "correct": true,
+        "explanation": "Le glycérol n'est pas requis."
+      },
+      {
+        "content": "L'éthanolamine est un aminoalcool.",
+        "correct": true,
+        "explanation": "Elle peut être liée via un phosphate."
+      },
+      {
+        "content": "Le céramide disparaît quand une tête phosphatée est ajoutée.",
+        "correct": false,
+        "explanation": "Il reste le noyau lipidique."
       }
     ],
-    "explanation": "La choline est la tête polaire typique de la sphingomyéline."
+    "explanation": "Les phosphosphingolipides portent une tête phosphatée sur un noyau céramide ; la phosphocholine domine classiquement chez les mammifères.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 38,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel alcool aminé constitue la tête polaire la plus fréquente de la sphingomyéline ?",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant la sphingomyéline ?",
     "choices": [
       {
-        "content": "choline",
+        "content": "Elle est un glycérophospholipide à glycérol.",
+        "correct": false,
+        "explanation": "Son squelette est un céramide."
+      },
+      {
+        "content": "Elle appartient aux phosphosphingolipides.",
         "correct": true,
-        "explanation": "La choline est la tête polaire typique de la sphingomyéline."
+        "explanation": "Elle contient un phosphate mais pas de squelette glycérol."
       },
       {
-        "content": "mannitol",
-        "correct": false,
-        "explanation": "La choline est la tête polaire typique de la sphingomyéline."
+        "content": "La tête phosphatée est reliée au C1 par une liaison phosphodiester.",
+        "correct": true,
+        "explanation": "Le céramide fournit le squelette hydrophobe."
       },
       {
-        "content": "sorbitol",
-        "correct": false,
-        "explanation": "La choline est la tête polaire typique de la sphingomyéline."
+        "content": "Elle est un constituant membranaire important.",
+        "correct": true,
+        "explanation": "Elle est particulièrement abondante dans la myéline."
       },
       {
-        "content": "cholestérol",
-        "correct": false,
-        "explanation": "La choline est la tête polaire typique de la sphingomyéline."
+        "content": "Elle associe un céramide et une phosphocholine dans sa forme majeure chez les mammifères.",
+        "correct": true,
+        "explanation": "Le phosphate est porté sur l'alcool C1."
       }
     ],
-    "explanation": "La choline est la tête polaire typique de la sphingomyéline."
+    "explanation": "La sphingomyéline est un phosphosphingolipide à noyau céramide et tête phosphocholine."
   },
   {
     "order": 39,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos du céramide de la sphingomyéline :",
-    "choices": [
-      {
-        "content": "Il dérive de la sphingosine.",
-        "correct": true,
-        "explanation": "Un céramide associe une base sphingoïde à un acide gras par liaison amide ; la chaîne acyle varie selon l’espèce moléculaire."
-      },
-      {
-        "content": "Il porte un acide gras par liaison amide.",
-        "correct": true,
-        "explanation": "Un céramide associe une base sphingoïde à un acide gras par liaison amide ; la chaîne acyle varie selon l’espèce moléculaire."
-      },
-      {
-        "content": "La chaîne acyle peut être longue ou très longue selon l’espèce de sphingomyéline.",
-        "correct": true,
-        "explanation": "Un céramide associe une base sphingoïde à un acide gras par liaison amide ; la chaîne acyle varie selon l’espèce moléculaire."
-      },
-      {
-        "content": "Il porte trois acides gras estérifiés au glycérol.",
-        "correct": false,
-        "explanation": "Un céramide associe une base sphingoïde à un acide gras par liaison amide ; la chaîne acyle varie selon l’espèce moléculaire."
+    "format": "QROC",
+    "question": "Dans une situation d'application, quelle molécule lipidique est produite lors de l'hydrolyse de la sphingomyéline par une sphingomyélinase ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "céramide",
+        "ceramide"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Un céramide associe une base sphingoïde à un acide gras par liaison amide ; la chaîne acyle varie selon l’espèce moléculaire."
+    },
+    "explanation": "La sphingomyélinase transforme la sphingomyéline en céramide."
   },
   {
     "order": 40,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quelle liaison unit l’acide gras à la base sphingoïde dans un céramide ?",
+    "question": "Parmi les affirmations suivantes concernant la sphingomyéline et la myéline, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Une liaison amide",
+        "content": "Elle est présente dans le système nerveux central et périphérique.",
         "correct": true,
-        "explanation": "Un céramide associe une base sphingoïde à un acide gras par liaison amide ; la chaîne acyle varie selon l’espèce moléculaire."
+        "explanation": "La myéline est riche en sphingolipides."
       },
       {
-        "content": "Une liaison O-glycosidique",
+        "content": "La sphingomyéline est absente du tissu nerveux.",
         "correct": false,
-        "explanation": "Un céramide associe une base sphingoïde à un acide gras par liaison amide ; la chaîne acyle varie selon l’espèce moléculaire."
+        "explanation": "Elle y est particulièrement importante."
       },
       {
-        "content": "Une liaison phosphodiester",
+        "content": "La démyélinisation accélère toujours la conduction.",
         "correct": false,
-        "explanation": "Un céramide associe une base sphingoïde à un acide gras par liaison amide ; la chaîne acyle varie selon l’espèce moléculaire."
+        "explanation": "Elle la ralentit ou la bloque."
       },
       {
-        "content": "Une liaison peptidique entre deux acides aminés",
+        "content": "Le seul rôle de la sphingomyéline est le stockage calorique.",
         "correct": false,
-        "explanation": "Un céramide associe une base sphingoïde à un acide gras par liaison amide ; la chaîne acyle varie selon l’espèce moléculaire."
+        "explanation": "C'est surtout un lipide membranaire."
+      },
+      {
+        "content": "La myéline est constituée uniquement de protéines.",
+        "correct": false,
+        "explanation": "Elle contient une forte proportion de lipides."
       }
     ],
-    "explanation": "Dans un céramide, le carboxyle de l’acide gras forme une liaison amide avec l’amine portée par C2 de la base sphingoïde."
+    "explanation": "La sphingomyéline est un sphingolipide membranaire important, notamment dans la gaine de myéline."
   },
   {
     "order": 41,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos des phosphosphingolipides :",
+    "question": "Quelles propositions sont exactes concernant la sclérose en plaques comme contexte de démyélinisation ?",
     "choices": [
       {
-        "content": "Ils contiennent un phosphate.",
-        "correct": true,
-        "explanation": "La sphingomyéline est le phosphosphingolipide de référence."
-      },
-      {
-        "content": "La sphingomyéline en est l'exemple majeur.",
-        "correct": true,
-        "explanation": "La sphingomyéline est le phosphosphingolipide de référence."
-      },
-      {
-        "content": "Ils dérivent d'un céramide plutôt que du glycérol.",
-        "correct": true,
-        "explanation": "La sphingomyéline est le phosphosphingolipide de référence."
-      },
-      {
-        "content": "Ils sont tous des glycosphingolipides avec plusieurs oses.",
+        "content": "Elle est due à un déficit en alpha-galactosidase A.",
         "correct": false,
-        "explanation": "La sphingomyéline est le phosphosphingolipide de référence."
+        "explanation": "Cela décrit Fabry."
+      },
+      {
+        "content": "Ce contexte illustre l'importance structurale des sphingolipides nerveux.",
+        "correct": true,
+        "explanation": "Il ne s'agit pas d'une sphingolipidose lysosomale classique."
+      },
+      {
+        "content": "C'est une maladie inflammatoire démyélinisante du système nerveux central.",
+        "correct": true,
+        "explanation": "La myéline et les axones peuvent être lésés."
+      },
+      {
+        "content": "La sclérose en plaques est une maladie d'accumulation de GM2.",
+        "correct": false,
+        "explanation": "Cela décrit Tay-Sachs."
+      },
+      {
+        "content": "Elle est une maladie de surcharge lysosomale en glucosylcéramide.",
+        "correct": false,
+        "explanation": "Cela décrit Gaucher."
       }
     ],
-    "explanation": "La sphingomyéline est le phosphosphingolipide de référence."
+    "explanation": "La sclérose en plaques sert de contexte clinique de démyélinisation, distinct des sphingolipidoses enzymatiques."
   },
   {
     "order": 42,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel exemple majeur est étudié ?",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "sphingomyéline",
+        "content": "L'éthanolamine est un aminoalcool.",
         "correct": true,
-        "explanation": "La sphingomyéline est le phosphosphingolipide de référence."
+        "explanation": "Elle peut être liée via un phosphate."
       },
       {
-        "content": "maltose",
-        "correct": false,
-        "explanation": "La sphingomyéline est le phosphosphingolipide de référence."
+        "content": "La sphingomyéline est abondante dans les membranes de la gaine de myéline.",
+        "correct": true,
+        "explanation": "Elle contribue à leurs propriétés physiques."
       },
       {
-        "content": "cholestérol",
-        "correct": false,
-        "explanation": "La sphingomyéline est le phosphosphingolipide de référence."
+        "content": "La présence d'un phosphate distingue les phosphosphingolipides des glycosphingolipides.",
+        "correct": true,
+        "explanation": "La tête polaire n'est alors pas glucidique."
       },
       {
-        "content": "glycogène",
+        "content": "Le céramide disparaît quand une tête phosphatée est ajoutée.",
         "correct": false,
-        "explanation": "La sphingomyéline est le phosphosphingolipide de référence."
+        "explanation": "Il reste le noyau lipidique."
+      },
+      {
+        "content": "Le seul rôle de la sphingomyéline est le stockage calorique.",
+        "correct": false,
+        "explanation": "C'est surtout un lipide membranaire."
+      },
+      {
+        "content": "La sphingomyéline est absente du tissu nerveux.",
+        "correct": false,
+        "explanation": "Elle y est particulièrement importante."
+      },
+      {
+        "content": "L'éthanolamine est un monosaccharide.",
+        "correct": false,
+        "explanation": "C'est un aminoalcool."
+      },
+      {
+        "content": "Elle est présente dans le système nerveux central et périphérique.",
+        "correct": true,
+        "explanation": "La myéline est riche en sphingolipides."
+      },
+      {
+        "content": "Son rôle est structural mais aussi lié à la signalisation membranaire.",
+        "correct": true,
+        "explanation": "Ses métabolites sont bioactifs."
+      },
+      {
+        "content": "Une phosphoéthanolamine implique obligatoirement un squelette glycérol.",
+        "correct": false,
+        "explanation": "Des sphingolipides peuvent la porter."
       }
     ],
-    "explanation": "La sphingomyéline est le phosphosphingolipide de référence."
+    "explanation": "Les phosphosphingolipides portent une tête phosphatée sur un noyau céramide ; la phosphocholine domine classiquement chez les mammifères. La sphingomyéline est un sphingolipide membranaire important, notamment dans la gaine de myéline."
   },
   {
     "order": 43,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux alcools aminés pouvant constituer une tête phosphatée de sphingolipide.",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes concernant la sphingomyéline, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "Choline",
-        "correct": true,
-        "explanation": "La phosphocholine est la tête polaire la plus fréquente de la sphingomyéline."
-      },
-      {
-        "content": "Éthanolamine",
-        "correct": true,
-        "explanation": "La phosphoéthanolamine constitue une autre tête phosphatée possible de sphingolipide."
-      },
-      {
-        "content": "Sorbitol",
+        "content": "L'acide gras est relié à la sphingosine par une liaison ester.",
         "correct": false,
-        "explanation": "Polyol."
+        "explanation": "Il est lié par une amide."
       },
       {
-        "content": "Mannitol",
+        "content": "Elle appartient aux phosphosphingolipides.",
+        "correct": true,
+        "explanation": "Elle contient un phosphate mais pas de squelette glycérol."
+      },
+      {
+        "content": "La tête phosphatée est reliée au C1 par une liaison phosphodiester.",
+        "correct": true,
+        "explanation": "Le céramide fournit le squelette hydrophobe."
+      },
+      {
+        "content": "Elle associe un céramide et une phosphocholine dans sa forme majeure chez les mammifères.",
+        "correct": true,
+        "explanation": "Le phosphate est porté sur l'alcool C1."
+      },
+      {
+        "content": "Elle est un glycérophospholipide à glycérol.",
         "correct": false,
-        "explanation": "Polyol."
+        "explanation": "Son squelette est un céramide."
       }
     ],
-    "explanation": "La choline et l’éthanolamine sont deux alcools aminés pouvant former des têtes phosphatées."
+    "explanation": "La sphingomyéline est un phosphosphingolipide à noyau céramide et tête phosphocholine."
   },
   {
     "order": 44,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "À propos de la sphingomyéline, sélectionnez exactement les cinq affirmations correctes.",
-    "choices": [
-      {
-        "content": "La sphingomyéline contient un phosphate.",
-        "correct": true,
-        "explanation": "Structure."
-      },
-      {
-        "content": "Elle contient un céramide.",
-        "correct": true,
-        "explanation": "Structure."
-      },
-      {
-        "content": "La tête peut être la choline.",
-        "correct": true,
-        "explanation": "Structure."
-      },
-      {
-        "content": "Elle est présente dans la myéline.",
-        "correct": true,
-        "explanation": "Localisation."
-      },
-      {
-        "content": "Elle est dégradée par la sphingomyélinase.",
-        "correct": true,
-        "explanation": "Catabolisme."
-      },
-      {
-        "content": "Elle est un triacylglycérol.",
-        "correct": false,
-        "explanation": "Non."
-      },
-      {
-        "content": "Elle est absente du cerveau.",
-        "correct": false,
-        "explanation": "Présente."
-      },
-      {
-        "content": "Elle est dépourvue de céramide.",
-        "correct": false,
-        "explanation": "Base."
-      },
-      {
-        "content": "La céramidase est l'enzyme directe de la sphingomyéline.",
-        "correct": false,
-        "explanation": "Sphingomyélinase."
-      },
-      {
-        "content": "La sclérose en plaques est une glycogénose.",
-        "correct": false,
-        "explanation": "Démyélinisation."
+    "format": "QROC",
+    "question": "Dans une situation d'application n°2, dans une situation d'application, quelle molécule lipidique est produite lors de l'hydrolyse de la sphingomyéline par une sphingomyélinase ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "céramide",
+        "ceramide"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Repères majeurs sur la sphingomyéline."
+    },
+    "explanation": "La sphingomyélinase transforme la sphingomyéline en céramide."
   }
 ];

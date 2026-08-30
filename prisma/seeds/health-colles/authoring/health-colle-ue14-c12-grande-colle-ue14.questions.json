@@ -1,0 +1,2339 @@
+[
+  {
+    "order": 1,
+    "difficulty": "HARD",
+    "question": "Un ion et sa position dans la classification périodique sont étudiés. Quelles propositions sont exactes ?",
+    "statement": "Un ion et sa position dans la classification périodique sont étudiés. Quelles propositions sont exactes ?",
+    "explanation": "Le numéro atomique fixe l’identité de l’élément. Une charge ionique modifie le nombre d’électrons, tandis que les tendances périodiques dépendent de la position dans le tableau.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:CHIMIE",
+      "theme:classification-ions"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Deux isotopes d’un même élément ont le même nombre de protons.",
+      "Un cation 2+ possède deux électrons de plus que l’atome neutre correspondant.",
+      "Dans une période, l’électronégativité tend globalement à augmenter de gauche à droite.",
+      "Le nombre de masse A est égal au nombre d’électrons de l’atome neutre.",
+      "L’affinité électronique et l’électronégativité sont deux noms strictement synonymes."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      2
+    ],
+    "choiceExplanations": [
+      "Ils ont le même numéro atomique Z mais diffèrent par leur nombre de neutrons.",
+      "Une charge 2+ correspond à une perte de deux électrons.",
+      "L’attraction exercée sur les électrons de liaison augmente globalement dans ce sens.",
+      "A correspond au nombre total de nucléons, protons plus neutrons.",
+      "L’affinité électronique est une grandeur énergétique liée au gain d’un électron ; l’électronégativité concerne une liaison."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:CHIMIE",
+        "theme:classification-ions"
+      ]
+    }
+  },
+  {
+    "order": 2,
+    "difficulty": "MEDIUM",
+    "question": "Dans sa configuration électronique fondamentale 1s² 2s² 2p², combien d’électrons non appariés possède l’atome de carbone selon la règle de Hund ? Donnez uniquement la valeur numérique.",
+    "statement": "Dans sa configuration électronique fondamentale 1s² 2s² 2p², combien d’électrons non appariés possède l’atome de carbone selon la règle de Hund ? Donnez uniquement la valeur numérique.",
+    "explanation": "Les deux électrons 2p occupent d’abord deux orbitales p différentes avec des spins parallèles. L’atome de carbone fondamental possède donc deux électrons non appariés.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:CHIMIE",
+      "theme:regle-hund-carbone"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "number",
+      "numericAnswer": {
+        "value": 2,
+        "tolerance": 0
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:CHIMIE",
+        "theme:regle-hund-carbone"
+      ]
+    }
+  },
+  {
+    "order": 3,
+    "difficulty": "MEDIUM",
+    "question": "Quelle proposition décrit correctement les liaisons d’une triple liaison carbone-carbone ?",
+    "statement": "Quelle proposition décrit correctement les liaisons d’une triple liaison carbone-carbone ?",
+    "explanation": "Une triple liaison C≡C associe une liaison σ axiale et deux liaisons π issues de recouvrements latéraux.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:CHIMIE",
+      "theme:liaisons-sigma-pi"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Elle comporte une liaison σ et deux liaisons π.",
+      "Elle comporte trois liaisons σ et aucune liaison π.",
+      "Elle autorise une rotation libre autour de l’axe C–C sans modifier le recouvrement orbitalaire.",
+      "Elle impose une hybridation sp3 aux deux carbones.",
+      "Elle correspond à une liaison ionique entre les deux carbones."
+    ],
+    "correctChoiceIndexes": [
+      0
+    ],
+    "choiceExplanations": [
+      "C’est l’architecture classique d’une triple liaison.",
+      "Une seule composante est σ.",
+      "Les deux liaisons π s’opposent à une rotation libre.",
+      "Les carbones d’un alcyne sont classiquement sp.",
+      "La triple liaison C≡C est covalente."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:CHIMIE",
+        "theme:liaisons-sigma-pi"
+      ]
+    }
+  },
+  {
+    "order": 4,
+    "difficulty": "EASY",
+    "question": "Sélectionnez exactement les deux propositions correctes concernant les interactions intermoléculaires.",
+    "statement": "Sélectionnez exactement les deux propositions correctes concernant les interactions intermoléculaires.",
+    "explanation": "Les forces de London existent entre toutes les espèces polarisables. Une liaison hydrogène exige un donneur X–H adapté et un accepteur disposant d’un doublet.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:CHIMIE",
+      "theme:interactions-intermoleculaires"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Les forces de dispersion de London peuvent agir entre deux molécules apolaires.",
+      "Un éther peut accepter une liaison hydrogène grâce aux doublets de son oxygène.",
+      "Toute molécule contenant de l’oxygène est nécessairement donneuse de liaison hydrogène.",
+      "Les interactions dipôle–dipôle nécessitent obligatoirement une charge ionique entière sur chaque molécule.",
+      "Les forces intermoléculaires sont des liaisons covalentes supplémentaires créées entre molécules."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Elles proviennent de fluctuations instantanées de la densité électronique.",
+      "L’oxygène éthéré est accepteur mais la molécule n’est pas donneuse en l’absence de O–H.",
+      "Il faut notamment un hydrogène lié à un hétéroatome suffisamment électronégatif.",
+      "Elles concernent des dipôles permanents, sans charge entière obligatoire.",
+      "Elles sont non covalentes."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:CHIMIE",
+        "theme:interactions-intermoleculaires"
+      ]
+    }
+  },
+  {
+    "order": 5,
+    "difficulty": "HARD",
+    "question": "Une molécule organique présente plusieurs fonctions. Quelles affirmations permettent une identification correcte ?",
+    "statement": "Une molécule organique présente plusieurs fonctions. Quelles affirmations permettent une identification correcte ?",
+    "explanation": "Reconnaître une fonction exige d’examiner l’environnement du groupe caractéristique, notamment la présence d’un carbonyle et l’atome directement lié à celui-ci.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:CHIMIE",
+      "theme:fonctions-organiques"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le motif R–C(=O)–NH2 correspond à un amide.",
+      "Le motif R–C≡N correspond à un nitrile.",
+      "Un ammonium quaternaire porte quatre substituants sur un azote chargé positivement.",
+      "Un thiol est défini par le motif R–OH.",
+      "Un ester simple contient obligatoirement un atome d’azote."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "L’azote est directement lié au carbone carbonylé.",
+      "La triple liaison C≡N caractérise le nitrile.",
+      "L’azote possède alors quatre liaisons et une charge formelle positive.",
+      "Le thiol porte R–SH.",
+      "Le motif ester est R–C(=O)–O–R′."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:CHIMIE",
+        "theme:fonctions-organiques"
+      ]
+    }
+  },
+  {
+    "order": 6,
+    "difficulty": "HARD",
+    "question": "Un composé a pour formule brute $\\ce{C3H6O3}$. Quelle est sa masse molaire ? Donnez uniquement la valeur numérique, exprimée en $\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$.\n\nDonnées : $M(\\mathrm C)=12\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$, $M(\\mathrm H)=1\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$ et $M(\\mathrm O)=16\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$.",
+    "statement": "Un composé a pour formule brute $\\ce{C3H6O3}$. Quelle est sa masse molaire ? Donnez uniquement la valeur numérique, exprimée en $\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$.\n\nDonnées : $M(\\mathrm C)=12\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$, $M(\\mathrm H)=1\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$ et $M(\\mathrm O)=16\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$.",
+    "explanation": "Le calcul donne $3\\times12+6\\times1+3\\times16=90$, soit $90\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:CHIMIE",
+      "theme:calcul-masse-molaire"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "number",
+      "numericAnswer": {
+        "value": 90,
+        "tolerance": 0,
+        "unit": "g/mol",
+        "displayUnit": "\\mathrm{g}\\cdot\\mathrm{mol}^{-1}"
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:CHIMIE",
+        "theme:calcul-masse-molaire"
+      ]
+    }
+  },
+  {
+    "order": 7,
+    "difficulty": "HARD",
+    "question": "À propos de la stéréochimie des molécules organiques, quelles propositions sont exactes ?",
+    "statement": "À propos de la stéréochimie des molécules organiques, quelles propositions sont exactes ?",
+    "explanation": "Les descripteurs R/S concernent des centres stéréogènes tétraédriques ; E/Z concernent les doubles liaisons lorsque chaque carbone porte deux substituants différents.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:CHIMIE",
+      "theme:stereochimie"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Deux énantiomères sont des images miroir non superposables.",
+      "L’attribution E/Z nécessite de comparer les priorités CIP sur chacun des deux carbones de la double liaison.",
+      "Une SN2 sur un centre stéréogène procède par attaque arrière et inversion géométrique au centre attaqué.",
+      "Deux diastéréoisomères sont toujours des images miroir l’un de l’autre.",
+      "La présence d’une double liaison C=C suffit toujours à définir une configuration E/Z."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Ils possèdent des configurations opposées dans une relation miroir.",
+      "Les groupes de plus haute priorité déterminent E ou Z.",
+      "Le mécanisme concerté impose l’attaque opposée au groupe partant.",
+      "Cette relation définit les énantiomères.",
+      "Chaque carbone doit porter deux substituants différents."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:CHIMIE",
+        "theme:stereochimie"
+      ]
+    }
+  },
+  {
+    "order": 8,
+    "difficulty": "MEDIUM",
+    "question": "Quelle transformation décrit correctement la réactivité d’un hydrocarbure insaturé ?",
+    "statement": "Quelle transformation décrit correctement la réactivité d’un hydrocarbure insaturé ?",
+    "explanation": "L’hydrogénation catalytique d’un alcène ajoute H2 sur la double liaison et conduit à l’alcane correspondant.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:CHIMIE",
+      "theme:hydrocarbures-reactivite"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "L’ozonolyse d’un alcane saturé constitue la réaction caractéristique permettant de former systématiquement un alcyne.",
+      "L’hydrogénation catalytique d’un alcène réduit la double liaison en liaison simple.",
+      "Une addition de HX sur un alcène conserve obligatoirement la liaison π.",
+      "Un alcyne est défini par une double liaison C=C.",
+      "L’addition électrophile d’un alcène est impossible car la liaison π est dépourvue d’électrons."
+    ],
+    "correctChoiceIndexes": [
+      1
+    ],
+    "choiceExplanations": [
+      "L’ozonolyse concerne surtout les liaisons multiples.",
+      "Deux hydrogènes s’ajoutent sur les carbones de C=C.",
+      "L’addition consomme la liaison π.",
+      "Il contient une triple liaison C≡C.",
+      "La liaison π est riche en électrons et peut réagir avec des électrophiles."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:CHIMIE",
+        "theme:hydrocarbures-reactivite"
+      ]
+    }
+  },
+  {
+    "order": 9,
+    "difficulty": "EASY",
+    "question": "Sélectionnez exactement les deux transformations correctes.",
+    "statement": "Sélectionnez exactement les deux transformations correctes.",
+    "explanation": "Les alcools et dérivés halogénés réagissent selon la classe du substrat et la nature du réactif.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:CHIMIE",
+      "theme:alcools-halogenes"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "L’oxydation ménagée d’un alcool primaire peut conduire à un aldéhyde.",
+      "La réduction d’une cétone par NaBH4 peut conduire à un alcool secondaire.",
+      "L’oxydation d’un alcool secondaire conduit classiquement à un aldéhyde.",
+      "Une SN2 sur un carbone très encombré est favorisée par l’encombrement stérique.",
+      "Un organomagnésien est stable dans un milieu contenant un grand excès d’eau."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Une oxydation plus poussée peut ensuite donner l’acide carboxylique.",
+      "Le carbone carbonylé conserve ses deux substituants carbonés.",
+      "Elle conduit à une cétone.",
+      "L’encombrement défavorise l’attaque arrière.",
+      "Les organomagnésiens sont détruits par les espèces protiques."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:CHIMIE",
+        "theme:alcools-halogenes"
+      ]
+    }
+  },
+  {
+    "order": 10,
+    "difficulty": "HARD",
+    "question": "On compare carbonyles, esters, amides et dérivés d’acides. Quelles propositions sont exactes ?",
+    "statement": "On compare carbonyles, esters, amides et dérivés d’acides. Quelles propositions sont exactes ?",
+    "explanation": "Le carbone carbonylé est électrophile. La conjugaison amidique réduit la basicité de l’azote, tandis que les chlorures d’acyle sont des dérivés fortement activés.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:CHIMIE",
+      "theme:carbonyles-derives-acides"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le carbone d’un aldéhyde ou d’une cétone est électrophile.",
+      "La liaison C–N d’un amide possède un caractère partiel de double liaison.",
+      "Un chlorure d’acyle est généralement plus réactif vis-à-vis d’un nucléophile qu’un amide.",
+      "La saponification d’un ester conduit notamment à un carboxylate.",
+      "Une cétone simple porte nécessairement un hydrogène sur le carbone carbonylé."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "choiceExplanations": [
+      "La polarisation Cδ+–Oδ− appauvrit le carbone en densité électronique.",
+      "Le doublet de l’azote est délocalisé vers le carbonyle.",
+      "Le chlorure est un meilleur groupe partant et l’amide est fortement stabilisé par conjugaison.",
+      "En milieu basique, l’acide formé est déprotoné.",
+      "Cela caractérise un aldéhyde."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:CHIMIE",
+        "theme:carbonyles-derives-acides"
+      ]
+    }
+  },
+  {
+    "order": 11,
+    "difficulty": "HARD",
+    "question": "Parmi ces dix propositions couvrant toute la Chimie, sélectionnez exactement les cinq exactes.",
+    "statement": "Parmi ces dix propositions couvrant toute la Chimie, sélectionnez exactement les cinq exactes.",
+    "explanation": "Cette synthèse exige de relier classification périodique, liaisons, stéréochimie, fonctions et réactivité.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:CHIMIE",
+      "theme:synthese-chimie"
+    ],
+    "format": "QRPL",
+    "questionFormat": "QRPL",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Une molécule peut contenir des liaisons polaires tout en ayant un moment dipolaire total nul.",
+      "Un carbone sp adopte classiquement une géométrie linéaire, également dite digonale.",
+      "Un carboxylate est stabilisé par délocalisation de la charge sur les deux oxygènes.",
+      "Un organomagnésien réagit avec CO2 puis, après hydrolyse, peut donner un acide carboxylique.",
+      "La réduction d’un aldéhyde par un hydrure peut donner un alcool primaire.",
+      "La géométrie correcte d’un carbone sp est dite diagonale.",
+      "Une amide est plus basique qu’une amine car son doublet est davantage disponible.",
+      "Les conformères diffèrent nécessairement par la connectivité des atomes.",
+      "Une double liaison C=C est constituée de deux liaisons σ.",
+      "L’électronégativité est l’énergie libérée lors de l’ajout d’un électron à un atome gazeux."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "choiceExplanations": [
+      "Une géométrie symétrique peut conduire à une compensation vectorielle.",
+      "Deux directions de liaison opposées sont associées à l’hybridation sp.",
+      "Les formes mésomères principales contribuent à cette stabilisation.",
+      "Le carbone du CO2 devient le carbone carboxylique.",
+      "R–CHO est transformé en R–CH2OH.",
+      "Le terme correct est linéaire ou digonale.",
+      "La conjugaison avec le carbonyle diminue sa disponibilité.",
+      "Ils peuvent s’interconvertir par rotation autour de liaisons simples.",
+      "Elle associe une σ et une π.",
+      "Cette description se rapproche de l’affinité électronique."
+    ],
+    "requiredSelectionCount": 5,
+    "answerPayload": {
+      "requiredSelectionCount": 5,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:CHIMIE",
+        "theme:synthese-chimie"
+      ]
+    }
+  },
+  {
+    "order": 12,
+    "difficulty": "EASY",
+    "question": "Quel est l’état d’hybridation classique d’un carbone engagé dans une triple liaison C≡C ?",
+    "statement": "Quel est l’état d’hybridation classique d’un carbone engagé dans une triple liaison C≡C ?",
+    "explanation": "Un carbone alcynique utilise deux orbitales hybrides sp et conserve deux orbitales p non hybridées.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:CHIMIE",
+      "theme:hybridation-alcyne"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "sp"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:CHIMIE",
+        "theme:hybridation-alcyne"
+      ]
+    }
+  },
+  {
+    "order": 13,
+    "difficulty": "MEDIUM",
+    "question": "Dans la molécule M, quelle fonction détermine le suffixe principal dans la hiérarchie de nomenclature retenue ?",
+    "statement": "Dans la molécule M, quelle fonction détermine le suffixe principal dans la hiérarchie de nomenclature retenue ?",
+    "explanation": "Dans la hiérarchie fonctionnelle utilisée pour la nomenclature de cette EC, l’acide carboxylique est prioritaire sur la cétone et l’amine. Il détermine donc le suffixe principal du nom ; les autres fonctions sont exprimées comme fonctions secondaires selon les règles de nomenclature correspondantes.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:CHIMIE",
+      "theme:nomenclature-priorite"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "La fonction amine.",
+      "La fonction cétone.",
+      "La fonction acide carboxylique.",
+      "Les trois fonctions sont équivalentes et le choix se fait par ordre alphabétique.",
+      "Aucune fonction : une molécule polyfonctionnelle ne peut pas recevoir de nom systématique."
+    ],
+    "correctChoiceIndexes": [
+      2
+    ],
+    "choiceExplanations": [
+      "L’amine est moins prioritaire que l’acide carboxylique.",
+      "La cétone est moins prioritaire que l’acide carboxylique.",
+      "Elle est prioritaire dans cette combinaison.",
+      "Une hiérarchie fonctionnelle détermine le suffixe.",
+      "Les règles de nomenclature sont précisément prévues pour ces situations."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:CHIMIE",
+        "theme:nomenclature-priorite"
+      ]
+    }
+  },
+  {
+    "order": 14,
+    "difficulty": "MEDIUM",
+    "question": "À propos de la fonction acide carboxylique portée par M et de sa base conjuguée, quelles propositions sont exactes ?",
+    "statement": "À propos de la fonction acide carboxylique portée par M et de sa base conjuguée, quelles propositions sont exactes ?",
+    "explanation": "La perte du proton acide conduit au carboxylate. Ses deux formes mésomères limites délocalisent la charge négative sur les deux oxygènes, de sorte que les deux liaisons C–O sont équivalentes dans la description moyenne. Le carbone du motif carboxyle reste associé à un système π délocalisé et la fonction acide comporte bien un carbonyle.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:CHIMIE",
+      "theme:acides-carboxyliques"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Sa déprotonation conduit à un ion carboxylate.",
+      "Dans le carboxylate, les deux liaisons C–O deviennent équivalentes dans la description mésomère moyenne.",
+      "La fonction acide carboxylique de M contient elle-même un groupe carbonyle.",
+      "La charge négative du carboxylate est stabilisée par délocalisation sur les deux oxygènes.",
+      "La déprotonation transforme le carbone carboxylique en carbone tétraédrique sp³ dépourvu de toute délocalisation."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "choiceExplanations": [
+      "La perte de H+ concerne le groupe –COOH.",
+      "La charge et le caractère de liaison sont délocalisés sur les deux oxygènes.",
+      "Le motif carboxyle associe un groupe C=O et un groupe OH.",
+      "Les formes mésomères limites contribuent à cette stabilisation.",
+      "Le carbone carboxylique reste hybride sp² avec délocalisation π."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:CHIMIE",
+        "theme:acides-carboxyliques"
+      ]
+    }
+  },
+  {
+    "order": 15,
+    "difficulty": "MEDIUM",
+    "question": "En analysant les quatre transformations du panneau B, quelles propositions sont exactes ?",
+    "statement": "En analysant les quatre transformations du panneau B, quelles propositions sont exactes ?",
+    "explanation": "Le passage d’un alcool primaire à un aldéhyde est une oxydation. NaBH4 réduit un aldéhyde en alcool primaire et une cétone en alcool secondaire. L’oxydation d’un aldéhyde peut conduire à l’acide carboxylique correspondant. La transformation 4 est donc une réduction, et non une oxydation.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:CHIMIE",
+      "theme:enchaînements-reactionnels"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "La transformation 1 correspond à l’oxydation d’un alcool primaire en aldéhyde.",
+      "La transformation 2 correspond à une réduction de l’aldéhyde en alcool primaire.",
+      "La transformation 3 correspond à une oxydation de l’aldéhyde en acide carboxylique.",
+      "La transformation 4 correspond à une oxydation de la propanone en propan-2-ol.",
+      "La transformation 1 est une substitution nucléophile d’acyle au cours de laquelle le nombre d’oxydation du carbone fonctionnel reste nécessairement inchangé."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Le carbone portant l’alcool augmente son degré d’oxydation.",
+      "Le carbonyle aldéhydique est réduit en alcool primaire par NaBH4.",
+      "L’aldéhyde est oxydé en acide de même squelette.",
+      "Le passage d’une cétone à un alcool secondaire est une réduction.",
+      "C’est une oxydation d’alcool en aldéhyde."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:CHIMIE",
+        "theme:enchaînements-reactionnels"
+      ]
+    }
+  },
+  {
+    "order": 16,
+    "difficulty": "MEDIUM",
+    "question": "Sur la molécule M du panneau A, sélectionnez l’oxygène du carbonyle de la fonction cétone, et non l’un des oxygènes de la fonction acide carboxylique.",
+    "statement": "Sur la molécule M du panneau A, sélectionnez l’oxygène du carbonyle de la fonction cétone, et non l’un des oxygènes de la fonction acide carboxylique.",
+    "explanation": "M possède deux motifs contenant un carbonyle : la fonction acide carboxylique et la fonction cétone. La cible demandée est l’oxygène doublement lié au carbone de la cétone interne. Il faut donc le distinguer des deux oxygènes appartenant au groupe carboxyle.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:CHIMIE",
+      "theme:qzone-carbonyle"
+    ],
+    "format": "QZONE",
+    "questionFormat": "QZONE",
+    "questionType": "hotspot",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "image": {
+        "src": "/images/training/ue14/colles/c12/polyfunctional-reactivity-linked-q13-q16.svg",
+        "alt": "Molécule polyfonctionnelle M portant un acide carboxylique, une cétone et une amine, accompagnée de plusieurs transformations simples entre alcool, aldéhyde, acide carboxylique et cétone.",
+        "width": 1200,
+        "height": 760
+      },
+      "expectedZones": [
+        {
+          "id": "target-ketone-carbonyl-oxygen",
+          "label": "Oxygène carbonylé de la fonction cétone de M",
+          "x": 0.2667,
+          "y": 0.3289,
+          "tolerance": 0.04
+        }
+      ],
+      "defaultTolerance": 0.04,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:CHIMIE",
+        "theme:qzone-carbonyle"
+      ]
+    }
+  },
+  {
+    "order": 17,
+    "difficulty": "MEDIUM",
+    "question": "À propos des glucides, quelles propositions sont exactes ?",
+    "statement": "À propos des glucides, quelles propositions sont exactes ?",
+    "explanation": "Le D-glucose est un aldohexose ; le saccharose associe glucose et fructose mais n’est pas réducteur car ses deux carbones anomériques sont engagés.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOCHIMIE",
+      "theme:glucides-structure"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le D-glucose est un aldohexose.",
+      "Le saccharose est non réducteur car ses deux carbones anomériques sont engagés.",
+      "Le D-glucose et le D-galactose sont épimères en C2.",
+      "La cellulose est un polymère de glucose principalement lié en α(1→4).",
+      "La lettre D impose un pouvoir rotatoire positif."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Sa forme ouverte comporte une fonction aldéhyde et six carbones.",
+      "Aucun carbone anomérique libre n’est disponible.",
+      "Ils sont épimères en C4.",
+      "Elle comporte des liaisons β(1→4).",
+      "D/L et le signe du pouvoir rotatoire sont indépendants."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOCHIMIE",
+        "theme:glucides-structure"
+      ]
+    }
+  },
+  {
+    "order": 18,
+    "difficulty": "MEDIUM",
+    "question": "Un oligosaccharide linéaire comporte cinq oses reliés bout à bout. Combien de liaisons osidiques faut-il hydrolyser pour obtenir cinq monosaccharides séparés ? Donnez uniquement la valeur numérique.",
+    "statement": "Un oligosaccharide linéaire comporte cinq oses reliés bout à bout. Combien de liaisons osidiques faut-il hydrolyser pour obtenir cinq monosaccharides séparés ? Donnez uniquement la valeur numérique.",
+    "explanation": "Dans une chaîne linéaire de cinq unités, quatre liaisons relient les cinq oses successifs. Leur hydrolyse complète libère cinq monosaccharides.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOCHIMIE",
+      "theme:hydrolyse-oligosaccharide"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "number",
+      "numericAnswer": {
+        "value": 4,
+        "tolerance": 0
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOCHIMIE",
+        "theme:hydrolyse-oligosaccharide"
+      ]
+    }
+  },
+  {
+    "order": 19,
+    "difficulty": "MEDIUM",
+    "question": "Quelle proposition décrit correctement les lipides membranaires ou leurs précurseurs ?",
+    "statement": "Quelle proposition décrit correctement les lipides membranaires ou leurs précurseurs ?",
+    "explanation": "Le céramide associe une sphingosine et un acide gras en liaison amide ; il constitue un noyau structural majeur des sphingolipides.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOCHIMIE",
+      "theme:sphingolipides"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Un céramide est un triester du glycérol.",
+      "La phospholipase A2 coupe principalement la liaison entre phosphate et tête polaire.",
+      "Un stéride est un GAG fortement sulfaté.",
+      "Un céramide associe une sphingosine et un acide gras par une liaison amide.",
+      "Le cholestérol est un sucre cyclique à six carbones."
+    ],
+    "correctChoiceIndexes": [
+      3
+    ],
+    "choiceExplanations": [
+      "Cette structure correspond à un triacylglycérol.",
+      "Elle hydrolyse l’ester acyle en sn-2.",
+      "C’est un ester entre un stérol et un acide gras.",
+      "C’est sa définition structurale.",
+      "C’est un stérol à noyau stéroïdien."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOCHIMIE",
+        "theme:sphingolipides"
+      ]
+    }
+  },
+  {
+    "order": 20,
+    "difficulty": "EASY",
+    "question": "Sélectionnez exactement les deux propositions correctes concernant glucides et lipides.",
+    "statement": "Sélectionnez exactement les deux propositions correctes concernant glucides et lipides.",
+    "explanation": "Le glycogène est un polymère ramifié de glucose ; l’acide linoléique est un acide gras indispensable n-6.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOCHIMIE",
+      "theme:glucides-lipides"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le glycogène possède des liaisons α(1→4) et des branchements α(1→6).",
+      "L’acide linoléique appartient à la série n-6 et doit être apporté par l’alimentation.",
+      "Le lactose associe deux molécules de fructose.",
+      "Les leucotriènes dérivent principalement des cyclo-oxygénases.",
+      "Un triacylglycérol est un glycosaminoglycane."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Ces liaisons structurent ses chaînes et leurs ramifications.",
+      "Il fait partie des acides gras indispensables.",
+      "Il associe galactose et glucose.",
+      "Ils dérivent des lipoxygénases.",
+      "C’est un lipide neutre de réserve."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOCHIMIE",
+        "theme:glucides-lipides"
+      ]
+    }
+  },
+  {
+    "order": 21,
+    "difficulty": "MEDIUM",
+    "question": "À propos des acides aminés et des protéines, quelles propositions sont exactes ?",
+    "statement": "À propos des acides aminés et des protéines, quelles propositions sont exactes ?",
+    "explanation": "La structure primaire détermine la séquence ; la liaison peptidique possède un caractère partiel de double liaison et la glycine est l’AA standard achiral.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOCHIMIE",
+      "theme:aa-proteines-structure"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "La glycine est achirale au niveau de son carbone α.",
+      "La liaison peptidique présente un caractère partiel de double liaison.",
+      "Une hélice α est notamment stabilisée par des liaisons hydrogène du squelette peptidique.",
+      "La proline interne stabilise toujours une hélice α longue et régulière.",
+      "Les feuillets β ne peuvent exister qu’en organisation antiparallèle."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Son carbone α porte deux hydrogènes.",
+      "La résonance limite la rotation autour de C–N.",
+      "Le motif classique relie C=O(i) à N–H(i+4).",
+      "Elle tend au contraire à la perturber.",
+      "Ils peuvent être parallèles ou antiparallèles."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOCHIMIE",
+        "theme:aa-proteines-structure"
+      ]
+    }
+  },
+  {
+    "order": 22,
+    "difficulty": "MEDIUM",
+    "question": "Quel acide aminé protéinogène possède un noyau indole dans sa chaîne latérale ?",
+    "statement": "Quel acide aminé protéinogène possède un noyau indole dans sa chaîne latérale ?",
+    "explanation": "Le tryptophane est un acide aminé aromatique dont la chaîne latérale contient un noyau indole.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOCHIMIE",
+      "theme:tryptophane-indole"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "Tryptophane"
+        },
+        {
+          "value": "tryptophane"
+        },
+        {
+          "value": "Trp"
+        },
+        {
+          "value": "W"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOCHIMIE",
+        "theme:tryptophane-indole"
+      ]
+    }
+  },
+  {
+    "order": 23,
+    "difficulty": "MEDIUM",
+    "question": "À propos de quelques protéines biologiques majeures, quelles propositions sont exactes ?",
+    "statement": "À propos de quelques protéines biologiques majeures, quelles propositions sont exactes ?",
+    "explanation": "Immunoglobulines, hémoglobine, collagènes et récepteurs membranaires illustrent des relations structure–fonction très différentes.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOCHIMIE",
+      "theme:proteines-fonctions"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Une IgG monomérique possède deux chaînes lourdes et deux chaînes légères.",
+      "La myoglobine est une protéine monomérique contenant un groupement hème capable de fixer l’oxygène.",
+      "L’HbA adulte principale est un tétramère α2β2.",
+      "Le collagène IV contribue à former des réseaux dans les membranes basales.",
+      "La laminine est un filament intermédiaire de la lamina nucléaire."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "choiceExplanations": [
+      "L’organisation H2L2 forme les deux Fab et la région Fc.",
+      "La myoglobine est une protéine monomérique riche dans le muscle ; son hème contient un fer capable de lier réversiblement le dioxygène.",
+      "C’est la forme majoritaire chez l’adulte sain.",
+      "Il se distingue des collagènes fibrillaires comme le type I.",
+      "La laminine est extracellulaire ; les lamines sont nucléaires."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOCHIMIE",
+        "theme:proteines-fonctions"
+      ]
+    }
+  },
+  {
+    "order": 24,
+    "difficulty": "MEDIUM",
+    "question": "Quelle proposition est correcte à propos de la classification enzymatique EC ?",
+    "statement": "Quelle proposition est correcte à propos de la classification enzymatique EC ?",
+    "explanation": "La classification EC actuelle compte sept classes, la septième correspondant aux translocases.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOCHIMIE",
+      "theme:classification-ec"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Elle ne contient que quatre classes, une par type de macromolécule.",
+      "Les ligases et les synthétases sont des synonymes absolument universels.",
+      "Toutes les enzymes dont le numéro EC se termine par 99 sont obligatoirement non caractérisées.",
+      "Les translocases appartiennent à la classe EC 1.",
+      "La classification EC actuelle comporte sept grandes classes."
+    ],
+    "correctChoiceIndexes": [
+      4
+    ],
+    "choiceExplanations": [
+      "La classification repose sur le type de réaction catalysée.",
+      "Le numéro EC reste la référence ; les noms usuels ne sont pas toujours univoques.",
+      "Ce suffixe n’a pas cette signification universelle.",
+      "La classe 1 correspond aux oxydoréductases.",
+      "Les translocases constituent la septième classe."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOCHIMIE",
+        "theme:classification-ec"
+      ]
+    }
+  },
+  {
+    "order": 25,
+    "difficulty": "MEDIUM",
+    "question": "Sélectionnez exactement les deux propositions correctes concernant la régulation enzymatique.",
+    "statement": "Sélectionnez exactement les deux propositions correctes concernant la régulation enzymatique.",
+    "explanation": "La phosphorylation n’a pas un effet universel et la protéolyse limitée peut activer irréversiblement un zymogène.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOCHIMIE",
+      "theme:regulation-enzymatique"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Une phosphorylation peut activer ou inhiber une protéine selon le contexte.",
+      "Une protéolyse limitée peut activer un zymogène.",
+      "Toute ubiquitination conduit immédiatement et obligatoirement à une dégradation protéasomale.",
+      "L’allostérie est impossible chez une protéine monomérique.",
+      "Un effecteur allostérique doit se fixer covalemment dans le site actif."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "L’effet dépend du site et de la protéine concernée.",
+      "Un clivage ciblé peut révéler ou organiser le site actif.",
+      "L’ubiquitination possède plusieurs fonctions selon le type de chaîne et le contexte.",
+      "Des protéines monomériques peuvent être régulées allostériquement.",
+      "Il se fixe classiquement sur un site distinct et de façon non covalente."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOCHIMIE",
+        "theme:regulation-enzymatique"
+      ]
+    }
+  },
+  {
+    "order": 26,
+    "difficulty": "HARD",
+    "question": "À propos des inhibitions réversibles d’une enzyme michaelienne, quelles propositions sont exactes ?",
+    "statement": "À propos des inhibitions réversibles d’une enzyme michaelienne, quelles propositions sont exactes ?",
+    "explanation": "Les profils idéaux permettent de distinguer les effets sur Km apparent et Vmax.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOCHIMIE",
+      "theme:inhibitions-enzymatiques"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Une inhibition compétitive pure augmente Km apparent sans modifier Vmax.",
+      "Une inhibition incompétitive pure diminue Km et Vmax dans la même proportion.",
+      "Une inhibition non compétitive pure augmente nécessairement Km et Vmax.",
+      "Une inhibition mixte générale conserve toujours exactement la même valeur de Km.",
+      "Une inhibition compétitive pure impose Vmax = 0."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Un excès de substrat peut surmonter la compétition dans le modèle idéal.",
+      "Les droites de Lineweaver-Burk idéales sont parallèles.",
+      "Dans le cas pur, Km reste inchangé et Vmax diminue.",
+      "Km peut augmenter ou diminuer selon les affinités relatives de l’inhibiteur.",
+      "Vmax reste inchangée dans le modèle idéal."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOCHIMIE",
+        "theme:inhibitions-enzymatiques"
+      ]
+    }
+  },
+  {
+    "order": 27,
+    "difficulty": "HARD",
+    "question": "Parmi ces dix propositions couvrant toute la Biochimie, sélectionnez exactement les cinq exactes.",
+    "statement": "Parmi ces dix propositions couvrant toute la Biochimie, sélectionnez exactement les cinq exactes.",
+    "explanation": "Cette synthèse associe glucides, lipides, protéines et cinétique enzymatique.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOCHIMIE",
+      "theme:synthese-biochimie"
+    ],
+    "format": "QRPL",
+    "questionFormat": "QRPL",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le D-fructose est un cétohexose.",
+      "La phospholipase A2 peut libérer l’acide gras porté en sn-2 d’un glycérophospholipide.",
+      "Le point isoélectrique est le pH où la charge nette moyenne d’un acide aminé ou d’une protéine est nulle.",
+      "Une enzyme diminue ΔG‡ sans modifier Keq.",
+      "La mésomérie de la liaison peptidique limite la rotation autour de la liaison C–N.",
+      "Le saccharose possède deux carbones anomériques libres.",
+      "Le cholestérol est un triacylglycérol.",
+      "Une liaison peptidique possède une rotation totalement libre.",
+      "Km est toujours strictement égal à Kd.",
+      "Un katal vaut une micromole par minute."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "choiceExplanations": [
+      "Sa forme ouverte contient une cétone et six carbones.",
+      "Cette position peut notamment contenir de l’acide arachidonique.",
+      "Des charges internes peuvent néanmoins subsister.",
+      "Elle accélère l’approche de l’équilibre sans le déplacer.",
+      "La délocalisation du doublet de l’azote vers le carbonyle confère à la liaison peptidique C–N un caractère partiel de double liaison et en limite la rotation.",
+      "Ils sont engagés dans la liaison osidique.",
+      "C’est un stérol.",
+      "Son caractère partiel de double liaison limite la rotation.",
+      "Km dépend des constantes cinétiques et n’est pas une constante universelle d’affinité.",
+      "Un katal vaut une mole par seconde."
+    ],
+    "requiredSelectionCount": 5,
+    "answerPayload": {
+      "requiredSelectionCount": 5,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOCHIMIE",
+        "theme:synthese-biochimie"
+      ]
+    }
+  },
+  {
+    "order": 28,
+    "difficulty": "MEDIUM",
+    "question": "Une préparation enzymatique présente une activité totale de 12 U pour 3 mg de protéines. Quelle est son activité spécifique ? Donnez uniquement la valeur numérique, en U/mg.",
+    "statement": "Une préparation enzymatique présente une activité totale de 12 U pour 3 mg de protéines. Quelle est son activité spécifique ? Donnez uniquement la valeur numérique, en U/mg.",
+    "explanation": "L’activité spécifique est l’activité enzymatique totale divisée par la masse totale de protéines : 12 U / 3 mg = 4 U·mg⁻¹.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOCHIMIE",
+      "theme:activite-specifique"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "number",
+      "numericAnswer": {
+        "value": 4,
+        "tolerance": 0,
+        "unit": "U/mg",
+        "displayUnit": "\\mathrm{U}\\cdot\\mathrm{mg}^{-1}"
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOCHIMIE",
+        "theme:activite-specifique"
+      ]
+    }
+  },
+  {
+    "order": 29,
+    "difficulty": "MEDIUM",
+    "question": "Pour une enzyme suivant Michaelis-Menten, quelle relation est exacte lorsque la concentration de substrat est égale à Km ?",
+    "statement": "Pour une enzyme suivant Michaelis-Menten, quelle relation est exacte lorsque la concentration de substrat est égale à Km ?",
+    "explanation": "Lorsque [S] = Km, l’équation donne v0 = Vmax/2.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOCHIMIE",
+      "theme:michaelis-menten"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "v0 = Vmax/2.",
+      "v0 = 2Vmax.",
+      "v0 = 0.",
+      "Km devient sans unité.",
+      "La réaction est nécessairement à l’équilibre thermodynamique."
+    ],
+    "correctChoiceIndexes": [
+      0
+    ],
+    "choiceExplanations": [
+      "Le numérateur et le dénominateur deviennent respectivement Vmax·Km et 2Km.",
+      "La vitesse ne dépasse pas Vmax dans ce modèle.",
+      "Une concentration égale à Km ne correspond pas à une absence de réaction.",
+      "Km garde l’unité d’une concentration.",
+      "Michaelis-Menten décrit une cinétique initiale, pas un équilibre."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOCHIMIE",
+        "theme:michaelis-menten"
+      ]
+    }
+  },
+  {
+    "order": 30,
+    "difficulty": "EASY",
+    "question": "À propos des oses, quelles propositions sont exactes ?",
+    "statement": "À propos des oses, quelles propositions sont exactes ?",
+    "explanation": "Quelques distinctions structurales simples permettent d’éviter les confusions fréquentes entre ribose, désoxyribose et épimères du glucose.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOCHIMIE",
+      "theme:oses-derives"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le ribose est un pentose entrant dans la composition de l’ARN.",
+      "Le 2-désoxyribose diffère du ribose par l’absence du groupe hydroxyle en C2.",
+      "Le D-glucose et le D-galactose sont épimères en C4.",
+      "Le D-mannose est une cétose.",
+      "Les anomères α et β sont des énantiomères."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Le sucre de l’ARN est le ribose.",
+      "Le carbone 2 porte H à la place de OH.",
+      "Ils ne diffèrent que par la configuration de ce carbone.",
+      "C’est un aldose.",
+      "Ce sont des diastéréoisomères qui diffèrent au carbone anomérique."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOCHIMIE",
+        "theme:oses-derives"
+      ]
+    }
+  },
+  {
+    "order": 31,
+    "difficulty": "MEDIUM",
+    "question": "On relie lipides et protéines à leur fonction biologique. Quelles propositions sont exactes ?",
+    "statement": "On relie lipides et protéines à leur fonction biologique. Quelles propositions sont exactes ?",
+    "explanation": "Les classes moléculaires ne préjugent pas d’une seule fonction : réserve, membrane, signalisation, transport et matrice sont représentés.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOCHIMIE",
+      "theme:lipides-proteines-fonctions"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Les triacylglycérols constituent une forme majeure de réserve énergétique.",
+      "Le cholestérol est un précurseur d’hormones stéroïdiennes.",
+      "La myosine II est un moteur moléculaire utilisant l’ATP et interagissant avec l’actine.",
+      "L’albumine contribue à la pression oncotique plasmatique.",
+      "Les sphingolipides sont tous des protéines membranaires."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "choiceExplanations": [
+      "Ils sont notamment stockés dans le tissu adipeux.",
+      "La stéroïdogenèse dérive du cholestérol.",
+      "Elle intervient notamment dans la contraction.",
+      "Sa forte concentration plasmatique participe à la pression colloïdo-osmotique.",
+      "Ce sont des lipides construits autour d’une base sphingoïde."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOCHIMIE",
+        "theme:lipides-proteines-fonctions"
+      ]
+    }
+  },
+  {
+    "order": 32,
+    "difficulty": "EASY",
+    "question": "À propos des interactions qui stabilisent la structure des protéines, quelles propositions sont exactes ?",
+    "statement": "À propos des interactions qui stabilisent la structure des protéines, quelles propositions sont exactes ?",
+    "explanation": "Le repliement des protéines dépend d’interactions non covalentes (effet hydrophobe, liaisons hydrogène, liaisons ioniques) et de liaisons covalentes comme les ponts disulfure.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOCHIMIE",
+      "theme:stabilite-proteines"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "L’effet hydrophobe favorise l’enfouissement de nombreux résidus apolaires au cœur des protéines globulaires.",
+      "Un pont disulfure peut résulter de l’oxydation de deux résidus cystéine.",
+      "Des liaisons hydrogène du squelette peptidique contribuent à stabiliser les hélices α et les feuillets β.",
+      "La dénaturation d’une protéine hydrolyse nécessairement toutes ses liaisons peptidiques.",
+      "Les interactions ioniques intraprotéiques sont impossibles en milieu aqueux."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "En milieu aqueux, l’enfouissement des surfaces apolaires contribue fortement au repliement des protéines globulaires.",
+      "L’oxydation des fonctions thiol de deux cystéines peut former une liaison covalente S–S.",
+      "Les structures secondaires reposent notamment sur des liaisons hydrogène entre groupements C=O et N–H du squelette.",
+      "La dénaturation perturbe surtout les niveaux supérieurs de structure sans impliquer nécessairement l’hydrolyse de la structure primaire.",
+      "Des interactions électrostatiques entre chaînes latérales chargées peuvent contribuer à la stabilité protéique, même en milieu aqueux."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOCHIMIE",
+        "theme:stabilite-proteines"
+      ]
+    }
+  },
+  {
+    "order": 33,
+    "difficulty": "MEDIUM",
+    "question": "Sélectionnez une région Fab de l’anticorps.",
+    "statement": "Sélectionnez une région Fab de l’anticorps.",
+    "explanation": "Les deux bras Fab d’une immunoglobuline contiennent les régions variables impliquées dans la reconnaissance de l’antigène.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOCHIMIE",
+      "theme:qzone-fab"
+    ],
+    "format": "QZONE",
+    "questionFormat": "QZONE",
+    "questionType": "hotspot",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "image": {
+        "src": "/images/training/ue14/colles/c12/antibody-fab-qzone.svg",
+        "alt": "Anticorps schématique",
+        "width": 960,
+        "height": 560
+      },
+      "expectedZones": [
+        {
+          "id": "target",
+          "label": "Région Fab",
+          "x": 0.3,
+          "y": 0.18,
+          "tolerance": 0.1
+        }
+      ],
+      "defaultTolerance": 0.1,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOCHIMIE",
+        "theme:qzone-fab"
+      ]
+    }
+  },
+  {
+    "order": 34,
+    "difficulty": "MEDIUM",
+    "question": "À propos de la membrane plasmique et du cytosquelette cortical, quelles propositions sont exactes ?",
+    "statement": "À propos de la membrane plasmique et du cytosquelette cortical, quelles propositions sont exactes ?",
+    "explanation": "La membrane est une bicouche lipidique fluide et asymétrique, associée à un cortex d’actine sous-membranaire.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:membrane-cytosquelette"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Les phospholipides membranaires sont amphiphiles.",
+      "Le cortex cellulaire est particulièrement riche en filaments d’actine sous la membrane.",
+      "Les glucides membranaires sont exposés exclusivement sur le côté cytosolique.",
+      "Les microfilaments sont constitués de tubuline α/β.",
+      "Les filaments intermédiaires possèdent une polarité +/− aussi marquée que celle des microtubules."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Ils possèdent une tête hydrophile et des chaînes hydrophobes.",
+      "Ce réseau participe à la forme, la motilité et la mécanique cellulaire.",
+      "Ils sont principalement orientés vers le côté extracellulaire.",
+      "Ils sont constitués d’actine.",
+      "Ils sont considérés comme non polarisés."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:membrane-cytosquelette"
+      ]
+    }
+  },
+  {
+    "order": 35,
+    "difficulty": "EASY",
+    "question": "Combien de protofilaments comporte typiquement un microtubule cytoplasmique ? Donnez uniquement la valeur numérique.",
+    "statement": "Combien de protofilaments comporte typiquement un microtubule cytoplasmique ? Donnez uniquement la valeur numérique.",
+    "explanation": "Un microtubule cytoplasmique canonique est généralement formé de 13 protofilaments.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:microtubules"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "number",
+      "numericAnswer": {
+        "value": 13,
+        "tolerance": 0
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:microtubules"
+      ]
+    }
+  },
+  {
+    "order": 36,
+    "difficulty": "MEDIUM",
+    "question": "Une protéine intracellulaire doit être localisée avec des anticorps dans une cellule fixée. Quelle étape est particulièrement nécessaire pour permettre l’accès des anticorps à la cible ?",
+    "statement": "Une protéine intracellulaire doit être localisée avec des anticorps dans une cellule fixée. Quelle étape est particulièrement nécessaire pour permettre l’accès des anticorps à la cible ?",
+    "explanation": "Après fixation, la perméabilisation rend les membranes traversables par les anticorps utilisés pour l’immunomarquage intracellulaire.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:methodes-immunomarquage"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "La réplication de l’ADN mitochondrial.",
+      "La perméabilisation des membranes cellulaires.",
+      "La polymérisation forcée de tous les microtubules.",
+      "L’hydrolyse complète des phospholipides membranaires.",
+      "L’activation d’APC/C-Cdc20."
+    ],
+    "correctChoiceIndexes": [
+      1
+    ],
+    "choiceExplanations": [
+      "Elle n’est pas une étape de l’immunomarquage.",
+      "Elle permet aux anticorps d’atteindre les antigènes intracellulaires.",
+      "Ce n’est pas requis pour l’accès des anticorps.",
+      "La cellule serait détruite ; une perméabilisation contrôlée suffit.",
+      "Ce complexe intervient dans la progression mitotique."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:methodes-immunomarquage"
+      ]
+    }
+  },
+  {
+    "order": 37,
+    "difficulty": "MEDIUM",
+    "question": "Sélectionnez exactement les deux propositions correctes concernant adressage et compartiments cellulaires.",
+    "statement": "Sélectionnez exactement les deux propositions correctes concernant adressage et compartiments cellulaires.",
+    "explanation": "Les protéines du RE peuvent être ciblées cotraductionnellement par SRP/Sec61, tandis que les protéines matricielles peroxysomales peuvent être importées post-traductionnellement via des signaux PTS.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:adressage-compartiments"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "La SRP peut reconnaître un signal hydrophobe et orienter le ribosome vers le RE.",
+      "L’import de nombreuses protéines matricielles peroxysomales peut avoir lieu après leur synthèse complète dans le cytosol.",
+      "Toutes les protéines mitochondriales sont synthétisées dans la matrice.",
+      "Le mannose-6-phosphate adresse principalement les protéines au noyau.",
+      "Le translocon Sec61 appartient à la membrane interne mitochondriale."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Le complexe rejoint le récepteur de SRP puis le translocon Sec61.",
+      "Contrairement à l’import cotraductionnel classique vers le réticulum endoplasmique, de nombreuses protéines destinées à la matrice peroxysomale sont synthétisées dans le cytosol puis importées de façon post-traductionnelle.",
+      "La majorité est codée par le noyau et synthétisée dans le cytosol.",
+      "Il participe au tri de nombreuses hydrolases lysosomales.",
+      "Il appartient à la membrane du RE."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:adressage-compartiments"
+      ]
+    }
+  },
+  {
+    "order": 38,
+    "difficulty": "MEDIUM",
+    "question": "À propos du trafic RE–Golgi–endosomes–lysosomes, quelles propositions sont exactes ?",
+    "statement": "À propos du trafic RE–Golgi–endosomes–lysosomes, quelles propositions sont exactes ?",
+    "explanation": "Les manteaux COPII, COPI et clathrine assurent des étapes différentes ; l’acidification lysosomale dépend des V-ATPases.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:trafic-vesiculaire"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "COPII participe principalement au trafic antérograde du RE vers le Golgi.",
+      "COPI contribue notamment au trafic rétrograde du Golgi vers le RE.",
+      "Les lysosomes maintiennent une lumière acide grâce à des pompes à protons.",
+      "La clathrine est un moteur moléculaire se déplaçant sur les microtubules.",
+      "Les SNARE synthétisent les phospholipides des membranes vésiculaires."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Il assure la sortie de nombreux cargos du RE.",
+      "Il participe au recyclage de protéines et membranes.",
+      "Les V-ATPases accumulent des protons dans leur lumière.",
+      "C’est une protéine de manteau.",
+      "Elles participent à la reconnaissance et à la fusion membranaires."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:trafic-vesiculaire"
+      ]
+    }
+  },
+  {
+    "order": 39,
+    "difficulty": "MEDIUM",
+    "question": "Quel récepteur cytosolique reconnaît classiquement le signal PTS1 de nombreuses protéines destinées à la matrice peroxysomale ?",
+    "statement": "Quel récepteur cytosolique reconnaît classiquement le signal PTS1 de nombreuses protéines destinées à la matrice peroxysomale ?",
+    "explanation": "PEX5 reconnaît les protéines portant un PTS1, souvent situé à l’extrémité C-terminale.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:peroxysome-pts1"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "PEX5"
+        },
+        {
+          "value": "Pex5"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:peroxysome-pts1"
+      ]
+    }
+  },
+  {
+    "order": 40,
+    "difficulty": "HARD",
+    "question": "En vous appuyant sur le schéma et sur l’organisation du noyau et de la mitochondrie, quelles propositions sont exactes ?",
+    "statement": "En vous appuyant sur le schéma et sur l’organisation du noyau et de la mitochondrie, quelles propositions sont exactes ?",
+    "explanation": "Le complexe TOM appartient à la membrane externe mitochondriale et participe à l’import de nombreuses protéines. La mitochondrie possède un génome propre, distinct du génome nucléaire, même si son autonomie protéique est limitée. Dans le noyau, le nucléole n’est pas entouré d’une membrane et participe à la biogenèse ribosomale ; les complexes de pores nucléaires sont formés de nucléoporines. Enfin, le complexe II de la chaîne respiratoire transfère des électrons sans pomper directement de protons.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:mitochondrie-noyau"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le complexe TOM participe à l’import de nombreuses protéines à travers la membrane externe mitochondriale.",
+      "L’ADN mitochondrial constitue un génome distinct du génome nucléaire.",
+      "Le nucléole est un compartiment nucléaire non membranaire impliqué dans la biogenèse ribosomale.",
+      "Les pores nucléaires sont constitués de nucléoporines.",
+      "Le complexe II mitochondrial pompe directement des protons comme les complexes I, III et IV."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "choiceExplanations": [
+      "TOM constitue une porte d’entrée majeure pour les protéines synthétisées dans le cytosol.",
+      "Les mitochondries possèdent leur propre ADN, distinct de l’ADN nucléaire, même si la grande majorité des protéines mitochondriales sont codées par le génome nucléaire.",
+      "Il organise notamment la transcription et la maturation de plusieurs ARNr.",
+      "Ces protéines forment le complexe du pore.",
+      "Le complexe II transfère des électrons mais ne pompe pas directement de protons."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:mitochondrie-noyau"
+      ]
+    }
+  },
+  {
+    "order": 41,
+    "difficulty": "EASY",
+    "question": "Dans l’agrandissement de la chromatine, quelle proposition décrit correctement l’unité nucléosomique canonique représentée ?",
+    "statement": "Dans l’agrandissement de la chromatine, quelle proposition décrit correctement l’unité nucléosomique canonique représentée ?",
+    "explanation": "Le nucléosome canonique correspond à environ 147 paires de bases d’ADN enroulées autour d’un octamère formé de deux copies de chacune des histones H2A, H2B, H3 et H4. L’histone H1 est une histone de liaison et ne constitue pas le cœur octamérique.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:nucleosome"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Il est formé de tubuline et d’actine autour d’une molécule d’ARN.",
+      "Il contient quatre copies d’histone H1 et aucune autre histone.",
+      "Il contient un octamère de H2A, H2B, H3 et H4 associé à environ 147 pb d’ADN.",
+      "Il n’existe que dans l’hétérochromatine.",
+      "Il est entouré d’une membrane propre."
+    ],
+    "correctChoiceIndexes": [
+      2
+    ],
+    "choiceExplanations": [
+      "Ces protéines appartiennent au cytosquelette.",
+      "H1 est une histone de liaison, hors octamère central.",
+      "Chaque type d’histone du cœur est présent en deux copies.",
+      "Les nucléosomes organisent toute la chromatine.",
+      "Ce n’est pas un organite membranaire."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:nucleosome"
+      ]
+    }
+  },
+  {
+    "order": 42,
+    "difficulty": "MEDIUM",
+    "question": "À quelle grande famille du cytosquelette appartiennent les lamines représentées sous l’enveloppe nucléaire ?",
+    "statement": "À quelle grande famille du cytosquelette appartiennent les lamines représentées sous l’enveloppe nucléaire ?",
+    "explanation": "Les lamines nucléaires sont des protéines de la famille des filaments intermédiaires. Elles forment la lamina nucléaire, un réseau associé à la face interne de l’enveloppe nucléaire et impliqué notamment dans son organisation mécanique.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:lamines-filaments-intermediaires"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "filaments intermédiaires"
+        },
+        {
+          "value": "filament intermédiaire"
+        },
+        {
+          "value": "intermediate filaments"
+        },
+        {
+          "value": "IF"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:lamines-filaments-intermediaires"
+      ]
+    }
+  },
+  {
+    "order": 43,
+    "difficulty": "HARD",
+    "question": "Sur l’agrandissement de la mitochondrie, sélectionnez un segment de la membrane interne mitochondriale.",
+    "statement": "Sur l’agrandissement de la mitochondrie, sélectionnez un segment de la membrane interne mitochondriale.",
+    "explanation": "La membrane interne mitochondriale se situe à l’intérieur de la membrane externe et forme des replis appelés crêtes. Elle porte notamment les principaux complexes de la chaîne respiratoire et l’ATP synthase. La membrane externe, la matrice et l’ADN mitochondrial ne correspondent pas à la zone demandée.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:qzone-mitochondrie"
+    ],
+    "format": "QZONE",
+    "questionFormat": "QZONE",
+    "questionType": "hotspot",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "image": {
+        "src": "/images/training/ue14/colles/c12/nucleus-mitochondrion-linked-q40-q43.svg",
+        "alt": "Schéma d’une cellule eucaryote montrant un noyau avec nucléole, pores, chromatine et lamines, ainsi qu’une mitochondrie à double membrane avec complexe TOM et ADN mitochondrial.",
+        "width": 1200,
+        "height": 760
+      },
+      "expectedZones": [
+        {
+          "id": "target-mitochondrial-inner-membrane",
+          "label": "Membrane interne mitochondriale",
+          "x": 0.7333,
+          "y": 0.8158,
+          "tolerance": 0.05
+        }
+      ],
+      "defaultTolerance": 0.05,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:qzone-mitochondrie"
+      ]
+    }
+  },
+  {
+    "order": 44,
+    "difficulty": "MEDIUM",
+    "question": "À propos du contrôle du cycle cellulaire, quelles propositions sont exactes ?",
+    "statement": "À propos du contrôle du cycle cellulaire, quelles propositions sont exactes ?",
+    "explanation": "L’entrée en mitose dépend notamment de cycline B–CDK1 ; l’APC/C agit plus tard pour permettre la séparation des chromatides et la sortie de mitose.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:controle-cycle"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le complexe cycline B–CDK1 correspond au MPF classique.",
+      "APC/C-Cdc20 cible notamment la sécurine pour dégradation lorsque le checkpoint du fuseau est satisfait.",
+      "Wee1 active CDK1 en retirant les phosphates inhibiteurs.",
+      "La phase S double immédiatement le nombre de chromosomes de 2n à 4n.",
+      "p21 est une cycline mitotique qui active CDK1."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Son activation déclenche de nombreux événements de l’entrée en mitose.",
+      "La séparase peut alors cliver les cohésines.",
+      "Wee1 ajoute des phosphorylations inhibitrices ; Cdc25 les retire.",
+      "Elle double la quantité d’ADN sans doubler le nombre de chromosomes.",
+      "p21 est un inhibiteur de CDK pouvant être induit par p53."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:controle-cycle"
+      ]
+    }
+  },
+  {
+    "order": 45,
+    "difficulty": "HARD",
+    "question": "Sélectionnez exactement les deux propositions correctes concernant la transition métaphase–anaphase.",
+    "statement": "Sélectionnez exactement les deux propositions correctes concernant la transition métaphase–anaphase.",
+    "explanation": "Le checkpoint du fuseau retarde APC/C-Cdc20 tant que des kinétochores restent mal attachés. Quand il est satisfait, la dégradation de la sécurine libère la séparase.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:checkpoint-anaphase"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Des kinétochores non correctement attachés peuvent maintenir l’inhibition de l’activation efficace d’APC/C-Cdc20.",
+      "La séparase active clive des cohésines et permet la séparation des chromatides sœurs.",
+      "APC/C-Cdc20 stabilise la sécurine afin d’activer la séparase.",
+      "La cycline B s’accumule brutalement à la fin de l’anaphase pour maintenir CDK1 active.",
+      "La cytodiérèse animale est déclenchée par un anneau de filaments intermédiaires dépourvu de myosine."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Les protéines du checkpoint du fuseau empêchent une séparation prématurée.",
+      "Le clivage des cohésines autorise l’anaphase.",
+      "Il favorise au contraire sa dégradation.",
+      "Sa dégradation contribue à la sortie de mitose.",
+      "Elle repose sur un anneau contractile actine–myosine II."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:checkpoint-anaphase"
+      ]
+    }
+  },
+  {
+    "order": 46,
+    "difficulty": "MEDIUM",
+    "question": "Parmi ces dix propositions couvrant toute la Biologie cellulaire, sélectionnez exactement les cinq exactes.",
+    "statement": "Parmi ces dix propositions couvrant toute la Biologie cellulaire, sélectionnez exactement les cinq exactes.",
+    "explanation": "Cette synthèse mobilise membrane, cytosquelette, trafic intracellulaire, peroxysomes, mitochondrie, noyau et cycle.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:synthese-biocell"
+    ],
+    "format": "QRPL",
+    "questionFormat": "QRPL",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Une aquaporine permet un transport passif de l’eau.",
+      "La dynéine cytoplasmique se déplace classiquement vers l’extrémité − des microtubules.",
+      "Le mannose-6-phosphate participe au tri de nombreuses hydrolases lysosomales.",
+      "La β-oxydation peroxysomale participe au raccourcissement d’acides gras à très longue chaîne.",
+      "L’ARN polymérase I transcrit le précurseur 45S des ARNr 18S, 5,8S et 28S.",
+      "Les filaments intermédiaires sont constitués de tubuline α/β.",
+      "Les vésicules COPII assurent principalement le trafic Golgi vers RE.",
+      "La glycolyse se déroule dans la matrice mitochondriale.",
+      "Le nucléole est limité par une bicouche lipidique.",
+      "Une cellule diploïde en G2 est classiquement 4n/4C."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "choiceExplanations": [
+      "L’eau suit son gradient de potentiel hydrique sans hydrolyse directe d’ATP.",
+      "Elle assure notamment des transports rétrogrades.",
+      "Le récepteur M6P les dirige vers la voie endosomale.",
+      "Les produits raccourcis peuvent ensuite être pris en charge par d’autres compartiments.",
+      "Cette transcription a lieu dans le nucléole.",
+      "La tubuline forme les microtubules.",
+      "Ce trafic est surtout RE vers Golgi.",
+      "Elle est cytosolique.",
+      "C’est un compartiment non membranaire.",
+      "Elle est 2n/4C."
+    ],
+    "requiredSelectionCount": 5,
+    "answerPayload": {
+      "requiredSelectionCount": 5,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:synthese-biocell"
+      ]
+    }
+  },
+  {
+    "order": 47,
+    "difficulty": "HARD",
+    "question": "Une protéine soluble normalement nucléaire porte un NLS fonctionnel. Une mutation d’importine β empêche son interaction avec les nucléoporines du pore nucléaire, sans altérer la protéine cargo. Quelle conséquence est la plus directe ?",
+    "statement": "Une protéine soluble normalement nucléaire porte un NLS fonctionnel. Une mutation d’importine β empêche son interaction avec les nucléoporines du pore nucléaire, sans altérer la protéine cargo. Quelle conséquence est la plus directe ?",
+    "explanation": "L’importine β interagit avec les nucléoporines du complexe du pore nucléaire et participe à la translocation du complexe d’import. Si cette interaction est empêchée, l’import nucléaire efficace du cargo diminue et le cargo tend à rester cytosolique. Les voies lysosomale, réticulaire et mitochondriale ne compensent pas ce défaut.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:importine-beta-mutation"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Le cargo est automatiquement adressé au lysosome par le mannose-6-phosphate.",
+      "Le cargo est transloqué cotraductionnellement dans le réticulum endoplasmique via Sec61.",
+      "Le cargo traverse plus rapidement l’enveloppe nucléaire par diffusion passive malgré sa grande taille.",
+      "L’import nucléaire du cargo diminue et celui-ci tend à s’accumuler dans le cytosol.",
+      "Le NLS est clivé par la peptidase de maturation mitochondriale."
+    ],
+    "correctChoiceIndexes": [
+      3
+    ],
+    "choiceExplanations": [
+      "Le tri M6P concerne la voie endomembranaire vers les endosomes/lysosomes, pas une protéine nucléaire cytosolique.",
+      "Le cargo ne possède pas le signal hydrophobe RE adéquat pour la voie Sec61.",
+      "Un blocage du transport actif d’import n’accélère pas la diffusion des grosses molécules.",
+      "Sans interaction efficace avec les nucléoporines, le complexe d’import n’est plus acheminé efficacement vers le noyau.",
+      "La peptidase de maturation mitochondriale agit dans la matrice mitochondriale."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:importine-beta-mutation"
+      ]
+    }
+  },
+  {
+    "order": 48,
+    "difficulty": "EASY",
+    "question": "À propos de l’organisation des principaux compartiments cellulaires, quelles propositions sont exactes ?",
+    "statement": "À propos de l’organisation des principaux compartiments cellulaires, quelles propositions sont exactes ?",
+    "explanation": "Les compartiments se distinguent par leur enveloppe, leur contenu et leurs systèmes d’adressage.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:compartiments-cellulaires"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le lysosome est un compartiment délimité par une membrane unique.",
+      "Le peroxysome ne possède pas de génome propre.",
+      "La mitochondrie possède une membrane externe et une membrane interne.",
+      "Le noyau est entouré d’une enveloppe comportant deux membranes.",
+      "Le nucléole possède sa propre bicouche lipidique."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "choiceExplanations": [
+      "Sa membrane isole un milieu luminal acide du cytosol.",
+      "Ses protéines sont codées par le noyau.",
+      "Ces deux membranes délimitent l’espace intermembranaire et la matrice.",
+      "La membrane externe est continue avec le RE.",
+      "Il est non membranaire."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:compartiments-cellulaires"
+      ]
+    }
+  },
+  {
+    "order": 49,
+    "difficulty": "EASY",
+    "question": "Une cellule sécrète un médiateur qui diffuse localement et agit principalement sur des cellules voisines. Quel mode de communication est décrit ?",
+    "statement": "Une cellule sécrète un médiateur qui diffuse localement et agit principalement sur des cellules voisines. Quel mode de communication est décrit ?",
+    "explanation": "Une communication paracrine agit localement sur des cellules proches de la cellule émettrice.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:communication-cellulaire"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Endocrine.",
+      "Autocrine.",
+      "Juxtacrine.",
+      "Synaptique électrique.",
+      "Paracrine."
+    ],
+    "correctChoiceIndexes": [
+      4
+    ],
+    "choiceExplanations": [
+      "Le signal endocrine emprunte généralement la circulation pour agir à distance.",
+      "Le signal autocrine agit sur la cellule qui l’a produit.",
+      "Elle nécessite un contact direct.",
+      "Une synapse électrique repose sur des jonctions communicantes.",
+      "Le signal diffusible agit à courte distance sur les cellules voisines."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:communication-cellulaire"
+      ]
+    }
+  },
+  {
+    "order": 50,
+    "difficulty": "MEDIUM",
+    "question": "Pour cette synthèse finale de l’UE14 en Biologie cellulaire, quelles propositions sont exactes ?",
+    "statement": "Pour cette synthèse finale de l’UE14 en Biologie cellulaire, quelles propositions sont exactes ?",
+    "explanation": "Les fonctions cellulaires émergent de l’intégration des membranes, du cytosquelette, des organites et du contrôle du cycle.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C12",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:synthese-finale-biocell"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Les jonctions serrées contribuent au maintien de la polarité apicale/basolatérale des cellules épithéliales.",
+      "La membrane nucléaire externe est continue avec le réticulum endoplasmique.",
+      "La cytodiérèse animale fait intervenir un anneau contractile d’actine et de myosine II.",
+      "Le complexe II de la chaîne respiratoire pompe directement autant de protons que le complexe I.",
+      "Toutes les protéines destinées aux mitochondries transitent d’abord par le Golgi."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Elles limitent notamment la diffusion latérale de protéines entre domaines.",
+      "L’espace périnucléaire est en continuité avec la lumière du RE.",
+      "L’actomyosine forme le sillon de clivage.",
+      "Le complexe II ne pompe pas directement de protons.",
+      "La majorité est importée directement depuis le cytosol via les translocases mitochondriales."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C12",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:synthese-finale-biocell"
+      ]
+    }
+  }
+]

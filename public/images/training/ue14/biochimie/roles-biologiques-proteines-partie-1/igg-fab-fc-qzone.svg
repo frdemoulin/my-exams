@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700">
+  <rect width="1000" height="700" fill="white"/>
+  <g fill="none" stroke="#222" stroke-width="24" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M500 600 L500 365 L325 125"/>
+    <path d="M500 365 L675 125"/>
+  </g>
+  <g fill="none" stroke="#777" stroke-width="12" stroke-linecap="round">
+    <path d="M462 380 L288 143"/>
+    <path d="M538 380 L712 143"/>
+  </g>
+  <g stroke="#222" stroke-width="6">
+    <line x1="465" y1="365" x2="535" y2="365"/>
+    <line x1="472" y1="397" x2="528" y2="397"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#222" text-anchor="middle">
+    <text x="245" y="95" font-size="34">Fab</text>
+    <text x="755" y="95" font-size="34">Fab</text>
+    <text x="500" y="660" font-size="34">Fc</text>
+  </g>
+</svg>

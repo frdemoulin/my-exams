@@ -1,646 +1,1153 @@
-/**
- * UE14 – Biologie cellulaire – Chapitre 9 : Le cycle cellulaire
- * Contenu fondé sur la fiche 2024-2025 du Tutorat Santé de Reims.
- */
 import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
 
+/** UE14 Biologie cellulaire — Ch9 — Mitose, fuseau et sortie de mitose — V2 active */
 export const SECTION_D_QUESTIONS: SeedQuestion[] = [
   {
-    order: 91,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `La mitose comprend :`,
-    choices: [
-      `Cinq phases nucléaires de caryodiérèse.`,
-      `Une cytodiérèse cytoplasmique.`,
-      `Prophase, prométaphase, métaphase, anaphase et télophase.`,
-      `Une nouvelle phase S entre métaphase et anaphase.`,
+    "order": 67,
+    "difficulty": "HARD",
+    "format": "QRU",
+    "question": "Dans le cadre de « Phases de la mitose », identifiez l’affirmation correcte.",
+    "choices": [
+      {
+        "content": "La condensation des chromosomes augmente pendant la prophase.",
+        "correct": true,
+        "explanation": "Exact : La condensation des chromosomes augmente pendant la prophase. La mitose ouverte des cellules animales comprend prophase, prométaphase, métaphase, anaphase et télophase, puis la cytodiérèse achève la séparation physique des cellules filles."
+      },
+      {
+        "content": "La réplication complète du génome se déroule pendant la métaphase.",
+        "correct": false,
+        "explanation": "Incorrect : La réplication complète du génome se déroule pendant la métaphase. À retenir : La condensation des chromosomes augmente pendant la prophase."
+      },
+      {
+        "content": "L’anaphase précède l’alignement métaphasique des chromosomes.",
+        "correct": false,
+        "explanation": "Incorrect : L’anaphase précède l’alignement métaphasique des chromosomes. À retenir : En métaphase, les chromosomes sont alignés autour de la plaque équatoriale."
+      },
+      {
+        "content": "La prophase suit normalement la télophase au sein d’une même mitose.",
+        "correct": false,
+        "explanation": "Incorrect : La prophase suit normalement la télophase au sein d’une même mitose. À retenir : La rupture de l’enveloppe nucléaire permet aux microtubules d’accéder aux kinétochores en prométaphase."
+      },
+      {
+        "content": "La télophase correspond à la phase de duplication des centrosomes.",
+        "correct": false,
+        "explanation": "Incorrect : La télophase correspond à la phase de duplication des centrosomes. À retenir : L’anaphase débute avec la séparation des chromatides sœurs."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La réplication de l’ADN précède la mitose et n’a pas lieu au milieu de celle-ci.`,
-    choiceExplanations: [
-      `Exact. La réplication de l’ADN précède la mitose et n’a pas lieu au milieu de celle-ci.`,
-      `Exact. La réplication de l’ADN précède la mitose et n’a pas lieu au milieu de celle-ci.`,
-      `Exact. La réplication de l’ADN précède la mitose et n’a pas lieu au milieu de celle-ci.`,
-      `Faux. La réplication de l’ADN précède la mitose et n’a pas lieu au milieu de celle-ci.`,
-    ],
+    "explanation": "La mitose ouverte des cellules animales comprend prophase, prométaphase, métaphase, anaphase et télophase, puis la cytodiérèse achève la séparation physique des cellules filles."
   },
   {
-    order: 92,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Pendant la mitose :`,
-    choices: [
-      `L’ADN est extrêmement condensé.`,
-      `Il n’y a pas de réplication de l’ADN.`,
-      `Il n’y a pas de transcription ni de réparation selon la fiche.`,
-      `La synthèse protéique est totalement impossible.`,
+    "order": 68,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Quelle affirmation décrit correctement « Fuseau mitotique et microtubules » ?",
+    "choices": [
+      {
+        "content": "Les microtubules astraux constituent la chromatine des chromosomes.",
+        "correct": false,
+        "explanation": "Incorrect : Les microtubules astraux constituent la chromatine des chromosomes. À retenir : Les microtubules interpolaires issus de pôles opposés se chevauchent dans la zone médiane du fuseau."
+      },
+      {
+        "content": "Les microtubules sont des filaments d’actine associés à la myosine II.",
+        "correct": false,
+        "explanation": "Incorrect : Les microtubules sont des filaments d’actine associés à la myosine II. À retenir : Les microtubules astraux interagissent avec le cortex cellulaire."
+      },
+      {
+        "content": "Le fuseau mitotique est normalement unipolaire dans une cellule somatique humaine saine.",
+        "correct": false,
+        "explanation": "Incorrect : Le fuseau mitotique est normalement unipolaire dans une cellule somatique humaine saine. À retenir : La dynamique des microtubules est essentielle à la recherche et à la capture des kinétochores."
+      },
+      {
+        "content": "Tous les microtubules du fuseau s’attachent directement à un kinétochore.",
+        "correct": false,
+        "explanation": "Incorrect : Tous les microtubules du fuseau s’attachent directement à un kinétochore. À retenir : Les microtubules kinétochoriens relient les kinétochores aux pôles du fuseau."
+      },
+      {
+        "content": "Les microtubules kinétochoriens relient les kinétochores aux pôles du fuseau.",
+        "correct": true,
+        "explanation": "Exact : Les microtubules kinétochoriens relient les kinétochores aux pôles du fuseau. Le fuseau bipolaire comprend des microtubules kinétochoriens, interpolaires et astraux. Leur dynamique et les moteurs moléculaires assurent l’alignement puis la ségrégation des chromosomes et l’écartement des pôles."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La fiche mentionne la persistance de faibles synthèses protéiques.`,
-    choiceExplanations: [
-      `Exact. La fiche mentionne la persistance de faibles synthèses protéiques.`,
-      `Exact. La fiche mentionne la persistance de faibles synthèses protéiques.`,
-      `Exact. La fiche mentionne la persistance de faibles synthèses protéiques.`,
-      `Faux. La fiche mentionne la persistance de faibles synthèses protéiques.`,
-    ],
+    "explanation": "Le fuseau bipolaire comprend des microtubules kinétochoriens, interpolaires et astraux. Leur dynamique et les moteurs moléculaires assurent l’alignement puis la ségrégation des chromosomes et l’écartement des pôles."
   },
   {
-    order: 93,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `En prophase :`,
-    choices: [
-      `La chromatine continue à se condenser.`,
-      `Les centrosomes s’éloignent.`,
-      `Le fuseau mitotique se forme.`,
-      `Les chromatides sœurs sont déjà séparées.`,
+    "order": 69,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Parmi les propositions ci-dessous relatives à « Centromère, kinétochore et bi-orientation », laquelle est correcte ?",
+    "choices": [
+      {
+        "content": "Le kinétochore est assemblé sur la région centromérique du chromosome.",
+        "correct": true,
+        "explanation": "Exact : Le kinétochore est assemblé sur la région centromérique du chromosome. Le kinétochore est un assemblage protéique construit sur la région centromérique. En métaphase, les deux kinétochores sœurs doivent être attachés à des pôles opposés, assurant la bi-orientation et une ségrégation fidèle."
+      },
+      {
+        "content": "Le centromère est un organite cytoplasmique contenant des centrioles.",
+        "correct": false,
+        "explanation": "Incorrect : Le centromère est un organite cytoplasmique contenant des centrioles. À retenir : La bi-orientation signifie que les deux kinétochores sœurs sont reliés à des pôles opposés."
+      },
+      {
+        "content": "Les chromosomes n’interagissent jamais avec les microtubules en métaphase.",
+        "correct": false,
+        "explanation": "Incorrect : Les chromosomes n’interagissent jamais avec les microtubules en métaphase. À retenir : Un défaut d’attachement kinetochore-microtubule active le checkpoint du fuseau."
+      },
+      {
+        "content": "La bi-orientation relie les deux kinétochores sœurs au même pôle.",
+        "correct": false,
+        "explanation": "Incorrect : La bi-orientation relie les deux kinétochores sœurs au même pôle. À retenir : Les microtubules kinétochoriens s’attachent aux kinétochores."
+      },
+      {
+        "content": "Le kinétochore est une membrane entourant chaque chromosome.",
+        "correct": false,
+        "explanation": "Incorrect : Le kinétochore est une membrane entourant chaque chromosome. À retenir : Le kinétochore est assemblé sur la région centromérique du chromosome."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La séparation des chromatides a lieu en anaphase.`,
-    choiceExplanations: [
-      `Exact. La séparation des chromatides a lieu en anaphase.`,
-      `Exact. La séparation des chromatides a lieu en anaphase.`,
-      `Exact. La séparation des chromatides a lieu en anaphase.`,
-      `Faux. La séparation des chromatides a lieu en anaphase.`,
-    ],
+    "explanation": "Le kinétochore est un assemblage protéique construit sur la région centromérique. En métaphase, les deux kinétochores sœurs doivent être attachés à des pôles opposés, assurant la bi-orientation et une ségrégation fidèle."
   },
   {
-    order: 94,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `En prométaphase :`,
-    choices: [
-      `L’enveloppe nucléaire est désorganisée.`,
-      `Les chromatides sœurs sont capturées par des microtubules de pôles opposés.`,
-      `Les chromosomes commencent à être orientés vers la plaque équatoriale.`,
-      `Les enveloppes nucléaires sont déjà reformées.`,
+    "order": 70,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur « Cohésine, sécurine et séparase », lesquelles sont incorrectes ?",
+    "choices": [
+      {
+        "content": "La séparase maintient les chromatides sœurs attachées pendant toute l’anaphase.",
+        "correct": true,
+        "explanation": "Incorrect : La séparase maintient les chromatides sœurs attachées pendant toute l’anaphase. À retenir : La séparase est inhibée par la sécurine avant l’anaphase."
+      },
+      {
+        "content": "La dégradation de la sécurine libère l’activité de la séparase.",
+        "correct": false,
+        "explanation": "Exact : La dégradation de la sécurine libère l’activité de la séparase. Les cohésines maintiennent les chromatides sœurs associées. La sécurine inhibe la séparase. Quand APC/C-Cdc20 entraîne la dégradation de la sécurine, la séparase peut cliver la cohésine et permettre l’anaphase."
+      },
+      {
+        "content": "La sécurine est une protéase qui clive directement la cohésine.",
+        "correct": true,
+        "explanation": "Incorrect : La sécurine est une protéase qui clive directement la cohésine. À retenir : Les cohésines contribuent à maintenir les chromatides sœurs associées avant l’anaphase."
+      },
+      {
+        "content": "Les cohésines contribuent à maintenir les chromatides sœurs associées avant l’anaphase.",
+        "correct": false,
+        "explanation": "Exact : Les cohésines contribuent à maintenir les chromatides sœurs associées avant l’anaphase. Les cohésines maintiennent les chromatides sœurs associées. La sécurine inhibe la séparase. Quand APC/C-Cdc20 entraîne la dégradation de la sécurine, la séparase peut cliver la cohésine et permettre l’anaphase."
+      },
+      {
+        "content": "La séparase est inhibée par la sécurine avant l’anaphase.",
+        "correct": false,
+        "explanation": "Exact : La séparase est inhibée par la sécurine avant l’anaphase. Les cohésines maintiennent les chromatides sœurs associées. La sécurine inhibe la séparase. Quand APC/C-Cdc20 entraîne la dégradation de la sécurine, la séparase peut cliver la cohésine et permettre l’anaphase."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La reformation des enveloppes nucléaires intervient en télophase.`,
-    choiceExplanations: [
-      `Exact. La reformation des enveloppes nucléaires intervient en télophase.`,
-      `Exact. La reformation des enveloppes nucléaires intervient en télophase.`,
-      `Exact. La reformation des enveloppes nucléaires intervient en télophase.`,
-      `Faux. La reformation des enveloppes nucléaires intervient en télophase.`,
-    ],
+    "explanation": "Les cohésines maintiennent les chromatides sœurs associées. La sécurine inhibe la séparase. Quand APC/C-Cdc20 entraîne la dégradation de la sécurine, la séparase peut cliver la cohésine et permettre l’anaphase. Ici, il fallait sélectionner les affirmations incorrectes."
   },
   {
-    order: 95,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `En métaphase :`,
-    choices: [
-      `L’attachement bipolaire est achevé.`,
-      `Les chromosomes forment la plaque équatoriale.`,
-      `Les chromatides sœurs sont encore liées.`,
-      `Les noyaux fils sont déjà reformés.`,
+    "order": 71,
+    "difficulty": "MEDIUM",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "À propos de « Checkpoint d’assemblage du fuseau », identifiez exactement cinq propositions exactes parmi les dix suivantes.",
+    "choices": [
+      {
+        "content": "Le checkpoint du fuseau contrôle principalement la réplication de l’ADN en phase S.",
+        "correct": false,
+        "explanation": "Incorrect : Le checkpoint du fuseau contrôle principalement la réplication de l’ADN en phase S. À retenir : Le checkpoint du fuseau surveille l’attachement des kinétochores aux microtubules."
+      },
+      {
+        "content": "MAD2 est une cycline de phase G1.",
+        "correct": false,
+        "explanation": "Incorrect : MAD2 est une cycline de phase G1. À retenir : MAD2 et BUBR1 participent au complexe de checkpoint mitotique."
+      },
+      {
+        "content": "L’extinction du checkpoint permet la dégradation de la sécurine.",
+        "correct": true,
+        "explanation": "Exact : L’extinction du checkpoint permet la dégradation de la sécurine. Le spindle assembly checkpoint (SAC) bloque l’activation efficace d’APC/C-Cdc20 tant que subsistent des kinétochores non correctement attachés. Les protéines MAD et BUB participent au signal de checkpoint."
+      },
+      {
+        "content": "Le checkpoint du fuseau surveille l’attachement des kinétochores aux microtubules.",
+        "correct": true,
+        "explanation": "Exact : Le checkpoint du fuseau surveille l’attachement des kinétochores aux microtubules. Le spindle assembly checkpoint (SAC) bloque l’activation efficace d’APC/C-Cdc20 tant que subsistent des kinétochores non correctement attachés. Les protéines MAD et BUB participent au signal de checkpoint."
+      },
+      {
+        "content": "Un kinétochore non attaché peut générer un signal qui retarde l’anaphase.",
+        "correct": true,
+        "explanation": "Exact : Un kinétochore non attaché peut générer un signal qui retarde l’anaphase. Le spindle assembly checkpoint (SAC) bloque l’activation efficace d’APC/C-Cdc20 tant que subsistent des kinétochores non correctement attachés. Les protéines MAD et BUB participent au signal de checkpoint."
+      },
+      {
+        "content": "Un kinétochore non attaché active APC/C-Cdc20 pour accélérer l’anaphase.",
+        "correct": false,
+        "explanation": "Incorrect : Un kinétochore non attaché active APC/C-Cdc20 pour accélérer l’anaphase. À retenir : Un kinétochore non attaché peut générer un signal qui retarde l’anaphase."
+      },
+      {
+        "content": "APC/C-Cdc20 est une enzyme de synthèse des microtubules.",
+        "correct": false,
+        "explanation": "Incorrect : APC/C-Cdc20 est une enzyme de synthèse des microtubules. À retenir : L’extinction du checkpoint permet la dégradation de la sécurine."
+      },
+      {
+        "content": "Le checkpoint du fuseau inhibe fonctionnellement APC/C-Cdc20 tant que les attachements ne sont pas satisfaisants.",
+        "correct": true,
+        "explanation": "Exact : Le checkpoint du fuseau inhibe fonctionnellement APC/C-Cdc20 tant que les attachements ne sont pas satisfaisants. Le spindle assembly checkpoint (SAC) bloque l’activation efficace d’APC/C-Cdc20 tant que subsistent des kinétochores non correctement attachés. Les protéines MAD et BUB participent au signal de checkpoint."
+      },
+      {
+        "content": "Le checkpoint du fuseau devient inutile avant toute interaction chromosome-microtubule.",
+        "correct": false,
+        "explanation": "Incorrect : Le checkpoint du fuseau devient inutile avant toute interaction chromosome-microtubule. À retenir : Le checkpoint du fuseau inhibe fonctionnellement APC/C-Cdc20 tant que les attachements ne sont pas satisfaisants."
+      },
+      {
+        "content": "MAD2 et BUBR1 participent au complexe de checkpoint mitotique.",
+        "correct": true,
+        "explanation": "Exact : MAD2 et BUBR1 participent au complexe de checkpoint mitotique. Le spindle assembly checkpoint (SAC) bloque l’activation efficace d’APC/C-Cdc20 tant que subsistent des kinétochores non correctement attachés. Les protéines MAD et BUB participent au signal de checkpoint."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les noyaux fils se reforment en télophase.`,
-    choiceExplanations: [
-      `Exact. Les noyaux fils se reforment en télophase.`,
-      `Exact. Les noyaux fils se reforment en télophase.`,
-      `Exact. Les noyaux fils se reforment en télophase.`,
-      `Faux. Les noyaux fils se reforment en télophase.`,
-    ],
+    "explanation": "Le spindle assembly checkpoint (SAC) bloque l’activation efficace d’APC/C-Cdc20 tant que subsistent des kinétochores non correctement attachés. Les protéines MAD et BUB participent au signal de checkpoint."
   },
   {
-    order: 96,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `En anaphase :`,
-    choices: [
-      `Les chromatides sœurs se séparent.`,
-      `Chaque chromatide devient un chromosome.`,
-      `Les lots migrent vers des pôles opposés.`,
-      `La réplication recommence immédiatement.`,
+    "order": 72,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant « APC/C-Cdc20 et APC/C-Cdh1 » ?",
+    "choices": [
+      {
+        "content": "Cdh1 est la protéase qui clive directement la cohésine.",
+        "correct": false,
+        "explanation": "Incorrect : Cdh1 est la protéase qui clive directement la cohésine. À retenir : Cdc20 active APC/C au moment de la transition métaphase-anaphase."
+      },
+      {
+        "content": "APC/C est un canal calcique de la membrane plasmique.",
+        "correct": false,
+        "explanation": "Incorrect : APC/C est un canal calcique de la membrane plasmique. À retenir : APC/C est une ubiquitine ligase E3."
+      },
+      {
+        "content": "Cdc20 est un composant structural de l’ADN centromérique.",
+        "correct": false,
+        "explanation": "Incorrect : Cdc20 est un composant structural de l’ADN centromérique. À retenir : APC/C-Cdc20 cible notamment la sécurine et la cycline B."
+      },
+      {
+        "content": "Cdc20 active APC/C au moment de la transition métaphase-anaphase.",
+        "correct": true,
+        "explanation": "Exact : Cdc20 active APC/C au moment de la transition métaphase-anaphase. APC/C change de coactivateur au cours de la mitose. Cdc20 est essentiel à l’entrée en anaphase, tandis que Cdh1 contribue à la sortie de mitose et au maintien d’un faible niveau d’activité CDK en G1."
+      },
+      {
+        "content": "APC/C est une ubiquitine ligase E3.",
+        "correct": true,
+        "explanation": "Exact : APC/C est une ubiquitine ligase E3. APC/C change de coactivateur au cours de la mitose. Cdc20 est essentiel à l’entrée en anaphase, tandis que Cdh1 contribue à la sortie de mitose et au maintien d’un faible niveau d’activité CDK en G1."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `L’anaphase est une phase de séparation, non de réplication.`,
-    choiceExplanations: [
-      `Exact. L’anaphase est une phase de séparation, non de réplication.`,
-      `Exact. L’anaphase est une phase de séparation, non de réplication.`,
-      `Exact. L’anaphase est une phase de séparation, non de réplication.`,
-      `Faux. L’anaphase est une phase de séparation, non de réplication.`,
-    ],
+    "explanation": "APC/C change de coactivateur au cours de la mitose. Cdc20 est essentiel à l’entrée en anaphase, tandis que Cdh1 contribue à la sortie de mitose et au maintien d’un faible niveau d’activité CDK en G1."
   },
   {
-    order: 97,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `En télophase :`,
-    choices: [
-      `Les enveloppes nucléaires se reforment.`,
-      `Le fuseau mitotique se dépolymérise.`,
-      `Les chromosomes se décondensent.`,
-      `Les chromatides sœurs se condensent davantage sur la plaque équatoriale.`,
+    "order": 73,
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "Parmi ces affirmations concernant « Cytodiérèse », retenez exactement les 2 justes.",
+    "choices": [
+      {
+        "content": "La cytodiérèse des cellules animales dépend d’un anneau de tubuline et de kératine exclusivement.",
+        "correct": false,
+        "explanation": "Incorrect : La cytodiérèse des cellules animales dépend d’un anneau de tubuline et de kératine exclusivement. À retenir : La cytodiérèse débute généralement avant la fin complète de la mitose nucléaire."
+      },
+      {
+        "content": "La cytodiérèse débute généralement avant la fin complète de la mitose nucléaire.",
+        "correct": true,
+        "explanation": "Exact : La cytodiérèse débute généralement avant la fin complète de la mitose nucléaire. La cytodiérèse des cellules animales dépend d’un anneau contractile d’actine et de myosine II positionné au cortex équatorial. Sa contraction forme le sillon de clivage puis le corps intermédiaire avant l’abscission."
+      },
+      {
+        "content": "Le sillon de clivage se forme normalement au niveau d’un seul pôle du fuseau.",
+        "correct": false,
+        "explanation": "Incorrect : Le sillon de clivage se forme normalement au niveau d’un seul pôle du fuseau. À retenir : Un anneau contractile d’actine et de myosine II se forme à l’équateur de la cellule animale."
+      },
+      {
+        "content": "Un anneau contractile d’actine et de myosine II se forme à l’équateur de la cellule animale.",
+        "correct": true,
+        "explanation": "Exact : Un anneau contractile d’actine et de myosine II se forme à l’équateur de la cellule animale. La cytodiérèse des cellules animales dépend d’un anneau contractile d’actine et de myosine II positionné au cortex équatorial. Sa contraction forme le sillon de clivage puis le corps intermédiaire avant l’abscission."
+      },
+      {
+        "content": "La cytodiérèse correspond à la réplication des chromosomes.",
+        "correct": false,
+        "explanation": "Incorrect : La cytodiérèse correspond à la réplication des chromosomes. À retenir : La contraction de l’anneau forme un sillon de clivage."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La plaque équatoriale appartient à la métaphase.`,
-    choiceExplanations: [
-      `Exact. La plaque équatoriale appartient à la métaphase.`,
-      `Exact. La plaque équatoriale appartient à la métaphase.`,
-      `Exact. La plaque équatoriale appartient à la métaphase.`,
-      `Faux. La plaque équatoriale appartient à la métaphase.`,
-    ],
+    "explanation": "La cytodiérèse des cellules animales dépend d’un anneau contractile d’actine et de myosine II positionné au cortex équatorial. Sa contraction forme le sillon de clivage puis le corps intermédiaire avant l’abscission."
   },
   {
-    order: 98,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `La cytodiérèse :`,
-    choices: [
-      `Commence avant la fin de l’anaphase.`,
-      `Utilise un anneau contractile d’actine et de myosine.`,
-      `Sépare les deux cellules filles.`,
-      `Est une phase nucléaire de la caryodiérèse.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La cytodiérèse est la composante cytoplasmique de la division.`,
-    choiceExplanations: [
-      `Exact. La cytodiérèse est la composante cytoplasmique de la division.`,
-      `Exact. La cytodiérèse est la composante cytoplasmique de la division.`,
-      `Exact. La cytodiérèse est la composante cytoplasmique de la division.`,
-      `Faux. La cytodiérèse est la composante cytoplasmique de la division.`,
-    ],
+    "order": 74,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quelle protéine maintient la séparase inactive avant l’anaphase ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "sécurine",
+        "securin",
+        "securine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "La sécurine se lie à la séparase et l’inhibe avant sa dégradation."
   },
   {
-    order: 99,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Les structures essentielles de la mitose comprennent :`,
-    choices: [
-      `Les chromosomes et leurs centromères.`,
-      `Les cohésines.`,
-      `Le kinétochore.`,
-      `Le fuseau mitotique.`,
+    "order": 75,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant les mécanismes de « Anaphase A et B », quelles affirmations sont correctes ?",
+    "choices": [
+      {
+        "content": "L’anaphase A correspond au mouvement des chromosomes vers les pôles.",
+        "correct": true,
+        "explanation": "Exact : L’anaphase A correspond au mouvement des chromosomes vers les pôles. Pendant l’anaphase, les chromatides se rapprochent des pôles par raccourcissement des microtubules kinétochoriens (anaphase A) et les pôles s’éloignent notamment grâce aux microtubules interpolaires et aux forces corticales (anaphase B)."
+      },
+      {
+        "content": "Les microtubules kinétochoriens doivent s’allonger indéfiniment pour rapprocher les chromosomes des pôles.",
+        "correct": false,
+        "explanation": "Incorrect : Les microtubules kinétochoriens doivent s’allonger indéfiniment pour rapprocher les chromosomes des pôles. À retenir : Le raccourcissement des microtubules kinétochoriens contribue à l’anaphase A."
+      },
+      {
+        "content": "L’anaphase A correspond à la réplication des chromosomes au centre du fuseau.",
+        "correct": false,
+        "explanation": "Incorrect : L’anaphase A correspond à la réplication des chromosomes au centre du fuseau. À retenir : L’anaphase A correspond au mouvement des chromosomes vers les pôles."
+      },
+      {
+        "content": "Le raccourcissement des microtubules kinétochoriens contribue à l’anaphase A.",
+        "correct": true,
+        "explanation": "Exact : Le raccourcissement des microtubules kinétochoriens contribue à l’anaphase A. Pendant l’anaphase, les chromatides se rapprochent des pôles par raccourcissement des microtubules kinétochoriens (anaphase A) et les pôles s’éloignent notamment grâce aux microtubules interpolaires et aux forces corticales (anaphase B)."
+      },
+      {
+        "content": "L’anaphase B rapproche les deux pôles du fuseau l’un de l’autre.",
+        "correct": false,
+        "explanation": "Incorrect : L’anaphase B rapproche les deux pôles du fuseau l’un de l’autre. À retenir : L’anaphase B correspond à un éloignement des pôles du fuseau."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2, 3],
-    explanation: `Toutes ces structures participent à l’attachement et à la séparation des chromatides.`,
-    choiceExplanations: [
-      `Exact. Toutes ces structures participent à l’attachement et à la séparation des chromatides.`,
-      `Exact. Toutes ces structures participent à l’attachement et à la séparation des chromatides.`,
-      `Exact. Toutes ces structures participent à l’attachement et à la séparation des chromatides.`,
-      `Exact. Toutes ces structures participent à l’attachement et à la séparation des chromatides.`,
-    ],
+    "explanation": "Pendant l’anaphase, les chromatides se rapprochent des pôles par raccourcissement des microtubules kinétochoriens (anaphase A) et les pôles s’éloignent notamment grâce aux microtubules interpolaires et aux forces corticales (anaphase B)."
   },
   {
-    order: 100,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Le centrosome :`,
-    choices: [
-      `Est un centre organisateur des microtubules.`,
-      `Se duplique en préparation de la mitose.`,
-      `Donne deux COMT en G2.`,
-      `Est absent de toute organisation du fuseau.`,
+    "order": 76,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Pour le thème « Phases de la mitose », quelles propositions doivent être retenues ?",
+    "choices": [
+      {
+        "content": "La rupture de l’enveloppe nucléaire permet aux microtubules d’accéder aux kinétochores en prométaphase.",
+        "correct": true,
+        "explanation": "Exact : La rupture de l’enveloppe nucléaire permet aux microtubules d’accéder aux kinétochores en prométaphase. La mitose ouverte des cellules animales comprend prophase, prométaphase, métaphase, anaphase et télophase, puis la cytodiérèse achève la séparation physique des cellules filles."
+      },
+      {
+        "content": "Dans une cellule somatique, l’anaphase précède l’alignement métaphasique des chromosomes.",
+        "correct": false,
+        "explanation": "Incorrect : L’anaphase précède l’alignement métaphasique des chromosomes. À retenir : En métaphase, les chromosomes sont alignés autour de la plaque équatoriale."
+      },
+      {
+        "content": "En télophase, les enveloppes nucléaires se reforment autour des lots chromosomiques.",
+        "correct": true,
+        "explanation": "Exact : En télophase, les enveloppes nucléaires se reforment autour des lots chromosomiques. La mitose ouverte des cellules animales comprend prophase, prométaphase, métaphase, anaphase et télophase, puis la cytodiérèse achève la séparation physique des cellules filles."
+      },
+      {
+        "content": "En métaphase, les chromosomes sont alignés autour de la plaque équatoriale.",
+        "correct": true,
+        "explanation": "Exact : En métaphase, les chromosomes sont alignés autour de la plaque équatoriale. La mitose ouverte des cellules animales comprend prophase, prométaphase, métaphase, anaphase et télophase, puis la cytodiérèse achève la séparation physique des cellules filles."
+      },
+      {
+        "content": "L’anaphase débute avec la séparation des chromatides sœurs.",
+        "correct": true,
+        "explanation": "Exact : L’anaphase débute avec la séparation des chromatides sœurs. La mitose ouverte des cellules animales comprend prophase, prométaphase, métaphase, anaphase et télophase, puis la cytodiérèse achève la séparation physique des cellules filles."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le fuseau s’organise à partir des deux COMT.`,
-    choiceExplanations: [
-      `Exact. Le fuseau s’organise à partir des deux COMT.`,
-      `Exact. Le fuseau s’organise à partir des deux COMT.`,
-      `Exact. Le fuseau s’organise à partir des deux COMT.`,
-      `Faux. Le fuseau s’organise à partir des deux COMT.`,
-    ],
+    "explanation": "La mitose ouverte des cellules animales comprend prophase, prométaphase, métaphase, anaphase et télophase, puis la cytodiérèse achève la séparation physique des cellules filles."
   },
   {
-    order: 101,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Observe la figure suivante.
-
-![Étapes de la mitose](/images/training/ue14/biologie-cellulaire/cycle-cellulaire/etapes-mitose.png)
-
-Quelle(s) proposition(s) est(sont) exacte(s) ?`,
-    choices: [
-      `La métaphase précède l’anaphase.`,
-      `La télophase précède la cytodiérèse finale.`,
-      `La prométaphase suit la prophase.`,
-      `La phase S est incluse entre prométaphase et métaphase.`,
+    "order": 77,
+    "difficulty": "MEDIUM",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Pour le thème « Fuseau mitotique et microtubules », retenez les cinq affirmations correctes parmi les dix proposées.",
+    "choices": [
+      {
+        "content": "Les microtubules sont des filaments d’actine associés à la myosine II.",
+        "correct": false,
+        "explanation": "Incorrect : Les microtubules sont des filaments d’actine associés à la myosine II. À retenir : Les microtubules astraux interagissent avec le cortex cellulaire."
+      },
+      {
+        "content": "Tous les microtubules du fuseau s’attachent directement à un kinétochore.",
+        "correct": false,
+        "explanation": "Incorrect : Tous les microtubules du fuseau s’attachent directement à un kinétochore. À retenir : Les microtubules kinétochoriens relient les kinétochores aux pôles du fuseau."
+      },
+      {
+        "content": "Le fuseau mitotique est normalement unipolaire dans une cellule somatique humaine saine.",
+        "correct": false,
+        "explanation": "Incorrect : Le fuseau mitotique est normalement unipolaire dans une cellule somatique humaine saine. À retenir : La dynamique des microtubules est essentielle à la recherche et à la capture des kinétochores."
+      },
+      {
+        "content": "La dynamique des microtubules doit être totalement supprimée pour aligner les chromosomes.",
+        "correct": false,
+        "explanation": "Incorrect : La dynamique des microtubules doit être totalement supprimée pour aligner les chromosomes. À retenir : Le fuseau mitotique est organisé autour de deux pôles dans une mitose bipolaire normale."
+      },
+      {
+        "content": "Les microtubules astraux interagissent avec le cortex cellulaire.",
+        "correct": true,
+        "explanation": "Exact : Les microtubules astraux interagissent avec le cortex cellulaire. Le fuseau bipolaire comprend des microtubules kinétochoriens, interpolaires et astraux. Leur dynamique et les moteurs moléculaires assurent l’alignement puis la ségrégation des chromosomes et l’écartement des pôles."
+      },
+      {
+        "content": "Des moteurs moléculaires participent aux forces de glissement et de traction du fuseau.",
+        "correct": true,
+        "explanation": "Exact : Des moteurs moléculaires participent aux forces de glissement et de traction du fuseau. Le fuseau bipolaire comprend des microtubules kinétochoriens, interpolaires et astraux. Leur dynamique et les moteurs moléculaires assurent l’alignement puis la ségrégation des chromosomes et l’écartement des pôles."
+      },
+      {
+        "content": "Les microtubules interpolaires issus de pôles opposés se chevauchent dans la zone médiane du fuseau.",
+        "correct": true,
+        "explanation": "Exact : Les microtubules interpolaires issus de pôles opposés se chevauchent dans la zone médiane du fuseau. Le fuseau bipolaire comprend des microtubules kinétochoriens, interpolaires et astraux. Leur dynamique et les moteurs moléculaires assurent l’alignement puis la ségrégation des chromosomes et l’écartement des pôles."
+      },
+      {
+        "content": "Le fuseau mitotique est organisé autour de deux pôles dans une mitose bipolaire normale.",
+        "correct": true,
+        "explanation": "Exact : Le fuseau mitotique est organisé autour de deux pôles dans une mitose bipolaire normale. Le fuseau bipolaire comprend des microtubules kinétochoriens, interpolaires et astraux. Leur dynamique et les moteurs moléculaires assurent l’alignement puis la ségrégation des chromosomes et l’écartement des pôles."
+      },
+      {
+        "content": "Les microtubules interpolaires relient chaque chromosome à son centromère.",
+        "correct": false,
+        "explanation": "Incorrect : Les microtubules interpolaires relient chaque chromosome à son centromère. À retenir : Des moteurs moléculaires participent aux forces de glissement et de traction du fuseau."
+      },
+      {
+        "content": "La dynamique des microtubules est essentielle à la recherche et à la capture des kinétochores.",
+        "correct": true,
+        "explanation": "Exact : La dynamique des microtubules est essentielle à la recherche et à la capture des kinétochores. Le fuseau bipolaire comprend des microtubules kinétochoriens, interpolaires et astraux. Leur dynamique et les moteurs moléculaires assurent l’alignement puis la ségrégation des chromosomes et l’écartement des pôles."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La phase S appartient à l’interphase, avant G2 et la mitose.`,
-    choiceExplanations: [
-      `Exact. La phase S appartient à l’interphase, avant G2 et la mitose.`,
-      `Exact. La phase S appartient à l’interphase, avant G2 et la mitose.`,
-      `Exact. La phase S appartient à l’interphase, avant G2 et la mitose.`,
-      `Faux. La phase S appartient à l’interphase, avant G2 et la mitose.`,
-    ],
+    "explanation": "Le fuseau bipolaire comprend des microtubules kinétochoriens, interpolaires et astraux. Leur dynamique et les moteurs moléculaires assurent l’alignement puis la ségrégation des chromosomes et l’écartement des pôles."
   },
   {
-    order: 102,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Le fuseau mitotique contient :`,
-    choices: [
-      `Des microtubules astraux.`,
-      `Des microtubules polaires.`,
-      `Des microtubules kinétochoriens.`,
-      `Des filaments intermédiaires responsables de la plaque métaphasique.`,
+    "order": 78,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Sélectionnez les affirmations compatibles avec « Centromère, kinétochore et bi-orientation ».",
+    "choices": [
+      {
+        "content": "Le centromère est un organite cytoplasmique contenant des centrioles.",
+        "correct": false,
+        "explanation": "Incorrect : Le centromère est un organite cytoplasmique contenant des centrioles. À retenir : La bi-orientation signifie que les deux kinétochores sœurs sont reliés à des pôles opposés."
+      },
+      {
+        "content": "Les microtubules kinétochoriens s’attachent aux kinétochores.",
+        "correct": true,
+        "explanation": "Exact : Les microtubules kinétochoriens s’attachent aux kinétochores. Le kinétochore est un assemblage protéique construit sur la région centromérique. En métaphase, les deux kinétochores sœurs doivent être attachés à des pôles opposés, assurant la bi-orientation et une ségrégation fidèle."
+      },
+      {
+        "content": "Les chromosomes n’interagissent jamais avec les microtubules en métaphase.",
+        "correct": false,
+        "explanation": "Incorrect : Les chromosomes n’interagissent jamais avec les microtubules en métaphase. À retenir : Un défaut d’attachement kinetochore-microtubule active le checkpoint du fuseau."
+      },
+      {
+        "content": "La bi-orientation signifie que les deux kinétochores sœurs sont reliés à des pôles opposés.",
+        "correct": true,
+        "explanation": "Exact : La bi-orientation signifie que les deux kinétochores sœurs sont reliés à des pôles opposés. Le kinétochore est un assemblage protéique construit sur la région centromérique. En métaphase, les deux kinétochores sœurs doivent être attachés à des pôles opposés, assurant la bi-orientation et une ségrégation fidèle."
+      },
+      {
+        "content": "Un kinétochore non attaché déclenche normalement l’anaphase immédiatement.",
+        "correct": false,
+        "explanation": "Incorrect : Un kinétochore non attaché déclenche normalement l’anaphase immédiatement. À retenir : La tension entre kinétochores sœurs est associée à un attachement bipolaire correct."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La plaque métaphasique est organisée par les microtubules du fuseau.`,
-    choiceExplanations: [
-      `Exact. La plaque métaphasique est organisée par les microtubules du fuseau.`,
-      `Exact. La plaque métaphasique est organisée par les microtubules du fuseau.`,
-      `Exact. La plaque métaphasique est organisée par les microtubules du fuseau.`,
-      `Faux. La plaque métaphasique est organisée par les microtubules du fuseau.`,
-    ],
+    "explanation": "Le kinétochore est un assemblage protéique construit sur la région centromérique. En métaphase, les deux kinétochores sœurs doivent être attachés à des pôles opposés, assurant la bi-orientation et une ségrégation fidèle."
   },
   {
-    order: 103,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Les microtubules astraux :`,
-    choices: [
-      `Rayonnent autour du COMT.`,
-      `Sont indirectement en contact avec la membrane plasmique.`,
-      `Relient directement chaque kinétochore au pôle opposé.`,
-      `Participent à l’organisation spatiale du fuseau.`,
+    "order": 79,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant « Cohésine, sécurine et séparase » ?",
+    "choices": [
+      {
+        "content": "La séparase clive une sous-unité de la cohésine au début de l’anaphase.",
+        "correct": true,
+        "explanation": "Exact : La séparase clive une sous-unité de la cohésine au début de l’anaphase. Les cohésines maintiennent les chromatides sœurs associées. La sécurine inhibe la séparase. Quand APC/C-Cdc20 entraîne la dégradation de la sécurine, la séparase peut cliver la cohésine et permettre l’anaphase."
+      },
+      {
+        "content": "La séparase est inhibée par la sécurine avant l’anaphase.",
+        "correct": true,
+        "explanation": "Exact : La séparase est inhibée par la sécurine avant l’anaphase. Les cohésines maintiennent les chromatides sœurs associées. La sécurine inhibe la séparase. Quand APC/C-Cdc20 entraîne la dégradation de la sécurine, la séparase peut cliver la cohésine et permettre l’anaphase."
+      },
+      {
+        "content": "La dégradation de la sécurine libère l’activité de la séparase.",
+        "correct": true,
+        "explanation": "Exact : La dégradation de la sécurine libère l’activité de la séparase. Les cohésines maintiennent les chromatides sœurs associées. La sécurine inhibe la séparase. Quand APC/C-Cdc20 entraîne la dégradation de la sécurine, la séparase peut cliver la cohésine et permettre l’anaphase."
+      },
+      {
+        "content": "APC/C-Cdc20 contribue à déclencher la séparation des chromatides.",
+        "correct": true,
+        "explanation": "Exact : APC/C-Cdc20 contribue à déclencher la séparation des chromatides. Les cohésines maintiennent les chromatides sœurs associées. La sécurine inhibe la séparase. Quand APC/C-Cdc20 entraîne la dégradation de la sécurine, la séparase peut cliver la cohésine et permettre l’anaphase."
+      },
+      {
+        "content": "Les cohésines sont des microtubules du fuseau.",
+        "correct": false,
+        "explanation": "Incorrect : Les cohésines sont des microtubules du fuseau. À retenir : La dégradation de la sécurine libère l’activité de la séparase."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les microtubules kinétochoriens relient kinétochores et COMT.`,
-    choiceExplanations: [
-      `Exact. Les microtubules kinétochoriens relient kinétochores et COMT.`,
-      `Exact. Les microtubules kinétochoriens relient kinétochores et COMT.`,
-      `Faux. Les microtubules kinétochoriens relient kinétochores et COMT.`,
-      `Exact. Les microtubules kinétochoriens relient kinétochores et COMT.`,
-    ],
+    "explanation": "Les cohésines maintiennent les chromatides sœurs associées. La sécurine inhibe la séparase. Quand APC/C-Cdc20 entraîne la dégradation de la sécurine, la séparase peut cliver la cohésine et permettre l’anaphase."
   },
   {
-    order: 104,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Les microtubules polaires :`,
-    choices: [
-      `S’ancrent aux COMT.`,
-      `Se rencontrent vers le plan équatorial.`,
-      `Sont stabilisés par des MAP.`,
-      `Relient directement les kinétochores à un seul COMT.`,
+    "order": 80,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "requiredSelectionCount": 3,
+    "question": "Parmi ces affirmations concernant « Checkpoint d’assemblage du fuseau », retenez exactement les 3 justes.",
+    "choices": [
+      {
+        "content": "Un kinétochore non attaché peut générer un signal qui retarde l’anaphase.",
+        "correct": true,
+        "explanation": "Exact : Un kinétochore non attaché peut générer un signal qui retarde l’anaphase. Le spindle assembly checkpoint (SAC) bloque l’activation efficace d’APC/C-Cdc20 tant que subsistent des kinétochores non correctement attachés. Les protéines MAD et BUB participent au signal de checkpoint."
+      },
+      {
+        "content": "Le checkpoint du fuseau inhibe fonctionnellement APC/C-Cdc20 tant que les attachements ne sont pas satisfaisants.",
+        "correct": true,
+        "explanation": "Exact : Le checkpoint du fuseau inhibe fonctionnellement APC/C-Cdc20 tant que les attachements ne sont pas satisfaisants. Le spindle assembly checkpoint (SAC) bloque l’activation efficace d’APC/C-Cdc20 tant que subsistent des kinétochores non correctement attachés. Les protéines MAD et BUB participent au signal de checkpoint."
+      },
+      {
+        "content": "MAD2 et BUBR1 participent au complexe de checkpoint mitotique.",
+        "correct": true,
+        "explanation": "Exact : MAD2 et BUBR1 participent au complexe de checkpoint mitotique. Le spindle assembly checkpoint (SAC) bloque l’activation efficace d’APC/C-Cdc20 tant que subsistent des kinétochores non correctement attachés. Les protéines MAD et BUB participent au signal de checkpoint."
+      },
+      {
+        "content": "Le checkpoint du fuseau devient inutile avant toute interaction chromosome-microtubule.",
+        "correct": false,
+        "explanation": "Incorrect : Le checkpoint du fuseau devient inutile avant toute interaction chromosome-microtubule. À retenir : Le checkpoint du fuseau inhibe fonctionnellement APC/C-Cdc20 tant que les attachements ne sont pas satisfaisants."
+      },
+      {
+        "content": "MAD2 est une cycline de phase G1.",
+        "correct": false,
+        "explanation": "Incorrect : MAD2 est une cycline de phase G1. À retenir : MAD2 et BUBR1 participent au complexe de checkpoint mitotique."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les microtubules kinétochoriens assurent la liaison aux chromosomes.`,
-    choiceExplanations: [
-      `Exact. Les microtubules kinétochoriens assurent la liaison aux chromosomes.`,
-      `Exact. Les microtubules kinétochoriens assurent la liaison aux chromosomes.`,
-      `Exact. Les microtubules kinétochoriens assurent la liaison aux chromosomes.`,
-      `Faux. Les microtubules kinétochoriens assurent la liaison aux chromosomes.`,
-    ],
+    "explanation": "Le spindle assembly checkpoint (SAC) bloque l’activation efficace d’APC/C-Cdc20 tant que subsistent des kinétochores non correctement attachés. Les protéines MAD et BUB participent au signal de checkpoint."
   },
   {
-    order: 105,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Les microtubules kinétochoriens :`,
-    choices: [
-      `Relient les kinétochores aux COMT.`,
-      `Participent à l’alignement équatorial.`,
-      `Sont dynamiques en métaphase.`,
-      `Sont absents de l’anaphase.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Ils raccourcissent pendant l’anaphase pour rapprocher les chromatides des pôles.`,
-    choiceExplanations: [
-      `Exact. Ils raccourcissent pendant l’anaphase pour rapprocher les chromatides des pôles.`,
-      `Exact. Ils raccourcissent pendant l’anaphase pour rapprocher les chromatides des pôles.`,
-      `Exact. Ils raccourcissent pendant l’anaphase pour rapprocher les chromatides des pôles.`,
-      `Faux. Ils raccourcissent pendant l’anaphase pour rapprocher les chromatides des pôles.`,
-    ],
+    "order": 81,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quelle protéase clive la cohésine pour permettre la séparation des chromatides sœurs ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "séparase",
+        "separase"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "La séparase clive une sous-unité de cohésine au déclenchement de l’anaphase."
   },
   {
-    order: 106,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Un chromosome mono-orienté :`,
-    choices: [
-      `Est capturé par des microtubules d’un seul pôle.`,
-      `N’est pas encore en équilibre entre les deux pôles.`,
-      `Peut devenir bi-orienté après capture par l’autre pôle.`,
-      `Peut déclencher normalement l’anaphase si tous les autres chromosomes sont alignés.`,
+    "order": 82,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Concernant les mécanismes de « APC/C-Cdc20 et APC/C-Cdh1 », quelles affirmations sont correctes ?",
+    "choices": [
+      {
+        "content": "La destruction de cycline B contribue à la sortie de mitose.",
+        "correct": true,
+        "explanation": "Exact : La destruction de cycline B contribue à la sortie de mitose. APC/C change de coactivateur au cours de la mitose. Cdc20 est essentiel à l’entrée en anaphase, tandis que Cdh1 contribue à la sortie de mitose et au maintien d’un faible niveau d’activité CDK en G1."
+      },
+      {
+        "content": "Cdc20 est un composant structural de l’ADN centromérique.",
+        "correct": false,
+        "explanation": "Incorrect : Cdc20 est un composant structural de l’ADN centromérique. À retenir : APC/C-Cdc20 cible notamment la sécurine et la cycline B."
+      },
+      {
+        "content": "APC/C-Cdc20 cible notamment la sécurine et la cycline B.",
+        "correct": true,
+        "explanation": "Exact : APC/C-Cdc20 cible notamment la sécurine et la cycline B. APC/C change de coactivateur au cours de la mitose. Cdc20 est essentiel à l’entrée en anaphase, tandis que Cdh1 contribue à la sortie de mitose et au maintien d’un faible niveau d’activité CDK en G1."
+      },
+      {
+        "content": "Cdh1 devient un coactivateur important d’APC/C lors de la sortie de mitose et en G1.",
+        "correct": true,
+        "explanation": "Exact : Cdh1 devient un coactivateur important d’APC/C lors de la sortie de mitose et en G1. APC/C change de coactivateur au cours de la mitose. Cdc20 est essentiel à l’entrée en anaphase, tandis que Cdh1 contribue à la sortie de mitose et au maintien d’un faible niveau d’activité CDK en G1."
+      },
+      {
+        "content": "Cdc20 active APC/C au moment de la transition métaphase-anaphase.",
+        "correct": true,
+        "explanation": "Exact : Cdc20 active APC/C au moment de la transition métaphase-anaphase. APC/C change de coactivateur au cours de la mitose. Cdc20 est essentiel à l’entrée en anaphase, tandis que Cdh1 contribue à la sortie de mitose et au maintien d’un faible niveau d’activité CDK en G1."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le point métaphasique exige que tous les chromosomes soient correctement bi-orientés.`,
-    choiceExplanations: [
-      `Exact. Le point métaphasique exige que tous les chromosomes soient correctement bi-orientés.`,
-      `Exact. Le point métaphasique exige que tous les chromosomes soient correctement bi-orientés.`,
-      `Exact. Le point métaphasique exige que tous les chromosomes soient correctement bi-orientés.`,
-      `Faux. Le point métaphasique exige que tous les chromosomes soient correctement bi-orientés.`,
-    ],
+    "explanation": "APC/C change de coactivateur au cours de la mitose. Cdc20 est essentiel à l’entrée en anaphase, tandis que Cdh1 contribue à la sortie de mitose et au maintien d’un faible niveau d’activité CDK en G1."
   },
   {
-    order: 107,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `En anaphase :`,
-    choices: [
-      `La séparase clive les cohésines.`,
-      `Les microtubules kinétochoriens se raccourcissent.`,
-      `Les microtubules polaires se polymérisent.`,
-      `Les microtubules astraux se stabilisent tous définitivement.`,
+    "order": 83,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles affirmations décrivent correctement « Cytodiérèse » ?",
+    "choices": [
+      {
+        "content": "Le fuseau mitotique participe au positionnement du plan de division.",
+        "correct": true,
+        "explanation": "Exact : Le fuseau mitotique participe au positionnement du plan de division. La cytodiérèse des cellules animales dépend d’un anneau contractile d’actine et de myosine II positionné au cortex équatorial. Sa contraction forme le sillon de clivage puis le corps intermédiaire avant l’abscission."
+      },
+      {
+        "content": "La myosine II n’intervient jamais dans l’anneau contractile.",
+        "correct": false,
+        "explanation": "Incorrect : La myosine II n’intervient jamais dans l’anneau contractile. À retenir : Le fuseau mitotique participe au positionnement du plan de division."
+      },
+      {
+        "content": "La contraction de l’anneau forme un sillon de clivage.",
+        "correct": true,
+        "explanation": "Exact : La contraction de l’anneau forme un sillon de clivage. La cytodiérèse des cellules animales dépend d’un anneau contractile d’actine et de myosine II positionné au cortex équatorial. Sa contraction forme le sillon de clivage puis le corps intermédiaire avant l’abscission."
+      },
+      {
+        "content": "Un anneau contractile d’actine et de myosine II se forme à l’équateur de la cellule animale.",
+        "correct": true,
+        "explanation": "Exact : Un anneau contractile d’actine et de myosine II se forme à l’équateur de la cellule animale. La cytodiérèse des cellules animales dépend d’un anneau contractile d’actine et de myosine II positionné au cortex équatorial. Sa contraction forme le sillon de clivage puis le corps intermédiaire avant l’abscission."
+      },
+      {
+        "content": "La cytodiérèse correspond à la réplication des chromosomes.",
+        "correct": false,
+        "explanation": "Incorrect : La cytodiérèse correspond à la réplication des chromosomes. À retenir : La contraction de l’anneau forme un sillon de clivage."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La fiche indique une dépolymérisation des microtubules astraux pendant l’anaphase.`,
-    choiceExplanations: [
-      `Exact. La fiche indique une dépolymérisation des microtubules astraux pendant l’anaphase.`,
-      `Exact. La fiche indique une dépolymérisation des microtubules astraux pendant l’anaphase.`,
-      `Exact. La fiche indique une dépolymérisation des microtubules astraux pendant l’anaphase.`,
-      `Faux. La fiche indique une dépolymérisation des microtubules astraux pendant l’anaphase.`,
-    ],
+    "explanation": "La cytodiérèse des cellules animales dépend d’un anneau contractile d’actine et de myosine II positionné au cortex équatorial. Sa contraction forme le sillon de clivage puis le corps intermédiaire avant l’abscission."
   },
   {
-    order: 108,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Le sillon de clivage :`,
-    choices: [
-      `Se place à égale distance des deux pôles.`,
-      `Est perpendiculaire à l’axe longitudinal du fuseau.`,
-      `Se situe dans le plan de l’ancienne plaque équatoriale.`,
-      `Dépend uniquement de filaments intermédiaires.`,
+    "order": 84,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Pour le thème « Anaphase A et B », quelles propositions doivent être retenues ?",
+    "choices": [
+      {
+        "content": "Les chromatides restent liées par la cohésine intacte pendant toute l’anaphase.",
+        "correct": false,
+        "explanation": "Incorrect : Les chromatides restent liées par la cohésine intacte pendant toute l’anaphase. À retenir : Le glissement de microtubules interpolaires contribue à l’anaphase B."
+      },
+      {
+        "content": "La séparation des chromatides divise le nombre de chromosomes par deux dans la cellule avant cytodiérèse.",
+        "correct": false,
+        "explanation": "Incorrect : La séparation des chromatides divise le nombre de chromosomes par deux dans la cellule avant cytodiérèse. À retenir : Les forces exercées sur les microtubules astraux peuvent contribuer à l’écartement des pôles."
+      },
+      {
+        "content": "L’anaphase B rapproche les deux pôles du fuseau l’un de l’autre.",
+        "correct": false,
+        "explanation": "Incorrect : L’anaphase B rapproche les deux pôles du fuseau l’un de l’autre. À retenir : L’anaphase B correspond à un éloignement des pôles du fuseau."
+      },
+      {
+        "content": "Le raccourcissement des microtubules kinétochoriens contribue à l’anaphase A.",
+        "correct": true,
+        "explanation": "Exact : Le raccourcissement des microtubules kinétochoriens contribue à l’anaphase A. Pendant l’anaphase, les chromatides se rapprochent des pôles par raccourcissement des microtubules kinétochoriens (anaphase A) et les pôles s’éloignent notamment grâce aux microtubules interpolaires et aux forces corticales (anaphase B)."
+      },
+      {
+        "content": "L’anaphase B correspond à un éloignement des pôles du fuseau.",
+        "correct": true,
+        "explanation": "Exact : L’anaphase B correspond à un éloignement des pôles du fuseau. Pendant l’anaphase, les chromatides se rapprochent des pôles par raccourcissement des microtubules kinétochoriens (anaphase A) et les pôles s’éloignent notamment grâce aux microtubules interpolaires et aux forces corticales (anaphase B)."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `L’anneau contractile est constitué d’actine associée à la myosine II.`,
-    choiceExplanations: [
-      `Exact. L’anneau contractile est constitué d’actine associée à la myosine II.`,
-      `Exact. L’anneau contractile est constitué d’actine associée à la myosine II.`,
-      `Exact. L’anneau contractile est constitué d’actine associée à la myosine II.`,
-      `Faux. L’anneau contractile est constitué d’actine associée à la myosine II.`,
-    ],
+    "explanation": "Pendant l’anaphase, les chromatides se rapprochent des pôles par raccourcissement des microtubules kinétochoriens (anaphase A) et les pôles s’éloignent notamment grâce aux microtubules interpolaires et aux forces corticales (anaphase B)."
   },
   {
-    order: 109,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Le corps intermédiaire :`,
-    choices: [
-      `Résulte de la contraction de l’anneau.`,
-      `S’affine progressivement.`,
-      `Se rompt pour achever la division.`,
-      `Se forme pendant la phase S.`,
+    "order": 85,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Quelle proposition est compatible avec les mécanismes de « Phases de la mitose » ?",
+    "choices": [
+      {
+        "content": "La cytodiérèse est une étape de réplication de l’ADN nucléaire.",
+        "correct": false,
+        "explanation": "Incorrect : La cytodiérèse est une étape de réplication de l’ADN nucléaire. À retenir : En télophase, les enveloppes nucléaires se reforment autour des lots chromosomiques."
+      },
+      {
+        "content": "La réplication complète du génome se déroule pendant la métaphase.",
+        "correct": false,
+        "explanation": "Incorrect : La réplication complète du génome se déroule pendant la métaphase. À retenir : La condensation des chromosomes augmente pendant la prophase."
+      },
+      {
+        "content": "En métaphase, les chromatides sœurs sont déjà toutes séparées aux deux pôles.",
+        "correct": false,
+        "explanation": "Incorrect : En métaphase, les chromatides sœurs sont déjà toutes séparées aux deux pôles. À retenir : La cytodiérèse sépare physiquement les deux cellules filles."
+      },
+      {
+        "content": "En métaphase, les chromosomes sont alignés autour de la plaque équatoriale.",
+        "correct": true,
+        "explanation": "Exact : En métaphase, les chromosomes sont alignés autour de la plaque équatoriale. La mitose ouverte des cellules animales comprend prophase, prométaphase, métaphase, anaphase et télophase, puis la cytodiérèse achève la séparation physique des cellules filles."
+      },
+      {
+        "content": "L’enveloppe nucléaire reste intacte pendant toute la prométaphase des cellules animales typiques.",
+        "correct": false,
+        "explanation": "Incorrect : L’enveloppe nucléaire reste intacte pendant toute la prométaphase des cellules animales typiques. À retenir : La mitose répartit les chromosomes répliqués entre deux noyaux filles."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le corps intermédiaire appartient à la fin de la cytodiérèse.`,
-    choiceExplanations: [
-      `Exact. Le corps intermédiaire appartient à la fin de la cytodiérèse.`,
-      `Exact. Le corps intermédiaire appartient à la fin de la cytodiérèse.`,
-      `Exact. Le corps intermédiaire appartient à la fin de la cytodiérèse.`,
-      `Faux. Le corps intermédiaire appartient à la fin de la cytodiérèse.`,
-    ],
+    "explanation": "La mitose ouverte des cellules animales comprend prophase, prométaphase, métaphase, anaphase et télophase, puis la cytodiérèse achève la séparation physique des cellules filles."
   },
   {
-    order: 110,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Observe la figure suivante.
-
-![Fuseau et APC](/images/training/ue14/biologie-cellulaire/cycle-cellulaire/fuseau-apc-anaphase.png)
-
-Quelle(s) proposition(s) est(sont) exacte(s) ?`,
-    choices: [
-      `Les trois catégories de microtubules ont des fonctions distinctes.`,
-      `APC/cdc20 favorise la destruction de la sécurine.`,
-      `La séparase active clive les cohésines.`,
-      `La sécurine active directement la séparase.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La sécurine maintient la séparase inactive tant qu’elle n’est pas dégradée.`,
-    choiceExplanations: [
-      `Exact. La sécurine maintient la séparase inactive tant qu’elle n’est pas dégradée.`,
-      `Exact. La sécurine maintient la séparase inactive tant qu’elle n’est pas dégradée.`,
-      `Exact. La sécurine maintient la séparase inactive tant qu’elle n’est pas dégradée.`,
-      `Faux. La sécurine maintient la séparase inactive tant qu’elle n’est pas dégradée.`,
-    ],
+    "order": 86,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel complexe E3 ubiquitine ligase déclenche notamment la dégradation de la sécurine à la transition métaphase-anaphase ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "APC/C-Cdc20",
+        "APC C Cdc20",
+        "APC/C CDC20",
+        "APC-Cdc20"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "APC/C activé par Cdc20 ubiquitine notamment la sécurine et la cycline B."
   },
   {
-    order: 111,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Le complexe APC/cdc20 :`,
-    choices: [
-      `Contient une E3 ubiquitine ligase.`,
-      `Ubiquitine la sécurine.`,
-      `Permet sa dégradation par le protéasome.`,
-      `Clive directement les cohésines.`,
+    "order": 87,
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "requiredSelectionCount": 3,
+    "question": "Parmi ces affirmations concernant « Fuseau mitotique et microtubules », retenez exactement les 3 justes.",
+    "choices": [
+      {
+        "content": "Dans une cellule somatique, les microtubules interpolaires relient chaque chromosome à son centromère.",
+        "correct": false,
+        "explanation": "Incorrect : Les microtubules interpolaires relient chaque chromosome à son centromère. À retenir : Des moteurs moléculaires participent aux forces de glissement et de traction du fuseau."
+      },
+      {
+        "content": "Dans une cellule somatique, les microtubules astraux interagissent avec le cortex cellulaire.",
+        "correct": true,
+        "explanation": "Exact : Les microtubules astraux interagissent avec le cortex cellulaire. Le fuseau bipolaire comprend des microtubules kinétochoriens, interpolaires et astraux. Leur dynamique et les moteurs moléculaires assurent l’alignement puis la ségrégation des chromosomes et l’écartement des pôles."
+      },
+      {
+        "content": "Dans une cellule somatique, la dynamique des microtubules est essentielle à la recherche et à la capture des kinétochores.",
+        "correct": true,
+        "explanation": "Exact : La dynamique des microtubules est essentielle à la recherche et à la capture des kinétochores. Le fuseau bipolaire comprend des microtubules kinétochoriens, interpolaires et astraux. Leur dynamique et les moteurs moléculaires assurent l’alignement puis la ségrégation des chromosomes et l’écartement des pôles."
+      },
+      {
+        "content": "Dans une cellule somatique, le fuseau mitotique est organisé autour de deux pôles dans une mitose bipolaire normale.",
+        "correct": true,
+        "explanation": "Exact : Le fuseau mitotique est organisé autour de deux pôles dans une mitose bipolaire normale. Le fuseau bipolaire comprend des microtubules kinétochoriens, interpolaires et astraux. Leur dynamique et les moteurs moléculaires assurent l’alignement puis la ségrégation des chromosomes et l’écartement des pôles."
+      },
+      {
+        "content": "Dans une cellule somatique, la dynamique des microtubules doit être totalement supprimée pour aligner les chromosomes.",
+        "correct": false,
+        "explanation": "Incorrect : La dynamique des microtubules doit être totalement supprimée pour aligner les chromosomes. À retenir : Le fuseau mitotique est organisé autour de deux pôles dans une mitose bipolaire normale."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le clivage des cohésines est réalisé par la séparase libérée après destruction de la sécurine.`,
-    choiceExplanations: [
-      `Exact. Le clivage des cohésines est réalisé par la séparase libérée après destruction de la sécurine.`,
-      `Exact. Le clivage des cohésines est réalisé par la séparase libérée après destruction de la sécurine.`,
-      `Exact. Le clivage des cohésines est réalisé par la séparase libérée après destruction de la sécurine.`,
-      `Faux. Le clivage des cohésines est réalisé par la séparase libérée après destruction de la sécurine.`,
-    ],
+    "explanation": "Le fuseau bipolaire comprend des microtubules kinétochoriens, interpolaires et astraux. Leur dynamique et les moteurs moléculaires assurent l’alignement puis la ségrégation des chromosomes et l’écartement des pôles."
   },
   {
-    order: 112,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Lorsque tous les chromosomes sont bi-orientés :`,
-    choices: [
-      `APC/cdc20 peut être activé.`,
-      `La sécurine est détruite.`,
-      `La séparase devient active.`,
-      `Les cohésines sont maintenues intactes pour empêcher l’anaphase.`,
+    "order": 88,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "À propos de « Centromère, kinétochore et bi-orientation », sélectionnez les propositions exactes.",
+    "choices": [
+      {
+        "content": "Un défaut d’attachement kinetochore-microtubule active le checkpoint du fuseau.",
+        "correct": true,
+        "explanation": "Exact : Un défaut d’attachement kinetochore-microtubule active le checkpoint du fuseau. Le kinétochore est un assemblage protéique construit sur la région centromérique. En métaphase, les deux kinétochores sœurs doivent être attachés à des pôles opposés, assurant la bi-orientation et une ségrégation fidèle."
+      },
+      {
+        "content": "Dans une cellule somatique, un kinétochore non attaché déclenche normalement l’anaphase immédiatement.",
+        "correct": false,
+        "explanation": "Incorrect : Un kinétochore non attaché déclenche normalement l’anaphase immédiatement. À retenir : La tension entre kinétochores sœurs est associée à un attachement bipolaire correct."
+      },
+      {
+        "content": "La tension entre kinétochores sœurs est associée à un attachement bipolaire correct.",
+        "correct": true,
+        "explanation": "Exact : La tension entre kinétochores sœurs est associée à un attachement bipolaire correct. Le kinétochore est un assemblage protéique construit sur la région centromérique. En métaphase, les deux kinétochores sœurs doivent être attachés à des pôles opposés, assurant la bi-orientation et une ségrégation fidèle."
+      },
+      {
+        "content": "Dans une cellule somatique, la bi-orientation signifie que les deux kinétochores sœurs sont reliés à des pôles opposés.",
+        "correct": true,
+        "explanation": "Exact : La bi-orientation signifie que les deux kinétochores sœurs sont reliés à des pôles opposés. Le kinétochore est un assemblage protéique construit sur la région centromérique. En métaphase, les deux kinétochores sœurs doivent être attachés à des pôles opposés, assurant la bi-orientation et une ségrégation fidèle."
+      },
+      {
+        "content": "L’alignement métaphasique résulte d’un équilibre dynamique de forces.",
+        "correct": true,
+        "explanation": "Exact : L’alignement métaphasique résulte d’un équilibre dynamique de forces. Le kinétochore est un assemblage protéique construit sur la région centromérique. En métaphase, les deux kinétochores sœurs doivent être attachés à des pôles opposés, assurant la bi-orientation et une ségrégation fidèle."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `L’entrée en anaphase exige la destruction des cohésines.`,
-    choiceExplanations: [
-      `Exact. L’entrée en anaphase exige la destruction des cohésines.`,
-      `Exact. L’entrée en anaphase exige la destruction des cohésines.`,
-      `Exact. L’entrée en anaphase exige la destruction des cohésines.`,
-      `Faux. L’entrée en anaphase exige la destruction des cohésines.`,
-    ],
+    "explanation": "Le kinétochore est un assemblage protéique construit sur la région centromérique. En métaphase, les deux kinétochores sœurs doivent être attachés à des pôles opposés, assurant la bi-orientation et une ségrégation fidèle."
   },
   {
-    order: 113,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `En cas de défaut d’attachement d’un chromosome :`,
-    choices: [
-      `APC/cdc20 est inhibé.`,
-      `La sécurine reste présente.`,
-      `La séparase reste inactive.`,
-      `Les chromatides se séparent malgré tout.`,
+    "order": 89,
+    "difficulty": "MEDIUM",
+    "format": "QZONE",
+    "question": "Sur ce schéma simplifié d’une cellule en métaphase, cliquez sur la plaque métaphasique où sont alignés les chromosomes.",
+    "image": {
+      "src": "/images/training/ue14/biologie-cellulaire/cycle-cellulaire/metaphase-plaque-qzone.svg",
+      "alt": "Schéma simplifié d’une cellule en métaphase avec fuseau bipolaire et chromosomes alignés",
+      "width": 1200,
+      "height": 700
+    },
+    "expectedZones": [
+      {
+        "id": "plaque-metaphasique",
+        "label": "Plaque métaphasique",
+        "x": 0.5,
+        "y": 0.5,
+        "tolerance": 0.11
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le checkpoint métaphasique empêche la séparation prématurée des chromatides.`,
-    choiceExplanations: [
-      `Exact. Le checkpoint métaphasique empêche la séparation prématurée des chromatides.`,
-      `Exact. Le checkpoint métaphasique empêche la séparation prématurée des chromatides.`,
-      `Exact. Le checkpoint métaphasique empêche la séparation prématurée des chromatides.`,
-      `Faux. Le checkpoint métaphasique empêche la séparation prématurée des chromatides.`,
-    ],
+    "defaultTolerance": 0.11,
+    "explanation": "En métaphase, les chromosomes bi-orientés s’alignent autour du plan équatorial de la cellule, appelé plaque métaphasique."
   },
   {
-    order: 114,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `La sortie de mitose dépend :`,
-    choices: [
-      `De la destruction du MPF.`,
-      `De l’activation d’APC/cdh1.`,
-      `De l’ubiquitination de la cycline B.`,
-      `De la dégradation de CDK1 par le protéasome.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La cycline B est dégradée ; CDK1 est libérée inactive dans le cytoplasme.`,
-    choiceExplanations: [
-      `Exact. La cycline B est dégradée ; CDK1 est libérée inactive dans le cytoplasme.`,
-      `Exact. La cycline B est dégradée ; CDK1 est libérée inactive dans le cytoplasme.`,
-      `Exact. La cycline B est dégradée ; CDK1 est libérée inactive dans le cytoplasme.`,
-      `Faux. La cycline B est dégradée ; CDK1 est libérée inactive dans le cytoplasme.`,
-    ],
+    "order": 90,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Quel coactivateur de l’APC/C prend une importance majeure lors de la sortie de mitose et en G1 ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "Cdh1",
+        "CDH1"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "APC/C-Cdh1 contribue à la sortie de mitose et au maintien d’une faible activité CDK en G1."
   },
   {
-    order: 115,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Le passage d’APC/cdc20 à APC/cdh1 illustre :`,
-    choices: [
-      `Un changement de coactivateur.`,
-      `Une régulation temporelle du complexe APC.`,
-      `La succession entre entrée en anaphase et sortie de mitose.`,
-      `La disparition définitive de toute activité ubiquitine ligase.`,
+    "order": 91,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Pour le thème « Cohésine, sécurine et séparase », quelles propositions doivent être retenues ?",
+    "choices": [
+      {
+        "content": "APC/C-Cdc20 contribue à déclencher la séparation des chromatides.",
+        "correct": true,
+        "explanation": "Exact : APC/C-Cdc20 contribue à déclencher la séparation des chromatides. Les cohésines maintiennent les chromatides sœurs associées. La sécurine inhibe la séparase. Quand APC/C-Cdc20 entraîne la dégradation de la sécurine, la séparase peut cliver la cohésine et permettre l’anaphase."
+      },
+      {
+        "content": "La dégradation de la sécurine libère l’activité de la séparase.",
+        "correct": true,
+        "explanation": "Exact : La dégradation de la sécurine libère l’activité de la séparase. Les cohésines maintiennent les chromatides sœurs associées. La sécurine inhibe la séparase. Quand APC/C-Cdc20 entraîne la dégradation de la sécurine, la séparase peut cliver la cohésine et permettre l’anaphase."
+      },
+      {
+        "content": "La séparase clive une sous-unité de la cohésine au début de l’anaphase.",
+        "correct": true,
+        "explanation": "Exact : La séparase clive une sous-unité de la cohésine au début de l’anaphase. Les cohésines maintiennent les chromatides sœurs associées. La sécurine inhibe la séparase. Quand APC/C-Cdc20 entraîne la dégradation de la sécurine, la séparase peut cliver la cohésine et permettre l’anaphase."
+      },
+      {
+        "content": "La cohésine doit être synthétisée pour séparer les chromatides.",
+        "correct": false,
+        "explanation": "Incorrect : La cohésine doit être synthétisée pour séparer les chromatides. À retenir : APC/C-Cdc20 contribue à déclencher la séparation des chromatides."
+      },
+      {
+        "content": "La dégradation de la sécurine inhibe définitivement la séparase.",
+        "correct": false,
+        "explanation": "Incorrect : La dégradation de la sécurine inhibe définitivement la séparase. À retenir : La perte de cohésion permet aux chromatides sœurs de migrer vers des pôles opposés."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `APC reste une E3 ligase mais change de cible et de coactivateur selon l’étape.`,
-    choiceExplanations: [
-      `Exact. APC reste une E3 ligase mais change de cible et de coactivateur selon l’étape.`,
-      `Exact. APC reste une E3 ligase mais change de cible et de coactivateur selon l’étape.`,
-      `Exact. APC reste une E3 ligase mais change de cible et de coactivateur selon l’étape.`,
-      `Faux. APC reste une E3 ligase mais change de cible et de coactivateur selon l’étape.`,
-    ],
+    "explanation": "Les cohésines maintiennent les chromatides sœurs associées. La sécurine inhibe la séparase. Quand APC/C-Cdc20 entraîne la dégradation de la sécurine, la séparase peut cliver la cohésine et permettre l’anaphase."
   },
   {
-    order: 116,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Le MPF en prophase favorise :`,
-    choices: [
-      `La condensation de la chromatine.`,
-      `La formation et l’allongement du fuseau.`,
-      `La disparition de l’enveloppe nucléaire.`,
-      `La reformation immédiate des noyaux fils.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La reformation des noyaux fils suit la diminution de l’activité MPF en fin de mitose.`,
-    choiceExplanations: [
-      `Exact. La reformation des noyaux fils suit la diminution de l’activité MPF en fin de mitose.`,
-      `Exact. La reformation des noyaux fils suit la diminution de l’activité MPF en fin de mitose.`,
-      `Exact. La reformation des noyaux fils suit la diminution de l’activité MPF en fin de mitose.`,
-      `Faux. La reformation des noyaux fils suit la diminution de l’activité MPF en fin de mitose.`,
-    ],
+    "order": 92,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quelle phase de la mitose correspond à l’alignement des chromosomes sur la plaque équatoriale ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "métaphase",
+        "metaphase"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "L’alignement sur la plaque équatoriale caractérise la métaphase."
   },
   {
-    order: 117,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une inhibition de la séparase :`,
-    choices: [
-      `Empêche le clivage des cohésines.`,
-      `Bloque la séparation des chromatides.`,
-      `Peut empêcher l’entrée correcte en anaphase.`,
-      `Accélère la cytodiérèse malgré des chromatides encore liées.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La séparase est indispensable à la dissociation des chromatides sœurs.`,
-    choiceExplanations: [
-      `Exact. La séparase est indispensable à la dissociation des chromatides sœurs.`,
-      `Exact. La séparase est indispensable à la dissociation des chromatides sœurs.`,
-      `Exact. La séparase est indispensable à la dissociation des chromatides sœurs.`,
-      `Faux. La séparase est indispensable à la dissociation des chromatides sœurs.`,
-    ],
+    "order": 93,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Quelle phase de la mitose débute avec la séparation des chromatides sœurs ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "anaphase"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Le déclenchement de l’anaphase suit la perte de cohésion entre chromatides sœurs."
   },
   {
-    order: 118,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une mutation empêchant l’ubiquitination de la sécurine :`,
-    choices: [
-      `Maintient la séparase inactive.`,
-      `Peut bloquer la cellule en métaphase.`,
-      `Empêche le clivage des cohésines.`,
-      `Active directement APC/cdh1 et la sortie de mitose.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La sécurine doit être détruite pour libérer la séparase.`,
-    choiceExplanations: [
-      `Exact. La sécurine doit être détruite pour libérer la séparase.`,
-      `Exact. La sécurine doit être détruite pour libérer la séparase.`,
-      `Exact. La sécurine doit être détruite pour libérer la séparase.`,
-      `Faux. La sécurine doit être détruite pour libérer la séparase.`,
-    ],
+    "order": 94,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quelle phase voit la reformation des enveloppes nucléaires autour des chromosomes ségrégés ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "télophase",
+        "telophase"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "La télophase s’accompagne de la reconstitution des noyaux filles."
   },
   {
-    order: 119,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Les forces de séparation en anaphase résultent :`,
-    choices: [
-      `Du raccourcissement des microtubules kinétochoriens.`,
-      `De l’allongement des microtubules polaires.`,
-      `De moteurs moléculaires générant traction et répulsion.`,
-      `D’une nouvelle réplication des chromatides.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `L’anaphase est un mouvement mécanique de chromatides déjà répliquées.`,
-    choiceExplanations: [
-      `Exact. L’anaphase est un mouvement mécanique de chromatides déjà répliquées.`,
-      `Exact. L’anaphase est un mouvement mécanique de chromatides déjà répliquées.`,
-      `Exact. L’anaphase est un mouvement mécanique de chromatides déjà répliquées.`,
-      `Faux. L’anaphase est un mouvement mécanique de chromatides déjà répliquées.`,
-    ],
+    "order": 95,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Comment nomme-t-on la division physique du cytoplasme qui achève la séparation des cellules filles ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "cytodiérèse",
+        "cytodierese",
+        "cytokinese",
+        "cytokinesis",
+        "cytocinèse",
+        "cytocinese"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "La cytodiérèse, ou cytokinèse, sépare physiquement les deux cellules filles."
   },
   {
-    order: 120,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Synthèse de la section :`,
-    choices: [
-      `La mitose répartit les chromatides en deux lots identiques.`,
-      `Le fuseau est organisé par les COMT et trois types de microtubules.`,
-      `APC/cdc20 déclenche l’anaphase via la sécurine et la séparase.`,
-      `APC/cdh1 contribue à la sortie de mitose en dégradant la cycline B.`,
+    "order": 96,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "À propos de « Checkpoint d’assemblage du fuseau », sélectionnez les propositions exactes.",
+    "choices": [
+      {
+        "content": "Le checkpoint du fuseau inhibe fonctionnellement APC/C-Cdc20 tant que les attachements ne sont pas satisfaisants.",
+        "correct": true,
+        "explanation": "Exact : Le checkpoint du fuseau inhibe fonctionnellement APC/C-Cdc20 tant que les attachements ne sont pas satisfaisants. Le spindle assembly checkpoint (SAC) bloque l’activation efficace d’APC/C-Cdc20 tant que subsistent des kinétochores non correctement attachés. Les protéines MAD et BUB participent au signal de checkpoint."
+      },
+      {
+        "content": "Le checkpoint du fuseau est localisé exclusivement dans le nucléole interphasique.",
+        "correct": false,
+        "explanation": "Incorrect : Le checkpoint du fuseau est localisé exclusivement dans le nucléole interphasique. À retenir : Le checkpoint du fuseau contribue à limiter les erreurs de ségrégation chromosomique."
+      },
+      {
+        "content": "MAD2 et BUBR1 participent au complexe de checkpoint mitotique.",
+        "correct": true,
+        "explanation": "Exact : MAD2 et BUBR1 participent au complexe de checkpoint mitotique. Le spindle assembly checkpoint (SAC) bloque l’activation efficace d’APC/C-Cdc20 tant que subsistent des kinétochores non correctement attachés. Les protéines MAD et BUB participent au signal de checkpoint."
+      },
+      {
+        "content": "Le checkpoint du fuseau contrôle principalement la réplication de l’ADN en phase S.",
+        "correct": false,
+        "explanation": "Incorrect : Le checkpoint du fuseau contrôle principalement la réplication de l’ADN en phase S. À retenir : Le checkpoint du fuseau surveille l’attachement des kinétochores aux microtubules."
+      },
+      {
+        "content": "APC/C-Cdc20 est une enzyme de synthèse des microtubules.",
+        "correct": false,
+        "explanation": "Incorrect : APC/C-Cdc20 est une enzyme de synthèse des microtubules. À retenir : L’extinction du checkpoint permet la dégradation de la sécurine."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2, 3],
-    explanation: `La mécanique du fuseau et les contrôles protéolytiques assurent une division fidèle.`,
-    choiceExplanations: [
-      `Exact. La mécanique du fuseau et les contrôles protéolytiques assurent une division fidèle.`,
-      `Exact. La mécanique du fuseau et les contrôles protéolytiques assurent une division fidèle.`,
-      `Exact. La mécanique du fuseau et les contrôles protéolytiques assurent une division fidèle.`,
-      `Exact. La mécanique du fuseau et les contrôles protéolytiques assurent une division fidèle.`,
-    ],
+    "explanation": "Le spindle assembly checkpoint (SAC) bloque l’activation efficace d’APC/C-Cdc20 tant que subsistent des kinétochores non correctement attachés. Les protéines MAD et BUB participent au signal de checkpoint."
   },
+  {
+    "order": 97,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Dans le cadre de « APC/C-Cdc20 et APC/C-Cdh1 », identifiez l’affirmation correcte.",
+    "choices": [
+      {
+        "content": "APC/C-Cdh1 initie la réplication de l’ADN en phosphorylant directement les origines.",
+        "correct": false,
+        "explanation": "Incorrect : APC/C-Cdh1 initie la réplication de l’ADN en phosphorylant directement les origines. À retenir : La destruction de cycline B contribue à la sortie de mitose."
+      },
+      {
+        "content": "APC/C-Cdc20 cible notamment la sécurine et la cycline B.",
+        "correct": true,
+        "explanation": "Exact : APC/C-Cdc20 cible notamment la sécurine et la cycline B. APC/C change de coactivateur au cours de la mitose. Cdc20 est essentiel à l’entrée en anaphase, tandis que Cdh1 contribue à la sortie de mitose et au maintien d’un faible niveau d’activité CDK en G1."
+      },
+      {
+        "content": "APC/C est un canal calcique de la membrane plasmique.",
+        "correct": false,
+        "explanation": "Incorrect : APC/C est un canal calcique de la membrane plasmique. À retenir : APC/C est une ubiquitine ligase E3."
+      },
+      {
+        "content": "Cdc20 et Cdh1 sont deux histones du nucléosome.",
+        "correct": false,
+        "explanation": "Incorrect : Cdc20 et Cdh1 sont deux histones du nucléosome. À retenir : La succession Cdc20 puis Cdh1 participe à l’ordre temporel de la fin de mitose."
+      },
+      {
+        "content": "Cdh1 est la protéase qui clive directement la cohésine.",
+        "correct": false,
+        "explanation": "Incorrect : Cdh1 est la protéase qui clive directement la cohésine. À retenir : Cdc20 active APC/C au moment de la transition métaphase-anaphase."
+      }
+    ],
+    "explanation": "APC/C change de coactivateur au cours de la mitose. Cdc20 est essentiel à l’entrée en anaphase, tandis que Cdh1 contribue à la sortie de mitose et au maintien d’un faible niveau d’activité CDK en G1."
+  },
+  {
+    "order": 98,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Quels deux éléments du cytosquelette forment le moteur principal de l’anneau contractile des cellules animales ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "actine et myosine II",
+        "actine myosine II",
+        "actine et myosine 2"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "L’anneau contractile associe des filaments d’actine et la myosine II."
+  },
+  {
+    "order": 99,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Pour le thème « Cytodiérèse », quelles propositions doivent être retenues ?",
+    "choices": [
+      {
+        "content": "Le fuseau mitotique participe au positionnement du plan de division.",
+        "correct": true,
+        "explanation": "Exact : Le fuseau mitotique participe au positionnement du plan de division. La cytodiérèse des cellules animales dépend d’un anneau contractile d’actine et de myosine II positionné au cortex équatorial. Sa contraction forme le sillon de clivage puis le corps intermédiaire avant l’abscission."
+      },
+      {
+        "content": "Le corps intermédiaire relie transitoirement les cellules filles avant l’abscission.",
+        "correct": true,
+        "explanation": "Exact : Le corps intermédiaire relie transitoirement les cellules filles avant l’abscission. La cytodiérèse des cellules animales dépend d’un anneau contractile d’actine et de myosine II positionné au cortex équatorial. Sa contraction forme le sillon de clivage puis le corps intermédiaire avant l’abscission."
+      },
+      {
+        "content": "L’abscission précède normalement la métaphase.",
+        "correct": false,
+        "explanation": "Incorrect : L’abscission précède normalement la métaphase. À retenir : L’abscission constitue l’étape finale de séparation des cellules filles."
+      },
+      {
+        "content": "La contraction de l’anneau forme un sillon de clivage.",
+        "correct": true,
+        "explanation": "Exact : La contraction de l’anneau forme un sillon de clivage. La cytodiérèse des cellules animales dépend d’un anneau contractile d’actine et de myosine II positionné au cortex équatorial. Sa contraction forme le sillon de clivage puis le corps intermédiaire avant l’abscission."
+      },
+      {
+        "content": "L’abscission constitue l’étape finale de séparation des cellules filles.",
+        "correct": true,
+        "explanation": "Exact : L’abscission constitue l’étape finale de séparation des cellules filles. La cytodiérèse des cellules animales dépend d’un anneau contractile d’actine et de myosine II positionné au cortex équatorial. Sa contraction forme le sillon de clivage puis le corps intermédiaire avant l’abscission."
+      }
+    ],
+    "explanation": "La cytodiérèse des cellules animales dépend d’un anneau contractile d’actine et de myosine II positionné au cortex équatorial. Sa contraction forme le sillon de clivage puis le corps intermédiaire avant l’abscission."
+  },
+  {
+    "order": 100,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Pour « Anaphase A et B », quelle proposition doit être retenue ?",
+    "choices": [
+      {
+        "content": "Les microtubules kinétochoriens doivent s’allonger indéfiniment pour rapprocher les chromosomes des pôles.",
+        "correct": false,
+        "explanation": "Incorrect : Les microtubules kinétochoriens doivent s’allonger indéfiniment pour rapprocher les chromosomes des pôles. À retenir : Le raccourcissement des microtubules kinétochoriens contribue à l’anaphase A."
+      },
+      {
+        "content": "L’anaphase B correspond à un éloignement des pôles du fuseau.",
+        "correct": true,
+        "explanation": "Exact : L’anaphase B correspond à un éloignement des pôles du fuseau. Pendant l’anaphase, les chromatides se rapprochent des pôles par raccourcissement des microtubules kinétochoriens (anaphase A) et les pôles s’éloignent notamment grâce aux microtubules interpolaires et aux forces corticales (anaphase B)."
+      },
+      {
+        "content": "L’anaphase ne dépend d’aucune force produite par le fuseau.",
+        "correct": false,
+        "explanation": "Incorrect : L’anaphase ne dépend d’aucune force produite par le fuseau. À retenir : La séparation des chromatides transforme chaque chromatide en chromosome indépendant."
+      },
+      {
+        "content": "L’anaphase A correspond à la réplication des chromosomes au centre du fuseau.",
+        "correct": false,
+        "explanation": "Incorrect : L’anaphase A correspond à la réplication des chromosomes au centre du fuseau. À retenir : L’anaphase A correspond au mouvement des chromosomes vers les pôles."
+      },
+      {
+        "content": "La séparation des chromatides divise le nombre de chromosomes par deux dans la cellule avant cytodiérèse.",
+        "correct": false,
+        "explanation": "Incorrect : La séparation des chromatides divise le nombre de chromosomes par deux dans la cellule avant cytodiérèse. À retenir : Les forces exercées sur les microtubules astraux peuvent contribuer à l’écartement des pôles."
+      }
+    ],
+    "explanation": "Pendant l’anaphase, les chromatides se rapprochent des pôles par raccourcissement des microtubules kinétochoriens (anaphase A) et les pôles s’éloignent notamment grâce aux microtubules interpolaires et aux forces corticales (anaphase B)."
+  }
 ];
 
 export const SECTION_D_QUIZZES: SeedQuiz[] = [
   {
-    order: 10,
-    slug: `deroulement-de-la-mitose`,
-    title: `Déroulement de la mitose`,
-    description: `Caryodiérèse, cytodiérèse et structures essentielles.`,
-    stage: 'DISCOVER',
-    sectionOrder: 4,
-    questionOrders: [91, 92, 93, 94, 95, 96, 97, 98, 99, 100],
+    "order": 7,
+    "slug": "cycle-cellulaire-mitose-1",
+    "title": "Phases de mitose et fuseau",
+    "description": "Prophase à anaphase : organisation et mouvements chromosomiques.",
+    "stage": "DISCOVER",
+    "sectionOrder": 4,
+    "questionOrders": [
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76
+    ]
   },
   {
-    order: 11,
-    slug: `fuseau-mitotique-et-cytodierese`,
-    title: `Fuseau mitotique et cytodiérèse`,
-    description: `Microtubules astraux, polaires, kinétochoriens et anneau contractile.`,
-    stage: 'PRACTICE',
-    sectionOrder: 4,
-    questionOrders: [101, 102, 103, 104, 105, 106, 107, 108, 109, 110],
+    "order": 8,
+    "slug": "cycle-cellulaire-mitose-2",
+    "title": "Kinétochores, cohésine et checkpoint",
+    "description": "Bi-orientation et contrôle de la transition métaphase-anaphase.",
+    "stage": "PRACTICE",
+    "sectionOrder": 4,
+    "questionOrders": [
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88
+    ]
   },
   {
-    order: 12,
-    slug: `controle-de-la-sortie-de-mitose`,
-    title: `Contrôle de l’anaphase et de la sortie de mitose`,
-    description: `APC/cdc20, sécurine, séparase, cohésines et APC/cdh1.`,
-    stage: 'MASTER',
-    sectionOrder: 4,
-    questionOrders: [111, 112, 113, 114, 115, 116, 117, 118, 119, 120],
-  },
+    "order": 9,
+    "slug": "cycle-cellulaire-mitose-3",
+    "title": "Anaphase, télophase et cytodiérèse",
+    "description": "APC/C, séparase, sortie de mitose et séparation cellulaire.",
+    "stage": "PRACTICE",
+    "sectionOrder": 4,
+    "questionOrders": [
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100
+    ]
+  }
 ];

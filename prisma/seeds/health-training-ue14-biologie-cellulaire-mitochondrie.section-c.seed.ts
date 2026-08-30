@@ -1,642 +1,754 @@
-/**
- * UE14 – Biologie cellulaire – Chapitre 7
- * Contenu pédagogique fondé sur la fiche 2024-2025 du Tutorat Santé de Reims.
- */
 import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
 
+/** UE14 Biologie cellulaire — Ch7 — Mitochondrie — ATP synthase, inhibiteurs et rendement énergétique — V2 active */
 export const SECTION_C_QUESTIONS: SeedQuestion[] = [
   {
-    order: 61,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `L’ATP synthase :`,
-    choices: [
-      `Utilise le gradient de protons.`,
-      `Produit de l’ATP dans la matrice.`,
-      `Transforme ADP et phosphate inorganique en ATP.`,
-      `Se situe dans la membrane externe.`,
+    "order": 45,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Quelles propositions sont correctes concernant la chaîne respiratoire mitochondriale ?",
+    "choices": [
+      {
+        "content": "Les complexes I, III et IV contribuent au pompage de protons.",
+        "correct": true,
+        "explanation": "Ils participent à l’établissement du gradient électrochimique."
+      },
+      {
+        "content": "La réduction de l’oxygène en eau se produit au complexe IV.",
+        "correct": true,
+        "explanation": "Le cytochrome c oxydase catalyse cette étape terminale."
+      },
+      {
+        "content": "La chaîne respiratoire est localisée dans la membrane externe.",
+        "correct": false,
+        "explanation": "Elle est localisée dans la membrane interne."
+      },
+      {
+        "content": "L’oxydation du NADH et du FADH2 permet de convertir une partie de l’énergie redox en force proton-motrice.",
+        "correct": true,
+        "explanation": "Le pompage de H+ couple transfert d’électrons et stockage d’énergie électrochimique."
+      },
+      {
+        "content": "Le complexe IV produit directement de l’ATP.",
+        "correct": false,
+        "explanation": "Il transfère les électrons à l’O2 et pompe des protons ; l’ATP est synthétisé par l’ATP synthase."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `L’ATP synthase est implantée dans la membrane interne mitochondriale.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "Les complexes I à IV transfèrent les électrons vers l’oxygène ; I, III et IV pompent des protons, tandis que l’ubiquinone et le cytochrome c assurent des transferts mobiles."
   },
   {
-    order: 62,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Les deux parties de l’ATP synthase sont :`,
-    choices: [
-      `F0, canal protonique.`,
-      `F1, partie catalytique.`,
-      `F0, ADN mitochondrial.`,
-      `F1, activité ATP synthase.`,
+    "order": 46,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Quelle proposition est scientifiquement correcte concernant la force proton-motrice et l’ATP synthase ?",
+    "choices": [
+      {
+        "content": "Un découplant peut augmenter la consommation d’oxygène tout en diminuant le rendement de synthèse d’ATP.",
+        "correct": true,
+        "explanation": "Il dissipe la force proton-motrice sous forme de chaleur."
+      },
+      {
+        "content": "Le domaine F1 traverse la membrane interne et constitue le principal canal à protons.",
+        "correct": false,
+        "explanation": "F1 porte les sites catalytiques du côté matriciel ; le canal transmembranaire est F0."
+      },
+      {
+        "content": "La force proton-motrice correspond uniquement à une différence de concentration en ATP.",
+        "correct": false,
+        "explanation": "Elle associe un potentiel électrique et un gradient de protons."
+      },
+      {
+        "content": "L’ATP synthase pompe normalement les protons de la matrice vers l’espace intermembranaire pendant la synthèse d’ATP.",
+        "correct": false,
+        "explanation": "Pendant la synthèse, le flux de protons est dans le sens espace intermembranaire vers matrice."
+      },
+      {
+        "content": "L’ATP synthase produit de l’ATP directement à partir de NADH.",
+        "correct": false,
+        "explanation": "Elle utilise ADP + Pi et l’énergie de la force proton-motrice."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `F0 conduit les protons et F1 catalyse la synthèse d’ATP.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-      `Exact : conforme aux éléments de la fiche.`,
-    ],
+    "explanation": "La chaîne respiratoire établit une force proton-motrice utilisée par l’ATP synthase F0F1 pour phosphoryler l’ADP dans la matrice."
   },
   {
-    order: 63,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Le retour des H+ par l’ATP synthase :`,
-    choices: [
-      `Se fait de l’espace intermembranaire vers la matrice.`,
-      `Fournit l’énergie de la synthèse d’ATP.`,
-      `Exploite la force motrice protonique.`,
-      `Se produit exclusivement par le complexe II.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le complexe II ne constitue pas le canal de retour des protons.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "order": 47,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel est l’accepteur final des électrons de la chaîne respiratoire ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "oxygène",
+        "O2",
+        "dioxygène",
+        "oxygène moléculaire"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "L’O2 est réduit en eau par le complexe IV."
   },
   {
-    order: 64,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Le fonctionnement inverse de l’ATP synthase mentionné dans la fiche :`,
-    choices: [
-      `Peut hydrolyser l’ATP en ADP.`,
-      `Peut contribuer à augmenter les H+ dans l’espace intermembranaire.`,
-      `Peut être utile si le gradient protonique est insuffisant.`,
-      `Produit alors davantage d’ATP sans consommation.`,
+    "order": 48,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes concernant les navettes et transporteurs mitochondriaux, lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "La navette glycérol-3-phosphate transfère des électrons vers l’ubiquinone en contournant le complexe I.",
+        "correct": true,
+        "explanation": "La glycérol-3-phosphate déshydrogénase mitochondriale utilise FAD et réduit la coenzyme Q."
+      },
+      {
+        "content": "Le NAD+ et le NADH cytosoliques diffusent librement à travers la membrane interne.",
+        "correct": false,
+        "explanation": "La membrane interne est imperméable à ces coenzymes ; les navettes transfèrent les équivalents réducteurs."
+      },
+      {
+        "content": "La navette malate-aspartate peut transférer les équivalents réducteurs du NADH cytosolique vers du NADH matriciel.",
+        "correct": true,
+        "explanation": "Les électrons peuvent ensuite entrer dans la chaîne au complexe I."
+      },
+      {
+        "content": "Le transporteur ADP/ATP échange l’ADP cytosolique contre l’ATP matriciel à travers la membrane interne.",
+        "correct": true,
+        "explanation": "L’ANT assure cet antiport essentiel."
+      },
+      {
+        "content": "Le NADH cytosolique ne traverse pas librement la membrane interne mitochondriale.",
+        "correct": true,
+        "explanation": "Ses équivalents réducteurs sont transférés par des navettes."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le fonctionnement inverse consomme de l’ATP au lieu d’en produire.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La membrane interne impose des échanges sélectifs : navettes redox et transporteurs permettent le couplage entre métabolisme cytosolique et mitochondrial."
   },
   {
-    order: 65,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Le rendement énergétique indiqué est :`,
-    choices: [
-      `2,5 ATP par NADH oxydé.`,
-      `1,5 ATP par FADH2 oxydé.`,
-      `30 ATP au total par glucose dans l’exemple musculaire.`,
-      `100 ATP par NADH.`,
+    "order": 49,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "question": "Concernant les membranes, crêtes et compartiments mitochondriaux, sélectionnez exactement les deux propositions exactes.",
+    "choices": [
+      {
+        "content": "La glycolyse se déroule dans la matrice mitochondriale.",
+        "correct": false,
+        "explanation": "La glycolyse est cytosolique ; le pyruvate formé peut ensuite entrer dans la mitochondrie."
+      },
+      {
+        "content": "L’espace intermembranaire se situe entre les membranes externe et interne.",
+        "correct": true,
+        "explanation": "Il reçoit notamment les protons pompés par la chaîne respiratoire."
+      },
+      {
+        "content": "La membrane externe est aussi imperméable aux petits métabolites que la membrane interne.",
+        "correct": false,
+        "explanation": "La membrane externe est relativement perméable aux petites molécules grâce aux VDAC, contrairement à la membrane interne."
+      },
+      {
+        "content": "La matrice contient les enzymes du cycle de Krebs.",
+        "correct": true,
+        "explanation": "La plupart des enzymes du cycle de l’acide citrique sont matricielles ; la succinate déshydrogénase est intégrée à la membrane interne."
+      },
+      {
+        "content": "La membrane interne est librement perméable aux protons.",
+        "correct": false,
+        "explanation": "Sa faible perméabilité aux H+ est indispensable au maintien de la force proton-motrice."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La fiche donne des valeurs précises pour les coenzymes et le glucose.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La membrane externe est relativement perméable aux petits métabolites, tandis que la membrane interne, riche en protéines et organisée en crêtes, maintient la force proton-motrice.",
+    "requiredSelectionCount": 2
   },
   {
-    order: 66,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Dans l’exemple musculaire de la fiche, un glucose fournit :`,
-    choices: [
-      `2 ATP dans le cytosol.`,
-      `28 ATP dans la mitochondrie.`,
-      `30 ATP au total.`,
-      `Uniquement 2 ATP au total.`,
+    "order": 50,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "À propos de la chaîne respiratoire mitochondriale, sélectionnez les affirmations exactes.",
+    "choices": [
+      {
+        "content": "Les électrons se déplacent spontanément de l’oxygène vers le NADH au cours de la respiration.",
+        "correct": false,
+        "explanation": "Le flux physiologique va des donneurs réduits vers l’O2."
+      },
+      {
+        "content": "Le complexe II pompe des protons de la matrice vers l’espace intermembranaire.",
+        "correct": false,
+        "explanation": "Contrairement aux complexes I, III et IV, le complexe II ne pompe pas de protons."
+      },
+      {
+        "content": "Le cytochrome c transfère des électrons du complexe III au complexe IV.",
+        "correct": true,
+        "explanation": "C’est un transporteur périphérique de l’espace intermembranaire."
+      },
+      {
+        "content": "L’ubiquinone transporte des électrons dans la membrane interne entre les complexes I/II et III.",
+        "correct": true,
+        "explanation": "La coenzyme Q est un transporteur liposoluble mobile."
+      },
+      {
+        "content": "Le complexe IV produit directement de l’ATP.",
+        "correct": false,
+        "explanation": "Il transfère les électrons à l’O2 et pompe des protons ; l’ATP est synthétisé par l’ATP synthase."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le bilan total présenté est de 30 ATP par glucose.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "Les complexes I à IV transfèrent les électrons vers l’oxygène ; I, III et IV pompent des protons, tandis que l’ubiquinone et le cytochrome c assurent des transferts mobiles."
   },
   {
-    order: 67,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Les 28 ATP mitochondriaux indiqués comprennent :`,
-    choices: [
-      `2 ATP issus de deux GTP du cycle de Krebs.`,
-      `26 ATP issus de la phosphorylation oxydative.`,
-      `Un total mitochondrial supérieur au bilan total.`,
-      `Une composante de phosphorylation oxydative.`,
+    "order": 51,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "À propos de la force proton-motrice et l’ATP synthase, quelle affirmation est correcte ?",
+    "choices": [
+      {
+        "content": "La phosphorylation oxydative se déroule dans le cytosol.",
+        "correct": false,
+        "explanation": "Elle dépend de la membrane interne mitochondriale."
+      },
+      {
+        "content": "Le domaine F0 forme la voie transmembranaire des protons.",
+        "correct": true,
+        "explanation": "F0 est inséré dans la membrane interne."
+      },
+      {
+        "content": "Le gradient protonique est créé parce que les complexes respiratoires synthétisent de nouveaux protons.",
+        "correct": false,
+        "explanation": "Ils déplacent des protons préexistants de la matrice vers l’espace intermembranaire."
+      },
+      {
+        "content": "La force proton-motrice correspond uniquement à une différence de concentration en ATP.",
+        "correct": false,
+        "explanation": "Elle associe un potentiel électrique et un gradient de protons."
+      },
+      {
+        "content": "L’ATP synthase pompe normalement les protons de la matrice vers l’espace intermembranaire pendant la synthèse d’ATP.",
+        "correct": false,
+        "explanation": "Pendant la synthèse, le flux de protons est dans le sens espace intermembranaire vers matrice."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Le bilan mitochondrial est décomposé en 2 ATP équivalents du cycle de Krebs et 26 par phosphorylation oxydative.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-      `Exact : conforme aux éléments de la fiche.`,
-    ],
+    "explanation": "La chaîne respiratoire établit une force proton-motrice utilisée par l’ATP synthase F0F1 pour phosphoryler l’ADP dans la matrice."
   },
   {
-    order: 68,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Observe la figure suivante :
-
-![Inhibiteurs et rendement](/images/training/ue14/biologie-cellulaire/mitochondrie/inhibiteurs-rendement-atp.png)
-
-Quelle(s) proposition(s) est(sont) exacte(s) ?`,
-    choices: [
-      `Le NADH a un rendement supérieur au FADH2.`,
-      `La mitochondrie fournit 28 ATP dans le bilan présenté.`,
-      `Le cytosol fournit 2 ATP.`,
-      `Le complexe II est inhibé par la roténone.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La figure associe le complexe II au malonate, et le complexe I à la roténone.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "order": 52,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel transporteur mobile transfère les électrons des complexes I et II vers le complexe III ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "ubiquinone",
+        "coenzyme Q",
+        "CoQ",
+        "Q"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "L’ubiquinone est un transporteur liposoluble de la membrane interne."
   },
   {
-    order: 69,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Les inhibiteurs du complexe I cités sont :`,
-    choices: [
-      `La roténone.`,
-      `Les barbituriques.`,
-      `Le malonate.`,
-      `Des composés pouvant réduire la respiration mitochondriale.`,
+    "order": 53,
+    "difficulty": "EASY",
+    "format": "QRPL",
+    "question": "Cinq propositions sont exactes à propos des navettes et transporteurs mitochondriaux. Sélectionnez-les.",
+    "choices": [
+      {
+        "content": "Les transporteurs de la membrane interne contribuent au couplage entre métabolisme cytosolique et mitochondrial.",
+        "correct": true,
+        "explanation": "Ils assurent des échanges sélectifs de métabolites et de nucléotides."
+      },
+      {
+        "content": "Le pyruvate traverse la membrane interne uniquement par diffusion simple.",
+        "correct": false,
+        "explanation": "Un transporteur mitochondrial du pyruvate intervient."
+      },
+      {
+        "content": "Le NAD+ et le NADH cytosoliques diffusent librement à travers la membrane interne.",
+        "correct": false,
+        "explanation": "La membrane interne est imperméable à ces coenzymes ; les navettes transfèrent les équivalents réducteurs."
+      },
+      {
+        "content": "Les acides gras à longue chaîne utilisent notamment la navette carnitine pour accéder à la β-oxydation mitochondriale.",
+        "correct": true,
+        "explanation": "La carnitine permet le transfert des groupements acyles à travers la membrane interne."
+      },
+      {
+        "content": "Le phosphate inorganique doit aussi être importé dans la matrice pour former de l’ATP.",
+        "correct": true,
+        "explanation": "Un transporteur de phosphate contribue à fournir Pi à l’ATP synthase."
+      },
+      {
+        "content": "La navette malate-aspartate peut transférer les équivalents réducteurs du NADH cytosolique vers du NADH matriciel.",
+        "correct": true,
+        "explanation": "Les électrons peuvent ensuite entrer dans la chaîne au complexe I."
+      },
+      {
+        "content": "La navette glycérol-3-phosphate injecte directement des électrons dans le complexe II.",
+        "correct": false,
+        "explanation": "Elle réduit l’ubiquinone via une déshydrogénase distincte du complexe II."
+      },
+      {
+        "content": "L’ATP synthétisé dans la matrice reste définitivement dans la mitochondrie.",
+        "correct": false,
+        "explanation": "Il est exporté vers le cytosol via l’ANT."
+      },
+      {
+        "content": "La navette malate-aspartate impose un rendement identique à celui de la navette glycérol-3-phosphate.",
+        "correct": false,
+        "explanation": "Le point d’entrée différent dans la chaîne peut modifier le rendement en ATP."
+      },
+      {
+        "content": "La navette glycérol-3-phosphate transfère des électrons vers l’ubiquinone en contournant le complexe I.",
+        "correct": true,
+        "explanation": "La glycérol-3-phosphate déshydrogénase mitochondriale utilise FAD et réduit la coenzyme Q."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Le malonate est associé au complexe II.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-      `Exact : conforme aux éléments de la fiche.`,
-    ],
+    "explanation": "La membrane interne impose des échanges sélectifs : navettes redox et transporteurs permettent le couplage entre métabolisme cytosolique et mitochondrial.",
+    "requiredSelectionCount": 5
   },
   {
-    order: 70,
-    difficulty: 'EASY',
-    answerFormat: 'SINGLE',
-    question: `Quel inhibiteur est associé au complexe II ?`,
-    choices: [
-      `Le malonate.`,
-      `L’antimycine A.`,
-      `Le cyanure.`,
-      `L’oligomycine.`,
+    "order": 54,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Sur le thème des membranes, crêtes et compartiments mitochondriaux, quelles affirmations sont exactes ?",
+    "choices": [
+      {
+        "content": "La cardiolipine est un phospholipide caractéristique particulièrement abondant dans la membrane interne.",
+        "correct": true,
+        "explanation": "La cardiolipine contribue à l’organisation et au fonctionnement de protéines de la membrane interne."
+      },
+      {
+        "content": "La membrane interne porte l’ATP synthase.",
+        "correct": true,
+        "explanation": "Le complexe F0F1 utilise la force proton-motrice pour synthétiser l’ATP."
+      },
+      {
+        "content": "Les crêtes sont des replis de la membrane externe.",
+        "correct": false,
+        "explanation": "Les crêtes sont des replis de la membrane interne."
+      },
+      {
+        "content": "Les complexes respiratoires sont principalement localisés dans la membrane interne.",
+        "correct": true,
+        "explanation": "Les complexes I à IV et l’ATP synthase sont associés à la membrane interne."
+      },
+      {
+        "content": "Le cholestérol est absent de toute membrane mitochondriale.",
+        "correct": false,
+        "explanation": "Il est peu abondant par rapport à la membrane plasmique mais il peut être présent et sert notamment de substrat à la stéroïdogenèse."
+      }
     ],
-    correctChoiceIndexes: [0],
-    explanation: `La fiche associe le malonate au complexe II.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La membrane externe est relativement perméable aux petits métabolites, tandis que la membrane interne, riche en protéines et organisée en crêtes, maintient la force proton-motrice."
   },
   {
-    order: 71,
-    difficulty: 'MEDIUM',
-    answerFormat: 'SINGLE',
-    question: `Quel inhibiteur est associé au complexe III ?`,
-    choices: [
-      `L’antimycine A.`,
-      `La roténone.`,
-      `Le malonate.`,
-      `L’oligomycine.`,
+    "order": 55,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Parmi ces propositions relatives à la force proton-motrice et l’ATP synthase, lesquelles sont justes ?",
+    "choices": [
+      {
+        "content": "Le domaine F1 traverse la membrane interne et constitue le principal canal à protons.",
+        "correct": false,
+        "explanation": "F1 porte les sites catalytiques du côté matriciel ; le canal transmembranaire est F0."
+      },
+      {
+        "content": "Le domaine F1 porte les sites catalytiques de synthèse d’ATP.",
+        "correct": true,
+        "explanation": "F1 fait saillie du côté matriciel."
+      },
+      {
+        "content": "L’oligomycine bloque le canal F0 de l’ATP synthase.",
+        "correct": true,
+        "explanation": "Elle empêche le retour des protons et inhibe la synthèse d’ATP."
+      },
+      {
+        "content": "Le domaine F0 forme la voie transmembranaire des protons.",
+        "correct": true,
+        "explanation": "F0 est inséré dans la membrane interne."
+      },
+      {
+        "content": "La phosphorylation oxydative nécessite un gradient de protons intact.",
+        "correct": true,
+        "explanation": "La dissipation du gradient découple la respiration de la synthèse d’ATP."
+      }
     ],
-    correctChoiceIndexes: [0],
-    explanation: `L’antimycine A est l’inhibiteur cité du complexe III.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La chaîne respiratoire établit une force proton-motrice utilisée par l’ATP synthase F0F1 pour phosphoryler l’ADP dans la matrice."
   },
   {
-    order: 72,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Les inhibiteurs du complexe IV cités sont :`,
-    choices: [
-      `Le cyanure.`,
-      `L’oxyde de carbone.`,
-      `Le malonate.`,
-      `Des poisons pouvant entraîner un décès rapide.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `La fiche présente le cyanure et l’oxyde de carbone comme inhibiteurs du complexe IV.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-      `Exact : conforme aux éléments de la fiche.`,
-    ],
+    "order": 56,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Dans quel sens les protons traversent-ils normalement l’ATP synthase pendant la synthèse d’ATP ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "espace intermembranaire vers matrice",
+        "de l’espace intermembranaire vers la matrice",
+        "IM vers matrice",
+        "intermembranaire vers matrice"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Le retour des H+ vers la matrice fournit l’énergie à l’ATP synthase."
   },
   {
-    order: 73,
-    difficulty: 'MEDIUM',
-    answerFormat: 'SINGLE',
-    question: `L’oligomycine inhibe :`,
-    choices: [
-      `L’ATP synthase.`,
-      `Le complexe I.`,
-      `Le complexe II.`,
-      `Le transporteur TOM.`,
+    "order": 57,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Quelle affirmation est juste à propos de la chaîne respiratoire mitochondriale ?",
+    "choices": [
+      {
+        "content": "Le complexe IV produit directement de l’ATP.",
+        "correct": false,
+        "explanation": "Il transfère les électrons à l’O2 et pompe des protons ; l’ATP est synthétisé par l’ATP synthase."
+      },
+      {
+        "content": "La chaîne respiratoire est localisée dans la membrane externe.",
+        "correct": false,
+        "explanation": "Elle est localisée dans la membrane interne."
+      },
+      {
+        "content": "Les complexes I, III et IV contribuent au pompage de protons.",
+        "correct": true,
+        "explanation": "Ils participent à l’établissement du gradient électrochimique."
+      },
+      {
+        "content": "Les électrons se déplacent spontanément de l’oxygène vers le NADH au cours de la respiration.",
+        "correct": false,
+        "explanation": "Le flux physiologique va des donneurs réduits vers l’O2."
+      },
+      {
+        "content": "Le complexe II pompe des protons de la matrice vers l’espace intermembranaire.",
+        "correct": false,
+        "explanation": "Contrairement aux complexes I, III et IV, le complexe II ne pompe pas de protons."
+      }
     ],
-    correctChoiceIndexes: [0],
-    explanation: `L’oligomycine est associée à l’ATP synthase.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "Les complexes I à IV transfèrent les électrons vers l’oxygène ; I, III et IV pompent des protons, tandis que l’ubiquinone et le cytochrome c assurent des transferts mobiles."
   },
   {
-    order: 74,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Le blocage de l’ATP synthase par l’oligomycine peut :`,
-    choices: [
-      `Empêcher l’utilisation normale du gradient protonique pour former l’ATP.`,
-      `Réduire la production d’ATP mitochondrial.`,
-      `Perturber le retour des protons par F0.`,
-      `Stimuler directement la translocation TOM.`,
+    "order": 58,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "À propos des navettes et transporteurs mitochondriaux, sélectionnez les affirmations exactes.",
+    "choices": [
+      {
+        "content": "L’ATP synthétisé dans la matrice reste définitivement dans la mitochondrie.",
+        "correct": false,
+        "explanation": "Il est exporté vers le cytosol via l’ANT."
+      },
+      {
+        "content": "La navette glycérol-3-phosphate transfère des électrons vers l’ubiquinone en contournant le complexe I.",
+        "correct": true,
+        "explanation": "La glycérol-3-phosphate déshydrogénase mitochondriale utilise FAD et réduit la coenzyme Q."
+      },
+      {
+        "content": "Le pyruvate traverse la membrane interne uniquement par diffusion simple.",
+        "correct": false,
+        "explanation": "Un transporteur mitochondrial du pyruvate intervient."
+      },
+      {
+        "content": "La navette malate-aspartate peut transférer les équivalents réducteurs du NADH cytosolique vers du NADH matriciel.",
+        "correct": true,
+        "explanation": "Les électrons peuvent ensuite entrer dans la chaîne au complexe I."
+      },
+      {
+        "content": "La navette malate-aspartate impose un rendement identique à celui de la navette glycérol-3-phosphate.",
+        "correct": false,
+        "explanation": "Le point d’entrée différent dans la chaîne peut modifier le rendement en ATP."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `L’oligomycine cible l’ATP synthase, non les complexes d’import protéique.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La membrane interne impose des échanges sélectifs : navettes redox et transporteurs permettent le couplage entre métabolisme cytosolique et mitochondrial."
   },
   {
-    order: 75,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Le cyanure est particulièrement dangereux car :`,
-    choices: [
-      `Il bloque le complexe IV.`,
-      `Il empêche le transfert final des électrons à l’oxygène.`,
-      `Il compromet rapidement la respiration cellulaire.`,
-      `Il augmente la phosphorylation oxydative.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le blocage du complexe IV interrompt la chaîne respiratoire et la production énergétique.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "order": 59,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel domaine de l’ATP synthase forme le canal transmembranaire à protons ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "F0",
+        "F₀",
+        "fo",
+        "domaine F0"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "F0 est inséré dans la membrane interne et constitue la voie de passage des protons."
   },
   {
-    order: 76,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Un calcul fondé sur la fiche donne pour 2 NADH :`,
-    choices: [
-      `5 ATP.`,
-      `Un rendement supérieur à celui de 2 FADH2.`,
-      `2,5 ATP par NADH.`,
-      `3 ATP au total.`,
+    "order": 60,
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "question": "Sélectionnez exactement les deux affirmations exactes concernant l’organisation des membranes et compartiments mitochondriaux.",
+    "choices": [
+      {
+        "content": "La membrane externe est aussi imperméable aux petits métabolites que la membrane interne.",
+        "correct": false,
+        "explanation": "La membrane externe est relativement perméable aux petites molécules grâce aux VDAC, contrairement à la membrane interne."
+      },
+      {
+        "content": "Les crêtes sont des replis de la membrane externe.",
+        "correct": false,
+        "explanation": "Les crêtes sont des replis de la membrane interne."
+      },
+      {
+        "content": "L’espace intermembranaire se situe entre les membranes externe et interne.",
+        "correct": true,
+        "explanation": "Il reçoit notamment les protons pompés par la chaîne respiratoire."
+      },
+      {
+        "content": "La matrice contient les enzymes du cycle de Krebs.",
+        "correct": true,
+        "explanation": "La plupart des enzymes du cycle de l’acide citrique sont matricielles ; la succinate déshydrogénase est intégrée à la membrane interne."
+      },
+      {
+        "content": "La membrane interne est librement perméable aux protons.",
+        "correct": false,
+        "explanation": "Sa faible perméabilité aux H+ est indispensable au maintien de la force proton-motrice."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Deux NADH correspondent à 2 × 2,5 = 5 ATP ; deux FADH2 donneraient 3 ATP.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La membrane externe est relativement perméable aux petits métabolites, tandis que la membrane interne, riche en protéines et organisée en crêtes, maintient la force proton-motrice.",
+    "requiredSelectionCount": 2
   },
   {
-    order: 77,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Pour 4 FADH2, le rendement théorique indiqué est :`,
-    choices: [
-      `6 ATP.`,
-      `4 × 1,5 ATP.`,
-      `Inférieur au rendement de 4 NADH.`,
-      `10 ATP.`,
+    "order": 61,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles propositions sont correctes concernant la force proton-motrice et l’ATP synthase ?",
+    "choices": [
+      {
+        "content": "Un découplant peut augmenter la consommation d’oxygène tout en diminuant le rendement de synthèse d’ATP.",
+        "correct": true,
+        "explanation": "Il dissipe la force proton-motrice sous forme de chaleur."
+      },
+      {
+        "content": "L’ATP synthase pompe normalement les protons de la matrice vers l’espace intermembranaire pendant la synthèse d’ATP.",
+        "correct": false,
+        "explanation": "Pendant la synthèse, le flux de protons est dans le sens espace intermembranaire vers matrice."
+      },
+      {
+        "content": "L’ATP synthase produit de l’ATP directement à partir de NADH.",
+        "correct": false,
+        "explanation": "Elle utilise ADP + Pi et l’énergie de la force proton-motrice."
+      },
+      {
+        "content": "En conditions particulières, l’ATP synthase peut fonctionner en sens inverse et hydrolyser l’ATP.",
+        "correct": true,
+        "explanation": "Le fonctionnement réversible peut contribuer au maintien du gradient lorsque la respiration est insuffisante."
+      },
+      {
+        "content": "La force proton-motrice comporte une composante électrique et une composante chimique.",
+        "correct": true,
+        "explanation": "Elle résulte du potentiel de membrane et du gradient de pH."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Quatre FADH2 donnent 6 ATP selon la valeur de 1,5 ATP par FADH2.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La chaîne respiratoire établit une force proton-motrice utilisée par l’ATP synthase F0F1 pour phosphoryler l’ADP dans la matrice."
   },
   {
-    order: 78,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Pour 3 NADH et 2 FADH2, le rendement théorique indiqué est :`,
-    choices: [
-      `10,5 ATP.`,
-      `7,5 ATP issus des NADH.`,
-      `3 ATP issus des FADH2.`,
-      `15 ATP.`,
+    "order": 62,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Quelle proposition est scientifiquement correcte concernant la chaîne respiratoire mitochondriale ?",
+    "choices": [
+      {
+        "content": "Les électrons se déplacent spontanément de l’oxygène vers le NADH au cours de la respiration.",
+        "correct": false,
+        "explanation": "Le flux physiologique va des donneurs réduits vers l’O2."
+      },
+      {
+        "content": "Le complexe II pompe des protons de la matrice vers l’espace intermembranaire.",
+        "correct": false,
+        "explanation": "Contrairement aux complexes I, III et IV, le complexe II ne pompe pas de protons."
+      },
+      {
+        "content": "Le complexe IV produit directement de l’ATP.",
+        "correct": false,
+        "explanation": "Il transfère les électrons à l’O2 et pompe des protons ; l’ATP est synthétisé par l’ATP synthase."
+      },
+      {
+        "content": "L’oxygène est l’accepteur final des électrons au complexe IV.",
+        "correct": true,
+        "explanation": "Il est réduit en eau."
+      },
+      {
+        "content": "La chaîne respiratoire est localisée dans la membrane externe.",
+        "correct": false,
+        "explanation": "Elle est localisée dans la membrane interne."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le calcul est 3 × 2,5 + 2 × 1,5 = 10,5 ATP.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "Les complexes I à IV transfèrent les électrons vers l’oxygène ; I, III et IV pompent des protons, tandis que l’ubiquinone et le cytochrome c assurent des transferts mobiles."
   },
   {
-    order: 79,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Le rendement plus élevé du NADH que du FADH2 est cohérent avec :`,
-    choices: [
-      `Une entrée des électrons du NADH au complexe I.`,
-      `Une entrée des électrons du FADH2 au complexe II.`,
-      `Le pompage de protons par le complexe I mais pas par le complexe II.`,
-      `Une synthèse directe d’ATP par le FADH2.`,
+    "order": 63,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quels énoncés décrivent correctement les navettes redox et les transporteurs de la membrane interne mitochondriale ?",
+    "choices": [
+      {
+        "content": "Les acides gras à longue chaîne utilisent notamment la navette carnitine pour accéder à la β-oxydation mitochondriale.",
+        "correct": true,
+        "explanation": "La carnitine permet le transfert des groupements acyles à travers la membrane interne."
+      },
+      {
+        "content": "Le phosphate inorganique doit aussi être importé dans la matrice pour former de l’ATP.",
+        "correct": true,
+        "explanation": "Un transporteur de phosphate contribue à fournir Pi à l’ATP synthase."
+      },
+      {
+        "content": "Le transporteur ADP/ATP échange l’ADP cytosolique contre l’ATP matriciel à travers la membrane interne.",
+        "correct": true,
+        "explanation": "L’ANT assure cet antiport essentiel."
+      },
+      {
+        "content": "Les transporteurs de la membrane interne contribuent au couplage entre métabolisme cytosolique et mitochondrial.",
+        "correct": true,
+        "explanation": "Ils assurent des échanges sélectifs de métabolites et de nucléotides."
+      },
+      {
+        "content": "Le NAD+ et le NADH cytosoliques diffusent librement à travers la membrane interne.",
+        "correct": false,
+        "explanation": "La membrane interne est imperméable à ces coenzymes ; les navettes transfèrent les équivalents réducteurs."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `L’entrée au complexe I permet de bénéficier d’une étape de pompage supplémentaire.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La membrane interne impose des échanges sélectifs : navettes redox et transporteurs permettent le couplage entre métabolisme cytosolique et mitochondrial."
   },
   {
-    order: 80,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Le bilan de 30 ATP par glucose présenté :`,
-    choices: [
-      `Est un exemple donné pour une cellule musculaire.`,
-      `Inclut une part cytosolique et une part mitochondriale.`,
-      `Comprend la phosphorylation oxydative.`,
-      `Signifie que toutes les cellules produisent toujours exactement 30 ATP dans toutes les conditions.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La fiche présente un bilan contextualisé, non une valeur universelle indépendante des conditions.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "order": 64,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel antiporteur échange l’ADP cytosolique contre l’ATP matriciel ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "ANT",
+        "translocase ADP ATP",
+        "adénine nucléotide translocase",
+        "adenine nucleotide translocase"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "L’ANT échange ADP et ATP à travers la membrane interne."
   },
   {
-    order: 81,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une inhibition du complexe I par la roténone pourrait réduire :`,
-    choices: [
-      `L’oxydation du NADH entrant par le complexe I.`,
-      `Le pompage protonique au complexe I.`,
-      `Le rendement énergétique lié à cette voie.`,
-      `L’effet du malonate sur le complexe II.`,
+    "order": 65,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Quelle affirmation est juste à propos des membranes, crêtes et compartiments mitochondriaux ?",
+    "choices": [
+      {
+        "content": "La glycolyse se déroule dans la matrice mitochondriale.",
+        "correct": false,
+        "explanation": "La glycolyse est cytosolique ; le pyruvate formé peut ensuite entrer dans la mitochondrie."
+      },
+      {
+        "content": "Le cholestérol est absent de toute membrane mitochondriale.",
+        "correct": false,
+        "explanation": "Il est peu abondant par rapport à la membrane plasmique mais il peut être présent et sert notamment de substrat à la stéroïdogenèse."
+      },
+      {
+        "content": "Les crêtes sont des replis de la membrane externe.",
+        "correct": false,
+        "explanation": "Les crêtes sont des replis de la membrane interne."
+      },
+      {
+        "content": "La membrane externe est aussi imperméable aux petits métabolites que la membrane interne.",
+        "correct": false,
+        "explanation": "La membrane externe est relativement perméable aux petites molécules grâce aux VDAC, contrairement à la membrane interne."
+      },
+      {
+        "content": "Les complexes respiratoires sont principalement localisés dans la membrane interne.",
+        "correct": true,
+        "explanation": "Les complexes I à IV et l’ATP synthase sont associés à la membrane interne."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La roténone cible le complexe I, tandis que le malonate cible le complexe II.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La membrane externe est relativement perméable aux petits métabolites, tandis que la membrane interne, riche en protéines et organisée en crêtes, maintient la force proton-motrice."
   },
   {
-    order: 82,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une inhibition du complexe II par le malonate :`,
-    choices: [
-      `Perturbe la voie d’entrée des électrons par le complexe II.`,
-      `N’annule pas directement le pompage du complexe II puisqu’il n’en assure pas.`,
-      `Peut diminuer le flux électronique global.`,
-      `Cible l’ATP synthase F1.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le malonate agit sur le complexe II, distinct de l’ATP synthase.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 83,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une inhibition du complexe III par l’antimycine A :`,
-    choices: [
-      `Bloque le transfert en aval vers le cytochrome c.`,
-      `Réduit un site de pompage protonique.`,
-      `Peut diminuer la force motrice protonique.`,
-      `Augmente automatiquement le rendement du NADH.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le blocage de III diminue le flux d’électrons et le gradient protonique.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 84,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Un défaut de F0 affecterait surtout :`,
-    choices: [
-      `Le canal protonique de l’ATP synthase.`,
-      `Le retour des protons vers la matrice.`,
-      `Le couplage entre gradient et synthèse d’ATP.`,
-      `L’insertion des protéines par SAM.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `F0 est le canal protonique de l’ATP synthase, sans lien avec SAM.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 85,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Un défaut de F1 affecterait surtout :`,
-    choices: [
-      `L’activité catalytique de synthèse d’ATP.`,
-      `La conversion ADP + Pi en ATP.`,
-      `Le fonctionnement de l’ATP synthase.`,
-      `Le passage des petites molécules par les porines.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `F1 correspond à la partie enzymatique de l’ATP synthase.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 86,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Si le gradient de protons s’effondre alors que F1 reste intacte :`,
-    choices: [
-      `La force motrice protonique diminue.`,
-      `La synthèse d’ATP devient moins efficace.`,
-      `La partie catalytique manque de l’énergie fournie par le retour des protons.`,
-      `Le rendement du NADH augmente automatiquement.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La présence de F1 ne suffit pas sans gradient protonique exploitable.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 87,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Un patient exposé à l’oxyde de carbone peut présenter une défaillance énergétique car :`,
-    choices: [
-      `Le complexe IV est inhibé selon la fiche.`,
-      `La respiration mitochondriale est compromise.`,
-      `La production d’ATP par phosphorylation oxydative diminue.`,
-      `Le cycle de Krebs devient une pompe à protons.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le blocage du complexe IV perturbe la chaîne respiratoire et le gradient.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 88,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Pour 6 NADH et 2 FADH2, le rendement théorique indiqué est :`,
-    choices: [
-      `18 ATP.`,
-      `15 ATP issus des NADH.`,
-      `3 ATP issus des FADH2.`,
-      `21 ATP.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le calcul est 6 × 2,5 + 2 × 1,5 = 18 ATP.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 89,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `La comparaison entre NADH et FADH2 montre que :`,
-    choices: [
-      `Le rendement dépend du point d’entrée des électrons.`,
-      `Le complexe II ne pompe pas de protons.`,
-      `Le NADH fournit 1 ATP de plus par molécule dans les valeurs indiquées.`,
-      `Le FADH2 fournit toujours plus d’ATP que le NADH.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les valeurs données sont 2,5 ATP pour NADH et 1,5 ATP pour FADH2.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 90,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Quelle synthèse est correcte ?`,
-    choices: [
-      `L’ATP synthase exploite le gradient construit par la chaîne respiratoire.`,
-      `Les inhibiteurs peuvent cibler chaque complexe ou l’ATP synthase.`,
-      `Le rendement énergétique peut être calculé à partir de NADH et FADH2.`,
-      `L’ATP est synthétisé exclusivement dans le cytosol.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La mitochondrie assure la majorité du bilan énergétique présenté dans la fiche.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
+    "order": 66,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quelle navette fait entrer les électrons du NADH cytosolique au niveau de l’ubiquinone en contournant le complexe I ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "navette glycérol-3-phosphate",
+        "glycérol-3-phosphate",
+        "glycerol-3-phosphate",
+        "navette glycérol phosphate"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "La navette glycérol-3-phosphate réduit l’ubiquinone via une déshydrogénase FAD-dépendante."
+  }
 ];
 
 export const SECTION_C_QUIZZES: SeedQuiz[] = [
   {
-    order: 7,
-    slug: `atp-synthase-et-phosphorylation-oxydative`,
-    title: `ATP synthase et phosphorylation oxydative`,
-    description: `Force motrice protonique, sous-unités F0 et F1 et synthèse d’ATP.`,
-    stage: 'DISCOVER',
-    sectionOrder: 3,
-    questionOrders: [61, 62, 63, 64, 65, 66, 67, 68, 69, 70],
+    "order": 5,
+    "slug": "mitochondrie-5",
+    "title": "ATP synthase et gradient protonique",
+    "description": "Découvrir : atp synthase et gradient protonique.",
+    "stage": "DISCOVER",
+    "sectionOrder": 3,
+    "questionOrders": [
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54
+    ]
   },
   {
-    order: 8,
-    slug: `inhibiteurs-chaine-respiratoire`,
-    title: `Inhibiteurs de la chaîne respiratoire`,
-    description: `Roténone, malonate, antimycine A, cyanure, CO et oligomycine.`,
-    stage: 'PRACTICE',
-    sectionOrder: 3,
-    questionOrders: [71, 72, 73, 74, 75, 76, 77, 78, 79, 80],
-  },
-  {
-    order: 9,
-    slug: `rendement-et-calculs-atp`,
-    title: `Rendement et calculs de production d’ATP`,
-    description: `Rendements du NADH et du FADH2 et bilan énergétique du glucose.`,
-    stage: 'MASTER',
-    sectionOrder: 3,
-    questionOrders: [81, 82, 83, 84, 85, 86, 87, 88, 89, 90],
-  },
+    "order": 6,
+    "slug": "mitochondrie-6",
+    "title": "Rendement et inhibiteurs",
+    "description": "Approfondir : rendement et inhibiteurs.",
+    "stage": "PRACTICE",
+    "sectionOrder": 3,
+    "questionOrders": [
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66
+    ]
+  }
 ];

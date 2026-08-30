@@ -1,657 +1,704 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
+/** UE14 Biologie cellulaire — Ch2 — Fluidité, asymétrie et polarité membranaires */
 export const UE14_CELL_CH2_SECTION_B_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 23,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Pour caractériser « le glycocalyx », quelles affirmations sont exactes ?",
+    "question": "À propos de « Fluidité membranaire », sélectionnez les affirmations fausses.",
+    "explanation": "La fluidité dépend de la longueur et de l’insaturation des chaînes, de la température et du cholestérol. Les doubles liaisons cis gênent l’empaquetage. La diffusion latérale est fréquente, tandis que le flip-flop spontané est très lent.",
     "choices": [
       {
-        "content": "Les glucides membranaires sont portés par des glycolipides ou glycoprotéines.",
+        "content": "Des chaînes plus longues et plus saturées augmentent toujours la fluidité.",
         "correct": true,
-        "explanation": "Le glycocalyx est une couche glucidique externe portée par des glycoprotéines et glycolipides."
+        "explanation": "Incorrect. La fluidité dépend de la longueur et de l’insaturation des chaînes, de la température et du cholestérol. Les doubles liaisons cis gênent l’empaquetage. La diffusion latérale est fréquente, tandis que le flip-flop spontané est très lent."
       },
       {
-        "content": "Le glycocalyx est exclusivement situé sur le feuillet cytosolique.",
+        "content": "Les doubles liaisons cis introduisent des coudes qui limitent l’empaquetage des chaînes lipidiques.",
         "correct": false,
-        "explanation": "Le glycocalyx est une couche glucidique externe portée par des glycoprotéines et glycolipides."
+        "explanation": "Exact. La fluidité dépend de la longueur et de l’insaturation des chaînes, de la température et du cholestérol. Les doubles liaisons cis gênent l’empaquetage. La diffusion latérale est fréquente, tandis que le flip-flop spontané est très lent."
       },
       {
-        "content": "Ils sont localisés sur le feuillet externe dans la fiche.",
+        "content": "Le flip-flop spontané d’un phospholipide est généralement aussi rapide que sa diffusion latérale.",
         "correct": true,
-        "explanation": "Le glycocalyx est une couche glucidique externe portée par des glycoprotéines et glycolipides."
+        "explanation": "Incorrect. La fluidité dépend de la longueur et de l’insaturation des chaînes, de la température et du cholestérol. Les doubles liaisons cis gênent l’empaquetage. La diffusion latérale est fréquente, tandis que le flip-flop spontané est très lent."
       },
       {
-        "content": "Les glucides membranaires ne sont jamais liés à des protéines.",
+        "content": "Des chaînes d’acides gras plus courtes tendent à augmenter la fluidité de la bicouche.",
         "correct": false,
-        "explanation": "Le glycocalyx est une couche glucidique externe portée par des glycoprotéines et glycolipides."
+        "explanation": "Exact. La fluidité dépend de la longueur et de l’insaturation des chaînes, de la température et du cholestérol. Les doubles liaisons cis gênent l’empaquetage. La diffusion latérale est fréquente, tandis que le flip-flop spontané est très lent."
+      },
+      {
+        "content": "Une proportion plus élevée d’acides gras insaturés tend à augmenter la fluidité à température donnée.",
+        "correct": false,
+        "explanation": "Exact. La fluidité dépend de la longueur et de l’insaturation des chaînes, de la température et du cholestérol. Les doubles liaisons cis gênent l’empaquetage. La diffusion latérale est fréquente, tandis que le flip-flop spontané est très lent."
       }
-    ],
-    "explanation": "Le glycocalyx est une couche glucidique externe portée par des glycoprotéines et glycolipides."
+    ]
   },
   {
     "order": 24,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quelle proposition est exacte concernant « la fluidité membranaire » ?",
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Concernant « Asymétrie des phospholipides », quelles affirmations sont correctes ?",
+    "explanation": "Les feuillets ont des compositions différentes. La phosphatidylsérine (PS) est normalement enrichie côté cytosolique ; son exposition externe peut signaler l’apoptose. PC et sphingomyéline sont plutôt externes, PE et PS plutôt internes.",
     "choices": [
       {
-        "content": "La fluidité favorise une réparation rapide après une petite déchirure.",
+        "content": "Les deux feuillets ont obligatoirement une composition parfaitement identique.",
+        "correct": false,
+        "explanation": "Incorrect. Les feuillets ont des compositions différentes. La phosphatidylsérine (PS) est normalement enrichie côté cytosolique ; son exposition externe peut signaler l’apoptose. PC et sphingomyéline sont plutôt externes, PE et PS plutôt internes."
+      },
+      {
+        "content": "La phosphatidyléthanolamine est majoritairement enrichie dans le feuillet cytosolique.",
         "correct": true,
-        "explanation": "La membrane est présentée comme une structure fluide et dynamique."
+        "explanation": "Exact. Les feuillets ont des compositions différentes. La phosphatidylsérine (PS) est normalement enrichie côté cytosolique ; son exposition externe peut signaler l’apoptose. PC et sphingomyéline sont plutôt externes, PE et PS plutôt internes."
       },
       {
-        "content": "Une membrane percée ne peut jamais se refermer grâce au comportement des lipides.",
-        "correct": false,
-        "explanation": "La membrane est présentée comme une structure fluide et dynamique."
+        "content": "Les deux feuillets de la membrane plasmique ont des compositions lipidiques différentes.",
+        "correct": true,
+        "explanation": "Exact. Les feuillets ont des compositions différentes. La phosphatidylsérine (PS) est normalement enrichie côté cytosolique ; son exposition externe peut signaler l’apoptose. PC et sphingomyéline sont plutôt externes, PE et PS plutôt internes."
       },
       {
-        "content": "La fluidité empêche tout changement de surface membranaire.",
+        "content": "La phosphatidylsérine est normalement exclusivement exposée à la surface externe d’une cellule viable.",
         "correct": false,
-        "explanation": "La membrane est présentée comme une structure fluide et dynamique."
+        "explanation": "Incorrect. Les feuillets ont des compositions différentes. La phosphatidylsérine (PS) est normalement enrichie côté cytosolique ; son exposition externe peut signaler l’apoptose. PC et sphingomyéline sont plutôt externes, PE et PS plutôt internes."
       },
       {
-        "content": "Les constituants membranaires sont tous définitivement immobiles.",
-        "correct": false,
-        "explanation": "La membrane est présentée comme une structure fluide et dynamique."
+        "content": "La phosphatidylsérine est normalement enrichie dans le feuillet cytosolique.",
+        "correct": true,
+        "explanation": "Exact. Les feuillets ont des compositions différentes. La phosphatidylsérine (PS) est normalement enrichie côté cytosolique ; son exposition externe peut signaler l’apoptose. PC et sphingomyéline sont plutôt externes, PE et PS plutôt internes."
       }
-    ],
-    "explanation": "La membrane est présentée comme une structure fluide et dynamique."
+    ]
   },
   {
     "order": 25,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos de « l’influence des acides gras sur la fluidité selon la fiche », quelles affirmations sont conformes à la fiche ?",
-    "choices": [
-      {
-        "content": "La fluidité varie donc avec longueur et degré d’insaturation.",
-        "correct": true,
-        "explanation": "Le support relie cohésion accrue à des chaînes longues et/ou saturées."
-      },
-      {
-        "content": "La nature des acides gras n’a aucun effet sur les interactions de Van der Waals.",
-        "correct": false,
-        "explanation": "Le support relie cohésion accrue à des chaînes longues et/ou saturées."
-      },
-      {
-        "content": "Des chaînes d’acides gras plus longues augmentent la cohésion.",
-        "correct": true,
-        "explanation": "Le support relie cohésion accrue à des chaînes longues et/ou saturées."
-      },
-      {
-        "content": "Des chaînes plus longues rendent toujours la membrane plus fluide selon la fiche.",
-        "correct": false,
-        "explanation": "Le support relie cohésion accrue à des chaînes longues et/ou saturées."
+    "format": "QROC",
+    "question": "Quel phospholipide est normalement enrichi sur le feuillet cytosolique et peut être exposé lors de l’apoptose ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "phosphatidylsérine",
+        "phosphatidylserine",
+        "PS"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le support relie cohésion accrue à des chaînes longues et/ou saturées."
+    },
+    "explanation": "La phosphatidylsérine externe constitue notamment un signal de reconnaissance des cellules apoptotiques."
   },
   {
     "order": 26,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Parmi ces propositions sur « les mouvements des phospholipides », laquelle est correcte ?",
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Pour le thème « Flippases, floppases et scramblases », quelles propositions doivent être retenues ?",
+    "explanation": "Les P4-ATPases/flippases transfèrent sélectivement certains phospholipides vers le feuillet cytosolique en utilisant de l’énergie ; des floppases favorisent le mouvement inverse ; les scramblases redistribuent rapidement et bidirectionnellement les lipides sans conserver l’asymétrie.",
     "choices": [
       {
-        "content": "La diffusion latérale correspond à un déplacement dans le plan de la membrane.",
+        "content": "Les flippases fonctionnent uniquement par diffusion passive sans apport énergétique.",
+        "correct": false,
+        "explanation": "Incorrect. Les P4-ATPases/flippases transfèrent sélectivement certains phospholipides vers le feuillet cytosolique en utilisant de l’énergie ; des floppases favorisent le mouvement inverse ; les scramblases redistribuent rapidement et bidirectionnellement les lipides sans conserver l’asymétrie."
+      },
+      {
+        "content": "Les flippases transfèrent notamment certains aminophospholipides vers le feuillet cytosolique.",
         "correct": true,
-        "explanation": "Plusieurs mouvements participent au caractère dynamique de la bicouche."
+        "explanation": "Exact. Les P4-ATPases/flippases transfèrent sélectivement certains phospholipides vers le feuillet cytosolique en utilisant de l’énergie ; des floppases favorisent le mouvement inverse ; les scramblases redistribuent rapidement et bidirectionnellement les lipides sans conserver l’asymétrie."
       },
       {
-        "content": "La diffusion latérale fait obligatoirement passer un phospholipide d’un feuillet à l’autre.",
+        "content": "Une scramblase maintient nécessairement une asymétrie stricte et stable.",
         "correct": false,
-        "explanation": "Plusieurs mouvements participent au caractère dynamique de la bicouche."
+        "explanation": "Incorrect. Les P4-ATPases/flippases transfèrent sélectivement certains phospholipides vers le feuillet cytosolique en utilisant de l’énergie ; des floppases favorisent le mouvement inverse ; les scramblases redistribuent rapidement et bidirectionnellement les lipides sans conserver l’asymétrie."
       },
       {
-        "content": "La rotation est impossible dans une bicouche.",
-        "correct": false,
-        "explanation": "Plusieurs mouvements participent au caractère dynamique de la bicouche."
+        "content": "Des flippases de type P4-ATPase utilisent l’ATP pour maintenir l’asymétrie de certains phospholipides.",
+        "correct": true,
+        "explanation": "Exact. Les P4-ATPases/flippases transfèrent sélectivement certains phospholipides vers le feuillet cytosolique en utilisant de l’énergie ; des floppases favorisent le mouvement inverse ; les scramblases redistribuent rapidement et bidirectionnellement les lipides sans conserver l’asymétrie."
       },
       {
-        "content": "La bascule est le seul mouvement lipidique décrit.",
+        "content": "Les flippases et scramblases sont des protéases qui coupent les phospholipides.",
         "correct": false,
-        "explanation": "Plusieurs mouvements participent au caractère dynamique de la bicouche."
+        "explanation": "Incorrect. Les P4-ATPases/flippases transfèrent sélectivement certains phospholipides vers le feuillet cytosolique en utilisant de l’énergie ; des floppases favorisent le mouvement inverse ; les scramblases redistribuent rapidement et bidirectionnellement les lipides sans conserver l’asymétrie."
       }
-    ],
-    "explanation": "Plusieurs mouvements participent au caractère dynamique de la bicouche."
+    ]
   },
   {
     "order": 27,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Pour « la vitesse de diffusion latérale donnée par la fiche », quelles affirmations sont correctes selon le support ?",
-    "choices": [
-      {
-        "content": "Cette diffusion se déroule dans le plan de la bicouche.",
-        "correct": true,
-        "explanation": "Le repère local est environ 2 µm·s−1 pour la diffusion latérale."
-      },
-      {
-        "content": "La diffusion latérale n’implique aucun déplacement de phospholipide.",
-        "correct": false,
-        "explanation": "Le repère local est environ 2 µm·s−1 pour la diffusion latérale."
-      },
-      {
-        "content": "Elle est beaucoup plus fréquente que le mouvement de bascule.",
-        "correct": true,
-        "explanation": "Le repère local est environ 2 µm·s−1 pour la diffusion latérale."
-      },
-      {
-        "content": "Le support décrit la bascule comme se produisant plusieurs milliers de fois par seconde.",
-        "correct": false,
-        "explanation": "Le repère local est environ 2 µm·s−1 pour la diffusion latérale."
+    "format": "QROC",
+    "question": "Quelle protéine catalyse une redistribution bidirectionnelle rapide des phospholipides entre les deux feuillets ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "scramblase",
+        "une scramblase"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le repère local est environ 2 µm·s−1 pour la diffusion latérale."
+    },
+    "explanation": "Les scramblases réduisent l’asymétrie en mélangeant les phospholipides entre feuillets."
   },
   {
     "order": 28,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Selon le support, quelle affirmation concernant « l’asymétrie des phospholipides » est juste ?",
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant « Polarité de l’entérocyte et jonctions serrées » ?",
+    "explanation": "L’entérocyte possède des domaines apical et basolatéral ayant des protéines distinctes. Les jonctions serrées réduisent le passage paracellulaire et jouent aussi un rôle de barrière/fence limitant la diffusion latérale de certains composants.",
     "choices": [
       {
-        "content": "La phosphatidylcholine est plutôt externe.",
+        "content": "Les claudines constituent des composants structuraux majeurs des jonctions serrées.",
         "correct": true,
-        "explanation": "Le support enseigne une asymétrie de composition entre les deux feuillets."
+        "explanation": "Exact. L’entérocyte possède des domaines apical et basolatéral ayant des protéines distinctes. Les jonctions serrées réduisent le passage paracellulaire et jouent aussi un rôle de barrière/fence limitant la diffusion latérale de certains composants."
       },
       {
-        "content": "La phosphatidylcholine est décrite comme exclusivement nucléaire.",
-        "correct": false,
-        "explanation": "Le support enseigne une asymétrie de composition entre les deux feuillets."
+        "content": "Les jonctions serrées contribuent à maintenir des compositions différentes entre domaines apical et basolatéral.",
+        "correct": true,
+        "explanation": "Exact. L’entérocyte possède des domaines apical et basolatéral ayant des protéines distinctes. Les jonctions serrées réduisent le passage paracellulaire et jouent aussi un rôle de barrière/fence limitant la diffusion latérale de certains composants."
       },
       {
-        "content": "La phosphatidylsérine est présentée comme exclusivement externe.",
+        "content": "Les domaines apical et basolatéral d’un entérocyte ont nécessairement les mêmes transporteurs.",
         "correct": false,
-        "explanation": "Le support enseigne une asymétrie de composition entre les deux feuillets."
+        "explanation": "Incorrect. L’entérocyte possède des domaines apical et basolatéral ayant des protéines distinctes. Les jonctions serrées réduisent le passage paracellulaire et jouent aussi un rôle de barrière/fence limitant la diffusion latérale de certains composants."
       },
       {
-        "content": "Les deux feuillets ont exactement la même composition lipidique.",
+        "content": "Le domaine apical de l’entérocyte est orienté vers le sang.",
         "correct": false,
-        "explanation": "Le support enseigne une asymétrie de composition entre les deux feuillets."
+        "explanation": "Incorrect. L’entérocyte possède des domaines apical et basolatéral ayant des protéines distinctes. Les jonctions serrées réduisent le passage paracellulaire et jouent aussi un rôle de barrière/fence limitant la diffusion latérale de certains composants."
+      },
+      {
+        "content": "L’entérocyte est une cellule épithéliale polarisée avec un domaine apical et un domaine basolatéral.",
+        "correct": true,
+        "explanation": "Exact. L’entérocyte possède des domaines apical et basolatéral ayant des protéines distinctes. Les jonctions serrées réduisent le passage paracellulaire et jouent aussi un rôle de barrière/fence limitant la diffusion latérale de certains composants."
       }
-    ],
-    "explanation": "Le support enseigne une asymétrie de composition entre les deux feuillets."
+    ]
   },
   {
     "order": 29,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Quelles affirmations décrivent correctement « les flippases » ?",
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "question": "Concernant « Microdomaines, diffusion latérale et contraintes », choisissez exactement 3 affirmations correctes.",
+    "explanation": "La membrane est fluide mais la diffusion des protéines peut être limitée par le cytosquelette, les complexes d’adhérence, les jonctions et des microdomaines. Le modèle de mosaïque fluide n’implique donc pas une mobilité totalement libre de tous les constituants.",
     "choices": [
       {
-        "content": "Les flippases réalisent un transfert unidirectionnel de phospholipides.",
+        "content": "Le cytosquelette cortical peut limiter la diffusion de certaines protéines membranaires.",
         "correct": true,
-        "explanation": "Les flippases sont présentées comme des protéines de translocation unidirectionnelle."
+        "explanation": "Exact. La membrane est fluide mais la diffusion des protéines peut être limitée par le cytosquelette, les complexes d’adhérence, les jonctions et des microdomaines. Le modèle de mosaïque fluide n’implique donc pas une mobilité totalement libre de tous les constituants."
       },
       {
-        "content": "Les flippases produisent exclusivement des protéines.",
+        "content": "Toutes les protéines membranaires diffusent librement à la même vitesse sans aucune contrainte.",
         "correct": false,
-        "explanation": "Les flippases sont présentées comme des protéines de translocation unidirectionnelle."
+        "explanation": "Incorrect. La membrane est fluide mais la diffusion des protéines peut être limitée par le cytosquelette, les complexes d’adhérence, les jonctions et des microdomaines. Le modèle de mosaïque fluide n’implique donc pas une mobilité totalement libre de tous les constituants."
       },
       {
-        "content": "Elles contribuent à créer ou maintenir l’asymétrie.",
+        "content": "Certaines protéines membranaires diffusent latéralement dans le plan de la membrane.",
         "correct": true,
-        "explanation": "Les flippases sont présentées comme des protéines de translocation unidirectionnelle."
+        "explanation": "Exact. La membrane est fluide mais la diffusion des protéines peut être limitée par le cytosquelette, les complexes d’adhérence, les jonctions et des microdomaines. Le modèle de mosaïque fluide n’implique donc pas une mobilité totalement libre de tous les constituants."
       },
       {
-        "content": "Elles rendent nécessairement les deux feuillets parfaitement symétriques.",
+        "content": "Le cytosquelette ne peut jamais influencer la mobilité membranaire.",
         "correct": false,
-        "explanation": "Les flippases sont présentées comme des protéines de translocation unidirectionnelle."
+        "explanation": "Incorrect. La membrane est fluide mais la diffusion des protéines peut être limitée par le cytosquelette, les complexes d’adhérence, les jonctions et des microdomaines. Le modèle de mosaïque fluide n’implique donc pas une mobilité totalement libre de tous les constituants."
+      },
+      {
+        "content": "Les complexes d’adhérence peuvent immobiliser ou confiner localement des protéines.",
+        "correct": true,
+        "explanation": "Exact. La membrane est fluide mais la diffusion des protéines peut être limitée par le cytosquelette, les complexes d’adhérence, les jonctions et des microdomaines. Le modèle de mosaïque fluide n’implique donc pas une mobilité totalement libre de tous les constituants."
       }
     ],
-    "explanation": "Les flippases sont présentées comme des protéines de translocation unidirectionnelle."
+    "requiredSelectionCount": 3
   },
   {
     "order": 30,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quelle donnée est correcte concernant « les scramblases » ?",
+    "format": "QRP",
+    "question": "Parmi ces affirmations concernant « Fluidité membranaire », retenez exactement les 2 justes.",
+    "explanation": "La fluidité dépend de la longueur et de l’insaturation des chaînes, de la température et du cholestérol. Les doubles liaisons cis gênent l’empaquetage. La diffusion latérale est fréquente, tandis que le flip-flop spontané est très lent.",
     "choices": [
       {
-        "content": "Elles tendent vers une distribution plus symétrique.",
+        "content": "La fluidité membranaire est indépendante de la composition lipidique.",
+        "correct": false,
+        "explanation": "Incorrect. La fluidité dépend de la longueur et de l’insaturation des chaînes, de la température et du cholestérol. Les doubles liaisons cis gênent l’empaquetage. La diffusion latérale est fréquente, tandis que le flip-flop spontané est très lent."
+      },
+      {
+        "content": "Dans ce contexte, les doubles liaisons cis introduisent des coudes qui limitent l’empaquetage des chaînes lipidiques.",
         "correct": true,
-        "explanation": "La fiche attribue aux scramblases un rôle de redistribution vers davantage de symétrie."
+        "explanation": "Exact. La fluidité dépend de la longueur et de l’insaturation des chaînes, de la température et du cholestérol. Les doubles liaisons cis gênent l’empaquetage. La diffusion latérale est fréquente, tandis que le flip-flop spontané est très lent."
       },
       {
-        "content": "Elles sont décrites comme des protéines motrices des microtubules.",
-        "correct": false,
-        "explanation": "La fiche attribue aux scramblases un rôle de redistribution vers davantage de symétrie."
+        "content": "Dans ce contexte, une proportion plus élevée d’acides gras insaturés tend à augmenter la fluidité à température donnée.",
+        "correct": true,
+        "explanation": "Exact. La fluidité dépend de la longueur et de l’insaturation des chaînes, de la température et du cholestérol. Les doubles liaisons cis gênent l’empaquetage. La diffusion latérale est fréquente, tandis que le flip-flop spontané est très lent."
       },
       {
-        "content": "Elles ne participent à aucun mouvement entre feuillets.",
+        "content": "Le cholestérol augmente toujours la fluidité, quelle que soit la température.",
         "correct": false,
-        "explanation": "La fiche attribue aux scramblases un rôle de redistribution vers davantage de symétrie."
+        "explanation": "Incorrect. La fluidité dépend de la longueur et de l’insaturation des chaînes, de la température et du cholestérol. Les doubles liaisons cis gênent l’empaquetage. La diffusion latérale est fréquente, tandis que le flip-flop spontané est très lent."
       },
       {
-        "content": "Les scramblases créent toujours une asymétrie maximale.",
+        "content": "Une double liaison cis favorise un empaquetage plus compact des chaînes qu’une chaîne saturée de même longueur.",
         "correct": false,
-        "explanation": "La fiche attribue aux scramblases un rôle de redistribution vers davantage de symétrie."
+        "explanation": "Incorrect. La fluidité dépend de la longueur et de l’insaturation des chaînes, de la température et du cholestérol. Les doubles liaisons cis gênent l’empaquetage. La diffusion latérale est fréquente, tandis que le flip-flop spontané est très lent."
       }
     ],
-    "explanation": "La fiche attribue aux scramblases un rôle de redistribution vers davantage de symétrie."
+    "requiredSelectionCount": 2
   },
   {
     "order": 31,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Selon la fiche, quelles propositions concernant « la polarité de l’entérocyte » sont correctes ?",
+    "question": "Quelles affirmations décrivent correctement « Asymétrie des phospholipides » ?",
+    "explanation": "Les feuillets ont des compositions différentes. La phosphatidylsérine (PS) est normalement enrichie côté cytosolique ; son exposition externe peut signaler l’apoptose. PC et sphingomyéline sont plutôt externes, PE et PS plutôt internes.",
     "choices": [
       {
-        "content": "Elles limitent la diffusion latérale de protéines d’un domaine à l’autre.",
+        "content": "La phosphatidylcholine est souvent enrichie dans le feuillet exoplasmique.",
         "correct": true,
-        "explanation": "La polarité membranaire est maintenue en partie par la barrière des jonctions serrées."
+        "explanation": "Exact. Les feuillets ont des compositions différentes. La phosphatidylsérine (PS) est normalement enrichie côté cytosolique ; son exposition externe peut signaler l’apoptose. PC et sphingomyéline sont plutôt externes, PE et PS plutôt internes."
       },
       {
-        "content": "Le pôle apical est situé dans le noyau.",
-        "correct": false,
-        "explanation": "La polarité membranaire est maintenue en partie par la barrière des jonctions serrées."
-      },
-      {
-        "content": "L’entérocyte possède un domaine apical et un domaine basolatéral.",
+        "content": "Dans ce contexte, la phosphatidylsérine est normalement enrichie dans le feuillet cytosolique.",
         "correct": true,
-        "explanation": "La polarité membranaire est maintenue en partie par la barrière des jonctions serrées."
+        "explanation": "Exact. Les feuillets ont des compositions différentes. La phosphatidylsérine (PS) est normalement enrichie côté cytosolique ; son exposition externe peut signaler l’apoptose. PC et sphingomyéline sont plutôt externes, PE et PS plutôt internes."
       },
       {
-        "content": "La membrane de l’entérocyte est homogène sans domaines.",
+        "content": "Les chaînes glucidiques des glycoprotéines sont orientées vers le cytosol.",
         "correct": false,
-        "explanation": "La polarité membranaire est maintenue en partie par la barrière des jonctions serrées."
+        "explanation": "Incorrect. Les feuillets ont des compositions différentes. La phosphatidylsérine (PS) est normalement enrichie côté cytosolique ; son exposition externe peut signaler l’apoptose. PC et sphingomyéline sont plutôt externes, PE et PS plutôt internes."
+      },
+      {
+        "content": "Dans ce contexte, la phosphatidyléthanolamine est majoritairement enrichie dans le feuillet cytosolique.",
+        "correct": true,
+        "explanation": "Exact. Les feuillets ont des compositions différentes. La phosphatidylsérine (PS) est normalement enrichie côté cytosolique ; son exposition externe peut signaler l’apoptose. PC et sphingomyéline sont plutôt externes, PE et PS plutôt internes."
+      },
+      {
+        "content": "La sphingomyéline est principalement enrichie dans le feuillet exoplasmique.",
+        "correct": true,
+        "explanation": "Exact. Les feuillets ont des compositions différentes. La phosphatidylsérine (PS) est normalement enrichie côté cytosolique ; son exposition externe peut signaler l’apoptose. PC et sphingomyéline sont plutôt externes, PE et PS plutôt internes."
       }
-    ],
-    "explanation": "La polarité membranaire est maintenue en partie par la barrière des jonctions serrées."
+    ]
   },
   {
     "order": 32,
-    "difficulty": "EASY",
+    "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "À propos de « le glycocalyx », quelle proposition est juste ?",
+    "question": "Parmi les propositions ci-dessous relatives à « Flippases, floppases et scramblases », laquelle est correcte ?",
+    "explanation": "Les P4-ATPases/flippases transfèrent sélectivement certains phospholipides vers le feuillet cytosolique en utilisant de l’énergie ; des floppases favorisent le mouvement inverse ; les scramblases redistribuent rapidement et bidirectionnellement les lipides sans conserver l’asymétrie.",
     "choices": [
       {
-        "content": "Les glucides membranaires sont portés par des glycolipides ou glycoprotéines.",
+        "content": "Dans ce contexte, les flippases transfèrent notamment certains aminophospholipides vers le feuillet cytosolique.",
         "correct": true,
-        "explanation": "Le glycocalyx est une couche glucidique externe portée par des glycoprotéines et glycolipides."
+        "explanation": "Exact. Les P4-ATPases/flippases transfèrent sélectivement certains phospholipides vers le feuillet cytosolique en utilisant de l’énergie ; des floppases favorisent le mouvement inverse ; les scramblases redistribuent rapidement et bidirectionnellement les lipides sans conserver l’asymétrie."
       },
       {
-        "content": "Le glycocalyx est exclusivement situé sur le feuillet cytosolique.",
+        "content": "Les floppases déplacent exclusivement des protéines membranaires et jamais des lipides.",
         "correct": false,
-        "explanation": "Le glycocalyx est une couche glucidique externe portée par des glycoprotéines et glycolipides."
+        "explanation": "Incorrect. Les P4-ATPases/flippases transfèrent sélectivement certains phospholipides vers le feuillet cytosolique en utilisant de l’énergie ; des floppases favorisent le mouvement inverse ; les scramblases redistribuent rapidement et bidirectionnellement les lipides sans conserver l’asymétrie."
       },
       {
-        "content": "Les glucides membranaires ne sont jamais liés à des protéines.",
+        "content": "Le mouvement trans-bicouche de tous les phospholipides est instantané même sans protéine.",
         "correct": false,
-        "explanation": "Le glycocalyx est une couche glucidique externe portée par des glycoprotéines et glycolipides."
+        "explanation": "Incorrect. Les P4-ATPases/flippases transfèrent sélectivement certains phospholipides vers le feuillet cytosolique en utilisant de l’énergie ; des floppases favorisent le mouvement inverse ; les scramblases redistribuent rapidement et bidirectionnellement les lipides sans conserver l’asymétrie."
       },
       {
-        "content": "La fiche décrit le glycocalyx comme un réseau d’ADN.",
+        "content": "Les scramblases ne peuvent jamais être activées au cours de l’apoptose.",
         "correct": false,
-        "explanation": "Le glycocalyx est une couche glucidique externe portée par des glycoprotéines et glycolipides."
+        "explanation": "Incorrect. Les P4-ATPases/flippases transfèrent sélectivement certains phospholipides vers le feuillet cytosolique en utilisant de l’énergie ; des floppases favorisent le mouvement inverse ; les scramblases redistribuent rapidement et bidirectionnellement les lipides sans conserver l’asymétrie."
+      },
+      {
+        "content": "Dans ce contexte, les flippases fonctionnent uniquement par diffusion passive sans apport énergétique.",
+        "correct": false,
+        "explanation": "Incorrect. Les P4-ATPases/flippases transfèrent sélectivement certains phospholipides vers le feuillet cytosolique en utilisant de l’énergie ; des floppases favorisent le mouvement inverse ; les scramblases redistribuent rapidement et bidirectionnellement les lipides sans conserver l’asymétrie."
       }
-    ],
-    "explanation": "Le glycocalyx est une couche glucidique externe portée par des glycoprotéines et glycolipides."
+    ]
   },
   {
     "order": 33,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans une situation d’application concernant « l’influence des acides gras sur la fluidité selon la fiche », quelles propositions sont exactes ?",
+    "question": "Sélectionnez les affirmations compatibles avec « Polarité de l’entérocyte et jonctions serrées ».",
+    "explanation": "L’entérocyte possède des domaines apical et basolatéral ayant des protéines distinctes. Les jonctions serrées réduisent le passage paracellulaire et jouent aussi un rôle de barrière/fence limitant la diffusion latérale de certains composants.",
     "choices": [
       {
-        "content": "Une plus forte saturation est associée à une membrane moins fluide.",
+        "content": "L’occludine est une protéine associée aux jonctions serrées mais n’en constitue pas à elle seule toute l’architecture.",
         "correct": true,
-        "explanation": "Le support relie cohésion accrue à des chaînes longues et/ou saturées."
+        "explanation": "Exact. L’entérocyte possède des domaines apical et basolatéral ayant des protéines distinctes. Les jonctions serrées réduisent le passage paracellulaire et jouent aussi un rôle de barrière/fence limitant la diffusion latérale de certains composants."
       },
       {
-        "content": "La saturation augmente nécessairement la fluidité.",
-        "correct": false,
-        "explanation": "Le support relie cohésion accrue à des chaînes longues et/ou saturées."
-      },
-      {
-        "content": "La fluidité varie donc avec longueur et degré d’insaturation.",
+        "content": "Les jonctions serrées contribuent à maintenir des compositions différentes entre domaines apical et basolatéral.",
         "correct": true,
-        "explanation": "Le support relie cohésion accrue à des chaînes longues et/ou saturées."
+        "explanation": "Exact. L’entérocyte possède des domaines apical et basolatéral ayant des protéines distinctes. Les jonctions serrées réduisent le passage paracellulaire et jouent aussi un rôle de barrière/fence limitant la diffusion latérale de certains composants."
       },
       {
-        "content": "La nature des acides gras n’a aucun effet sur les interactions de Van der Waals.",
+        "content": "Les claudines constituent des composants structuraux majeurs des jonctions serrées.",
+        "correct": true,
+        "explanation": "Exact. L’entérocyte possède des domaines apical et basolatéral ayant des protéines distinctes. Les jonctions serrées réduisent le passage paracellulaire et jouent aussi un rôle de barrière/fence limitant la diffusion latérale de certains composants."
+      },
+      {
+        "content": "Les jonctions serrées rendent toute diffusion paracellulaire absolument impossible dans tous les épithéliums.",
         "correct": false,
-        "explanation": "Le support relie cohésion accrue à des chaînes longues et/ou saturées."
+        "explanation": "Incorrect. L’entérocyte possède des domaines apical et basolatéral ayant des protéines distinctes. Les jonctions serrées réduisent le passage paracellulaire et jouent aussi un rôle de barrière/fence limitant la diffusion latérale de certains composants."
+      },
+      {
+        "content": "Le domaine apical de l’entérocyte est orienté vers la lumière intestinale.",
+        "correct": true,
+        "explanation": "Exact. L’entérocyte possède des domaines apical et basolatéral ayant des protéines distinctes. Les jonctions serrées réduisent le passage paracellulaire et jouent aussi un rôle de barrière/fence limitant la diffusion latérale de certains composants."
       }
-    ],
-    "explanation": "Le support relie cohésion accrue à des chaînes longues et/ou saturées."
+    ]
   },
   {
     "order": 34,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Parmi les énoncés suivants, lequel est exact pour « les mouvements des phospholipides » ?",
+    "format": "QRPL",
+    "question": "Pour le thème « Microdomaines, diffusion latérale et contraintes », retenez les cinq affirmations correctes parmi les dix proposées.",
+    "explanation": "La membrane est fluide mais la diffusion des protéines peut être limitée par le cytosquelette, les complexes d’adhérence, les jonctions et des microdomaines. Le modèle de mosaïque fluide n’implique donc pas une mobilité totalement libre de tous les constituants.",
     "choices": [
       {
-        "content": "Les mouvements de bascule entre feuillets sont décrits comme rares.",
+        "content": "Des domaines membranaires peuvent avoir une composition particulière en lipides et protéines.",
         "correct": true,
-        "explanation": "Plusieurs mouvements participent au caractère dynamique de la bicouche."
+        "explanation": "Exact. La membrane est fluide mais la diffusion des protéines peut être limitée par le cytosquelette, les complexes d’adhérence, les jonctions et des microdomaines. Le modèle de mosaïque fluide n’implique donc pas une mobilité totalement libre de tous les constituants."
       },
       {
-        "content": "La bascule est le seul mouvement lipidique décrit.",
-        "correct": false,
-        "explanation": "Plusieurs mouvements participent au caractère dynamique de la bicouche."
+        "content": "Les complexes d’adhérence peuvent immobiliser ou confiner localement des protéines.",
+        "correct": true,
+        "explanation": "Exact. La membrane est fluide mais la diffusion des protéines peut être limitée par le cytosquelette, les complexes d’adhérence, les jonctions et des microdomaines. Le modèle de mosaïque fluide n’implique donc pas une mobilité totalement libre de tous les constituants."
       },
       {
-        "content": "La diffusion latérale fait obligatoirement passer un phospholipide d’un feuillet à l’autre.",
-        "correct": false,
-        "explanation": "Plusieurs mouvements participent au caractère dynamique de la bicouche."
+        "content": "La fluidité membranaire est compatible avec l’existence d’organisations locales stables ou transitoires.",
+        "correct": true,
+        "explanation": "Exact. La membrane est fluide mais la diffusion des protéines peut être limitée par le cytosquelette, les complexes d’adhérence, les jonctions et des microdomaines. Le modèle de mosaïque fluide n’implique donc pas une mobilité totalement libre de tous les constituants."
       },
       {
-        "content": "La rotation est impossible dans une bicouche.",
+        "content": "La polarité cellulaire exige l’absence de diffusion latérale de tous les lipides.",
         "correct": false,
-        "explanation": "Plusieurs mouvements participent au caractère dynamique de la bicouche."
+        "explanation": "Incorrect. La membrane est fluide mais la diffusion des protéines peut être limitée par le cytosquelette, les complexes d’adhérence, les jonctions et des microdomaines. Le modèle de mosaïque fluide n’implique donc pas une mobilité totalement libre de tous les constituants."
+      },
+      {
+        "content": "Le cytosquelette cortical peut limiter la diffusion de certaines protéines membranaires.",
+        "correct": true,
+        "explanation": "Exact. La membrane est fluide mais la diffusion des protéines peut être limitée par le cytosquelette, les complexes d’adhérence, les jonctions et des microdomaines. Le modèle de mosaïque fluide n’implique donc pas une mobilité totalement libre de tous les constituants."
+      },
+      {
+        "content": "Les molécules d’adhérence sont toujours totalement libres de diffuser sur toute la cellule.",
+        "correct": false,
+        "explanation": "Incorrect. La membrane est fluide mais la diffusion des protéines peut être limitée par le cytosquelette, les complexes d’adhérence, les jonctions et des microdomaines. Le modèle de mosaïque fluide n’implique donc pas une mobilité totalement libre de tous les constituants."
+      },
+      {
+        "content": "Le modèle de mosaïque fluide signifie que la membrane est un liquide homogène sans structure locale.",
+        "correct": false,
+        "explanation": "Incorrect. La membrane est fluide mais la diffusion des protéines peut être limitée par le cytosquelette, les complexes d’adhérence, les jonctions et des microdomaines. Le modèle de mosaïque fluide n’implique donc pas une mobilité totalement libre de tous les constituants."
+      },
+      {
+        "content": "Les interactions protéine-protéine ne modifient jamais la distribution membranaire.",
+        "correct": false,
+        "explanation": "Incorrect. La membrane est fluide mais la diffusion des protéines peut être limitée par le cytosquelette, les complexes d’adhérence, les jonctions et des microdomaines. Le modèle de mosaïque fluide n’implique donc pas une mobilité totalement libre de tous les constituants."
+      },
+      {
+        "content": "Les jonctions peuvent contribuer à maintenir une distribution polarisée de certaines protéines.",
+        "correct": true,
+        "explanation": "Exact. La membrane est fluide mais la diffusion des protéines peut être limitée par le cytosquelette, les complexes d’adhérence, les jonctions et des microdomaines. Le modèle de mosaïque fluide n’implique donc pas une mobilité totalement libre de tous les constituants."
+      },
+      {
+        "content": "Une membrane fluide ne peut contenir aucun domaine organisé.",
+        "correct": false,
+        "explanation": "Incorrect. La membrane est fluide mais la diffusion des protéines peut être limitée par le cytosquelette, les complexes d’adhérence, les jonctions et des microdomaines. Le modèle de mosaïque fluide n’implique donc pas une mobilité totalement libre de tous les constituants."
       }
     ],
-    "explanation": "Plusieurs mouvements participent au caractère dynamique de la bicouche."
+    "requiredSelectionCount": 5
   },
   {
     "order": 35,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Pour appliquer les notions sur « la vitesse de diffusion latérale donnée par la fiche », quelles propositions faut-il retenir ?",
+    "format": "QRU",
+    "question": "Sur le thème « Fluidité membranaire », quelle proposition est exacte ?",
+    "explanation": "La fluidité dépend de la longueur et de l’insaturation des chaînes, de la température et du cholestérol. Les doubles liaisons cis gênent l’empaquetage. La diffusion latérale est fréquente, tandis que le flip-flop spontané est très lent.",
     "choices": [
       {
-        "content": "La fiche indique environ 2 µm par seconde pour la diffusion latérale.",
-        "correct": true,
-        "explanation": "Le repère local est environ 2 µm·s−1 pour la diffusion latérale."
-      },
-      {
-        "content": "La fiche indique 2 mètres par seconde.",
+        "content": "Le cholestérol augmente toujours la fluidité, quelle que soit la température.",
         "correct": false,
-        "explanation": "Le repère local est environ 2 µm·s−1 pour la diffusion latérale."
+        "explanation": "Incorrect. La fluidité dépend de la longueur et de l’insaturation des chaînes, de la température et du cholestérol. Les doubles liaisons cis gênent l’empaquetage. La diffusion latérale est fréquente, tandis que le flip-flop spontané est très lent."
       },
       {
-        "content": "Cette diffusion se déroule dans le plan de la bicouche.",
-        "correct": true,
-        "explanation": "Le repère local est environ 2 µm·s−1 pour la diffusion latérale."
-      },
-      {
-        "content": "La diffusion latérale n’implique aucun déplacement de phospholipide.",
+        "content": "Des chaînes plus longues et plus saturées augmentent toujours la fluidité.",
         "correct": false,
-        "explanation": "Le repère local est environ 2 µm·s−1 pour la diffusion latérale."
+        "explanation": "Incorrect. La fluidité dépend de la longueur et de l’insaturation des chaînes, de la température et du cholestérol. Les doubles liaisons cis gênent l’empaquetage. La diffusion latérale est fréquente, tandis que le flip-flop spontané est très lent."
+      },
+      {
+        "content": "Une proportion plus élevée d’acides gras insaturés tend à augmenter la fluidité à température donnée.",
+        "correct": true,
+        "explanation": "Exact. La fluidité dépend de la longueur et de l’insaturation des chaînes, de la température et du cholestérol. Les doubles liaisons cis gênent l’empaquetage. La diffusion latérale est fréquente, tandis que le flip-flop spontané est très lent."
+      },
+      {
+        "content": "Les lipides membranaires sont immobiles dans leur feuillet.",
+        "correct": false,
+        "explanation": "Incorrect. La fluidité dépend de la longueur et de l’insaturation des chaînes, de la température et du cholestérol. Les doubles liaisons cis gênent l’empaquetage. La diffusion latérale est fréquente, tandis que le flip-flop spontané est très lent."
+      },
+      {
+        "content": "La température ne modifie jamais l’état physique d’une bicouche.",
+        "correct": false,
+        "explanation": "Incorrect. La fluidité dépend de la longueur et de l’insaturation des chaînes, de la température et du cholestérol. Les doubles liaisons cis gênent l’empaquetage. La diffusion latérale est fréquente, tandis que le flip-flop spontané est très lent."
       }
-    ],
-    "explanation": "Le repère local est environ 2 µm·s−1 pour la diffusion latérale."
+    ]
   },
   {
     "order": 36,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle proposition est exacte concernant « l’asymétrie des phospholipides » ?",
+    "difficulty": "EASY",
+    "format": "QRP",
+    "question": "Concernant « Asymétrie des phospholipides », choisissez exactement 2 affirmations correctes.",
+    "explanation": "Les feuillets ont des compositions différentes. La phosphatidylsérine (PS) est normalement enrichie côté cytosolique ; son exposition externe peut signaler l’apoptose. PC et sphingomyéline sont plutôt externes, PE et PS plutôt internes.",
     "choices": [
       {
-        "content": "La phosphatidyléthanolamine est plutôt interne.",
+        "content": "L’exposition externe de phosphatidylsérine est sans lien avec l’apoptose.",
+        "correct": false,
+        "explanation": "Incorrect. Les feuillets ont des compositions différentes. La phosphatidylsérine (PS) est normalement enrichie côté cytosolique ; son exposition externe peut signaler l’apoptose. PC et sphingomyéline sont plutôt externes, PE et PS plutôt internes."
+      },
+      {
+        "content": "La phosphatidylcholine est souvent enrichie dans le feuillet exoplasmique.",
         "correct": true,
-        "explanation": "Le support enseigne une asymétrie de composition entre les deux feuillets."
+        "explanation": "Exact. Les feuillets ont des compositions différentes. La phosphatidylsérine (PS) est normalement enrichie côté cytosolique ; son exposition externe peut signaler l’apoptose. PC et sphingomyéline sont plutôt externes, PE et PS plutôt internes."
       },
       {
-        "content": "Les deux feuillets ont exactement la même composition lipidique.",
+        "content": "La phosphatidylcholine est confinée exclusivement au feuillet cytosolique.",
         "correct": false,
-        "explanation": "Le support enseigne une asymétrie de composition entre les deux feuillets."
+        "explanation": "Incorrect. Les feuillets ont des compositions différentes. La phosphatidylsérine (PS) est normalement enrichie côté cytosolique ; son exposition externe peut signaler l’apoptose. PC et sphingomyéline sont plutôt externes, PE et PS plutôt internes."
       },
       {
-        "content": "La phosphatidylcholine est décrite comme exclusivement nucléaire.",
+        "content": "La sphingomyéline est absente du feuillet externe.",
         "correct": false,
-        "explanation": "Le support enseigne une asymétrie de composition entre les deux feuillets."
+        "explanation": "Incorrect. Les feuillets ont des compositions différentes. La phosphatidylsérine (PS) est normalement enrichie côté cytosolique ; son exposition externe peut signaler l’apoptose. PC et sphingomyéline sont plutôt externes, PE et PS plutôt internes."
       },
       {
-        "content": "La phosphatidylsérine est présentée comme exclusivement externe.",
-        "correct": false,
-        "explanation": "Le support enseigne une asymétrie de composition entre les deux feuillets."
+        "content": "La phosphatidyléthanolamine est majoritairement enrichie dans le feuillet cytosolique.",
+        "correct": true,
+        "explanation": "Exact. Les feuillets ont des compositions différentes. La phosphatidylsérine (PS) est normalement enrichie côté cytosolique ; son exposition externe peut signaler l’apoptose. PC et sphingomyéline sont plutôt externes, PE et PS plutôt internes."
       }
     ],
-    "explanation": "Le support enseigne une asymétrie de composition entre les deux feuillets."
+    "requiredSelectionCount": 2
   },
   {
     "order": 37,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Quels repères sur « les flippases » sont utiles dans une situation d’application ?",
-    "choices": [
-      {
-        "content": "Leur action concerne le passage entre les deux feuillets.",
-        "correct": true,
-        "explanation": "Les flippases sont présentées comme des protéines de translocation unidirectionnelle."
-      },
-      {
-        "content": "Elles n’interagissent avec aucun phospholipide.",
-        "correct": false,
-        "explanation": "Les flippases sont présentées comme des protéines de translocation unidirectionnelle."
-      },
-      {
-        "content": "Les flippases réalisent un transfert unidirectionnel de phospholipides.",
-        "correct": true,
-        "explanation": "Les flippases sont présentées comme des protéines de translocation unidirectionnelle."
-      },
-      {
-        "content": "Les flippases produisent exclusivement des protéines.",
-        "correct": false,
-        "explanation": "Les flippases sont présentées comme des protéines de translocation unidirectionnelle."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quelle famille de protéines ATP-dépendantes transfère notamment des aminophospholipides vers le feuillet cytosolique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "flippases",
+        "flippase",
+        "P4-ATPases",
+        "P4 ATPases"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les flippases sont présentées comme des protéines de translocation unidirectionnelle."
+    },
+    "explanation": "Les flippases P4-ATPases contribuent au maintien de l’asymétrie."
   },
   {
     "order": 38,
-    "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Application — Réponse numérique en µm/s : quelle vitesse approximative de diffusion latérale est citée ?",
-    "answer": {
-      "type": "number",
-      "value": 2,
-      "tolerance": 0
-    },
-    "explanation": "Le repère local est environ 2 µm·s−1 pour la diffusion latérale."
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Dans ce contexte, pour le thème « Flippases, floppases et scramblases », quelles propositions doivent être retenues ?",
+    "explanation": "Les P4-ATPases/flippases transfèrent sélectivement certains phospholipides vers le feuillet cytosolique en utilisant de l’énergie ; des floppases favorisent le mouvement inverse ; les scramblases redistribuent rapidement et bidirectionnellement les lipides sans conserver l’asymétrie.",
+    "choices": [
+      {
+        "content": "Les scramblases favorisent une redistribution bidirectionnelle des phospholipides entre feuillets.",
+        "correct": true,
+        "explanation": "Exact. Les P4-ATPases/flippases transfèrent sélectivement certains phospholipides vers le feuillet cytosolique en utilisant de l’énergie ; des floppases favorisent le mouvement inverse ; les scramblases redistribuent rapidement et bidirectionnellement les lipides sans conserver l’asymétrie."
+      },
+      {
+        "content": "L’activation d’une scramblase peut contribuer à perdre l’asymétrie membranaire.",
+        "correct": true,
+        "explanation": "Exact. Les P4-ATPases/flippases transfèrent sélectivement certains phospholipides vers le feuillet cytosolique en utilisant de l’énergie ; des floppases favorisent le mouvement inverse ; les scramblases redistribuent rapidement et bidirectionnellement les lipides sans conserver l’asymétrie."
+      },
+      {
+        "content": "Certaines floppases favorisent le transfert de lipides du feuillet cytosolique vers le feuillet exoplasmique.",
+        "correct": true,
+        "explanation": "Exact. Les P4-ATPases/flippases transfèrent sélectivement certains phospholipides vers le feuillet cytosolique en utilisant de l’énergie ; des floppases favorisent le mouvement inverse ; les scramblases redistribuent rapidement et bidirectionnellement les lipides sans conserver l’asymétrie."
+      },
+      {
+        "content": "Les scramblases ne peuvent jamais être activées au cours de l’apoptose.",
+        "correct": false,
+        "explanation": "Incorrect. Les P4-ATPases/flippases transfèrent sélectivement certains phospholipides vers le feuillet cytosolique en utilisant de l’énergie ; des floppases favorisent le mouvement inverse ; les scramblases redistribuent rapidement et bidirectionnellement les lipides sans conserver l’asymétrie."
+      },
+      {
+        "content": "Les floppases déplacent exclusivement des protéines membranaires et jamais des lipides.",
+        "correct": false,
+        "explanation": "Incorrect. Les P4-ATPases/flippases transfèrent sélectivement certains phospholipides vers le feuillet cytosolique en utilisant de l’énergie ; des floppases favorisent le mouvement inverse ; les scramblases redistribuent rapidement et bidirectionnellement les lipides sans conserver l’asymétrie."
+      }
+    ]
   },
   {
     "order": 39,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Dans l’épithélium intestinal, les transporteurs du glucose ne sont pas distribués de la même façon aux pôles apical et basolatéral. Quelles propositions décrivent correctement le mécanisme en jeu ?",
-    "choices": [
-      {
-        "content": "Les jonctions serrées séparent ces domaines.",
-        "correct": true,
-        "explanation": "La polarité membranaire est maintenue en partie par la barrière des jonctions serrées."
-      },
-      {
-        "content": "Les jonctions serrées accélèrent le mélange des protéines apicales et basolatérales.",
-        "correct": false,
-        "explanation": "La polarité membranaire est maintenue en partie par la barrière des jonctions serrées."
-      },
-      {
-        "content": "Elles limitent la diffusion latérale de protéines d’un domaine à l’autre.",
-        "correct": true,
-        "explanation": "La polarité membranaire est maintenue en partie par la barrière des jonctions serrées."
-      },
-      {
-        "content": "Le pôle apical est situé dans le noyau.",
-        "correct": false,
-        "explanation": "La polarité membranaire est maintenue en partie par la barrière des jonctions serrées."
+    "format": "QROC",
+    "question": "Comment nomme-t-on la diffusion d’un constituant membranaire dans le plan d’un même feuillet ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "diffusion latérale",
+        "diffusion laterale"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La polarité membranaire est maintenue en partie par la barrière des jonctions serrées."
+    },
+    "explanation": "La diffusion latérale est beaucoup plus rapide que le flip-flop spontané."
   },
   {
     "order": 40,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Selon le support, quelle affirmation concernant « le glycocalyx » est juste ?",
-    "choices": [
-      {
-        "content": "Ils forment une couche protectrice appelée glycocalyx.",
-        "correct": true,
-        "explanation": "Le glycocalyx est une couche glucidique externe portée par des glycoprotéines et glycolipides."
-      },
-      {
-        "content": "La fiche décrit le glycocalyx comme un réseau d’ADN.",
-        "correct": false,
-        "explanation": "Le glycocalyx est une couche glucidique externe portée par des glycoprotéines et glycolipides."
-      },
-      {
-        "content": "Le glycocalyx est exclusivement situé sur le feuillet cytosolique.",
-        "correct": false,
-        "explanation": "Le glycocalyx est une couche glucidique externe portée par des glycoprotéines et glycolipides."
-      },
-      {
-        "content": "Les glucides membranaires ne sont jamais liés à des protéines.",
-        "correct": false,
-        "explanation": "Le glycocalyx est une couche glucidique externe portée par des glycoprotéines et glycolipides."
+    "format": "QROC",
+    "question": "Quel domaine de l’entérocyte est orienté vers la lumière intestinale ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "domaine apical",
+        "pôle apical",
+        "pole apical",
+        "face apicale"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le glycocalyx est une couche glucidique externe portée par des glycoprotéines et glycolipides."
+    },
+    "explanation": "Le pôle apical porte notamment les microvillosités et SGLT1."
   },
   {
     "order": 41,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Application transversale autour de « le glycocalyx » — sélectionnez exactement les trois affirmations correctes.",
-    "requiredSelectionCount": 3,
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur « Polarité de l’entérocyte et jonctions serrées », lesquelles sont exactes ?",
+    "explanation": "L’entérocyte possède des domaines apical et basolatéral ayant des protéines distinctes. Les jonctions serrées réduisent le passage paracellulaire et jouent aussi un rôle de barrière/fence limitant la diffusion latérale de certains composants.",
     "choices": [
       {
-        "content": "L’entérocyte possède un domaine apical et un domaine basolatéral.",
+        "content": "Dans ce contexte, les claudines constituent des composants structuraux majeurs des jonctions serrées.",
         "correct": true,
-        "explanation": "La polarité membranaire est maintenue en partie par la barrière des jonctions serrées."
+        "explanation": "Exact. L’entérocyte possède des domaines apical et basolatéral ayant des protéines distinctes. Les jonctions serrées réduisent le passage paracellulaire et jouent aussi un rôle de barrière/fence limitant la diffusion latérale de certains composants."
       },
       {
-        "content": "Ils sont localisés sur le feuillet externe dans la fiche.",
+        "content": "Dans ce contexte, l’occludine est une protéine associée aux jonctions serrées mais n’en constitue pas à elle seule toute l’architecture.",
         "correct": true,
-        "explanation": "Le glycocalyx est une couche glucidique externe portée par des glycoprotéines et glycolipides."
+        "explanation": "Exact. L’entérocyte possède des domaines apical et basolatéral ayant des protéines distinctes. Les jonctions serrées réduisent le passage paracellulaire et jouent aussi un rôle de barrière/fence limitant la diffusion latérale de certains composants."
       },
       {
-        "content": "Elle permet aussi de faire varier la taille membranaire en ajoutant ou retirant des phospholipides.",
+        "content": "Le domaine basolatéral communique avec le milieu interstitiel et les capillaires sous-jacents.",
         "correct": true,
-        "explanation": "La membrane est présentée comme une structure fluide et dynamique."
+        "explanation": "Exact. L’entérocyte possède des domaines apical et basolatéral ayant des protéines distinctes. Les jonctions serrées réduisent le passage paracellulaire et jouent aussi un rôle de barrière/fence limitant la diffusion latérale de certains composants."
       },
       {
-        "content": "Des chaînes plus longues rendent toujours la membrane plus fluide selon la fiche.",
-        "correct": false,
-        "explanation": "Le support relie cohésion accrue à des chaînes longues et/ou saturées."
+        "content": "Dans ce contexte, le domaine apical de l’entérocyte est orienté vers la lumière intestinale.",
+        "correct": true,
+        "explanation": "Exact. L’entérocyte possède des domaines apical et basolatéral ayant des protéines distinctes. Les jonctions serrées réduisent le passage paracellulaire et jouent aussi un rôle de barrière/fence limitant la diffusion latérale de certains composants."
       },
       {
-        "content": "La rotation est impossible dans une bicouche.",
+        "content": "La polarité épithéliale n’a aucune conséquence sur le transport transcellulaire.",
         "correct": false,
-        "explanation": "Plusieurs mouvements participent au caractère dynamique de la bicouche."
-      },
-      {
-        "content": "Le support décrit la bascule comme se produisant plusieurs milliers de fois par seconde.",
-        "correct": false,
-        "explanation": "Le repère local est environ 2 µm·s−1 pour la diffusion latérale."
+        "explanation": "Incorrect. L’entérocyte possède des domaines apical et basolatéral ayant des protéines distinctes. Les jonctions serrées réduisent le passage paracellulaire et jouent aussi un rôle de barrière/fence limitant la diffusion latérale de certains composants."
       }
-    ],
-    "explanation": "Cette question croise plusieurs repères de la section."
+    ]
   },
   {
     "order": 42,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle donnée est correcte concernant « l’influence des acides gras sur la fluidité selon la fiche » ?",
-    "choices": [
-      {
-        "content": "Une plus forte saturation est associée à une membrane moins fluide.",
-        "correct": true,
-        "explanation": "Le support relie cohésion accrue à des chaînes longues et/ou saturées."
-      },
-      {
-        "content": "La saturation augmente nécessairement la fluidité.",
-        "correct": false,
-        "explanation": "Le support relie cohésion accrue à des chaînes longues et/ou saturées."
-      },
-      {
-        "content": "La nature des acides gras n’a aucun effet sur les interactions de Van der Waals.",
-        "correct": false,
-        "explanation": "Le support relie cohésion accrue à des chaînes longues et/ou saturées."
-      },
-      {
-        "content": "Des chaînes plus longues rendent toujours la membrane plus fluide selon la fiche.",
-        "correct": false,
-        "explanation": "Le support relie cohésion accrue à des chaînes longues et/ou saturées."
+    "format": "QROC",
+    "question": "Quelles jonctions contribuent à séparer les domaines apical et basolatéral d’un épithélium ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "jonctions serrées",
+        "tight junctions",
+        "jonction serrée"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le support relie cohésion accrue à des chaînes longues et/ou saturées."
+    },
+    "explanation": "Les jonctions serrées ont une fonction barrière et de clôture latérale."
   },
   {
     "order": 43,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Mise en application de « les mouvements des phospholipides » : quelles affirmations sont justes ?",
+    "format": "QRU",
+    "question": "Dans le cadre de « Microdomaines, diffusion latérale et contraintes », identifiez l’affirmation correcte.",
+    "explanation": "La membrane est fluide mais la diffusion des protéines peut être limitée par le cytosquelette, les complexes d’adhérence, les jonctions et des microdomaines. Le modèle de mosaïque fluide n’implique donc pas une mobilité totalement libre de tous les constituants.",
     "choices": [
       {
-        "content": "Les mouvements de bascule entre feuillets sont décrits comme rares.",
-        "correct": true,
-        "explanation": "Plusieurs mouvements participent au caractère dynamique de la bicouche."
-      },
-      {
-        "content": "La bascule est le seul mouvement lipidique décrit.",
+        "content": "Dans ce contexte, les interactions protéine-protéine ne modifient jamais la distribution membranaire.",
         "correct": false,
-        "explanation": "Plusieurs mouvements participent au caractère dynamique de la bicouche."
+        "explanation": "Incorrect. La membrane est fluide mais la diffusion des protéines peut être limitée par le cytosquelette, les complexes d’adhérence, les jonctions et des microdomaines. Le modèle de mosaïque fluide n’implique donc pas une mobilité totalement libre de tous les constituants."
       },
       {
-        "content": "La diffusion latérale correspond à un déplacement dans le plan de la membrane.",
-        "correct": true,
-        "explanation": "Plusieurs mouvements participent au caractère dynamique de la bicouche."
-      },
-      {
-        "content": "La diffusion latérale fait obligatoirement passer un phospholipide d’un feuillet à l’autre.",
+        "content": "Dans ce contexte, le modèle de mosaïque fluide signifie que la membrane est un liquide homogène sans structure locale.",
         "correct": false,
-        "explanation": "Plusieurs mouvements participent au caractère dynamique de la bicouche."
+        "explanation": "Incorrect. La membrane est fluide mais la diffusion des protéines peut être limitée par le cytosquelette, les complexes d’adhérence, les jonctions et des microdomaines. Le modèle de mosaïque fluide n’implique donc pas une mobilité totalement libre de tous les constituants."
+      },
+      {
+        "content": "Dans ce contexte, les complexes d’adhérence peuvent immobiliser ou confiner localement des protéines.",
+        "correct": true,
+        "explanation": "Exact. La membrane est fluide mais la diffusion des protéines peut être limitée par le cytosquelette, les complexes d’adhérence, les jonctions et des microdomaines. Le modèle de mosaïque fluide n’implique donc pas une mobilité totalement libre de tous les constituants."
+      },
+      {
+        "content": "Dans ce contexte, la polarité cellulaire exige l’absence de diffusion latérale de tous les lipides.",
+        "correct": false,
+        "explanation": "Incorrect. La membrane est fluide mais la diffusion des protéines peut être limitée par le cytosquelette, les complexes d’adhérence, les jonctions et des microdomaines. Le modèle de mosaïque fluide n’implique donc pas une mobilité totalement libre de tous les constituants."
+      },
+      {
+        "content": "Toutes les protéines membranaires diffusent librement à la même vitesse sans aucune contrainte.",
+        "correct": false,
+        "explanation": "Incorrect. La membrane est fluide mais la diffusion des protéines peut être limitée par le cytosquelette, les complexes d’adhérence, les jonctions et des microdomaines. Le modèle de mosaïque fluide n’implique donc pas une mobilité totalement libre de tous les constituants."
       }
-    ],
-    "explanation": "Plusieurs mouvements participent au caractère dynamique de la bicouche."
+    ]
   },
   {
     "order": 44,
-    "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "question": "Consolidation — « le glycocalyx » : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Parmi les propositions ci-dessous relatives à « Fluidité membranaire », laquelle est correcte ?",
+    "explanation": "La fluidité dépend de la longueur et de l’insaturation des chaînes, de la température et du cholestérol. Les doubles liaisons cis gênent l’empaquetage. La diffusion latérale est fréquente, tandis que le flip-flop spontané est très lent.",
     "choices": [
       {
-        "content": "Des chaînes d’acides gras plus longues augmentent la cohésion.",
-        "correct": true,
-        "explanation": "Le support relie cohésion accrue à des chaînes longues et/ou saturées."
-      },
-      {
-        "content": "Rotation et flexion sont des mouvements sans déplacement entre feuillets.",
-        "correct": true,
-        "explanation": "Plusieurs mouvements participent au caractère dynamique de la bicouche."
-      },
-      {
-        "content": "Elle est beaucoup plus fréquente que le mouvement de bascule.",
-        "correct": true,
-        "explanation": "Le repère local est environ 2 µm·s−1 pour la diffusion latérale."
-      },
-      {
-        "content": "La phosphatidylsérine est plutôt associée au feuillet interne dans la fiche.",
-        "correct": true,
-        "explanation": "Le support enseigne une asymétrie de composition entre les deux feuillets."
-      },
-      {
-        "content": "Elles contribuent à créer ou maintenir l’asymétrie.",
-        "correct": true,
-        "explanation": "Les flippases sont présentées comme des protéines de translocation unidirectionnelle."
-      },
-      {
-        "content": "Elles ne participent à aucun mouvement entre feuillets.",
+        "content": "Dans ce contexte, la température ne modifie jamais l’état physique d’une bicouche.",
         "correct": false,
-        "explanation": "La fiche attribue aux scramblases un rôle de redistribution vers davantage de symétrie."
+        "explanation": "Incorrect. La fluidité dépend de la longueur et de l’insaturation des chaînes, de la température et du cholestérol. Les doubles liaisons cis gênent l’empaquetage. La diffusion latérale est fréquente, tandis que le flip-flop spontané est très lent."
       },
       {
-        "content": "La membrane de l’entérocyte est homogène sans domaines.",
-        "correct": false,
-        "explanation": "La polarité membranaire est maintenue en partie par la barrière des jonctions serrées."
+        "content": "La diffusion latérale des lipides dans un même feuillet est rapide par rapport au flip-flop spontané.",
+        "correct": true,
+        "explanation": "Exact. La fluidité dépend de la longueur et de l’insaturation des chaînes, de la température et du cholestérol. Les doubles liaisons cis gênent l’empaquetage. La diffusion latérale est fréquente, tandis que le flip-flop spontané est très lent."
       },
       {
-        "content": "Les glucides membranaires ne sont jamais liés à des protéines.",
+        "content": "Dans ce contexte, des chaînes plus longues et plus saturées augmentent toujours la fluidité.",
         "correct": false,
-        "explanation": "Le glycocalyx est une couche glucidique externe portée par des glycoprotéines et glycolipides."
+        "explanation": "Incorrect. La fluidité dépend de la longueur et de l’insaturation des chaînes, de la température et du cholestérol. Les doubles liaisons cis gênent l’empaquetage. La diffusion latérale est fréquente, tandis que le flip-flop spontané est très lent."
+      },
+      {
+        "content": "Le flip-flop spontané d’un phospholipide est généralement aussi rapide que sa diffusion latérale.",
+        "correct": false,
+        "explanation": "Incorrect. La fluidité dépend de la longueur et de l’insaturation des chaînes, de la température et du cholestérol. Les doubles liaisons cis gênent l’empaquetage. La diffusion latérale est fréquente, tandis que le flip-flop spontané est très lent."
+      },
+      {
+        "content": "La fluidité membranaire est indépendante de la composition lipidique.",
+        "correct": false,
+        "explanation": "Incorrect. La fluidité dépend de la longueur et de l’insaturation des chaînes, de la température et du cholestérol. Les doubles liaisons cis gênent l’empaquetage. La diffusion latérale est fréquente, tandis que le flip-flop spontané est très lent."
       }
-    ],
-    "explanation": "La sélection longue vérifie plusieurs notions de la section simultanément."
+    ]
   }
 ];

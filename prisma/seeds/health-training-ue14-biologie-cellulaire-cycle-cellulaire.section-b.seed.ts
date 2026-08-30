@@ -1,646 +1,747 @@
-/**
- * UE14 – Biologie cellulaire – Chapitre 9 : Le cycle cellulaire
- * Contenu fondé sur la fiche 2024-2025 du Tutorat Santé de Reims.
- */
 import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
 
+/** UE14 Biologie cellulaire — Ch9 — Cyclines, CDK et transitions — V2 active */
 export const SECTION_B_QUESTIONS: SeedQuestion[] = [
   {
-    order: 31,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Le contrôle moléculaire du cycle repose notamment sur :`,
-    choices: [
-      `Les cyclines.`,
-      `Les CDK.`,
-      `Des complexes cycline/CDK.`,
-      `Une activité cyclique identique de toutes les protéines.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les transitions résultent de complexes spécifiques dont l’activité varie au cours du cycle.`,
-    choiceExplanations: [
-      `Exact. Les transitions résultent de complexes spécifiques dont l’activité varie au cours du cycle.`,
-      `Exact. Les transitions résultent de complexes spécifiques dont l’activité varie au cours du cycle.`,
-      `Exact. Les transitions résultent de complexes spécifiques dont l’activité varie au cours du cycle.`,
-      `Faux. Les transitions résultent de complexes spécifiques dont l’activité varie au cours du cycle.`,
-    ],
+    "order": 23,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel type de protéine est une CDK sur le plan enzymatique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "kinase",
+        "protéine kinase",
+        "serine threonine kinase",
+        "sérine thréonine kinase"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Les CDK sont des protéines kinases qui phosphorylent leurs substrats lorsqu’elles sont activées."
   },
   {
-    order: 32,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Les cyclines :`,
-    choices: [
-      `Sont synthétisées puis dégradées au cours du cycle.`,
-      `Ont une expression variable selon les phases.`,
-      `Restent toujours à concentration constante.`,
-      `Comprennent notamment les cyclines A, B, D et E.`,
+    "order": 24,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Concernant « Principe cyclines-CDK », quelle est l’unique proposition exacte ?",
+    "choices": [
+      {
+        "content": "Les CDK phosphorylent des protéines cibles lorsqu’elles sont activées.",
+        "correct": true,
+        "explanation": "Exact : Les CDK phosphorylent des protéines cibles lorsqu’elles sont activées. Les CDK sont des kinases dont l’activité dépend de leur association à des cyclines et de modifications régulatrices. Les concentrations des cyclines oscillent davantage que celles des CDK."
+      },
+      {
+        "content": "Les CDK sont actives au maximum en permanence, indépendamment des cyclines.",
+        "correct": false,
+        "explanation": "Incorrect : Les CDK sont actives au maximum en permanence, indépendamment des cyclines. À retenir : L’association à une cycline est nécessaire à l’activation fonctionnelle d’une CDK du cycle."
+      },
+      {
+        "content": "Les concentrations de toutes les CDK oscillent de zéro à un maximum à chaque phase.",
+        "correct": false,
+        "explanation": "Incorrect : Les concentrations de toutes les CDK oscillent de zéro à un maximum à chaque phase. À retenir : La concentration de nombreuses cyclines varie au cours du cycle cellulaire."
+      },
+      {
+        "content": "La dégradation des cyclines est sans effet sur la progression du cycle.",
+        "correct": false,
+        "explanation": "Incorrect : La dégradation des cyclines est sans effet sur la progression du cycle. À retenir : Les CDK sont régulées aussi par des phosphorylations activatrices ou inhibitrices."
+      },
+      {
+        "content": "Les cyclines sont des phosphatases qui retirent le phosphate des CDK.",
+        "correct": false,
+        "explanation": "Incorrect : Les cyclines sont des phosphatases qui retirent le phosphate des CDK. À retenir : Les CDK phosphorylent des protéines cibles lorsqu’elles sont activées."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `La variation d’expression des cyclines contraste avec la relative stabilité des CDK.`,
-    choiceExplanations: [
-      `Exact. La variation d’expression des cyclines contraste avec la relative stabilité des CDK.`,
-      `Exact. La variation d’expression des cyclines contraste avec la relative stabilité des CDK.`,
-      `Faux. La variation d’expression des cyclines contraste avec la relative stabilité des CDK.`,
-      `Exact. La variation d’expression des cyclines contraste avec la relative stabilité des CDK.`,
-    ],
+    "explanation": "Les CDK sont des kinases dont l’activité dépend de leur association à des cyclines et de modifications régulatrices. Les concentrations des cyclines oscillent davantage que celles des CDK."
   },
   {
-    order: 33,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Les CDK :`,
-    choices: [
-      `Sont des kinases dépendantes des cyclines.`,
-      `Sont globalement présentes de façon stable.`,
-      `Ne deviennent actives qu’après association à leur cycline spécifique.`,
-      `Sont toutes détruites à chaque transition.`,
+    "order": 25,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "À propos de « Cycline D-CDK4/6 et Rb-E2F », repérez la seule affirmation correcte.",
+    "choices": [
+      {
+        "content": "Les facteurs de croissance suppriment systématiquement la synthèse de cycline D.",
+        "correct": false,
+        "explanation": "Incorrect : Les facteurs de croissance suppriment systématiquement la synthèse de cycline D. À retenir : La phosphorylation de Rb réduit son frein sur les facteurs E2F."
+      },
+      {
+        "content": "CDK4 et CDK6 sont les principales kinases de séparation des chromatides en anaphase.",
+        "correct": false,
+        "explanation": "Incorrect : CDK4 et CDK6 sont les principales kinases de séparation des chromatides en anaphase. À retenir : E2F stimule l’expression de gènes nécessaires à la transition G1/S."
+      },
+      {
+        "content": "Les signaux mitogènes favorisent l’expression des cyclines D.",
+        "correct": true,
+        "explanation": "Exact : Les signaux mitogènes favorisent l’expression des cyclines D. Les mitogènes stimulent l’expression de cyclines D. Les complexes cycline D-CDK4/6 phosphorylent notamment la protéine Rb, ce qui favorise l’activité des facteurs E2F et l’expression de gènes nécessaires à l’entrée en phase S."
+      },
+      {
+        "content": "Rb activée stimule directement E2F en le libérant de toute inhibition.",
+        "correct": false,
+        "explanation": "Incorrect : Rb activée stimule directement E2F en le libérant de toute inhibition. À retenir : Les cyclines D s’associent principalement à CDK4 et CDK6."
+      },
+      {
+        "content": "La cycline D s’associe exclusivement à CDK1 pour déclencher l’anaphase.",
+        "correct": false,
+        "explanation": "Incorrect : La cycline D s’associe exclusivement à CDK1 pour déclencher l’anaphase. À retenir : Les signaux mitogènes favorisent l’expression des cyclines D."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les CDK restent présentes mais leur activité dépend de leur association et de leur état de phosphorylation.`,
-    choiceExplanations: [
-      `Exact. Les CDK restent présentes mais leur activité dépend de leur association et de leur état de phosphorylation.`,
-      `Exact. Les CDK restent présentes mais leur activité dépend de leur association et de leur état de phosphorylation.`,
-      `Exact. Les CDK restent présentes mais leur activité dépend de leur association et de leur état de phosphorylation.`,
-      `Faux. Les CDK restent présentes mais leur activité dépend de leur association et de leur état de phosphorylation.`,
-    ],
+    "explanation": "Les mitogènes stimulent l’expression de cyclines D. Les complexes cycline D-CDK4/6 phosphorylent notamment la protéine Rb, ce qui favorise l’activité des facteurs E2F et l’expression de gènes nécessaires à l’entrée en phase S."
   },
   {
-    order: 34,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Une kinase :`,
-    choices: [
-      `Catalyse le transfert d’un groupe phosphoryle.`,
-      `Peut modifier l’activité de protéines cibles.`,
-      `Est toujours une phosphatase.`,
-      `Intervient dans la cascade du cycle cellulaire.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les CDK sont des kinases, distinctes des phosphatases comme cdc25.`,
-    choiceExplanations: [
-      `Exact. Les CDK sont des kinases, distinctes des phosphatases comme cdc25.`,
-      `Exact. Les CDK sont des kinases, distinctes des phosphatases comme cdc25.`,
-      `Faux. Les CDK sont des kinases, distinctes des phosphatases comme cdc25.`,
-      `Exact. Les CDK sont des kinases, distinctes des phosphatases comme cdc25.`,
-    ],
+    "order": 26,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quelle cycline s’associe principalement à CDK4 et CDK6 en G1 ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "cycline D",
+        "D"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Les complexes cycline D-CDK4/6 relaient notamment les signaux mitogènes en G1."
   },
   {
-    order: 35,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `La synthèse de la cycline D :`,
-    choices: [
-      `Répond à un stimulus extracellulaire.`,
-      `Peut être déclenchée par un facteur de croissance.`,
-      `Implique le facteur de transcription Myc.`,
-      `Est indépendante de tout récepteur membranaire.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le facteur de croissance active une signalisation conduisant à l’expression du gène de la cycline D.`,
-    choiceExplanations: [
-      `Exact. Le facteur de croissance active une signalisation conduisant à l’expression du gène de la cycline D.`,
-      `Exact. Le facteur de croissance active une signalisation conduisant à l’expression du gène de la cycline D.`,
-      `Exact. Le facteur de croissance active une signalisation conduisant à l’expression du gène de la cycline D.`,
-      `Faux. Le facteur de croissance active une signalisation conduisant à l’expression du gène de la cycline D.`,
-    ],
+    "order": 27,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quelle CDK est le partenaire classique de la cycline E à la transition G1/S ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "CDK2",
+        "cdk2"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Cycline E-CDK2 est un complexe majeur de la transition G1/S."
   },
   {
-    order: 36,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Myc, dans le mécanisme présenté :`,
-    choices: [
-      `Est activé par une transduction du signal.`,
-      `Entre dans le noyau par les pores nucléaires.`,
-      `Se fixe sur le promoteur du gène de la cycline D.`,
-      `Dégrade directement la cycline D.`,
+    "order": 28,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur « Cycline E-CDK2 », lesquelles sont incorrectes ?",
+    "choices": [
+      {
+        "content": "La cycline E s’associe à CDK2.",
+        "correct": false,
+        "explanation": "Exact : La cycline E s’associe à CDK2. Le complexe cycline E-CDK2 est particulièrement actif à la transition G1/S et contribue à l’engagement dans la réplication."
+      },
+      {
+        "content": "La cycline E est absente de toute transition G1/S.",
+        "correct": true,
+        "explanation": "Incorrect : La cycline E est absente de toute transition G1/S. À retenir : L’activité cycline E-CDK2 augmente autour de la transition G1/S."
+      },
+      {
+        "content": "L’activité cycline E-CDK2 augmente autour de la transition G1/S.",
+        "correct": false,
+        "explanation": "Exact : L’activité cycline E-CDK2 augmente autour de la transition G1/S. Le complexe cycline E-CDK2 est particulièrement actif à la transition G1/S et contribue à l’engagement dans la réplication."
+      },
+      {
+        "content": "Cycline E-CDK2 contribue à l’engagement de la cellule vers la phase S.",
+        "correct": false,
+        "explanation": "Exact : Cycline E-CDK2 contribue à l’engagement de la cellule vers la phase S. Le complexe cycline E-CDK2 est particulièrement actif à la transition G1/S et contribue à l’engagement dans la réplication."
+      },
+      {
+        "content": "Cycline E-CDK2 constitue le principal complexe de sortie d’anaphase.",
+        "correct": true,
+        "explanation": "Incorrect : Cycline E-CDK2 constitue le principal complexe de sortie d’anaphase. À retenir : La cycline E s’associe à CDK2."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Myc agit comme facteur de transcription favorisant la production de cycline D.`,
-    choiceExplanations: [
-      `Exact. Myc agit comme facteur de transcription favorisant la production de cycline D.`,
-      `Exact. Myc agit comme facteur de transcription favorisant la production de cycline D.`,
-      `Exact. Myc agit comme facteur de transcription favorisant la production de cycline D.`,
-      `Faux. Myc agit comme facteur de transcription favorisant la production de cycline D.`,
-    ],
+    "explanation": "Le complexe cycline E-CDK2 est particulièrement actif à la transition G1/S et contribue à l’engagement dans la réplication. Ici, il fallait sélectionner les affirmations incorrectes."
   },
   {
-    order: 37,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Le complexe cycline D/CDK4-6 :`,
-    choices: [
-      `Favorise l’entrée et la progression en G1.`,
-      `Est induit par les facteurs de croissance.`,
-      `Est le MPF.`,
-      `Phosphoryle des protéines favorisant l’expression de cycline E et E2F.`,
+    "order": 29,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Pour le thème « Cycline A et phase S », quelles propositions doivent être retenues ?",
+    "choices": [
+      {
+        "content": "La cycline A peut s’associer à CDK1 à l’approche de la mitose.",
+        "correct": true,
+        "explanation": "Exact : La cycline A peut s’associer à CDK1 à l’approche de la mitose. La cycline A s’associe à CDK2 pendant la phase S puis à CDK1 à l’approche de la mitose. Elle contribue à la progression de S et à empêcher une nouvelle initiation de réplication."
+      },
+      {
+        "content": "La cycline A est uniquement présente en G0.",
+        "correct": false,
+        "explanation": "Incorrect : La cycline A est uniquement présente en G0. À retenir : Cycline A-CDK2 participe à la progression de la phase S."
+      },
+      {
+        "content": "Cycline A-CDK2 participe à la progression de la phase S.",
+        "correct": true,
+        "explanation": "Exact : Cycline A-CDK2 participe à la progression de la phase S. La cycline A s’associe à CDK2 pendant la phase S puis à CDK1 à l’approche de la mitose. Elle contribue à la progression de S et à empêcher une nouvelle initiation de réplication."
+      },
+      {
+        "content": "Cycline A-CDK2 est le complexe qui assemble directement l’anneau actomyosine de cytodiérèse.",
+        "correct": false,
+        "explanation": "Incorrect : Cycline A-CDK2 est le complexe qui assemble directement l’anneau actomyosine de cytodiérèse. À retenir : La cycline A peut s’associer à CDK1 à l’approche de la mitose."
+      },
+      {
+        "content": "L’activité des CDK de phase S contribue à empêcher une nouvelle initiation sur des origines déjà utilisées.",
+        "correct": true,
+        "explanation": "Exact : L’activité des CDK de phase S contribue à empêcher une nouvelle initiation sur des origines déjà utilisées. La cycline A s’associe à CDK2 pendant la phase S puis à CDK1 à l’approche de la mitose. Elle contribue à la progression de S et à empêcher une nouvelle initiation de réplication."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Le MPF correspond au complexe cycline B/CDK1.`,
-    choiceExplanations: [
-      `Exact. Le MPF correspond au complexe cycline B/CDK1.`,
-      `Exact. Le MPF correspond au complexe cycline B/CDK1.`,
-      `Faux. Le MPF correspond au complexe cycline B/CDK1.`,
-      `Exact. Le MPF correspond au complexe cycline B/CDK1.`,
-    ],
+    "explanation": "La cycline A s’associe à CDK2 pendant la phase S puis à CDK1 à l’approche de la mitose. Elle contribue à la progression de S et à empêcher une nouvelle initiation de réplication."
   },
   {
-    order: 38,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `La transition G1-S dépend notamment :`,
-    choices: [
-      `Du complexe cycline E/CDK2.`,
-      `De la dégradation de la cycline D.`,
-      `Du complexe cycline B/CDK1.`,
-      `De l’activation de facteurs permettant l’entrée en S.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Le complexe cycline B/CDK1 intervient à la transition G2-M.`,
-    choiceExplanations: [
-      `Exact. Le complexe cycline B/CDK1 intervient à la transition G2-M.`,
-      `Exact. Le complexe cycline B/CDK1 intervient à la transition G2-M.`,
-      `Faux. Le complexe cycline B/CDK1 intervient à la transition G2-M.`,
-      `Exact. Le complexe cycline B/CDK1 intervient à la transition G2-M.`,
-    ],
+    "order": 30,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel complexe cycline-CDK, historiquement appelé MPF, déclenche l’entrée en mitose ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "cycline B-CDK1",
+        "cycline B cdk1",
+        "CDK1-cycline B",
+        "MPF"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Le MPF correspond à l’activité cycline B-CDK1."
   },
   {
-    order: 39,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `En phase S :`,
-    choices: [
-      `La cycline A s’associe à CDK2.`,
-      `Le complexe A/CDK2 favorise la réplication de l’ADN.`,
-      `Le centrosome peut être dupliqué.`,
-      `La cycline E est maintenue à son maximum jusqu’à la fin de M.`,
+    "order": 31,
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "requiredSelectionCount": 3,
+    "question": "Pour « Cycline B-CDK1 et entrée en mitose », quelles sont exactement les 3 propositions exactes ?",
+    "choices": [
+      {
+        "content": "L’activation de CDK1 favorise la condensation des chromosomes.",
+        "correct": true,
+        "explanation": "Exact : L’activation de CDK1 favorise la condensation des chromosomes. Cycline B-CDK1, historiquement appelée MPF, déclenche de nombreux événements de l’entrée en mitose : condensation chromosomique, réorganisation des microtubules et désassemblage de l’enveloppe nucléaire."
+      },
+      {
+        "content": "Cycline B s’associe à CDK1 pour former une activité majeure d’entrée en mitose.",
+        "correct": true,
+        "explanation": "Exact : Cycline B s’associe à CDK1 pour former une activité majeure d’entrée en mitose. Cycline B-CDK1, historiquement appelée MPF, déclenche de nombreux événements de l’entrée en mitose : condensation chromosomique, réorganisation des microtubules et désassemblage de l’enveloppe nucléaire."
+      },
+      {
+        "content": "L’activation de CDK1 maintient obligatoirement l’enveloppe nucléaire intacte.",
+        "correct": false,
+        "explanation": "Incorrect : L’activation de CDK1 maintient obligatoirement l’enveloppe nucléaire intacte. À retenir : Cycline B-CDK1 est historiquement appelée MPF."
+      },
+      {
+        "content": "Cycline B-CDK1 est historiquement appelée MPF.",
+        "correct": true,
+        "explanation": "Exact : Cycline B-CDK1 est historiquement appelée MPF. Cycline B-CDK1, historiquement appelée MPF, déclenche de nombreux événements de l’entrée en mitose : condensation chromosomique, réorganisation des microtubules et désassemblage de l’enveloppe nucléaire."
+      },
+      {
+        "content": "Cycline B-CDK1 est le complexe principal de réplication de l’ADN en milieu de phase S.",
+        "correct": false,
+        "explanation": "Incorrect : Cycline B-CDK1 est le complexe principal de réplication de l’ADN en milieu de phase S. À retenir : Cycline B s’associe à CDK1 pour former une activité majeure d’entrée en mitose."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La cycline E est dégradée pendant la phase S.`,
-    choiceExplanations: [
-      `Exact. La cycline E est dégradée pendant la phase S.`,
-      `Exact. La cycline E est dégradée pendant la phase S.`,
-      `Exact. La cycline E est dégradée pendant la phase S.`,
-      `Faux. La cycline E est dégradée pendant la phase S.`,
-    ],
+    "explanation": "Cycline B-CDK1, historiquement appelée MPF, déclenche de nombreux événements de l’entrée en mitose : condensation chromosomique, réorganisation des microtubules et désassemblage de l’enveloppe nucléaire."
   },
   {
-    order: 40,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `En phase G2 :`,
-    choices: [
-      `La cycline B s’associe à CDK1.`,
-      `Le complexe cycline B/CDK1 forme le MPF.`,
-      `La cycline A est dégradée.`,
-      `Le complexe cycline D/CDK4-6 déclenche directement la destruction de l’enveloppe nucléaire.`,
+    "order": 32,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant « Protéolyse et transitions » ?",
+    "choices": [
+      {
+        "content": "L’APC/C est une ubiquitine ligase E3.",
+        "correct": true,
+        "explanation": "Exact : L’APC/C est une ubiquitine ligase E3. Le système ubiquitine-protéasome impose la disparition de régulateurs à des moments précis. L’APC/C est une E3 ubiquitine ligase essentielle pour l’anaphase et la sortie de mitose."
+      },
+      {
+        "content": "L’ubiquitination protège toujours une protéine de toute dégradation.",
+        "correct": false,
+        "explanation": "Incorrect : L’ubiquitination protège toujours une protéine de toute dégradation. À retenir : L’APC/C est une ubiquitine ligase E3."
+      },
+      {
+        "content": "L’APC/C est une ADN polymérase.",
+        "correct": false,
+        "explanation": "Incorrect : L’APC/C est une ADN polymérase. À retenir : L’ubiquitination peut cibler une protéine régulatrice vers le protéasome."
+      },
+      {
+        "content": "La sécurine active la séparase tant qu’elle lui reste liée.",
+        "correct": false,
+        "explanation": "Incorrect : La sécurine active la séparase tant qu’elle lui reste liée. À retenir : APC/C-Cdc20 contribue à la dégradation de la sécurine."
+      },
+      {
+        "content": "L’ubiquitination peut cibler une protéine régulatrice vers le protéasome.",
+        "correct": true,
+        "explanation": "Exact : L’ubiquitination peut cibler une protéine régulatrice vers le protéasome. Le système ubiquitine-protéasome impose la disparition de régulateurs à des moments précis. L’APC/C est une E3 ubiquitine ligase essentielle pour l’anaphase et la sortie de mitose."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La transition G2-M dépend du MPF, non du complexe D/CDK4-6.`,
-    choiceExplanations: [
-      `Exact. La transition G2-M dépend du MPF, non du complexe D/CDK4-6.`,
-      `Exact. La transition G2-M dépend du MPF, non du complexe D/CDK4-6.`,
-      `Exact. La transition G2-M dépend du MPF, non du complexe D/CDK4-6.`,
-      `Faux. La transition G2-M dépend du MPF, non du complexe D/CDK4-6.`,
-    ],
+    "explanation": "Le système ubiquitine-protéasome impose la disparition de régulateurs à des moments précis. L’APC/C est une E3 ubiquitine ligase essentielle pour l’anaphase et la sortie de mitose."
   },
   {
-    order: 41,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Observe la figure suivante.
-
-![Cyclines et CDK](/images/training/ue14/biologie-cellulaire/cycle-cellulaire/cyclines-cdk.png)
-
-Quelle(s) proposition(s) est(sont) exacte(s) ?`,
-    choices: [
-      `La cycline D prédomine en G1.`,
-      `La cycline E est liée à la transition G1-S.`,
-      `La cycline B culmine à l’entrée en mitose.`,
-      `Les CDK disparaissent complètement entre chaque phase.`,
+    "order": 33,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Sur le thème « Principe cyclines-CDK », quelle proposition est exacte ?",
+    "choices": [
+      {
+        "content": "La dégradation des cyclines est sans effet sur la progression du cycle.",
+        "correct": false,
+        "explanation": "Incorrect : La dégradation des cyclines est sans effet sur la progression du cycle. À retenir : Les CDK sont régulées aussi par des phosphorylations activatrices ou inhibitrices."
+      },
+      {
+        "content": "Les concentrations de toutes les CDK oscillent de zéro à un maximum à chaque phase.",
+        "correct": false,
+        "explanation": "Incorrect : Les concentrations de toutes les CDK oscillent de zéro à un maximum à chaque phase. À retenir : La concentration de nombreuses cyclines varie au cours du cycle cellulaire."
+      },
+      {
+        "content": "L’association à une cycline est nécessaire à l’activation fonctionnelle d’une CDK du cycle.",
+        "correct": true,
+        "explanation": "Exact : L’association à une cycline est nécessaire à l’activation fonctionnelle d’une CDK du cycle. Les CDK sont des kinases dont l’activité dépend de leur association à des cyclines et de modifications régulatrices. Les concentrations des cyclines oscillent davantage que celles des CDK."
+      },
+      {
+        "content": "Une cycline reste obligatoirement stable pendant toute la vie de la cellule.",
+        "correct": false,
+        "explanation": "Incorrect : Une cycline reste obligatoirement stable pendant toute la vie de la cellule. À retenir : Une même CDK peut s’associer à différentes cyclines selon le contexte."
+      },
+      {
+        "content": "Les CDK catalysent directement la synthèse de l’ADN sans phosphoryler de substrats.",
+        "correct": false,
+        "explanation": "Incorrect : Les CDK catalysent directement la synthèse de l’ADN sans phosphoryler de substrats. À retenir : La dégradation contrôlée de cyclines contribue à rendre les transitions du cycle irréversibles."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les CDK sont relativement stables ; ce sont les cyclines qui oscillent fortement.`,
-    choiceExplanations: [
-      `Exact. Les CDK sont relativement stables ; ce sont les cyclines qui oscillent fortement.`,
-      `Exact. Les CDK sont relativement stables ; ce sont les cyclines qui oscillent fortement.`,
-      `Exact. Les CDK sont relativement stables ; ce sont les cyclines qui oscillent fortement.`,
-      `Faux. Les CDK sont relativement stables ; ce sont les cyclines qui oscillent fortement.`,
-    ],
+    "explanation": "Les CDK sont des kinases dont l’activité dépend de leur association à des cyclines et de modifications régulatrices. Les concentrations des cyclines oscillent davantage que celles des CDK."
   },
   {
-    order: 42,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Le complexe cycline A/CDK2 permet :`,
-    choices: [
-      `La réplication de l’ADN.`,
-      `La duplication du centrosome.`,
-      `La transition métaphase-anaphase par destruction de la sécurine.`,
-      `La progression de la phase S.`,
+    "order": 34,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant les mécanismes de « Cycline D-CDK4/6 et Rb-E2F », quelles affirmations sont correctes ?",
+    "choices": [
+      {
+        "content": "Les facteurs de croissance suppriment systématiquement la synthèse de cycline D.",
+        "correct": false,
+        "explanation": "Incorrect : Les facteurs de croissance suppriment systématiquement la synthèse de cycline D. À retenir : La phosphorylation de Rb réduit son frein sur les facteurs E2F."
+      },
+      {
+        "content": "Les cyclines D s’associent principalement à CDK4 et CDK6.",
+        "correct": true,
+        "explanation": "Exact : Les cyclines D s’associent principalement à CDK4 et CDK6. Les mitogènes stimulent l’expression de cyclines D. Les complexes cycline D-CDK4/6 phosphorylent notamment la protéine Rb, ce qui favorise l’activité des facteurs E2F et l’expression de gènes nécessaires à l’entrée en phase S."
+      },
+      {
+        "content": "La phosphorylation de Rb réduit son frein sur les facteurs E2F.",
+        "correct": true,
+        "explanation": "Exact : La phosphorylation de Rb réduit son frein sur les facteurs E2F. Les mitogènes stimulent l’expression de cyclines D. Les complexes cycline D-CDK4/6 phosphorylent notamment la protéine Rb, ce qui favorise l’activité des facteurs E2F et l’expression de gènes nécessaires à l’entrée en phase S."
+      },
+      {
+        "content": "CDK4 et CDK6 sont les principales kinases de séparation des chromatides en anaphase.",
+        "correct": false,
+        "explanation": "Incorrect : CDK4 et CDK6 sont les principales kinases de séparation des chromatides en anaphase. À retenir : E2F stimule l’expression de gènes nécessaires à la transition G1/S."
+      },
+      {
+        "content": "E2F stimule l’expression de gènes nécessaires à la transition G1/S.",
+        "correct": true,
+        "explanation": "Exact : E2F stimule l’expression de gènes nécessaires à la transition G1/S. Les mitogènes stimulent l’expression de cyclines D. Les complexes cycline D-CDK4/6 phosphorylent notamment la protéine Rb, ce qui favorise l’activité des facteurs E2F et l’expression de gènes nécessaires à l’entrée en phase S."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `La destruction de la sécurine dépend du complexe APC/cdc20.`,
-    choiceExplanations: [
-      `Exact. La destruction de la sécurine dépend du complexe APC/cdc20.`,
-      `Exact. La destruction de la sécurine dépend du complexe APC/cdc20.`,
-      `Faux. La destruction de la sécurine dépend du complexe APC/cdc20.`,
-      `Exact. La destruction de la sécurine dépend du complexe APC/cdc20.`,
-    ],
+    "explanation": "Les mitogènes stimulent l’expression de cyclines D. Les complexes cycline D-CDK4/6 phosphorylent notamment la protéine Rb, ce qui favorise l’activité des facteurs E2F et l’expression de gènes nécessaires à l’entrée en phase S."
   },
   {
-    order: 43,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `En fin de phase S, le complexe cycline A/CDK1 :`,
-    choices: [
-      `Empêche une nouvelle réplication de l’ADN.`,
-      `Contribue à assurer l’unicité de la phase S.`,
-      `Est identique au complexe cycline E/CDK2.`,
-      `Précède l’accumulation du complexe B/CDK1.`,
+    "order": 35,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "Sur le thème « Cycline E-CDK2 », sélectionnez exactement 2 propositions exactes.",
+    "choices": [
+      {
+        "content": "Cycline E-CDK2 contribue à l’engagement de la cellule vers la phase S.",
+        "correct": true,
+        "explanation": "Exact : Cycline E-CDK2 contribue à l’engagement de la cellule vers la phase S. Le complexe cycline E-CDK2 est particulièrement actif à la transition G1/S et contribue à l’engagement dans la réplication."
+      },
+      {
+        "content": "La cycline E est une protéine structurale du kinétochore.",
+        "correct": false,
+        "explanation": "Incorrect : La cycline E est une protéine structurale du kinétochore. À retenir : Cycline E-CDK2 agit en aval de mécanismes de progression de G1."
+      },
+      {
+        "content": "L’activité cycline E-CDK2 augmente autour de la transition G1/S.",
+        "correct": true,
+        "explanation": "Exact : L’activité cycline E-CDK2 augmente autour de la transition G1/S. Le complexe cycline E-CDK2 est particulièrement actif à la transition G1/S et contribue à l’engagement dans la réplication."
+      },
+      {
+        "content": "CDK2 est une ubiquitine ligase du complexe APC/C.",
+        "correct": false,
+        "explanation": "Incorrect : CDK2 est une ubiquitine ligase du complexe APC/C. À retenir : Cycline E-CDK2 contribue à l’engagement de la cellule vers la phase S."
+      },
+      {
+        "content": "Cycline E-CDK2 sépare directement les chromatides en clivant la cohésine.",
+        "correct": false,
+        "explanation": "Incorrect : Cycline E-CDK2 sépare directement les chromatides en clivant la cohésine. À retenir : Une dérégulation de cycline E peut perturber le contrôle de la réplication."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `La cycline A change de partenaire CDK au cours de la progression S-G2.`,
-    choiceExplanations: [
-      `Exact. La cycline A change de partenaire CDK au cours de la progression S-G2.`,
-      `Exact. La cycline A change de partenaire CDK au cours de la progression S-G2.`,
-      `Faux. La cycline A change de partenaire CDK au cours de la progression S-G2.`,
-      `Exact. La cycline A change de partenaire CDK au cours de la progression S-G2.`,
-    ],
+    "explanation": "Le complexe cycline E-CDK2 est particulièrement actif à la transition G1/S et contribue à l’engagement dans la réplication."
   },
   {
-    order: 44,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Le MPF activé initie notamment :`,
-    choices: [
-      `L’assemblage du fuseau mitotique.`,
-      `La destruction de l’enveloppe nucléaire.`,
-      `La condensation des chromosomes.`,
-      `La réplication de l’ADN.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La réplication a lieu avant l’activation du MPF, pendant S.`,
-    choiceExplanations: [
-      `Exact. La réplication a lieu avant l’activation du MPF, pendant S.`,
-      `Exact. La réplication a lieu avant l’activation du MPF, pendant S.`,
-      `Exact. La réplication a lieu avant l’activation du MPF, pendant S.`,
-      `Faux. La réplication a lieu avant l’activation du MPF, pendant S.`,
-    ],
+    "order": 36,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel facteur de transcription est libéré progressivement du frein exercé par Rb lors de la progression G1/S ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "E2F",
+        "facteur E2F"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "La phosphorylation de Rb favorise l’activité des facteurs E2F et l’expression de gènes de phase S."
   },
   {
-    order: 45,
-    difficulty: 'MEDIUM',
-    answerFormat: 'SINGLE',
-    question: `Quel complexe correspond au M-phase promoting factor ?`,
-    choices: [
-      `Cycline D/CDK4.`,
-      `Cycline E/CDK2.`,
-      `Cycline A/CDK2.`,
-      `Cycline B/CDK1.`,
+    "order": 37,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Parmi les éléments suivants relatifs à « Cycline A et phase S », lesquels sont exacts ?",
+    "choices": [
+      {
+        "content": "La cycline A est dégradée au cours de la mitose.",
+        "correct": true,
+        "explanation": "Exact : La cycline A est dégradée au cours de la mitose. La cycline A s’associe à CDK2 pendant la phase S puis à CDK1 à l’approche de la mitose. Elle contribue à la progression de S et à empêcher une nouvelle initiation de réplication."
+      },
+      {
+        "content": "La cycline A doit empêcher toute réplication de l’ADN pendant la phase S.",
+        "correct": false,
+        "explanation": "Incorrect : La cycline A doit empêcher toute réplication de l’ADN pendant la phase S. À retenir : L’activité des CDK de phase S contribue à empêcher une nouvelle initiation sur des origines déjà utilisées."
+      },
+      {
+        "content": "Cycline A-CDK2 participe à la coordination entre réplication et progression du cycle.",
+        "correct": true,
+        "explanation": "Exact : Cycline A-CDK2 participe à la coordination entre réplication et progression du cycle. La cycline A s’associe à CDK2 pendant la phase S puis à CDK1 à l’approche de la mitose. Elle contribue à la progression de S et à empêcher une nouvelle initiation de réplication."
+      },
+      {
+        "content": "La cycline A peut s’associer à CDK1 à l’approche de la mitose.",
+        "correct": true,
+        "explanation": "Exact : La cycline A peut s’associer à CDK1 à l’approche de la mitose. La cycline A s’associe à CDK2 pendant la phase S puis à CDK1 à l’approche de la mitose. Elle contribue à la progression de S et à empêcher une nouvelle initiation de réplication."
+      },
+      {
+        "content": "L’activité des CDK de phase S contribue à empêcher une nouvelle initiation sur des origines déjà utilisées.",
+        "correct": true,
+        "explanation": "Exact : L’activité des CDK de phase S contribue à empêcher une nouvelle initiation sur des origines déjà utilisées. La cycline A s’associe à CDK2 pendant la phase S puis à CDK1 à l’approche de la mitose. Elle contribue à la progression de S et à empêcher une nouvelle initiation de réplication."
+      }
     ],
-    correctChoiceIndexes: [3],
-    explanation: `Le complexe B/CDK1 permet la transition G2-M.`,
-    choiceExplanations: [
-      `Faux. Le complexe B/CDK1 permet la transition G2-M.`,
-      `Faux. Le complexe B/CDK1 permet la transition G2-M.`,
-      `Faux. Le complexe B/CDK1 permet la transition G2-M.`,
-      `Exact. Le complexe B/CDK1 permet la transition G2-M.`,
-    ],
+    "explanation": "La cycline A s’associe à CDK2 pendant la phase S puis à CDK1 à l’approche de la mitose. Elle contribue à la progression de S et à empêcher une nouvelle initiation de réplication."
   },
   {
-    order: 46,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `La succession correcte des complexes comprend :`,
-    choices: [
-      `D/CDK4-6 en G1.`,
-      `E/CDK2 à G1-S.`,
-      `A/CDK2 pendant S.`,
-      `B/CDK1 à G2-M.`,
+    "order": 38,
+    "difficulty": "HARD",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "À propos de « Cycline B-CDK1 et entrée en mitose », identifiez exactement cinq propositions exactes parmi les dix suivantes.",
+    "choices": [
+      {
+        "content": "L’activation de CDK1 favorise la condensation des chromosomes.",
+        "correct": true,
+        "explanation": "Exact : L’activation de CDK1 favorise la condensation des chromosomes. Cycline B-CDK1, historiquement appelée MPF, déclenche de nombreux événements de l’entrée en mitose : condensation chromosomique, réorganisation des microtubules et désassemblage de l’enveloppe nucléaire."
+      },
+      {
+        "content": "L’activation de CDK1 contribue à la réorganisation du réseau de microtubules en fuseau mitotique.",
+        "correct": true,
+        "explanation": "Exact : L’activation de CDK1 contribue à la réorganisation du réseau de microtubules en fuseau mitotique. Cycline B-CDK1, historiquement appelée MPF, déclenche de nombreux événements de l’entrée en mitose : condensation chromosomique, réorganisation des microtubules et désassemblage de l’enveloppe nucléaire."
+      },
+      {
+        "content": "Cycline B-CDK1 est historiquement appelée MPF.",
+        "correct": true,
+        "explanation": "Exact : Cycline B-CDK1 est historiquement appelée MPF. Cycline B-CDK1, historiquement appelée MPF, déclenche de nombreux événements de l’entrée en mitose : condensation chromosomique, réorganisation des microtubules et désassemblage de l’enveloppe nucléaire."
+      },
+      {
+        "content": "La destruction de cycline B contribue à l’inactivation de CDK1 lors de la sortie de mitose.",
+        "correct": true,
+        "explanation": "Exact : La destruction de cycline B contribue à l’inactivation de CDK1 lors de la sortie de mitose. Cycline B-CDK1, historiquement appelée MPF, déclenche de nombreux événements de l’entrée en mitose : condensation chromosomique, réorganisation des microtubules et désassemblage de l’enveloppe nucléaire."
+      },
+      {
+        "content": "MPF désigne un complexe formé par p53 et p21.",
+        "correct": false,
+        "explanation": "Incorrect : MPF désigne un complexe formé par p53 et p21. À retenir : L’activation de CDK1 favorise la condensation des chromosomes."
+      },
+      {
+        "content": "Cycline B-CDK1 participe au désassemblage de l’enveloppe nucléaire.",
+        "correct": true,
+        "explanation": "Exact : Cycline B-CDK1 participe au désassemblage de l’enveloppe nucléaire. Cycline B-CDK1, historiquement appelée MPF, déclenche de nombreux événements de l’entrée en mitose : condensation chromosomique, réorganisation des microtubules et désassemblage de l’enveloppe nucléaire."
+      },
+      {
+        "content": "CDK1 est une phosphatase qui déphosphoryle toutes les protéines mitotiques.",
+        "correct": false,
+        "explanation": "Incorrect : CDK1 est une phosphatase qui déphosphoryle toutes les protéines mitotiques. À retenir : L’activation de CDK1 contribue à la réorganisation du réseau de microtubules en fuseau mitotique."
+      },
+      {
+        "content": "Cycline B-CDK1 provoque directement la synthèse de facteurs de croissance extracellulaires.",
+        "correct": false,
+        "explanation": "Incorrect : Cycline B-CDK1 provoque directement la synthèse de facteurs de croissance extracellulaires. À retenir : La destruction de cycline B contribue à l’inactivation de CDK1 lors de la sortie de mitose."
+      },
+      {
+        "content": "Cycline B-CDK1 est le complexe principal de réplication de l’ADN en milieu de phase S.",
+        "correct": false,
+        "explanation": "Incorrect : Cycline B-CDK1 est le complexe principal de réplication de l’ADN en milieu de phase S. À retenir : Cycline B s’associe à CDK1 pour former une activité majeure d’entrée en mitose."
+      },
+      {
+        "content": "La cycline B doit rester stable à forte concentration pour permettre la sortie de mitose.",
+        "correct": false,
+        "explanation": "Incorrect : La cycline B doit rester stable à forte concentration pour permettre la sortie de mitose. À retenir : Cycline B-CDK1 participe au désassemblage de l’enveloppe nucléaire."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2, 3],
-    explanation: `Chaque transition mobilise un couple cycline/CDK spécifique.`,
-    choiceExplanations: [
-      `Exact. Chaque transition mobilise un couple cycline/CDK spécifique.`,
-      `Exact. Chaque transition mobilise un couple cycline/CDK spécifique.`,
-      `Exact. Chaque transition mobilise un couple cycline/CDK spécifique.`,
-      `Exact. Chaque transition mobilise un couple cycline/CDK spécifique.`,
-    ],
+    "explanation": "Cycline B-CDK1, historiquement appelée MPF, déclenche de nombreux événements de l’entrée en mitose : condensation chromosomique, réorganisation des microtubules et désassemblage de l’enveloppe nucléaire."
   },
   {
-    order: 47,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `La dégradation programmée des cyclines :`,
-    choices: [
-      `Permet de limiter dans le temps l’activité des complexes.`,
-      `Contribue au caractère ordonné du cycle.`,
-      `Rend les CDK définitivement inactives dans toutes les phases suivantes.`,
-      `Est indispensable à certaines sorties de phase.`,
+    "order": 39,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Dans une cellule somatique proliférative, quelles propositions sont exactes concernant « Protéolyse et transitions » ?",
+    "choices": [
+      {
+        "content": "L’APC/C est une ubiquitine ligase E3.",
+        "correct": true,
+        "explanation": "Exact : L’APC/C est une ubiquitine ligase E3. Le système ubiquitine-protéasome impose la disparition de régulateurs à des moments précis. L’APC/C est une E3 ubiquitine ligase essentielle pour l’anaphase et la sortie de mitose."
+      },
+      {
+        "content": "APC/C-Cdc20 contribue à la dégradation de la sécurine.",
+        "correct": true,
+        "explanation": "Exact : APC/C-Cdc20 contribue à la dégradation de la sécurine. Le système ubiquitine-protéasome impose la disparition de régulateurs à des moments précis. L’APC/C est une E3 ubiquitine ligase essentielle pour l’anaphase et la sortie de mitose."
+      },
+      {
+        "content": "La sécurine active la séparase tant qu’elle lui reste liée.",
+        "correct": false,
+        "explanation": "Incorrect : La sécurine active la séparase tant qu’elle lui reste liée. À retenir : APC/C-Cdc20 contribue à la dégradation de la sécurine."
+      },
+      {
+        "content": "La dégradation de la sécurine permet l’activation de la séparase.",
+        "correct": true,
+        "explanation": "Exact : La dégradation de la sécurine permet l’activation de la séparase. Le système ubiquitine-protéasome impose la disparition de régulateurs à des moments précis. L’APC/C est une E3 ubiquitine ligase essentielle pour l’anaphase et la sortie de mitose."
+      },
+      {
+        "content": "La dégradation de cycline B favorise la diminution de l’activité CDK1.",
+        "correct": true,
+        "explanation": "Exact : La dégradation de cycline B favorise la diminution de l’activité CDK1. Le système ubiquitine-protéasome impose la disparition de régulateurs à des moments précis. L’APC/C est une E3 ubiquitine ligase essentielle pour l’anaphase et la sortie de mitose."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les CDK peuvent être réutilisées avec d’autres cyclines ; elles ne sont pas définitivement inactivées.`,
-    choiceExplanations: [
-      `Exact. Les CDK peuvent être réutilisées avec d’autres cyclines ; elles ne sont pas définitivement inactivées.`,
-      `Exact. Les CDK peuvent être réutilisées avec d’autres cyclines ; elles ne sont pas définitivement inactivées.`,
-      `Faux. Les CDK peuvent être réutilisées avec d’autres cyclines ; elles ne sont pas définitivement inactivées.`,
-      `Exact. Les CDK peuvent être réutilisées avec d’autres cyclines ; elles ne sont pas définitivement inactivées.`,
-    ],
+    "explanation": "Le système ubiquitine-protéasome impose la disparition de régulateurs à des moments précis. L’APC/C est une E3 ubiquitine ligase essentielle pour l’anaphase et la sortie de mitose."
   },
   {
-    order: 48,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Un facteur de croissance stimule l’entrée en G1 par :`,
-    choices: [
-      `Activation d’un récepteur transmembranaire.`,
-      `Transduction du signal.`,
-      `Activation de Myc.`,
-      `Production de cycline D.`,
+    "order": 40,
+    "difficulty": "HARD",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "Concernant « Principe cyclines-CDK », choisissez exactement 2 affirmations correctes.",
+    "choices": [
+      {
+        "content": "Dans une cellule somatique, les CDK catalysent directement la synthèse de l’ADN sans phosphoryler de substrats.",
+        "correct": false,
+        "explanation": "Incorrect : Les CDK catalysent directement la synthèse de l’ADN sans phosphoryler de substrats. À retenir : La dégradation contrôlée de cyclines contribue à rendre les transitions du cycle irréversibles."
+      },
+      {
+        "content": "Dans une cellule somatique, une cycline reste obligatoirement stable pendant toute la vie de la cellule.",
+        "correct": false,
+        "explanation": "Incorrect : Une cycline reste obligatoirement stable pendant toute la vie de la cellule. À retenir : Une même CDK peut s’associer à différentes cyclines selon le contexte."
+      },
+      {
+        "content": "Les CDK sont régulées aussi par des phosphorylations activatrices ou inhibitrices.",
+        "correct": true,
+        "explanation": "Exact : Les CDK sont régulées aussi par des phosphorylations activatrices ou inhibitrices. Les CDK sont des kinases dont l’activité dépend de leur association à des cyclines et de modifications régulatrices. Les concentrations des cyclines oscillent davantage que celles des CDK."
+      },
+      {
+        "content": "L’activité d’une CDK ne peut jamais être modulée par phosphorylation.",
+        "correct": false,
+        "explanation": "Incorrect : L’activité d’une CDK ne peut jamais être modulée par phosphorylation. À retenir : Les complexes cycline-CDK déclenchent des programmes de phosphorylation adaptés à chaque phase."
+      },
+      {
+        "content": "La concentration de nombreuses cyclines varie au cours du cycle cellulaire.",
+        "correct": true,
+        "explanation": "Exact : La concentration de nombreuses cyclines varie au cours du cycle cellulaire. Les CDK sont des kinases dont l’activité dépend de leur association à des cyclines et de modifications régulatrices. Les concentrations des cyclines oscillent davantage que celles des CDK."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2, 3],
-    explanation: `La fiche décrit cette cascade complète du signal extracellulaire au complexe D/CDK4-6.`,
-    choiceExplanations: [
-      `Exact. La fiche décrit cette cascade complète du signal extracellulaire au complexe D/CDK4-6.`,
-      `Exact. La fiche décrit cette cascade complète du signal extracellulaire au complexe D/CDK4-6.`,
-      `Exact. La fiche décrit cette cascade complète du signal extracellulaire au complexe D/CDK4-6.`,
-      `Exact. La fiche décrit cette cascade complète du signal extracellulaire au complexe D/CDK4-6.`,
-    ],
+    "explanation": "Les CDK sont des kinases dont l’activité dépend de leur association à des cyclines et de modifications régulatrices. Les concentrations des cyclines oscillent davantage que celles des CDK."
   },
   {
-    order: 49,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `À propos de la cycline A :`,
-    choices: [
-      `Elle s’associe d’abord à CDK2.`,
-      `Elle peut ensuite s’associer à CDK1.`,
-      `Elle participe à la réplication et à sa non-réinitiation.`,
-      `Elle constitue avec CDK1 le MPF selon la fiche.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le MPF est le complexe cycline B/CDK1.`,
-    choiceExplanations: [
-      `Exact. Le MPF est le complexe cycline B/CDK1.`,
-      `Exact. Le MPF est le complexe cycline B/CDK1.`,
-      `Exact. Le MPF est le complexe cycline B/CDK1.`,
-      `Faux. Le MPF est le complexe cycline B/CDK1.`,
-    ],
+    "order": 41,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Quelle phosphatase active CDK1 en retirant une phosphorylation inhibitrice à l’entrée en mitose ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "Cdc25",
+        "CDC25"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Cdc25 retire des phosphates inhibiteurs de CDK1 et favorise l’activation du complexe mitotique."
   },
   {
-    order: 50,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Les phosphorylations induites par les complexes cycline/CDK :`,
-    choices: [
-      `Modifient de nombreuses protéines intracellulaires.`,
-      `Permettent les transitions de phase.`,
-      `Sont toutes irréversibles et non régulées.`,
-      `Participent à la mise en place des événements de mitose.`,
+    "order": 42,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Quelles affirmations décrivent correctement « Cycline D-CDK4/6 et Rb-E2F » ?",
+    "choices": [
+      {
+        "content": "Dans une cellule somatique, la phosphorylation de Rb réduit son frein sur les facteurs E2F.",
+        "correct": true,
+        "explanation": "Exact : La phosphorylation de Rb réduit son frein sur les facteurs E2F. Les mitogènes stimulent l’expression de cyclines D. Les complexes cycline D-CDK4/6 phosphorylent notamment la protéine Rb, ce qui favorise l’activité des facteurs E2F et l’expression de gènes nécessaires à l’entrée en phase S."
+      },
+      {
+        "content": "Dans une cellule somatique, e2F stimule l’expression de gènes nécessaires à la transition G1/S.",
+        "correct": true,
+        "explanation": "Exact : E2F stimule l’expression de gènes nécessaires à la transition G1/S. Les mitogènes stimulent l’expression de cyclines D. Les complexes cycline D-CDK4/6 phosphorylent notamment la protéine Rb, ce qui favorise l’activité des facteurs E2F et l’expression de gènes nécessaires à l’entrée en phase S."
+      },
+      {
+        "content": "La voie cycline D-CDK4/6 n’intervient jamais dans la phase G1.",
+        "correct": false,
+        "explanation": "Incorrect : La voie cycline D-CDK4/6 n’intervient jamais dans la phase G1. À retenir : Des inhibiteurs de CDK4/6 peuvent freiner la progression de certaines cellules tumorales."
+      },
+      {
+        "content": "E2F est une protéase qui dégrade les cohésines.",
+        "correct": false,
+        "explanation": "Incorrect : E2F est une protéase qui dégrade les cohésines. À retenir : L’activité cycline D-CDK4/6 participe à la progression en G1."
+      },
+      {
+        "content": "L’activité cycline D-CDK4/6 participe à la progression en G1.",
+        "correct": true,
+        "explanation": "Exact : L’activité cycline D-CDK4/6 participe à la progression en G1. Les mitogènes stimulent l’expression de cyclines D. Les complexes cycline D-CDK4/6 phosphorylent notamment la protéine Rb, ce qui favorise l’activité des facteurs E2F et l’expression de gènes nécessaires à l’entrée en phase S."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les phosphorylations sont régulées par kinases et phosphatases.`,
-    choiceExplanations: [
-      `Exact. Les phosphorylations sont régulées par kinases et phosphatases.`,
-      `Exact. Les phosphorylations sont régulées par kinases et phosphatases.`,
-      `Faux. Les phosphorylations sont régulées par kinases et phosphatases.`,
-      `Exact. Les phosphorylations sont régulées par kinases et phosphatases.`,
-    ],
+    "explanation": "Les mitogènes stimulent l’expression de cyclines D. Les complexes cycline D-CDK4/6 phosphorylent notamment la protéine Rb, ce qui favorise l’activité des facteurs E2F et l’expression de gènes nécessaires à l’entrée en phase S."
   },
   {
-    order: 51,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une inhibition de Myc en réponse à un facteur de croissance pourrait :`,
-    choices: [
-      `Réduire l’expression de la cycline D.`,
-      `Limiter la formation du complexe D/CDK4-6.`,
-      `Accélérer nécessairement l’entrée en S.`,
-      `Freiner la progression en G1.`,
+    "order": 43,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Parmi les propositions ci-dessous relatives à « Cycline E-CDK2 », laquelle est correcte ?",
+    "choices": [
+      {
+        "content": "Cycline E-CDK2 constitue le principal complexe de sortie d’anaphase.",
+        "correct": false,
+        "explanation": "Incorrect : Cycline E-CDK2 constitue le principal complexe de sortie d’anaphase. À retenir : La cycline E s’associe à CDK2."
+      },
+      {
+        "content": "Dans une cellule somatique, cycline E-CDK2 contribue à l’engagement de la cellule vers la phase S.",
+        "correct": true,
+        "explanation": "Exact : Cycline E-CDK2 contribue à l’engagement de la cellule vers la phase S. Le complexe cycline E-CDK2 est particulièrement actif à la transition G1/S et contribue à l’engagement dans la réplication."
+      },
+      {
+        "content": "Dans une cellule somatique, cDK2 est une ubiquitine ligase du complexe APC/C.",
+        "correct": false,
+        "explanation": "Incorrect : CDK2 est une ubiquitine ligase du complexe APC/C. À retenir : Cycline E-CDK2 contribue à l’engagement de la cellule vers la phase S."
+      },
+      {
+        "content": "Dans une cellule somatique, la cycline E est une protéine structurale du kinétochore.",
+        "correct": false,
+        "explanation": "Incorrect : La cycline E est une protéine structurale du kinétochore. À retenir : Cycline E-CDK2 agit en aval de mécanismes de progression de G1."
+      },
+      {
+        "content": "La cycline E est absente de toute transition G1/S.",
+        "correct": false,
+        "explanation": "Incorrect : La cycline E est absente de toute transition G1/S. À retenir : L’activité cycline E-CDK2 augmente autour de la transition G1/S."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Myc favorise l’expression du gène de la cycline D et donc l’entrée en cycle.`,
-    choiceExplanations: [
-      `Exact. Myc favorise l’expression du gène de la cycline D et donc l’entrée en cycle.`,
-      `Exact. Myc favorise l’expression du gène de la cycline D et donc l’entrée en cycle.`,
-      `Faux. Myc favorise l’expression du gène de la cycline D et donc l’entrée en cycle.`,
-      `Exact. Myc favorise l’expression du gène de la cycline D et donc l’entrée en cycle.`,
-    ],
+    "explanation": "Le complexe cycline E-CDK2 est particulièrement actif à la transition G1/S et contribue à l’engagement dans la réplication."
   },
   {
-    order: 52,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une cellule synthétise normalement la cycline E mais ne peut pas l’associer à CDK2 :`,
-    choices: [
-      `La transition G1-S peut être perturbée.`,
-      `La phase S peut être retardée.`,
-      `Le MPF est directement activé.`,
-      `La cascade cycline/CDK est interrompue à un point clé.`,
+    "order": 44,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Dans une cellule somatique proliférative, parmi les éléments suivants relatifs à « Cycline A et phase S », lesquels sont exacts ?",
+    "choices": [
+      {
+        "content": "Dans une cellule somatique, l’activité des CDK de phase S contribue à empêcher une nouvelle initiation sur des origines déjà utilisées.",
+        "correct": true,
+        "explanation": "Exact : L’activité des CDK de phase S contribue à empêcher une nouvelle initiation sur des origines déjà utilisées. La cycline A s’associe à CDK2 pendant la phase S puis à CDK1 à l’approche de la mitose. Elle contribue à la progression de S et à empêcher une nouvelle initiation de réplication."
+      },
+      {
+        "content": "Dans une cellule somatique, la cycline A est dégradée au cours de la mitose.",
+        "correct": true,
+        "explanation": "Exact : La cycline A est dégradée au cours de la mitose. La cycline A s’associe à CDK2 pendant la phase S puis à CDK1 à l’approche de la mitose. Elle contribue à la progression de S et à empêcher une nouvelle initiation de réplication."
+      },
+      {
+        "content": "Dans une cellule somatique, cycline A-CDK2 participe à la coordination entre réplication et progression du cycle.",
+        "correct": true,
+        "explanation": "Exact : Cycline A-CDK2 participe à la coordination entre réplication et progression du cycle. La cycline A s’associe à CDK2 pendant la phase S puis à CDK1 à l’approche de la mitose. Elle contribue à la progression de S et à empêcher une nouvelle initiation de réplication."
+      },
+      {
+        "content": "Cycline A-CDK2 participe à la progression de la phase S.",
+        "correct": true,
+        "explanation": "Exact : Cycline A-CDK2 participe à la progression de la phase S. La cycline A s’associe à CDK2 pendant la phase S puis à CDK1 à l’approche de la mitose. Elle contribue à la progression de S et à empêcher une nouvelle initiation de réplication."
+      },
+      {
+        "content": "Cycline A ne peut s’associer à aucune CDK.",
+        "correct": false,
+        "explanation": "Incorrect : Cycline A ne peut s’associer à aucune CDK. À retenir : Cycline A-CDK2 participe à la coordination entre réplication et progression du cycle."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Le complexe E/CDK2 est nécessaire à la transition G1-S.`,
-    choiceExplanations: [
-      `Exact. Le complexe E/CDK2 est nécessaire à la transition G1-S.`,
-      `Exact. Le complexe E/CDK2 est nécessaire à la transition G1-S.`,
-      `Faux. Le complexe E/CDK2 est nécessaire à la transition G1-S.`,
-      `Exact. Le complexe E/CDK2 est nécessaire à la transition G1-S.`,
-    ],
-  },
-  {
-    order: 53,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une cycline B non dégradable pourrait théoriquement :`,
-    choices: [
-      `Maintenir une activité MPF anormalement prolongée.`,
-      `Perturber la sortie de mitose.`,
-      `Accélérer directement la réplication en G1.`,
-      `Empêcher le retour normal vers l’interphase.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `La sortie de mitose nécessite la dégradation de la cycline B.`,
-    choiceExplanations: [
-      `Exact. La sortie de mitose nécessite la dégradation de la cycline B.`,
-      `Exact. La sortie de mitose nécessite la dégradation de la cycline B.`,
-      `Faux. La sortie de mitose nécessite la dégradation de la cycline B.`,
-      `Exact. La sortie de mitose nécessite la dégradation de la cycline B.`,
-    ],
-  },
-  {
-    order: 54,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `La figure suivante présente le profil des cyclines D, E, A et B et les complexes CDK associés.
-
-![Cyclines et CDK](/images/training/ue14/biologie-cellulaire/cycle-cellulaire/cyclines-cdk.png)
-
-Quelle(s) proposition(s) est(sont) exacte(s) ?`,
-    choices: [
-      `Une succession temporelle d’activités.`,
-      `Un chevauchement partiel des cyclines.`,
-      `Une concentration constante de toutes les cyclines.`,
-      `Une organisation séquentielle du cycle.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les cyclines oscillent et leurs fenêtres d’expression peuvent se chevaucher.`,
-    choiceExplanations: [
-      `Exact. Les cyclines oscillent et leurs fenêtres d’expression peuvent se chevaucher.`,
-      `Exact. Les cyclines oscillent et leurs fenêtres d’expression peuvent se chevaucher.`,
-      `Faux. Les cyclines oscillent et leurs fenêtres d’expression peuvent se chevaucher.`,
-      `Exact. Les cyclines oscillent et leurs fenêtres d’expression peuvent se chevaucher.`,
-    ],
-  },
-  {
-    order: 55,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Si le complexe A/CDK1 n’empêche plus une nouvelle réplication en fin de S :`,
-    choices: [
-      `L’unicité de la réplication peut être compromise.`,
-      `Une nouvelle duplication inappropriée de l’ADN peut devenir possible.`,
-      `La cellule devient automatiquement haploïde.`,
-      `La stabilité du génome peut être menacée.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Le verrouillage de la réplication empêche la duplication répétée de l’ADN dans un même cycle.`,
-    choiceExplanations: [
-      `Exact. Le verrouillage de la réplication empêche la duplication répétée de l’ADN dans un même cycle.`,
-      `Exact. Le verrouillage de la réplication empêche la duplication répétée de l’ADN dans un même cycle.`,
-      `Faux. Le verrouillage de la réplication empêche la duplication répétée de l’ADN dans un même cycle.`,
-      `Exact. Le verrouillage de la réplication empêche la duplication répétée de l’ADN dans un même cycle.`,
-    ],
-  },
-  {
-    order: 56,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `L’activité d’une CDK dépend :`,
-    choices: [
-      `De son association à une cycline.`,
-      `De son état de phosphorylation.`,
-      `De régulateurs comme cdc25, CAK ou Wee1.`,
-      `Uniquement de sa concentration totale.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La concentration des CDK est relativement stable ; leur activation est fortement régulée.`,
-    choiceExplanations: [
-      `Exact. La concentration des CDK est relativement stable ; leur activation est fortement régulée.`,
-      `Exact. La concentration des CDK est relativement stable ; leur activation est fortement régulée.`,
-      `Exact. La concentration des CDK est relativement stable ; leur activation est fortement régulée.`,
-      `Faux. La concentration des CDK est relativement stable ; leur activation est fortement régulée.`,
-    ],
-  },
-  {
-    order: 57,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `La destruction de l’enveloppe nucléaire à l’entrée en mitose est reliée :`,
-    choices: [
-      `À l’activation du MPF.`,
-      `À des phosphorylations multiples.`,
-      `À la cycline B/CDK1.`,
-      `À la cycline E seule.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La cycline E intervient à G1-S, non dans le déclenchement direct de la mitose.`,
-    choiceExplanations: [
-      `Exact. La cycline E intervient à G1-S, non dans le déclenchement direct de la mitose.`,
-      `Exact. La cycline E intervient à G1-S, non dans le déclenchement direct de la mitose.`,
-      `Exact. La cycline E intervient à G1-S, non dans le déclenchement direct de la mitose.`,
-      `Faux. La cycline E intervient à G1-S, non dans le déclenchement direct de la mitose.`,
-    ],
-  },
-  {
-    order: 58,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `La duplication du centrosome :`,
-    choices: [
-      `Est favorisée pendant S par A/CDK2.`,
-      `Prépare la formation des deux COMT.`,
-      `Est inutile pour le fuseau mitotique.`,
-      `S’intègre à la préparation de la division.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Le fuseau mitotique s’organise à partir des deux centres organisateurs des microtubules.`,
-    choiceExplanations: [
-      `Exact. Le fuseau mitotique s’organise à partir des deux centres organisateurs des microtubules.`,
-      `Exact. Le fuseau mitotique s’organise à partir des deux centres organisateurs des microtubules.`,
-      `Faux. Le fuseau mitotique s’organise à partir des deux centres organisateurs des microtubules.`,
-      `Exact. Le fuseau mitotique s’organise à partir des deux centres organisateurs des microtubules.`,
-    ],
-  },
-  {
-    order: 59,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une cellule présentant des CDK stables mais aucune synthèse cyclique des cyclines :`,
-    choices: [
-      `Ne formera pas correctement les complexes actifs successifs.`,
-      `Aura des transitions de phase perturbées.`,
-      `Progressera normalement car les CDK suffisent seules.`,
-      `Perdra l’organisation temporelle de la cascade.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les CDK nécessitent leurs cyclines spécifiques pour être actives au bon moment.`,
-    choiceExplanations: [
-      `Exact. Les CDK nécessitent leurs cyclines spécifiques pour être actives au bon moment.`,
-      `Exact. Les CDK nécessitent leurs cyclines spécifiques pour être actives au bon moment.`,
-      `Faux. Les CDK nécessitent leurs cyclines spécifiques pour être actives au bon moment.`,
-      `Exact. Les CDK nécessitent leurs cyclines spécifiques pour être actives au bon moment.`,
-    ],
-  },
-  {
-    order: 60,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Synthèse de la section :`,
-    choices: [
-      `Les cyclines fournissent une horloge d’expression variable.`,
-      `Les CDK constituent des partenaires catalytiques relativement stables.`,
-      `Les complexes cycline/CDK organisent les transitions.`,
-      `Le cycle dépend d’un seul complexe identique du début à la fin.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Plusieurs complexes spécifiques se succèdent au cours du cycle.`,
-    choiceExplanations: [
-      `Exact. Plusieurs complexes spécifiques se succèdent au cours du cycle.`,
-      `Exact. Plusieurs complexes spécifiques se succèdent au cours du cycle.`,
-      `Exact. Plusieurs complexes spécifiques se succèdent au cours du cycle.`,
-      `Faux. Plusieurs complexes spécifiques se succèdent au cours du cycle.`,
-    ],
-  },
+    "explanation": "La cycline A s’associe à CDK2 pendant la phase S puis à CDK1 à l’approche de la mitose. Elle contribue à la progression de S et à empêcher une nouvelle initiation de réplication."
+  }
 ];
 
 export const SECTION_B_QUIZZES: SeedQuiz[] = [
   {
-    order: 4,
-    slug: `cyclines-et-cdk`,
-    title: `Cyclines et kinases dépendantes des cyclines`,
-    description: `Principes du contrôle moléculaire et complexes de G1 à M.`,
-    stage: 'DISCOVER',
-    sectionOrder: 2,
-    questionOrders: [31, 32, 33, 34, 35, 36, 37, 38, 39, 40],
+    "order": 3,
+    "slug": "cycle-cellulaire-cyclines-1",
+    "title": "Cyclines D/E et progression G1/S",
+    "description": "Comprendre les premières transitions contrôlées par les cyclines et CDK.",
+    "stage": "DISCOVER",
+    "sectionOrder": 2,
+    "questionOrders": [
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ]
   },
   {
-    order: 5,
-    slug: `succession-des-complexes-cycline-cdk`,
-    title: `Succession des complexes cycline-CDK`,
-    description: `Transitions G1-S, S-G2 et G2-M, MPF et dégradation des cyclines.`,
-    stage: 'PRACTICE',
-    sectionOrder: 2,
-    questionOrders: [41, 42, 43, 44, 45, 46, 47, 48, 49, 50],
-  },
-  {
-    order: 6,
-    slug: `regulation-moleculaire-du-cycle`,
-    title: `Régulation moléculaire du cycle`,
-    description: `Applications sur Myc, les cyclines, les CDK et la stabilité du génome.`,
-    stage: 'MASTER',
-    sectionOrder: 2,
-    questionOrders: [51, 52, 53, 54, 55, 56, 57, 58, 59, 60],
-  },
+    "order": 4,
+    "slug": "cycle-cellulaire-cyclines-2",
+    "title": "Cyclines A/B et entrée en mitose",
+    "description": "Relier réplication, CDK1 et protéolyse régulée.",
+    "stage": "PRACTICE",
+    "sectionOrder": 2,
+    "questionOrders": [
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44
+    ]
+  }
 ];

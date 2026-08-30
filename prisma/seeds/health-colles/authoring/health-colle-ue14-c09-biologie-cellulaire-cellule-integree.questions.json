@@ -1,0 +1,1210 @@
+[
+  {
+    "order": 1,
+    "difficulty": "MEDIUM",
+    "question": "En vous appuyant sur l’organisation de la mitochondrie représentée, quelles propositions sont exactes ?",
+    "statement": "En vous appuyant sur l’organisation de la mitochondrie représentée, quelles propositions sont exactes ?",
+    "explanation": "La mitochondrie est délimitée par deux membranes. Le complexe TOM intervient au niveau de la membrane externe dans l’import de nombreuses protéines synthétisées dans le cytosol. Les principaux complexes de la chaîne respiratoire et l’ATP synthase sont associés à la membrane interne. La glycolyse est cytosolique et l’autonomie génétique mitochondriale reste limitée : la majorité des protéines mitochondriales est codée par le noyau.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:mitochondrie-organisation"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le complexe TOM participe au passage initial de nombreuses protéines mitochondriales à travers la membrane externe.",
+      "La membrane interne mitochondriale porte les principaux complexes de la chaîne respiratoire.",
+      "La glycolyse constitue une voie métabolique propre à la matrice mitochondriale.",
+      "La membrane externe est le siège principal de la phosphorylation oxydative.",
+      "Toutes les protéines mitochondriales sont traduites à partir de l’ADN mitochondrial."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "TOM constitue la porte d’entrée principale de nombreuses protéines synthétisées dans le cytosol et destinées à la mitochondrie.",
+      "Les complexes I à IV ainsi que l’ATP synthase sont associés à la membrane interne.",
+      "La glycolyse se déroule dans le cytosol ; la matrice accueille notamment l’oxydation du pyruvate et le cycle de Krebs.",
+      "La phosphorylation oxydative dépend de la membrane interne, qui établit le gradient protonique et porte l’ATP synthase.",
+      "La grande majorité des protéines mitochondriales est codée par le génome nucléaire puis importée."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:mitochondrie-organisation"
+      ]
+    }
+  },
+  {
+    "order": 2,
+    "difficulty": "EASY",
+    "question": "Quel accepteur terminal reçoit les électrons au terme de la chaîne respiratoire, au niveau du complexe IV ?",
+    "statement": "Quel accepteur terminal reçoit les électrons au terme de la chaîne respiratoire, au niveau du complexe IV ?",
+    "explanation": "Le dioxygène est l’accepteur terminal des électrons de la chaîne respiratoire. Au niveau du complexe IV, il est réduit et participe à la formation d’eau.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:chaine-respiratoire"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "dioxygène"
+        },
+        {
+          "value": "dioxygene"
+        },
+        {
+          "value": "oxygène"
+        },
+        {
+          "value": "oxygene"
+        },
+        {
+          "value": "O2"
+        },
+        {
+          "value": "O₂"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:chaine-respiratoire"
+      ]
+    }
+  },
+  {
+    "order": 3,
+    "difficulty": "MEDIUM",
+    "question": "Parmi les propositions suivantes sur les complexes représentés, laquelle est exacte ?",
+    "statement": "Parmi les propositions suivantes sur les complexes représentés, laquelle est exacte ?",
+    "explanation": "Le complexe II transfère des électrons vers l’ubiquinone mais, contrairement aux complexes I, III et IV, il ne pompe pas directement de protons à travers la membrane interne. L’ubiquinone est liposoluble dans la membrane interne tandis que le cytochrome c relaie les électrons entre les complexes III et IV.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:chaine-respiratoire"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Le complexe II alimente l’ubiquinone en électrons mais ne participe pas directement au pompage des protons.",
+      "Le cytochrome c transporte les électrons du complexe I directement vers le complexe II.",
+      "Le complexe IV réduit l’ATP en ADP pour fournir l’énergie de la respiration.",
+      "L’ubiquinone est un transporteur soluble de l’espace intermembranaire analogue au cytochrome c.",
+      "Les quatre complexes respiratoires expulsent une quantité identique de protons à chaque transfert d’électrons."
+    ],
+    "correctChoiceIndexes": [
+      0
+    ],
+    "choiceExplanations": [
+      "La succinate-déshydrogénase transfère des électrons vers l’ubiquinone sans translocation protonique couplée.",
+      "Le cytochrome c assure le transfert d’électrons du complexe III vers le complexe IV.",
+      "Le complexe IV transfère les électrons au dioxygène ; l’ATP synthase utilise ensuite la force proton-motrice pour synthétiser l’ATP.",
+      "L’ubiquinone est une molécule lipophile mobile dans la membrane interne.",
+      "Le complexe II ne pompe pas de protons, et la stœchiométrie n’est pas identique entre les complexes qui en pompent."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:chaine-respiratoire"
+      ]
+    }
+  },
+  {
+    "order": 4,
+    "difficulty": "EASY",
+    "question": "Sélectionnez exactement les deux différences correctes entre mitochondrie et peroxysome.",
+    "statement": "Sélectionnez exactement les deux différences correctes entre mitochondrie et peroxysome.",
+    "explanation": "La mitochondrie possède son propre génome, contrairement au peroxysome. Le peroxysome participe préférentiellement au raccourcissement des acides gras à très longue chaîne avant un relais métabolique possible vers la mitochondrie.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:mitochondrie-peroxysome"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "La mitochondrie possède un ADN propre alors que le peroxysome ne possède pas de génome.",
+      "Le peroxysome participe au raccourcissement des acides gras à très longue chaîne avant un relais possible vers la mitochondrie.",
+      "Le peroxysome possède deux membranes alors que la mitochondrie n’en possède qu’une.",
+      "La chaîne respiratoire est portée par la membrane du peroxysome et non par celle de la mitochondrie.",
+      "Les deux organites appartiennent au système endomembranaire classique et échangent leur contenu par des vésicules."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "L’ADN mitochondrial est distinct de l’ADN nucléaire ; les peroxysomes sont dépourvus de génome propre.",
+      "La β-oxydation peroxysomale raccourcit notamment des VLCFA et peut fournir des produits ensuite pris en charge par la mitochondrie.",
+      "Le peroxysome est limité par une membrane ; la mitochondrie possède une membrane externe et une membrane interne.",
+      "La chaîne respiratoire est localisée dans la membrane interne mitochondriale.",
+      "Ni la mitochondrie ni le peroxysome n’appartiennent au système endomembranaire classique."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:mitochondrie-peroxysome"
+      ]
+    }
+  },
+  {
+    "order": 5,
+    "difficulty": "EASY",
+    "question": "À propos du génome mitochondrial humain et de l’expression des protéines mitochondriales, quelles propositions sont exactes ?",
+    "statement": "À propos du génome mitochondrial humain et de l’expression des protéines mitochondriales, quelles propositions sont exactes ?",
+    "explanation": "L’ADN mitochondrial humain est une petite molécule circulaire d’environ 16,6 kb. Il code une fraction très limitée des protéines de la phosphorylation oxydative, tandis que l’immense majorité des protéines mitochondriales est codée par le noyau.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:genome-mitochondrial"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "L’ADN mitochondrial humain est circulaire et mesure environ 16,6 kb.",
+      "Il code treize polypeptides participant à la phosphorylation oxydative.",
+      "La majorité des protéines nécessaires au fonctionnement mitochondrial est codée par le noyau.",
+      "La réplication de l’ADN mitochondrial ne peut avoir lieu que pendant la phase S du cycle cellulaire.",
+      "Les ribosomes cytosoliques traduisent directement l’ensemble des protéines codées par l’ADN mitochondrial."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Le génome mitochondrial humain est compact et très petit par rapport au génome nucléaire.",
+      "Le génome mitochondrial code 13 protéines de complexes de phosphorylation oxydative, ainsi que des ARNt et ARNr mitochondriaux.",
+      "Ces protéines sont synthétisées dans le cytosol puis importées dans l’organite.",
+      "La réplication de l’ADN mitochondrial n’est pas strictement couplée à la phase S nucléaire.",
+      "Les protéines codées par l’ADN mitochondrial sont traduites par les ribosomes mitochondriaux."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:genome-mitochondrial"
+      ]
+    }
+  },
+  {
+    "order": 6,
+    "difficulty": "MEDIUM",
+    "question": "Dans quel compartiment mitochondrial se déroule principalement le cycle de Krebs chez une cellule eucaryote ?",
+    "statement": "Dans quel compartiment mitochondrial se déroule principalement le cycle de Krebs chez une cellule eucaryote ?",
+    "explanation": "Chez les eucaryotes, l’essentiel des enzymes du cycle de Krebs se trouve dans la matrice mitochondriale. Une exception notable est la succinate déshydrogénase, qui est intégrée à la membrane interne en tant que complexe II de la chaîne respiratoire.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:matrice-mitochondriale"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "matrice mitochondriale"
+        },
+        {
+          "value": "matrice"
+        },
+        {
+          "value": "la matrice mitochondriale"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:matrice-mitochondriale"
+      ]
+    }
+  },
+  {
+    "order": 7,
+    "difficulty": "HARD",
+    "question": "Quelle proposition décrit correctement le devenir des électrons du NADH cytosolique selon les navettes mitochondriales ?",
+    "statement": "Quelle proposition décrit correctement le devenir des électrons du NADH cytosolique selon les navettes mitochondriales ?",
+    "explanation": "La navette malate-aspartate permet de former du NADH dans la matrice, dont les électrons rejoignent le complexe I. La navette glycérol-3-phosphate transfère les électrons vers l’ubiquinone et contourne le complexe I.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:navettes-electrons"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Les deux navettes font entrer physiquement le NADH cytosolique intact dans la matrice.",
+      "La navette glycérol-3-phosphate transfère les électrons vers l’ubiquinone en contournant le complexe I.",
+      "La navette malate-aspartate délivre directement ses électrons au complexe IV.",
+      "La navette glycérol-3-phosphate est une variante du complexe II mitochondrial.",
+      "Les navettes ne modifient jamais le rendement énergétique associé à l’oxydation du NADH cytosolique."
+    ],
+    "correctChoiceIndexes": [
+      1
+    ],
+    "choiceExplanations": [
+      "Le NADH cytosolique ne traverse pas directement la membrane interne ; les navettes transfèrent ses équivalents réducteurs.",
+      "Cette navette alimente le pool d’ubiquinone à un niveau énergétique inférieur à celui du NADH matriciel entrant par le complexe I.",
+      "Elle permet de régénérer du NADH matriciel dont les électrons entrent au niveau du complexe I.",
+      "Elle utilise une glycérol-3-phosphate déshydrogénase mitochondriale distincte du complexe II.",
+      "Le point d’entrée des électrons dans la chaîne respiratoire influence le nombre de protons pompés et donc le rendement en ATP."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:navettes-electrons"
+      ]
+    }
+  },
+  {
+    "order": 8,
+    "difficulty": "MEDIUM",
+    "question": "Sélectionnez exactement les deux propositions correctes sur des fonctions mitochondriales autres que la production directe d’ATP.",
+    "statement": "Sélectionnez exactement les deux propositions correctes sur des fonctions mitochondriales autres que la production directe d’ATP.",
+    "explanation": "La mitochondrie intervient aussi dans la thermogenèse et l’apoptose. UCP1 dissipe une partie du gradient protonique sous forme de chaleur, tandis que la perméabilisation de la membrane externe peut libérer le cytochrome c et engager l’apoptose intrinsèque.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:mitochondrie-autres-fonctions"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "UCP1 peut dissiper une partie de la force proton-motrice sous forme de chaleur dans le tissu adipeux brun.",
+      "La perméabilisation de la membrane externe mitochondriale peut conduire à la libération de cytochrome c dans le cytosol.",
+      "La mitochondrie libère directement de la procaspase-9 préformée depuis sa matrice.",
+      "UCP1 augmente le rendement de synthèse d’ATP en renforçant le gradient protonique.",
+      "Les espèces réactives de l’oxygène ne peuvent pas être produites au niveau de la chaîne respiratoire."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "UCP1 permet un retour des protons qui court-circuite en partie la synthèse d’ATP et produit de la chaleur.",
+      "Le cytochrome c cytosolique participe ensuite à la formation de l’apoptosome avec Apaf-1.",
+      "La procaspase-9 est cytosolique ; son activation est favorisée par l’apoptosome.",
+      "UCP1 dissipe le gradient au lieu de le renforcer.",
+      "Des ROS peuvent notamment être générées aux complexes I et III."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:mitochondrie-autres-fonctions"
+      ]
+    }
+  },
+  {
+    "order": 9,
+    "difficulty": "MEDIUM",
+    "question": "Parmi ces dix propositions couvrant compartiments, noyau, mitochondrie et cycle cellulaire, sélectionnez exactement les cinq exactes.",
+    "statement": "Parmi ces dix propositions couvrant compartiments, noyau, mitochondrie et cycle cellulaire, sélectionnez exactement les cinq exactes.",
+    "explanation": "Cette synthèse remobilise les chapitres précédents : trafic endomembranaire, peroxysomes et cytosquelette sont articulés avec les nouveaux acquis sur mitochondrie, noyau et division cellulaire.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:synthese-cellulaire"
+    ],
+    "format": "QRPL",
+    "questionFormat": "QRPL",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "L’endocytose du LDL peut faire intervenir des puits recouverts de clathrine.",
+      "Un peroxysome possède un chromosome circulaire autonome comparable à l’ADN mitochondrial.",
+      "Le complexe TOM participe à l’import de nombreuses protéines mitochondriales synthétisées dans le cytosol.",
+      "Dans le tissu adipeux brun, UCP1 peut convertir une partie de la force proton-motrice en chaleur plutôt qu’en ATP.",
+      "L’histone H1 appartient à l’octamère central formé de H2A, H2B, H3 et H4.",
+      "Une cellule diploïde après réplication, avant mitose, est classiquement décrite 2n/4C.",
+      "Les vésicules COPII assurent principalement le retour du Golgi vers le réticulum endoplasmique.",
+      "La cytodiérèse animale implique un anneau contractile riche en actine et myosine II.",
+      "Le nucléole est entouré d’une membrane propre qui l’isole du nucléoplasme.",
+      "Le complexe II est l’un des principaux complexes de pompage des protons de la chaîne respiratoire."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      2,
+      3,
+      5,
+      7
+    ],
+    "choiceExplanations": [
+      "Le complexe LDL–récepteur peut être concentré dans des puits recouverts avant internalisation.",
+      "Le peroxysome ne possède pas de génome propre.",
+      "TOM est localisé dans la membrane externe mitochondriale.",
+      "UCP1 permet une rentrée de protons dans la matrice sans couplage direct à l’ATP synthase ; l’énergie de la force proton-motrice est alors dissipée sous forme de chaleur.",
+      "H1 est une histone de liaison et ne fait pas partie de l’octamère central.",
+      "La quantité d’ADN a doublé sans doubler le nombre de chromosomes.",
+      "COPII assure surtout le trafic RE vers Golgi ; COPI participe notamment au trafic rétrograde Golgi vers RE.",
+      "L’actomyosine contractile forme le sillon de clivage.",
+      "Le nucléole est un compartiment nucléaire non membranaire.",
+      "Le complexe II transfère des électrons mais ne pompe pas directement de protons."
+    ],
+    "requiredSelectionCount": 5,
+    "answerPayload": {
+      "requiredSelectionCount": 5,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:synthese-cellulaire"
+      ]
+    }
+  },
+  {
+    "order": 10,
+    "difficulty": "HARD",
+    "question": "À propos de l’enveloppe nucléaire, de la chromatine et du nucléole, quelles propositions sont exactes ?",
+    "statement": "À propos de l’enveloppe nucléaire, de la chromatine et du nucléole, quelles propositions sont exactes ?",
+    "explanation": "Le noyau associe une enveloppe à double membrane percée de pores nucléaires, une chromatine organisée en nucléosomes et des compartiments non membranaires comme le nucléole.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:noyau-chromatine"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "La membrane nucléaire externe est en continuité avec le réticulum endoplasmique.",
+      "Les complexes de pores nucléaires sont constitués de protéines appelées nucléoporines.",
+      "L’histone H1 est associée à l’ADN de liaison mais ne fait pas partie de l’octamère nucléosomique canonique.",
+      "L’euchromatine est en moyenne plus accessible et plus compatible avec la transcription que l’hétérochromatine condensée.",
+      "Le nucléole est délimité par une bicouche lipidique dérivée de l’enveloppe nucléaire."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "choiceExplanations": [
+      "L’espace périnucléaire est lui-même en continuité avec la lumière du RE.",
+      "Les nucléoporines forment l’architecture du pore et participent aux échanges nucléocytoplasmiques.",
+      "Le cœur du nucléosome contient deux copies de H2A, H2B, H3 et H4.",
+      "Il s’agit d’une tendance fonctionnelle liée au degré de compaction de la chromatine.",
+      "Le nucléole n’est pas entouré d’une membrane."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:noyau-chromatine"
+      ]
+    }
+  },
+  {
+    "order": 11,
+    "difficulty": "EASY",
+    "question": "Quelle ARN polymérase transcrit le précurseur 45S des ARNr majeurs dans le nucléole ?",
+    "statement": "Quelle ARN polymérase transcrit le précurseur 45S des ARNr majeurs dans le nucléole ?",
+    "explanation": "L’ARN polymérase I transcrit le précurseur 45S, ensuite maturé en ARNr 18S, 5,8S et 28S.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:nucleole"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "ARN polymérase I"
+        },
+        {
+          "value": "ARN polymerase I"
+        },
+        {
+          "value": "Pol I"
+        },
+        {
+          "value": "ARN pol I"
+        },
+        {
+          "value": "RNA polymerase I"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:nucleole"
+      ]
+    }
+  },
+  {
+    "order": 12,
+    "difficulty": "MEDIUM",
+    "question": "Quelle proposition caractérise correctement le nucléole ?",
+    "statement": "Quelle proposition caractérise correctement le nucléole ?",
+    "explanation": "Le nucléole est un compartiment nucléaire non membranaire spécialisé dans la transcription et la maturation d’une grande partie des ARNr ainsi que dans l’assemblage précoce des sous-unités ribosomales.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:nucleole"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Il assure la réplication de l’ADN mitochondrial avant chaque mitose.",
+      "Il contient les complexes I à IV de la chaîne respiratoire.",
+      "Il participe à la biogenèse des ribosomes sans être limité par une membrane.",
+      "Il constitue une vésicule du système endomembranaire située dans le nucléoplasme.",
+      "Il disparaît définitivement lorsqu’une cellule entre pour la première fois en mitose."
+    ],
+    "correctChoiceIndexes": [
+      2
+    ],
+    "choiceExplanations": [
+      "La réplication de l’ADN mitochondrial se déroule dans les mitochondries et n’est pas une fonction du nucléole.",
+      "Ces complexes sont associés à la membrane interne mitochondriale.",
+      "Le nucléole organise la synthèse et la maturation de plusieurs ARNr et l’assemblage initial des sous-unités ribosomales.",
+      "Le nucléole est un condensat nucléaire non membranaire.",
+      "Le nucléole se désorganise pendant la mitose puis se reconstitue en fin de division."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:nucleole"
+      ]
+    }
+  },
+  {
+    "order": 13,
+    "difficulty": "MEDIUM",
+    "question": "Sélectionnez exactement les deux propositions correctes concernant le nucléosome canonique.",
+    "statement": "Sélectionnez exactement les deux propositions correctes concernant le nucléosome canonique.",
+    "explanation": "Le nucléosome comprend environ 147 paires de bases d’ADN enroulées autour d’un octamère formé de deux copies de H2A, H2B, H3 et H4.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:nucleosome"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Son cœur contient quatre copies identiques de l’histone H1.",
+      "Environ 147 paires de bases d’ADN s’enroulent autour de son cœur histonique.",
+      "Il est construit autour d’un tétramère unique de tubuline α/β.",
+      "Le cœur histonique comporte deux copies de H2A, H2B, H3 et H4.",
+      "Il n’existe que dans l’hétérochromatine et disparaît de l’euchromatine."
+    ],
+    "correctChoiceIndexes": [
+      1,
+      3
+    ],
+    "choiceExplanations": [
+      "H1 est une histone de liaison ; elle n’entre pas dans la composition de l’octamère central.",
+      "Cette valeur correspond à l’ADN directement associé au cœur nucléosomique canonique.",
+      "La tubuline appartient aux microtubules, pas à la chromatine.",
+      "L’ensemble forme un octamère histonique.",
+      "Les nucléosomes organisent la chromatine dans les régions euchromatiques comme hétérochromatiques."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:nucleosome"
+      ]
+    }
+  },
+  {
+    "order": 14,
+    "difficulty": "HARD",
+    "question": "À propos des échanges nucléocytoplasmiques, quelles propositions sont exactes ?",
+    "statement": "À propos des échanges nucléocytoplasmiques, quelles propositions sont exactes ?",
+    "explanation": "Le pore nucléaire autorise une diffusion des petites molécules et assure un transport sélectif des macromolécules. Les signaux de localisation nucléaire classiques sont souvent riches en acides aminés basiques.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:transport-nucleaire"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "De nombreux signaux de localisation nucléaire sont enrichis en lysine et arginine.",
+      "Le passage des grandes protéines à travers les pores nucléaires est un transport sélectif faisant intervenir des récepteurs de transport.",
+      "Toute molécule entrant dans le noyau doit obligatoirement traverser une bicouche lipidique.",
+      "Les pores nucléaires sont formés principalement de laminine extracellulaire.",
+      "Un signal de localisation nucléaire est systématiquement clivé dès l’arrivée de la protéine dans le nucléoplasme."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Les NLS classiques sont fréquemment basiques, même s’il n’existe pas un unique motif universel.",
+      "Les importines et exportines reconnaissent des signaux de transport et utilisent le système Ran.",
+      "Les échanges passent par les complexes de pores qui interrompent l’enveloppe nucléaire.",
+      "Ils sont constitués de nucléoporines ; la laminine appartient à la matrice extracellulaire.",
+      "Contrairement à certains peptides d’adressage vers d’autres organites, de nombreux NLS ne sont pas excisés."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:transport-nucleaire"
+      ]
+    }
+  },
+  {
+    "order": 15,
+    "difficulty": "HARD",
+    "question": "Quel complexe ubiquitine-ligase associé à Cdc20 favorise le déclenchement de l’anaphase en ciblant notamment la sécurine ?",
+    "statement": "Quel complexe ubiquitine-ligase associé à Cdc20 favorise le déclenchement de l’anaphase en ciblant notamment la sécurine ?",
+    "explanation": "APC/C-Cdc20 favorise l’ubiquitinylation de la sécurine et de la cycline B. La disparition de la sécurine permet l’activation de la séparase.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:apc-c"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "APC/C"
+        },
+        {
+          "value": "APC-C"
+        },
+        {
+          "value": "APC/C-Cdc20"
+        },
+        {
+          "value": "APC Cdc20"
+        },
+        {
+          "value": "anaphase-promoting complex"
+        },
+        {
+          "value": "anaphase promoting complex"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:apc-c"
+      ]
+    }
+  },
+  {
+    "order": 16,
+    "difficulty": "MEDIUM",
+    "question": "Quel complexe cycline-CDK joue le rôle classique de MPF et favorise l’entrée en mitose ?",
+    "statement": "Quel complexe cycline-CDK joue le rôle classique de MPF et favorise l’entrée en mitose ?",
+    "explanation": "Le MPF classique correspond au complexe cycline B–CDK1, dont l’activation déclenche de nombreux événements de l’entrée en phase M.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:cyclines-cdk"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Cycline D–CDK4/6.",
+      "Cycline E–CDK2.",
+      "Cycline A–CDK2.",
+      "Cycline B–CDK1.",
+      "Cycline H–CDK7 comme unique moteur de la cytodiérèse."
+    ],
+    "correctChoiceIndexes": [
+      3
+    ],
+    "choiceExplanations": [
+      "Ce complexe participe surtout à la progression en G1 et à la phosphorylation de Rb.",
+      "Cycline E–CDK2 est surtout impliqué dans la transition G1/S.",
+      "Cycline A–CDK2 intervient principalement au cours de la phase S.",
+      "C’est le complexe MPF classique de l’entrée en mitose.",
+      "CDK7 a notamment un rôle de CDK-activating kinase et ne constitue pas le MPF classique."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:cyclines-cdk"
+      ]
+    }
+  },
+  {
+    "order": 17,
+    "difficulty": "MEDIUM",
+    "question": "Sélectionnez exactement les deux relations correctes concernant le contrôle de la transition G1/S.",
+    "statement": "Sélectionnez exactement les deux relations correctes concernant le contrôle de la transition G1/S.",
+    "explanation": "La progression en G1 mobilise notamment cycline D–CDK4/6 et Rb/E2F. En cas de dommages de l’ADN, la voie p53–p21 peut freiner l’activité des CDK et retarder l’entrée en phase S.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:controle-g1-s"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Cycline D–CDK4/6 — phosphorylation progressive de Rb et facilitation de l’activité d’E2F.",
+      "p53–p21 — frein à la progression du cycle après certains dommages de l’ADN.",
+      "Wee1 — activation de CDK1 par déphosphorylation.",
+      "Séparase — phosphorylation de Rb au cours de la phase G1.",
+      "APC/C-Cdh1 — accumulation maximale de cycline B au début de G1."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "La phosphorylation de Rb libère progressivement E2F et favorise l’expression de gènes nécessaires à la progression du cycle.",
+      "p53 peut induire p21, inhibiteur de CDK, afin de retarder la progression du cycle.",
+      "Wee1 ajoute des phosphorylations inhibitrices sur CDK1 ; Cdc25 contribue à les retirer.",
+      "La séparase intervient lors de l’anaphase en clivant les cohésines.",
+      "APC/C-Cdh1 contribue au contraire à maintenir une faible activité CDK en G1 en favorisant la dégradation de plusieurs protéines mitotiques."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:controle-g1-s"
+      ]
+    }
+  },
+  {
+    "order": 18,
+    "difficulty": "EASY",
+    "question": "À propos de la quantité d’ADN et du nombre de chromosomes au cours du cycle d’une cellule diploïde, quelles propositions sont exactes ?",
+    "statement": "À propos de la quantité d’ADN et du nombre de chromosomes au cours du cycle d’une cellule diploïde, quelles propositions sont exactes ?",
+    "explanation": "La phase S double la quantité d’ADN mais pas le nombre de chromosomes. Une cellule diploïde est classiquement 2n/2C en G1 puis 2n/4C en G2.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:ploidie-adn"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "En G1, avant réplication, une cellule diploïde est classiquement 2n/2C.",
+      "Après la phase S, la cellule reste 2n mais sa quantité d’ADN atteint 4C.",
+      "La phase S double la quantité d’ADN sans doubler le nombre de chromosomes.",
+      "Une cellule humaine somatique normale devient 4n dès qu’elle termine la réplication de son ADN.",
+      "Toute cellule entrant en G0 est définitivement incapable de réintégrer le cycle."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Chaque chromosome ne comporte alors qu’une chromatide.",
+      "Chaque chromosome possède alors deux chromatides sœurs.",
+      "Le nombre de chromosomes est défini par le nombre de centromères, qui reste inchangé après réplication.",
+      "Elle demeure diploïde 2n en G2 ; seule la quantité d’ADN a doublé.",
+      "Certaines cellules quiescentes peuvent réentrer dans le cycle en réponse à des signaux appropriés."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:ploidie-adn"
+      ]
+    }
+  },
+  {
+    "order": 19,
+    "difficulty": "MEDIUM",
+    "question": "Combien de chromatides comporte un chromosome métaphasique avant la séparation des chromatides sœurs en anaphase ? Donnez uniquement la valeur numérique.",
+    "statement": "Combien de chromatides comporte un chromosome métaphasique avant la séparation des chromatides sœurs en anaphase ? Donnez uniquement la valeur numérique.",
+    "explanation": "Après la réplication de l’ADN, chaque chromosome est constitué de deux chromatides sœurs reliées notamment au niveau du centromère jusqu’à leur séparation en anaphase.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:chromatides-metaphase"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "number",
+      "numericAnswer": {
+        "value": 2,
+        "tolerance": 0
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:chromatides-metaphase"
+      ]
+    }
+  },
+  {
+    "order": 20,
+    "difficulty": "HARD",
+    "question": "Quel événement correspond le mieux au rôle du point de contrôle du fuseau mitotique ?",
+    "statement": "Quel événement correspond le mieux au rôle du point de contrôle du fuseau mitotique ?",
+    "explanation": "Le spindle assembly checkpoint surveille l’attachement des kinétochores et freine l’activation efficace d’APC/C-Cdc20 tant que tous les chromosomes ne sont pas correctement attachés au fuseau.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:checkpoint-fuseau"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Il déclenche la réplication de l’ADN dès qu’un chromosome atteint la plaque métaphasique.",
+      "Il active la séparase tant qu’un kinétochore reste non attaché.",
+      "Il provoque la disparition immédiate de l’ensemble des microtubules kinétochoriens.",
+      "Il impose la dégradation de Rb pour permettre la transition G1/S.",
+      "Il retarde l’activation efficace d’APC/C-Cdc20 tant que des kinétochores ne sont pas correctement attachés."
+    ],
+    "correctChoiceIndexes": [
+      4
+    ],
+    "choiceExplanations": [
+      "La réplication a lieu en phase S, bien avant la métaphase.",
+      "Un kinétochore non correctement attaché maintient au contraire l’inhibition de la transition vers l’anaphase.",
+      "Le checkpoint contrôle les attachements ; il ne détruit pas systématiquement le fuseau.",
+      "Rb intervient principalement dans le contrôle G1/S, pas dans le checkpoint métaphase-anaphase.",
+      "Les protéines MAD/BUB participent à ce contrôle et préviennent une séparation prématurée des chromatides."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:checkpoint-fuseau"
+      ]
+    }
+  },
+  {
+    "order": 21,
+    "difficulty": "MEDIUM",
+    "question": "Lorsque toutes les chromatides sont correctement attachées au fuseau et que l’anaphase peut débuter, quelles propositions sont exactes ?",
+    "statement": "Lorsque toutes les chromatides sont correctement attachées au fuseau et que l’anaphase peut débuter, quelles propositions sont exactes ?",
+    "explanation": "L’activation d’APC/C-Cdc20 conduit notamment à la dégradation de la sécurine et de la cycline B. La séparase libérée clive les cohésines et la baisse d’activité CDK1 favorise la sortie de mitose ; la cytodiérèse repose ensuite sur l’actomyosine.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:anaphase-cytodierese"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "La dégradation de la sécurine permet l’activation de la séparase.",
+      "La séparase clive des cohésines qui maintenaient les chromatides sœurs associées.",
+      "La dégradation de la cycline B contribue à la diminution de l’activité CDK1 et à la sortie de mitose.",
+      "La cytodiérèse animale fait intervenir un anneau contractile d’actine et de myosine II.",
+      "L’enveloppe nucléaire reste intégralement intacte de la prophase à la télophase."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "choiceExplanations": [
+      "La sécurine inhibe la séparase tant qu’elle n’est pas ciblée pour dégradation.",
+      "Ce clivage permet la séparation physique des chromatides sœurs.",
+      "La chute d’activité du MPF accompagne les événements de fin de mitose.",
+      "Cet anneau forme le sillon de clivage puis se contracte lors de la séparation des cellules filles.",
+      "Chez les cellules animales, l’enveloppe nucléaire se désassemble au début de la mitose puis se reforme en fin de division."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:anaphase-cytodierese"
+      ]
+    }
+  },
+  {
+    "order": 22,
+    "difficulty": "EASY",
+    "question": "En vous appuyant sur le panneau A et sur les mécanismes de trafic intracellulaire, quelles propositions sont exactes ?",
+    "statement": "En vous appuyant sur le panneau A et sur les mécanismes de trafic intracellulaire, quelles propositions sont exactes ?",
+    "explanation": "Les protéines de la voie sécrétoire quittent classiquement le réticulum endoplasmique dans des vésicules COPII avant de rejoindre le Golgi. De nombreuses hydrolases lysosomales sont triées grâce au mannose-6-phosphate. Les mitochondries ne sont pas transportées vers le Golgi par COPI ; TOM est une translocase mitochondriale et les kinésines sont principalement des moteurs associés aux microtubules.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:rappels-trafic"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "COPII participe principalement au transport des cargos du réticulum endoplasmique vers le Golgi.",
+      "Le mannose-6-phosphate participe au tri de nombreuses hydrolases destinées aux lysosomes.",
+      "Les mitochondries rejoignent le Golgi par des vésicules COPI avant chaque division cellulaire.",
+      "Le complexe TOM est un revêtement vésiculaire du système endosomal.",
+      "La kinésine est un moteur moléculaire spécifique des filaments d’actine corticaux."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Les vésicules COPII assurent le trafic antérograde de nombreux cargos du RE vers le Golgi.",
+      "Le récepteur du M6P au TGN permet leur acheminement vers la voie endosomale.",
+      "La mitochondrie n’appartient pas au système endomembranaire et ne transite pas par le Golgi.",
+      "TOM est une translocase de la membrane externe mitochondriale.",
+      "Les kinésines se déplacent principalement le long des microtubules ; les myosines sont associées à l’actine."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:rappels-trafic"
+      ]
+    }
+  },
+  {
+    "order": 23,
+    "difficulty": "MEDIUM",
+    "question": "La cellule du panneau A augmente simultanément sa synthèse de protéines sécrétées, ses besoins énergétiques et l’expression de certains gènes. Quelles propositions sont exactes ?",
+    "statement": "La cellule du panneau A augmente simultanément sa synthèse de protéines sécrétées, ses besoins énergétiques et l’expression de certains gènes. Quelles propositions sont exactes ?",
+    "explanation": "Une cellule sécrétrice mobilise de façon coordonnée plusieurs compartiments. La voie RER–Golgi prend en charge de nombreuses protéines sécrétées, les mitochondries contribuent à fournir l’ATP nécessaire et le noyau peut ajuster durablement l’expression des gènes.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:integration-compartiments"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Une protéine destinée à la sécrétion peut être transloquée dans le RER au cours de sa synthèse.",
+      "La phosphorylation oxydative mitochondriale peut répondre à une partie importante de l’augmentation des besoins en ATP.",
+      "Une modification durable de l’expression de protéines peut nécessiter une régulation de la transcription nucléaire.",
+      "Le peroxysome exporte les ARNm vers le cytosol grâce à ses pores nucléaires.",
+      "Le lysosome possède une chaîne respiratoire autonome qui remplace l’ATP synthase mitochondriale."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Un peptide signal reconnu par la SRP peut orienter le ribosome vers le translocon du RE.",
+      "En aérobiose, la mitochondrie produit une grande part de l’ATP cellulaire par phosphorylation oxydative.",
+      "Le noyau contrôle l’expression d’une grande partie des protéines cellulaires en modulant transcription et maturation des ARN.",
+      "Les pores nucléaires appartiennent à l’enveloppe du noyau ; le peroxysome n’a pas de génome ni de pores nucléaires.",
+      "Le lysosome est un compartiment de dégradation acide ; il ne possède pas de chaîne respiratoire."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:integration-compartiments"
+      ]
+    }
+  },
+  {
+    "order": 24,
+    "difficulty": "HARD",
+    "question": "Sur le panneau B, sélectionnez la zone où les chromosomes sont alignés dans le plan équatorial de la cellule.",
+    "statement": "Sur le panneau B, sélectionnez la zone où les chromosomes sont alignés dans le plan équatorial de la cellule.",
+    "explanation": "En métaphase, l’attachement bipolaire des chromosomes est achevé et les chromosomes s’alignent dans le plan équatorial de la cellule. Cet alignement constitue la plaque métaphasique. Le checkpoint du fuseau contrôle notamment la qualité de l’attachement des kinétochores avant l’entrée en anaphase.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:qzone-metaphase"
+    ],
+    "format": "QZONE",
+    "questionFormat": "QZONE",
+    "questionType": "hotspot",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "image": {
+        "src": "/images/training/ue14/colles/c09/integrated-cell-states-linked-q22-q24.svg",
+        "alt": "Deux panneaux montrant une cellule sécrétrice en interphase avec ses principaux compartiments et une cellule de même lignée en métaphase avec son fuseau mitotique.",
+        "width": 1200,
+        "height": 700
+      },
+      "expectedZones": [
+        {
+          "id": "target-metaphase-equatorial-plate",
+          "label": "Alignement équatorial des chromosomes en métaphase",
+          "x": 0.7458,
+          "y": 0.5429,
+          "tolerance": 0.06
+        }
+      ],
+      "defaultTolerance": 0.06,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:qzone-metaphase"
+      ]
+    }
+  },
+  {
+    "order": 25,
+    "difficulty": "MEDIUM",
+    "question": "Pour cette synthèse finale de la cellule intégrée, quelles propositions sont exactes ?",
+    "statement": "Pour cette synthèse finale de la cellule intégrée, quelles propositions sont exactes ?",
+    "explanation": "Les compartiments cellulaires restent fonctionnellement interconnectés : le RE est continu avec la membrane nucléaire externe, la mitochondrie assure la respiration, le nucléole participe à la biogenèse ribosomale et le cycle cellulaire coordonne fidèlement la séparation du génome.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C09",
+      "ec:BIOLOGIE_CELLULAIRE",
+      "theme:synthese-finale"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "La membrane nucléaire externe est directement continue avec la membrane du réticulum endoplasmique.",
+      "Au complexe IV, le dioxygène reçoit les électrons terminaux et contribue à la formation d’eau.",
+      "La transcription du précurseur 45S des ARNr majeurs est assurée par l’ARN polymérase I.",
+      "APC/C-Cdc20 favorise la disparition de la sécurine lorsque le checkpoint du fuseau est satisfait.",
+      "Le peroxysome contient un génome propre indispensable à la duplication des chromosomes nucléaires."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "choiceExplanations": [
+      "Cette continuité structurale relie l’enveloppe nucléaire au système endomembranaire.",
+      "Le complexe IV est la cytochrome c oxydase et utilise O₂ comme accepteur final.",
+      "Le précurseur 45S donnera les ARNr 18S, 5,8S et 28S après maturation.",
+      "La séparase peut alors cliver les cohésines et permettre l’entrée en anaphase.",
+      "Le peroxysome ne possède pas de génome et n’assure pas la réplication des chromosomes nucléaires."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C09",
+        "ec:BIOLOGIE_CELLULAIRE",
+        "theme:synthese-finale"
+      ]
+    }
+  }
+]

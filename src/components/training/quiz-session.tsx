@@ -16,6 +16,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
+import { formatCountMetric, formatDurationMetric } from '@/lib/format-metrics';
 import {
   Table,
   TableBody,
@@ -29,6 +30,7 @@ import {
   evaluateQuestion,
   calculateUnessFormatStats,
   evaluateMcqQuestion,
+  getChoiceIdFromIndex,
   getQuestionFormatStudentInstruction,
   getQuestionSelectionLimit,
   normalizePersistedQuestion,
@@ -51,15 +53,33 @@ import { MathContent } from './math-content';
 import { QuestionFormatBadge } from './question-format-badge';
 import { TrainingChoiceContentView } from './training-choice-content-view';
 import { TrainingQuestionContentView } from './training-question-content-view';
+import { SharedQuestionGroupPanel } from './shared-question-group-panel';
+import { ProtectedAssessmentContent } from '@/components/shared/ProtectedAssessmentContent';
 
 type QuizSessionProps = {
   questions: TrainingQuestion[];
+  watermarkCode?: string;
   pathContext?: QuizSessionPathContext;
   onAttemptComplete?: (payload: {
     score: number;
     targetScore: number;
     totalQuestions: number;
   }) => void | Promise<void>;
+  onSubmitAnswers?: (payload: {
+    answers: Array<{
+      questionId: string;
+      selectedChoiceIndexes: number[];
+      shortAnswerRawValue?: string;
+      hotspotPoints?: Array<{ x: number; y: number }>;
+      responsePayload?: any;
+    }>;
+  }) => Promise<{
+    score: number;
+    maxScore: number;
+    totalQuestions: number;
+    percentage: number;
+    questions?: TrainingQuestion[];
+  }>;
   correctionMode?: 'instant' | 'final';
   canEditQuestions?: boolean;
 };
@@ -449,9 +469,23 @@ const prepareQuestions = (questions: TrainingQuestion[], variant: number) => {
       correctChoiceIndexes: rotatedQuestionChoices.correctChoiceIndexes,
     };
 
+    let canonicalQuestion = question.canonicalQuestion;
+    if (!canonicalQuestion) {
+      canonicalQuestion = normalizeTrainingQuestionForEvaluation(preparedQuestion);
+    } else if (canonicalQuestion.type === 'mcq') {
+      canonicalQuestion = {
+        ...canonicalQuestion,
+        choices: preparedQuestion.choices.map((choice, i) => ({
+          id: getChoiceIdFromIndex(i),
+          content: choice,
+          correct: false,
+        })),
+      };
+    }
+
     return {
       ...preparedQuestion,
-      canonicalQuestion: normalizeTrainingQuestionForEvaluation(preparedQuestion),
+      canonicalQuestion,
     };
   });
 };
@@ -573,34 +607,6 @@ const getSummaryProgressBarClassName = (successRate: number) => {
   return 'bg-rose-500 dark:bg-rose-400';
 };
 
-const formatQuestionNumbers = (questionNumbers: number[]) => {
-  if (questionNumbers.length === 0) return '';
-  if (questionNumbers.length === 1) return String(questionNumbers[0]);
-  if (questionNumbers.length === 2) {
-    return `${questionNumbers[0]} et ${questionNumbers[1]}`;
-  }
-
-  return `${questionNumbers.slice(0, -1).join(', ')} et ${questionNumbers.at(-1)}`;
-};
-
-const getSharedStatementTitle = (
-  questions: TrainingQuestion[],
-  groupId: string,
-  title: string | null
-) => {
-  const questionNumbers = questions.flatMap((question, index) =>
-    question.group?.id === groupId ? [index + 1] : []
-  );
-  const normalizedTitle = title
-    ?.trim()
-    .replace(/^énoncé commun\s*(?:[-–—:]\s*)?/i, '')
-    .trim();
-  const questionLabel = questionNumbers.length === 1 ? 'à la question' : 'aux questions';
-  const heading = `Énoncé commun ${questionLabel} ${formatQuestionNumbers(questionNumbers)}`;
-
-  return normalizedTitle ? `${heading} – ${normalizedTitle}` : heading;
-};
-
 const getThemePerformance = ({
   correctItems,
   incorrectItems,
@@ -673,8 +679,10 @@ const getThemePerformance = ({
 
 export function QuizSession({
   questions,
+  watermarkCode,
   pathContext,
   onAttemptComplete,
+  onSubmitAnswers,
   correctionMode = 'instant',
   canEditQuestions = false,
 }: QuizSessionProps) {
@@ -682,6 +690,8 @@ export function QuizSession({
   const [sessionQuestions, setSessionQuestions] = useState(() =>
     prepareQuestions(questions, 0)
   );
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [serverEvaluations, setServerEvaluations] = useState<EvaluationResult[] | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedChoiceIndexesByQuestion, setSelectedChoiceIndexesByQuestion] = useState<Array<number[]>>(
     () => questions.map(() => [])
@@ -748,8 +758,11 @@ export function QuizSession({
     [sessionQuestions]
   );
   const evaluationsByQuestion = useMemo(
-    () =>
-      canonicalQuestions.map((question, index) => {
+    () => {
+      if (serverEvaluations && serverEvaluations.length === sessionQuestions.length) {
+        return serverEvaluations;
+      }
+      return canonicalQuestions.map((question, index) => {
         if (question.type === 'mcq') {
           return evaluateMcqQuestion(
             question,
@@ -778,8 +791,9 @@ export function QuizSession({
         }
 
         return getUnansweredEvaluation(question);
-      }),
-    [canonicalQuestions, selectedChoiceIndexesByQuestion, shortAnswerValuesByQuestion, hotspotPointsByQuestion]
+      });
+    },
+    [serverEvaluations, sessionQuestions.length, canonicalQuestions, selectedChoiceIndexesByQuestion, shortAnswerValuesByQuestion, hotspotPointsByQuestion]
   );
 
   const isFinalCorrectionOnly = correctionMode === 'final';
@@ -867,9 +881,6 @@ export function QuizSession({
 
   const currentQuestion = sessionQuestions[currentIndex];
   const currentGroup = currentQuestion.group;
-  const currentGroupTitle = currentGroup
-    ? getSharedStatementTitle(sessionQuestions, currentGroup.id, currentGroup.title)
-    : null;
   const isPathMode = Boolean(pathContext);
   const currentSelections = selectedChoiceIndexesByQuestion[currentIndex] ?? [];
   const currentShortAnswerValue = shortAnswerValuesByQuestion[currentIndex] ?? '';
@@ -1159,17 +1170,73 @@ export function QuizSession({
   };
 
   const openSummary = async () => {
+    if (isSubmitting) return;
+
+    let computedScore = score;
+    let computedTotalQuestions = sessionQuestions.length;
+
+    if (onSubmitAnswers) {
+      setIsSubmitting(true);
+      try {
+        const answers = sessionQuestions.map((question, index) => {
+          const selectedChoiceIndexes = selectedChoiceIndexesByQuestion[index] ?? [];
+          const shortAnswerRawValue = shortAnswerValuesByQuestion[index];
+          const hotspotPoint = hotspotPointsByQuestion[index];
+
+          let responsePayload: any = null;
+          if (question.questionType === 'short-answer') {
+            responsePayload = {
+              questionId: question.id,
+              type: 'short-answer',
+              rawValue: shortAnswerRawValue ?? '',
+            };
+          } else if (question.questionType === 'hotspot') {
+            responsePayload = {
+              questionId: question.id,
+              type: 'hotspot',
+              points: hotspotPoint ? [hotspotPoint] : [],
+            };
+          } else if (question.canonicalQuestion?.type === 'mcq') {
+            responsePayload = createMcqStudentAnswerFromIndexes({
+              question: question.canonicalQuestion,
+              selectedChoiceIndexes,
+            });
+          }
+
+          return {
+            questionId: question.id,
+            selectedChoiceIndexes,
+            shortAnswerRawValue,
+            hotspotPoints: hotspotPoint ? [hotspotPoint] : undefined,
+            responsePayload,
+          };
+        });
+
+        const result = await onSubmitAnswers({ answers });
+        if (result?.questions && result.questions.length > 0) {
+          setSessionQuestions(result.questions);
+          setServerEvaluations(result.questions.map((q: any) => q.evaluation));
+          computedScore = result.score;
+          computedTotalQuestions = result.totalQuestions;
+        }
+      } catch (err) {
+        console.error('Quiz submission error:', err);
+      } finally {
+        setIsSubmitting(false);
+      }
+    }
+
     if (isPathMode && pathContext) {
       await pathContext.onAttemptComplete?.({
-        score,
+        score: computedScore,
         targetScore,
-        totalQuestions: sessionQuestions.length,
+        totalQuestions: computedTotalQuestions,
       });
     } else {
       await onAttemptComplete?.({
-        score,
+        score: computedScore,
         targetScore,
-        totalQuestions: sessionQuestions.length,
+        totalQuestions: computedTotalQuestions,
       });
     }
 
@@ -1183,10 +1250,11 @@ export function QuizSession({
 
   if (viewMode === 'summary' && isComplete) {
     return (
-      <section
-        data-testid="quiz-summary"
-        className="space-y-6 rounded-2xl border border-border bg-card p-4 shadow-sm md:p-6"
-      >
+      <ProtectedAssessmentContent watermarkCode={watermarkCode}>
+        <section
+          data-testid="quiz-summary"
+          className="space-y-6 rounded-2xl border border-border bg-card p-4 shadow-sm md:p-6"
+        >
         <div className={cn('overflow-hidden rounded-2xl border', effectiveSummaryFeedback.toneClassName)}>
           <div className="space-y-5 p-5 md:p-6">
             <div className="space-y-4">
@@ -1275,15 +1343,19 @@ export function QuizSession({
                 <p className="text-xs font-semibold uppercase tracking-wide opacity-70">
                   Bonnes réponses
                 </p>
-                <p className="mt-2 text-2xl font-semibold">{correctQuestionsCount}</p>
+                <div className="mt-2 flex items-baseline gap-1">
+                  <span className="text-2xl font-semibold">{correctQuestionsCount}</span>
+                  <span className="text-sm opacity-70">/ {sessionQuestions.length}</span>
+                </div>
               </div>
               <div className="rounded-xl border border-current/15 bg-background/60 p-4">
                 <p className="text-xs font-semibold uppercase tracking-wide opacity-70">
                   Questions à retravailler
                 </p>
-                <p className="mt-2 text-2xl font-semibold">
-                  {incorrectQuestions.length}
-                </p>
+                <div className="mt-2 flex items-baseline gap-1">
+                  <span className="text-2xl font-semibold">{incorrectQuestions.length}</span>
+                  <span className="text-sm opacity-70">/ {sessionQuestions.length}</span>
+                </div>
               </div>
               <div className="rounded-xl border border-current/15 bg-background/60 p-4">
                 <p className="text-xs font-semibold uppercase tracking-wide opacity-70">
@@ -1550,15 +1622,17 @@ export function QuizSession({
             </Button>
           ) : null}
         </div>
-      </section>
+        </section>
+      </ProtectedAssessmentContent>
     );
   }
 
   return (
-    <section
-      data-testid={isReviewMode ? 'quiz-review' : 'quiz-taking'}
-      className="space-y-4 rounded-2xl border border-border bg-card p-4 shadow-sm md:p-6"
-    >
+    <ProtectedAssessmentContent watermarkCode={watermarkCode}>
+      <section
+        data-testid={isReviewMode ? 'quiz-review' : 'quiz-taking'}
+        className="space-y-4 rounded-2xl border border-border bg-card p-4 shadow-sm md:p-6"
+      >
       {/* 1. NAVIGATION GLOBALE DU QUIZ (AU-DESSUS DU BLOC DE QUESTION) */}
       <nav
         aria-label="Navigation entre les questions du quiz"
@@ -1646,19 +1720,19 @@ export function QuizSession({
             <span className="hidden lg:inline text-xs font-semibold">Précédent</span>
           </button>
 
-          <div className="relative flex-1 flex items-center min-w-0 overflow-hidden">
+          <div className="flex-1 flex items-center min-w-0 overflow-hidden">
             {canScrollNavLeft ? (
               <button
                 type="button"
                 onClick={() => scrollNavContainer('left')}
                 aria-label="Faire défiler les questions vers la gauche"
-                className="absolute left-0 z-10 flex h-14 w-7 items-center justify-center bg-background/90 text-foreground shadow-sm hover:bg-neutral-secondary-medium transition-opacity border-r border-border"
+                className="shrink-0 flex h-14 w-8 items-center justify-center bg-background text-foreground hover:bg-neutral-secondary-medium transition-colors border-r border-border"
               >
                 <ChevronLeft className="h-4 w-4" />
               </button>
             ) : null}
 
-            <div ref={navScrollRef} className="flex-1 overflow-x-auto no-scrollbar">
+            <div ref={navScrollRef} className="flex-1 min-w-0 overflow-x-auto no-scrollbar">
               <ol className="flex min-w-full">
                 {visibleQuestionIndexes.map((index) => {
                   const question = sessionQuestions[index];
@@ -1708,7 +1782,7 @@ export function QuizSession({
                 type="button"
                 onClick={() => scrollNavContainer('right')}
                 aria-label="Faire défiler les questions vers la droite"
-                className="absolute right-0 z-10 flex h-14 w-7 items-center justify-center bg-background/90 text-foreground shadow-sm hover:bg-neutral-secondary-medium transition-opacity border-l border-border"
+                className="shrink-0 flex h-14 w-8 items-center justify-center bg-background text-foreground hover:bg-neutral-secondary-medium transition-colors border-l border-border"
               >
                 <ChevronRight className="h-4 w-4" />
               </button>
@@ -1789,14 +1863,13 @@ export function QuizSession({
       </div>
 
       {currentGroup ? (
-        <div className="rounded-xl border border-brand/15 bg-brand-soft/10 p-4 text-sm text-heading">
-          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            {currentGroupTitle}
-          </p>
-          <div className="mt-2 leading-6">
-            <MathContent value={currentGroup.sharedStatement} blockMathVariant="compact" />
-          </div>
-        </div>
+        <SharedQuestionGroupPanel
+          questionNumbers={sessionQuestions.flatMap((q, idx) =>
+            q.group?.id === currentGroup.id ? [idx + 1] : []
+          )}
+          title={currentGroup.title}
+          sharedStatement={currentGroup.sharedStatement}
+        />
       ) : null}
 
       <div
@@ -2273,5 +2346,6 @@ export function QuizSession({
         </div>
       </div>
     </section>
+  </ProtectedAssessmentContent>
   );
 }

@@ -1,21 +1,39 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { TabItem, Tabs } from 'flowbite-react';
-import { ArrowRight, BarChart3, Clock3, FileCheck2 } from 'lucide-react';
+import { ArrowRight, BarChart3, Clock3, FileCheck2, Info, MoreHorizontal } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { HealthMockExamActionButton } from '@/components/health/HealthMockExamActionButton';
+import { HealthColleStartDialog } from '@/components/health/HealthColleStartDialog';
+import { HealthColleHistoryModal } from '@/components/health/HealthColleHistoryModal';
+import { actionMenuContent, actionMenuItem, actionMenuTrigger } from '@/components/shared/table-action-menu';
+import { HEALTH_COLLES_UE14_V1, type HealthColleV1 } from '@/core/health-colle';
 import type { HealthStudentCourseUnitDetail } from '@/core/health';
+import type {
+  HealthCourseUnitEvaluationsProgress,
+  HealthColleProgressItem,
+} from '@/core/health-mock-exam/health-mock-exam.types';
+import { cn } from '@/lib/utils';
 
 const healthTabsTheme = {
   base: 'flex flex-col gap-2',
   tablist: {
     base: 'text-sm font-medium text-center text-body border-b border-default',
     variant: {
-      underline: 'flex flex-wrap -mb-px',
+      underline: 'flex flex-wrap -mb-px pr-0 sm:pr-48',
     },
     tabitem: {
       base: 'inline-block p-4 border-b border-transparent rounded-t-base focus:outline-none disabled:cursor-not-allowed disabled:text-body/50',
@@ -43,14 +61,8 @@ const healthTabsTheme = {
 type HealthCourseUnitTabsProps = {
   courseUnit: HealthStudentCourseUnitDetail;
   activeTeachingElementId?: string | null;
+  evaluationsProgress?: HealthCourseUnitEvaluationsProgress | null;
 };
-
-const formatTeachingElementLabel = (
-  teachingElement: HealthStudentCourseUnitDetail['teachingElements'][number],
-) =>
-  teachingElement.code
-    ? `${teachingElement.code} · ${teachingElement.shortTitle ?? teachingElement.title}`
-    : (teachingElement.shortTitle ?? teachingElement.title);
 
 const getChapterHref = (courseUnitId: string, chapterSlug: string) =>
   `/sante/ue/${courseUnitId}/chapitres/${chapterSlug}`;
@@ -58,311 +70,638 @@ const getChapterHref = (courseUnitId: string, chapterSlug: string) =>
 const getMockExamResultsHref = (courseUnitId: string, examSlug: string, attemptId: string) =>
   `/sante/ue/${courseUnitId}/examens-blancs/${examSlug}/resultats/${attemptId}`;
 
+const getColleResultsHref = (courseUnitId: string, colleId: string, attemptId: string) =>
+  `/sante/ue/${courseUnitId}/colles/${colleId}/resultats/${attemptId}`;
+
+const getColleCorrectionHref = (courseUnitId: string, colleId: string, attemptId: string) =>
+  `/sante/ue/${courseUnitId}/colles/${colleId}/resultats/${attemptId}/correction`;
+
+function formatScore(score: number): string {
+  if (Number.isInteger(score)) {
+    return score.toString();
+  }
+  return score.toFixed(2).replace('.', ',');
+}
+
+function formatElapsedTime(elapsedSeconds: number) {
+  const minutes = Math.floor(elapsedSeconds / 60);
+  const seconds = elapsedSeconds % 60;
+  return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+}
+
 export function HealthCourseUnitTabs({
   courseUnit,
   activeTeachingElementId,
+  evaluationsProgress,
 }: HealthCourseUnitTabsProps) {
+  const [selectedColleForStart, setSelectedColleForStart] = useState<HealthColleV1 | null>(null);
+  const [historyModalData, setHistoryModalData] = useState<{
+    colle: HealthColleV1;
+    progress: HealthColleProgressItem;
+  } | null>(null);
+
+  const evaluationsTabIndex = courseUnit.teachingElements.length;
+  const initialTabIndex = (() => {
+    if (activeTeachingElementId === 'evaluations' || activeTeachingElementId === 'synthese') {
+      return evaluationsTabIndex;
+    }
+    if (activeTeachingElementId) {
+      const idx = courseUnit.teachingElements.findIndex((te) => te.id === activeTeachingElementId);
+      if (idx !== -1) return idx;
+    }
+    return 0;
+  })();
+
+  const [activeTabIndex, setActiveTabIndex] = useState<number>(initialTabIndex);
+
   return (
-    <Tabs applyTheme="replace" variant="underline" theme={healthTabsTheme}>
-      {courseUnit.teachingElements.map((teachingElement) => (
+    <>
+      <div className="relative">
+        {activeTabIndex === evaluationsTabIndex ? (
+          <div className="flex justify-end sm:absolute sm:right-0 sm:top-2 sm:z-10 pb-2 sm:pb-0">
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button variant="outline" size="sm" className="gap-1.5 text-xs font-medium bg-card">
+                  <Info className="h-4 w-4 text-fg-brand" aria-hidden="true" />
+                  <span>Aide aux évaluations</span>
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent align="end" className="w-80 p-3.5 space-y-3 shadow-lg z-50">
+                <div className="space-y-1">
+                  <h4 className="font-semibold text-heading text-xs tracking-wide uppercase">
+                    Aide aux évaluations
+                  </h4>
+                  <p className="text-xs text-muted-foreground">
+                    Guide d’interface et règles de notation UNESS pour vos épreuves.
+                  </p>
+                </div>
+                <div className="space-y-2 pt-1 border-t border-default">
+                  <div className="p-2.5 rounded-xl border border-default bg-neutral-secondary-soft space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="font-semibold text-xs text-heading">Découvrir le mode évaluation</span>
+                      <Badge variant="outline" className="text-[10px]">5 min</Badge>
+                    </div>
+                    <p className="text-[11px] text-muted-foreground">
+                      Prenez en main le chronomètre, la navigation et la remise d’une épreuve.
+                    </p>
+                    <Button asChild size="sm" variant="outline" className="w-full h-7 text-xs gap-1.5">
+                      <Link href="/sante/interface-examen">
+                        Découvrir
+                        <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                      </Link>
+                    </Button>
+                  </div>
+
+                  <div className="p-2.5 rounded-xl border border-default bg-neutral-secondary-soft space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="font-semibold text-xs text-heading">Formats & notation</span>
+                      <Badge variant="outline" className="text-[10px]">UNESS</Badge>
+                    </div>
+                    <p className="text-[11px] text-muted-foreground">
+                      Découvrez les formats QRU, QRM, QRP, QROC, QZONE et les discordances UNESS.
+                    </p>
+                    <Button asChild size="sm" variant="outline" className="w-full h-7 text-xs gap-1.5">
+                      <Link href="/sante/evaluations/comprendre">
+                        Formats et notation
+                        <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </PopoverContent>
+            </Popover>
+          </div>
+        ) : null}
+
+        <Tabs
+          applyTheme="replace"
+          variant="underline"
+          theme={healthTabsTheme}
+          onActiveTabChange={(index) => setActiveTabIndex(index)}
+        >
+        {courseUnit.teachingElements.map((teachingElement) => (
+          <TabItem
+            key={teachingElement.id}
+            active={
+              activeTeachingElementId
+                ? activeTeachingElementId === teachingElement.id
+                : courseUnit.teachingElements[0]?.id === teachingElement.id
+            }
+            title={teachingElement.code ?? teachingElement.shortTitle ?? teachingElement.title}
+          >
+            <div className="space-y-4">
+              {teachingElement.chapters.length > 0 ? (
+                Object.values(
+                  teachingElement.chapters.reduce<
+                    Record<
+                      string,
+                      {
+                        label: string;
+                        order: number;
+                        chapters: typeof teachingElement.chapters;
+                      }
+                    >
+                  >((groups, chapter) => {
+                    const key = chapter.displayGroupKey ?? 'default';
+                    const label = chapter.displayGroupLabel ?? 'Chapitres';
+                    const order = chapter.displayGroupOrder ?? Number.MAX_SAFE_INTEGER;
+
+                    if (!groups[key]) {
+                      groups[key] = {
+                        label,
+                        order,
+                        chapters: [],
+                      };
+                    }
+
+                    groups[key].chapters.push(chapter);
+                    return groups;
+                  }, {})
+                )
+                  .sort((left, right) => left.order - right.order)
+                  .map((group) => {
+                    const chapterCount = group.chapters.length;
+                    const quizCount = group.chapters.reduce(
+                      (total, chapter) => total + chapter.quizCount,
+                      0,
+                    );
+                    const questionCount = group.chapters.reduce(
+                      (total, chapter) => total + chapter.questionCount,
+                      0,
+                    );
+
+                    return (
+                      <Card
+                        key={group.label}
+                        className="rounded-3xl border-border bg-card hover:bg-card"
+                      >
+                        <CardHeader>
+                          <div className="flex flex-wrap items-center justify-between gap-3">
+                            <CardTitle className="text-lg text-heading">{group.label}</CardTitle>
+                            <div className="flex flex-wrap items-center gap-2 sm:justify-end">
+                              <Badge variant="outline">
+                                {chapterCount} chapitre
+                                {chapterCount > 1 ? 's' : ''}
+                              </Badge>
+                              <Badge variant="outline">{quizCount} quiz</Badge>
+                              <Badge variant="outline">
+                                {questionCount} question
+                                {questionCount > 1 ? 's' : ''}
+                              </Badge>
+                            </div>
+                          </div>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="relative overflow-x-auto rounded-lg border border-default">
+                            <table className="w-full text-left text-sm text-body rtl:text-right">
+                              <thead className="bg-neutral-secondary-soft text-sm uppercase tracking-wide text-muted-foreground">
+                                <tr>
+                                  <th className="w-20 px-5 py-4 font-medium">#</th>
+                                  <th className="px-5 py-4 font-medium">CHAPITRE</th>
+                                  <th className="px-5 py-4 font-medium">CONTENU</th>
+                                  <th className="px-5 py-4 text-center font-medium">ACTION</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {group.chapters.map((chapter, index) => (
+                                  <tr
+                                    key={chapter.id}
+                                    className="border-b border-default bg-card transition-colors last:border-b-0 hover:bg-neutral-secondary-soft"
+                                  >
+                                    <td className="px-5 py-4 align-middle font-medium text-heading">
+                                      {index + 1}
+                                    </td>
+                                    <td className="px-5 py-4 align-middle">
+                                      <Link
+                                        href={getChapterHref(courseUnit.id, chapter.slug)}
+                                        className="font-medium text-heading hover:text-fg-brand"
+                                      >
+                                        {chapter.title}
+                                      </Link>
+                                    </td>
+                                    <td className="px-5 py-4 align-middle text-muted-foreground">
+                                      {chapter.sectionCount} section
+                                      {chapter.sectionCount > 1 ? 's' : ''} · {chapter.quizCount} quiz
+                                    </td>
+                                    <td className="px-5 py-4 text-center align-middle">
+                                      <Button asChild size="sm" className="gap-2">
+                                        <Link href={getChapterHref(courseUnit.id, chapter.slug)}>
+                                          Voir
+                                          <ArrowRight className="h-4 w-4" />
+                                        </Link>
+                                      </Button>
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    );
+                  })
+              ) : (
+                <p className="text-sm text-muted-foreground">
+                  Aucun chapitre n&apos;est encore rattaché à cet EC.
+                </p>
+              )}
+            </div>
+          </TabItem>
+        ))}
+
         <TabItem
-          key={teachingElement.id}
-          active={
-            activeTeachingElementId
-              ? activeTeachingElementId === teachingElement.id
-              : courseUnit.teachingElements[0]?.id === teachingElement.id
+          active={activeTabIndex === evaluationsTabIndex}
+          title={
+            <span className="inline-flex items-center gap-2">
+              <span className="hidden sm:inline-block h-3.5 w-px bg-border mr-0.5" aria-hidden="true" />
+              <span className="inline-flex items-center gap-1.5 font-medium">
+                <FileCheck2
+                  className={cn(
+                    "h-3.5 w-3.5",
+                    activeTabIndex === evaluationsTabIndex ? "text-fg-brand" : "text-muted-foreground"
+                  )}
+                  aria-hidden="true"
+                />
+                <span>Évaluations</span>
+                <span
+                  className={cn(
+                    "inline-flex items-center justify-center rounded-full px-1.5 py-0.5 text-[10px] font-bold leading-none",
+                    activeTabIndex === evaluationsTabIndex
+                      ? "bg-brand text-white"
+                      : "bg-neutral-200 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200"
+                  )}
+                >
+                  {HEALTH_COLLES_UE14_V1.length}
+                </span>
+              </span>
+            </span>
           }
-          title={teachingElement.code ?? teachingElement.shortTitle ?? teachingElement.title}
         >
           <div className="space-y-4">
-            {teachingElement.chapters.length > 0 ? (
-              Object.values(
-                teachingElement.chapters.reduce<
-                  Record<
-                    string,
-                    {
-                      label: string;
-                      order: number;
-                      chapters: typeof teachingElement.chapters;
-                    }
+            {/* Section 1: Colles */}
+            <section aria-labelledby="health-colles-heading" className="space-y-4">
+              {/* Global Evaluations Summary Banner */}
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                <Card className="rounded-2xl border-border bg-card p-4 shadow-xs">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Colles réalisées
+                  </p>
+                  <p className="mt-1 text-2xl font-bold text-heading">
+                    {evaluationsProgress?.completedCollesCount ?? 0} / {evaluationsProgress?.totalCollesCount ?? HEALTH_COLLES_UE14_V1.length}
+                  </p>
+                  <p className="text-xs text-muted-foreground">au moins 1 tentative terminée</p>
+                </Card>
+
+                <Card className="rounded-2xl border-border bg-card p-4 shadow-xs">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Score moyen
+                  </p>
+                  <p className="mt-1 text-2xl font-bold text-heading">
+                    {evaluationsProgress?.averageScorePercentage !== null && evaluationsProgress?.averageScorePercentage !== undefined
+                      ? `${evaluationsProgress.averageScorePercentage} %`
+                      : "—"}
+                  </p>
+                  <p className="text-xs text-muted-foreground">sur vos meilleures tentatives</p>
+                </Card>
+
+                <Card className="rounded-2xl border-border bg-card p-4 shadow-xs">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Meilleur résultat
+                  </p>
+                  <p className="mt-1 text-2xl font-bold text-emerald-700 dark:text-emerald-400">
+                    {evaluationsProgress?.bestScorePercentage !== null && evaluationsProgress?.bestScorePercentage !== undefined
+                      ? `${evaluationsProgress.bestScorePercentage} %`
+                      : "—"}
+                  </p>
+                  <p className="text-xs text-muted-foreground">toutes colles confondues</p>
+                </Card>
+              </div>
+
+              <Card className="rounded-3xl border-border bg-card hover:bg-card">
+                <CardHeader>
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <CardTitle id="health-colles-heading" className="text-lg text-heading">
+                        Colles
+                      </CardTitle>
+                      <Badge variant="outline">{HEALTH_COLLES_UE14_V1.length} colles</Badge>
+                      <Badge variant="outline">Notation UNESS</Badge>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div
+                    className="relative overflow-x-auto rounded-lg border border-default"
+                    data-testid="health-colles-table-scroll"
                   >
-                >((groups, chapter) => {
-                  const key = chapter.displayGroupKey ?? 'default';
-                  const label = chapter.displayGroupLabel ?? 'Chapitres';
-                  const order = chapter.displayGroupOrder ?? Number.MAX_SAFE_INTEGER;
+                    <table className="w-full text-left text-sm text-body rtl:text-right">
+                      <thead className="bg-neutral-secondary-soft text-sm uppercase tracking-wide text-muted-foreground">
+                        <tr>
+                          <th className="w-16 px-4 py-4 font-medium max-sm:hidden">#</th>
+                          <th className="w-full px-3 py-4 font-medium sm:w-auto sm:px-4">COLLE</th>
+                          <th className="px-4 py-4 font-medium max-sm:hidden">CONTENU</th>
+                          <th className="w-40 px-4 py-4 text-center font-medium max-sm:hidden">ACTION</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {HEALTH_COLLES_UE14_V1.map((colle, index) => {
+                          const progress =
+                            evaluationsProgress?.colles[colle.id] ||
+                            evaluationsProgress?.colles[colle.code.toLowerCase()];
+                          const hasAttempts = progress && progress.attemptCount > 0;
+                          const latest = progress?.latestAttempt;
+                          const best = progress?.bestAttempt;
+                          const attemptCountLabel = progress
+                            ? `${progress.attemptCount} tentative${progress.attemptCount > 1 ? 's' : ''}`
+                            : null;
+                          const latestResultsHref = latest
+                            ? getColleResultsHref(courseUnit.id, colle.id, latest.id)
+                            : null;
+                          const latestCorrectionHref = latest
+                            ? getColleCorrectionHref(courseUnit.id, colle.id, latest.id)
+                            : null;
+                          const renderColleActions = () =>
+                            hasAttempts && latestResultsHref && latestCorrectionHref ? (
+                              <div className="inline-flex items-center justify-center gap-1.5">
+                                <Button asChild size="sm" variant="default" className="h-8 px-3 text-xs">
+                                  <Link href={latestResultsHref}>
+                                    Bilan
+                                  </Link>
+                                </Button>
 
-                  if (!groups[key]) {
-                    groups[key] = {
-                      label,
-                      order,
-                      chapters: [],
-                    };
-                  }
+                                <DropdownMenu>
+                                  <DropdownMenuTrigger asChild>
+                                    <button
+                                      type="button"
+                                      className={cn(
+                                        actionMenuTrigger,
+                                        "h-8 w-8 border border-default bg-card text-muted-foreground hover:bg-neutral-secondary-soft hover:text-heading"
+                                      )}
+                                      aria-label={`Autres actions pour cette colle ${colle.code}`}
+                                    >
+                                      <MoreHorizontal className="h-4 w-4" aria-hidden="true" />
+                                    </button>
+                                  </DropdownMenuTrigger>
+                                  <DropdownMenuContent
+                                    align="end"
+                                    collisionPadding={12}
+                                    className={cn(actionMenuContent, "min-w-44")}
+                                  >
+                                    <DropdownMenuItem className={actionMenuItem}>
+                                      <Link href={latestCorrectionHref}>Voir la correction</Link>
+                                    </DropdownMenuItem>
+                                    <DropdownMenuSeparator className="-mx-2 my-1 bg-border" />
+                                    <DropdownMenuItem
+                                      className={actionMenuItem}
+                                      onSelect={() => {
+                                        window.setTimeout(() => setSelectedColleForStart(colle), 0);
+                                      }}
+                                    >
+                                      Recommencer la colle
+                                    </DropdownMenuItem>
+                                  </DropdownMenuContent>
+                                </DropdownMenu>
+                              </div>
+                            ) : (
+                              <Button
+                                size="sm"
+                                className="gap-2"
+                                onClick={() => setSelectedColleForStart(colle)}
+                              >
+                                Démarrer
+                                <ArrowRight className="h-4 w-4" />
+                              </Button>
+                            );
 
-                  groups[key].chapters.push(chapter);
-                  return groups;
-                }, {})
-              )
-                .sort((left, right) => left.order - right.order)
-                .map((group) => {
-                  const chapterCount = group.chapters.length;
-                  const quizCount = group.chapters.reduce(
-                    (total, chapter) => total + chapter.quizCount,
-                    0,
-                  );
-                  const questionCount = group.chapters.reduce(
-                    (total, chapter) => total + chapter.questionCount,
-                    0,
-                  );
+                          return (
+                            <tr
+                              key={colle.id}
+                              className="border-b border-default bg-card transition-colors last:border-b-0 hover:bg-neutral-secondary-soft"
+                            >
+                              <td className="px-4 py-4 align-middle font-medium text-heading max-sm:hidden">
+                                {index + 1}
+                              </td>
+                              <td className="w-full px-3 py-4 align-middle sm:w-auto sm:px-4">
+                                <div className="space-y-1.5">
+                                  <div className="flex flex-wrap items-center gap-2">
+                                    <span className="font-medium text-heading">
+                                      {colle.title}
+                                    </span>
+                                    {colle.badgeLabel ? (
+                                      <Badge variant="outline">{colle.badgeLabel}</Badge>
+                                    ) : null}
+                                    {colle.ecCode ? (
+                                      <Badge variant="secondary" className="text-xs">
+                                        {colle.ecCode}
+                                      </Badge>
+                                    ) : null}
+                                  </div>
+                                  <p className="text-xs italic text-body">
+                                    {colle.scopeLine}
+                                  </p>
+                                  <p className="text-xs text-muted-foreground">
+                                    {colle.contentLine}
+                                  </p>
+                                  <p className="text-xs text-muted-foreground sm:hidden">
+                                    {colle.questionCount} questions · {colle.durationLabel}
+                                  </p>
 
-                  return (
-                    <Card
-                      key={group.label}
-                      className="rounded-3xl border-border bg-card hover:bg-card"
-                    >
-                      <CardHeader>
-                        <div className="flex flex-wrap items-center justify-between gap-3">
-                          <CardTitle className="text-lg text-heading">{group.label}</CardTitle>
-                          <div className="flex flex-wrap items-center gap-2 sm:justify-end">
-                            <Badge variant="outline">
-                              {chapterCount} chapitre
-                              {chapterCount > 1 ? 's' : ''}
+                                  {/* Stats attempt badges if performed */}
+                                  {hasAttempts && latest ? (
+                                    <div className="flex flex-wrap items-center gap-2 pt-1">
+                                      <Badge
+                                        variant="outline"
+                                        className={cn(
+                                          "text-xs font-semibold",
+                                          latest.percentage >= 80
+                                            ? "border-emerald-400 bg-emerald-50 text-emerald-900 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-200"
+                                            : latest.percentage < 60
+                                              ? "border-rose-400 bg-rose-50 text-rose-900 dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-200"
+                                              : "border-brand/40 bg-brand-soft/20 text-heading"
+                                        )}
+                                      >
+                                        Dernière : {formatScore(latest.score)} / {latest.maxScore} ({latest.percentage} %)
+                                      </Badge>
+
+                                      {progress.attemptCount > 1 && best ? (
+                                        <Badge
+                                          variant="outline"
+                                          className="text-xs font-medium text-muted-foreground"
+                                        >
+                                          Meilleur : {formatScore(best.score)} / {best.maxScore} ({best.percentage} %)
+                                        </Badge>
+                                      ) : null}
+
+                                      {progress.attemptCount > 1 ? (
+                                        <button
+                                          type="button"
+                                          className="rounded-sm text-[11px] font-medium text-fg-brand underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 focus-visible:ring-offset-2"
+                                          aria-label={`Voir les ${attemptCountLabel} de ${colle.code}`}
+                                          onClick={() => setHistoryModalData({ colle, progress })}
+                                        >
+                                          {attemptCountLabel}
+                                        </button>
+                                      ) : (
+                                        <span className="text-[11px] text-muted-foreground">
+                                          {attemptCountLabel}
+                                        </span>
+                                      )}
+                                    </div>
+                                  ) : null}
+
+                                  <div
+                                    className="flex items-center gap-1.5 pt-2 sm:hidden"
+                                    data-testid={`health-colle-actions-${colle.code.toLowerCase()}-mobile`}
+                                  >
+                                    {renderColleActions()}
+                                  </div>
+                                </div>
+                              </td>
+                              <td className="px-4 py-4 align-middle text-muted-foreground whitespace-nowrap max-sm:hidden">
+                                {colle.questionCount} questions · {colle.durationLabel}
+                              </td>
+                              <td
+                                className="px-4 py-4 text-center align-middle max-sm:hidden"
+                                data-testid={`health-colle-actions-${colle.code.toLowerCase()}-desktop`}
+                              >
+                                {renderColleActions()}
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                </CardContent>
+              </Card>
+            </section>
+
+            {/* Section 2: Examens blancs */}
+            <section aria-labelledby="health-mock-exams-heading">
+              <Card className="rounded-3xl border-border bg-card hover:bg-card">
+                <CardHeader>
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div className="space-y-1">
+                      <CardTitle id="health-mock-exams-heading" className="text-lg text-heading">
+                        Examens blancs
+                      </CardTitle>
+                      <p className="text-sm text-muted-foreground">
+                        Simulez l&apos;épreuve complète dans les conditions du semestre.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-2 sm:justify-end">
+                      <Badge variant="outline">Conditions réelles</Badge>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  {courseUnit.mockExams.length > 0 ? (
+                    <div className="space-y-3">
+                    {courseUnit.mockExams.map((exam) => (
+                      <div key={exam.id} className="rounded-xl border border-default bg-card p-4 space-y-4">
+                        <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
+                          <div className="space-y-1">
+                            <h3 className="font-medium text-heading text-base">{exam.title}</h3>
+                            {exam.description ? (
+                              <p className="text-sm text-muted-foreground">{exam.description}</p>
+                            ) : null}
+                          </div>
+                          <div className="flex flex-wrap gap-2">
+                            <Badge variant="outline" className="gap-1.5">
+                              <Clock3 className="h-3.5 w-3.5" aria-hidden="true" />
+                              {exam.durationMinutes === 150 ? '2 h 30' : `${exam.durationMinutes} min`}
                             </Badge>
-                            <Badge variant="outline">{quizCount} quiz</Badge>
-                            <Badge variant="outline">
-                              {questionCount} question
-                              {questionCount > 1 ? 's' : ''}
+                            <Badge variant="outline" className="gap-1.5">
+                              <FileCheck2 className="h-3.5 w-3.5" aria-hidden="true" />
+                              {exam.questionCount} questions
                             </Badge>
                           </div>
                         </div>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="relative overflow-x-auto rounded-lg border border-default">
-                          <table className="w-full text-left text-sm text-body rtl:text-right">
-                            <thead className="bg-neutral-secondary-soft text-sm uppercase tracking-wide text-muted-foreground">
-                              <tr>
-                                <th className="w-20 px-5 py-4 font-medium">#</th>
-                                <th className="px-5 py-4 font-medium">CHAPITRE</th>
-                                <th className="px-5 py-4 font-medium">CONTENU</th>
-                                <th className="px-5 py-4 text-center font-medium">ACTION</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              {group.chapters.map((chapter, index) => (
-                                <tr
-                                  key={chapter.id}
-                                  className="border-b border-default bg-card transition-colors last:border-b-0 hover:bg-neutral-secondary-soft"
+
+                        <ul className="grid gap-2 text-sm text-body sm:grid-cols-3">
+                          {exam.sections.map((section) => (
+                            <li key={section.teachingElementId} className="border-l-2 border-brand/30 pl-3">
+                              <span className="font-medium text-heading">{section.title}</span>
+                              <span className="block text-muted-foreground">
+                                Questions {section.firstQuestion} à {section.lastQuestion}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        <div className="flex flex-col gap-3 border-t border-default pt-3 sm:flex-row sm:items-center sm:justify-between">
+                          <div className="text-sm text-muted-foreground">
+                            {exam.currentAttemptId ? (
+                              <span>Une tentative est en cours.</span>
+                            ) : exam.attemptCount > 0 ? (
+                              <span className="inline-flex items-center gap-1.5">
+                                <BarChart3 className="h-4 w-4" aria-hidden="true" />
+                                {exam.attemptCount} tentative{exam.attemptCount > 1 ? 's' : ''} · meilleur résultat{' '}
+                                {exam.bestPercentage}%
+                              </span>
+                            ) : (
+                              <span>Aucune tentative pour le moment.</span>
+                            )}
+                          </div>
+                          <div className="flex flex-wrap items-center gap-2">
+                            {exam.latestSubmittedAttemptId ? (
+                              <Button asChild variant="outline" size="sm">
+                                <Link
+                                  href={getMockExamResultsHref(
+                                    courseUnit.id,
+                                    exam.slug,
+                                    exam.latestSubmittedAttemptId,
+                                  )}
                                 >
-                                  <td className="px-5 py-4 align-middle font-medium text-heading">
-                                    {index + 1}
-                                  </td>
-                                  <td className="px-5 py-4 align-middle">
-                                    <Link
-                                      href={getChapterHref(courseUnit.id, chapter.slug)}
-                                      className="font-medium text-heading hover:text-fg-brand"
-                                    >
-                                      {chapter.title}
-                                    </Link>
-                                  </td>
-                                  <td className="px-5 py-4 align-middle text-muted-foreground">
-                                    {chapter.sectionCount} section
-                                    {chapter.sectionCount > 1 ? 's' : ''} · {chapter.quizCount} quiz
-                                  </td>
-                                  <td className="px-5 py-4 text-center align-middle">
-                                    <Button asChild size="sm" className="gap-2">
-                                      <Link href={getChapterHref(courseUnit.id, chapter.slug)}>
-                                        Voir
-                                        <ArrowRight className="h-4 w-4" />
-                                      </Link>
-                                    </Button>
-                                  </td>
-                                </tr>
-                              ))}
-                            </tbody>
-                          </table>
+                                  Voir les résultats
+                                </Link>
+                              </Button>
+                            ) : null}
+                            <HealthMockExamActionButton
+                              courseUnitId={courseUnit.id}
+                              examSlug={exam.slug}
+                              hasCurrentAttempt={Boolean(exam.currentAttemptId)}
+                              hasPreviousAttempt={exam.attemptCount > 0}
+                            />
+                          </div>
                         </div>
-                      </CardContent>
-                    </Card>
-                  );
-                })
-            ) : (
-              <p className="text-sm text-muted-foreground">
-                Aucun chapitre n&apos;est encore rattaché à cet EC.
-              </p>
-            )}
-          </div>
-        </TabItem>
-      ))}
-
-      <TabItem
-        active={
-          activeTeachingElementId
-            ? activeTeachingElementId === 'synthese'
-            : courseUnit.teachingElements.length === 0
-        }
-        title={
-          <span className="inline-flex items-center gap-2">
-            <span>Synthèse</span>
-            <Badge variant="outline">{courseUnit.teachingElements.length} EC</Badge>
-          </span>
-        }
-      >
-        <div className="space-y-6">
-          <Card className="rounded-3xl border-border bg-card hover:bg-card">
-            <CardHeader>
-              <CardTitle className="text-xl text-heading">Vue d&apos;ensemble de l&apos;UE</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              {courseUnit.teachingElements.length > 0 ? (
-                <ul className="space-y-3 text-sm">
-                  {courseUnit.teachingElements.map((teachingElement) => (
-                    <li key={teachingElement.id} className="text-muted-foreground">
-                      <span className="font-medium text-heading">
-                        {formatTeachingElementLabel(teachingElement)}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="text-sm text-muted-foreground">
-                  Aucun EC publié pour cette UE pour le moment.
-                </p>
-              )}
-            </CardContent>
-          </Card>
-
-          <section className="space-y-5" aria-labelledby="health-mock-exams-heading">
-            <div className="space-y-1">
-              <h2 id="health-mock-exams-heading" className="text-xl font-semibold text-heading">
-                Examens blancs
-              </h2>
-              <p className="text-sm text-muted-foreground">
-                Évaluez-vous sur l&apos;ensemble des enseignements constitutifs de l&apos;UE,
-                dans des conditions proches de l&apos;examen.
-              </p>
-            </div>
-
-            <Card className="rounded-base border-brand/25 bg-brand-soft/10 hover:bg-brand-soft/10">
-              <CardHeader className="gap-3">
-                <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
-                  <div className="space-y-1">
-                    <CardTitle className="text-lg">
-                      S&apos;entraîner à l&apos;interface d&apos;examen
-                    </CardTitle>
-                    <p className="text-sm text-muted-foreground">
-                      Mini-parcours de 3 à 5 minutes pour pratiquer les gestes du mode examen et
-                      reconnaître les formats UNESS QRU, QRM, QRP et QROC.
-                    </p>
+                      </div>
+                    ))}
                   </div>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline" className="gap-1.5">
-                      <Clock3 className="h-3.5 w-3.5" aria-hidden="true" />
-                      5 min
-                    </Badge>
-                    <Badge variant="outline" className="gap-1.5">
-                      <FileCheck2 className="h-3.5 w-3.5" aria-hidden="true" />
-                      5 étapes
-                    </Badge>
+                ) : (
+                  <div className="rounded-xl border border-dashed border-default p-6 text-center text-sm text-muted-foreground">
+                    Les examens blancs seront disponibles prochainement.
                   </div>
-                </div>
-              </CardHeader>
-              <CardContent className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <p className="text-sm text-muted-foreground">
-                  Rejouable librement, sans tentative d&apos;examen et sans impact sur les statistiques.
-                </p>
-                <Button asChild>
-                  <Link href="/sante/interface-examen">
-                    Découvrir le mode examen
-                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                  </Link>
-                </Button>
+                )}
               </CardContent>
             </Card>
-
-            {courseUnit.mockExams.length > 0 ? (
-              <div className="space-y-4">
-                {courseUnit.mockExams.map((exam) => (
-                  <Card key={exam.id} className="rounded-base bg-card hover:bg-card">
-                    <CardHeader className="gap-3">
-                      <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
-                        <div className="space-y-1">
-                          <CardTitle className="text-lg">{exam.title}</CardTitle>
-                          {exam.description ? (
-                            <p className="text-sm text-muted-foreground">{exam.description}</p>
-                          ) : null}
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                          <Badge variant="outline" className="gap-1.5">
-                            <Clock3 className="h-3.5 w-3.5" aria-hidden="true" />
-                            {exam.durationMinutes === 150 ? '2 h 30' : `${exam.durationMinutes} min`}
-                          </Badge>
-                          <Badge variant="outline" className="gap-1.5">
-                            <FileCheck2 className="h-3.5 w-3.5" aria-hidden="true" />
-                            {exam.questionCount} questions
-                          </Badge>
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="space-y-5">
-                      <ul className="grid gap-2 text-sm text-body sm:grid-cols-3">
-                        {exam.sections.map((section) => (
-                          <li key={section.teachingElementId} className="border-l-2 border-brand/30 pl-3">
-                            <span className="font-medium text-heading">{section.title}</span>
-                            <span className="block text-muted-foreground">
-                              Questions {section.firstQuestion} à {section.lastQuestion}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      <div className="flex flex-col gap-3 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between">
-                        <div className="text-sm text-muted-foreground">
-                          {exam.currentAttemptId ? (
-                            <span>Une tentative est en cours.</span>
-                          ) : exam.attemptCount > 0 ? (
-                            <span className="inline-flex items-center gap-1.5">
-                              <BarChart3 className="h-4 w-4" aria-hidden="true" />
-                              {exam.attemptCount} tentative{exam.attemptCount > 1 ? 's' : ''} · meilleur résultat{' '}
-                              {exam.bestPercentage}%
-                            </span>
-                          ) : (
-                            <span>Aucune tentative pour le moment.</span>
-                          )}
-                        </div>
-                        <div className="flex flex-wrap items-center gap-2">
-                          {exam.latestSubmittedAttemptId ? (
-                            <Button asChild variant="outline" size="sm">
-                              <Link
-                                href={getMockExamResultsHref(
-                                  courseUnit.id,
-                                  exam.slug,
-                                  exam.latestSubmittedAttemptId,
-                                )}
-                              >
-                                Voir les résultats
-                              </Link>
-                            </Button>
-                          ) : null}
-                          <HealthMockExamActionButton
-                            courseUnitId={courseUnit.id}
-                            examSlug={exam.slug}
-                            hasCurrentAttempt={Boolean(exam.currentAttemptId)}
-                            hasPreviousAttempt={exam.attemptCount > 0}
-                          />
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            ) : (
-              <div className="border border-dashed border-border p-6 text-sm text-muted-foreground">
-                Aucun examen blanc n&apos;est disponible pour le moment.
-              </div>
-            )}
           </section>
         </div>
-      </TabItem>
-    </Tabs>
+        </TabItem>
+      </Tabs>
+    </div>
+
+      <HealthColleStartDialog
+        colle={selectedColleForStart}
+        courseUnitSlug={courseUnit.id}
+        open={Boolean(selectedColleForStart)}
+        onOpenChange={(open) => {
+          if (!open) setSelectedColleForStart(null);
+        }}
+      />
+
+      <HealthColleHistoryModal
+        isOpen={Boolean(historyModalData)}
+        onClose={() => setHistoryModalData(null)}
+        colleTitle={historyModalData?.colle.title ?? ''}
+        courseUnitId={courseUnit.id}
+        progressItem={historyModalData?.progress ?? null}
+        onRestart={() => {
+          if (historyModalData) {
+            setSelectedColleForStart(historyModalData.colle);
+          }
+        }}
+      />
+    </>
   );
 }

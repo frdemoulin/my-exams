@@ -101,6 +101,8 @@ export function normalizePersistedQuestionFormat(value: unknown): QuestionFormat
       questionType: value.questionType,
       answerFormat: value.answerFormat,
       requiredSelectionCount: value.requiredSelectionCount,
+      choices: value.choices,
+      choicesCount: value.choicesCount,
       answerPayload: value.answerPayload,
     });
   }
@@ -358,3 +360,63 @@ export function normalizePersistedQuestion(input: PersistedQuestionInput): Quest
     source,
   } as Question;
 }
+
+export function normalizePersistedPassageQuestion(input: PersistedQuestionInput): Question {
+  const sanitizedInput: PersistedQuestionInput = {
+    ...input,
+    correctChoiceIndex: undefined,
+    correctChoiceIndexes: undefined,
+    explanation: undefined,
+    choiceExplanations: undefined,
+    answerPayload: isRecord(input.answerPayload)
+      ? {
+          type: (input.answerPayload as Record<string, unknown>).type,
+          format: (input.answerPayload as Record<string, unknown>).format,
+          answerType: (input.answerPayload as Record<string, unknown>).answerType,
+          image: (input.answerPayload as PersistedHotspotPayload).image,
+          imageSrc: (input.answerPayload as PersistedHotspotPayload).imageSrc,
+          imageAlt: (input.answerPayload as PersistedHotspotPayload).imageAlt,
+          imageWidth: (input.answerPayload as PersistedHotspotPayload).imageWidth,
+          imageHeight: (input.answerPayload as PersistedHotspotPayload).imageHeight,
+          defaultTolerance: (input.answerPayload as Record<string, unknown>).defaultTolerance,
+          tolerance: (input.answerPayload as Record<string, unknown>).tolerance,
+          requiredSelectionCount: (input.answerPayload as Record<string, unknown>).requiredSelectionCount,
+        }
+      : undefined,
+  };
+
+  const canonical = normalizePersistedQuestion(sanitizedInput);
+  if (canonical.type === "mcq") {
+    return {
+      ...canonical,
+      choices: canonical.choices.map((c) => ({
+        ...c,
+        correct: false,
+      })),
+      explanation: undefined,
+    };
+  }
+
+  if (canonical.type === "short-answer") {
+    return {
+      ...canonical,
+      acceptedAnswers: [],
+      numericAnswer: undefined,
+      explanation: undefined,
+    };
+  }
+
+  if (canonical.type === "hotspot") {
+    return {
+      ...canonical,
+      expectedZones: [],
+      explanation: undefined,
+    };
+  }
+
+  return {
+    ...canonical,
+    explanation: undefined,
+  };
+}
+

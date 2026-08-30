@@ -1,1023 +1,1035 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-export const UE14_BIOCH_CH12_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
+/** UE14 Biochimie — Rôles biologiques des protéines, partie 1 — Section D — Molécules d'adhérence, intégrines et connexines */
+export const UE14_BIOCH_CH12_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 67,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant les familles de molécules d’adhérence :",
+    "question": "Concernant les grandes familles de molécules d'adhérence, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Les molécules d’adhérence comprennent notamment les sélectines, les cadhérines, les Ig-CAM et les intégrines.",
+        "content": "Leurs ligands peuvent être des protéines ou des glycanes.",
         "correct": true,
-        "explanation": "Les sélectines, cadhérines, Ig-CAM et intégrines sont quatre grandes familles de molécules d’adhérence."
+        "explanation": "La nature du ligand dépend de la famille."
       },
       {
-        "content": "Les intégrines sont l’unique famille de molécules d’adhérence.",
+        "content": "Les quatre familles possèdent exactement la même structure et les mêmes ligands.",
         "correct": false,
-        "explanation": "Les sélectines, cadhérines, Ig-CAM et intégrines sont quatre grandes familles de molécules d’adhérence."
+        "explanation": "Leurs structures et mécanismes diffèrent."
       },
       {
-        "content": "Ces molécules participent aux interactions entre cellules ou entre cellules et matrice.",
+        "content": "Les molécules d'adhérence participent à la migration cellulaire.",
         "correct": true,
-        "explanation": "Les sélectines, cadhérines, Ig-CAM et intégrines sont quatre grandes familles de molécules d’adhérence."
+        "explanation": "Elles organisent des contacts dynamiques."
       },
       {
-        "content": "Les molécules d’adhérence sont exclusivement des enzymes digestives.",
-        "correct": false,
-        "explanation": "Les sélectines, cadhérines, Ig-CAM et intégrines sont quatre grandes familles de molécules d’adhérence."
+        "content": "Les sélectines, cadhérines, intégrines et protéines de la superfamille des immunoglobulines sont des familles majeures d'adhérence.",
+        "correct": true,
+        "explanation": "Elles assurent des interactions cellule-cellule ou cellule-matrice."
+      },
+      {
+        "content": "Certaines transmettent aussi des signaux intracellulaires.",
+        "correct": true,
+        "explanation": "Les intégrines en sont un exemple majeur."
       }
     ],
-    "explanation": "Les sélectines, cadhérines, Ig-CAM et intégrines sont quatre grandes familles de molécules d’adhérence."
+    "explanation": "Sélectines, cadhérines, Ig-CAM et intégrines sont des familles majeures de molécules d'adhérence."
   },
   {
     "order": 68,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle proposition décrit correctement les trois types de sélectines ?",
+    "question": "Parmi les affirmations suivantes concernant les sélectines, laquelle est correcte ?",
     "choices": [
       {
-        "content": "La sélectine L est associée aux leucocytes.",
+        "content": "Elles n'interviennent jamais dans le recrutement leucocytaire.",
+        "correct": false,
+        "explanation": "Elles jouent un rôle clé dans le roulement."
+      },
+      {
+        "content": "Il existe uniquement une sélectine appelée G-sélectine.",
+        "correct": false,
+        "explanation": "Les trois classiques sont E, L et P."
+      },
+      {
+        "content": "Les sélectines sont des pompes ATP-dépendantes.",
+        "correct": false,
+        "explanation": "Ce sont des molécules d'adhérence."
+      },
+      {
+        "content": "Elles reconnaissent uniquement le motif peptidique RGD.",
+        "correct": false,
+        "explanation": "Leur reconnaissance porte surtout sur des glycannes sialylés."
+      },
+      {
+        "content": "Les trois sélectines classiques sont E-, L- et P-sélectine.",
         "correct": true,
-        "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
-      },
-      {
-        "content": "La sélectine L est une chaîne légère d’immunoglobuline.",
-        "correct": false,
-        "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
-      },
-      {
-        "content": "La sélectine P est un récepteur nucléaire à la progestérone.",
-        "correct": false,
-        "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
-      },
-      {
-        "content": "La lettre E de E-sélectine signifie « érythrocytaire ».",
-        "correct": false,
-        "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
+        "explanation": "Leur nom reflète historiquement leur distribution préférentielle."
       }
     ],
-    "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
+    "explanation": "Les sélectines E/L/P reconnaissent des glycannes sialylés et participent au roulement leucocytaire."
   },
   {
     "order": 69,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Repères fondamentaux sur la reconnaissance par les sélectines :",
+    "question": "Quelles propositions sont exactes concernant les cadhérines ?",
     "choices": [
       {
-        "content": "Elles sont impliquées dans l’inflammation.",
-        "correct": true,
-        "explanation": "Les sélectines reconnaissent des glycanes sialylés et participent à l’inflammation."
-      },
-      {
-        "content": "Les sélectines n’interviennent pas dans l’inflammation.",
+        "content": "Les cadhérines sont exclusivement des protéines nucléaires.",
         "correct": false,
-        "explanation": "Les sélectines reconnaissent des glycanes sialylés et participent à l’inflammation."
+        "explanation": "Ce sont des protéines transmembranaires."
       },
       {
-        "content": "Les sélectines reconnaissent des glycanes de surface sialylés.",
-        "correct": true,
-        "explanation": "Les sélectines reconnaissent des glycanes sialylés et participent à l’inflammation."
-      },
-      {
-        "content": "Les sélectines reconnaissent uniquement l’ATP intracellulaire.",
+        "content": "E-cadhérine est une pompe sodium-potassium.",
         "correct": false,
-        "explanation": "Les sélectines reconnaissent des glycanes sialylés et participent à l’inflammation."
+        "explanation": "C'est une molécule d'adhérence."
+      },
+      {
+        "content": "E-cadhérine est caractéristique de nombreuses cellules épithéliales.",
+        "correct": true,
+        "explanation": "Sa perte est associée à des altérations d'adhérence dans certains cancers."
+      },
+      {
+        "content": "Les cadhérines sont indépendantes du calcium.",
+        "correct": false,
+        "explanation": "Le Ca2+ est nécessaire à leur fonction d'adhérence classique."
+      },
+      {
+        "content": "Elles assurent souvent des interactions homophiles entre molécules de même type.",
+        "correct": true,
+        "explanation": "E-cadhérine interagit typiquement avec E-cadhérine."
       }
     ],
-    "explanation": "Les sélectines reconnaissent des glycanes sialylés et participent à l’inflammation."
+    "explanation": "Les cadhérines sont des molécules d'adhérence Ca2+-dépendantes, souvent homophiles."
   },
   {
     "order": 70,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les propositions suivantes sur la structure des intégrines, lesquelles sont exactes ?",
+    "question": "Concernant les Ig-CAM, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Une intégrine est un hétérodimère de sous-unités α et β.",
+        "content": "Elles appartiennent à la superfamille des immunoglobulines.",
         "correct": true,
-        "explanation": "Les intégrines sont des hétérodimères α/β transmembranaires."
+        "explanation": "Elles possèdent des domaines de type immunoglobuline."
       },
       {
-        "content": "Une intégrine est un pentamère d’immunoglobulines.",
-        "correct": false,
-        "explanation": "Les intégrines sont des hétérodimères α/β transmembranaires."
-      },
-      {
-        "content": "Chaque sous-unité possède une seule traversée membranaire.",
+        "content": "Elles peuvent participer à l'adhérence et à la signalisation.",
         "correct": true,
-        "explanation": "Les intégrines sont des hétérodimères α/β transmembranaires."
+        "explanation": "Leurs domaines cytoplasmiques ou partenaires transmettent des effets."
       },
       {
-        "content": "Chaque sous-unité traverse sept fois la membrane.",
+        "content": "ICAM-1 est un triacylglycérol.",
         "correct": false,
-        "explanation": "Les intégrines sont des hétérodimères α/β transmembranaires."
+        "explanation": "C'est une glycoprotéine membranaire."
+      },
+      {
+        "content": "Elles sont des anticorps circulants H2L2.",
+        "correct": false,
+        "explanation": "Elles sont des molécules cellulaires de superfamille Ig."
+      },
+      {
+        "content": "ICAM-1 est un exemple important dans les interactions leucocyte-endothélium.",
+        "correct": true,
+        "explanation": "Elle se lie notamment à certaines intégrines leucocytaires."
       }
     ],
-    "explanation": "Les intégrines sont des hétérodimères α/β transmembranaires."
+    "explanation": "Les Ig-CAM portent des domaines de type immunoglobuline et peuvent assurer des interactions homo- ou hétérophiles."
   },
   {
     "order": 71,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Concernant la diversité des sous-unités d’intégrines humaines :",
-    "choices": [
-      {
-        "content": "Huit sous-unités β sont décrites.",
-        "correct": true,
-        "explanation": "Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
-      },
-      {
-        "content": "On dénombre exactement 180 intégrines distinctes.",
-        "correct": false,
-        "explanation": "Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
-      },
-      {
-        "content": "Les sous-familles d’intégrines sont classées exclusivement selon une chaîne légère κ.",
-        "correct": false,
-        "explanation": "Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
-      },
-      {
-        "content": "Une seule sous-unité α et une seule sous-unité β sont décrites.",
-        "correct": false,
-        "explanation": "Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
-      }
-    ],
-    "explanation": "Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
+    "format": "QROC",
+    "question": "Combien d'hétérodimères d'intégrines humaines sont classiquement reconnus ?",
+    "answer": {
+      "type": "number",
+      "value": 24,
+      "tolerance": 0
+    },
+    "explanation": "Les 18 sous-unités α et 8 β humaines s'associent en 24 hétérodimères d'intégrines."
   },
   {
     "order": 72,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Quelles propositions décrivent correctement le motif RGD reconnu par les intégrines ?",
+    "format": "QRP",
+    "question": "Concernant les ligands et le motif RGD des intégrines, sélectionnez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "RGD correspond à Arg-Gly-Asp.",
+        "content": "Toutes les intégrines ne reconnaissent pas RGD.",
         "correct": true,
-        "explanation": "La séquence tripeptidique RGD constitue un repère de reconnaissance matricielle."
+        "explanation": "Certaines reconnaissent collagènes, laminines ou molécules de surface cellulaire."
       },
       {
-        "content": "Le motif RGD est une séquence de trois lipides.",
-        "correct": false,
-        "explanation": "La séquence tripeptidique RGD constitue un repère de reconnaissance matricielle."
-      },
-      {
-        "content": "De nombreuses intégrines reconnaissent des protéines de la matrice extracellulaire.",
+        "content": "La fibronectine est un ligand majeur de plusieurs intégrines.",
         "correct": true,
-        "explanation": "La séquence tripeptidique RGD constitue un repère de reconnaissance matricielle."
+        "explanation": "Elle comporte notamment des sites reconnus par des intégrines."
       },
       {
-        "content": "RGD signifie Ribose-Guanine-Désoxyribose.",
+        "content": "Les intégrines ne lient jamais de protéines de matrice extracellulaire.",
         "correct": false,
-        "explanation": "La séquence tripeptidique RGD constitue un repère de reconnaissance matricielle."
+        "explanation": "De nombreuses intégrines les reconnaissent."
+      },
+      {
+        "content": "Toutes les 24 intégrines reconnaissent obligatoirement RGD.",
+        "correct": false,
+        "explanation": "Seul un sous-ensemble est RGD-dépendant."
+      },
+      {
+        "content": "La fixation du ligand est indépendante de tout cation divalent.",
+        "correct": false,
+        "explanation": "Les cations divalents sont importants pour de nombreuses intégrines."
       }
     ],
-    "explanation": "La séquence tripeptidique RGD constitue un repère de reconnaissance matricielle."
+    "explanation": "RGD signifie Arg-Gly-Asp et n'est reconnu que par un sous-ensemble d'intégrines.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 73,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Repères fondamentaux sur le rôle des cations dans l’interaction des intégrines :",
+    "question": "Concernant la signalisation des intégrines, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Des cations divalents sont indispensables à l’interaction avec le ligand.",
-        "correct": true,
-        "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands."
-      },
-      {
-        "content": "Na+ et K+ sont les seuls cations indispensables à la liaison des intégrines.",
+        "content": "Le changement conformationnel n'influence jamais l'affinité.",
         "correct": false,
-        "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands."
+        "explanation": "L'extension et l'ouverture modifient l'affinité."
       },
       {
-        "content": "Ca2+ et Mg2+ peuvent soutenir la liaison des intégrines à leurs ligands.",
+        "content": "Le regroupement latéral peut augmenter l'avidité globale pour un ligand multivalent.",
         "correct": true,
-        "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands."
+        "explanation": "Le clustering complète les changements d'affinité."
       },
       {
-        "content": "Les intégrines interagissent avec leur ligand sans aucune contribution de α.",
-        "correct": false,
-        "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands."
+        "content": "Les intégrines peuvent transmettre des signaux de l'extérieur vers l'intérieur.",
+        "correct": true,
+        "explanation": "C'est la signalisation outside-in."
+      },
+      {
+        "content": "Des signaux intracellulaires peuvent augmenter l'affinité des intégrines.",
+        "correct": true,
+        "explanation": "C'est la signalisation inside-out."
+      },
+      {
+        "content": "Les intégrines ne possèdent pas de kinase intrinsèque classique.",
+        "correct": true,
+        "explanation": "Elles recrutent des protéines adaptatrices et kinases."
       }
     ],
-    "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands."
+    "explanation": "Les intégrines assurent une signalisation bidirectionnelle : inside-out et outside-in."
   },
   {
     "order": 74,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Parmi les propositions suivantes sur l’activation conformationnelle des intégrines, laquelle est exacte ?",
-    "choices": [
-      {
-        "content": "Un changement conformationnel augmente l’affinité pour le ligand.",
-        "correct": true,
-        "explanation": "Clustering et changement conformationnel accompagnent l’activation des intégrines."
-      },
-      {
-        "content": "L’activation des intégrines ne s’accompagne d’aucun changement conformationnel.",
-        "correct": false,
-        "explanation": "Clustering et changement conformationnel accompagnent l’activation des intégrines."
-      },
-      {
-        "content": "Les intégrines ne transmettent jamais de signal.",
-        "correct": false,
-        "explanation": "Clustering et changement conformationnel accompagnent l’activation des intégrines."
-      },
-      {
-        "content": "L’activation diminue toujours l’affinité pour le ligand.",
-        "correct": false,
-        "explanation": "Clustering et changement conformationnel accompagnent l’activation des intégrines."
+    "format": "QROC",
+    "question": "Quel type de filament cytosquelettique est relié aux intégrines dans les adhésions focales ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "actine",
+        "filaments d'actine",
+        "microfilaments d'actine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Clustering et changement conformationnel accompagnent l’activation des intégrines."
+    },
+    "explanation": "Les adhésions focales connectent intégrines, protéines de signalisation et filaments d'actine."
   },
   {
     "order": 75,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant les plaques d’adhésion focale :",
-    "choices": [
-      {
-        "content": "Elle relie les domaines cytoplasmiques des intégrines aux filaments d’actine.",
-        "correct": true,
-        "explanation": "Les plaques d’adhésion focales assurent un couplage mécanique et de signalisation vers l’actine."
-      },
-      {
-        "content": "Elle est localisée exclusivement dans la lumière du réticulum endoplasmique.",
-        "correct": false,
-        "explanation": "Les plaques d’adhésion focales assurent un couplage mécanique et de signalisation vers l’actine."
-      },
-      {
-        "content": "Une plaque d’adhésion focale recrute de nombreuses protéines intracellulaires.",
-        "correct": true,
-        "explanation": "Les plaques d’adhésion focales assurent un couplage mécanique et de signalisation vers l’actine."
-      },
-      {
-        "content": "Une plaque d’adhésion focale est constituée uniquement d’ADN.",
-        "correct": false,
-        "explanation": "Les plaques d’adhésion focales assurent un couplage mécanique et de signalisation vers l’actine."
-      }
-    ],
-    "explanation": "Les plaques d’adhésion focales assurent un couplage mécanique et de signalisation vers l’actine."
+    "format": "QROC",
+    "question": "Combien de connexines s'assemblent pour former un connexon ?",
+    "answer": {
+      "type": "number",
+      "value": 6,
+      "tolerance": 0
+    },
+    "explanation": "Six connexines forment un connexon ; deux connexons appariés forment un canal de jonction communicante."
   },
   {
     "order": 76,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles propositions décrivent correctement l’absence d’activité kinasique intrinsèque des intégrines ?",
+    "question": "Concernant les jonctions communicantes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Les intégrines n’ont pas d’activité kinasique intrinsèque.",
-        "correct": true,
-        "explanation": "Les intégrines signalent par recrutement de partenaires plutôt que par kinase intrinsèque."
-      },
-      {
-        "content": "Le domaine cytoplasmique de l’intégrine possède une tyrosine kinase intrinsèque identique à celle du récepteur à l’insuline.",
+        "content": "Elles sont toujours ouvertes de manière irréversible.",
         "correct": false,
-        "explanation": "Les intégrines signalent par recrutement de partenaires plutôt que par kinase intrinsèque."
+        "explanation": "Leur ouverture est régulée."
       },
       {
-        "content": "Elles recrutent des protéines intracellulaires pour la transduction.",
+        "content": "Des mutations de certaines connexines peuvent provoquer des surdités héréditaires.",
         "correct": true,
-        "explanation": "Les intégrines signalent par recrutement de partenaires plutôt que par kinase intrinsèque."
+        "explanation": "GJB2/connexine 26 en est un exemple fréquent."
       },
       {
-        "content": "Les intégrines n’interagissent avec aucune protéine intracellulaire.",
+        "content": "Elles fusionnent complètement les membranes de deux cellules.",
         "correct": false,
-        "explanation": "Les intégrines signalent par recrutement de partenaires plutôt que par kinase intrinsèque."
+        "explanation": "Les membranes restent distinctes."
+      },
+      {
+        "content": "Elles permettent librement le passage de protéines de très grande taille.",
+        "correct": false,
+        "explanation": "Le pore est limité aux petites molécules/ions."
+      },
+      {
+        "content": "Elles permettent le passage direct de petits solutés et d'ions entre cellules voisines.",
+        "correct": true,
+        "explanation": "Les canaux relient directement les cytoplasmes."
       }
     ],
-    "explanation": "Les intégrines signalent par recrutement de partenaires plutôt que par kinase intrinsèque."
+    "explanation": "Les jonctions communicantes relient directement deux cytoplasmes grâce à l'apposition de deux connexons."
   },
   {
     "order": 77,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Au cours d’une réaction inflammatoire, des interactions entre leucocytes et endothélium sont nécessaires. Quelles propositions sur la reconnaissance par les sélectines sont exactes ?",
+    "question": "Concernant les grandes familles de molécules d'adhérence, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Les sélectines peuvent reconnaître des motifs sialyl-Lewis.",
+        "content": "Les sélectines, cadhérines, intégrines et protéines de la superfamille des immunoglobulines sont des familles majeures d'adhérence.",
         "correct": true,
-        "explanation": "Les sélectines reconnaissent des glycanes sialylés et participent à l’inflammation."
+        "explanation": "Elles assurent des interactions cellule-cellule ou cellule-matrice."
       },
       {
-        "content": "Les motifs sialyl-Lewis sont des domaines nucléaires.",
+        "content": "Elles servent uniquement à immobiliser définitivement les cellules.",
         "correct": false,
-        "explanation": "Les sélectines reconnaissent des glycanes sialylés et participent à l’inflammation."
+        "explanation": "Elles participent aussi à des adhérences transitoires et à la migration."
       },
       {
-        "content": "Elles sont impliquées dans l’inflammation.",
+        "content": "Leurs ligands peuvent être des protéines ou des glycanes.",
         "correct": true,
-        "explanation": "Les sélectines reconnaissent des glycanes sialylés et participent à l’inflammation."
+        "explanation": "La nature du ligand dépend de la famille."
       },
       {
-        "content": "Les sélectines n’interviennent pas dans l’inflammation.",
+        "content": "Les quatre familles possèdent exactement la même structure et les mêmes ligands.",
         "correct": false,
-        "explanation": "Les sélectines reconnaissent des glycanes sialylés et participent à l’inflammation."
+        "explanation": "Leurs structures et mécanismes diffèrent."
+      },
+      {
+        "content": "Les molécules d'adhérence participent à la migration cellulaire.",
+        "correct": true,
+        "explanation": "Elles organisent des contacts dynamiques."
       }
     ],
-    "explanation": "Les sélectines reconnaissent des glycanes sialylés et participent à l’inflammation."
+    "explanation": "Sélectines, cadhérines, Ig-CAM et intégrines sont des familles majeures de molécules d'adhérence."
   },
   {
     "order": 78,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Dans une situation d’application, quelle affirmation sur la structure des intégrines faut-il retenir ?",
-    "choices": [
-      {
-        "content": "Le domaine intracytoplasmique est très court.",
-        "correct": true,
-        "explanation": "Les intégrines sont des hétérodimères α/β transmembranaires."
-      },
-      {
-        "content": "Les intégrines sont des protéines entièrement solubles.",
-        "correct": false,
-        "explanation": "Les intégrines sont des hétérodimères α/β transmembranaires."
-      },
-      {
-        "content": "Une intégrine est un pentamère d’immunoglobulines.",
-        "correct": false,
-        "explanation": "Les intégrines sont des hétérodimères α/β transmembranaires."
-      },
-      {
-        "content": "Chaque sous-unité traverse sept fois la membrane.",
-        "correct": false,
-        "explanation": "Les intégrines sont des hétérodimères α/β transmembranaires."
+    "format": "QROC",
+    "question": "Quel motif glucidique sialylé est un ligand classique de sélectines ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "sialyl-Lewis x",
+        "sialyl Lewis x",
+        "sLeX",
+        "sialyl-Lewis X"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les intégrines sont des hétérodimères α/β transmembranaires."
+    },
+    "explanation": "Les sélectines E/L/P reconnaissent des glycannes sialylés et participent au roulement leucocytaire."
   },
   {
     "order": 79,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Quelles affirmations sur la diversité des sous-unités d’intégrines humaines sont exactes ?",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant les cadhérines ?",
     "choices": [
       {
-        "content": "Dix-huit sous-unités α sont décrites.",
-        "correct": true,
-        "explanation": "Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
-      },
-      {
-        "content": "Une seule sous-unité α et une seule sous-unité β sont décrites.",
+        "content": "Les cadhérines sont exclusivement des protéines nucléaires.",
         "correct": false,
-        "explanation": "Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
+        "explanation": "Ce sont des protéines transmembranaires."
       },
       {
-        "content": "Huit sous-unités β sont décrites.",
-        "correct": true,
-        "explanation": "Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
-      },
-      {
-        "content": "On dénombre exactement 180 intégrines distinctes.",
+        "content": "Les cadhérines sont indépendantes du calcium.",
         "correct": false,
-        "explanation": "Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
+        "explanation": "Le Ca2+ est nécessaire à leur fonction d'adhérence classique."
+      },
+      {
+        "content": "E-cadhérine est une pompe sodium-potassium.",
+        "correct": false,
+        "explanation": "C'est une molécule d'adhérence."
+      },
+      {
+        "content": "Elles reconnaissent principalement sialyl-Lewis x comme les sélectines.",
+        "correct": false,
+        "explanation": "Le mécanisme de reconnaissance est différent."
+      },
+      {
+        "content": "Elles assurent souvent des interactions homophiles entre molécules de même type.",
+        "correct": true,
+        "explanation": "E-cadhérine interagit typiquement avec E-cadhérine."
       }
     ],
-    "explanation": "Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
+    "explanation": "Les cadhérines sont des molécules d'adhérence Ca2+-dépendantes, souvent homophiles."
   },
   {
     "order": 80,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Application : quelles propositions relatives au motif RGD reconnu par les intégrines sont correctes ?",
+    "format": "QRM",
+    "question": "Concernant les Ig-CAM, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Certaines intégrines reconnaissent la séquence RGD.",
+        "content": "Selon la molécule, les interactions peuvent être homophiles ou hétérophiles.",
         "correct": true,
-        "explanation": "La séquence tripeptidique RGD constitue un repère de reconnaissance matricielle."
+        "explanation": "Il ne faut pas réduire toute la famille à un seul mode d'adhérence."
       },
       {
-        "content": "Les intégrines reconnaissent exclusivement les photons.",
-        "correct": false,
-        "explanation": "La séquence tripeptidique RGD constitue un repère de reconnaissance matricielle."
+        "content": "Elles peuvent participer à l'adhérence et à la signalisation.",
+        "correct": true,
+        "explanation": "Leurs domaines cytoplasmiques ou partenaires transmettent des effets."
       },
       {
-        "content": "Le motif RGD est une séquence de trois lipides.",
-        "correct": false,
-        "explanation": "La séquence tripeptidique RGD constitue un repère de reconnaissance matricielle."
+        "content": "Elles appartiennent à la superfamille des immunoglobulines.",
+        "correct": true,
+        "explanation": "Elles possèdent des domaines de type immunoglobuline."
       },
       {
-        "content": "RGD signifie Ribose-Guanine-Désoxyribose.",
+        "content": "Toutes les Ig-CAM ont exclusivement des interactions hétérophiles.",
         "correct": false,
-        "explanation": "La séquence tripeptidique RGD constitue un repère de reconnaissance matricielle."
+        "explanation": "Certaines interactions sont homophiles."
+      },
+      {
+        "content": "ICAM-1 est un exemple important dans les interactions leucocyte-endothélium.",
+        "correct": true,
+        "explanation": "Elle se lie notamment à certaines intégrines leucocytaires."
       }
     ],
-    "explanation": "La séquence tripeptidique RGD constitue un repère de reconnaissance matricielle."
+    "explanation": "Les Ig-CAM portent des domaines de type immunoglobuline et peuvent assurer des interactions homo- ou hétérophiles."
   },
   {
     "order": 81,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Dans une situation d’application, quelles affirmations sur le rôle des cations dans l’interaction des intégrines faut-il retenir ?",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant la structure des intégrines, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "La fixation multivalente implique les sous-unités α et β.",
-        "correct": true,
-        "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands."
-      },
-      {
-        "content": "Les ions divalents détruisent systématiquement le ligand.",
+        "content": "Les intégrines sont dépourvues de domaine extracellulaire.",
         "correct": false,
-        "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands."
+        "explanation": "Leur grand domaine extracellulaire lie les ligands."
       },
       {
-        "content": "Des cations divalents sont indispensables à l’interaction avec le ligand.",
-        "correct": true,
-        "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands."
-      },
-      {
-        "content": "Na+ et K+ sont les seuls cations indispensables à la liaison des intégrines.",
+        "content": "Les 18 alpha et 8 bêta forment exactement 23 hétérodimères.",
         "correct": false,
-        "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands."
+        "explanation": "La nomenclature actuelle retient 24 hétérodimères."
+      },
+      {
+        "content": "Le génome humain code 18 sous-unités alpha et 8 bêta.",
+        "correct": true,
+        "explanation": "Elles s'assemblent en combinaisons définies."
+      },
+      {
+        "content": "Ces sous-unités forment 24 hétérodimères d'intégrines humaines connus.",
+        "correct": true,
+        "explanation": "Toutes les combinaisons théoriques ne sont pas réalisées."
+      },
+      {
+        "content": "Une intégrine est un homotrimère de trois sous-unités alpha.",
+        "correct": false,
+        "explanation": "C'est un hétérodimère αβ."
       }
     ],
-    "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands."
+    "explanation": "Les 18 sous-unités α et 8 β humaines s'associent en 24 hétérodimères d'intégrines.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 82,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Quelle lettre désigne la sélectine classiquement portée par les leucocytes ?",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "L",
-        "l",
-        "sélectine L",
-        "selectine L"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant les ligands et le motif RGD des intégrines ?",
+    "choices": [
+      {
+        "content": "Toutes les 24 intégrines reconnaissent obligatoirement RGD.",
+        "correct": false,
+        "explanation": "Seul un sous-ensemble est RGD-dépendant."
+      },
+      {
+        "content": "RGD signifie Arg-Glu-Asp.",
+        "correct": false,
+        "explanation": "Le résidu central est Gly."
+      },
+      {
+        "content": "La fixation du ligand est indépendante de tout cation divalent.",
+        "correct": false,
+        "explanation": "Les cations divalents sont importants pour de nombreuses intégrines."
+      },
+      {
+        "content": "La fibronectine est un ligand majeur de plusieurs intégrines.",
+        "correct": true,
+        "explanation": "Elle comporte notamment des sites reconnus par des intégrines."
+      },
+      {
+        "content": "Toutes les intégrines ne reconnaissent pas RGD.",
+        "correct": true,
+        "explanation": "Certaines reconnaissent collagènes, laminines ou molécules de surface cellulaire."
       }
-    },
-    "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
+    ],
+    "explanation": "RGD signifie Arg-Gly-Asp et n'est reconnu que par un sous-ensemble d'intégrines."
   },
   {
     "order": 83,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Une cellule adhère à sa matrice et forme une structure reliant les intégrines aux filaments d’actine. Quelles propositions sur les plaques d’adhésion focale sont exactes ?",
-    "choices": [
-      {
-        "content": "Elle comporte des protéines de signalisation comme des kinases.",
-        "correct": true,
-        "explanation": "Les plaques d’adhésion focales assurent un couplage mécanique et de signalisation vers l’actine."
-      },
-      {
-        "content": "Elle sépare les intégrines du cytosquelette.",
-        "correct": false,
-        "explanation": "Les plaques d’adhésion focales assurent un couplage mécanique et de signalisation vers l’actine."
-      },
-      {
-        "content": "Elle relie les domaines cytoplasmiques des intégrines aux filaments d’actine.",
-        "correct": true,
-        "explanation": "Les plaques d’adhésion focales assurent un couplage mécanique et de signalisation vers l’actine."
-      },
-      {
-        "content": "Elle est localisée exclusivement dans la lumière du réticulum endoplasmique.",
-        "correct": false,
-        "explanation": "Les plaques d’adhésion focales assurent un couplage mécanique et de signalisation vers l’actine."
+    "format": "QROC",
+    "question": "Quel tripeptide reconnu par certaines intégrines est abrégé RGD ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "Arg-Gly-Asp",
+        "arginine-glycine-aspartate",
+        "arginine glycine aspartate",
+        "RGD"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les plaques d’adhésion focales assurent un couplage mécanique et de signalisation vers l’actine."
+    },
+    "explanation": "RGD signifie Arg-Gly-Asp et n'est reconnu que par un sous-ensemble d'intégrines."
   },
   {
     "order": 84,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Dans une situation d’application, quelle affirmation sur l’absence d’activité kinasique intrinsèque des intégrines faut-il retenir ?",
+    "question": "Parmi les affirmations suivantes concernant les adhésions focales, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Des kinases peuvent être présentes dans les plaques d’adhésion focale.",
+        "content": "Elles sont dépourvues de protéines de signalisation.",
+        "correct": false,
+        "explanation": "Elles en recrutent de nombreuses."
+      },
+      {
+        "content": "Elles empêchent tout mouvement cellulaire.",
+        "correct": false,
+        "explanation": "Leur dynamique est essentielle à la migration."
+      },
+      {
+        "content": "Elles relient directement l'ADN au glycogène.",
+        "correct": false,
+        "explanation": "Elles relient membrane, matrice et cytosquelette."
+      },
+      {
+        "content": "Elles sont dynamiques pendant la migration cellulaire.",
         "correct": true,
-        "explanation": "Les intégrines signalent par recrutement de partenaires plutôt que par kinase intrinsèque."
+        "explanation": "Elles se forment et se désassemblent."
       },
       {
-        "content": "L’absence d’activité kinasique interdit toute signalisation.",
+        "content": "Elles sont totalement indépendantes des intégrines.",
         "correct": false,
-        "explanation": "Les intégrines signalent par recrutement de partenaires plutôt que par kinase intrinsèque."
-      },
-      {
-        "content": "Le domaine cytoplasmique de l’intégrine possède une tyrosine kinase intrinsèque identique à celle du récepteur à l’insuline.",
-        "correct": false,
-        "explanation": "Les intégrines signalent par recrutement de partenaires plutôt que par kinase intrinsèque."
-      },
-      {
-        "content": "Les intégrines n’interagissent avec aucune protéine intracellulaire.",
-        "correct": false,
-        "explanation": "Les intégrines signalent par recrutement de partenaires plutôt que par kinase intrinsèque."
+        "explanation": "Les intégrines sont centrales."
       }
     ],
-    "explanation": "Les intégrines signalent par recrutement de partenaires plutôt que par kinase intrinsèque."
+    "explanation": "Les adhésions focales connectent intégrines, protéines de signalisation et filaments d'actine."
   },
   {
     "order": 85,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Réponse numérique : combien de sous-unités β d’intégrines humaines sont décrites ?",
-    "answer": {
-      "type": "number",
-      "value": 8,
-      "tolerance": 0
-    },
-    "explanation": "Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant les connexines et les connexons ?",
+    "choices": [
+      {
+        "content": "Les connexons peuvent être homo- ou hétéromériques selon les connexines exprimées.",
+        "correct": true,
+        "explanation": "La composition influence les propriétés du canal."
+      },
+      {
+        "content": "Six connexines s'assemblent pour former un connexon.",
+        "correct": true,
+        "explanation": "Le connexon est aussi appelé hémicanal."
+      },
+      {
+        "content": "Deux connexons de cellules adjacentes s'alignent pour former un canal de jonction communicante.",
+        "correct": true,
+        "explanation": "Le canal relie directement les cytoplasmes."
+      },
+      {
+        "content": "Un connexon contient deux connexines.",
+        "correct": false,
+        "explanation": "Il en contient six."
+      },
+      {
+        "content": "Les jonctions communicantes sont constituées de triacylglycérols.",
+        "correct": false,
+        "explanation": "Elles reposent sur des protéines connexines."
+      }
+    ],
+    "explanation": "Six connexines forment un connexon ; deux connexons appariés forment un canal de jonction communicante."
   },
   {
     "order": 86,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Application : quelles propositions relatives aux trois types de sélectines sont correctes ?",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "La sélectine L est associée aux leucocytes.",
+        "content": "Les cadhérines participent aux jonctions d'adhérence.",
         "correct": true,
-        "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
+        "explanation": "Elles se couplent au cytosquelette via des protéines adaptatrices."
       },
       {
-        "content": "La sélectine L est une chaîne légère d’immunoglobuline.",
+        "content": "Elles fusionnent complètement les membranes de deux cellules.",
         "correct": false,
-        "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
+        "explanation": "Les membranes restent distinctes."
       },
       {
-        "content": "La sélectine P est un récepteur nucléaire à la progestérone.",
-        "correct": false,
-        "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
+        "content": "Leur adhérence dépend du calcium extracellulaire.",
+        "correct": true,
+        "explanation": "Ca2+ rigidifie leurs domaines extracellulaires."
       },
       {
-        "content": "La lettre E de E-sélectine signifie « érythrocytaire ».",
+        "content": "Elles reconnaissent principalement sialyl-Lewis x comme les sélectines.",
         "correct": false,
-        "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
+        "explanation": "Le mécanisme de reconnaissance est différent."
+      },
+      {
+        "content": "Les cadhérines sont indépendantes du calcium.",
+        "correct": false,
+        "explanation": "Le Ca2+ est nécessaire à leur fonction d'adhérence classique."
+      },
+      {
+        "content": "Des mutations de certaines connexines peuvent provoquer des surdités héréditaires.",
+        "correct": true,
+        "explanation": "GJB2/connexine 26 en est un exemple fréquent."
+      },
+      {
+        "content": "E-cadhérine est caractéristique de nombreuses cellules épithéliales.",
+        "correct": true,
+        "explanation": "Sa perte est associée à des altérations d'adhérence dans certains cancers."
+      },
+      {
+        "content": "Elles permettent librement le passage de protéines de très grande taille.",
+        "correct": false,
+        "explanation": "Le pore est limité aux petites molécules/ions."
+      },
+      {
+        "content": "Elles favorisent le couplage électrique de certains tissus.",
+        "correct": true,
+        "explanation": "Le cœur fournit un exemple fonctionnel majeur."
+      },
+      {
+        "content": "Elles fonctionnent sans protéines membranaires.",
+        "correct": false,
+        "explanation": "Les connexines les constituent."
       }
     ],
-    "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
+    "explanation": "Les jonctions communicantes relient directement deux cytoplasmes grâce à l'apposition de deux connexons. Les cadhérines sont des molécules d'adhérence Ca2+-dépendantes, souvent homophiles."
   },
   {
     "order": 87,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Autour des familles de molécules d’adhérence : sélectionnez exactement les trois affirmations correctes parmi les propositions suivantes.",
-    "requiredSelectionCount": 3,
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes concernant les grandes familles de molécules d'adhérence, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "Les molécules d’adhérence comprennent notamment les sélectines, les cadhérines, les Ig-CAM et les intégrines.",
+        "content": "Les molécules d'adhérence participent à la migration cellulaire.",
         "correct": true,
-        "explanation": "Les sélectines, cadhérines, Ig-CAM et intégrines sont quatre grandes familles de molécules d’adhérence."
+        "explanation": "Elles organisent des contacts dynamiques."
       },
       {
-        "content": "La sélectine L est associée aux leucocytes.",
+        "content": "Les sélectines, cadhérines, intégrines et protéines de la superfamille des immunoglobulines sont des familles majeures d'adhérence.",
         "correct": true,
-        "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
+        "explanation": "Elles assurent des interactions cellule-cellule ou cellule-matrice."
       },
       {
-        "content": "Elles sont impliquées dans l’inflammation.",
-        "correct": true,
-        "explanation": "Les sélectines reconnaissent des glycanes sialylés et participent à l’inflammation."
-      },
-      {
-        "content": "Une intégrine est un pentamère d’immunoglobulines.",
+        "content": "Aucune molécule d'adhérence ne participe à la signalisation.",
         "correct": false,
-        "explanation": "Les intégrines sont des hétérodimères α/β transmembranaires."
+        "explanation": "Plusieurs transmettent des signaux."
+      },
+      {
+        "content": "Certaines transmettent aussi des signaux intracellulaires.",
+        "correct": true,
+        "explanation": "Les intégrines en sont un exemple majeur."
+      },
+      {
+        "content": "Leurs ligands peuvent être des protéines ou des glycanes.",
+        "correct": true,
+        "explanation": "La nature du ligand dépend de la famille."
       }
     ],
-    "explanation": "Cette question croise plusieurs repères de la section ; chaque proposition doit être évaluée séparément."
+    "explanation": "Sélectines, cadhérines, Ig-CAM et intégrines sont des familles majeures de molécules d'adhérence."
   },
   {
     "order": 88,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "question": "Consolidation des familles de molécules d’adhérence : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
-    "choices": [
-      {
-        "content": "La sélectine E est associée à l’endothélium.",
-        "correct": true,
-        "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
-      },
-      {
-        "content": "Les sélectines peuvent reconnaître des motifs sialyl-Lewis.",
-        "correct": true,
-        "explanation": "Les sélectines reconnaissent des glycanes sialylés et participent à l’inflammation."
-      },
-      {
-        "content": "Le domaine intracytoplasmique est très court.",
-        "correct": true,
-        "explanation": "Les intégrines sont des hétérodimères α/β transmembranaires."
-      },
-      {
-        "content": "Dix-huit sous-unités α sont décrites.",
-        "correct": true,
-        "explanation": "Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
-      },
-      {
-        "content": "Certaines intégrines reconnaissent la séquence RGD.",
-        "correct": true,
-        "explanation": "La séquence tripeptidique RGD constitue un repère de reconnaissance matricielle."
-      },
-      {
-        "content": "Les ions divalents détruisent systématiquement le ligand.",
-        "correct": false,
-        "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands."
-      },
-      {
-        "content": "L’activation diminue toujours l’affinité pour le ligand.",
-        "correct": false,
-        "explanation": "Clustering et changement conformationnel accompagnent l’activation des intégrines."
-      },
-      {
-        "content": "Elle sépare les intégrines du cytosquelette.",
-        "correct": false,
-        "explanation": "Les plaques d’adhésion focales assurent un couplage mécanique et de signalisation vers l’actine."
-      },
-      {
-        "content": "Chaque sous-unité d’intégrine traverse sept fois la membrane.",
-        "correct": false,
-        "explanation": "Chaque sous-unité α ou β d’une intégrine est une protéine à passage transmembranaire unique."
-      },
-      {
-        "content": "Le motif RGD est un glycane reconnu par les sélectines.",
-        "correct": false,
-        "explanation": "RGD est un motif peptidique Arg-Gly-Asp reconnu par certaines intégrines."
+    "format": "QROC",
+    "question": "Dans une autre application, quel motif glucidique sialylé est un ligand classique de sélectines ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "sialyl-Lewis x",
+        "sialyl Lewis x",
+        "sLeX",
+        "sialyl-Lewis X"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La sélection longue vérifie la maîtrise simultanée de plusieurs notions du chapitre."
+    },
+    "explanation": "Les sélectines E/L/P reconnaissent des glycannes sialylés et participent au roulement leucocytaire."
   },
   {
     "order": 89,
     "difficulty": "HARD",
-    "format": "QZONE",
-    "question": "Sur ce schéma simplifié d’une intégrine, cliquez sur le motif RGD de la protéine matricielle reconnue par le récepteur.",
-    "image": {
-      "src": "/images/training/ue14/biochimie/roles-biologiques-proteines-partie-1/integrine-rgd-qzone.svg",
-      "alt": "Schéma simplifié d’une intégrine alpha-bêta reliée à une protéine matricielle portant le motif RGD",
-      "width": 900,
-      "height": 560
-    },
-    "expectedZones": [
+    "format": "QRM",
+    "question": "Concernant les grandes familles de molécules d'adhérence, quelles propositions sont exactes ?",
+    "choices": [
       {
-        "id": "rgd",
-        "label": "motif RGD",
-        "x": 0.5,
-        "y": 0.19,
-        "tolerance": 0.085
+        "content": "Aucune molécule d'adhérence ne participe à la signalisation.",
+        "correct": false,
+        "explanation": "Plusieurs transmettent des signaux."
+      },
+      {
+        "content": "Les quatre familles possèdent exactement la même structure et les mêmes ligands.",
+        "correct": false,
+        "explanation": "Leurs structures et mécanismes diffèrent."
+      },
+      {
+        "content": "Les sélectines, cadhérines, intégrines et protéines de la superfamille des immunoglobulines sont des familles majeures d'adhérence.",
+        "correct": true,
+        "explanation": "Elles assurent des interactions cellule-cellule ou cellule-matrice."
+      },
+      {
+        "content": "Leurs ligands peuvent être des protéines ou des glycanes.",
+        "correct": true,
+        "explanation": "La nature du ligand dépend de la famille."
+      },
+      {
+        "content": "Toutes les molécules d'adhérence sont des enzymes solubles.",
+        "correct": false,
+        "explanation": "Beaucoup sont des protéines membranaires."
       }
     ],
-    "explanation": "Certaines intégrines reconnaissent le motif tripeptidique RGD (Arg-Gly-Asp) porté par des protéines matricielles."
+    "explanation": "Sélectines, cadhérines, Ig-CAM et intégrines sont des familles majeures de molécules d'adhérence."
   },
   {
     "order": 90,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise transversale — les trois types de sélectines et la diversité des sous-unités d’intégrines : quelles affirmations sont exactes ?",
-    "choices": [
-      {
-        "content": "La sélectine L est associée aux leucocytes.",
-        "correct": true,
-        "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
-      },
-      {
-        "content": "On dénombre exactement 180 intégrines distinctes.",
-        "correct": false,
-        "explanation": "Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
-      },
-      {
-        "content": "Au moins 23 hétérodimères d’intégrines distincts peuvent être formés.",
-        "correct": true,
-        "explanation": "Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
-      },
-      {
-        "content": "La sélectine P est un récepteur nucléaire à la progestérone.",
-        "correct": false,
-        "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
+    "format": "QROC",
+    "question": "Quel motif glucidique sialylé est un ligand classique de sélectines ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "sialyl-Lewis x",
+        "sialyl Lewis x",
+        "sLeX",
+        "sialyl-Lewis X"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette. Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
+    },
+    "explanation": "Les sélectines E/L/P reconnaissent des glycannes sialylés et participent au roulement leucocytaire."
   },
   {
     "order": 91,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise transversale — la reconnaissance par les sélectines et le motif RGD reconnu par les intégrines : quelles affirmations sont exactes ?",
+    "format": "QRP",
+    "question": "Concernant les cadhérines, sélectionnez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "Elles sont impliquées dans l’inflammation.",
+        "content": "Leur adhérence dépend du calcium extracellulaire.",
         "correct": true,
-        "explanation": "Les sélectines reconnaissent des glycanes sialylés et participent à l’inflammation."
+        "explanation": "Ca2+ rigidifie leurs domaines extracellulaires."
       },
       {
-        "content": "Le motif RGD est une séquence de trois lipides.",
+        "content": "Les cadhérines sont exclusivement des protéines nucléaires.",
         "correct": false,
-        "explanation": "La séquence tripeptidique RGD constitue un repère de reconnaissance matricielle."
+        "explanation": "Ce sont des protéines transmembranaires."
       },
       {
-        "content": "De nombreuses intégrines reconnaissent des protéines de la matrice extracellulaire.",
+        "content": "Les cadhérines sont indépendantes du calcium.",
+        "correct": false,
+        "explanation": "Le Ca2+ est nécessaire à leur fonction d'adhérence classique."
+      },
+      {
+        "content": "Elles reconnaissent principalement sialyl-Lewis x comme les sélectines.",
+        "correct": false,
+        "explanation": "Le mécanisme de reconnaissance est différent."
+      },
+      {
+        "content": "Elles assurent souvent des interactions homophiles entre molécules de même type.",
         "correct": true,
-        "explanation": "La séquence tripeptidique RGD constitue un repère de reconnaissance matricielle."
-      },
-      {
-        "content": "Les sélectines reconnaissent uniquement l’ATP intracellulaire.",
-        "correct": false,
-        "explanation": "Les sélectines reconnaissent des glycanes sialylés et participent à l’inflammation."
+        "explanation": "E-cadhérine interagit typiquement avec E-cadhérine."
       }
     ],
-    "explanation": "Les sélectines reconnaissent des glycanes sialylés et participent à l’inflammation. La séquence tripeptidique RGD constitue un repère de reconnaissance matricielle."
+    "explanation": "Les cadhérines sont des molécules d'adhérence Ca2+-dépendantes, souvent homophiles.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 92,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise transversale — la structure des intégrines et le rôle des cations dans l’interaction des intégrines : quelles affirmations sont exactes ?",
-    "choices": [
-      {
-        "content": "Une intégrine est un hétérodimère de sous-unités α et β.",
-        "correct": true,
-        "explanation": "Les intégrines sont des hétérodimères α/β transmembranaires."
-      },
-      {
-        "content": "Na+ et K+ sont les seuls cations indispensables à la liaison des intégrines.",
-        "correct": false,
-        "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands."
-      },
-      {
-        "content": "Ca2+ et Mg2+ peuvent soutenir la liaison des intégrines à leurs ligands.",
-        "correct": true,
-        "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands."
-      },
-      {
-        "content": "Chaque sous-unité traverse sept fois la membrane.",
-        "correct": false,
-        "explanation": "Les intégrines sont des hétérodimères α/β transmembranaires."
+    "format": "QROC",
+    "question": "Quel mécanisme d'activation des intégrines correspond à un signal intracellulaire qui augmente leur affinité pour un ligand extracellulaire ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "inside-out",
+        "signalisation inside-out",
+        "activation inside-out"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les intégrines sont des hétérodimères α/β transmembranaires. Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands."
+    },
+    "explanation": "Les intégrines assurent une signalisation bidirectionnelle : inside-out et outside-in."
   },
   {
     "order": 93,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise transversale — diversité des sous-unités et activation conformationnelle des intégrines : quelles affirmations sont exactes ?",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant la structure des intégrines, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Huit sous-unités β sont décrites.",
-        "correct": true,
-        "explanation": "Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
-      },
-      {
-        "content": "L’activation des intégrines ne s’accompagne d’aucun changement conformationnel.",
+        "content": "Les intégrines sont dépourvues de domaine extracellulaire.",
         "correct": false,
-        "explanation": "Clustering et changement conformationnel accompagnent l’activation des intégrines."
+        "explanation": "Leur grand domaine extracellulaire lie les ligands."
       },
       {
-        "content": "La fixation du ligand déclenche une transduction intracellulaire.",
-        "correct": true,
-        "explanation": "Clustering et changement conformationnel accompagnent l’activation des intégrines."
-      },
-      {
-        "content": "Les sous-familles d’intégrines sont classées exclusivement selon une chaîne légère κ.",
+        "content": "Chaque sous-unité traverse la membrane sept fois.",
         "correct": false,
-        "explanation": "Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
+        "explanation": "Chaque sous-unité est à une traversée."
+      },
+      {
+        "content": "Chaque sous-unité traverse une fois la membrane.",
+        "correct": true,
+        "explanation": "Les intégrines sont des récepteurs transmembranaires."
+      },
+      {
+        "content": "Les 18 alpha et 8 bêta forment exactement 23 hétérodimères.",
+        "correct": false,
+        "explanation": "La nomenclature actuelle retient 24 hétérodimères."
+      },
+      {
+        "content": "Une intégrine est un homotrimère de trois sous-unités alpha.",
+        "correct": false,
+        "explanation": "C'est un hétérodimère αβ."
       }
     ],
-    "explanation": "Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts. Clustering et changement conformationnel accompagnent l’activation des intégrines."
+    "explanation": "Les 18 sous-unités α et 8 β humaines s'associent en 24 hétérodimères d'intégrines."
   },
   {
     "order": 94,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise transversale — le motif RGD reconnu par les intégrines et les plaques d’adhésion focale : quelles affirmations sont exactes ?",
+    "question": "Quelles propositions sont exactes concernant les ligands et le motif RGD des intégrines ?",
     "choices": [
       {
-        "content": "RGD correspond à Arg-Gly-Asp.",
+        "content": "Toutes les intégrines ne reconnaissent pas RGD.",
         "correct": true,
-        "explanation": "La séquence tripeptidique RGD constitue un repère de reconnaissance matricielle."
+        "explanation": "Certaines reconnaissent collagènes, laminines ou molécules de surface cellulaire."
       },
       {
-        "content": "Elle est localisée exclusivement dans la lumière du réticulum endoplasmique.",
+        "content": "RGD signifie Arg-Glu-Asp.",
         "correct": false,
-        "explanation": "Les plaques d’adhésion focales assurent un couplage mécanique et de signalisation vers l’actine."
+        "explanation": "Le résidu central est Gly."
       },
       {
-        "content": "Une plaque d’adhésion focale recrute de nombreuses protéines intracellulaires.",
+        "content": "Toutes les 24 intégrines reconnaissent obligatoirement RGD.",
+        "correct": false,
+        "explanation": "Seul un sous-ensemble est RGD-dépendant."
+      },
+      {
+        "content": "Certaines intégrines reconnaissent le motif Arg-Gly-Asp.",
         "correct": true,
-        "explanation": "Les plaques d’adhésion focales assurent un couplage mécanique et de signalisation vers l’actine."
+        "explanation": "RGD est présent dans plusieurs protéines de matrice."
       },
       {
-        "content": "RGD signifie Ribose-Guanine-Désoxyribose.",
-        "correct": false,
-        "explanation": "La séquence tripeptidique RGD constitue un repère de reconnaissance matricielle."
+        "content": "La fibronectine est un ligand majeur de plusieurs intégrines.",
+        "correct": true,
+        "explanation": "Elle comporte notamment des sites reconnus par des intégrines."
       }
     ],
-    "explanation": "La séquence tripeptidique RGD constitue un repère de reconnaissance matricielle. Les plaques d’adhésion focales assurent un couplage mécanique et de signalisation vers l’actine."
+    "explanation": "RGD signifie Arg-Gly-Asp et n'est reconnu que par un sous-ensemble d'intégrines."
   },
   {
     "order": 95,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise transversale — le rôle des cations dans l’interaction des intégrines et l’absence d’activité kinasique intrinsèque des intégrines : quelles affirmations sont exactes ?",
-    "choices": [
-      {
-        "content": "Des cations divalents sont indispensables à l’interaction avec le ligand.",
-        "correct": true,
-        "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands."
-      },
-      {
-        "content": "Le domaine cytoplasmique de l’intégrine possède une tyrosine kinase intrinsèque identique à celle du récepteur à l’insuline.",
-        "correct": false,
-        "explanation": "Les intégrines signalent par recrutement de partenaires plutôt que par kinase intrinsèque."
-      },
-      {
-        "content": "Elles recrutent des protéines intracellulaires pour la transduction.",
-        "correct": true,
-        "explanation": "Les intégrines signalent par recrutement de partenaires plutôt que par kinase intrinsèque."
-      },
-      {
-        "content": "Les intégrines interagissent avec leur ligand sans aucune contribution de α.",
-        "correct": false,
-        "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands."
+    "format": "QROC",
+    "question": "Comment appelle-t-on l'activation d'une intégrine par des signaux provenant du cytoplasme ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "inside-out",
+        "signalisation inside-out",
+        "activation inside-out"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands. Les intégrines signalent par recrutement de partenaires plutôt que par kinase intrinsèque."
+    },
+    "explanation": "Les intégrines assurent une signalisation bidirectionnelle : inside-out et outside-in."
   },
   {
     "order": 96,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise transversale — l’activation conformationnelle des intégrines et les familles de molécules d’adhérence : quelles affirmations sont exactes ?",
-    "choices": [
-      {
-        "content": "Un changement conformationnel augmente l’affinité pour le ligand.",
-        "correct": true,
-        "explanation": "Clustering et changement conformationnel accompagnent l’activation des intégrines."
-      },
-      {
-        "content": "Les molécules d’adhérence sont exclusivement des enzymes digestives.",
-        "correct": false,
-        "explanation": "Les sélectines, cadhérines, Ig-CAM et intégrines sont quatre grandes familles de molécules d’adhérence."
-      },
-      {
-        "content": "Elles jouent un rôle dans l’adhérence et la migration cellulaire.",
-        "correct": true,
-        "explanation": "Les sélectines, cadhérines, Ig-CAM et intégrines sont quatre grandes familles de molécules d’adhérence."
-      },
-      {
-        "content": "Les intégrines ne transmettent jamais de signal.",
-        "correct": false,
-        "explanation": "Clustering et changement conformationnel accompagnent l’activation des intégrines."
+    "format": "QROC",
+    "question": "Quel type de filament du cytosquelette est relié aux intégrines dans une adhésion focale ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "actine",
+        "filaments d'actine",
+        "microfilaments"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Clustering et changement conformationnel accompagnent l’activation des intégrines. Les sélectines, cadhérines, Ig-CAM et intégrines sont quatre grandes familles de molécules d’adhérence."
+    },
+    "explanation": "Les adhésions focales connectent intégrines, protéines de signalisation et filaments d'actine."
   },
   {
     "order": 97,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise transversale — les plaques d’adhésion focale et les trois types de sélectines : quelles affirmations sont exactes ?",
+    "question": "Quelles propositions sont exactes concernant les connexines et les connexons ?",
     "choices": [
       {
-        "content": "Elle relie les domaines cytoplasmiques des intégrines aux filaments d’actine.",
+        "content": "Une connexine possède quatre segments transmembranaires.",
         "correct": true,
-        "explanation": "Les plaques d’adhésion focales assurent un couplage mécanique et de signalisation vers l’actine."
+        "explanation": "C'est une protéine membranaire de jonction."
       },
       {
-        "content": "La sélectine P est un récepteur nucléaire à la progestérone.",
+        "content": "Les jonctions communicantes sont constituées de triacylglycérols.",
         "correct": false,
-        "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
+        "explanation": "Elles reposent sur des protéines connexines."
       },
       {
-        "content": "La sélectine E est associée à l’endothélium.",
+        "content": "Six connexines s'assemblent pour former un connexon.",
         "correct": true,
-        "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
+        "explanation": "Le connexon est aussi appelé hémicanal."
       },
       {
-        "content": "Une plaque d’adhésion focale est constituée uniquement d’ADN.",
-        "correct": false,
-        "explanation": "Les plaques d’adhésion focales assurent un couplage mécanique et de signalisation vers l’actine."
+        "content": "Deux connexons de cellules adjacentes s'alignent pour former un canal de jonction communicante.",
+        "correct": true,
+        "explanation": "Le canal relie directement les cytoplasmes."
+      },
+      {
+        "content": "Les connexons peuvent être homo- ou hétéromériques selon les connexines exprimées.",
+        "correct": true,
+        "explanation": "La composition influence les propriétés du canal."
       }
     ],
-    "explanation": "Les plaques d’adhésion focales assurent un couplage mécanique et de signalisation vers l’actine. E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
+    "explanation": "Six connexines forment un connexon ; deux connexons appariés forment un canal de jonction communicante."
   },
   {
     "order": 98,
     "difficulty": "HARD",
-    "format": "QRP",
-    "question": "Sélectionnez exactement les trois affirmations correctes dans cette situation de maîtrise.",
-    "requiredSelectionCount": 3,
-    "choices": [
-      {
-        "content": "Les intégrines n’ont pas d’activité kinasique intrinsèque.",
-        "correct": true,
-        "explanation": "Les intégrines signalent par recrutement de partenaires plutôt que par kinase intrinsèque."
-      },
-      {
-        "content": "Ces molécules participent aux interactions entre cellules ou entre cellules et matrice.",
-        "correct": true,
-        "explanation": "Les sélectines, cadhérines, Ig-CAM et intégrines sont quatre grandes familles de molécules d’adhérence."
-      },
-      {
-        "content": "La sélectine P est associée aux plaquettes.",
-        "correct": true,
-        "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
-      },
-      {
-        "content": "Les sélectines reconnaissent uniquement l’ATP intracellulaire.",
-        "correct": false,
-        "explanation": "Les sélectines reconnaissent des glycanes sialylés et participent à l’inflammation."
+    "format": "QROC",
+    "question": "Quel nom donne-t-on au canal intercellulaire formé par l'apposition de deux connexons ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "jonction communicante",
+        "gap junction",
+        "canal de gap junction",
+        "jonction gap"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Cette question croise plusieurs repères de la section ; chaque proposition doit être évaluée séparément."
+    },
+    "explanation": "Les jonctions communicantes relient directement deux cytoplasmes grâce à l'apposition de deux connexons."
   },
   {
     "order": 99,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise transversale — les familles de molécules d’adhérence et la structure des intégrines : quelles affirmations sont exactes ?",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant les grandes familles de molécules d'adhérence, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "Ces molécules participent aux interactions entre cellules ou entre cellules et matrice.",
+        "content": "Les molécules d'adhérence participent à la migration cellulaire.",
         "correct": true,
-        "explanation": "Les sélectines, cadhérines, Ig-CAM et intégrines sont quatre grandes familles de molécules d’adhérence."
+        "explanation": "Elles organisent des contacts dynamiques."
       },
       {
-        "content": "Chaque sous-unité traverse sept fois la membrane.",
+        "content": "Toutes les molécules d'adhérence sont des enzymes solubles.",
         "correct": false,
-        "explanation": "Les intégrines sont des hétérodimères α/β transmembranaires."
+        "explanation": "Beaucoup sont des protéines membranaires."
       },
       {
-        "content": "Le domaine intracytoplasmique est très court.",
+        "content": "Les quatre familles possèdent exactement la même structure et les mêmes ligands.",
+        "correct": false,
+        "explanation": "Leurs structures et mécanismes diffèrent."
+      },
+      {
+        "content": "Aucune molécule d'adhérence ne participe à la signalisation.",
+        "correct": false,
+        "explanation": "Plusieurs transmettent des signaux."
+      },
+      {
+        "content": "Certaines transmettent aussi des signaux intracellulaires.",
         "correct": true,
-        "explanation": "Les intégrines sont des hétérodimères α/β transmembranaires."
-      },
-      {
-        "content": "Elles n’interviennent jamais dans les relations cellule-matrice.",
-        "correct": false,
-        "explanation": "Les sélectines, cadhérines, Ig-CAM et intégrines sont quatre grandes familles de molécules d’adhérence."
+        "explanation": "Les intégrines en sont un exemple majeur."
       }
     ],
-    "explanation": "Les sélectines, cadhérines, Ig-CAM et intégrines sont quatre grandes familles de molécules d’adhérence. Les intégrines sont des hétérodimères α/β transmembranaires."
+    "explanation": "Sélectines, cadhérines, Ig-CAM et intégrines sont des familles majeures de molécules d'adhérence.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 100,
     "difficulty": "HARD",
-    "format": "QRPL",
-    "question": "Sélectionnez exactement les cinq affirmations correctes pour maîtriser cette section.",
-    "requiredSelectionCount": 5,
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant les sélectines ?",
     "choices": [
       {
-        "content": "La sélectine E est associée à l’endothélium.",
+        "content": "Elles participent au roulement des leucocytes sur l'endothélium.",
         "correct": true,
-        "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
+        "explanation": "Ces interactions faibles et transitoires sont centrales dans l'inflammation."
       },
       {
-        "content": "Les sélectines peuvent reconnaître des motifs sialyl-Lewis.",
+        "content": "Les sélectines sont des pompes ATP-dépendantes.",
+        "correct": false,
+        "explanation": "Ce sont des molécules d'adhérence."
+      },
+      {
+        "content": "Elles reconnaissent des motifs glucidiques sialylés.",
         "correct": true,
-        "explanation": "Les sélectines reconnaissent des glycanes sialylés et participent à l’inflammation."
+        "explanation": "Sialyl-Lewis x est un ligand classique."
       },
       {
-        "content": "Le domaine intracytoplasmique est très court.",
-        "correct": true,
-        "explanation": "Les intégrines sont des hétérodimères α/β transmembranaires."
-      },
-      {
-        "content": "Dix-huit sous-unités α sont décrites.",
-        "correct": true,
-        "explanation": "Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
-      },
-      {
-        "content": "Certaines intégrines reconnaissent la séquence RGD.",
-        "correct": true,
-        "explanation": "La séquence tripeptidique RGD constitue un repère de reconnaissance matricielle."
-      },
-      {
-        "content": "Les ions divalents détruisent systématiquement le ligand.",
+        "content": "Il existe uniquement une sélectine appelée G-sélectine.",
         "correct": false,
-        "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands."
+        "explanation": "Les trois classiques sont E, L et P."
       },
       {
-        "content": "L’activation diminue toujours l’affinité pour le ligand.",
+        "content": "Elles reconnaissent uniquement le motif peptidique RGD.",
         "correct": false,
-        "explanation": "Clustering et changement conformationnel accompagnent l’activation des intégrines."
-      },
-      {
-        "content": "Elle sépare les intégrines du cytosquelette.",
-        "correct": false,
-        "explanation": "Les plaques d’adhésion focales assurent un couplage mécanique et de signalisation vers l’actine."
-      },
-      {
-        "content": "Chaque sous-unité d’intégrine traverse sept fois la membrane.",
-        "correct": false,
-        "explanation": "Chaque sous-unité α ou β d’une intégrine est une protéine à passage transmembranaire unique."
-      },
-      {
-        "content": "Le motif RGD est un glycane reconnu par les sélectines.",
-        "correct": false,
-        "explanation": "RGD est un motif peptidique Arg-Gly-Asp reconnu par certaines intégrines."
+        "explanation": "Leur reconnaissance porte surtout sur des glycannes sialylés."
       }
     ],
-    "explanation": "La sélection longue vérifie la maîtrise simultanée de plusieurs notions du chapitre."
+    "explanation": "Les sélectines E/L/P reconnaissent des glycannes sialylés et participent au roulement leucocytaire."
   }
 ];

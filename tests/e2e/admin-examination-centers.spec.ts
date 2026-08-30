@@ -15,6 +15,11 @@ test.describe("Admin - Centres d'examen", () => {
     await expect(page).toHaveURL(/examination-centers/, { timeout: 15000 });
     await expect(page.getByRole("heading", { name: /centres d'examen/i })).toBeVisible({ timeout: 10000 });
 
+    // Filtre la liste pour faire apparaître le centre créé même sur plusieurs pages
+    const searchInput = page.getByPlaceholder("Rechercher un centre...");
+    await expect(searchInput).toBeVisible({ timeout: 10000 });
+    await searchInput.fill(description);
+
     // Trouve la ligne du centre créé pour ce test
     const row = page.getByRole("row", { name: description });
     await expect(row).toBeVisible({ timeout: 15000 });

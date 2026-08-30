@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
-import { ChevronDown, LogOut, Mail, Settings, UserRound } from "lucide-react";
+import { ChevronDown, LogOut, Mail, Settings, Shield, UserRound } from "lucide-react";
 import type { User as AuthUser } from "next-auth";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -161,13 +161,13 @@ export default function UserButton({ user }: UserButtonProps) {
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Button
-                    className="h-10 gap-2 rounded-full border border-default bg-neutral-primary-soft pl-1 pr-3 text-body shadow-xs hover:bg-neutral-secondary-soft hover:text-heading focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1"
+                    className="h-9 gap-0 rounded-full border border-default bg-neutral-primary-soft pl-0.5 pr-1.5 text-body shadow-xs hover:bg-neutral-secondary-soft hover:text-heading focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1 sm:h-10 sm:gap-2 sm:pl-1 sm:pr-3"
                     variant="ghost"
                 >
-                    <span className="grid h-9 w-9 place-items-center rounded-full bg-brand text-xs font-semibold uppercase text-white">
+                    <span className="grid h-8 w-8 place-items-center rounded-full bg-brand text-xs font-semibold uppercase text-white sm:h-9 sm:w-9">
                         {initials}
                     </span>
-                    <ChevronDown className="h-4 w-4" />
+                    <ChevronDown className="hidden h-4 w-4 sm:block" />
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent
@@ -225,6 +225,14 @@ export default function UserButton({ user }: UserButtonProps) {
                             </div>
                             <DropdownMenuSeparator />
                         </>
+                    ) : null}
+                    {isAdmin ? (
+                        <DropdownMenuItem asChild className="block w-full rounded-base px-3 py-2 text-body hover:bg-neutral-tertiary-medium hover:text-heading focus:bg-neutral-tertiary-medium focus:text-heading">
+                            <Link href="/admin" className="flex items-center gap-2">
+                                <Shield className="h-4 w-4 text-fg-brand" />
+                                Administration
+                            </Link>
+                        </DropdownMenuItem>
                     ) : null}
                     <DropdownMenuItem asChild className="block w-full rounded-base px-3 py-2 text-body hover:bg-neutral-tertiary-medium hover:text-heading focus:bg-neutral-tertiary-medium focus:text-heading">
                         <Link href="/dashboard/profil-pedagogique" className="flex items-center gap-2">

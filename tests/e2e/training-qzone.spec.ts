@@ -191,7 +191,7 @@ test.describe("Player Santé V2 — QZONE en entraînement", () => {
     ).not.toBeVisible();
 
     // 2. Affichage de l'image
-    const qzoneImage = page.locator('img[src*="fischer-dernier-carbone-asymetrique-qzone.svg"]');
+    const qzoneImage = page.locator('img[src*="ch1-fischer-d-glucose-c5-qzone.svg"]');
     await expect(qzoneImage).toBeVisible();
 
     // 3. Clic sur la surface interactive à (50%, 50%)
@@ -225,11 +225,11 @@ test.describe("Player Santé V2 — QZONE en entraînement", () => {
     await expect(clearButton).not.toBeVisible();
     await expect(page.getByText(/Zone sélectionnée :/)).not.toBeVisible();
 
-    // 6. Re-sélection à la zone attendue (C5: x=0.50, y=0.72)
+    // 6. Re-sélection à la zone attendue (C5: x=0.50, y=0.665)
     await surface.click({
       position: {
         x: box.width * 0.5,
-        y: box.height * 0.72,
+        y: box.height * 0.665,
       },
     });
     await expect(page.getByText(/Zone sélectionnée :/)).toBeVisible();
@@ -246,8 +246,8 @@ test.describe("Player Santé V2 — QZONE en entraînement", () => {
 
     await expect(page.getByTestId("quiz-question-counter")).toBeVisible();
 
-    // Answer all questions with correct target for QZONE (C5: x=0.50, y=0.72)
-    await answerAllQuizQuestions(page, fixture, { x: 0.5, y: 0.72 });
+    // Answer all questions with correct target for QZONE (C5: x=0.50, y=0.665)
+    await answerAllQuizQuestions(page, fixture, { x: 0.5, y: 0.665 });
 
     // Click "Voir les résultats"
     const openSummaryButton = page.getByTestId("quiz-open-summary");
@@ -271,7 +271,7 @@ test.describe("Player Santé V2 — QZONE en entraînement", () => {
     await expect(page.locator(".animate-pulse")).toBeVisible();
     await expect(page.getByText("Bonne réponse.")).toBeVisible();
     await expect(
-      page.getByText("Pour un aldohexose, C5 est le dernier carbone asymétrique"),
+      page.getByText("la série D/L est déterminée par le carbone asymétrique le plus éloigné du carbonyle, ici C5."),
     ).toBeVisible();
   });
 
@@ -338,7 +338,7 @@ test.describe("Player Santé V2 — QZONE en entraînement", () => {
     await surface.click({
       position: {
         x: box.width * 0.5,
-        y: box.height * 0.72,
+        y: box.height * 0.665,
       },
     });
 

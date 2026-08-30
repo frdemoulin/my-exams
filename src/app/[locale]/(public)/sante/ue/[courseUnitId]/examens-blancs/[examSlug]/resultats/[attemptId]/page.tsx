@@ -46,6 +46,9 @@ export default async function HealthMockExamResultsPage({ params }: PageProps) {
         <HealthMockExamResults
           result={result}
           restartHref={`/sante/ue/${courseUnitId}/examens-blancs/${examSlug}`}
+          correctionHref={`/sante/ue/${courseUnitId}/examens-blancs/${examSlug}/resultats/${attemptId}/correction`}
+          headingLabel="Bilan de l'examen blanc"
+          restartLabel="Recommencer l'examen blanc"
         />
       </main>
       <SiteFooter />

@@ -1,637 +1,686 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie — Les eicosanoïdes — Section B
- * Banque éditoriale auteur — à intégrer via le helper partagé du repo.
- */
-
+/** UE14 Biochimie — Les eicosanoïdes — Section B — Structure et nomenclature des prostanoïdes */
 export const UE14_BIOCH_CH5_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 23,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "L’acide prostanoïque de référence :",
+    "question": "Concernant le squelette prostanoïde de référence, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Possède 20 carbones.",
+        "content": "Il comporte 20 carbones.",
         "correct": true,
-        "explanation": "Structure de référence."
+        "explanation": "Il dérive d'un squelette eicosanoïde."
       },
       {
-        "content": "Comporte un cycle cyclopentane.",
-        "correct": true,
-        "explanation": "Noyau caractéristique."
-      },
-      {
-        "content": "Sert de référence structurale pour les prostanoïdes.",
-        "correct": true,
-        "explanation": "Rôle pédagogique."
-      },
-      {
-        "content": "Est un prostanoïde naturel majeur circulant.",
+        "content": "Il ne comporte que dix carbones.",
         "correct": false,
-        "explanation": "L’acide prostanoïque est un squelette de référence utilisé pour la nomenclature, et non un prostanoïde circulant majeur."
+        "explanation": "Il en comporte vingt."
+      },
+      {
+        "content": "Il contient un cycle à cinq chaînons dans la famille des prostaglandines classiques.",
+        "correct": true,
+        "explanation": "Le cycle cyclopentane constitue un repère structural."
+      },
+      {
+        "content": "Le squelette prostanoïde est un cycle benzénique C6 sans chaîne latérale.",
+        "correct": false,
+        "explanation": "Il est différent."
+      },
+      {
+        "content": "L'acide prostanoïque est le principal thromboxane circulant.",
+        "correct": false,
+        "explanation": "C'est un squelette de référence."
       }
     ],
-    "explanation": "L’acide prostanoïque est un squelette de référence pour lire les prostanoïdes."
+    "explanation": "Le squelette prostanoïde est un repère C20 comportant un cycle à cinq chaînons et deux chaînes latérales."
   },
   {
     "order": 24,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Dans le squelette prostanoïde :",
+    "format": "QRU",
+    "question": "À propos des lettres des prostaglandines, quelle affirmation est correcte ?",
     "choices": [
       {
-        "content": "Le cycle implique les carbones C8 à C12 du squelette prostanoïde.",
+        "content": "Les lettres A, B, C, D, E ou F distinguent des motifs d'oxygénation du cycle.",
         "correct": true,
-        "explanation": "Repère."
+        "explanation": "Elles définissent des groupes structuraux."
       },
       {
-        "content": "Deux chaînes latérales prolongent le cycle.",
-        "correct": true,
-        "explanation": "Structure."
-      },
-      {
-        "content": "La molécule conserve au total 20 carbones.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Le noyau est un cycle benzénique à six carbones.",
+        "content": "La lettre E signifie que la molécule possède cinq carbones.",
         "correct": false,
-        "explanation": "Il s’agit d’un cyclopentane."
+        "explanation": "La lettre décrit un groupe structural."
+      },
+      {
+        "content": "Toutes les lettres correspondent au nombre de doubles liaisons.",
+        "correct": false,
+        "explanation": "Le chiffre de série porte cette information."
+      },
+      {
+        "content": "La lettre F signifie automatiquement série 2.",
+        "correct": false,
+        "explanation": "La série est donnée par le chiffre."
+      },
+      {
+        "content": "PGE2 est un leucotriène.",
+        "correct": false,
+        "explanation": "C'est une prostaglandine."
       }
     ],
-    "explanation": "Le cycle cyclopentane et les chaînes latérales structurent les prostanoïdes."
+    "explanation": "La lettre des prostaglandines distingue le motif structural du cycle ; le chiffre indique la série."
   },
   {
     "order": 25,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "La nomenclature des prostaglandines utilise des lettres A à F pour :",
-    "choices": [
-      {
-        "content": "Décrire des substitutions/fonctions du cycle.",
-        "correct": true,
-        "explanation": "Principe."
-      },
-      {
-        "content": "Distinguer des groupes structuraux de prostaglandines.",
-        "correct": true,
-        "explanation": "Nomenclature."
-      },
-      {
-        "content": "Compléter la série numérique.",
-        "correct": true,
-        "explanation": "Deux niveaux de nomenclature."
-      },
-      {
-        "content": "Indiquer directement le nombre total de carbones.",
-        "correct": false,
-        "explanation": "Le squelette est déjà C20."
+    "format": "QROC",
+    "question": "Quel acide gras C20 n-3 est le précurseur classique des prostanoïdes de série 3 ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "EPA",
+        "acide eicosapentaénoïque",
+        "acide eicosapentaenoique",
+        "20:5 n-3"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La lettre décrit le groupe structural du cycle, le chiffre décrit la série."
+    },
+    "explanation": "Les séries 1, 2 et 3 dépendent du précurseur C20 et du nombre de doubles liaisons latérales conservées."
   },
   {
     "order": 26,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Le chiffre de série d’une prostaglandine :",
+    "question": "Concernant PGE2, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Est lié au nombre de doubles liaisons sur les chaînes latérales.",
-        "correct": true,
-        "explanation": "Principe."
-      },
-      {
-        "content": "Permet de distinguer les séries 1, 2 et 3.",
-        "correct": true,
-        "explanation": "Séries étudiées."
-      },
-      {
-        "content": "Complète la lettre du groupe, par exemple E2 ou I2.",
-        "correct": true,
-        "explanation": "Nomenclature."
-      },
-      {
-        "content": "Indique le nombre d’atomes d’oxygène de la molécule.",
+        "content": "PGE2 est obligatoirement un médiateur antiagrégant plaquettaire majeur équivalent à PGI2.",
         "correct": false,
-        "explanation": "Ce n’est pas la signification du chiffre."
+        "explanation": "PGI2 est le repère antiagrégant vasculaire majeur."
+      },
+      {
+        "content": "Sa structure et ses effets ne se résument pas à ceux de PGF2α.",
+        "correct": true,
+        "explanation": "Des prostaglandines proches peuvent avoir des actions différentes."
+      },
+      {
+        "content": "Elle participe à plusieurs réponses inflammatoires et physiologiques.",
+        "correct": true,
+        "explanation": "Ses effets dépendent des récepteurs EP engagés."
+      },
+      {
+        "content": "PGE2 est un thromboxane.",
+        "correct": false,
+        "explanation": "C'est une prostaglandine."
+      },
+      {
+        "content": "Elle appartient à la série 2.",
+        "correct": true,
+        "explanation": "Elle dérive classiquement de l'acide arachidonique."
       }
     ],
-    "explanation": "Le chiffre de série reflète le degré d’insaturation des chaînes latérales."
+    "explanation": "PGE2 est une prostaglandine du groupe E, de série 2, issue de la voie COX."
   },
   {
     "order": 27,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle série de prostaglandines dérive de l’acide arachidonique ?",
+    "question": "À propos de PGI2 ou prostacycline, quelle affirmation est correcte ?",
     "choices": [
       {
-        "content": "Série 2.",
+        "content": "Elle inhibe l'agrégation plaquettaire.",
         "correct": true,
-        "explanation": "La série 2 est la plus fréquente et dérive de l’arachidonique."
+        "explanation": "Elle s'oppose fonctionnellement au TXA2."
       },
       {
-        "content": "Série 1.",
+        "content": "PGI2 est un leucotriène.",
         "correct": false,
-        "explanation": "La série 1 peut dériver de l'acide dihomo-γ-linolénique."
+        "explanation": "C'est un prostanoïde."
       },
       {
-        "content": "Série 3.",
+        "content": "PGI2 est principalement proagrégante.",
         "correct": false,
-        "explanation": "La série 3 peut dériver de l'EPA."
+        "explanation": "Elle est antiagrégante."
       },
       {
-        "content": "Série 0.",
+        "content": "Elle est produite uniquement par les plaquettes.",
         "correct": false,
-        "explanation": "Non étudiée ici."
+        "explanation": "L'endothélium en est une source majeure."
+      },
+      {
+        "content": "Dans PGI2, I signifie que la molécule appartient à la série 1.",
+        "correct": false,
+        "explanation": "La série est indiquée par le chiffre 2."
       }
     ],
-    "explanation": "Les prostaglandines de série 2 sont liées à l’acide arachidonique."
+    "explanation": "PGI2 est la prostacycline endothéliale vasodilatatrice et antiagrégante de série 2."
   },
   {
     "order": 28,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Les prostaglandines de série 1 :",
+    "format": "QRP",
+    "question": "Parmi les propositions suivantes sur TXA2, sélectionnez exactement les deux exactes.",
     "choices": [
       {
-        "content": "Possèdent une double liaison sur les chaînes latérales.",
-        "correct": true,
-        "explanation": "Série 1."
-      },
-      {
-        "content": "Portent l’indice numérique 1 dans leur nom.",
-        "correct": true,
-        "explanation": "L'indice 1 désigne une double liaison latérale."
-      },
-      {
-        "content": "Peuvent dériver de l’acide dihomo-γ-linolénique, lui-même issu de la famille ω6.",
-        "correct": true,
-        "explanation": "Le dihomo-γ-linolénique est un précurseur de prostanoïdes de série 1."
-      },
-      {
-        "content": "Dérivent de l’acide arachidonique et portent l’indice 2.",
+        "content": "TXA2 est principalement produit par l'endothélium pour vasodilater.",
         "correct": false,
-        "explanation": "Cela correspond à la série 2."
+        "explanation": "Ce rôle correspond à PGI2."
+      },
+      {
+        "content": "Il est produit notamment par les plaquettes activées.",
+        "correct": true,
+        "explanation": "Les plaquettes disposent de la thromboxane synthase."
+      },
+      {
+        "content": "Il favorise l'agrégation plaquettaire.",
+        "correct": true,
+        "explanation": "C'est un signal proagrégant."
+      },
+      {
+        "content": "TXA2 est un glucide de stockage.",
+        "correct": false,
+        "explanation": "C'est un médiateur lipidique."
+      },
+      {
+        "content": "TXA2 est antiagrégant plaquettaire.",
+        "correct": false,
+        "explanation": "Il est proagrégant."
       }
     ],
-    "explanation": "Les prostaglandines de série 1 dérivent du dihomo-γ-linolénique et possèdent une double liaison latérale."
+    "explanation": "TXA2 est le prostanoïde plaquettaire proagrégant et vasoconstricteur du couple antagoniste TXA2/PGI2.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 29,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Les prostanoïdes de série 2 :",
+    "question": "Concernant PGF2alpha, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Possèdent deux doubles liaisons sur les chaînes latérales.",
+        "content": "PGF2α appartient au groupe F des prostaglandines.",
         "correct": true,
-        "explanation": "Série 2."
+        "explanation": "La lettre F décrit le motif du cycle."
       },
       {
-        "content": "Comprennent notamment PGE₂, PGI₂ et TXA₂.",
+        "content": "Le symbole α décrit une orientation stéréochimique d'un substituant.",
         "correct": true,
-        "explanation": "PGE₂, PGI₂ et TXA₂ sont des prostanoïdes de série 2."
+        "explanation": "Il ne représente pas la série."
       },
       {
-        "content": "Dérivent de l’acide arachidonique.",
+        "content": "Elle peut contracter certains muscles lisses.",
         "correct": true,
-        "explanation": "Précurseur."
+        "explanation": "Elle peut notamment favoriser des contractions utérines et bronchiques selon le contexte."
       },
       {
-        "content": "Sont obligatoirement dépourvues de cycle.",
+        "content": "PGF2α est toujours vasodilatatrice et antiagrégante comme PGI2.",
         "correct": false,
-        "explanation": "Les prostaglandines sont des prostanoïdes cycliques."
+        "explanation": "Les effets sont différents."
+      },
+      {
+        "content": "Elle peut avoir des effets différents de PGE2 malgré une structure proche.",
+        "correct": true,
+        "explanation": "Les effets dépendent des récepteurs."
       }
     ],
-    "explanation": "La série 2 dérive de l’acide arachidonique et comprend notamment PGE₂, PGI₂ et TXA₂."
+    "explanation": "Dans le nom d'une prostaglandine, la lettre décrit le groupe, le chiffre la série et α/β une orientation stéréochimique."
   },
   {
     "order": 30,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Les prostaglandines de série 3 :",
-    "choices": [
-      {
-        "content": "Possèdent trois doubles liaisons sur les chaînes latérales.",
-        "correct": true,
-        "explanation": "Série 3."
-      },
-      {
-        "content": "Portent l’indice numérique 3 dans leur nom.",
-        "correct": true,
-        "explanation": "L'indice 3 désigne trois doubles liaisons latérales."
-      },
-      {
-        "content": "Peuvent dériver de l’EPA, issu de la famille ω3.",
-        "correct": true,
-        "explanation": "L'EPA est un précurseur de prostanoïdes de série 3."
-      },
-      {
-        "content": "Dérivent obligatoirement du 18:0.",
-        "correct": false,
-        "explanation": "Le 18:0 est stéarique saturé."
+    "format": "QROC",
+    "question": "Dans PGI2, quelle partie du nom indique la série ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "2",
+        "indice 2",
+        "le chiffre 2"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les prostaglandines de série 3 peuvent dériver de l’EPA et possèdent trois doubles liaisons latérales."
+    },
+    "explanation": "La nomenclature des prostanoïdes doit être lue en séparant famille, groupe structural et série."
   },
   {
     "order": 31,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Dans le nom PGI₂, la lettre I correspond à la famille des :",
+    "question": "Parmi les propositions suivantes sur le squelette prostanoïde de référence, laquelle est exacte ?",
     "choices": [
       {
-        "content": "Prostacyclines.",
+        "content": "Toutes les prostaglandines sont dépourvues de cycle.",
+        "correct": false,
+        "explanation": "Le cycle est caractéristique des prostaglandines classiques."
+      },
+      {
+        "content": "Il contient un cycle à cinq chaînons dans la famille des prostaglandines classiques.",
         "correct": true,
-        "explanation": "Les PGI sont les prostacyclines."
+        "explanation": "Le cycle cyclopentane constitue un repère structural."
       },
       {
-        "content": "Leucotriènes.",
+        "content": "L'acide prostanoïque est le principal thromboxane circulant.",
         "correct": false,
-        "explanation": "Autre famille."
+        "explanation": "C'est un squelette de référence."
       },
       {
-        "content": "Lipoxines.",
+        "content": "Le squelette prostanoïde est un cycle benzénique C6 sans chaîne latérale.",
         "correct": false,
-        "explanation": "Autre famille."
+        "explanation": "Il est différent."
       },
       {
-        "content": "Triglycérides.",
+        "content": "Il ne comporte que dix carbones.",
         "correct": false,
-        "explanation": "Autre famille lipidique."
+        "explanation": "Il en comporte vingt."
       }
     ],
-    "explanation": "Attention : il s’agit de la lettre I, pas du chiffre 1."
+    "explanation": "Le squelette prostanoïde est un repère C20 comportant un cycle à cinq chaînons et deux chaînes latérales."
   },
   {
     "order": 32,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Les configurations α et β utilisées pour certains substituants des prostaglandines :",
+    "question": "Concernant les lettres des prostaglandines, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Décrivent une orientation dans l’espace par rapport au plan du cycle.",
+        "content": "La lettre ne donne pas le nombre total de carbones.",
         "correct": true,
-        "explanation": "Stéréochimie."
+        "explanation": "Le squelette reste C20."
       },
       {
-        "content": "Par convention, α et β indiquent des orientations opposées par rapport au plan du cycle.",
-        "correct": true,
-        "explanation": "Convention locale."
-      },
-      {
-        "content": "Complètent la description structurale.",
-        "correct": true,
-        "explanation": "Nomenclature."
-      },
-      {
-        "content": "Indiquent le nombre de doubles liaisons.",
+        "content": "PGE2 est un leucotriène.",
         "correct": false,
-        "explanation": "Le chiffre de série remplit ce rôle."
+        "explanation": "C'est une prostaglandine."
+      },
+      {
+        "content": "Toutes les lettres correspondent au nombre de doubles liaisons.",
+        "correct": false,
+        "explanation": "Le chiffre de série porte cette information."
+      },
+      {
+        "content": "La lettre F signifie automatiquement série 2.",
+        "correct": false,
+        "explanation": "La série est donnée par le chiffre."
+      },
+      {
+        "content": "PGE2 appartient au groupe E.",
+        "correct": true,
+        "explanation": "La lettre E décrit le motif du cycle."
       }
     ],
-    "explanation": "La nomenclature combine groupe, série et informations stéréochimiques."
+    "explanation": "La lettre des prostaglandines distingue le motif structural du cycle ; le chiffre indique la série."
   },
   {
     "order": 33,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Un composé noté PGE₂ :",
+    "question": "Concernant le squelette prostanoïde de référence, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Appartient au groupe E des prostaglandines.",
-        "correct": true,
-        "explanation": "Lettre E."
-      },
-      {
-        "content": "Appartient à la série 2.",
-        "correct": true,
-        "explanation": "Indice 2."
-      },
-      {
-        "content": "Est un prostanoïde.",
-        "correct": true,
-        "explanation": "Famille."
-      },
-      {
-        "content": "Est nécessairement un leucotriène.",
+        "content": "Il ne comporte que dix carbones.",
         "correct": false,
-        "explanation": "Famille distincte."
+        "explanation": "Il en comporte vingt."
+      },
+      {
+        "content": "Il contient un cycle à cinq chaînons dans la famille des prostaglandines classiques.",
+        "correct": true,
+        "explanation": "Le cycle cyclopentane constitue un repère structural."
+      },
+      {
+        "content": "Toutes les prostaglandines sont dépourvues de cycle.",
+        "correct": false,
+        "explanation": "Le cycle est caractéristique des prostaglandines classiques."
+      },
+      {
+        "content": "Le squelette prostanoïde est un cycle benzénique C6 sans chaîne latérale.",
+        "correct": false,
+        "explanation": "Il est différent."
+      },
+      {
+        "content": "Il comporte 20 carbones.",
+        "correct": true,
+        "explanation": "Il dérive d'un squelette eicosanoïde."
       }
     ],
-    "explanation": "Le nom PGE₂ encode groupe structural et série."
+    "explanation": "Le squelette prostanoïde est un repère C20 comportant un cycle à cinq chaînons et deux chaînes latérales."
   },
   {
     "order": 34,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Un composé noté PGI₂ :",
-    "choices": [
-      {
-        "content": "Est une prostacycline.",
-        "correct": true,
-        "explanation": "Groupe I."
-      },
-      {
-        "content": "Appartient à la série 2.",
-        "correct": true,
-        "explanation": "Indice 2."
-      },
-      {
-        "content": "Est un prostanoïde.",
-        "correct": true,
-        "explanation": "Famille."
-      },
-      {
-        "content": "Le I signifie « série 1 ».",
-        "correct": false,
-        "explanation": "I est une lettre de groupe, le 2 indique la série."
+    "format": "QROC",
+    "question": "Dans le nom PGE2, que désigne principalement la lettre E ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "groupe structural",
+        "type de substituants du cycle",
+        "motif d'oxygénation du cycle",
+        "groupe E"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "PGI₂ est une prostacycline de série 2."
+    },
+    "explanation": "La lettre des prostaglandines distingue le motif structural du cycle ; le chiffre indique la série."
   },
   {
     "order": 35,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Pour ne pas confondre « PGI » et « série 1 » :",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur les séries 1, 2 et 3 des prostanoïdes, laquelle est exacte ?",
     "choices": [
       {
-        "content": "PGI utilise la lettre I pour désigner les prostacyclines.",
-        "correct": true,
-        "explanation": "Nomenclature."
-      },
-      {
-        "content": "La série est indiquée par l’indice numérique, par exemple le 2 de PGI₂.",
-        "correct": true,
-        "explanation": "Nomenclature."
-      },
-      {
-        "content": "Une PGI₂ est donc de série 2.",
-        "correct": true,
-        "explanation": "Lecture."
-      },
-      {
-        "content": "Toute PGI est automatiquement de série 1 parce que I ressemble à 1.",
+        "content": "La série 3 dérive directement de l'alpha-linolénique sans conversion en acide gras C20.",
         "correct": false,
-        "explanation": "Erreur de lecture."
+        "explanation": "Le précurseur prostanoïde pertinent est l'EPA."
+      },
+      {
+        "content": "La série 2 correspond à deux atomes d'oxygène.",
+        "correct": false,
+        "explanation": "Elle correspond au nombre de doubles liaisons latérales."
+      },
+      {
+        "content": "Il existe obligatoirement une série 5 pour toute prostaglandine à cinq oxygènes.",
+        "correct": false,
+        "explanation": "Le chiffre ne compte pas les oxygènes."
+      },
+      {
+        "content": "La série 1 dérive directement de l'acide linoléique sans étape métabolique intermédiaire.",
+        "correct": false,
+        "explanation": "Le précurseur prostanoïde C20 est le DGLA."
+      },
+      {
+        "content": "Le chiffre de série reflète le nombre de doubles liaisons conservées dans les chaînes latérales du prostanoïde.",
+        "correct": true,
+        "explanation": "Une série 2 présente deux doubles liaisons latérales."
       }
     ],
-    "explanation": "La distinction lettre I / chiffre 1 évite un piège classique."
+    "explanation": "Les séries 1, 2 et 3 dépendent du précurseur C20 et du nombre de doubles liaisons latérales conservées."
   },
   {
     "order": 36,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Combien de doubles liaisons sur les chaînes latérales caractérisent une prostaglandine de série 2 ?",
+    "question": "Quel acide gras C20 n-6 est le précurseur classique des prostanoïdes de série 1 ?",
     "answer": {
-      "type": "number",
-      "value": 2,
-      "tolerance": 0
+      "type": "text",
+      "acceptedAnswers": [
+        "acide dihomo-gamma-linolénique",
+        "dihomo-gamma-linolénique",
+        "DGLA",
+        "20:3 n-6",
+        "acide dihomo gamma linolenique"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
     },
-    "explanation": "Le chiffre de série correspond au nombre de doubles liaisons des chaînes latérales."
+    "explanation": "Le précurseur pertinent des prostanoïdes de série 1 est le DGLA 20:3 n-6, et non directement l'acide linoléique 18:2 n-6."
   },
   {
     "order": 37,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Combien de carbones comporte le squelette prostanoïde de référence ?",
+    "question": "Quel acide gras C20 n-3 est le précurseur classique des prostanoïdes de série 3 ?",
     "answer": {
-      "type": "number",
-      "value": 20,
-      "tolerance": 0
+      "type": "text",
+      "acceptedAnswers": [
+        "EPA",
+        "acide eicosapentaénoïque",
+        "acide eicosapentaenoique",
+        "20:5 n-3"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
     },
-    "explanation": "Le squelette dérive d’un acide eicosanoïque à 20 carbones."
+    "explanation": "Le précurseur pertinent des prostanoïdes de série 3 est l'EPA 20:5 n-3, et non directement l'alpha-linolénique 18:3 n-3."
   },
   {
     "order": 38,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Une prostaglandine de série 3 se distingue d’une série 2 notamment par :",
+    "question": "Parmi les propositions suivantes sur TXA2, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Une double liaison supplémentaire sur les chaînes latérales.",
+        "content": "Il favorise l'agrégation plaquettaire.",
         "correct": true,
-        "explanation": "3 versus 2."
+        "explanation": "C'est un signal proagrégant."
       },
       {
-        "content": "Un précurseur plus insaturé, tel que l’EPA pour la série 3.",
+        "content": "Il exerce un effet vasoconstricteur.",
         "correct": true,
-        "explanation": "α-linolénique versus arachidonique."
+        "explanation": "Il s'oppose localement à PGI2."
       },
       {
-        "content": "Un indice numérique différent dans son nom.",
+        "content": "Il est produit notamment par les plaquettes activées.",
         "correct": true,
-        "explanation": "3 versus 2."
+        "explanation": "Les plaquettes disposent de la thromboxane synthase."
       },
       {
-        "content": "La disparition obligatoire du cycle cyclopentane.",
+        "content": "TXA2 est un thromboxane de série 2.",
+        "correct": true,
+        "explanation": "Il dérive de la voie COX à partir de l'acide arachidonique."
+      },
+      {
+        "content": "TXA2 est un glucide de stockage.",
         "correct": false,
-        "explanation": "Le squelette prostanoïde reste cyclique."
+        "explanation": "C'est un médiateur lipidique."
       }
     ],
-    "explanation": "Le chiffre de série traduit une différence d’insaturation."
+    "explanation": "TXA2 est le prostanoïde plaquettaire proagrégant et vasoconstricteur du couple antagoniste TXA2/PGI2."
   },
   {
     "order": 39,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Une prostaglandine de série 1 se distingue d’une série 2 notamment par :",
-    "choices": [
-      {
-        "content": "Une double liaison de moins sur les chaînes latérales.",
-        "correct": true,
-        "explanation": "1 versus 2."
-      },
-      {
-        "content": "Un indice numérique différent.",
-        "correct": true,
-        "explanation": "1 versus 2."
-      },
-      {
-        "content": "Un précurseur différent : dihomo-γ-linolénique pour la série 1 et arachidonique pour la série 2.",
-        "correct": true,
-        "explanation": "Linoléique versus arachidonique."
-      },
-      {
-        "content": "L’absence totale de carbone.",
-        "correct": false,
-        "explanation": "Toutes dérivent d’un squelette C20."
+    "format": "QROC",
+    "question": "Que décrit le symbole α dans PGF2α ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "orientation stéréochimique",
+        "orientation du groupement hydroxyle",
+        "stéréochimie",
+        "orientation par rapport au plan du cycle"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La série encode la différence d’insaturation des chaînes."
+    },
+    "explanation": "Dans le nom d'une prostaglandine, la lettre décrit le groupe, le chiffre la série et α/β une orientation stéréochimique."
   },
   {
     "order": 40,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "La position du cycle dans le squelette prostanoïde :",
+    "format": "QRU",
+    "question": "À propos de la lecture combinée du nom d'un prostanoïde, quelle affirmation est correcte ?",
     "choices": [
       {
-        "content": "Implique les carbones C8 à C12 du squelette prostanoïde.",
+        "content": "Une lecture correcte sépare famille, groupe et série.",
         "correct": true,
-        "explanation": "Repère structural."
+        "explanation": "Ces éléments ne sont pas interchangeables."
       },
       {
-        "content": "Conserve deux chaînes latérales.",
-        "correct": true,
-        "explanation": "Architecture."
-      },
-      {
-        "content": "Explique l’aspect cyclique des prostaglandines.",
-        "correct": true,
-        "explanation": "Structure."
-      },
-      {
-        "content": "Transforme le squelette en stéroïde à quatre cycles.",
+        "content": "La nomenclature ne contient aucune information structurale.",
         "correct": false,
-        "explanation": "Un seul cycle cyclopentane est concerné ici."
+        "explanation": "Elle encode plusieurs informations."
+      },
+      {
+        "content": "Le 2 de PGE2 signifie que la molécule contient deux carbones.",
+        "correct": false,
+        "explanation": "Le squelette est C20."
+      },
+      {
+        "content": "TXA2 est une prostaglandine du groupe E.",
+        "correct": false,
+        "explanation": "C'est un thromboxane."
+      },
+      {
+        "content": "Le I de PGI2 est le chiffre romain un indiquant la série 1.",
+        "correct": false,
+        "explanation": "C'est la lettre I."
       }
     ],
-    "explanation": "Le noyau cyclopentane est un repère visuel important."
+    "explanation": "La nomenclature des prostanoïdes doit être lue en séparant famille, groupe structural et série."
   },
   {
     "order": 41,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Comment appelle-t-on les prostaglandines du groupe I (lettre I) ?",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "prostacyclines",
-        "prostacycline",
-        "les prostacyclines"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRM",
+    "question": "Parmi les propositions suivantes sur le squelette prostanoïde de référence, lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "Toutes les prostaglandines sont dépourvues de cycle.",
+        "correct": false,
+        "explanation": "Le cycle est caractéristique des prostaglandines classiques."
+      },
+      {
+        "content": "Il contient un cycle à cinq chaînons dans la famille des prostaglandines classiques.",
+        "correct": true,
+        "explanation": "Le cycle cyclopentane constitue un repère structural."
+      },
+      {
+        "content": "Le squelette prostanoïde est un cycle benzénique C6 sans chaîne latérale.",
+        "correct": false,
+        "explanation": "Il est différent."
+      },
+      {
+        "content": "Deux chaînes latérales prolongent le cycle.",
+        "correct": true,
+        "explanation": "Elles portent une partie des doubles liaisons de série."
+      },
+      {
+        "content": "Il ne comporte que dix carbones.",
+        "correct": false,
+        "explanation": "Il en comporte vingt."
       }
-    },
-    "explanation": "Les PGI sont les prostacyclines."
+    ],
+    "explanation": "Le squelette prostanoïde est un repère C20 comportant un cycle à cinq chaînons et deux chaînes latérales."
   },
   {
     "order": 42,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "requiredSelectionCount": 3,
-    "question": "Sélectionnez exactement les trois associations de série correctes.",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Série 1 — une double liaison latérale — précurseur dihomo-γ-linolénique.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Série 2 — deux doubles liaisons latérales — précurseur arachidonique.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Série 3 — trois doubles liaisons latérales — précurseur EPA.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Série 2 — zéro double liaison — toujours saturée.",
+        "content": "La lettre F signifie automatiquement série 2.",
         "correct": false,
-        "explanation": "Deux doubles liaisons latérales."
+        "explanation": "La série est donnée par le chiffre."
+      },
+      {
+        "content": "Les lettres A, B, C, D, E ou F distinguent des motifs d'oxygénation du cycle.",
+        "correct": true,
+        "explanation": "Elles définissent des groupes structuraux."
+      },
+      {
+        "content": "Elle inhibe l'agrégation plaquettaire.",
+        "correct": true,
+        "explanation": "Elle s'oppose fonctionnellement au TXA2."
+      },
+      {
+        "content": "PGI2 est un leucotriène.",
+        "correct": false,
+        "explanation": "C'est un prostanoïde."
+      },
+      {
+        "content": "Elle est produite uniquement par les plaquettes.",
+        "correct": false,
+        "explanation": "L'endothélium en est une source majeure."
+      },
+      {
+        "content": "PGE2 est un leucotriène.",
+        "correct": false,
+        "explanation": "C'est une prostaglandine."
+      },
+      {
+        "content": "La lettre ne donne pas le nombre total de carbones.",
+        "correct": true,
+        "explanation": "Le squelette reste C20."
+      },
+      {
+        "content": "PGI2 est la prostacycline de série 2.",
+        "correct": true,
+        "explanation": "La lettre I est une lettre de groupe et non le chiffre 1."
+      },
+      {
+        "content": "PGF2α appartient au groupe F.",
+        "correct": true,
+        "explanation": "La lettre F décrit un autre motif du cycle."
+      },
+      {
+        "content": "Dans PGI2, I signifie que la molécule appartient à la série 1.",
+        "correct": false,
+        "explanation": "La série est indiquée par le chiffre 2."
       }
     ],
-    "explanation": "Les séries 1, 2 et 3 suivent le nombre de doubles liaisons des chaînes latérales."
+    "explanation": "La lettre des prostaglandines distingue le motif structural du cycle ; le chiffre indique la série. PGI2 est la prostacycline endothéliale vasodilatatrice et antiagrégante de série 2."
   },
   {
     "order": 43,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Le squelette prostanoïde permet de comprendre que :",
+    "question": "À propos des séries 1, 2 et 3 des prostanoïdes, quelles affirmations sont correctes ?",
     "choices": [
       {
-        "content": "Les prostaglandines restent des dérivés C20.",
+        "content": "Les prostanoïdes de série 3 peuvent dériver de l'EPA.",
         "correct": true,
-        "explanation": "Squelette eicosanoïque."
+        "explanation": "EPA 20:5 n-3 est leur précurseur pertinent."
       },
       {
-        "content": "Un cycle cyclopentane constitue leur cœur structural.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Des variations de fonctions et de doubles liaisons créent différents groupes/séries.",
-        "correct": true,
-        "explanation": "Nomenclature."
-      },
-      {
-        "content": "Toutes les prostaglandines sont structurellement identiques.",
+        "content": "Il existe obligatoirement une série 5 pour toute prostaglandine à cinq oxygènes.",
         "correct": false,
-        "explanation": "Elles varient par groupe et série."
+        "explanation": "Le chiffre ne compte pas les oxygènes."
+      },
+      {
+        "content": "Les prostanoïdes de série 2 dérivent classiquement de l'acide arachidonique.",
+        "correct": true,
+        "explanation": "C'est la série majeure issue du 20:4 n-6."
+      },
+      {
+        "content": "Les prostanoïdes de série 1 peuvent dériver du dihomo-gamma-linolénique.",
+        "correct": true,
+        "explanation": "DGLA 20:3 n-6 est leur précurseur pertinent."
+      },
+      {
+        "content": "La série 2 correspond à deux atomes d'oxygène.",
+        "correct": false,
+        "explanation": "Elle correspond au nombre de doubles liaisons latérales."
       }
     ],
-    "explanation": "Les variations autour d’un squelette commun expliquent la nomenclature."
+    "explanation": "Les séries 1, 2 et 3 dépendent du précurseur C20 et du nombre de doubles liaisons latérales conservées."
   },
   {
     "order": 44,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Structure et nomenclature des prostanoïdes : sélectionnez exactement cinq propositions correctes.",
-    "choices": [
-      {
-        "content": "Le squelette prostanoïde comporte 20 carbones.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Les prostaglandines possèdent un cycle cyclopentane.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "La série 2 dérive de l’acide arachidonique.",
-        "correct": true,
-        "explanation": "Fréquence."
-      },
-      {
-        "content": "PGI désigne les prostacyclines.",
-        "correct": true,
-        "explanation": "Groupe."
-      },
-      {
-        "content": "L’indice numérique renseigne sur la série.",
-        "correct": true,
-        "explanation": "Nomenclature."
-      },
-      {
-        "content": "La série 2 dérive exclusivement du glucose.",
-        "correct": false,
-        "explanation": "Arachidonique."
-      },
-      {
-        "content": "PGI₂ est de série 1.",
-        "correct": false,
-        "explanation": "Série 2."
-      },
-      {
-        "content": "La série 3 est saturée.",
-        "correct": false,
-        "explanation": "Trois doubles liaisons latérales."
-      },
-      {
-        "content": "Le cycle des prostaglandines est un benzène.",
-        "correct": false,
-        "explanation": "Cyclopentane."
-      },
-      {
-        "content": "Les lettres A–F indiquent le nombre total de carbones.",
-        "correct": false,
-        "explanation": "Elles décrivent le groupe structural."
-      }
-    ],
-    "explanation": "Cette QRPL consolide le squelette et la nomenclature des prostanoïdes."
+    "format": "QROC",
+    "question": "À quelle série appartient PGE2 ?",
+    "answer": {
+      "type": "number",
+      "value": 2,
+      "tolerance": 0
+    },
+    "explanation": "PGE2 est une prostaglandine du groupe E, de série 2, issue de la voie COX."
   }
 ];

@@ -1,0 +1,1414 @@
+[
+  {
+    "order": 1,
+    "difficulty": "EASY",
+    "question": "À propos de la structure électronique des atomes et de la classification périodique, quelles propositions sont exactes ?",
+    "statement": "À propos de la structure électronique des atomes et de la classification périodique, quelles propositions sont exactes ?",
+    "explanation": "Le numéro atomique Z correspond au nombre de protons et, pour un atome neutre, au nombre d’électrons. Le remplissage électronique suit l’ordre énergétique des sous-couches, notamment 4s avant 3d dans l’état fondamental des atomes neutres usuels.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:classification-electronique"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Deux isotopes d’un même élément possèdent le même numéro atomique Z.",
+      "Pour un atome neutre, le nombre d’électrons est égal au numéro atomique Z.",
+      "Dans l’ordre de remplissage usuel, la sous-couche 4s est occupée avant la sous-couche 3d.",
+      "Le nombre de masse A correspond uniquement au nombre de neutrons du noyau.",
+      "Deux éléments situés dans une même période possèdent nécessairement le même nombre d’électrons de valence."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Ils ont le même nombre de protons ; ils diffèrent par leur nombre de neutrons et donc par leur nombre de masse.",
+      "La neutralité impose autant d’électrons que de protons.",
+      "La règle de Klechkowski conduit à l’ordre ...3p, 4s, 3d, 4p... pour le remplissage des atomes neutres.",
+      "A est la somme des protons et des neutrons.",
+      "Au sein d’une période, le nombre d’électrons de valence évolue généralement d’une colonne à l’autre."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:classification-electronique"
+      ]
+    }
+  },
+  {
+    "order": 2,
+    "difficulty": "HARD",
+    "question": "L’ion $\\ce{^{31}_{15}P^{3-}}$ est considéré isolément. Combien possède-t-il d’électrons ? Donnez uniquement la valeur numérique.",
+    "statement": "L’ion $\\ce{^{31}_{15}P^{3-}}$ est considéré isolément. Combien possède-t-il d’électrons ? Donnez uniquement la valeur numérique.",
+    "explanation": "Le phosphore a Z = 15, donc 15 électrons à l’état neutre. La charge 3− correspond au gain de trois électrons : l’ion en possède 18.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:ions-nucleides"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "number",
+      "numericAnswer": {
+        "value": 18,
+        "tolerance": 0
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:ions-nucleides"
+      ]
+    }
+  },
+  {
+    "order": 3,
+    "difficulty": "HARD",
+    "question": "Quelle proposition décrit correctement une tendance périodique ou une propriété électronique ?",
+    "statement": "Quelle proposition décrit correctement une tendance périodique ou une propriété électronique ?",
+    "explanation": "L’électronégativité traduit l’aptitude d’un atome engagé dans une liaison à attirer vers lui les électrons de cette liaison. Elle augmente globalement de la gauche vers la droite d’une période et vers le haut d’une colonne.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:electronegativite"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Le fluor est plus électronégatif que le chlore.",
+      "L’électronégativité et l’affinité électronique désignent exactement la même grandeur physique.",
+      "Un cation se forme par gain d’un ou plusieurs électrons.",
+      "Dans une même colonne, l’énergie d’ionisation augmente généralement lorsque la taille atomique augmente.",
+      "Une liaison entre deux atomes de même électronégativité est nécessairement ionique."
+    ],
+    "correctChoiceIndexes": [
+      0
+    ],
+    "choiceExplanations": [
+      "Le fluor se situe au-dessus du chlore dans la colonne des halogènes et possède l’électronégativité la plus élevée du tableau périodique.",
+      "Ce sont deux notions distinctes : l’électronégativité concerne l’attraction des électrons dans une liaison, l’affinité électronique une variation énergétique liée au gain d’un électron.",
+      "Un cation résulte d’une perte d’électrons.",
+      "Elle tend au contraire à diminuer vers le bas d’une colonne, les électrons externes étant plus éloignés et mieux écrantés.",
+      "Une différence d’électronégativité nulle favorise une liaison covalente apolaire."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:electronegativite"
+      ]
+    }
+  },
+  {
+    "order": 4,
+    "difficulty": "MEDIUM",
+    "question": "Sélectionnez exactement les deux propositions correctes à propos des liaisons σ et π.",
+    "statement": "Sélectionnez exactement les deux propositions correctes à propos des liaisons σ et π.",
+    "explanation": "Une liaison simple est une liaison σ. Dans une double liaison, une liaison σ est accompagnée d’une liaison π ; dans une triple liaison, une σ est accompagnée de deux π.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:liaisons-sigma-pi"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Une liaison simple carbone-carbone est de type σ.",
+      "Une double liaison C=C comporte une liaison σ et une liaison π.",
+      "Une triple liaison C≡C comporte trois liaisons π et aucune liaison σ.",
+      "Une liaison π possède une symétrie axiale qui autorise une rotation libre sans perte de recouvrement.",
+      "Une liaison σ résulte toujours du recouvrement de deux orbitales p non hybridées."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Elle résulte d’un recouvrement selon l’axe internucléaire.",
+      "Le premier recouvrement forme σ et le second, latéral, forme π.",
+      "Elle comporte une liaison σ et deux liaisons π.",
+      "La rotation autour d’une liaison π rompt le recouvrement latéral ; elle est donc fortement contrainte.",
+      "Une liaison σ peut résulter de nombreux recouvrements axiaux, notamment s–s, s–p ou entre orbitales hybrides."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:liaisons-sigma-pi"
+      ]
+    }
+  },
+  {
+    "order": 5,
+    "difficulty": "MEDIUM",
+    "question": "À propos de la polarité moléculaire et des interactions intermoléculaires, quelles propositions sont exactes ?",
+    "statement": "À propos de la polarité moléculaire et des interactions intermoléculaires, quelles propositions sont exactes ?",
+    "explanation": "Le moment dipolaire moléculaire est une somme vectorielle. Les forces de dispersion existent entre toutes les espèces, tandis qu’une liaison hydrogène nécessite un donneur X–H suffisamment polarisé et un accepteur portant un doublet disponible.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:forces-intermoleculaires"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Une molécule peut posséder des liaisons polaires tout en ayant un moment dipolaire total nul par symétrie.",
+      "Les interactions de dispersion de London peuvent exister entre des molécules apolaires.",
+      "Toute molécule contenant un atome d’oxygène est automatiquement donneuse de liaison hydrogène.",
+      "Le moment dipolaire d’une molécule polyatomique est la somme arithmétique des valeurs absolues de tous les moments de liaison.",
+      "Les forces intermoléculaires sont des liaisons covalentes supplémentaires entre molécules."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Dans une géométrie symétrique, les moments de liaison peuvent se compenser vectoriellement.",
+      "Elles proviennent de fluctuations instantanées de la distribution électronique et existent même sans dipôle permanent.",
+      "Il faut notamment un hydrogène lié à un atome suffisamment électronégatif ; un éther possède un oxygène accepteur mais n’est pas donneur.",
+      "Il s’agit d’une somme vectorielle : la géométrie de la molécule est déterminante.",
+      "Elles correspondent à des interactions non covalentes distinctes des liaisons intramoléculaires."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:forces-intermoleculaires"
+      ]
+    }
+  },
+  {
+    "order": 6,
+    "difficulty": "MEDIUM",
+    "question": "L’urée a pour formule $\\ce{CO(NH2)2}$. Quelle est sa masse molaire ? Donnez uniquement la valeur numérique, exprimée en $\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$.\n\nDonnées : $M(\\mathrm C)=12\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$, $M(\\mathrm H)=1\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$, $M(\\mathrm N)=14\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$ et $M(\\mathrm O)=16\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$.",
+    "statement": "L’urée a pour formule $\\ce{CO(NH2)2}$. Quelle est sa masse molaire ? Donnez uniquement la valeur numérique, exprimée en $\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$.\n\nDonnées : $M(\\mathrm C)=12\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$, $M(\\mathrm H)=1\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$, $M(\\mathrm N)=14\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$ et $M(\\mathrm O)=16\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$.",
+    "explanation": "L’urée contient 1 C, 4 H, 2 N et 1 O : $12 + 4\\times1 + 2\\times14 + 16 = 60\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:calcul-masse-molaire"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "number",
+      "numericAnswer": {
+        "value": 60,
+        "tolerance": 0,
+        "unit": "g/mol",
+        "displayUnit": "\\mathrm{g}\\cdot\\mathrm{mol}^{-1}"
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:calcul-masse-molaire"
+      ]
+    }
+  },
+  {
+    "order": 7,
+    "difficulty": "EASY",
+    "question": "Quelle fonction principale reconnaît-on dans la molécule $\\ce{CH3CONH2}$ ?",
+    "statement": "Quelle fonction principale reconnaît-on dans la molécule $\\ce{CH3CONH2}$ ?",
+    "explanation": "Un amide comporte un azote directement lié au carbone d’un groupe carbonyle.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:reconnaissance-fonctions"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Amine.",
+      "Amide.",
+      "Nitrile.",
+      "Ester.",
+      "Aldéhyde."
+    ],
+    "correctChoiceIndexes": [
+      1
+    ],
+    "choiceExplanations": [
+      "Dans une amine, l’azote n’est pas directement lié au carbone d’un carbonyle.",
+      "Le motif CH3–C(=O)–NH2 correspond à un amide.",
+      "Un nitrile contient le motif C≡N.",
+      "Un ester comporte le motif C(=O)–O–C.",
+      "Un aldéhyde possède un carbonyle terminal portant un hydrogène."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:reconnaissance-fonctions"
+      ]
+    }
+  },
+  {
+    "order": 8,
+    "difficulty": "MEDIUM",
+    "question": "Sélectionnez exactement les deux associations correctes entre structure carbonée et classification.",
+    "statement": "Sélectionnez exactement les deux associations correctes entre structure carbonée et classification.",
+    "explanation": "Le degré d’un carbone dépend du nombre de carbones auxquels il est directement lié, tandis que la classe d’un alcool dépend du degré du carbone portant le groupe hydroxyle.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:degre-carbone-classe-alcool"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Dans le propan-2-ol, le carbone portant OH est un carbone secondaire.",
+      "Le 2-méthylpropan-2-ol est un alcool tertiaire.",
+      "Un carbone quaternaire porte nécessairement quatre atomes d’hydrogène.",
+      "Tout alcool primaire possède exactement un seul atome de carbone dans la molécule.",
+      "Un carbone engagé dans un groupe carbonyle C=O est classé quaternaire dès qu’il forme quatre liaisons au total."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Il est directement lié à deux autres carbones.",
+      "Le carbone portant OH est lié à trois groupes carbonés.",
+      "Un carbone quaternaire est lié à quatre autres carbones et ne porte donc aucun hydrogène.",
+      "La classe primaire dépend du carbone portant OH, pas du nombre total de carbones.",
+      "Le degré carboné se compte par le nombre de voisins carbonés, pas par le nombre total de liaisons."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:degre-carbone-classe-alcool"
+      ]
+    }
+  },
+  {
+    "order": 9,
+    "difficulty": "MEDIUM",
+    "question": "Parmi ces dix propositions de chimie générale et organique, sélectionnez exactement les cinq exactes.",
+    "statement": "Parmi ces dix propositions de chimie générale et organique, sélectionnez exactement les cinq exactes.",
+    "explanation": "Cette synthèse mobilise liaison chimique, hybridation, isomérie, fonctions et réactivité. Il faut distinguer structure électronique, géométrie et transformations chimiques.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:synthese-transversale"
+    ],
+    "format": "QRPL",
+    "questionFormat": "QRPL",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Un carbone sp possède classiquement une géométrie linéaire, également dite digonale.",
+      "Une molécule chirale et son image miroir non superposable constituent une paire d’énantiomères.",
+      "L’hydrogénation catalytique d’un alcène consomme du dihydrogène et réduit la double liaison.",
+      "Le carbone du groupe carbonyle porte un caractère électrophile.",
+      "Un carboxylate est stabilisé par délocalisation de la charge négative sur les deux oxygènes.",
+      "Une amide est généralement plus basique qu’une amine comparable parce que le doublet de l’azote est plus disponible.",
+      "La rotation autour d’une double liaison C=C est aussi libre qu’autour d’une liaison simple C–C.",
+      "Un ester possède nécessairement un groupe hydroxyle libre O–H.",
+      "Deux diastéréoisomères sont des images miroir non superposables l’un de l’autre.",
+      "Une cétone simple s’oxyde usuellement plus facilement en acide carboxylique qu’un aldéhyde."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "choiceExplanations": [
+      "Deux directions de liaison opposées sont associées à l’hybridation sp.",
+      "C’est la relation stéréochimique définissant les énantiomères.",
+      "Les deux hydrogènes s’ajoutent sur les carbones de l’ancienne liaison C=C.",
+      "La polarisation Cδ+–Oδ− rend le carbone sensible à l’attaque des nucléophiles.",
+      "Les deux formes mésomères principales contribuent à cette stabilisation.",
+      "La conjugaison du doublet avec le carbonyle diminue fortement sa disponibilité.",
+      "La composante π s’oppose à une rotation libre.",
+      "Le motif ester est R–C(=O)–O–R′ ; il ne comporte pas nécessairement de O–H.",
+      "Cette définition correspond aux énantiomères ; les diastéréoisomères ne sont pas images miroir.",
+      "Les aldéhydes s’oxydent généralement beaucoup plus facilement que les cétones simples."
+    ],
+    "requiredSelectionCount": 5,
+    "answerPayload": {
+      "requiredSelectionCount": 5,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:synthese-transversale"
+      ]
+    }
+  },
+  {
+    "order": 10,
+    "difficulty": "EASY",
+    "question": "En comparant les molécules A et B, quelles propositions sont exactes ?",
+    "statement": "En comparant les molécules A et B, quelles propositions sont exactes ?",
+    "explanation": "Les deux molécules ont la même formule brute et la même connectivité : elles ne sont donc pas des isomères de constitution. Elles diffèrent par la disposition des substituants autour de C=C. La composante π de la double liaison empêche une rotation libre permettant de passer de l’une à l’autre sans rupture du recouvrement. Les formes E/Z sont des stéréoisomères géométriques et non une paire d’énantiomères.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:isomerie"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "A et B possèdent la même formule brute.",
+      "A et B possèdent la même connectivité atomique et diffèrent par leur arrangement spatial.",
+      "La double liaison empêche leur interconversion par une simple rotation libre autour de C=C.",
+      "A et B sont des isomères de constitution car l’ordre de liaison des atomes diffère.",
+      "A et B constituent nécessairement une paire d’énantiomères."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Vrai. Les deux représentations correspondent au but-2-ène C4H8.",
+      "Vrai. C’est la définition même de la stéréoisomérie.",
+      "Vrai. Le recouvrement π s’oppose à la rotation libre à température ordinaire.",
+      "Faux. L’enchaînement des atomes est rigoureusement identique.",
+      "Faux. Il s’agit de diastéréoisomères géométriques E/Z achiraux."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:isomerie"
+      ]
+    }
+  },
+  {
+    "order": 11,
+    "difficulty": "EASY",
+    "question": "Quel est l’état d’hybridation classique de chacun des deux carbones engagés dans la double liaison C=C des molécules A et B ?",
+    "statement": "Quel est l’état d’hybridation classique de chacun des deux carbones engagés dans la double liaison C=C des molécules A et B ?",
+    "explanation": "Chacun des deux carbones d’une double liaison C=C est classiquement hybridé sp². Les trois orbitales hybrides forment une géométrie trigonale plane et l’orbitale p non hybridée participe à la liaison π.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:hybridation"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "sp2"
+        },
+        {
+          "value": "sp²"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:hybridation"
+      ]
+    }
+  },
+  {
+    "order": 12,
+    "difficulty": "HARD",
+    "question": "Dans la molécule A, les substituants de plus haute priorité CIP sur chacun des deux carbones de la double liaison sont situés du même côté. Quel descripteur s’applique ?",
+    "statement": "Dans la molécule A, les substituants de plus haute priorité CIP sur chacun des deux carbones de la double liaison sont situés du même côté. Quel descripteur s’applique ?",
+    "explanation": "Pour attribuer E/Z, les priorités CIP sont établies séparément sur chacun des deux carbones de C=C. Lorsque les deux substituants de plus haute priorité sont du même côté, le descripteur est Z ; s’ils sont de côtés opposés, le descripteur est E.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:stereochimie-e-z"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "R.",
+      "S.",
+      "Z.",
+      "E.",
+      "D."
+    ],
+    "correctChoiceIndexes": [
+      2
+    ],
+    "choiceExplanations": [
+      "R/S s’applique à un centre stéréogène tétraédrique.",
+      "S s’applique également à un centre stéréogène tétraédrique.",
+      "Z s’applique lorsque les deux groupes de plus haute priorité sont situés du même côté.",
+      "E s’applique lorsque les groupes prioritaires sont de côtés opposés.",
+      "D relève d’une nomenclature relative distincte."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:stereochimie-e-z"
+      ]
+    }
+  },
+  {
+    "order": 13,
+    "difficulty": "MEDIUM",
+    "question": "À propos des transformations possibles de la double liaison de la molécule A, sélectionnez exactement les deux propositions correctes.",
+    "statement": "À propos des transformations possibles de la double liaison de la molécule A, sélectionnez exactement les deux propositions correctes.",
+    "explanation": "L’hydrogénation catalytique ajoute H2 sur la double liaison et forme l’alcane correspondant. Une hydrohalogénation ajoute H et Br sur les deux carbones de C=C en consommant la liaison π. Une double liaison C=C définit ici un alcène et non un alcyne.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:reactivite-hydrocarbures"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Une hydrogénation catalytique par H2 peut transformer A en butane.",
+      "L’addition de HBr sur A consomme la liaison π et conduit à un bromoalcane.",
+      "Une hydrogénation catalytique transforme directement A en alcool sans autre réactif.",
+      "L’addition de HBr conserve obligatoirement la double liaison C=C intacte.",
+      "La molécule A est un alcyne parce qu’elle contient une insaturation."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "L’addition de H2 sur C=C donne le butane C4H10.",
+      "L’addition électrophile de HBr produit le 2-bromobutane.",
+      "L’hydrogénation catalytique d’un alcène donne un alcane.",
+      "L’addition sur un alcène consomme la liaison π.",
+      "Une double liaison C=C définit un alcène ; un alcyne comporte une triple liaison C≡C."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:reactivite-hydrocarbures"
+      ]
+    }
+  },
+  {
+    "order": 14,
+    "difficulty": "EASY",
+    "question": "À propos des alcools, des amines et des dérivés halogénés, quelles propositions sont exactes ?",
+    "statement": "À propos des alcools, des amines et des dérivés halogénés, quelles propositions sont exactes ?",
+    "explanation": "L’oxydation d’un alcool dépend de sa classe, et l’azote d’une amine possède un doublet libre qui lui confère notamment un caractère nucléophile.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:alcools-amines-halogenes"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "L’oxydation ménagée d’un alcool primaire peut conduire à un aldéhyde.",
+      "Une amine neutre possède un doublet libre sur l’azote susceptible de participer à une attaque nucléophile.",
+      "Un alcool secondaire s’oxyde classiquement en aldéhyde.",
+      "Un ammonium quaternaire est une amine tertiaire non chargée.",
+      "Dans un dérivé halogéné R–X, X désigne toujours un groupe hydroxyle."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Une oxydation plus poussée peut ensuite mener à l’acide carboxylique.",
+      "Ce doublet explique une part importante de la basicité et de la nucléophilie des amines.",
+      "Il s’oxyde en cétone.",
+      "L’azote d’un ammonium quaternaire porte quatre substituants carbonés et une charge positive.",
+      "X représente un halogène."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:alcools-amines-halogenes"
+      ]
+    }
+  },
+  {
+    "order": 15,
+    "difficulty": "MEDIUM",
+    "question": "Après réduction de la propanone $\\ce{CH3COCH3}$ par $\\ce{NaBH4}$, quelle classe d’alcool obtient-on ?",
+    "statement": "Après réduction de la propanone $\\ce{CH3COCH3}$ par $\\ce{NaBH4}$, quelle classe d’alcool obtient-on ?",
+    "explanation": "La réduction d’une cétone transforme le carbonyle en alcool sans modifier les deux substituants carbonés du carbone concerné : on obtient donc un alcool secondaire.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:reduction-cetone"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "alcool secondaire"
+        },
+        {
+          "value": "secondaire"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:reduction-cetone"
+      ]
+    }
+  },
+  {
+    "order": 16,
+    "difficulty": "HARD",
+    "question": "Quelle proposition caractérise correctement une substitution nucléophile SN2 sur un centre stéréogène ?",
+    "statement": "Quelle proposition caractérise correctement une substitution nucléophile SN2 sur un centre stéréogène ?",
+    "explanation": "Une SN2 est concertée : le nucléophile attaque par la face opposée au groupe partant, ce qui conduit à une inversion géométrique au centre réactionnel.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:sn2"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Elle passe obligatoirement par un carbocation plan isolable.",
+      "Elle conduit nécessairement à un mélange racémique 50/50.",
+      "Le nucléophile attaque préférentiellement du même côté que le groupe partant.",
+      "Elle s’effectue en une étape concertée avec inversion de la géométrie au centre attaqué.",
+      "Elle nécessite toujours un dérivé halogéné tertiaire pour être rapide."
+    ],
+    "correctChoiceIndexes": [
+      3
+    ],
+    "choiceExplanations": [
+      "Le carbocation est caractéristique du schéma SN1 ; la SN2 est concertée.",
+      "Une SN2 stéréospécifique produit une inversion au centre attaqué, pas une racémisation.",
+      "L’attaque se fait par l’arrière, du côté opposé au groupe partant.",
+      "C’est l’inversion de Walden caractéristique d’une SN2 sur un centre tétraédrique stéréogène.",
+      "L’encombrement stérique d’un centre tertiaire défavorise fortement la SN2."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:sn2"
+      ]
+    }
+  },
+  {
+    "order": 17,
+    "difficulty": "HARD",
+    "question": "Sélectionnez exactement les deux propositions correctes concernant esters, amides et thioesters.",
+    "statement": "Sélectionnez exactement les deux propositions correctes concernant esters, amides et thioesters.",
+    "explanation": "Les esters s’hydrolysent plus facilement que les amides dans des conditions comparables, car la conjugaison de l’azote renforce le caractère de double liaison de C–N. Les thioesters restent des dérivés d’acides hydrolysables.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:esters-amides-thioesters"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "La saponification d’un ester en milieu basique conduit notamment à un carboxylate.",
+      "La liaison C–N d’un amide possède un caractère partiel de double liaison par conjugaison.",
+      "Un amide s’hydrolyse toujours plus facilement qu’un ester.",
+      "Un thioester ne comporte jamais de carbonyle.",
+      "L’acétyl-CoA est un éther-oxyde dépourvu de liaison thioester."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "L’hydrolyse basique produit le sel de l’acide carboxylique et un alcool.",
+      "Le doublet de l’azote est délocalisé vers le carbonyle, ce qui limite la rotation autour de C–N.",
+      "L’amide est généralement moins réactif et demande des conditions plus sévères hors catalyse enzymatique.",
+      "Le motif thioester est R–C(=O)–S–R′.",
+      "L’acétyl-CoA comporte précisément une liaison thioester."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:esters-amides-thioesters"
+      ]
+    }
+  },
+  {
+    "order": 18,
+    "difficulty": "HARD",
+    "question": "Parmi les propositions suivantes, lesquelles décrivent correctement des relations entre structure moléculaire et réactivité ?",
+    "statement": "Parmi les propositions suivantes, lesquelles décrivent correctement des relations entre structure moléculaire et réactivité ?",
+    "explanation": "Cette synthèse transversale relie la structure atomique, la liaison, la stéréochimie et les grands types de réactivité vus dans l’EC.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:structure-reactivite-integree"
+    ],
+    "format": "QRPL",
+    "questionFormat": "QRPL",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Deux isotopes d’un même élément possèdent le même numéro atomique Z.",
+      "Une triple liaison C≡C comporte une liaison σ et deux liaisons π.",
+      "Un carbone hybridé sp présente classiquement une géométrie linéaire, également dite digonale.",
+      "Une substitution nucléophile SN2 concertée sur un centre stéréogène s’accompagne d’une inversion de géométrie au centre attaqué.",
+      "La liaison C–N d’un amide possède un caractère partiel de double liaison.",
+      "Un carbone hybridé sp³ possède une géométrie trigonale plane.",
+      "Deux énantiomères se distinguent par une connectivité atomique différente.",
+      "Un alcène est un hydrocarbure saturé qui ne subit pas de réaction d’addition sur sa double liaison.",
+      "Un ammonium quaternaire est électriquement neutre.",
+      "Une liaison hydrogène est nécessairement une liaison covalente intramoléculaire."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "choiceExplanations": [
+      "Ils possèdent le même nombre de protons et diffèrent par leur nombre de neutrons.",
+      "Le recouvrement axial forme une liaison σ et deux recouvrements latéraux orthogonaux forment les deux liaisons π.",
+      "Les deux orbitales hybrides sp sont orientées à 180°.",
+      "L’attaque arrière du nucléophile conduit à l’inversion dite de Walden.",
+      "La délocalisation électronique par mésomérie limite la rotation autour de cette liaison.",
+      "Un carbone sp³ adopte classiquement une géométrie tétraédrique.",
+      "Ils possèdent la même connectivité mais sont images l’un de l’autre dans un miroir et non superposables.",
+      "Un alcène est insaturé et sa liaison π peut participer à des réactions d’addition.",
+      "L’azote porte une charge formelle positive.",
+      "Une liaison hydrogène est une interaction non covalente et peut être intra- ou intermoléculaire."
+    ],
+    "requiredSelectionCount": 5,
+    "answerPayload": {
+      "requiredSelectionCount": 5,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:structure-reactivite-integree"
+      ]
+    }
+  },
+  {
+    "order": 19,
+    "difficulty": "MEDIUM",
+    "question": "À propos des aldéhydes et des cétones, quelles propositions sont exactes ?",
+    "statement": "À propos des aldéhydes et des cétones, quelles propositions sont exactes ?",
+    "explanation": "Le carbonyle est polarisé avec un carbone électrophile. Les aldéhydes sont généralement plus facilement oxydables que les cétones simples et la réduction par hydrure donne des alcools de classe différente selon la fonction initiale.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:aldehydes-cetones"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le carbone du groupe C=O est électrophile.",
+      "La réduction d’un aldéhyde par un hydrure doux peut produire un alcool primaire.",
+      "La réduction d’une cétone par NaBH4 peut produire un alcool secondaire.",
+      "Un aldéhyde s’oxyde généralement plus facilement qu’une cétone simple.",
+      "Une cétone possède nécessairement le carbonyle en extrémité de chaîne et lié à un hydrogène."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "choiceExplanations": [
+      "L’oxygène attire la densité électronique et polarise la liaison C=O.",
+      "R–CHO devient R–CH2OH.",
+      "R–CO–R′ devient R–CHOH–R′.",
+      "Les aldéhydes peuvent notamment être oxydés en acides carboxyliques dans des conditions où une cétone simple résiste.",
+      "Cette description correspond à un aldéhyde ; une cétone porte deux substituants carbonés autour du carbonyle."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:aldehydes-cetones"
+      ]
+    }
+  },
+  {
+    "order": 20,
+    "difficulty": "MEDIUM",
+    "question": "Après addition d’un organomagnésien sur une cétone puis hydrolyse, quelle classe d’alcool obtient-on classiquement ?",
+    "statement": "Après addition d’un organomagnésien sur une cétone puis hydrolyse, quelle classe d’alcool obtient-on classiquement ?",
+    "explanation": "Le carbone du carbonyle d’une cétone porte déjà deux substituants carbonés. L’addition du groupe de l’organomagnésien apporte un troisième substituant : l’alcool obtenu est tertiaire.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:grignard-cetone"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "alcool tertiaire"
+        },
+        {
+          "value": "tertiaire"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:grignard-cetone"
+      ]
+    }
+  },
+  {
+    "order": 21,
+    "difficulty": "MEDIUM",
+    "question": "Quelle proposition décrit correctement une voie de préparation d’un acide carboxylique ?",
+    "statement": "Quelle proposition décrit correctement une voie de préparation d’un acide carboxylique ?",
+    "explanation": "La carboxylation d’un organomagnésien par CO2 ajoute le carbone du dioxyde de carbone au squelette carboné. Après hydrolyse acide, on obtient un acide carboxylique.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:preparation-acides"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "La réduction douce d’un alcool secondaire conduit directement à un acide carboxylique.",
+      "L’hydrogénation d’un alcane saturé forme nécessairement un acide carboxylique.",
+      "L’hydrolyse d’un nitrile s’arrête toujours obligatoirement à l’amide.",
+      "La déshydratation d’un alcool primaire fournit directement un acide sans étape d’oxydation.",
+      "Un organomagnésien réagissant avec CO2 puis hydrolysé fournit un acide carboxylique possédant un carbone de plus que le groupe carboné initial."
+    ],
+    "correctChoiceIndexes": [
+      4
+    ],
+    "choiceExplanations": [
+      "Un alcool secondaire s’oxyde en cétone ; une réduction ne conduit pas à un acide.",
+      "Un alcane est déjà saturé et l’hydrogénation ne crée pas une fonction acide.",
+      "L’hydrolyse peut se poursuivre jusqu’à l’acide carboxylique selon les conditions.",
+      "La déshydratation conduit plutôt à une élimination donnant un alcène.",
+      "Le carbone de CO2 devient le carbone carboxylique du produit."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:preparation-acides"
+      ]
+    }
+  },
+  {
+    "order": 22,
+    "difficulty": "MEDIUM",
+    "question": "À propos des acides carboxyliques, de leurs dérivés et de certaines espèces nucléophiles biologiques, quelles propositions sont exactes ?",
+    "statement": "À propos des acides carboxyliques, de leurs dérivés et de certaines espèces nucléophiles biologiques, quelles propositions sont exactes ?",
+    "explanation": "La déprotonation d’un acide carboxylique donne un carboxylate stabilisé par résonance. Les chlorures d’acyle sont des dérivés activés fortement électrophiles, et plusieurs hétéroatomes des bases nucléiques peuvent agir comme nucléophiles vis-à-vis d’électrophiles adaptés.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:acides-derives-nucleophiles"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "La charge négative d’un ion carboxylate est délocalisée sur deux atomes d’oxygène.",
+      "Un chlorure d’acyle est plus réactif vis-à-vis de nombreux nucléophiles qu’un acide carboxylique non activé.",
+      "Certains atomes d’azote ou d’oxygène des bases nucléiques peuvent participer à des attaques nucléophiles.",
+      "Un nucléotide est, par définition, dépourvu de groupement phosphate.",
+      "Un carboxylate concentre sa charge négative sur un seul oxygène sans aucune mésomérie."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Cette délocalisation explique en partie la stabilité de la base conjuguée.",
+      "La substitution nucléophile d’acyle est facilitée par le caractère du groupe partant chlorure.",
+      "Leurs doublets électroniques peuvent réagir avec des électrophiles adaptés, notamment lors d’alkylations.",
+      "Le phosphate distingue précisément un nucléotide du nucléoside correspondant.",
+      "Les formes mésomères délocalisent la charge sur les deux oxygènes."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:acides-derives-nucleophiles"
+      ]
+    }
+  },
+  {
+    "order": 23,
+    "difficulty": "HARD",
+    "question": "Un composé ne contient que C, H et O. Sa composition massique est de 40,0 % de C, 6,7 % de H et 53,3 % de O. Quelle est sa formule empirique ?\n\nDonnées : $M(\\mathrm C)=12\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$, $M(\\mathrm H)=1\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$ et $M(\\mathrm O)=16\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$.",
+    "statement": "Un composé ne contient que C, H et O. Sa composition massique est de 40,0 % de C, 6,7 % de H et 53,3 % de O. Quelle est sa formule empirique ?\n\nDonnées : $M(\\mathrm C)=12\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$, $M(\\mathrm H)=1\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$ et $M(\\mathrm O)=16\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$.",
+    "explanation": "Pour 100 g : $n_C=40/12\\approx3{,}33$, $n_H=6{,}7/1=6{,}7$ et $n_O=53{,}3/16\\approx3{,}33$. En divisant par 3,33, on obtient approximativement $1:2:1$, soit $\\ce{CH2O}$.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:microanalyse-formule-empirique"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "CH2O"
+        },
+        {
+          "value": "CH₂O"
+        },
+        {
+          "value": "C1H2O1"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:microanalyse-formule-empirique"
+      ]
+    }
+  },
+  {
+    "order": 24,
+    "difficulty": "MEDIUM",
+    "question": "Lorsqu’une molécule contient simultanément une fonction acide carboxylique, une fonction amide, une fonction nitrile et une fonction alcool, laquelle est prioritaire pour choisir le suffixe principal dans la hiérarchie utilisée pour la nomenclature de cette EC ?",
+    "statement": "Lorsqu’une molécule contient simultanément une fonction acide carboxylique, une fonction amide, une fonction nitrile et une fonction alcool, laquelle est prioritaire pour choisir le suffixe principal dans la hiérarchie utilisée pour la nomenclature de cette EC ?",
+    "explanation": "La hiérarchie de consolidation utilisée est : acide carboxylique > ester > amide > nitrile > aldéhyde > cétone > alcool > thiol > amine.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:nomenclature-priorite-fonctions"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "La fonction alcool.",
+      "La fonction acide carboxylique.",
+      "La fonction nitrile.",
+      "La fonction amide.",
+      "Toutes les fonctions sont équivalentes ; le suffixe se choisit par ordre alphabétique."
+    ],
+    "correctChoiceIndexes": [
+      1
+    ],
+    "choiceExplanations": [
+      "L’alcool est moins prioritaire que l’acide carboxylique dans cette hiérarchie.",
+      "Elle est placée au sommet de la hiérarchie fonctionnelle utilisée.",
+      "Le nitrile est prioritaire sur plusieurs fonctions mais reste en dessous de l’acide carboxylique.",
+      "L’amide est moins prioritaire que l’acide carboxylique.",
+      "Le choix du suffixe dépend d’une hiérarchie fonctionnelle, pas de l’ordre alphabétique."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:nomenclature-priorite-fonctions"
+      ]
+    }
+  },
+  {
+    "order": 25,
+    "difficulty": "EASY",
+    "question": "À propos des règles de base de nomenclature organique, quelles propositions sont exactes ?",
+    "statement": "À propos des règles de base de nomenclature organique, quelles propositions sont exactes ?",
+    "explanation": "La chaîne parente doit intégrer la fonction principale et recevoir une numérotation cohérente avec les règles de priorité. Les préfixes méth-, éth-, prop- et but- indiquent respectivement 1, 2, 3 et 4 carbones.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:nomenclature-base"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le préfixe prop- correspond à une chaîne principale de trois atomes de carbone.",
+      "Un substituant CH3– est nommé méthyle.",
+      "Le préfixe éth- correspond à quatre atomes de carbone.",
+      "La présence de plusieurs fonctions impose de choisir le suffixe principal au hasard.",
+      "Le degré d’un carbone est défini par le nombre total d’atomes, hydrogènes compris, auxquels il est lié."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Prop- désigne trois carbones.",
+      "Le groupe alkyle dérivé du méthane par perte d’un hydrogène est le groupe méthyle.",
+      "Éth- correspond à deux carbones ; but- correspond à quatre.",
+      "La fonction principale est déterminée par une hiérarchie de priorité.",
+      "Le degré carboné dépend du nombre d’atomes de carbone directement liés à ce carbone."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:nomenclature-base"
+      ]
+    }
+  },
+  {
+    "order": 26,
+    "difficulty": "MEDIUM",
+    "question": "Une molécule polyfonctionnelle doit être nommée de façon systématique. Quelles propositions décrivent correctement la méthode ?",
+    "statement": "Une molécule polyfonctionnelle doit être nommée de façon systématique. Quelles propositions décrivent correctement la méthode ?",
+    "explanation": "La nomenclature polyfonctionnelle exige d’identifier toutes les fonctions, de choisir la fonction principale, de sélectionner une chaîne parente compatible, de numéroter puis de traiter les fonctions secondaires comme préfixes lorsque nécessaire.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:nomenclature-polyfonctionnelle"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "La première étape utile est d’identifier les fonctions présentes dans la structure.",
+      "La fonction principale détermine notamment le suffixe du nom.",
+      "La chaîne parente doit être choisie en tenant compte de la fonction principale.",
+      "La molécule $\\ce{HO-CH2-CH2-CHO}$ peut être nommée 3-hydroxypropanal.",
+      "L’ordre alphabétique des préfixes remplace toujours la hiérarchie des fonctions pour choisir le suffixe."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "choiceExplanations": [
+      "On ne peut déterminer la fonction principale sans inventaire préalable des fonctions.",
+      "Les fonctions secondaires sont ensuite exprimées par des préfixes ou autres conventions adaptées.",
+      "Le carbone de la fonction principale doit être intégré selon les règles propres à cette fonction.",
+      "Le carbone de l’aldéhyde est C1 ; le groupe hydroxy se trouve alors en C3.",
+      "La hiérarchie des fonctions détermine la fonction principale ; l’ordre alphabétique intervient dans d’autres étapes d’assemblage du nom."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:nomenclature-polyfonctionnelle"
+      ]
+    }
+  },
+  {
+    "order": 27,
+    "difficulty": "MEDIUM",
+    "question": "En vous appuyant sur les composés carbonylés B et D et sur la réaction de D avec CH3MgBr, quelles propositions sont exactes ?",
+    "statement": "En vous appuyant sur les composés carbonylés B et D et sur la réaction de D avec CH3MgBr, quelles propositions sont exactes ?",
+    "explanation": "La liaison C=O est polarisée vers l’oxygène : le carbone carbonylé est appauvri en densité électronique et constitue un centre électrophile. Dans un organomagnésien, le fragment carboné présente au contraire un fort caractère nucléophile et peut attaquer ce carbone. La conjugaison d’une amide diminue la disponibilité du doublet de l’azote et un éther ne possède pas de liaison O–H lui permettant d’être donneur classique de liaison hydrogène.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:polarite-reactivite"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le carbone du groupe C=O de B et de D constitue un centre électrophile susceptible d’être attaqué par un nucléophile.",
+      "Dans CH3MgBr, le fragment carboné se comporte comme un nucléophile vis-à-vis du carbone carbonylé de D.",
+      "L’oxygène du carbonyle est le centre électrophile principal attaqué par le fragment carboné de l’organomagnésien.",
+      "La conjugaison du doublet de l’azote avec un carbonyle rend une amide plus basique qu’une amine simple comparable.",
+      "La présence d’un oxygène d’éther suffit toujours à rendre une molécule donneuse de liaison hydrogène."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Le carbone porte une charge partielle positive en raison de l’électronégativité supérieure de l’oxygène.",
+      "Le fragment carboné de l’organomagnésien est fortement nucléophile.",
+      "L’attaque a lieu sur le carbone carbonylé, pauvre en électrons, pas sur l’oxygène.",
+      "La conjugaison délocalise le doublet et diminue la basicité de l’azote amidique.",
+      "Un éther peut être accepteur de liaison hydrogène mais ne possède pas de liaison O–H donneuse."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:polarite-reactivite"
+      ]
+    }
+  },
+  {
+    "order": 28,
+    "difficulty": "HARD",
+    "question": "À partir des transformations représentées, quelles propositions sont exactes ?",
+    "statement": "À partir des transformations représentées, quelles propositions sont exactes ?",
+    "explanation": "A est un alcool primaire qui peut être oxydé en aldéhyde B puis en acide C. La réduction de B par un hydrure peut reformer A. L’addition de CH3MgBr sur la propanone D suivie d’une hydrolyse donne le 2-méthylpropan-2-ol, un alcool tertiaire. Un organomagnésien est détruit par l’eau et doit être utilisé en milieu anhydre avant l’étape d’hydrolyse.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:enchaînements-reactionnels"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "L’oxydation ménagée de A peut donner B.",
+      "Une oxydation plus poussée de B peut conduire à C.",
+      "La réduction de B par NaBH4 peut régénérer A.",
+      "L’addition de CH3MgBr sur D puis hydrolyse peut former le 2-méthylpropan-2-ol.",
+      "Un organomagnésien peut être conservé intact en présence d’un excès d’eau avant son addition sur un carbonyle."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "choiceExplanations": [
+      "L’oxydation ménagée d’un alcool primaire A conduit à l’aldéhyde B.",
+      "L’aldéhyde B s’oxyde en acide carboxylique C.",
+      "La réduction de l’aldéhyde B par un hydrure régénère l’alcool primaire A.",
+      "L’addition d’un méthyle sur la propanone D suivie d’hydrolyse produit le 2-méthylpropan-2-ol.",
+      "Les organomagnésiens sont détruits par les espèces protiques telles que l’eau."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:enchaînements-reactionnels"
+      ]
+    }
+  },
+  {
+    "order": 29,
+    "difficulty": "MEDIUM",
+    "question": "Sur la molécule F, sélectionnez le carbone stéréogène.",
+    "statement": "Sur la molécule F, sélectionnez le carbone stéréogène.",
+    "explanation": "Le carbone portant le groupe OH dans F est lié à quatre substituants différents : H, OH, COOH et CH2CH3. Il constitue donc un centre stéréogène. Le carbone du carboxyle est sp² et le carbone CH2 porte deux hydrogènes identiques : aucun des deux n’est un centre stéréogène.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:qzone-stereochimie"
+    ],
+    "format": "QZONE",
+    "questionFormat": "QZONE",
+    "questionType": "hotspot",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "image": {
+        "src": "/images/training/ue14/colles/c10/integrated-reactivity-linked-q27-q30.svg",
+        "alt": "Schéma de transformations reliant propan-1-ol, propanal et acide propanoïque, addition d’un organomagnésien sur la propanone, et structure d’une molécule polyfonctionnelle chirale F.",
+        "width": 1200,
+        "height": 760
+      },
+      "expectedZones": [
+        {
+          "id": "target-stereogenic-carbon-f",
+          "label": "Carbone stéréogène de la molécule F",
+          "x": 0.8167,
+          "y": 0.5395,
+          "tolerance": 0.05
+        }
+      ],
+      "defaultTolerance": 0.05,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:qzone-stereochimie"
+      ]
+    }
+  },
+  {
+    "order": 30,
+    "difficulty": "HARD",
+    "question": "En analysant la molécule F et les règles de stéréochimie et de nomenclature utilisées dans cette EC, quelles propositions sont exactes ?",
+    "statement": "En analysant la molécule F et les règles de stéréochimie et de nomenclature utilisées dans cette EC, quelles propositions sont exactes ?",
+    "explanation": "Le carbone portant OH est tétraédrique et lié à quatre substituants différents : il peut donc définir un centre stéréogène. La fonction acide carboxylique est prioritaire sur l’alcool et détermine le suffixe principal ; l’alcool est alors exprimé par hydroxy-. Un centre stéréogène tétraédrique carboné est classiquement sp³. Deux images miroir non superposables gardent la même connectivité : ce sont des énantiomères.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C10",
+      "ec:CHIMIE",
+      "theme:synthese-finale"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le carbone portant OH dans F est un centre stéréogène car il est lié à quatre substituants différents.",
+      "Dans F, la fonction acide carboxylique est prioritaire sur la fonction alcool pour choisir le suffixe principal.",
+      "Lorsque l’acide carboxylique est la fonction principale, le groupe OH de F peut être exprimé par le préfixe hydroxy-.",
+      "Le carbone stéréogène de F est hybridé sp² et possède une géométrie trigonale plane.",
+      "L’image miroir non superposable de F aurait nécessairement une connectivité atomique différente et serait donc un isomère de constitution."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Il porte H, OH, COOH et CH2CH3.",
+      "L’acide carboxylique possède la plus haute priorité parmi ces fonctions.",
+      "L’alcool secondaire est désigné par le préfixe hydroxy-.",
+      "Le carbone stéréogène de F est hybridé sp³ et tétraédrique.",
+      "L’image miroir non superposable est un énantiomère, conservant la même connectivité atomique."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C10",
+        "ec:CHIMIE",
+        "theme:synthese-finale"
+      ]
+    }
+  }
+]

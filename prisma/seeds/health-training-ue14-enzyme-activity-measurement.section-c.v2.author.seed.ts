@@ -1,657 +1,723 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-export const UE14_BIOCH_CH15_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
+/** UE14 Biochimie — 4.2 Mesure d'une activité enzymatique — Section C — Lineweaver-Burk et inhibitions réversibles */
+export const UE14_BIOCH_CH15_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 45,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant la courbe de Michaelis-Menten :",
+    "question": "Concernant la représentation de Lineweaver-Burk, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La vitesse initiale augmente avec la concentration en substrat.",
+        "content": "Elle trace 1/v0 en fonction de 1/[S].",
         "correct": true,
-        "explanation": "La courbe v0=f([S]) tend vers Vmax."
+        "explanation": "La transformation double inverse linéarise l'équation idéale."
       },
       {
-        "content": "La vitesse décroît toujours quand [S] augmente.",
+        "content": "La représentation trace v0 contre [S].",
         "correct": false,
-        "explanation": "La courbe v0=f([S]) tend vers Vmax."
+        "explanation": "Cela décrit le graphe Michaelis-Menten direct."
       },
       {
-        "content": "Elle tend vers un plateau Vmax.",
+        "content": "La pente vaut Vmax/Km.",
+        "correct": false,
+        "explanation": "Elle vaut Km/Vmax."
+      },
+      {
+        "content": "La pente vaut Km/Vmax.",
         "correct": true,
-        "explanation": "La courbe v0=f([S]) tend vers Vmax."
+        "explanation": "Elle combine les deux paramètres."
       },
       {
-        "content": "La courbe ne présente aucun plateau.",
-        "correct": false,
-        "explanation": "La courbe v0=f([S]) tend vers Vmax."
+        "content": "L'ordonnée à l'origine vaut 1/Vmax.",
+        "correct": true,
+        "explanation": "On lit Vmax à partir de l'interception y."
       }
     ],
-    "explanation": "La courbe v0=f([S]) tend vers Vmax."
+    "explanation": "Dans Lineweaver-Burk : pente=Km/Vmax, y-intercept=1/Vmax et x-intercept=-1/Km."
   },
   {
     "order": 46,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle proposition décrit correctement la définition de Km par Vmax/2 selon la fiche ?",
+    "question": "Quelle affirmation décrit correctement l'estimation moderne de Km et Vmax ?",
     "choices": [
       {
-        "content": "Km est donc lu sur l’axe des concentrations à mi-vitesse maximale.",
+        "content": "Une droite de Lineweaver-Burk suffit à prouver un mécanisme moléculaire unique.",
+        "correct": false,
+        "explanation": "Plusieurs mécanismes peuvent produire des signatures similaires."
+      },
+      {
+        "content": "Les faibles concentrations de substrat sont fortement pondérées visuellement après inversion.",
         "correct": true,
-        "explanation": "Km correspond à [S] lorsque v0 vaut la moitié de Vmax."
+        "explanation": "Les erreurs sur 1/v et 1/[S] deviennent hétéroscédastiques."
       },
       {
-        "content": "Km est lu lorsque v0=0.",
+        "content": "Lineweaver-Burk est toujours la méthode la plus précise pour ajuster Km et Vmax.",
         "correct": false,
-        "explanation": "Km correspond à [S] lorsque v0 vaut la moitié de Vmax."
+        "explanation": "La régression non linéaire est généralement préférable."
       },
       {
-        "content": "Km est une masse d’enzyme.",
+        "content": "L'inversion des données ne change jamais la structure des erreurs.",
         "correct": false,
-        "explanation": "Km correspond à [S] lorsque v0 vaut la moitié de Vmax."
+        "explanation": "Elle les amplifie de façon non uniforme."
       },
       {
-        "content": "Km est la vitesse maximale elle-même.",
+        "content": "La régression non linéaire ne peut pas être utilisée sur une hyperbole.",
         "correct": false,
-        "explanation": "Km correspond à [S] lorsque v0 vaut la moitié de Vmax."
+        "explanation": "C'est précisément son intérêt."
       }
     ],
-    "explanation": "Km correspond à [S] lorsque v0 vaut la moitié de Vmax."
+    "explanation": "Lineweaver-Burk est utile pour visualiser, mais la régression non linéaire directe est généralement plus fiable pour estimer les paramètres."
   },
   {
     "order": 47,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Repères fondamentaux sur l’affinité et Km :",
-    "choices": [
-      {
-        "content": "Km dépend des conditions expérimentales comme le pH et la température.",
-        "correct": true,
-        "explanation": "Dans le modèle pédagogique, l’affinité varie en sens inverse de Km."
-      },
-      {
-        "content": "Un Km élevé signifie nécessairement une meilleure fixation du substrat.",
-        "correct": false,
-        "explanation": "Dans le modèle pédagogique, l’affinité varie en sens inverse de Km."
-      },
-      {
-        "content": "Un Km faible traduit une forte affinité de l’enzyme pour le substrat.",
-        "correct": true,
-        "explanation": "Dans le modèle pédagogique, l’affinité varie en sens inverse de Km."
-      },
-      {
-        "content": "Un Km faible traduit toujours une faible affinité.",
-        "correct": false,
-        "explanation": "Dans le modèle pédagogique, l’affinité varie en sens inverse de Km."
+    "format": "QROC",
+    "question": "Quel paramètre reste inchangé lors d'une inhibition compétitive pure : Km ou Vmax ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "Vmax",
+        "Vmax reste inchangée"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Dans le modèle pédagogique, l’affinité varie en sens inverse de Km."
+    },
+    "explanation": "Compétitive pure : Vmax inchangée, Km apparent augmenté ; les droites se croisent sur l'axe 1/v."
   },
   {
     "order": 48,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les propositions suivantes sur les exemples de Km, lesquelles sont exactes ?",
+    "question": "Concernant l'inhibition incompétitive, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La fiche cite β-galactosidase/lactose avec Km d’environ 4000 µM.",
+        "content": "Km apparent diminue dans la même proportion que Vmax.",
         "correct": true,
-        "explanation": "Les exemples illustrent des Km très différents."
+        "explanation": "Le rapport Km/Vmax reste constant."
       },
       {
-        "content": "La pénicillinase/benzylpénicilline est donnée à 12000 mM.",
-        "correct": false,
-        "explanation": "Les exemples illustrent des Km très différents."
-      },
-      {
-        "content": "Elle cite anhydrase carbonique/CO2 avec environ 12000 µM.",
+        "content": "Les droites de Lineweaver-Burk sont parallèles.",
         "correct": true,
-        "explanation": "Les exemples illustrent des Km très différents."
+        "explanation": "La pente Km/Vmax est inchangée."
       },
       {
-        "content": "Aucun exemple chiffré de Km n’est fourni.",
+        "content": "Vmax reste inchangée.",
         "correct": false,
-        "explanation": "Les exemples illustrent des Km très différents."
+        "explanation": "Elle diminue."
+      },
+      {
+        "content": "L'inhibiteur se lie au complexe ES dans le modèle incompétitif idéal.",
+        "correct": true,
+        "explanation": "Il ne se lie pas à l'enzyme libre."
+      },
+      {
+        "content": "Vmax apparente diminue.",
+        "correct": true,
+        "explanation": "Une fraction de ES est piégée sous forme inactive ESI."
       }
     ],
-    "explanation": "Les exemples illustrent des Km très différents."
+    "explanation": "Incompétitive : fixation sur ES, baisse proportionnelle de Km et Vmax, droites Lineweaver-Burk parallèles."
   },
   {
     "order": 49,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Concernant l’équation de Michaelis-Menten :",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes sur l'inhibition non compétitive pure, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "Si [S]=Km, alors v0=Vmax/2.",
+        "content": "Km apparent reste inchangé dans le cas pur.",
         "correct": true,
-        "explanation": "L’équation de Michaelis-Menten permet de relier les paramètres cinétiques."
+        "explanation": "C'est ce qui distingue le cas non compétitif idéal d'un mixte général."
       },
       {
-        "content": "Si [S]=Km, alors v0=2Vmax.",
+        "content": "Vmax reste inchangée.",
         "correct": false,
-        "explanation": "L’équation de Michaelis-Menten permet de relier les paramètres cinétiques."
+        "explanation": "Elle diminue."
       },
       {
-        "content": "L’équation ne comporte pas la concentration en substrat.",
+        "content": "Km augmente nécessairement dans le cas non compétitif pur.",
         "correct": false,
-        "explanation": "L’équation de Michaelis-Menten permet de relier les paramètres cinétiques."
+        "explanation": "Il reste inchangé."
       },
       {
-        "content": "La fiche donne v0 = Km/[S] sans Vmax.",
+        "content": "Sur Lineweaver-Burk, les droites se coupent sur l'axe des abscisses.",
+        "correct": true,
+        "explanation": "L'abscisse -1/Km reste inchangée."
+      },
+      {
+        "content": "Les droites sont parallèles.",
         "correct": false,
-        "explanation": "L’équation de Michaelis-Menten permet de relier les paramètres cinétiques."
+        "explanation": "Cela correspond à l'incompétitive idéale."
       }
     ],
-    "explanation": "L’équation de Michaelis-Menten permet de relier les paramètres cinétiques."
+    "explanation": "Non compétitive pure : Vmax diminue, Km reste inchangé ; c'est un cas particulier du modèle mixte.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 50,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles propositions décrivent correctement la réaction d’ordre zéro selon la fiche ?",
+    "question": "Parmi les affirmations suivantes sur l'inhibition mixte, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "Cette notion est distincte d’une réaction d’ordre 1.",
-        "correct": true,
-        "explanation": "Ordre zéro : vitesse constante par rapport à la concentration considérée."
-      },
-      {
-        "content": "Sa vitesse est forcément nulle.",
+        "content": "Le cas non compétitif pur n'a aucun lien avec le modèle mixte.",
         "correct": false,
-        "explanation": "Ordre zéro : vitesse constante par rapport à la concentration considérée."
+        "explanation": "C'est un cas particulier."
       },
       {
-        "content": "Dans le rappel de la fiche, une réaction d’ordre zéro a une vitesse constante.",
-        "correct": true,
-        "explanation": "Ordre zéro : vitesse constante par rapport à la concentration considérée."
-      },
-      {
-        "content": "Une réaction d’ordre zéro suit v=k[A].",
+        "content": "En inhibition mixte, Km doit toujours augmenter.",
         "correct": false,
-        "explanation": "Ordre zéro : vitesse constante par rapport à la concentration considérée."
+        "explanation": "Il peut augmenter ou diminuer."
+      },
+      {
+        "content": "L'inhibiteur peut se lier à E et à ES avec des affinités différentes.",
+        "correct": true,
+        "explanation": "C'est le schéma mixte général."
+      },
+      {
+        "content": "Km apparent peut augmenter ou diminuer selon les affinités relatives de l'inhibiteur pour E et ES.",
+        "correct": true,
+        "explanation": "Il n'existe pas une direction universelle."
+      },
+      {
+        "content": "L'inhibiteur ne peut se lier qu'à l'enzyme libre.",
+        "correct": false,
+        "explanation": "Le modèle mixte permet la liaison à E et ES."
       }
     ],
-    "explanation": "Ordre zéro : vitesse constante par rapport à la concentration considérée."
+    "explanation": "Mixte : Vmax diminue et Km peut monter ou baisser ; le non compétitif pur est le cas d'affinités égales pour E et ES."
   },
   {
     "order": 51,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Repères fondamentaux sur la réaction d’ordre un :",
+    "format": "QRU",
+    "question": "Quelle affirmation décrit correctement la comparaison des inhibitions réversibles ?",
     "choices": [
       {
-        "content": "La fiche donne v=k[A].",
-        "correct": true,
-        "explanation": "Ordre un : vitesse proportionnelle à la concentration du substrat."
-      },
-      {
-        "content": "La vitesse est toujours constante quelle que soit [A].",
+        "content": "Non compétitive pure : Km↓ et Vmax↓ dans la même proportion.",
         "correct": false,
-        "explanation": "Ordre un : vitesse proportionnelle à la concentration du substrat."
+        "explanation": "Cela décrit l'incompétitive."
       },
       {
-        "content": "La vitesse est directement proportionnelle à [A].",
-        "correct": true,
-        "explanation": "Ordre un : vitesse proportionnelle à la concentration du substrat."
-      },
-      {
-        "content": "La formule donnée est v=k[A][B].",
+        "content": "Compétitive pure : Km inchangé, Vmax↓.",
         "correct": false,
-        "explanation": "Ordre un : vitesse proportionnelle à la concentration du substrat."
+        "explanation": "Cela décrit le non compétitif pur."
+      },
+      {
+        "content": "Compétitive pure : Km↑, Vmax inchangée.",
+        "correct": true,
+        "explanation": "Une forte [S] peut surmonter la compétition idéale."
+      },
+      {
+        "content": "Incompétitive : Km↑, Vmax inchangée.",
+        "correct": false,
+        "explanation": "Cela décrit le compétitif pur."
+      },
+      {
+        "content": "Mixte général : Vmax toujours inchangée.",
+        "correct": false,
+        "explanation": "Elle diminue."
       }
     ],
-    "explanation": "Ordre un : vitesse proportionnelle à la concentration du substrat."
+    "explanation": "Les signatures Km/Vmax permettent de distinguer les modèles idéaux d'inhibition réversible."
   },
   {
     "order": 52,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Parmi les propositions suivantes sur la réaction d’ordre deux, laquelle est exacte ?",
-    "choices": [
-      {
-        "content": "La vitesse est proportionnelle au produit [A][B].",
-        "correct": true,
-        "explanation": "Ordre deux : vitesse proportionnelle au produit des concentrations de deux réactifs."
-      },
-      {
-        "content": "La vitesse est indépendante des concentrations.",
-        "correct": false,
-        "explanation": "Ordre deux : vitesse proportionnelle au produit des concentrations de deux réactifs."
-      },
-      {
-        "content": "La relation est v=k uniquement.",
-        "correct": false,
-        "explanation": "Ordre deux : vitesse proportionnelle au produit des concentrations de deux réactifs."
-      },
-      {
-        "content": "La réaction d’ordre deux comporte nécessairement un seul substrat.",
-        "correct": false,
-        "explanation": "Ordre deux : vitesse proportionnelle au produit des concentrations de deux réactifs."
+    "format": "QROC",
+    "question": "Quelle est l'ordonnée à l'origine d'une droite de Lineweaver-Burk ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "1/Vmax",
+        "un sur Vmax"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Ordre deux : vitesse proportionnelle au produit des concentrations de deux réactifs."
+    },
+    "explanation": "Dans Lineweaver-Burk : pente=Km/Vmax, y-intercept=1/Vmax et x-intercept=-1/Km."
   },
   {
     "order": 53,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant la représentation de Lineweaver-Burk :",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "L’ordonnée à l’origine vaut 1/Vmax.",
-        "correct": true,
-        "explanation": "La double inverse linéarise la relation de Michaelis-Menten."
-      },
-      {
-        "content": "L’ordonnée à l’origine vaut Km.",
+        "content": "Toute inhibition non compétitive signifie que l'inhibiteur se lie exclusivement à ES.",
         "correct": false,
-        "explanation": "La double inverse linéarise la relation de Michaelis-Menten."
+        "explanation": "Cela décrit l'incompétitive."
       },
       {
-        "content": "La fiche représente 1/v0 en fonction de 1/[S].",
+        "content": "Lineweaver-Burk reste utile pédagogiquement pour visualiser certains schémas d'inhibition.",
         "correct": true,
-        "explanation": "La double inverse linéarise la relation de Michaelis-Menten."
+        "explanation": "Sa lisibilité ne signifie pas qu'elle soit le meilleur estimateur numérique."
       },
       {
-        "content": "La représentation porte v0 en fonction du temps.",
+        "content": "Km augmente nécessairement dans le cas non compétitif pur.",
         "correct": false,
-        "explanation": "La double inverse linéarise la relation de Michaelis-Menten."
+        "explanation": "Il reste inchangé."
+      },
+      {
+        "content": "La régression non linéaire ne peut pas être utilisée sur une hyperbole.",
+        "correct": false,
+        "explanation": "C'est précisément son intérêt."
+      },
+      {
+        "content": "Vmax apparente diminue.",
+        "correct": true,
+        "explanation": "Une partie de l'enzyme devient catalytiquement indisponible."
+      },
+      {
+        "content": "L'ajustement doit idéalement tenir compte du modèle d'erreur expérimental.",
+        "correct": true,
+        "explanation": "La qualité du fit dépend des données et de leur variance."
+      },
+      {
+        "content": "Lineweaver-Burk est toujours la méthode la plus précise pour ajuster Km et Vmax.",
+        "correct": false,
+        "explanation": "La régression non linéaire est généralement préférable."
+      },
+      {
+        "content": "Elle est un cas particulier d'inhibition mixte où l'inhibiteur a la même affinité pour E et ES.",
+        "correct": true,
+        "explanation": "Les deux branches d'inhibition sont équilibrées."
+      },
+      {
+        "content": "L'inversion des données ne change jamais la structure des erreurs.",
+        "correct": false,
+        "explanation": "Elle les amplifie de façon non uniforme."
+      },
+      {
+        "content": "Km apparent reste inchangé dans le cas pur.",
+        "correct": true,
+        "explanation": "C'est ce qui distingue le cas non compétitif idéal d'un mixte général."
       }
     ],
-    "explanation": "La double inverse linéarise la relation de Michaelis-Menten."
+    "explanation": "Lineweaver-Burk est utile pour visualiser, mais la régression non linéaire directe est généralement plus fiable pour estimer les paramètres. Non compétitive pure : Vmax diminue, Km reste inchangé ; c'est un cas particulier du modèle mixte."
   },
   {
     "order": 54,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles propositions décrivent correctement le repère d’abscisse de Lineweaver-Burk dans la fiche selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement l'inhibition compétitive pure ?",
     "choices": [
       {
-        "content": "Le support imprimé indique que la droite coupe l’axe des abscisses en 1/Km.",
+        "content": "L'inhibiteur se lie à l'enzyme libre sur un site incompatible avec la liaison simultanée du substrat dans le modèle compétitif pur.",
         "correct": true,
-        "explanation": "Le support local imprime 1/Km pour l’abscisse ; la banque le signale explicitement sans le corriger silencieusement."
+        "explanation": "Il entre fonctionnellement en compétition avec S."
       },
       {
-        "content": "Le support indique que l’abscisse d’intersection vaut Vmax.",
+        "content": "Km apparent diminue.",
         "correct": false,
-        "explanation": "Le support local imprime 1/Km pour l’abscisse ; la banque le signale explicitement sans le corriger silencieusement."
+        "explanation": "Il augmente."
       },
       {
-        "content": "Cette formulation est conservée comme convention locale du support.",
+        "content": "Km apparent augmente.",
         "correct": true,
-        "explanation": "Le support local imprime 1/Km pour l’abscisse ; la banque le signale explicitement sans le corriger silencieusement."
+        "explanation": "Il faut davantage de substrat pour atteindre Vmax/2."
       },
       {
-        "content": "Le support affirme que l’ordonnée à l’origine vaut Km/Vmax.",
+        "content": "Vmax apparente reste inchangée.",
+        "correct": true,
+        "explanation": "Une forte [S] peut surmonter la compétition dans le modèle idéal."
+      },
+      {
+        "content": "Vmax diminue nécessairement dans une inhibition compétitive pure réversible.",
         "correct": false,
-        "explanation": "Le support local imprime 1/Km pour l’abscisse ; la banque le signale explicitement sans le corriger silencieusement."
+        "explanation": "Elle reste inchangée."
       }
     ],
-    "explanation": "Le support local imprime 1/Km pour l’abscisse ; la banque le signale explicitement sans le corriger silencieusement."
+    "explanation": "Compétitive pure : Vmax inchangée, Km apparent augmenté ; les droites se croisent sur l'axe 1/v."
   },
   {
     "order": 55,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application : quelles propositions relatives à l’affinité et Km sont correctes ?",
+    "question": "Concernant la représentation de Lineweaver-Burk, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Un Km élevé traduit une faible affinité.",
+        "content": "La pente vaut Km/Vmax.",
         "correct": true,
-        "explanation": "Dans le modèle pédagogique, l’affinité varie en sens inverse de Km."
+        "explanation": "Elle combine les deux paramètres."
       },
       {
-        "content": "Km est indépendant des conditions expérimentales selon la fiche.",
+        "content": "L'ordonnée à l'origine vaut Km.",
         "correct": false,
-        "explanation": "Dans le modèle pédagogique, l’affinité varie en sens inverse de Km."
+        "explanation": "Elle vaut 1/Vmax."
       },
       {
-        "content": "Km dépend des conditions expérimentales comme le pH et la température.",
+        "content": "L'ordonnée à l'origine vaut 1/Vmax.",
         "correct": true,
-        "explanation": "Dans le modèle pédagogique, l’affinité varie en sens inverse de Km."
+        "explanation": "On lit Vmax à partir de l'interception y."
       },
       {
-        "content": "Un Km élevé signifie nécessairement une meilleure fixation du substrat.",
-        "correct": false,
-        "explanation": "Dans le modèle pédagogique, l’affinité varie en sens inverse de Km."
+        "content": "L'abscisse à l'origine vaut -1/Km.",
+        "correct": true,
+        "explanation": "Le signe négatif est essentiel."
+      },
+      {
+        "content": "Elle trace 1/v0 en fonction de 1/[S].",
+        "correct": true,
+        "explanation": "La transformation double inverse linéarise l'équation idéale."
       }
     ],
-    "explanation": "Dans le modèle pédagogique, l’affinité varie en sens inverse de Km."
+    "explanation": "Dans Lineweaver-Burk : pente=Km/Vmax, y-intercept=1/Vmax et x-intercept=-1/Km."
   },
   {
     "order": 56,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Dans une situation d’application, quelle affirmation sur les exemples de Km faut-il retenir ?",
-    "choices": [
-      {
-        "content": "Elle cite pénicillinase/benzylpénicilline avec environ 50 µM.",
-        "correct": true,
-        "explanation": "Les exemples illustrent des Km très différents."
-      },
-      {
-        "content": "La β-galactosidase/lactose a un Km de 0 selon la fiche.",
-        "correct": false,
-        "explanation": "Les exemples illustrent des Km très différents."
-      },
-      {
-        "content": "La pénicillinase/benzylpénicilline est donnée à 12000 mM.",
-        "correct": false,
-        "explanation": "Les exemples illustrent des Km très différents."
-      },
-      {
-        "content": "Aucun exemple chiffré de Km n’est fourni.",
-        "correct": false,
-        "explanation": "Les exemples illustrent des Km très différents."
+    "format": "QROC",
+    "question": "Lineweaver-Burk reste-t-elle utile pour visualiser des motifs d'inhibition ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "oui",
+        "oui, surtout pédagogiquement"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les exemples illustrent des Km très différents."
+    },
+    "explanation": "Lineweaver-Burk est utile pour visualiser, mais la régression non linéaire directe est généralement plus fiable pour estimer les paramètres."
   },
   {
     "order": 57,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Pour raisonner à partir de la fiche, quelles affirmations sur l’équation de Michaelis-Menten sont exactes ?",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes sur l'inhibition compétitive pure, laquelle est correcte ?",
     "choices": [
       {
-        "content": "La fiche donne v0 = Vmax[S]/(Km+[S]).",
-        "correct": true,
-        "explanation": "L’équation de Michaelis-Menten permet de relier les paramètres cinétiques."
-      },
-      {
-        "content": "La fiche donne v0 = Km/[S] sans Vmax.",
+        "content": "Les droites Lineweaver-Burk sont parallèles.",
         "correct": false,
-        "explanation": "L’équation de Michaelis-Menten permet de relier les paramètres cinétiques."
+        "explanation": "Cela caractérise l'inhibition incompétitive idéale."
       },
       {
-        "content": "Si [S]=Km, alors v0=Vmax/2.",
-        "correct": true,
-        "explanation": "L’équation de Michaelis-Menten permet de relier les paramètres cinétiques."
-      },
-      {
-        "content": "Si [S]=Km, alors v0=2Vmax.",
+        "content": "L'inhibiteur se fixe exclusivement sur ES.",
         "correct": false,
-        "explanation": "L’équation de Michaelis-Menten permet de relier les paramètres cinétiques."
+        "explanation": "Cela décrit l'incompétitive."
+      },
+      {
+        "content": "L'inhibiteur se lie à l'enzyme libre sur un site incompatible avec la liaison simultanée du substrat dans le modèle compétitif pur.",
+        "correct": true,
+        "explanation": "Il entre fonctionnellement en compétition avec S."
+      },
+      {
+        "content": "Vmax diminue nécessairement dans une inhibition compétitive pure réversible.",
+        "correct": false,
+        "explanation": "Elle reste inchangée."
+      },
+      {
+        "content": "Km apparent diminue.",
+        "correct": false,
+        "explanation": "Il augmente."
       }
     ],
-    "explanation": "L’équation de Michaelis-Menten permet de relier les paramètres cinétiques."
+    "explanation": "Compétitive pure : Vmax inchangée, Km apparent augmenté ; les droites se croisent sur l'axe 1/v."
   },
   {
     "order": 58,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Application : quelles propositions relatives à la réaction d’ordre zéro sont correctes ?",
+    "format": "QRM",
+    "question": "Quelles propositions décrivent correctement l'inhibition incompétitive ?",
     "choices": [
       {
-        "content": "La vitesse ne varie pas avec la diminution de [A] dans ce modèle.",
+        "content": "Vmax reste inchangée.",
+        "correct": false,
+        "explanation": "Elle diminue."
+      },
+      {
+        "content": "Vmax apparente diminue.",
         "correct": true,
-        "explanation": "Ordre zéro : vitesse constante par rapport à la concentration considérée."
+        "explanation": "Une fraction de ES est piégée sous forme inactive ESI."
       },
       {
-        "content": "Sa vitesse est proportionnelle à [A][B].",
-        "correct": false,
-        "explanation": "Ordre zéro : vitesse constante par rapport à la concentration considérée."
+        "content": "Les droites de Lineweaver-Burk sont parallèles.",
+        "correct": true,
+        "explanation": "La pente Km/Vmax est inchangée."
       },
       {
-        "content": "Sa vitesse est forcément nulle.",
+        "content": "Les droites Lineweaver-Burk se croisent sur l'axe y.",
         "correct": false,
-        "explanation": "Ordre zéro : vitesse constante par rapport à la concentration considérée."
+        "explanation": "En incompétitif idéal, elles sont parallèles."
       },
       {
-        "content": "Une réaction d’ordre zéro suit v=k[A].",
+        "content": "L'inhibiteur se fixe uniquement sur l'enzyme libre.",
         "correct": false,
-        "explanation": "Ordre zéro : vitesse constante par rapport à la concentration considérée."
+        "explanation": "Cela décrit le modèle compétitif pur."
       }
     ],
-    "explanation": "Ordre zéro : vitesse constante par rapport à la concentration considérée."
+    "explanation": "Incompétitive : fixation sur ES, baisse proportionnelle de Km et Vmax, droites Lineweaver-Burk parallèles."
   },
   {
     "order": 59,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Dans une situation d’application, quelles affirmations sur la réaction d’ordre un faut-il retenir ?",
-    "choices": [
-      {
-        "content": "Le modèle concerne la transformation d’un substrat en produit.",
-        "correct": true,
-        "explanation": "Ordre un : vitesse proportionnelle à la concentration du substrat."
-      },
-      {
-        "content": "L’ordre un implique obligatoirement deux substrats.",
-        "correct": false,
-        "explanation": "Ordre un : vitesse proportionnelle à la concentration du substrat."
-      },
-      {
-        "content": "La fiche donne v=k[A].",
-        "correct": true,
-        "explanation": "Ordre un : vitesse proportionnelle à la concentration du substrat."
-      },
-      {
-        "content": "La vitesse est toujours constante quelle que soit [A].",
-        "correct": false,
-        "explanation": "Ordre un : vitesse proportionnelle à la concentration du substrat."
+    "format": "QROC",
+    "question": "Quel paramètre diminue dans l'inhibition non compétitive pure ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "Vmax",
+        "Vmax apparente"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Ordre un : vitesse proportionnelle à la concentration du substrat."
+    },
+    "explanation": "Non compétitive pure : Vmax diminue, Km reste inchangé ; c'est un cas particulier du modèle mixte."
   },
   {
     "order": 60,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Si Vmax = 120 unités de vitesse, quelle vitesse correspond au point où [S] = Km ?",
-    "answer": {
-      "type": "number",
-      "value": 60,
-      "tolerance": 0
-    },
-    "explanation": "Km correspond à [S] lorsque v0 vaut la moitié de Vmax."
+    "format": "QRP",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant l'inhibition mixte.",
+    "choices": [
+      {
+        "content": "Km apparent peut augmenter ou diminuer selon les affinités relatives de l'inhibiteur pour E et ES.",
+        "correct": true,
+        "explanation": "Il n'existe pas une direction universelle."
+      },
+      {
+        "content": "Vmax ne change jamais.",
+        "correct": false,
+        "explanation": "Elle diminue."
+      },
+      {
+        "content": "Le cas non compétitif pur correspond à des affinités égales pour E et ES.",
+        "correct": true,
+        "explanation": "Km reste alors inchangé."
+      },
+      {
+        "content": "Le cas non compétitif pur n'a aucun lien avec le modèle mixte.",
+        "correct": false,
+        "explanation": "C'est un cas particulier."
+      },
+      {
+        "content": "L'inhibiteur ne peut se lier qu'à l'enzyme libre.",
+        "correct": false,
+        "explanation": "Le modèle mixte permet la liaison à E et ES."
+      }
+    ],
+    "explanation": "Mixte : Vmax diminue et Km peut monter ou baisser ; le non compétitif pur est le cas d'affinités égales pour E et ES.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 61,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application : quelles propositions relatives à la représentation de Lineweaver-Burk sont correctes ?",
+    "question": "Quelles propositions décrivent correctement la comparaison des inhibitions réversibles ?",
     "choices": [
       {
-        "content": "L’équation est une droite dont la pente vaut Km/Vmax.",
+        "content": "Mixte général : Vmax↓ et Km peut ↑ ou ↓.",
         "correct": true,
-        "explanation": "La double inverse linéarise la relation de Michaelis-Menten."
+        "explanation": "Le sens dépend des constantes d'inhibition."
       },
       {
-        "content": "La pente vaut Vmax/Km dans la formule donnée.",
+        "content": "Incompétitive : Km↑, Vmax inchangée.",
         "correct": false,
-        "explanation": "La double inverse linéarise la relation de Michaelis-Menten."
+        "explanation": "Cela décrit le compétitif pur."
       },
       {
-        "content": "L’ordonnée à l’origine vaut 1/Vmax.",
+        "content": "Compétitive pure : Km↑, Vmax inchangée.",
         "correct": true,
-        "explanation": "La double inverse linéarise la relation de Michaelis-Menten."
+        "explanation": "Une forte [S] peut surmonter la compétition idéale."
       },
       {
-        "content": "L’ordonnée à l’origine vaut Km.",
+        "content": "Incompétitive : Km↓ et Vmax↓ dans la même proportion.",
+        "correct": true,
+        "explanation": "Les droites Lineweaver-Burk sont parallèles."
+      },
+      {
+        "content": "Compétitive pure : Km inchangé, Vmax↓.",
         "correct": false,
-        "explanation": "La double inverse linéarise la relation de Michaelis-Menten."
+        "explanation": "Cela décrit le non compétitif pur."
       }
     ],
-    "explanation": "La double inverse linéarise la relation de Michaelis-Menten."
+    "explanation": "Les signatures Km/Vmax permettent de distinguer les modèles idéaux d'inhibition réversible."
   },
   {
     "order": 62,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Dans une situation d’application, quelle affirmation sur le repère d’abscisse de Lineweaver-Burk dans la fiche faut-il retenir ?",
+    "question": "Parmi les affirmations suivantes sur la représentation de Lineweaver-Burk, laquelle est correcte ?",
     "choices": [
       {
-        "content": "L’ordonnée à l’origine est donnée comme 1/Vmax.",
+        "content": "L'abscisse à l'origine vaut +1/Km.",
+        "correct": false,
+        "explanation": "Elle vaut -1/Km."
+      },
+      {
+        "content": "L'abscisse à l'origine vaut -1/Km.",
         "correct": true,
-        "explanation": "Le support local imprime 1/Km pour l’abscisse ; la banque le signale explicitement sans le corriger silencieusement."
+        "explanation": "Le signe négatif est essentiel."
       },
       {
-        "content": "La fiche n’aborde aucune représentation double inverse.",
+        "content": "L'ordonnée à l'origine vaut Km.",
         "correct": false,
-        "explanation": "Le support local imprime 1/Km pour l’abscisse ; la banque le signale explicitement sans le corriger silencieusement."
+        "explanation": "Elle vaut 1/Vmax."
       },
       {
-        "content": "Le support indique que l’abscisse d’intersection vaut Vmax.",
+        "content": "La représentation trace v0 contre [S].",
         "correct": false,
-        "explanation": "Le support local imprime 1/Km pour l’abscisse ; la banque le signale explicitement sans le corriger silencieusement."
+        "explanation": "Cela décrit le graphe Michaelis-Menten direct."
       },
       {
-        "content": "Le support affirme que l’ordonnée à l’origine vaut Km/Vmax.",
+        "content": "La pente vaut Vmax/Km.",
         "correct": false,
-        "explanation": "Le support local imprime 1/Km pour l’abscisse ; la banque le signale explicitement sans le corriger silencieusement."
+        "explanation": "Elle vaut Km/Vmax."
       }
     ],
-    "explanation": "Le support local imprime 1/Km pour l’abscisse ; la banque le signale explicitement sans le corriger silencieusement."
+    "explanation": "Dans Lineweaver-Burk : pente=Km/Vmax, y-intercept=1/Vmax et x-intercept=-1/Km."
   },
   {
     "order": 63,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Pour raisonner à partir de la fiche, quelles affirmations sur la détermination pratique de Km et Vmax sont exactes ?",
+    "question": "Concernant l'estimation moderne de Km et Vmax, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La fiche présente Lineweaver-Burk comme une représentation utilisée pour déterminer Km et Vmax précisément.",
+        "content": "Lineweaver-Burk reste utile pédagogiquement pour visualiser certains schémas d'inhibition.",
         "correct": true,
-        "explanation": "Deux représentations permettent de relier les données expérimentales à Km/Vmax."
+        "explanation": "Sa lisibilité ne signifie pas qu'elle soit le meilleur estimateur numérique."
       },
       {
-        "content": "Km se détermine uniquement par la masse moléculaire de l’enzyme.",
-        "correct": false,
-        "explanation": "Deux représentations permettent de relier les données expérimentales à Km/Vmax."
-      },
-      {
-        "content": "Vmax peut aussi être repérée sur le plateau de la courbe de Michaelis-Menten.",
+        "content": "La régression non linéaire directe sur l'équation de Michaelis-Menten est généralement préférée pour estimer Km et Vmax.",
         "correct": true,
-        "explanation": "Deux représentations permettent de relier les données expérimentales à Km/Vmax."
+        "explanation": "Elle évite la distorsion des erreurs créée par la double inversion."
       },
       {
-        "content": "Vmax correspond à l’intersection de la courbe avec [S]=0.",
+        "content": "Les faibles concentrations de substrat sont fortement pondérées visuellement après inversion.",
+        "correct": true,
+        "explanation": "Les erreurs sur 1/v et 1/[S] deviennent hétéroscédastiques."
+      },
+      {
+        "content": "Lineweaver-Burk est toujours la méthode la plus précise pour ajuster Km et Vmax.",
         "correct": false,
-        "explanation": "Deux représentations permettent de relier les données expérimentales à Km/Vmax."
+        "explanation": "La régression non linéaire est généralement préférable."
+      },
+      {
+        "content": "L'ajustement doit idéalement tenir compte du modèle d'erreur expérimental.",
+        "correct": true,
+        "explanation": "La qualité du fit dépend des données et de leur variance."
       }
     ],
-    "explanation": "Deux représentations permettent de relier les données expérimentales à Km/Vmax."
+    "explanation": "Lineweaver-Burk est utile pour visualiser, mais la régression non linéaire directe est généralement plus fiable pour estimer les paramètres."
   },
   {
     "order": 64,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Application : quelles propositions relatives à la courbe de Michaelis-Menten sont correctes ?",
-    "choices": [
-      {
-        "content": "Elle tend vers un plateau Vmax.",
-        "correct": true,
-        "explanation": "La courbe v0=f([S]) tend vers Vmax."
-      },
-      {
-        "content": "La courbe ne présente aucun plateau.",
-        "correct": false,
-        "explanation": "La courbe v0=f([S]) tend vers Vmax."
-      },
-      {
-        "content": "Une seule valeur de substrat suffit à définir toute la courbe sans hypothèse.",
-        "correct": false,
-        "explanation": "La courbe v0=f([S]) tend vers Vmax."
-      },
-      {
-        "content": "La vitesse décroît toujours quand [S] augmente.",
-        "correct": false,
-        "explanation": "La courbe v0=f([S]) tend vers Vmax."
+    "format": "QROC",
+    "question": "Quel paramètre reste inchangé lors d'une inhibition compétitive pure : Km ou Vmax ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "Vmax",
+        "Vmax reste inchangée"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La courbe v0=f([S]) tend vers Vmax."
+    },
+    "explanation": "Compétitive pure : Vmax inchangée, Km apparent augmenté ; les droites se croisent sur l'axe 1/v."
   },
   {
     "order": 65,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Autour de la courbe de Michaelis-Menten : sélectionnez exactement les trois affirmations correctes parmi les propositions suivantes.",
-    "requiredSelectionCount": 3,
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "La fiche présente Lineweaver-Burk comme une représentation utilisée pour déterminer Km et Vmax précisément.",
+        "content": "Vmax apparente diminue.",
         "correct": true,
-        "explanation": "Deux représentations permettent de relier les données expérimentales à Km/Vmax."
+        "explanation": "Une fraction de ES est piégée sous forme inactive ESI."
       },
       {
-        "content": "Elle tend vers un plateau Vmax.",
+        "content": "Non compétitive pure : Km↓ et Vmax↓ dans la même proportion.",
+        "correct": false,
+        "explanation": "Cela décrit l'incompétitive."
+      },
+      {
+        "content": "Incompétitive : Km↑, Vmax inchangée.",
+        "correct": false,
+        "explanation": "Cela décrit le compétitif pur."
+      },
+      {
+        "content": "Les droites de Lineweaver-Burk sont parallèles.",
         "correct": true,
-        "explanation": "La courbe v0=f([S]) tend vers Vmax."
+        "explanation": "La pente Km/Vmax est inchangée."
       },
       {
-        "content": "La fiche relie Km au couple enzyme-substrat.",
+        "content": "L'inhibiteur se lie au complexe ES dans le modèle incompétitif idéal.",
         "correct": true,
-        "explanation": "Km correspond à [S] lorsque v0 vaut la moitié de Vmax."
+        "explanation": "Il ne se lie pas à l'enzyme libre."
       },
       {
-        "content": "Un Km faible traduit toujours une faible affinité.",
+        "content": "Vmax reste inchangée.",
         "correct": false,
-        "explanation": "Dans le modèle pédagogique, l’affinité varie en sens inverse de Km."
+        "explanation": "Elle diminue."
       },
       {
-        "content": "Aucun exemple chiffré de Km n’est fourni.",
+        "content": "Mixte général : Vmax toujours inchangée.",
         "correct": false,
-        "explanation": "Les exemples illustrent des Km très différents."
+        "explanation": "Elle diminue."
       },
       {
-        "content": "L’équation ne comporte pas la concentration en substrat.",
+        "content": "Compétitive pure : Km↑, Vmax inchangée.",
+        "correct": true,
+        "explanation": "Une forte [S] peut surmonter la compétition idéale."
+      },
+      {
+        "content": "Km augmente alors que Vmax ne change pas.",
         "correct": false,
-        "explanation": "L’équation de Michaelis-Menten permet de relier les paramètres cinétiques."
+        "explanation": "Cela correspond au compétitif pur."
+      },
+      {
+        "content": "Km apparent diminue dans la même proportion que Vmax.",
+        "correct": true,
+        "explanation": "Le rapport Km/Vmax reste constant."
       }
     ],
-    "explanation": "Cette question croise plusieurs repères de la section ; chaque proposition doit être évaluée séparément."
+    "explanation": "Incompétitive : fixation sur ES, baisse proportionnelle de Km et Vmax, droites Lineweaver-Burk parallèles. Les signatures Km/Vmax permettent de distinguer les modèles idéaux d'inhibition réversible."
   },
   {
     "order": 66,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "question": "Consolidation de la courbe de Michaelis-Menten : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
-    "choices": [
-      {
-        "content": "La vitesse initiale augmente avec la concentration en substrat.",
-        "correct": true,
-        "explanation": "La courbe v0=f([S]) tend vers Vmax."
-      },
-      {
-        "content": "Km est donc lu sur l’axe des concentrations à mi-vitesse maximale.",
-        "correct": true,
-        "explanation": "Km correspond à [S] lorsque v0 vaut la moitié de Vmax."
-      },
-      {
-        "content": "Km dépend des conditions expérimentales comme le pH et la température.",
-        "correct": true,
-        "explanation": "Dans le modèle pédagogique, l’affinité varie en sens inverse de Km."
-      },
-      {
-        "content": "La fiche cite β-galactosidase/lactose avec Km d’environ 4000 µM.",
-        "correct": true,
-        "explanation": "Les exemples illustrent des Km très différents."
-      },
-      {
-        "content": "Si [S]=Km, alors v0=Vmax/2.",
-        "correct": true,
-        "explanation": "L’équation de Michaelis-Menten permet de relier les paramètres cinétiques."
-      },
-      {
-        "content": "Sa vitesse est forcément nulle.",
-        "correct": false,
-        "explanation": "Ordre zéro : vitesse constante par rapport à la concentration considérée."
-      },
-      {
-        "content": "La vitesse est toujours constante quelle que soit [A].",
-        "correct": false,
-        "explanation": "Ordre un : vitesse proportionnelle à la concentration du substrat."
-      },
-      {
-        "content": "La vitesse est indépendante des concentrations.",
-        "correct": false,
-        "explanation": "Ordre deux : vitesse proportionnelle au produit des concentrations de deux réactifs."
+    "format": "QROC",
+    "question": "Quel paramètre reste inchangé dans l'inhibition non compétitive pure ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "Km",
+        "Km apparent"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La sélection longue vérifie la maîtrise simultanée de plusieurs notions du chapitre."
+    },
+    "explanation": "Non compétitive pure : Vmax diminue, Km reste inchangé ; c'est un cas particulier du modèle mixte."
   }
 ];

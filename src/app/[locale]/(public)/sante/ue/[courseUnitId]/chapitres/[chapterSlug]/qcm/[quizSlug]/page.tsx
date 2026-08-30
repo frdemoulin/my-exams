@@ -12,6 +12,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { fetchHealthStudentChapterDetail } from '@/core/health';
+import { startOrResumeTrainingQuizSession } from '@/core/training/training-quiz-session.service';
 import {
   getTrainingQuizStageBadgeClassName,
   getTrainingQuizStageLabel,
@@ -105,6 +106,12 @@ export default async function HealthChapterQuizPage({ params }: PageProps) {
     notFound();
   }
 
+  const quizSessionData = await startOrResumeTrainingQuizSession({
+    chapterId: chapter.id,
+    quizId: selectedQuiz.quiz.id,
+    userId: effectiveUserId,
+  });
+
   const selectedQuizNumber = String(selectedQuiz.quizIndex + 1);
 
   return (
@@ -170,7 +177,7 @@ export default async function HealthChapterQuizPage({ params }: PageProps) {
                   questionCount={selectedQuiz.quiz.questionCount}
                   hasMultipleFormats={
                     new Set(
-                      selectedQuiz.quiz.questions
+                      quizSessionData.questions
                         .map((question) => question.canonicalQuestion?.format)
                         .filter(Boolean)
                     ).size > 1
@@ -181,11 +188,13 @@ export default async function HealthChapterQuizPage({ params }: PageProps) {
           </Card>
 
           <HealthChapterQuizSession
+            sessionId={quizSessionData.sessionId}
+            watermarkCode={quizSessionData.watermarkCode}
             chapterId={chapter.id}
             chapterSlug={chapter.slug}
             quizId={selectedQuiz.quiz.id}
             isAuthenticated={Boolean(effectiveUserId)}
-            questions={selectedQuiz.quiz.questions}
+            questions={quizSessionData.questions}
             correctionMode="final"
             canEditQuestions={canEditQuestions}
           />

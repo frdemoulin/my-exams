@@ -1,653 +1,699 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie — Stérols, stéroïdes et stérides — Section D
- */
-
+/** UE14 Biochimie — Stérols, stéroïdes et stérides — Section D — Fonctions des corticostéroïdes et hormones sexuelles */
 export const UE14_BIOCH_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 67,
-    "difficulty": "HARD",
+    "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de l'aldostérone :",
+    "question": "Concernant l'aldostérone, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle possède un noyau prégnane à 21 carbones.",
-        "correct": true,
-        "explanation": "La fonction aldéhydique C18 est le repère structural de l'aldostérone."
-      },
-      {
-        "content": "Une fonction aldéhydique CHO en C18 est mise en avant.",
-        "correct": true,
-        "explanation": "La fonction aldéhydique C18 est le repère structural de l'aldostérone."
-      },
-      {
-        "content": "L’aldostérone est le principal minéralocorticoïde humain.",
-        "correct": true,
-        "explanation": "La fonction aldéhydique C18 est le repère structural de l'aldostérone."
-      },
-      {
-        "content": "Elle appartient aux œstrogènes à noyau estrane.",
+        "content": "Elle diminue la réabsorption rénale de sodium.",
         "correct": false,
-        "explanation": "La fonction aldéhydique C18 est le repère structural de l'aldostérone."
+        "explanation": "Elle l'augmente."
+      },
+      {
+        "content": "Elle est synthétisée principalement par les cellules de Leydig.",
+        "correct": false,
+        "explanation": "Elle est corticosurrénalienne."
+      },
+      {
+        "content": "Elle est le principal glucocorticoïde humain.",
+        "correct": false,
+        "explanation": "Ce rôle revient au cortisol."
+      },
+      {
+        "content": "Elle favorise aussi la sécrétion de protons par certaines cellules intercalaires.",
+        "correct": true,
+        "explanation": "Elle influence l'équilibre acido-basique."
+      },
+      {
+        "content": "C'est le principal minéralocorticoïde physiologique chez l'être humain.",
+        "correct": true,
+        "explanation": "Elle est synthétisée dans la zone glomérulée du cortex surrénalien."
       }
     ],
-    "explanation": "La fonction aldéhydique C18 est le repère structural de l'aldostérone."
+    "explanation": "L'aldostérone augmente la réabsorption de Na+ et favorise l'excrétion de K+ et H+, contribuant au contrôle du volume extracellulaire et de la pression artérielle."
   },
   {
     "order": 68,
-    "difficulty": "HARD",
+    "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle fonction caractéristique l’aldostérone porte-t-elle en C18 ?",
+    "question": "Parmi les affirmations suivantes concernant le cortisol, laquelle est correcte ?",
     "choices": [
       {
-        "content": "aldéhyde CHO",
+        "content": "Le cortisol est une hormone peptidique.",
+        "correct": false,
+        "explanation": "C'est un stéroïde."
+      },
+      {
+        "content": "C'est le principal glucocorticoïde physiologique humain.",
         "correct": true,
-        "explanation": "La fonction aldéhydique C18 est le repère structural de l'aldostérone."
+        "explanation": "Il est synthétisé principalement dans la zone fasciculée du cortex surrénalien."
       },
       {
-        "content": "amine NH2",
+        "content": "Le cortisol est le principal minéralocorticoïde.",
         "correct": false,
-        "explanation": "La fonction aldéhydique C18 est le repère structural de l'aldostérone."
+        "explanation": "L'aldostérone joue ce rôle."
       },
       {
-        "content": "phosphate",
+        "content": "Hydrocortisone est une molécule sans rapport avec le cortisol.",
         "correct": false,
-        "explanation": "La fonction aldéhydique C18 est le repère structural de l'aldostérone."
+        "explanation": "C'est le même composé."
       },
       {
-        "content": "alcool primaire uniquement",
+        "content": "Le cortisol diminue toujours la glycémie.",
         "correct": false,
-        "explanation": "La fonction aldéhydique C18 est le repère structural de l'aldostérone."
+        "explanation": "Il tend plutôt à l'augmenter dans ses effets métaboliques."
       }
     ],
-    "explanation": "La fonction aldéhydique C18 est le repère structural de l'aldostérone."
+    "explanation": "Le cortisol/hydrocortisone est le principal glucocorticoïde humain, à effets métaboliques et anti-inflammatoires."
   },
   {
     "order": 69,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos de l’aldostérone et de la corticostérone :",
-    "choices": [
-      {
-        "content": "L’aldostérone porte une fonction aldéhyde en C18, contrairement à la corticostérone.",
-        "correct": true,
-        "explanation": "L’aldostérone se distingue notamment de la corticostérone par sa fonction aldéhyde en C18."
-      },
-      {
-        "content": "Chez l’être humain, la corticostérone est un corticostéroïde de faible abondance comparativement au cortisol.",
-        "correct": true,
-        "explanation": "L’aldostérone se distingue notamment de la corticostérone par sa fonction aldéhyde en C18."
-      },
-      {
-        "content": "En C18, la corticostérone porte un méthyle là où l'aldostérone porte un aldéhyde.",
-        "correct": true,
-        "explanation": "L’aldostérone se distingue notamment de la corticostérone par sa fonction aldéhyde en C18."
-      },
-      {
-        "content": "La corticostérone est le principal minéralocorticoïde humain.",
-        "correct": false,
-        "explanation": "L’aldostérone se distingue notamment de la corticostérone par sa fonction aldéhyde en C18."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel corticostéroïde est le principal minéralocorticoïde physiologique humain ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "aldostérone",
+        "l'aldostérone"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "L’aldostérone se distingue notamment par l’oxydation du substituant C18 en fonction aldéhyde ; elle est le principal minéralocorticoïde humain."
+    },
+    "explanation": "L'aldostérone est le principal minéralocorticoïde humain et agit notamment sur le néphron distal."
   },
   {
     "order": 70,
-    "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quelle hormone possède la fonction aldéhyde C18 ?",
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant les œstrogènes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "aldostérone",
+        "content": "L'œstradiol est un minéralocorticoïde.",
+        "correct": false,
+        "explanation": "C'est un œstrogène."
+      },
+      {
+        "content": "Ils participent au maintien de la masse osseuse.",
         "correct": true,
-        "explanation": "L’aldostérone se distingue notamment de la corticostérone par sa fonction aldéhyde en C18."
+        "explanation": "Leur diminution après la ménopause favorise la perte osseuse."
       },
       {
-        "content": "corticostérone",
+        "content": "Les œstrogènes sont uniquement produits chez la femme.",
         "correct": false,
-        "explanation": "L’aldostérone se distingue notamment de la corticostérone par sa fonction aldéhyde en C18."
+        "explanation": "Les hommes en produisent aussi, notamment par aromatisation."
       },
       {
-        "content": "testostérone",
-        "correct": false,
-        "explanation": "L’aldostérone se distingue notamment de la corticostérone par sa fonction aldéhyde en C18."
+        "content": "Ils modulent la fonction vasculaire et endothéliale.",
+        "correct": true,
+        "explanation": "Leurs effets cardiovasculaires dépendent du contexte physiologique et clinique."
       },
       {
-        "content": "œstradiol",
-        "correct": false,
-        "explanation": "L’aldostérone se distingue notamment de la corticostérone par sa fonction aldéhyde en C18."
+        "content": "Les œstrogènes participent au développement des caractères sexuels féminins.",
+        "correct": true,
+        "explanation": "Ils agissent sur de nombreux tissus."
       }
     ],
-    "explanation": "L’aldostérone se distingue notamment de la corticostérone par sa fonction aldéhyde en C18."
+    "explanation": "L'œstradiol est un œstrogène majeur ; ses effets incluent reproduction, caractères sexuels et maintien osseux."
   },
   {
     "order": 71,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos des rôles des minéralocorticoïdes :",
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant la progestérone, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Ils régulent les mouvements d'eau et de sels minéraux.",
-        "correct": true,
-        "explanation": "Les minéralocorticoïdes participent au contrôle hydrosodé et hémodynamique."
-      },
-      {
-        "content": "Ils participent à l'homéostasie hydrique.",
-        "correct": true,
-        "explanation": "Les minéralocorticoïdes participent au contrôle hydrosodé et hémodynamique."
-      },
-      {
-        "content": "Ils influencent le volume plasmatique et la pression artérielle.",
-        "correct": true,
-        "explanation": "Les minéralocorticoïdes participent au contrôle hydrosodé et hémodynamique."
-      },
-      {
-        "content": "Ils ont pour fonction unique de digérer les triglycérides intestinaux.",
+        "content": "Elle est le principal androgène testiculaire.",
         "correct": false,
-        "explanation": "Les minéralocorticoïdes participent au contrôle hydrosodé et hémodynamique."
+        "explanation": "Ce rôle revient à la testostérone."
+      },
+      {
+        "content": "Le placenta devient une source majeure pendant la grossesse.",
+        "correct": true,
+        "explanation": "La production placentaire soutient la gestation."
+      },
+      {
+        "content": "Elle abaisse systématiquement la température basale après l'ovulation.",
+        "correct": false,
+        "explanation": "Elle l'élève légèrement."
+      },
+      {
+        "content": "Elle est un stéroïde C18 de type estrane.",
+        "correct": false,
+        "explanation": "C'est un stéroïde C21."
+      },
+      {
+        "content": "Elle provoque la phase proliférative initiale de l'endomètre en l'absence d'œstrogènes.",
+        "correct": false,
+        "explanation": "La prolifération est surtout œstrogéno-dépendante."
       }
     ],
-    "explanation": "Les minéralocorticoïdes participent au contrôle hydrosodé et hémodynamique."
+    "explanation": "La progestérone C21 est l'hormone majeure de la phase lutéale et transforme l'endomètre en tissu sécrétoire."
   },
   {
     "order": 72,
-    "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel paramètre cardiovasculaire est influencé par l’action de l’aldostérone ?",
+    "difficulty": "EASY",
+    "format": "QRP",
+    "question": "Concernant les corticostéroïdes surrénaliens, sélectionnez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "pression artérielle",
+        "content": "L'aldostérone est le principal glucocorticoïde.",
+        "correct": false,
+        "explanation": "Elle est minéralocorticoïde."
+      },
+      {
+        "content": "Des différences de fonctions chimiques et d'enzymes biosynthétiques déterminent leurs activités.",
         "correct": true,
-        "explanation": "Les minéralocorticoïdes participent au contrôle hydrosodé et hémodynamique."
+        "explanation": "De petites modifications structurales changent la sélectivité des récepteurs."
       },
       {
-        "content": "fréquence respiratoire uniquement",
+        "content": "La classification fonctionnelle ne dépend d'aucune différence structurale.",
         "correct": false,
-        "explanation": "Les minéralocorticoïdes participent au contrôle hydrosodé et hémodynamique."
+        "explanation": "La structure conditionne l'affinité et la fonction."
       },
       {
-        "content": "pH gastrique seulement",
-        "correct": false,
-        "explanation": "Les minéralocorticoïdes participent au contrôle hydrosodé et hémodynamique."
+        "content": "L'aldostérone est principalement minéralocorticoïde.",
+        "correct": true,
+        "explanation": "Elle agit fortement sur le rein."
       },
       {
-        "content": "acuité visuelle",
+        "content": "Cortisol et aldostérone sont la même molécule.",
         "correct": false,
-        "explanation": "Les minéralocorticoïdes participent au contrôle hydrosodé et hémodynamique."
+        "explanation": "Ce sont deux corticostéroïdes distincts."
       }
     ],
-    "explanation": "Les minéralocorticoïdes participent au contrôle hydrosodé et hémodynamique."
+    "explanation": "Cortisol et aldostérone sont deux corticostéroïdes C21 aux fonctions dominantes différentes.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 73,
-    "difficulty": "HARD",
+    "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de l'action rénale de l'aldostérone :",
+    "question": "Concernant la relation structure-fonction des hormones stéroïdiennes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle favorise la réabsorption du sodium.",
+        "content": "Les noyaux C18, C19 et C21 donnent un premier repère de classification.",
         "correct": true,
-        "explanation": "L’aldostérone augmente la réabsorption rénale de sodium et favorise la sécrétion de potassium ; elle stimule aussi la sécrétion de protons dans le néphron distal."
+        "explanation": "Ils correspondent respectivement aux grandes familles œstrogénique, androgénique et pregnane."
       },
       {
-        "content": "Elle favorise l'élimination urinaire du potassium K+.",
+        "content": "Deux hormones partageant le noyau stéroïdien peuvent avoir des fonctions très différentes.",
         "correct": true,
-        "explanation": "L’aldostérone augmente la réabsorption rénale de sodium et favorise la sécrétion de potassium ; elle stimule aussi la sécrétion de protons dans le néphron distal."
+        "explanation": "Le squelette commun ne suffit pas à prédire l'effet."
       },
       {
-        "content": "Elle favorise l'élimination de protons H+.",
+        "content": "Des modifications de quelques groupements fonctionnels peuvent changer fortement l'activité hormonale.",
         "correct": true,
-        "explanation": "L’aldostérone augmente la réabsorption rénale de sodium et favorise la sécrétion de potassium ; elle stimule aussi la sécrétion de protons dans le néphron distal."
+        "explanation": "Les récepteurs reconnaissent finement la structure."
       },
       {
-        "content": "Elle favorise l’élimination massive du sodium tout en bloquant la sécrétion de potassium.",
+        "content": "Le nombre de carbones n'apporte aucune information de classe.",
         "correct": false,
-        "explanation": "L’aldostérone augmente la réabsorption rénale de sodium et favorise la sécrétion de potassium ; elle stimule aussi la sécrétion de protons dans le néphron distal."
+        "explanation": "C18/C19/C21 est un repère utile."
+      },
+      {
+        "content": "La position et l'orientation des hydroxyles ou carbonyles sont importantes.",
+        "correct": true,
+        "explanation": "La stéréochimie influence la reconnaissance."
       }
     ],
-    "explanation": "L’aldostérone augmente la réabsorption rénale de sodium et favorise la sécrétion de potassium ; elle stimule aussi la sécrétion de protons dans le néphron distal."
+    "explanation": "Les familles hormonales partagent le noyau stéroïdien mais diffèrent par le nombre de carbones et les substituants, ce qui conditionne leur fonction."
   },
   {
     "order": 74,
-    "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel ion est réabsorbé sous l'action de l'aldostérone ?",
-    "choices": [
-      {
-        "content": "Na+",
-        "correct": true,
-        "explanation": "L’aldostérone augmente la réabsorption rénale de sodium et favorise la sécrétion de potassium ; elle stimule aussi la sécrétion de protons dans le néphron distal."
-      },
-      {
-        "content": "K+",
-        "correct": false,
-        "explanation": "L’aldostérone augmente la réabsorption rénale de sodium et favorise la sécrétion de potassium ; elle stimule aussi la sécrétion de protons dans le néphron distal."
-      },
-      {
-        "content": "H+",
-        "correct": false,
-        "explanation": "L’aldostérone augmente la réabsorption rénale de sodium et favorise la sécrétion de potassium ; elle stimule aussi la sécrétion de protons dans le néphron distal."
-      },
-      {
-        "content": "Ca2+ uniquement",
-        "correct": false,
-        "explanation": "L’aldostérone augmente la réabsorption rénale de sodium et favorise la sécrétion de potassium ; elle stimule aussi la sécrétion de protons dans le néphron distal."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel ion est principalement réabsorbé davantage sous l'action de l'aldostérone ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "sodium",
+        "Na+",
+        "Na⁺"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "L’aldostérone augmente la réabsorption rénale de sodium et favorise la sécrétion de potassium ; elle stimule aussi la sécrétion de protons dans le néphron distal."
+    },
+    "explanation": "L'aldostérone augmente la réabsorption de Na+ et favorise l'excrétion de K+ et H+, contribuant au contrôle du volume extracellulaire et de la pression artérielle."
   },
   {
     "order": 75,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos du cortisol :",
-    "choices": [
-      {
-        "content": "Il est aussi appelé hydrocortisone.",
-        "correct": true,
-        "explanation": "L’hydrocortisone est la dénomination pharmaceutique du cortisol."
-      },
-      {
-        "content": "Il possède un noyau prégnane à 21 carbones.",
-        "correct": true,
-        "explanation": "L’hydrocortisone est la dénomination pharmaceutique du cortisol."
-      },
-      {
-        "content": "Il porte notamment un hydroxyle en C17α.",
-        "correct": true,
-        "explanation": "L’hydrocortisone est la dénomination pharmaceutique du cortisol."
-      },
-      {
-        "content": "Le cortisol est un stéroïde à noyau estrane C18.",
-        "correct": false,
-        "explanation": "L’hydrocortisone est la dénomination pharmaceutique du cortisol."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel corticostéroïde est également appelé hydrocortisone ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "cortisol",
+        "le cortisol"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "L’hydrocortisone est la dénomination pharmaceutique du cortisol."
+    },
+    "explanation": "Cortisol et hydrocortisone désignent la même molécule."
   },
   {
     "order": 76,
-    "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quelle dénomination pharmaceutique désigne le cortisol ?",
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant les androgènes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "hydrocortisone",
+        "content": "L'effet physiologique des androgènes se résume à l'agressivité.",
+        "correct": false,
+        "explanation": "Cette généralisation comportementale n'est pas scientifiquement appropriée."
+      },
+      {
+        "content": "Elle favorise la synthèse protéique dans plusieurs tissus.",
         "correct": true,
-        "explanation": "L’hydrocortisone est la dénomination pharmaceutique du cortisol."
+        "explanation": "Elle possède un effet anabolisant."
       },
       {
-        "content": "aldostérone",
+        "content": "Les androgènes sont exclusivement présents chez l'homme.",
         "correct": false,
-        "explanation": "L’hydrocortisone est la dénomination pharmaceutique du cortisol."
+        "explanation": "Ils sont présents dans les deux sexes."
       },
       {
-        "content": "œstrone",
+        "content": "La DHEA est une hormone thyroïdienne iodée.",
         "correct": false,
-        "explanation": "L’hydrocortisone est la dénomination pharmaceutique du cortisol."
+        "explanation": "C'est un stéroïde."
       },
       {
-        "content": "DHEA",
-        "correct": false,
-        "explanation": "L’hydrocortisone est la dénomination pharmaceutique du cortisol."
+        "content": "La testostérone participe au développement et au maintien des caractères sexuels masculins.",
+        "correct": true,
+        "explanation": "Ses effets dépendent de l'âge et du tissu."
       }
     ],
-    "explanation": "L’hydrocortisone est la dénomination pharmaceutique du cortisol."
+    "explanation": "Les androgènes, dont la testostérone, interviennent dans la différenciation sexuelle, les caractères sexuels secondaires et l'anabolisme."
   },
   {
     "order": 77,
-    "difficulty": "HARD",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos de l'effet métabolique du cortisol :",
+    "question": "Concernant l'aldostérone, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Il favorise l’augmentation de la glycémie.",
-        "correct": true,
-        "explanation": "Le cortisol augmente la disponibilité du glucose et tend à élever la glycémie."
-      },
-      {
-        "content": "Il augmente la concentration de sucre dans le sang.",
-        "correct": true,
-        "explanation": "Le cortisol augmente la disponibilité du glucose et tend à élever la glycémie."
-      },
-      {
-        "content": "Cet effet appartient aux fonctions des glucocorticoïdes.",
-        "correct": true,
-        "explanation": "Le cortisol augmente la disponibilité du glucose et tend à élever la glycémie."
-      },
-      {
-        "content": "Le cortisol diminue obligatoirement la glycémie.",
+        "content": "Elle est le principal glucocorticoïde humain.",
         "correct": false,
-        "explanation": "Le cortisol augmente la disponibilité du glucose et tend à élever la glycémie."
+        "explanation": "Ce rôle revient au cortisol."
+      },
+      {
+        "content": "Elle provoque toujours une perte de volume extracellulaire.",
+        "correct": false,
+        "explanation": "Elle favorise la rétention sodée et donc l'expansion du volume extracellulaire."
+      },
+      {
+        "content": "Elle diminue la réabsorption rénale de sodium.",
+        "correct": false,
+        "explanation": "Elle l'augmente."
+      },
+      {
+        "content": "Elle augmente la réabsorption de sodium dans le néphron distal.",
+        "correct": true,
+        "explanation": "L'eau suit indirectement le sodium selon le contexte."
+      },
+      {
+        "content": "C'est le principal minéralocorticoïde physiologique chez l'être humain.",
+        "correct": true,
+        "explanation": "Elle est synthétisée dans la zone glomérulée du cortex surrénalien."
       }
     ],
-    "explanation": "Le cortisol augmente la disponibilité du glucose et tend à élever la glycémie."
+    "explanation": "L'aldostérone augmente la réabsorption de Na+ et favorise l'excrétion de K+ et H+, contribuant au contrôle du volume extracellulaire et de la pression artérielle."
   },
   {
     "order": 78,
-    "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel effet le cortisol exerce-t-il sur la glycémie ?",
-    "choices": [
-      {
-        "content": "hyperglycémiant",
-        "correct": true,
-        "explanation": "Le cortisol augmente la disponibilité du glucose et tend à élever la glycémie."
-      },
-      {
-        "content": "hypoglycémiant",
-        "correct": false,
-        "explanation": "Le cortisol augmente la disponibilité du glucose et tend à élever la glycémie."
-      },
-      {
-        "content": "aucun effet",
-        "correct": false,
-        "explanation": "Le cortisol augmente la disponibilité du glucose et tend à élever la glycémie."
-      },
-      {
-        "content": "suppression totale du glucose",
-        "correct": false,
-        "explanation": "Le cortisol augmente la disponibilité du glucose et tend à élever la glycémie."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel glucocorticoïde est également appelé hydrocortisone ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "cortisol",
+        "le cortisol"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le cortisol augmente la disponibilité du glucose et tend à élever la glycémie."
+    },
+    "explanation": "Le cortisol/hydrocortisone est le principal glucocorticoïde humain, à effets métaboliques et anti-inflammatoires."
   },
   {
     "order": 79,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos de l'effet anti-inflammatoire du cortisol :",
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant les androgènes ?",
     "choices": [
       {
-        "content": "Le cortisol possède une action anti-inflammatoire.",
-        "correct": true,
-        "explanation": "Les glucocorticoïdes exercent des effets anti-inflammatoires en modulant l’expression de nombreux médiateurs de l’inflammation."
-      },
-      {
-        "content": "La cortisone et l’hydrocortisone appartiennent aux corticostéroïdes utilisés en thérapeutique.",
-        "correct": true,
-        "explanation": "Les glucocorticoïdes exercent des effets anti-inflammatoires en modulant l’expression de nombreux médiateurs de l’inflammation."
-      },
-      {
-        "content": "Cet effet appartient aux actions des glucocorticoïdes.",
-        "correct": true,
-        "explanation": "Les glucocorticoïdes exercent des effets anti-inflammatoires en modulant l’expression de nombreux médiateurs de l’inflammation."
-      },
-      {
-        "content": "Le cortisol est obligatoirement un médiateur pro-inflammatoire.",
+        "content": "L'effet physiologique des androgènes se résume à l'agressivité.",
         "correct": false,
-        "explanation": "Les glucocorticoïdes exercent des effets anti-inflammatoires en modulant l’expression de nombreux médiateurs de l’inflammation."
+        "explanation": "Cette généralisation comportementale n'est pas scientifiquement appropriée."
+      },
+      {
+        "content": "La testostérone est un œstrogène C18.",
+        "correct": false,
+        "explanation": "C'est un androgène C19."
+      },
+      {
+        "content": "Les androgènes existent également chez la femme.",
+        "correct": true,
+        "explanation": "Ils sont produits en quantités plus faibles par ovaires et surrénales."
+      },
+      {
+        "content": "Les androgènes sont exclusivement présents chez l'homme.",
+        "correct": false,
+        "explanation": "Ils sont présents dans les deux sexes."
+      },
+      {
+        "content": "La DHEA est une hormone thyroïdienne iodée.",
+        "correct": false,
+        "explanation": "C'est un stéroïde."
       }
     ],
-    "explanation": "Les glucocorticoïdes exercent des effets anti-inflammatoires en modulant l’expression de nombreux médiateurs de l’inflammation."
+    "explanation": "Les androgènes, dont la testostérone, interviennent dans la différenciation sexuelle, les caractères sexuels secondaires et l'anabolisme."
   },
   {
     "order": 80,
-    "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel usage pharmacologique est évoqué ?",
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant les œstrogènes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "anti-inflammatoire",
+        "content": "Ils participent au maintien de la masse osseuse.",
         "correct": true,
-        "explanation": "Les glucocorticoïdes exercent des effets anti-inflammatoires en modulant l’expression de nombreux médiateurs de l’inflammation."
+        "explanation": "Leur diminution après la ménopause favorise la perte osseuse."
       },
       {
-        "content": "antibiotique bactéricide",
-        "correct": false,
-        "explanation": "Les glucocorticoïdes exercent des effets anti-inflammatoires en modulant l’expression de nombreux médiateurs de l’inflammation."
+        "content": "L'œstradiol est un œstrogène majeur chez la femme en période reproductive.",
+        "correct": true,
+        "explanation": "Il est principalement synthétisé par l'ovaire."
       },
       {
-        "content": "anticoagulant héparinique",
+        "content": "Les œstrogènes sont uniquement produits chez la femme.",
         "correct": false,
-        "explanation": "Les glucocorticoïdes exercent des effets anti-inflammatoires en modulant l’expression de nombreux médiateurs de l’inflammation."
+        "explanation": "Les hommes en produisent aussi, notamment par aromatisation."
       },
       {
-        "content": "hypoglycémiant",
+        "content": "L'œstradiol est un minéralocorticoïde.",
         "correct": false,
-        "explanation": "Les glucocorticoïdes exercent des effets anti-inflammatoires en modulant l’expression de nombreux médiateurs de l’inflammation."
+        "explanation": "C'est un œstrogène."
+      },
+      {
+        "content": "Ils modulent la fonction vasculaire et endothéliale.",
+        "correct": true,
+        "explanation": "Leurs effets cardiovasculaires dépendent du contexte physiologique et clinique."
       }
     ],
-    "explanation": "Les glucocorticoïdes exercent des effets anti-inflammatoires en modulant l’expression de nombreux médiateurs de l’inflammation."
+    "explanation": "L'œstradiol est un œstrogène majeur ; ses effets incluent reproduction, caractères sexuels et maintien osseux."
   },
   {
     "order": 81,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos de l'effet immunosuppresseur du cortisol :",
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant la progestérone, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "Le cortisol exerce une action immunosuppressive.",
+        "content": "Elle transforme l'endomètre prolifératif en endomètre sécrétoire.",
         "correct": true,
-        "explanation": "Les glucocorticoïdes diminuent plusieurs fonctions immunitaires, dont l’activation et la prolifération de certains lymphocytes T."
+        "explanation": "Elle prépare la muqueuse à l'implantation."
       },
       {
-        "content": "La prolifération de certains lymphocytes T est inhibée.",
-        "correct": true,
-        "explanation": "Les glucocorticoïdes diminuent plusieurs fonctions immunitaires, dont l’activation et la prolifération de certains lymphocytes T."
-      },
-      {
-        "content": "Cette immunosuppression module les défenses immunitaires.",
-        "correct": true,
-        "explanation": "Les glucocorticoïdes diminuent plusieurs fonctions immunitaires, dont l’activation et la prolifération de certains lymphocytes T."
-      },
-      {
-        "content": "Le cortisol stimule obligatoirement la prolifération de tous les lymphocytes T.",
+        "content": "Elle est le principal androgène testiculaire.",
         "correct": false,
-        "explanation": "Les glucocorticoïdes diminuent plusieurs fonctions immunitaires, dont l’activation et la prolifération de certains lymphocytes T."
+        "explanation": "Ce rôle revient à la testostérone."
+      },
+      {
+        "content": "Le placenta devient une source majeure pendant la grossesse.",
+        "correct": true,
+        "explanation": "La production placentaire soutient la gestation."
+      },
+      {
+        "content": "Elle abaisse systématiquement la température basale après l'ovulation.",
+        "correct": false,
+        "explanation": "Elle l'élève légèrement."
+      },
+      {
+        "content": "Elle est un stéroïde C18 de type estrane.",
+        "correct": false,
+        "explanation": "C'est un stéroïde C21."
       }
     ],
-    "explanation": "Les glucocorticoïdes diminuent plusieurs fonctions immunitaires, dont l’activation et la prolifération de certains lymphocytes T."
+    "explanation": "La progestérone C21 est l'hormone majeure de la phase lutéale et transforme l'endomètre en tissu sécrétoire.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 82,
-    "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel type de cellules immunitaires voit notamment son activation freinée par les glucocorticoïdes ?",
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "question": "Sélectionnez exactement les deux effets rénaux caractéristiques de l'aldostérone.",
     "choices": [
       {
-        "content": "lymphocytes T",
+        "content": "Hydrolyse directe du glycogène dans l'urine.",
+        "correct": false,
+        "explanation": "Ce n'est pas une action de l'aldostérone."
+      },
+      {
+        "content": "Diminution de la réabsorption de sodium.",
+        "correct": false,
+        "explanation": "L'effet est inverse."
+      },
+      {
+        "content": "Augmentation de la sécrétion de potassium.",
         "correct": true,
-        "explanation": "Les glucocorticoïdes diminuent plusieurs fonctions immunitaires, dont l’activation et la prolifération de certains lymphocytes T."
+        "explanation": "Elle favorise l'excrétion urinaire de K+."
       },
       {
-        "content": "érythrocytes",
+        "content": "Blocage complet de la sécrétion de protons.",
         "correct": false,
-        "explanation": "Les glucocorticoïdes diminuent plusieurs fonctions immunitaires, dont l’activation et la prolifération de certains lymphocytes T."
+        "explanation": "L'aldostérone peut au contraire favoriser la sécrétion de H+ par certaines cellules intercalaires."
       },
       {
-        "content": "ostéoclastes uniquement",
-        "correct": false,
-        "explanation": "Les glucocorticoïdes diminuent plusieurs fonctions immunitaires, dont l’activation et la prolifération de certains lymphocytes T."
-      },
-      {
-        "content": "adipocytes uniquement",
-        "correct": false,
-        "explanation": "Les glucocorticoïdes diminuent plusieurs fonctions immunitaires, dont l’activation et la prolifération de certains lymphocytes T."
+        "content": "Augmentation de la réabsorption de sodium.",
+        "correct": true,
+        "explanation": "L'aldostérone augmente l'expression/activité des systèmes de transport du Na+ dans le néphron distal."
       }
     ],
-    "explanation": "Les glucocorticoïdes diminuent plusieurs fonctions immunitaires, dont l’activation et la prolifération de certains lymphocytes T."
+    "explanation": "L'aldostérone favorise la rétention sodée et la sécrétion de potassium, avec des conséquences sur le volume extracellulaire et la pression artérielle.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 83,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos des rôles des androgènes :",
-    "choices": [
-      {
-        "content": "Ils participent au développement des organes génitaux masculins.",
-        "correct": true,
-        "explanation": "Les androgènes participent à l’apparition de caractères sexuels secondaires, notamment la modification de la voix et la pilosité."
-      },
-      {
-        "content": "Ils participent aux caractères sexuels secondaires.",
-        "correct": true,
-        "explanation": "Les androgènes participent à l’apparition de caractères sexuels secondaires, notamment la modification de la voix et la pilosité."
-      },
-      {
-        "content": "Ils participent au développement osseux.",
-        "correct": true,
-        "explanation": "Les androgènes participent à l’apparition de caractères sexuels secondaires, notamment la modification de la voix et la pilosité."
-      },
-      {
-        "content": "Ils sont décrits comme empêchant tout développement musculaire.",
-        "correct": false,
-        "explanation": "Les androgènes participent à l’apparition de caractères sexuels secondaires, notamment la modification de la voix et la pilosité."
-      }
-    ],
-    "explanation": "Les androgènes participent à l’apparition de caractères sexuels secondaires, notamment la modification de la voix et la pilosité."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel nombre de carbones caractérise classiquement le squelette des androgènes ?",
+    "answer": {
+      "type": "number",
+      "value": 19,
+      "tolerance": 0
+    },
+    "explanation": "Les familles hormonales partagent le noyau stéroïdien mais diffèrent par le nombre de carbones et les substituants, ce qui conditionne leur fonction."
   },
   {
     "order": 84,
-    "difficulty": "HARD",
+    "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel caractère sexuel secondaire dépend notamment des androgènes ?",
+    "question": "Parmi les affirmations suivantes concernant l'aldostérone, laquelle est correcte ?",
     "choices": [
       {
-        "content": "voix et pilosité",
+        "content": "Elle est le principal glucocorticoïde humain.",
+        "correct": false,
+        "explanation": "Ce rôle revient au cortisol."
+      },
+      {
+        "content": "Elle favorise aussi la sécrétion de protons par certaines cellules intercalaires.",
         "correct": true,
-        "explanation": "Les androgènes participent à l’apparition de caractères sexuels secondaires, notamment la modification de la voix et la pilosité."
+        "explanation": "Elle influence l'équilibre acido-basique."
       },
       {
-        "content": "couleur des yeux uniquement",
+        "content": "Elle est synthétisée principalement par les cellules de Leydig.",
         "correct": false,
-        "explanation": "Les androgènes participent à l’apparition de caractères sexuels secondaires, notamment la modification de la voix et la pilosité."
+        "explanation": "Elle est corticosurrénalienne."
       },
       {
-        "content": "groupe sanguin",
+        "content": "Elle provoque toujours une perte de volume extracellulaire.",
         "correct": false,
-        "explanation": "Les androgènes participent à l’apparition de caractères sexuels secondaires, notamment la modification de la voix et la pilosité."
+        "explanation": "Elle favorise la rétention sodée et donc l'expansion du volume extracellulaire."
       },
       {
-        "content": "forme des globules rouges",
+        "content": "Elle diminue la réabsorption rénale de sodium.",
         "correct": false,
-        "explanation": "Les androgènes participent à l’apparition de caractères sexuels secondaires, notamment la modification de la voix et la pilosité."
+        "explanation": "Elle l'augmente."
       }
     ],
-    "explanation": "Les androgènes participent à l’apparition de caractères sexuels secondaires, notamment la modification de la voix et la pilosité."
+    "explanation": "L'aldostérone augmente la réabsorption de Na+ et favorise l'excrétion de K+ et H+, contribuant au contrôle du volume extracellulaire et de la pression artérielle."
   },
   {
     "order": 85,
-    "difficulty": "HARD",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos des effets métaboliques des androgènes :",
+    "question": "Quelles propositions sont exactes concernant le cortisol ?",
     "choices": [
       {
-        "content": "Ils stimulent la synthèse des protéines musculaires.",
+        "content": "Hydrocortisone est le nom pharmaceutique du cortisol.",
         "correct": true,
-        "explanation": "Les androgènes stimulent notamment la synthèse protéique et le développement de la masse musculaire."
+        "explanation": "Il s'agit de la même molécule."
       },
       {
-        "content": "Les androgènes exercent un effet anabolisant sur le muscle.",
-        "correct": true,
-        "explanation": "Les androgènes stimulent notamment la synthèse protéique et le développement de la masse musculaire."
-      },
-      {
-        "content": "Les androgènes participent au développement musculaire et osseux.",
-        "correct": true,
-        "explanation": "Les androgènes stimulent notamment la synthèse protéique et le développement de la masse musculaire."
-      },
-      {
-        "content": "Ils inhibent toute synthèse protéique musculaire.",
+        "content": "Hydrocortisone est une molécule sans rapport avec le cortisol.",
         "correct": false,
-        "explanation": "Les androgènes stimulent notamment la synthèse protéique et le développement de la masse musculaire."
+        "explanation": "C'est le même composé."
+      },
+      {
+        "content": "Il possède des effets anti-inflammatoires et immunomodulateurs.",
+        "correct": true,
+        "explanation": "Les glucocorticoïdes pharmacologiques exploitent ces propriétés."
+      },
+      {
+        "content": "Le cortisol diminue toujours la glycémie.",
+        "correct": false,
+        "explanation": "Il tend plutôt à l'augmenter dans ses effets métaboliques."
+      },
+      {
+        "content": "Le cortisol est le principal minéralocorticoïde.",
+        "correct": false,
+        "explanation": "L'aldostérone joue ce rôle."
       }
     ],
-    "explanation": "Les androgènes stimulent notamment la synthèse protéique et le développement de la masse musculaire."
+    "explanation": "Le cortisol/hydrocortisone est le principal glucocorticoïde humain, à effets métaboliques et anti-inflammatoires."
   },
   {
     "order": 86,
-    "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel effet les androgènes exercent-ils sur le muscle ?",
+    "difficulty": "MEDIUM",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "stimulation de la synthèse protéique",
+        "content": "L'aldostérone est principalement minéralocorticoïde.",
         "correct": true,
-        "explanation": "Les androgènes stimulent notamment la synthèse protéique et le développement de la masse musculaire."
+        "explanation": "Elle agit fortement sur le rein."
       },
       {
-        "content": "inhibition complète",
+        "content": "Les androgènes sont exclusivement présents chez l'homme.",
         "correct": false,
-        "explanation": "Les androgènes stimulent notamment la synthèse protéique et le développement de la masse musculaire."
+        "explanation": "Ils sont présents dans les deux sexes."
       },
       {
-        "content": "hydrolyse du glycogène uniquement",
+        "content": "L'aldostérone est le principal glucocorticoïde.",
         "correct": false,
-        "explanation": "Les androgènes stimulent notamment la synthèse protéique et le développement de la masse musculaire."
+        "explanation": "Elle est minéralocorticoïde."
       },
       {
-        "content": "minéralisation de la bile",
+        "content": "Elle favorise la synthèse protéique dans plusieurs tissus.",
+        "correct": true,
+        "explanation": "Elle possède un effet anabolisant."
+      },
+      {
+        "content": "L'effet physiologique des androgènes se résume à l'agressivité.",
         "correct": false,
-        "explanation": "Les androgènes stimulent notamment la synthèse protéique et le développement de la masse musculaire."
+        "explanation": "Cette généralisation comportementale n'est pas scientifiquement appropriée."
+      },
+      {
+        "content": "Le cortisol est un androgène C19.",
+        "correct": false,
+        "explanation": "Il est C21."
+      },
+      {
+        "content": "Le cortisol est principalement glucocorticoïde.",
+        "correct": true,
+        "explanation": "Il agit fortement sur métabolisme et inflammation."
+      },
+      {
+        "content": "Cortisol et aldostérone sont la même molécule.",
+        "correct": false,
+        "explanation": "Ce sont deux corticostéroïdes distincts."
+      },
+      {
+        "content": "Des différences de fonctions chimiques et d'enzymes biosynthétiques déterminent leurs activités.",
+        "correct": true,
+        "explanation": "De petites modifications structurales changent la sélectivité des récepteurs."
+      },
+      {
+        "content": "La testostérone participe au développement et au maintien des caractères sexuels masculins.",
+        "correct": true,
+        "explanation": "Ses effets dépendent de l'âge et du tissu."
       }
     ],
-    "explanation": "Les androgènes stimulent notamment la synthèse protéique et le développement de la masse musculaire."
+    "explanation": "Les androgènes, dont la testostérone, interviennent dans la différenciation sexuelle, les caractères sexuels secondaires et l'anabolisme. Cortisol et aldostérone sont deux corticostéroïdes C21 aux fonctions dominantes différentes."
   },
   {
     "order": 87,
-    "difficulty": "HARD",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos des œstrogènes et de la reproduction :",
+    "question": "Parmi les affirmations suivantes concernant les œstrogènes, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "Ils participent au développement des caractères sexuels féminins.",
+        "content": "Ils participent au maintien de la masse osseuse.",
         "correct": true,
-        "explanation": "Les rôles des œstrogènes incluent le développement mammaire."
+        "explanation": "Leur diminution après la ménopause favorise la perte osseuse."
       },
       {
-        "content": "Les œstrogènes participent au développement des organes génitaux féminins et des glandes mammaires.",
-        "correct": true,
-        "explanation": "Les rôles des œstrogènes incluent le développement mammaire."
-      },
-      {
-        "content": "Les œstrogènes participent aussi au maintien de la masse osseuse.",
-        "correct": true,
-        "explanation": "Les rôles des œstrogènes incluent le développement mammaire."
-      },
-      {
-        "content": "Ils sont décrits comme sans aucun effet sur les caractères sexuels.",
+        "content": "Les œstrogènes sont uniquement produits chez la femme.",
         "correct": false,
-        "explanation": "Les rôles des œstrogènes incluent le développement mammaire."
+        "explanation": "Les hommes en produisent aussi, notamment par aromatisation."
+      },
+      {
+        "content": "Les œstrogènes participent au développement des caractères sexuels féminins.",
+        "correct": true,
+        "explanation": "Ils agissent sur de nombreux tissus."
+      },
+      {
+        "content": "L'œstradiol est un minéralocorticoïde.",
+        "correct": false,
+        "explanation": "C'est un œstrogène."
+      },
+      {
+        "content": "L'œstradiol est un œstrogène majeur chez la femme en période reproductive.",
+        "correct": true,
+        "explanation": "Il est principalement synthétisé par l'ovaire."
       }
     ],
-    "explanation": "Les rôles des œstrogènes incluent le développement mammaire."
+    "explanation": "L'œstradiol est un œstrogène majeur ; ses effets incluent reproduction, caractères sexuels et maintien osseux."
   },
   {
     "order": 88,
-    "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel tissu glandulaire se développe sous l’influence des hormones sexuelles féminines ?",
-    "choices": [
-      {
-        "content": "glandes mammaires",
-        "correct": true,
-        "explanation": "Les rôles des œstrogènes incluent le développement mammaire."
-      },
-      {
-        "content": "glandes salivaires uniquement",
-        "correct": false,
-        "explanation": "Les rôles des œstrogènes incluent le développement mammaire."
-      },
-      {
-        "content": "pancréas exocrine",
-        "correct": false,
-        "explanation": "Les rôles des œstrogènes incluent le développement mammaire."
-      },
-      {
-        "content": "thyroïde uniquement",
-        "correct": false,
-        "explanation": "Les rôles des œstrogènes incluent le développement mammaire."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quelle structure ovarienne produit fortement la progestérone pendant la phase lutéale ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "corps jaune",
+        "le corps jaune",
+        "corpus luteum"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les rôles des œstrogènes incluent le développement mammaire."
+    },
+    "explanation": "La progestérone C21 est l'hormone majeure de la phase lutéale et transforme l'endomètre en tissu sécrétoire."
   },
   {
     "order": 89,
     "difficulty": "HARD",
     "format": "QZONE",
-    "question": "Dans ce schéma original simplifié des sites endocriniens, cliquez sur la corticosurrénale, site de synthèse du cortisol et de l’aldostérone.",
+    "question": "Dans ce schéma simplifié des sites endocriniens, cliquez sur la corticosurrénale, site de synthèse du cortisol et de l'aldostérone.",
     "image": {
       "src": "/images/training/ue14/biochimie/sterols-steroides-sterides/sites-hormones-steroides-qzone.svg",
       "alt": "Silhouette simplifiée avec corticosurrénales au-dessus des reins, gonades pelviennes et placenta schématique",
@@ -663,68 +709,10 @@ export const UE14_BIOCH_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
         "tolerance": 0.075
       }
     ],
-    "explanation": "Le cortisol et l'aldostérone sont des corticostéroïdes d'origine surrénalienne."
+    "explanation": "Le cortisol et l'aldostérone sont synthétisés dans le cortex surrénalien, dans des zones différentes."
   },
   {
     "order": 90,
-    "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel effet vasculaire les œstrogènes peuvent-ils favoriser ?",
-    "choices": [
-      {
-        "content": "vasodilatation",
-        "correct": true,
-        "explanation": "Les œstrogènes peuvent favoriser la vasodilatation, notamment par modulation de la fonction endothéliale."
-      },
-      {
-        "content": "vasoconstriction obligatoire",
-        "correct": false,
-        "explanation": "Les œstrogènes peuvent favoriser la vasodilatation, notamment par modulation de la fonction endothéliale."
-      },
-      {
-        "content": "absence totale d'effet",
-        "correct": false,
-        "explanation": "Les œstrogènes peuvent favoriser la vasodilatation, notamment par modulation de la fonction endothéliale."
-      },
-      {
-        "content": "thrombose obligatoire",
-        "correct": false,
-        "explanation": "Les œstrogènes peuvent favoriser la vasodilatation, notamment par modulation de la fonction endothéliale."
-      }
-    ],
-    "explanation": "Les œstrogènes peuvent favoriser la vasodilatation, notamment par modulation de la fonction endothéliale."
-  },
-  {
-    "order": 91,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos des œstrogènes et de la température :",
-    "choices": [
-      {
-        "content": "Ils favorisent la déperdition de chaleur.",
-        "correct": true,
-        "explanation": "Les œstrogènes favorisent la dissipation thermique, tandis que la progestérone élève la température basale après l’ovulation."
-      },
-      {
-        "content": "Ils tendent à abaisser la température basale.",
-        "correct": true,
-        "explanation": "Les œstrogènes favorisent la dissipation thermique, tandis que la progestérone élève la température basale après l’ovulation."
-      },
-      {
-        "content": "Cet effet thermique s’oppose à l’élévation de la température basale induite par la progestérone après l’ovulation.",
-        "correct": true,
-        "explanation": "Les œstrogènes favorisent la dissipation thermique, tandis que la progestérone élève la température basale après l’ovulation."
-      },
-      {
-        "content": "Ils sont responsables de l’élévation thermique post-ovulatoire caractéristique de la progestérone.",
-        "correct": false,
-        "explanation": "Les œstrogènes favorisent la dissipation thermique, tandis que la progestérone élève la température basale après l’ovulation."
-      }
-    ],
-    "explanation": "Les œstrogènes favorisent la dissipation thermique ; après l’ovulation, la progestérone élève au contraire la température basale."
-  },
-  {
-    "order": 92,
     "difficulty": "HARD",
     "format": "QROC",
     "question": "Quel glucocorticoïde est également appelé hydrocortisone ?",
@@ -736,275 +724,304 @@ export const UE14_BIOCH_CH8_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion
       ],
       "normalization": {
         "trim": true,
-        "caseSensitive": false,
         "collapseWhitespace": true,
+        "caseSensitive": false,
         "ignoreAccents": true
       }
     },
-    "explanation": "Cortisol = hydrocortisone."
+    "explanation": "Le cortisol/hydrocortisone est le principal glucocorticoïde humain, à effets métaboliques et anti-inflammatoires."
+  },
+  {
+    "order": 91,
+    "difficulty": "HARD",
+    "format": "QRP",
+    "question": "Concernant les androgènes, sélectionnez exactement les deux affirmations exactes.",
+    "choices": [
+      {
+        "content": "La testostérone est un œstrogène C18.",
+        "correct": false,
+        "explanation": "C'est un androgène C19."
+      },
+      {
+        "content": "La testostérone participe au développement et au maintien des caractères sexuels masculins.",
+        "correct": true,
+        "explanation": "Ses effets dépendent de l'âge et du tissu."
+      },
+      {
+        "content": "La DHEA est une hormone thyroïdienne iodée.",
+        "correct": false,
+        "explanation": "C'est un stéroïde."
+      },
+      {
+        "content": "Les androgènes sont exclusivement présents chez l'homme.",
+        "correct": false,
+        "explanation": "Ils sont présents dans les deux sexes."
+      },
+      {
+        "content": "Les androgènes existent également chez la femme.",
+        "correct": true,
+        "explanation": "Ils sont produits en quantités plus faibles par ovaires et surrénales."
+      }
+    ],
+    "explanation": "Les androgènes, dont la testostérone, interviennent dans la différenciation sexuelle, les caractères sexuels secondaires et l'anabolisme.",
+    "requiredSelectionCount": 2
+  },
+  {
+    "order": 92,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Dans une situation d'application n°2, quel glucocorticoïde est également appelé hydrocortisone ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "cortisol",
+        "le cortisol"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Le cortisol est l'hydrocortisone."
   },
   {
     "order": 93,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos de la progestérone et de l’utérus :",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant la progestérone, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Elle stimule les sécrétions utérines.",
-        "correct": true,
-        "explanation": "La progestérone transforme l’endomètre en muqueuse sécrétoire et contribue à son maintien pendant la phase lutéale."
-      },
-      {
-        "content": "Elle favorise le développement de la muqueuse utérine durant la seconde phase du cycle.",
-        "correct": true,
-        "explanation": "La progestérone transforme l’endomètre en muqueuse sécrétoire et contribue à son maintien pendant la phase lutéale."
-      },
-      {
-        "content": "Elle est associée à la phase lutéale.",
-        "correct": true,
-        "explanation": "La progestérone transforme l’endomètre en muqueuse sécrétoire et contribue à son maintien pendant la phase lutéale."
-      },
-      {
-        "content": "Elle détruit systématiquement la muqueuse utérine dans la seconde phase.",
+        "content": "Elle est un stéroïde C18 de type estrane.",
         "correct": false,
-        "explanation": "La progestérone transforme l’endomètre en muqueuse sécrétoire et contribue à son maintien pendant la phase lutéale."
+        "explanation": "C'est un stéroïde C21."
+      },
+      {
+        "content": "Elle abaisse systématiquement la température basale après l'ovulation.",
+        "correct": false,
+        "explanation": "Elle l'élève légèrement."
+      },
+      {
+        "content": "Elle est le principal androgène testiculaire.",
+        "correct": false,
+        "explanation": "Ce rôle revient à la testostérone."
+      },
+      {
+        "content": "Elle augmente la température basale après l'ovulation.",
+        "correct": true,
+        "explanation": "Cet effet thermogène est utilisé comme repère du cycle."
+      },
+      {
+        "content": "Elle provoque la phase proliférative initiale de l'endomètre en l'absence d'œstrogènes.",
+        "correct": false,
+        "explanation": "La prolifération est surtout œstrogéno-dépendante."
       }
     ],
-    "explanation": "La progestérone transforme l’endomètre en muqueuse sécrétoire et contribue à son maintien pendant la phase lutéale."
+    "explanation": "La progestérone C21 est l'hormone majeure de la phase lutéale et transforme l'endomètre en tissu sécrétoire."
   },
   {
     "order": 94,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel tissu est particulièrement concerné ?",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant les corticostéroïdes surrénaliens ?",
     "choices": [
       {
-        "content": "muqueuse utérine",
+        "content": "Des différences de fonctions chimiques et d'enzymes biosynthétiques déterminent leurs activités.",
         "correct": true,
-        "explanation": "La progestérone transforme l’endomètre en muqueuse sécrétoire et contribue à son maintien pendant la phase lutéale."
+        "explanation": "De petites modifications structurales changent la sélectivité des récepteurs."
       },
       {
-        "content": "cornée",
-        "correct": false,
-        "explanation": "La progestérone transforme l’endomètre en muqueuse sécrétoire et contribue à son maintien pendant la phase lutéale."
+        "content": "Les deux dérivent du cholestérol.",
+        "correct": true,
+        "explanation": "Ils sont des stéroïdes C21."
       },
       {
-        "content": "myéline",
+        "content": "La classification fonctionnelle ne dépend d'aucune différence structurale.",
         "correct": false,
-        "explanation": "La progestérone transforme l’endomètre en muqueuse sécrétoire et contribue à son maintien pendant la phase lutéale."
+        "explanation": "La structure conditionne l'affinité et la fonction."
       },
       {
-        "content": "cartilage uniquement",
+        "content": "L'aldostérone est le principal glucocorticoïde.",
         "correct": false,
-        "explanation": "La progestérone transforme l’endomètre en muqueuse sécrétoire et contribue à son maintien pendant la phase lutéale."
+        "explanation": "Elle est minéralocorticoïde."
+      },
+      {
+        "content": "Le cortisol est principalement glucocorticoïde.",
+        "correct": true,
+        "explanation": "Il agit fortement sur métabolisme et inflammation."
       }
     ],
-    "explanation": "La progestérone transforme l’endomètre en muqueuse sécrétoire et contribue à son maintien pendant la phase lutéale."
+    "explanation": "Cortisol et aldostérone sont deux corticostéroïdes C21 aux fonctions dominantes différentes."
   },
   {
     "order": 95,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos de la progestérone et des glandes mammaires :",
-    "choices": [
-      {
-        "content": "Elle favorise le développement lobuloalvéolaire de la glande mammaire.",
-        "correct": true,
-        "explanation": "Dans la glande mammaire, la progestérone favorise surtout le développement lobuloalvéolaire ; les œstrogènes stimulent davantage la croissance canalaire."
-      },
-      {
-        "content": "Elle est synthétisée notamment par le placenta.",
-        "correct": true,
-        "explanation": "Dans la glande mammaire, la progestérone favorise surtout le développement lobuloalvéolaire ; les œstrogènes stimulent davantage la croissance canalaire."
-      },
-      {
-        "content": "Le corps jaune ovarien synthétise la progestérone pendant la phase lutéale.",
-        "correct": true,
-        "explanation": "Dans la glande mammaire, la progestérone favorise surtout le développement lobuloalvéolaire ; les œstrogènes stimulent davantage la croissance canalaire."
-      },
-      {
-        "content": "Elle est produite uniquement par les cellules de Leydig.",
-        "correct": false,
-        "explanation": "Dans la glande mammaire, la progestérone favorise surtout le développement lobuloalvéolaire ; les œstrogènes stimulent davantage la croissance canalaire."
-      }
-    ],
-    "explanation": "La progestérone, produite notamment par le corps jaune puis le placenta, favorise le développement lobuloalvéolaire ; les œstrogènes stimulent surtout la croissance canalaire."
+    "format": "QROC",
+    "question": "Quel nombre de carbones caractérise classiquement le squelette des androgènes ?",
+    "answer": {
+      "type": "number",
+      "value": 19,
+      "tolerance": 0
+    },
+    "explanation": "Les familles hormonales partagent le noyau stéroïdien mais diffèrent par le nombre de carbones et les substituants, ce qui conditionne leur fonction."
   },
   {
     "order": 96,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel rôle mammaire est particulièrement associé à la progestérone ?",
-    "choices": [
-      {
-        "content": "Le développement lobuloalvéolaire",
-        "correct": true,
-        "explanation": "Dans la glande mammaire, la progestérone favorise surtout le développement lobuloalvéolaire ; les œstrogènes stimulent davantage la croissance canalaire."
-      },
-      {
-        "content": "suppression de toute glande mammaire",
-        "correct": false,
-        "explanation": "Dans la glande mammaire, la progestérone favorise surtout le développement lobuloalvéolaire ; les œstrogènes stimulent davantage la croissance canalaire."
-      },
-      {
-        "content": "synthèse de myéline",
-        "correct": false,
-        "explanation": "Dans la glande mammaire, la progestérone favorise surtout le développement lobuloalvéolaire ; les œstrogènes stimulent davantage la croissance canalaire."
-      },
-      {
-        "content": "formation de bile",
-        "correct": false,
-        "explanation": "Dans la glande mammaire, la progestérone favorise surtout le développement lobuloalvéolaire ; les œstrogènes stimulent davantage la croissance canalaire."
+    "format": "QROC",
+    "question": "Quelle hormone ovarienne augmente typiquement la température basale après l'ovulation ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "progestérone",
+        "progesterone",
+        "la progestérone"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Dans la glande mammaire, la progestérone favorise surtout le développement lobuloalvéolaire ; les œstrogènes stimulent davantage la croissance canalaire."
+    },
+    "explanation": "La progestérone sécrétée pendant la phase lutéale exerce un effet thermogène modeste."
   },
   {
     "order": 97,
     "difficulty": "HARD",
-    "format": "QRP",
-    "requiredSelectionCount": 3,
-    "question": "Sélectionnez exactement les trois associations hormone → rôle correctes.",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant le cortisol ?",
     "choices": [
       {
-        "content": "Aldostérone → réabsorption de Na+",
+        "content": "Il possède des effets anti-inflammatoires et immunomodulateurs.",
         "correct": true,
-        "explanation": "Rôle rénal."
+        "explanation": "Les glucocorticoïdes pharmacologiques exploitent ces propriétés."
       },
       {
-        "content": "Cortisol → effet anti-inflammatoire",
+        "content": "Il augmente la disponibilité énergétique en période de stress.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Il favorise notamment la néoglucogenèse."
       },
       {
-        "content": "Progestérone → augmentation de la température centrale après l'ovulation",
-        "correct": true,
-        "explanation": "Rôle."
-      },
-      {
-        "content": "Œstradiol → principal minéralocorticoïde",
+        "content": "Hydrocortisone est une molécule sans rapport avec le cortisol.",
         "correct": false,
-        "explanation": "Non."
+        "explanation": "C'est le même composé."
+      },
+      {
+        "content": "Hydrocortisone est le nom pharmaceutique du cortisol.",
+        "correct": true,
+        "explanation": "Il s'agit de la même molécule."
+      },
+      {
+        "content": "C'est le principal glucocorticoïde physiologique humain.",
+        "correct": true,
+        "explanation": "Il est synthétisé principalement dans la zone fasciculée du cortex surrénalien."
       }
     ],
-    "explanation": "Ces trois associations relient structure hormonale et physiologie."
+    "explanation": "Le cortisol/hydrocortisone est le principal glucocorticoïde humain, à effets métaboliques et anti-inflammatoires."
   },
   {
     "order": 98,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel effet thermique la progestérone exerce-t-elle après l’ovulation ?",
+    "format": "QRM",
+    "question": "Concernant les effets cardiovasculaires des œstrogènes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "augmentation de la température centrale",
+        "content": "Ils garantissent une protection absolue contre toute maladie cardiovasculaire.",
+        "correct": false,
+        "explanation": "Une telle généralisation est incorrecte et dépend fortement du contexte clinique."
+      },
+      {
+        "content": "Ils peuvent moduler favorablement la fonction endothéliale dans certains contextes physiologiques.",
         "correct": true,
-        "explanation": "La progestérone est associée à l'élévation thermique post-ovulatoire."
+        "explanation": "L'œstradiol peut favoriser notamment la production de NO et la vasodilatation."
       },
       {
-        "content": "diminution",
+        "content": "Ils n'ont aucun effet sur l'endothélium.",
         "correct": false,
-        "explanation": "La progestérone est associée à l'élévation thermique post-ovulatoire."
+        "explanation": "Ils modulent plusieurs fonctions endothéliales."
       },
       {
-        "content": "aucun effet",
-        "correct": false,
-        "explanation": "La progestérone est associée à l'élévation thermique post-ovulatoire."
+        "content": "Ils participent à la régulation du tonus vasculaire.",
+        "correct": true,
+        "explanation": "Les effets vasculaires dépendent du tissu, du récepteur et du contexte."
       },
       {
-        "content": "hypothermie obligatoire",
+        "content": "Leur seul effet vasculaire est une vasoconstriction obligatoire.",
         "correct": false,
-        "explanation": "La progestérone est associée à l'élévation thermique post-ovulatoire."
+        "explanation": "Ils peuvent au contraire favoriser la vasodilatation."
       }
     ],
-    "explanation": "La progestérone est associée à l'élévation thermique post-ovulatoire."
+    "explanation": "Les œstrogènes ont des effets vasculaires réels mais ne doivent pas être présentés comme une protection cardiovasculaire universelle."
   },
   {
     "order": 99,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "À propos des origines des hormones stéroïdiennes :",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant les œstrogènes, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "Cortisol et aldostérone sont d'origine surrénalienne.",
-        "correct": true,
-        "explanation": "Les principales hormones stéroïdiennes sont produites par la corticosurrénale, les gonades et, pendant la grossesse, le placenta."
-      },
-      {
-        "content": "La testostérone est notamment synthétisée par les cellules de Leydig.",
-        "correct": true,
-        "explanation": "Les principales hormones stéroïdiennes sont produites par la corticosurrénale, les gonades et, pendant la grossesse, le placenta."
-      },
-      {
-        "content": "Les œstrogènes sont notamment synthétisés par le follicule ovarien.",
-        "correct": true,
-        "explanation": "Les principales hormones stéroïdiennes sont produites par la corticosurrénale, les gonades et, pendant la grossesse, le placenta."
-      },
-      {
-        "content": "Les trois sont synthétisés exclusivement dans les adipocytes.",
+        "content": "Les œstrogènes sont uniquement produits chez la femme.",
         "correct": false,
-        "explanation": "Les principales hormones stéroïdiennes sont produites par la corticosurrénale, les gonades et, pendant la grossesse, le placenta."
+        "explanation": "Les hommes en produisent aussi, notamment par aromatisation."
+      },
+      {
+        "content": "L'œstradiol est un minéralocorticoïde.",
+        "correct": false,
+        "explanation": "C'est un œstrogène."
+      },
+      {
+        "content": "Les œstrogènes participent au développement des caractères sexuels féminins.",
+        "correct": true,
+        "explanation": "Ils agissent sur de nombreux tissus."
+      },
+      {
+        "content": "Ils participent au maintien de la masse osseuse.",
+        "correct": true,
+        "explanation": "Leur diminution après la ménopause favorise la perte osseuse."
+      },
+      {
+        "content": "Ils protègent obligatoirement de toute maladie cardiovasculaire.",
+        "correct": false,
+        "explanation": "Les effets cardiovasculaires ne se résument pas à une protection universelle."
       }
     ],
-    "explanation": "Les principales hormones stéroïdiennes sont produites par la corticosurrénale, les gonades et, pendant la grossesse, le placenta."
+    "explanation": "L'œstradiol est un œstrogène majeur ; ses effets incluent reproduction, caractères sexuels et maintien osseux.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 100,
     "difficulty": "HARD",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "À propos des fonctions des hormones stéroïdiennes, sélectionnez exactement les cinq affirmations correctes.",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant la progestérone ?",
     "choices": [
       {
-        "content": "L'aldostérone favorise la réabsorption de Na+.",
-        "correct": true,
-        "explanation": "L’association doit respecter la classe de l’hormone, son site de synthèse ou son rôle physiologique."
-      },
-      {
-        "content": "L'aldostérone favorise l'élimination urinaire de K+.",
-        "correct": true,
-        "explanation": "L’association doit respecter la classe de l’hormone, son site de synthèse ou son rôle physiologique."
-      },
-      {
-        "content": "Le cortisol est hyperglycémiant.",
-        "correct": true,
-        "explanation": "L’association doit respecter la classe de l’hormone, son site de synthèse ou son rôle physiologique."
-      },
-      {
-        "content": "Le cortisol est anti-inflammatoire.",
-        "correct": true,
-        "explanation": "L’association doit respecter la classe de l’hormone, son site de synthèse ou son rôle physiologique."
-      },
-      {
-        "content": "Les androgènes stimulent la synthèse protéique musculaire.",
-        "correct": true,
-        "explanation": "L’association doit respecter la classe de l’hormone, son site de synthèse ou son rôle physiologique."
-      },
-      {
-        "content": "La corticostérone est le principal minéralocorticoïde humain.",
+        "content": "Elle abaisse systématiquement la température basale après l'ovulation.",
         "correct": false,
-        "explanation": "L’aldostérone, et non la corticostérone, est le principal minéralocorticoïde humain."
+        "explanation": "Elle l'élève légèrement."
       },
       {
-        "content": "Les œstrogènes sont nécessairement vasoconstricteurs.",
+        "content": "Elle est le principal androgène testiculaire.",
         "correct": false,
-        "explanation": "Les œstrogènes peuvent au contraire favoriser la vasodilatation endothéliale."
+        "explanation": "Ce rôle revient à la testostérone."
       },
       {
-        "content": "La progestérone diminue la température centrale après ovulation.",
-        "correct": false,
-        "explanation": "La progestérone élève la température basale après l’ovulation."
+        "content": "Elle augmente la température basale après l'ovulation.",
+        "correct": true,
+        "explanation": "Cet effet thermogène est utilisé comme repère du cycle."
       },
       {
-        "content": "Le cortisol est un œstrogène.",
+        "content": "Elle provoque la phase proliférative initiale de l'endomètre en l'absence d'œstrogènes.",
         "correct": false,
-        "explanation": "Le cortisol est un glucocorticoïde, et non un œstrogène."
+        "explanation": "La prolifération est surtout œstrogéno-dépendante."
       },
       {
-        "content": "L'aldostérone favorise l'élimination du sodium.",
-        "correct": false,
-        "explanation": "L’aldostérone favorise la réabsorption rénale du sodium."
+        "content": "Elle transforme l'endomètre prolifératif en endomètre sécrétoire.",
+        "correct": true,
+        "explanation": "Elle prépare la muqueuse à l'implantation."
       }
     ],
-    "explanation": "MASTER des fonctions hormonales."
+    "explanation": "La progestérone C21 est l'hormone majeure de la phase lutéale et transforme l'endomètre en tissu sécrétoire."
   }
 ];

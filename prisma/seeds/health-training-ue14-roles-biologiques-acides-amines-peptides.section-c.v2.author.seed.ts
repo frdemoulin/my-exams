@@ -1,336 +1,378 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
+/** UE14 Biochimie — Rôles biologiques des acides aminés et des peptides — Section C — Peptides thérapeutiques et hormones peptidiques */
 export const UE14_BIOCH_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 45,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant l’insuline mature :",
+    "question": "Concernant l’insuline mature, quelles propositions sont exactes ?",
     "choices": [
+      {
+        "content": "Elle abaisse la glycémie en favorisant l’utilisation et le stockage du glucose selon les tissus.",
+        "correct": true,
+        "explanation": "C’est l’hormone hypoglycémiante majeure."
+      },
+      {
+        "content": "Elle augmente la glycémie comme fonction principale.",
+        "correct": false,
+        "explanation": "Elle est hypoglycémiante."
+      },
+      {
+        "content": "L’insuline humaine mature comporte 51 acides aminés.",
+        "correct": true,
+        "explanation": "La chaîne A en contient 21 et la chaîne B 30."
+      },
+      {
+        "content": "Elle possède trois chaînes A, B et C dans sa forme mature.",
+        "correct": false,
+        "explanation": "Le peptide C est clivé."
+      },
       {
         "content": "Elle comporte deux chaînes A et B.",
         "correct": true,
-        "explanation": "L’insuline favorise la baisse de la glycémie et l’entrée du glucose dans les cellules."
-      },
-      {
-        "content": "Les chaînes A et B sont reliées par deux ponts disulfure interchaînes.",
-        "correct": true,
-        "explanation": "L’insuline favorise la baisse de la glycémie et l’entrée du glucose dans les cellules."
-      },
-      {
-        "content": "Elle comporte trois chaînes A, B et C définitives.",
-        "correct": false,
-        "explanation": "L’insuline favorise la baisse de la glycémie et l’entrée du glucose dans les cellules."
-      },
-      {
-        "content": "Elle est une hormone hyperglycémiante.",
-        "correct": false,
-        "explanation": "L’insuline favorise la baisse de la glycémie et l’entrée du glucose dans les cellules."
+        "explanation": "Elles sont issues de la proinsuline."
       }
     ],
-    "explanation": "L’insuline favorise la baisse de la glycémie et l’entrée du glucose dans les cellules."
+    "explanation": "L’insuline humaine mature compte 51 résidus, deux chaînes et trois ponts disulfure au total."
   },
   {
     "order": 46,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel est l’effet principal de l’insuline sur la glycémie ?",
+    "question": "Parmi les affirmations suivantes concernant l’insuline mature, laquelle est correcte ?",
     "choices": [
       {
-        "content": "un effet hypoglycémiant",
+        "content": "Elle comporte 29 acides aminés.",
+        "correct": false,
+        "explanation": "Ce nombre correspond au glucagon."
+      },
+      {
+        "content": "Elle augmente la glycémie comme fonction principale.",
+        "correct": false,
+        "explanation": "Elle est hypoglycémiante."
+      },
+      {
+        "content": "Elle possède trois chaînes A, B et C dans sa forme mature.",
+        "correct": false,
+        "explanation": "Le peptide C est clivé."
+      },
+      {
+        "content": "Elle comporte deux chaînes A et B.",
         "correct": true,
-        "explanation": "L’insuline favorise la baisse de la glycémie et l’entrée du glucose dans les cellules."
+        "explanation": "Elles sont issues de la proinsuline."
       },
       {
-        "content": "un effet hyperglycémiant",
+        "content": "Elle ne possède aucun pont disulfure.",
         "correct": false,
-        "explanation": "L’insuline favorise la baisse de la glycémie et l’entrée du glucose dans les cellules."
-      },
-      {
-        "content": "aucun effet métabolique",
-        "correct": false,
-        "explanation": "L’insuline favorise la baisse de la glycémie et l’entrée du glucose dans les cellules."
-      },
-      {
-        "content": "une augmentation obligatoire de la glycémie",
-        "correct": false,
-        "explanation": "L’insuline favorise la baisse de la glycémie et l’entrée du glucose dans les cellules."
+        "explanation": "Elle en possède trois au total."
       }
     ],
-    "explanation": "L’insuline favorise la baisse de la glycémie et l’entrée du glucose dans les cellules."
+    "explanation": "L’insuline humaine mature compte 51 résidus, deux chaînes et trois ponts disulfure au total."
   },
   {
     "order": 47,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant les cellules productrices d’insuline :",
-    "choices": [
-      {
-        "content": "Elle est synthétisée par les cellules β des îlots de Langerhans.",
-        "correct": true,
-        "explanation": "Les cellules β des îlots de Langerhans sont les cellules endocrines pancréatiques qui synthétisent et sécrètent l’insuline."
-      },
-      {
-        "content": "Elles se trouvent dans le pancréas.",
-        "correct": true,
-        "explanation": "Les cellules β des îlots de Langerhans sont les cellules endocrines pancréatiques qui synthétisent et sécrètent l’insuline."
-      },
-      {
-        "content": "L’insuline est synthétisée principalement par les cardiomyocytes.",
-        "correct": false,
-        "explanation": "Les cellules β des îlots de Langerhans sont les cellules endocrines pancréatiques qui synthétisent et sécrètent l’insuline."
-      },
-      {
-        "content": "Elle est produite par les érythrocytes matures.",
-        "correct": false,
-        "explanation": "Les cellules β des îlots de Langerhans sont les cellules endocrines pancréatiques qui synthétisent et sécrètent l’insuline."
+    "format": "QROC",
+    "question": "Quel type cellulaire des îlots de Langerhans produit l’insuline ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "cellules bêta",
+        "cellules beta",
+        "cellules β",
+        "cellule bêta"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les cellules β des îlots de Langerhans sont les cellules endocrines pancréatiques qui synthétisent et sécrètent l’insuline."
+    },
+    "explanation": "Les cellules bêta pancréatiques synthétisent et sécrètent l’insuline en réponse notamment au glucose."
   },
   {
     "order": 48,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel type cellulaire synthétise l’insuline ?",
+    "format": "QRM",
+    "question": "Concernant les cellules productrices d’insuline, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "les cellules β pancréatiques",
+        "content": "Les cellules alpha sont la source principale d’insuline.",
+        "correct": false,
+        "explanation": "Elles sécrètent surtout le glucagon."
+      },
+      {
+        "content": "Les cellules alpha voisines synthétisent surtout le glucagon.",
         "correct": true,
-        "explanation": "Les cellules β des îlots de Langerhans sont les cellules endocrines pancréatiques qui synthétisent et sécrètent l’insuline."
+        "explanation": "Les deux hormones ont des effets glycémiques opposés."
       },
       {
-        "content": "les cellules α pancréatiques",
-        "correct": false,
-        "explanation": "Les cellules β des îlots de Langerhans sont les cellules endocrines pancréatiques qui synthétisent et sécrètent l’insuline."
+        "content": "Une augmentation de la glycémie stimule normalement leur sécrétion d’insuline.",
+        "correct": true,
+        "explanation": "Le métabolisme du glucose déclenche la sécrétion."
       },
       {
-        "content": "les cardiomyocytes",
-        "correct": false,
-        "explanation": "Les cellules β des îlots de Langerhans sont les cellules endocrines pancréatiques qui synthétisent et sécrètent l’insuline."
+        "content": "Les cellules bêta des îlots de Langerhans synthétisent l’insuline.",
+        "correct": true,
+        "explanation": "Elles sont des cellules endocrines du pancréas."
       },
       {
-        "content": "les érythrocytes",
-        "correct": false,
-        "explanation": "Les cellules β des îlots de Langerhans sont les cellules endocrines pancréatiques qui synthétisent et sécrètent l’insuline."
+        "content": "L’insuline est libérée dans le sang par exocytose de granules.",
+        "correct": true,
+        "explanation": "La maturation est achevée dans la voie sécrétoire."
       }
     ],
-    "explanation": "Les cellules β des îlots de Langerhans sont les cellules endocrines pancréatiques qui synthétisent et sécrètent l’insuline."
+    "explanation": "Les cellules bêta pancréatiques synthétisent et sécrètent l’insuline en réponse notamment au glucose."
   },
   {
     "order": 49,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant la pro-opiomélanocortine :",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant la pro-opiomélanocortine, laquelle est correcte ?",
     "choices": [
       {
-        "content": "C’est un précurseur protéique pouvant être clivé différemment selon les tissus.",
+        "content": "La POMC est un précurseur polypeptidique.",
         "correct": true,
-        "explanation": "La POMC illustre le traitement tissulaire spécifique d’un précurseur commun."
+        "explanation": "Elle est clivée en plusieurs peptides biologiquement actifs."
       },
       {
-        "content": "Elle peut donner notamment ACTH et β-endorphine.",
-        "correct": true,
-        "explanation": "La POMC illustre le traitement tissulaire spécifique d’un précurseur commun."
-      },
-      {
-        "content": "Elle est un triglycéride de réserve.",
+        "content": "Elle ne peut donner qu’un seul peptide final.",
         "correct": false,
-        "explanation": "La POMC illustre le traitement tissulaire spécifique d’un précurseur commun."
+        "explanation": "Elle donne plusieurs produits."
       },
       {
-        "content": "Elle ne subit jamais de clivage protéolytique.",
+        "content": "La POMC est un monosaccharide.",
         "correct": false,
-        "explanation": "La POMC illustre le traitement tissulaire spécifique d’un précurseur commun."
+        "explanation": "C’est une prohormone polypeptidique."
+      },
+      {
+        "content": "La bêta-endorphine ne possède aucun lien avec POMC.",
+        "correct": false,
+        "explanation": "Elle en dérive."
+      },
+      {
+        "content": "L’ACTH est synthétisée à partir du cholestérol et non d’un précurseur peptidique.",
+        "correct": false,
+        "explanation": "Elle dérive de POMC."
       }
     ],
-    "explanation": "La POMC illustre le traitement tissulaire spécifique d’un précurseur commun."
+    "explanation": "La POMC illustre la production de plusieurs peptides par clivages tissulaires d’un même précurseur."
   },
   {
     "order": 50,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel peptide opioïde peut provenir de la POMC ?",
+    "format": "QRP",
+    "question": "Concernant la pro-opiomélanocortine, sélectionnez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "la β-endorphine",
+        "content": "La bêta-endorphine ne possède aucun lien avec POMC.",
+        "correct": false,
+        "explanation": "Elle en dérive."
+      },
+      {
+        "content": "L’ACTH est synthétisée à partir du cholestérol et non d’un précurseur peptidique.",
+        "correct": false,
+        "explanation": "Elle dérive de POMC."
+      },
+      {
+        "content": "Elle ne peut donner qu’un seul peptide final.",
+        "correct": false,
+        "explanation": "Elle donne plusieurs produits."
+      },
+      {
+        "content": "L’ACTH dérive de la POMC.",
         "correct": true,
-        "explanation": "La POMC illustre le traitement tissulaire spécifique d’un précurseur commun."
+        "explanation": "Elle stimule le cortex surrénalien."
       },
       {
-        "content": "l’insuline",
-        "correct": false,
-        "explanation": "La POMC illustre le traitement tissulaire spécifique d’un précurseur commun."
-      },
-      {
-        "content": "le BNP",
-        "correct": false,
-        "explanation": "La POMC illustre le traitement tissulaire spécifique d’un précurseur commun."
-      },
-      {
-        "content": "la bradykinine uniquement",
-        "correct": false,
-        "explanation": "La POMC illustre le traitement tissulaire spécifique d’un précurseur commun."
+        "content": "La bêta-endorphine dérive également de la POMC.",
+        "correct": true,
+        "explanation": "C’est un peptide opioïde endogène."
       }
     ],
-    "explanation": "La POMC illustre le traitement tissulaire spécifique d’un précurseur commun."
+    "explanation": "La POMC illustre la production de plusieurs peptides par clivages tissulaires d’un même précurseur.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 51,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant la synthèse non ribosomale de petits peptides :",
+    "question": "Concernant la synthèse ribosome-indépendante de petits peptides, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle peut faire intervenir des synthétases spécifiques.",
+        "content": "Chez les microorganismes, des nonribosomal peptide synthetases produisent de nombreux peptides bioactifs.",
         "correct": true,
-        "explanation": "Certains petits peptides, comme le glutathion, sont synthétisés par des ligases au cours d’étapes enzymatiques consommant de l’ATP, indépendamment du ribosome."
+        "explanation": "Ces complexes enzymatiques incorporent parfois des acides aminés non standards ou D."
       },
       {
-        "content": "Elle nécessite de l’énergie, notamment de l’ATP.",
+        "content": "La synthèse ribosome-indépendante permet des architectures différentes des peptides ribosomaux.",
         "correct": true,
-        "explanation": "Certains petits peptides, comme le glutathion, sont synthétisés par des ligases au cours d’étapes enzymatiques consommant de l’ATP, indépendamment du ribosome."
+        "explanation": "Cyclisation et résidus inhabituels sont fréquents dans les produits microbiens."
       },
       {
-        "content": "Elle est décrite comme le mécanisme principal de synthèse des longues protéines humaines.",
+        "content": "Les peptides non ribosomaux ne peuvent contenir aucun acide aminé D.",
         "correct": false,
-        "explanation": "Certains petits peptides, comme le glutathion, sont synthétisés par des ligases au cours d’étapes enzymatiques consommant de l’ATP, indépendamment du ribosome."
+        "explanation": "Ils peuvent en contenir."
       },
       {
-        "content": "Elle ne consomme aucune énergie.",
+        "content": "Tous les peptides sont obligatoirement traduits directement par un ribosome.",
         "correct": false,
-        "explanation": "Certains petits peptides, comme le glutathion, sont synthétisés par des ligases au cours d’étapes enzymatiques consommant de l’ATP, indépendamment du ribosome."
+        "explanation": "Des voies enzymatiques indépendantes de la traduction existent."
+      },
+      {
+        "content": "Le glutathion est produit par traduction d’un gène codant exactement trois résidus.",
+        "correct": false,
+        "explanation": "Il est assemblé enzymatiquement."
       }
     ],
-    "explanation": "Certains petits peptides, comme le glutathion, sont synthétisés par des ligases au cours d’étapes enzymatiques consommant de l’ATP, indépendamment du ribosome."
+    "explanation": "Des petits peptides, dont le glutathion, sont assemblés enzymatiquement sans traduction directe d’un ARNm."
   },
   {
     "order": 52,
     "difficulty": "EASY",
     "format": "QROC",
-    "question": "Réponse numérique : combien de chaînes polypeptidiques possède l’insuline mature ?",
+    "question": "Quel tripeptide humain est synthétisé par des ligases ATP-dépendantes indépendamment de la traduction ?",
     "answer": {
-      "type": "number",
-      "value": 2,
-      "tolerance": 0
+      "type": "text",
+      "acceptedAnswers": [
+        "glutathion",
+        "GSH",
+        "le glutathion"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
     },
-    "explanation": "L’insuline mature comporte deux chaînes A et B reliées par des ponts disulfure."
+    "explanation": "Des petits peptides, dont le glutathion, sont assemblés enzymatiquement sans traduction directe d’un ARNm."
   },
   {
     "order": 53,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant le glutathion :",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant le glutathion ?",
     "choices": [
       {
-        "content": "C’est un tripeptide γGlu-Cys-Gly.",
-        "correct": true,
-        "explanation": "Le glutathion est un tripeptide cellulaire majeur de défense antioxydante."
-      },
-      {
-        "content": "Il joue un rôle antioxydant important dans les cellules.",
-        "correct": true,
-        "explanation": "Le glutathion est un tripeptide cellulaire majeur de défense antioxydante."
-      },
-      {
-        "content": "C’est un tétrapeptide pro-oxydant.",
+        "content": "Il ne possède aucun groupement thiol.",
         "correct": false,
-        "explanation": "Le glutathion est un tripeptide cellulaire majeur de défense antioxydante."
+        "explanation": "La cystéine apporte un thiol."
       },
       {
-        "content": "Il ne contient pas de cystéine.",
+        "content": "Il est principalement pro-oxydant.",
         "correct": false,
-        "explanation": "Le glutathion est un tripeptide cellulaire majeur de défense antioxydante."
+        "explanation": "Il constitue un système antioxydant majeur."
+      },
+      {
+        "content": "Il est présent dans pratiquement toutes les cellules.",
+        "correct": true,
+        "explanation": "Sa concentration intracellulaire est souvent élevée."
+      },
+      {
+        "content": "Il est un triacylglycérol.",
+        "correct": false,
+        "explanation": "C’est un petit peptide."
+      },
+      {
+        "content": "C’est un tétrapeptide dépourvu de cystéine.",
+        "correct": false,
+        "explanation": "C’est un tripeptide contenant Cys."
       }
     ],
-    "explanation": "Le glutathion est un tripeptide cellulaire majeur de défense antioxydante."
+    "explanation": "Le glutathion est le tripeptide gamma-Glu-Cys-Gly et un système antioxydant cellulaire majeur."
   },
   {
     "order": 54,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Combien de résidus comporte le glutathion ?",
+    "format": "QRM",
+    "question": "Concernant le glutathion, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "3",
+        "content": "Il est un triacylglycérol.",
+        "correct": false,
+        "explanation": "C’est un petit peptide."
+      },
+      {
+        "content": "Il est présent dans pratiquement toutes les cellules.",
         "correct": true,
-        "explanation": "Le glutathion est un tripeptide cellulaire majeur de défense antioxydante."
+        "explanation": "Sa concentration intracellulaire est souvent élevée."
       },
       {
-        "content": "2",
-        "correct": false,
-        "explanation": "Le glutathion est un tripeptide cellulaire majeur de défense antioxydante."
+        "content": "Le thiol de la cystéine participe à son pouvoir réducteur.",
+        "correct": true,
+        "explanation": "GSH peut être oxydé en GSSG."
       },
       {
-        "content": "4",
+        "content": "C’est un tétrapeptide dépourvu de cystéine.",
         "correct": false,
-        "explanation": "Le glutathion est un tripeptide cellulaire majeur de défense antioxydante."
+        "explanation": "C’est un tripeptide contenant Cys."
       },
       {
-        "content": "30",
-        "correct": false,
-        "explanation": "Le glutathion est un tripeptide cellulaire majeur de défense antioxydante."
+        "content": "Il participe à la défense contre les peroxydes via les glutathion peroxydases.",
+        "correct": true,
+        "explanation": "Il protège les cellules du stress oxydant."
       }
     ],
-    "explanation": "Le glutathion est un tripeptide cellulaire majeur de défense antioxydante."
+    "explanation": "Le glutathion est le tripeptide gamma-Glu-Cys-Gly et un système antioxydant cellulaire majeur."
   },
   {
     "order": 55,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant la liaison particulière du glutathion :",
+    "question": "Concernant la liaison gamma-glutamyl du glutathion, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La liaison entre glutamate et cystéine implique le groupement γ-carboxyle du glutamate.",
-        "correct": true,
-        "explanation": "Le motif γGlu distingue le glutathion d’un tripeptide linéaire ordinaire."
-      },
-      {
-        "content": "Cette liaison contribue à la particularité structurale du glutathion.",
-        "correct": true,
-        "explanation": "Le motif γGlu distingue le glutathion d’un tripeptide linéaire ordinaire."
-      },
-      {
-        "content": "Le glutathion ne contient aucune liaison peptidique atypique.",
+        "content": "Toutes les liaisons du glutathion utilisent le carboxyle alpha du glutamate.",
         "correct": false,
-        "explanation": "Le motif γGlu distingue le glutathion d’un tripeptide linéaire ordinaire."
+        "explanation": "La première utilise le gamma-carboxyle."
       },
       {
-        "content": "La liaison particulière implique le carbone anomérique du glucose.",
-        "correct": false,
-        "explanation": "Le motif γGlu distingue le glutathion d’un tripeptide linéaire ordinaire."
+        "content": "La liaison cystéine-glycine est une liaison peptidique alpha classique.",
+        "correct": true,
+        "explanation": "Le caractère atypique concerne surtout gamma-Glu-Cys."
+      },
+      {
+        "content": "L’amine de la cystéine participe à cette liaison.",
+        "correct": true,
+        "explanation": "Elle forme une liaison amide avec le gamma-carboxyle."
+      },
+      {
+        "content": "Cette structure contribue à la stabilité métabolique du glutathion.",
+        "correct": true,
+        "explanation": "Elle le distingue d’un tripeptide linéaire ordinaire."
+      },
+      {
+        "content": "La liaison entre glutamate et cystéine utilise le gamma-carboxyle de la chaîne latérale du glutamate.",
+        "correct": true,
+        "explanation": "Elle diffère d’une liaison peptidique alpha classique."
       }
     ],
-    "explanation": "Le motif γGlu distingue le glutathion d’un tripeptide linéaire ordinaire."
+    "explanation": "Le glutathion possède une liaison gamma-glutamyl atypique entre le gamma-carboxyle de Glu et l’amine de Cys."
   },
   {
     "order": 56,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel résidu apporte le groupement γ-carboxyle engagé dans la liaison particulière ?",
-    "choices": [
-      {
-        "content": "le glutamate",
-        "correct": true,
-        "explanation": "Le motif γGlu distingue le glutathion d’un tripeptide linéaire ordinaire."
-      },
-      {
-        "content": "la glycine",
-        "correct": false,
-        "explanation": "Le motif γGlu distingue le glutathion d’un tripeptide linéaire ordinaire."
-      },
-      {
-        "content": "la cystéine",
-        "correct": false,
-        "explanation": "Le motif γGlu distingue le glutathion d’un tripeptide linéaire ordinaire."
-      },
-      {
-        "content": "la leucine",
-        "correct": false,
-        "explanation": "Le motif γGlu distingue le glutathion d’un tripeptide linéaire ordinaire."
+    "format": "QROC",
+    "question": "Quel groupement carboxyle du glutamate participe à la liaison atypique gamma-Glu-Cys ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "gamma-carboxyle",
+        "carboxyle gamma",
+        "γ-carboxyle",
+        "fonction gamma COOH"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le motif γGlu distingue le glutathion d’un tripeptide linéaire ordinaire."
+    },
+    "explanation": "Le glutathion possède une liaison gamma-glutamyl atypique entre le gamma-carboxyle de Glu et l’amine de Cys."
   },
   {
     "order": 57,
@@ -346,270 +388,288 @@ export const UE14_BIOCH_CH11_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestio
     "expectedZones": [
       {
         "id": "peptide-c",
-        "label": "segment libéré : peptide C",
+        "label": "Segment libéré : peptide C",
         "x": 0.5,
         "y": 0.52,
         "tolerance": 0.11
       }
     ],
-    "explanation": "Le peptide C est le segment de connexion clivé entre les chaînes A et B lors de la maturation."
+    "explanation": "Le peptide C relie les futures chaînes A et B dans la proinsuline puis est clivé lors de la maturation."
   },
   {
     "order": 58,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle série d’acides aminés est notamment présente dans le peptidoglycane bactérien ?",
+    "format": "QRM",
+    "question": "Concernant les acides aminés D dans certaines structures microbiennes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "la série D",
+        "content": "Le peptidoglycane ne contient que des L-acides aminés.",
+        "correct": false,
+        "explanation": "Il contient des D-AA caractéristiques."
+      },
+      {
+        "content": "Les protéines humaines synthétisées par les ribosomes utilisent presque exclusivement des L-acides aminés.",
         "correct": true,
-        "explanation": "Des D-acides aminés, notamment D-alanine et D-glutamate, sont présents dans le peptidoglycane bactérien et contribuent à sa résistance aux protéases."
+        "explanation": "La chiralité D dans les peptides microbiens est donc un contraste utile."
       },
       {
-        "content": "uniquement la série L sans exception",
-        "correct": false,
-        "explanation": "Des D-acides aminés, notamment D-alanine et D-glutamate, sont présents dans le peptidoglycane bactérien et contribuent à sa résistance aux protéases."
+        "content": "Des peptides non ribosomaux microbiens peuvent contenir des acides aminés D.",
+        "correct": true,
+        "explanation": "Les synthétases peuvent incorporer ou épimériser des résidus."
       },
       {
-        "content": "la série α des oses",
+        "content": "Un D-acide aminé est forcément un glucide.",
         "correct": false,
-        "explanation": "Des D-acides aminés, notamment D-alanine et D-glutamate, sont présents dans le peptidoglycane bactérien et contribuent à sa résistance aux protéases."
+        "explanation": "C’est un énantiomère/configuration d’acide aminé."
       },
       {
-        "content": "la série ω des lipides",
+        "content": "La chiralité n’influence jamais la reconnaissance enzymatique.",
         "correct": false,
-        "explanation": "Des D-acides aminés, notamment D-alanine et D-glutamate, sont présents dans le peptidoglycane bactérien et contribuent à sa résistance aux protéases."
+        "explanation": "Elle est souvent déterminante."
       }
     ],
-    "explanation": "Des D-acides aminés, notamment D-alanine et D-glutamate, sont présents dans le peptidoglycane bactérien et contribuent à sa résistance aux protéases."
+    "explanation": "Des D-acides aminés existent dans le peptidoglycane et certains peptides microbiens, contrairement aux protéines ribosomales humaines."
   },
   {
     "order": 59,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant la cyclosporine :",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant la cyclosporine, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "C’est un peptide cyclique de 11 acides aminés.",
-        "correct": true,
-        "explanation": "La cyclosporine est un undecapeptide cyclique immunosuppresseur, notamment utilisé pour prévenir le rejet de greffe."
-      },
-      {
-        "content": "Elle est utilisée comme immunosuppresseur notamment pour prévenir le rejet de greffe.",
-        "correct": true,
-        "explanation": "La cyclosporine est un undecapeptide cyclique immunosuppresseur, notamment utilisé pour prévenir le rejet de greffe."
-      },
-      {
-        "content": "Elle est un monosaccharide hyperglycémiant.",
+        "content": "C’est un monosaccharide de 11 carbones.",
         "correct": false,
-        "explanation": "La cyclosporine est un undecapeptide cyclique immunosuppresseur, notamment utilisé pour prévenir le rejet de greffe."
+        "explanation": "C’est un peptide cyclique."
       },
       {
-        "content": "Elle stimule spécifiquement le rejet de greffe.",
+        "content": "Elle est un peptide linéaire ribosomal classique.",
         "correct": false,
-        "explanation": "La cyclosporine est un undecapeptide cyclique immunosuppresseur, notamment utilisé pour prévenir le rejet de greffe."
+        "explanation": "Sa biosynthèse naturelle est non ribosomale et elle est cyclique."
+      },
+      {
+        "content": "Elle est utilisée pour provoquer le rejet de greffe.",
+        "correct": false,
+        "explanation": "Elle vise à le prévenir."
+      },
+      {
+        "content": "C’est un peptide cyclique de 11 résidus.",
+        "correct": true,
+        "explanation": "Elle est souvent appelée undécapeptide cyclique."
+      },
+      {
+        "content": "Elle est immunosuppressive.",
+        "correct": true,
+        "explanation": "Elle est utilisée notamment en transplantation."
       }
     ],
-    "explanation": "La cyclosporine est un undecapeptide cyclique immunosuppresseur, notamment utilisé pour prévenir le rejet de greffe."
+    "explanation": "La cyclosporine A est un undécapeptide cyclique immunosuppresseur qui inhibe la calcineurine via la cyclophiline.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 60,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Réponse numérique : combien d’acides aminés comporte le glutathion ?",
-    "answer": {
-      "type": "number",
-      "value": 3,
-      "tolerance": 0
-    },
-    "explanation": "Le glutathion est le tripeptide γGlu-Cys-Gly."
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant la cyclosporine ?",
+    "choices": [
+      {
+        "content": "Elle est immunosuppressive.",
+        "correct": true,
+        "explanation": "Elle est utilisée notamment en transplantation."
+      },
+      {
+        "content": "Elle est un peptide linéaire ribosomal classique.",
+        "correct": false,
+        "explanation": "Sa biosynthèse naturelle est non ribosomale et elle est cyclique."
+      },
+      {
+        "content": "Elle est produite naturellement par un champignon et sa biosynthèse est non ribosomale.",
+        "correct": true,
+        "explanation": "Des enzymes spécialisées assemblent ses résidus."
+      },
+      {
+        "content": "C’est un peptide cyclique de 11 résidus.",
+        "correct": true,
+        "explanation": "Elle est souvent appelée undécapeptide cyclique."
+      },
+      {
+        "content": "C’est un monosaccharide de 11 carbones.",
+        "correct": false,
+        "explanation": "C’est un peptide cyclique."
+      }
+    ],
+    "explanation": "La cyclosporine A est un undécapeptide cyclique immunosuppresseur qui inhibe la calcineurine via la cyclophiline."
   },
   {
     "order": 61,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant l’aspartame :",
-    "choices": [
-      {
-        "content": "C’est l’ester méthylique d’un dipeptide dérivé de l’aspartate et de la phénylalanine.",
-        "correct": true,
-        "explanation": "L’aspartame illustre un petit peptide utilisé comme édulcorant."
-      },
-      {
-        "content": "Il possède un pouvoir sucrant élevé.",
-        "correct": true,
-        "explanation": "L’aspartame illustre un petit peptide utilisé comme édulcorant."
-      },
-      {
-        "content": "Il est constitué de leucine et valine.",
-        "correct": false,
-        "explanation": "L’aspartame illustre un petit peptide utilisé comme édulcorant."
-      },
-      {
-        "content": "C’est une hormone pancréatique.",
-        "correct": false,
-        "explanation": "L’aspartame illustre un petit peptide utilisé comme édulcorant."
+    "format": "QROC",
+    "question": "De quels deux acides aminés dérive l’aspartame ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "aspartate et phénylalanine",
+        "acide aspartique et phénylalanine",
+        "Asp et Phe"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "L’aspartame illustre un petit peptide utilisé comme édulcorant."
+    },
+    "explanation": "L’aspartame est un dérivé méthylé du dipeptide Asp-Phe et une source de phénylalanine."
   },
   {
     "order": 62,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "De quels acides aminés dérive l’aspartame ?",
+    "question": "Parmi les affirmations suivantes concernant l’aspartame, laquelle est correcte ?",
     "choices": [
       {
-        "content": "aspartate et phénylalanine",
+        "content": "Il illustre qu’un dérivé peptidique peut être utilisé comme additif alimentaire.",
         "correct": true,
-        "explanation": "L’aspartame illustre un petit peptide utilisé comme édulcorant."
+        "explanation": "Ce n’est pas une hormone."
       },
       {
-        "content": "glycine et arginine",
+        "content": "Il ne peut libérer aucune phénylalanine.",
         "correct": false,
-        "explanation": "L’aspartame illustre un petit peptide utilisé comme édulcorant."
+        "explanation": "Il contient un résidu Phe."
       },
       {
-        "content": "leucine et isoleucine",
+        "content": "C’est un polysaccharide.",
         "correct": false,
-        "explanation": "L’aspartame illustre un petit peptide utilisé comme édulcorant."
+        "explanation": "C’est un dérivé de dipeptide."
       },
       {
-        "content": "cystéine et méthionine",
+        "content": "C’est une hormone pancréatique.",
         "correct": false,
-        "explanation": "L’aspartame illustre un petit peptide utilisé comme édulcorant."
+        "explanation": "C’est un édulcorant."
+      },
+      {
+        "content": "Il est composé de leucine et valine.",
+        "correct": false,
+        "explanation": "Il dérive d’Asp et Phe."
       }
     ],
-    "explanation": "L’aspartame illustre un petit peptide utilisé comme édulcorant."
+    "explanation": "L’aspartame est un dérivé méthylé du dipeptide Asp-Phe et une source de phénylalanine."
   },
   {
     "order": 63,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant le glucagon :",
-    "choices": [
-      {
-        "content": "C’est un peptide de 29 acides aminés.",
-        "correct": true,
-        "explanation": "Le glucagon est une hormone peptidique de 29 résidus sécrétée par les cellules α pancréatiques ; il augmente notamment la glycémie par son action hépatique."
-      },
-      {
-        "content": "Il est hyperglycémiant et stimule notamment la glycogénolyse hépatique.",
-        "correct": true,
-        "explanation": "Le glucagon est une hormone peptidique de 29 résidus sécrétée par les cellules α pancréatiques ; il augmente notamment la glycémie par son action hépatique."
-      },
-      {
-        "content": "Il est hypoglycémiant comme l’insuline.",
-        "correct": false,
-        "explanation": "Le glucagon est une hormone peptidique de 29 résidus sécrétée par les cellules α pancréatiques ; il augmente notamment la glycémie par son action hépatique."
-      },
-      {
-        "content": "Il est synthétisé par les cellules β du pancréas.",
-        "correct": false,
-        "explanation": "Le glucagon est une hormone peptidique de 29 résidus sécrétée par les cellules α pancréatiques ; il augmente notamment la glycémie par son action hépatique."
-      }
-    ],
-    "explanation": "Le glucagon est une hormone peptidique de 29 résidus sécrétée par les cellules α pancréatiques ; il augmente notamment la glycémie par son action hépatique."
-  },
-  {
-    "order": 64,
-    "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Réponse numérique : combien d’acides aminés comporte le glucagon mature ?",
+    "question": "Combien d’acides aminés comporte le glucagon humain mature ?",
     "answer": {
       "type": "number",
       "value": 29,
       "tolerance": 0
     },
-    "explanation": "Le glucagon mature est une hormone peptidique de 29 acides aminés."
+    "explanation": "Le glucagon est un peptide de 29 résidus sécrété par les cellules alpha et augmente la production hépatique de glucose."
+  },
+  {
+    "order": 64,
+    "difficulty": "MEDIUM",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
+    "choices": [
+      {
+        "content": "Son pouvoir sucrant est très supérieur à celui du saccharose à masse comparable.",
+        "correct": true,
+        "explanation": "Il est utilisé en faible quantité comme édulcorant."
+      },
+      {
+        "content": "Il dérive du proglucagon par maturation protéolytique.",
+        "correct": true,
+        "explanation": "Le tissu détermine les peptides issus du précurseur."
+      },
+      {
+        "content": "Il est sécrété principalement par les cellules alpha pancréatiques.",
+        "correct": true,
+        "explanation": "Il s’oppose fonctionnellement à l’insuline sur la glycémie."
+      },
+      {
+        "content": "Il est un stéroïde dérivé du cholestérol.",
+        "correct": false,
+        "explanation": "C’est un peptide."
+      },
+      {
+        "content": "Il est composé de leucine et valine.",
+        "correct": false,
+        "explanation": "Il dérive d’Asp et Phe."
+      },
+      {
+        "content": "Il ne peut libérer aucune phénylalanine.",
+        "correct": false,
+        "explanation": "Il contient un résidu Phe."
+      },
+      {
+        "content": "Le glucagon est sécrété principalement par les cellules bêta.",
+        "correct": false,
+        "explanation": "Les cellules alpha le produisent."
+      },
+      {
+        "content": "Les personnes atteintes de phénylcétonurie doivent tenir compte de sa teneur en phénylalanine.",
+        "correct": true,
+        "explanation": "L’étiquetage le signale."
+      },
+      {
+        "content": "C’est le méthylester d’un dipeptide dérivé de l’aspartate et de la phénylalanine.",
+        "correct": true,
+        "explanation": "Sa structure explique la présence de phénylalanine après digestion."
+      },
+      {
+        "content": "Il est principalement hypoglycémiant.",
+        "correct": false,
+        "explanation": "Il est hyperglycémiant."
+      }
+    ],
+    "explanation": "Le glucagon est un peptide de 29 résidus sécrété par les cellules alpha et augmente la production hépatique de glucose. L’aspartame est un dérivé méthylé du dipeptide Asp-Phe et une source de phénylalanine."
   },
   {
     "order": 65,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant les peptides natriurétiques :",
+    "question": "Parmi les affirmations suivantes concernant les peptides natriurétiques cardiaques, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "Ils sont synthétisés par des cardiomyocytes.",
+        "content": "Un pont disulfure forme une boucle conservée indispensable à leur activité.",
         "correct": true,
-        "explanation": "Les peptides natriurétiques relient signal hormonal, cœur et contrôle hydro-sodé."
+        "explanation": "Le motif cystéine-cystéine structure le peptide."
       },
       {
-        "content": "L’ANP et le BNP sont deux peptides natriurétiques cardiaques majeurs.",
+        "content": "Ils sont dépourvus de cystéines.",
+        "correct": false,
+        "explanation": "Leur boucle comporte un pont disulfure."
+      },
+      {
+        "content": "ANP et BNP sont des hormones peptidiques produites par des cardiomyocytes.",
         "correct": true,
-        "explanation": "Les peptides natriurétiques relient signal hormonal, cœur et contrôle hydro-sodé."
+        "explanation": "Ils répondent notamment à l’étirement des cavités cardiaques."
       },
       {
-        "content": "Ils sont produits uniquement par les hépatocytes.",
-        "correct": false,
-        "explanation": "Les peptides natriurétiques relient signal hormonal, cœur et contrôle hydro-sodé."
+        "content": "L’ANP humain mature comporte 28 résidus.",
+        "correct": true,
+        "explanation": "Il est particulièrement associé aux oreillettes."
       },
       {
-        "content": "Ils augmentent obligatoirement la pression artérielle.",
-        "correct": false,
-        "explanation": "Les peptides natriurétiques relient signal hormonal, cœur et contrôle hydro-sodé."
+        "content": "Le BNP humain mature comporte 32 résidus.",
+        "correct": true,
+        "explanation": "Il est surtout associé à la réponse ventriculaire au stress pariétal."
       }
     ],
-    "explanation": "Les peptides natriurétiques relient signal hormonal, cœur et contrôle hydro-sodé."
+    "explanation": "ANP 28 aa et BNP 32 aa sont des peptides cardiaques à boucle disulfure."
   },
   {
     "order": 66,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Pour conclure hormones et peptides d’intérêt biologique, sélectionnez exactement les cinq affirmations correctes.",
-    "choices": [
-      {
-        "content": "L’insuline est hypoglycémiante.",
-        "correct": true,
-        "explanation": "Cette section relie mécanismes de formation, fonctions hormonales et usages thérapeutiques."
-      },
-      {
-        "content": "Le glucagon est hyperglycémiant.",
-        "correct": true,
-        "explanation": "Cette section relie mécanismes de formation, fonctions hormonales et usages thérapeutiques."
-      },
-      {
-        "content": "La POMC peut donner la β-endorphine.",
-        "correct": true,
-        "explanation": "Cette section relie mécanismes de formation, fonctions hormonales et usages thérapeutiques."
-      },
-      {
-        "content": "Le glutathion est un tripeptide antioxydant.",
-        "correct": true,
-        "explanation": "Cette section relie mécanismes de formation, fonctions hormonales et usages thérapeutiques."
-      },
-      {
-        "content": "La cyclosporine est un peptide immunosuppresseur.",
-        "correct": true,
-        "explanation": "Cette section relie mécanismes de formation, fonctions hormonales et usages thérapeutiques."
-      },
-      {
-        "content": "Le peptide C est hyperglycémiant.",
-        "correct": false,
-        "explanation": "Cette section relie mécanismes de formation, fonctions hormonales et usages thérapeutiques."
-      },
-      {
-        "content": "Le glucagon est produit par les cellules β.",
-        "correct": false,
-        "explanation": "Cette section relie mécanismes de formation, fonctions hormonales et usages thérapeutiques."
-      },
-      {
-        "content": "Le glutathion est un tétrapeptide pro-oxydant.",
-        "correct": false,
-        "explanation": "Cette section relie mécanismes de formation, fonctions hormonales et usages thérapeutiques."
-      },
-      {
-        "content": "La POMC est un triglycéride.",
-        "correct": false,
-        "explanation": "Cette section relie mécanismes de formation, fonctions hormonales et usages thérapeutiques."
-      },
-      {
-        "content": "La cyclosporine favorise le rejet de greffe.",
-        "correct": false,
-        "explanation": "Cette section relie mécanismes de formation, fonctions hormonales et usages thérapeutiques."
-      }
-    ],
-    "explanation": "Cette section relie mécanismes de formation, fonctions hormonales et usages thérapeutiques."
+    "format": "QROC",
+    "question": "Combien de résidus comporte le BNP humain mature ?",
+    "answer": {
+      "type": "number",
+      "value": 32,
+      "tolerance": 0
+    },
+    "explanation": "ANP 28 aa et BNP 32 aa sont des peptides cardiaques à boucle disulfure."
   }
 ];

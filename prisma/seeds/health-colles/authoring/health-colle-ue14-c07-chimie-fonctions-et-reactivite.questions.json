@@ -1,0 +1,1155 @@
+[
+  {
+    "order": 1,
+    "difficulty": "MEDIUM",
+    "question": "Un alcool primaire est soumis à des conditions d’oxydation puis comparé à un alcool secondaire et à un alcool tertiaire. Quelles propositions sont exactes ?",
+    "statement": "Un alcool primaire est soumis à des conditions d’oxydation puis comparé à un alcool secondaire et à un alcool tertiaire. Quelles propositions sont exactes ?",
+    "explanation": "L’oxydation distingue nettement les classes d’alcools : un alcool primaire peut conduire à un aldéhyde puis à un acide carboxylique ; un alcool secondaire donne une cétone ; l’alcool tertiaire usuel ne possède pas d’hydrogène sur le carbone porteur de OH et résiste à l’oxydation douce classique.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:alcools-oxydation"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Une oxydation douce d’un alcool primaire peut conduire à un aldéhyde.",
+      "Une oxydation plus poussée d’un alcool primaire peut conduire à un acide carboxylique.",
+      "L’oxydation d’un alcool secondaire conduit classiquement à une cétone.",
+      "L’oxydation douce d’un alcool tertiaire fournit systématiquement un aldéhyde.",
+      "Un alcool secondaire s’oxyde d’abord en acide carboxylique sans passer par une cétone."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Le carbone portant OH devient un carbone carbonylé aldéhydique si l’oxydation est contrôlée.",
+      "L’aldéhyde intermédiaire est lui-même facilement oxydable en acide carboxylique.",
+      "Le carbone porteur de OH étant lié à deux groupes carbonés, son oxydation donne un carbonyle cétonique.",
+      "Un alcool tertiaire ne donne pas d’aldéhyde par l’oxydation usuelle décrite dans ce périmètre.",
+      "Le produit d’oxydation attendu d’un alcool secondaire est une cétone."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:alcools-oxydation"
+      ]
+    }
+  },
+  {
+    "order": 2,
+    "difficulty": "EASY",
+    "question": "Après hydrolyse, quel type d’alcool obtient-on classiquement par addition d’un organomagnésien sur une cétone ?",
+    "statement": "Après hydrolyse, quel type d’alcool obtient-on classiquement par addition d’un organomagnésien sur une cétone ?",
+    "explanation": "L’addition nucléophile d’un organomagnésien sur une cétone crée une nouvelle liaison C–C ; après hydrolyse, le carbone anciennement carbonylé porte OH et trois substituants carbonés : l’alcool est tertiaire.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:organomagnesien-cetone"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "alcool tertiaire"
+        },
+        {
+          "value": "tertiaire"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:organomagnesien-cetone"
+      ]
+    }
+  },
+  {
+    "order": 3,
+    "difficulty": "MEDIUM",
+    "question": "Un chimiste veut transformer un alcool en dérivé chloré R–Cl. Quelle proposition est correcte ?",
+    "statement": "Un chimiste veut transformer un alcool en dérivé chloré R–Cl. Quelle proposition est correcte ?",
+    "explanation": "La substitution de OH par Cl peut être réalisée avec des agents chlorants adaptés, notamment le chlorure de thionyle SOCl2 dans les conditions usuelles de chimie organique.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:halogenation-alcool"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Le chlorure de thionyle SOCl2 peut être utilisé comme agent chlorant.",
+      "Il faut obligatoirement oxyder d’abord l’alcool en cétone, quelle que soit sa classe.",
+      "Le produit R–Cl est un alcool secondaire.",
+      "Le chlore se fixe sur l’oxygène tout en conservant intacte la liaison C–OH.",
+      "Cette transformation transforme nécessairement le carbone en nucléophile avant toute réaction."
+    ],
+    "correctChoiceIndexes": [
+      0
+    ],
+    "choiceExplanations": [
+      "SOCl2 est un réactif classique permettant de convertir un alcool en dérivé chloré.",
+      "La conversion en halogénure ne nécessite pas cette oxydation préalable.",
+      "R–Cl est un dérivé halogéné, pas un alcool.",
+      "La transformation recherchée remplace le groupe hydroxyle par le chlore au niveau du carbone.",
+      "Le carbone lié au groupe partant est au contraire le centre attaqué lors d’une substitution nucléophile."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:halogenation-alcool"
+      ]
+    }
+  },
+  {
+    "order": 4,
+    "difficulty": "EASY",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant les amines et leur réactivité.",
+    "statement": "Sélectionnez exactement les deux propositions exactes concernant les amines et leur réactivité.",
+    "explanation": "L’azote d’une amine porte un doublet non liant qui lui confère un caractère basique et nucléophile. Une amine primaire peut réagir avec un composé carbonylé pour conduire à une imine après élimination d’eau.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:amines-reactivite"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le doublet non liant de l’azote participe au caractère nucléophile d’une amine.",
+      "Une amine primaire peut donner une imine avec un aldéhyde ou une cétone.",
+      "Une amine tertiaire possède nécessairement une liaison N–H.",
+      "Un ammonium quaternaire est simplement une amine tertiaire neutre.",
+      "Une amine secondaire réagit avec un carbonyle pour donner obligatoirement une amide."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Le doublet peut être engagé dans la formation d’une nouvelle liaison avec un centre électrophile.",
+      "La condensation d’une amine primaire avec un carbonyle conduit à une imine avec élimination d’eau.",
+      "Une amine tertiaire est liée à trois substituants carbonés et ne porte pas d’hydrogène sur l’azote.",
+      "L’ammonium quaternaire possède quatre substituants sur N et porte une charge positive.",
+      "Avec un aldéhyde ou une cétone, une amine secondaire conduit à une espèce de type iminium/énamine selon les conditions, pas à une amidification directe."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:amines-reactivite"
+      ]
+    }
+  },
+  {
+    "order": 5,
+    "difficulty": "EASY",
+    "question": "À propos de l’estérification et de l’hydrolyse des esters, quelles propositions sont exactes ?",
+    "statement": "À propos de l’estérification et de l’hydrolyse des esters, quelles propositions sont exactes ?",
+    "explanation": "Un ester peut être préparé à partir d’un acide activé et d’un alcool. Son hydrolyse acide est réversible, tandis que son hydrolyse basique conduit à un carboxylate et porte le nom de saponification.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:esters-hydrolyse"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Un chlorure d’acyle peut réagir avec un alcool pour former un ester.",
+      "L’hydrolyse basique d’un ester est appelée saponification.",
+      "La saponification transforme directement l’ester en amide.",
+      "Un ester contient nécessairement une liaison N–C=O.",
+      "Un ester ne peut jamais être hydrolysé par l’eau."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Le chlorure d’acyle est un dérivé d’acide activé très réactif vis-à-vis des alcools.",
+      "Elle forme notamment un carboxylate et un alcool dans les conditions usuelles.",
+      "Le produit carboxylé de l’hydrolyse basique est un carboxylate, pas une amide.",
+      "Cette liaison caractérise une amide ; un ester contient le motif C(=O)–O.",
+      "L’hydrolyse est précisément une réaction de coupure impliquant l’eau, catalysable en milieu acide ou basique."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:esters-hydrolyse"
+      ]
+    }
+  },
+  {
+    "order": 6,
+    "difficulty": "MEDIUM",
+    "question": "Combien de substituants carbonés sont directement liés au carbone portant le groupe hydroxyle dans un alcool tertiaire ? Donnez uniquement la valeur numérique.",
+    "statement": "Combien de substituants carbonés sont directement liés au carbone portant le groupe hydroxyle dans un alcool tertiaire ? Donnez uniquement la valeur numérique.",
+    "explanation": "Dans un alcool tertiaire, le carbone porteur de –OH est lié à trois groupes carbonés et ne porte donc aucun hydrogène.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:alcool-tertiaire"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "number",
+      "numericAnswer": {
+        "value": 3,
+        "tolerance": 0
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:alcool-tertiaire"
+      ]
+    }
+  },
+  {
+    "order": 7,
+    "difficulty": "HARD",
+    "question": "Une substitution nucléophile se déroule en une seule étape concertée sur un carbone stéréogène. Quelle conséquence stéréochimique est attendue dans le modèle SN2 classique ?",
+    "statement": "Une substitution nucléophile se déroule en une seule étape concertée sur un carbone stéréogène. Quelle conséquence stéréochimique est attendue dans le modèle SN2 classique ?",
+    "explanation": "La SN2 est concertée : l’attaque arrière du nucléophile et le départ du groupe partant conduisent à une inversion de la configuration géométrique au centre réactionnel.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:sn2-stereochimie"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Formation préalable d’un carbocation plan puis racémisation complète.",
+      "Inversion de configuration au centre attaqué.",
+      "Conservation obligatoire de la configuration sans aucun réarrangement spatial.",
+      "Formation de deux carbocations énantiomères isolables.",
+      "Rupture préalable de toutes les liaisons C–C voisines."
+    ],
+    "correctChoiceIndexes": [
+      1
+    ],
+    "choiceExplanations": [
+      "Ce schéma correspond au modèle SN1, pas à une SN2 concertée.",
+      "L’attaque arrière caractéristique de la SN2 provoque l’inversion dite de Walden.",
+      "La géométrie au centre attaqué est inversée lors d’une SN2.",
+      "La SN2 ne passe pas par un carbocation intermédiaire.",
+      "La substitution concerne la liaison au groupe partant, sans rupture générale du squelette carboné."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:sn2-stereochimie"
+      ]
+    }
+  },
+  {
+    "order": 8,
+    "difficulty": "MEDIUM",
+    "question": "Sélectionnez exactement les deux propositions exactes permettant de distinguer une amide d’une amine.",
+    "statement": "Sélectionnez exactement les deux propositions exactes permettant de distinguer une amide d’une amine.",
+    "explanation": "Dans une amide, l’azote est directement lié au carbone d’un carbonyle et son doublet est délocalisé par résonance, ce qui rigidifie la liaison C–N et diminue fortement sa basicité par rapport à une amine analogue.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:amide-vs-amine"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Dans une amide, l’azote est directement lié au carbone d’un groupement carbonyle.",
+      "La conjugaison du doublet de l’azote avec le carbonyle confère un caractère partiel de double liaison à C–N.",
+      "Une amide est plus basique qu’une amine parce que son doublet est plus disponible.",
+      "Une amine doit obligatoirement contenir un groupe carbonyle adjacent à l’azote.",
+      "Amide et ammonium quaternaire désignent exactement la même fonction."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Le motif général est R–C(=O)–NR'R''.",
+      "Cette délocalisation électronique explique la planéité et la rotation limitée de la fonction amide.",
+      "Le doublet amidique est au contraire délocalisé vers le carbonyle et donc moins disponible pour capter un proton.",
+      "Une amine ne comporte pas nécessairement de carbonyle ; sa présence directe sur N caractérise l’amide.",
+      "Ce sont deux fonctions distinctes : l’amide contient un carbonyle adjacent à N, l’ammonium quaternaire est un azote tétrasubstitué chargé positivement."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:amide-vs-amine"
+      ]
+    }
+  },
+  {
+    "order": 9,
+    "difficulty": "MEDIUM",
+    "question": "Parmi les dix propositions suivantes sur les fonctions des chapitres 2.4 à 2.7, sélectionnez exactement les cinq correctes.",
+    "statement": "Parmi les dix propositions suivantes sur les fonctions des chapitres 2.4 à 2.7, sélectionnez exactement les cinq correctes.",
+    "explanation": "Cette synthèse croise alcools, amines, esters, amides, carbonyles et acides carboxyliques. Les points discriminants sont la nature du centre électrophile, le devenir à l’oxydation ou à la réduction et la stabilisation par résonance.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:synthese-fonctions-reactivite"
+    ],
+    "format": "QRPL",
+    "questionFormat": "QRPL",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "La réduction d’un aldéhyde par NaBH4 conduit classiquement à un alcool primaire.",
+      "La réduction d’une cétone par NaBH4 conduit classiquement à un alcool secondaire.",
+      "Un organomagnésien est un réactif riche en électrons au niveau du carbone lié au magnésium.",
+      "Le carbone du groupe C=O d’un aldéhyde ou d’une cétone est électrophile.",
+      "La base conjuguée d’un acide carboxylique est stabilisée par délocalisation de la charge sur deux oxygènes.",
+      "Une amide s’hydrolyse toujours plus facilement qu’un ester dans des conditions douces.",
+      "Une cétone simple s’oxyde spontanément en acide carboxylique dans les conditions où un aldéhyde s’oxyde facilement.",
+      "La saponification est une hydrogénation catalytique de l’ester.",
+      "Un thioester est dépourvu de soufre.",
+      "La décarboxylation ajoute une molécule de CO2 au substrat."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "choiceExplanations": [
+      "Le carbonyle aldéhydique est réduit sans changer le nombre de carbones du squelette.",
+      "Le carbone carbonylé conserve ses deux substituants carbonés et porte ensuite OH.",
+      "Ce carbone se comporte comme un nucléophile vis-à-vis d’un centre électrophile tel qu’un carbonyle.",
+      "La polarisation de C=O déplace la densité électronique vers l’oxygène.",
+      "Les deux formes mésomères du carboxylate contribuent à sa stabilisation.",
+      "La fonction amide est généralement plus résistante à l’hydrolyse que la fonction ester.",
+      "L’aldéhyde s’oxyde facilement ; la cétone est beaucoup plus résistante à l’oxydation usuelle.",
+      "La saponification est une hydrolyse basique de l’ester.",
+      "Le motif thioester contient un soufre : R–C(=O)–S–R'.",
+      "La décarboxylation correspond au contraire à une perte de CO2."
+    ],
+    "requiredSelectionCount": 5,
+    "answerPayload": {
+      "requiredSelectionCount": 5,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:synthese-fonctions-reactivite"
+      ]
+    }
+  },
+  {
+    "order": 10,
+    "difficulty": "HARD",
+    "question": "Un ester et une amide sont soumis à des conditions d’hydrolyse. Quelles propositions sont exactes ?",
+    "statement": "Un ester et une amide sont soumis à des conditions d’hydrolyse. Quelles propositions sont exactes ?",
+    "explanation": "La fonction amide est stabilisée par résonance et s’hydrolyse plus difficilement qu’un ester. Dans une molécule portant les deux fonctions, des conditions suffisamment douces peuvent hydrolyser préférentiellement l’ester ; des conditions assez vigoureuses pour hydrolyser l’amide ont généralement déjà affecté l’ester.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:hydrolyse-ester-amide"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "La liaison C–N d’une amide possède un caractère partiel de double liaison.",
+      "L’amide est généralement plus résistante à l’hydrolyse que l’ester.",
+      "Dans une molécule portant une amide et un ester, des conditions douces peuvent hydrolyser l’ester sans hydrolyser l’amide.",
+      "Des protéases réalisent in vivo l’hydrolyse sélective de liaisons amide peptidiques.",
+      "La fonction amide se saponifie toujours instantanément à température ambiante."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "choiceExplanations": [
+      "La délocalisation du doublet de l’azote vers le carbonyle rigidifie la liaison C–N.",
+      "La stabilisation par résonance rend l’amide moins réactive vis-à-vis d’une substitution nucléophile acyle.",
+      "Cette différence de réactivité peut être exploitée sélectivement.",
+      "Les peptidases/protéases catalysent l’hydrolyse des liaisons peptidiques, qui sont des amides.",
+      "La saponification concerne classiquement les esters ; l’amide est nettement plus résistante."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:hydrolyse-ester-amide"
+      ]
+    }
+  },
+  {
+    "order": 11,
+    "difficulty": "EASY",
+    "question": "Combien d’atomes d’oxygène comporte le groupe fonctionnel d’un ester simple de type R–C(=O)–O–R′ ? Donnez uniquement la valeur numérique.",
+    "statement": "Combien d’atomes d’oxygène comporte le groupe fonctionnel d’un ester simple de type R–C(=O)–O–R′ ? Donnez uniquement la valeur numérique.",
+    "explanation": "La fonction ester comporte deux oxygènes : l’oxygène du carbonyle C=O et l’oxygène engagé dans la liaison C–O–R′.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:structure-ester"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "number",
+      "numericAnswer": {
+        "value": 2,
+        "tolerance": 0
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:structure-ester"
+      ]
+    }
+  },
+  {
+    "order": 12,
+    "difficulty": "MEDIUM",
+    "question": "Quelle fonction caractérise le produit X obtenu après réduction de l’aldéhyde A par NaBH4 puis hydrolyse ?",
+    "statement": "Quelle fonction caractérise le produit X obtenu après réduction de l’aldéhyde A par NaBH4 puis hydrolyse ?",
+    "explanation": "NaBH4 apporte un hydrure nucléophile sur le carbone carbonylé de l’aldéhyde. Après protonation, la fonction aldéhyde est transformée en alcool primaire. Le propanal A conduit ainsi au propan-1-ol.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:reduction-aldehyde"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Un acide carboxylique.",
+      "Une cétone.",
+      "Un alcool primaire.",
+      "Un ester.",
+      "Un ammonium quaternaire."
+    ],
+    "correctChoiceIndexes": [
+      2
+    ],
+    "choiceExplanations": [
+      "Cela correspondrait à une oxydation de l’aldéhyde, pas à sa réduction.",
+      "Une cétone ne résulte pas de la réduction d’un aldéhyde.",
+      "Le groupe –CHO devient –CH2OH.",
+      "Aucune estérification n’est impliquée dans cette réduction.",
+      "Cette fonction azotée n’a aucun lien avec la réduction du carbonyle par NaBH4."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:reduction-aldehyde"
+      ]
+    }
+  },
+  {
+    "order": 13,
+    "difficulty": "MEDIUM",
+    "question": "À partir des transformations B et C, sélectionnez exactement les deux affirmations correctes.",
+    "statement": "À partir des transformations B et C, sélectionnez exactement les deux affirmations correctes.",
+    "explanation": "Dans B, le carbone porté par l’organomagnésien attaque le carbone électrophile de la cétone ; après hydrolyse, le carbone portant le groupe hydroxyle est lié à trois substituants carbonés et l’on obtient un alcool tertiaire. Dans C, le carbone du CO2 est incorporé au squelette et devient celui du groupe carboxyle : le produit acide possède donc un carbone de plus que le fragment carboné initial de l’organomagnésien.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:organomagnesiens"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Après hydrolyse, la transformation B conduit à un alcool tertiaire.",
+      "Le carbone du CO2 utilisé dans la transformation C devient le carbone de la fonction carboxylique du produit Z.",
+      "La transformation B convertit directement la cétone en amide.",
+      "Dans les transformations B et C, le carbone lié au magnésium se comporte exclusivement comme un centre électrophile.",
+      "La transformation C raccourcit d’un carbone le groupe carboné porté initialement par l’organomagnésien."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Le carbone nucléophile R s’ajoute au carbone carbonylé déjà lié à deux groupes carbonés.",
+      "Le carbone du CO2 devient le carbone carboxylique du produit.",
+      "L’addition sur une cétone conduit après hydrolyse à un alcool tertiaire, pas à une amide.",
+      "Le carbone lié au magnésium possède au contraire un fort caractère nucléophile.",
+      "Elle ajoute au contraire le carbone du CO2 au squelette du groupe R."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:organomagnesiens"
+      ]
+    }
+  },
+  {
+    "order": 14,
+    "difficulty": "HARD",
+    "question": "En vous appuyant sur les substrats carbonylés A et B et sur leur réactivité, quelles propositions sont exactes ?",
+    "statement": "En vous appuyant sur les substrats carbonylés A et B et sur leur réactivité, quelles propositions sont exactes ?",
+    "explanation": "La polarisation de la liaison C=O rend le carbone carbonylé électrophile. Les nucléophiles, notamment le fragment carboné d’un organomagnésien, peuvent donc l’attaquer. Les aldéhydes s’oxydent classiquement en acides carboxyliques, alors que les cétones simples sont plus résistantes à l’oxydation. La réduction d’une cétone conduit classiquement à un alcool secondaire.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:aldehydes-cetones-reactivite"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le carbone du groupe carbonyle est appauvri en densité électronique et constitue un centre électrophile.",
+      "Un aldéhyde peut être oxydé en acide carboxylique.",
+      "Un organomagnésien peut attaquer nucléophiliquement le carbone d’un aldéhyde ou d’une cétone.",
+      "Une cétone simple est plus facilement oxydée en acide carboxylique qu’un aldéhyde dans les conditions usuelles étudiées.",
+      "La réduction d’une cétone par un hydrure forme obligatoirement un alcool primaire."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "L’oxygène, plus électronégatif, polarise la liaison C=O vers lui.",
+      "Le groupe –CHO possède un hydrogène sur le carbone carbonylé et s’oxyde facilement en –COOH.",
+      "Le carbone du RMgX apporte un équivalent carbanionique au centre électrophile du carbonyle.",
+      "L’ordre est inverse dans les conditions usuelles : l’aldéhyde s’oxyde facilement, la cétone résiste davantage.",
+      "Elle forme classiquement un alcool secondaire."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:aldehydes-cetones-reactivite"
+      ]
+    }
+  },
+  {
+    "order": 15,
+    "difficulty": "HARD",
+    "question": "Comment appelle-t-on l’ion obtenu par déprotonation d’un acide carboxylique R–COOH ?",
+    "statement": "Comment appelle-t-on l’ion obtenu par déprotonation d’un acide carboxylique R–COOH ?",
+    "explanation": "La perte de H+ par R–COOH donne R–COO−. La charge négative est délocalisée sur les deux oxygènes, ce qui stabilise la base conjuguée.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:carboxylate"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "carboxylate"
+        },
+        {
+          "value": "ion carboxylate"
+        },
+        {
+          "value": "un carboxylate"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:carboxylate"
+      ]
+    }
+  },
+  {
+    "order": 16,
+    "difficulty": "MEDIUM",
+    "question": "Pourquoi un chlorure d’acyle est-il généralement plus réactif qu’un acide carboxylique vis-à-vis d’un nucléophile ?",
+    "statement": "Pourquoi un chlorure d’acyle est-il généralement plus réactif qu’un acide carboxylique vis-à-vis d’un nucléophile ?",
+    "explanation": "Dans un dérivé d’acide activé tel qu’un chlorure d’acyle, le carbone carbonylé est fortement électrophile et le chlorure constitue un bon groupe partant, ce qui favorise la substitution nucléophile acyle.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:acides-actives"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Parce que le chlore rend le carbone carbonylé nucléophile.",
+      "Parce que le chlorure d’acyle ne contient plus de groupe carbonyle.",
+      "Parce que la molécule est totalement apolaire.",
+      "Parce que le carbone carbonylé est fortement électrophile et que Cl− peut jouer le rôle de groupe partant.",
+      "Parce qu’il ne peut réagir qu’avec des électrophiles."
+    ],
+    "correctChoiceIndexes": [
+      3
+    ],
+    "choiceExplanations": [
+      "Le centre carbonylé doit au contraire être électrophile pour être attaqué par un nucléophile.",
+      "Le groupe C=O est toujours présent dans un chlorure d’acyle.",
+      "La liaison C=O reste fortement polarisée.",
+      "Ces deux propriétés rendent le chlorure d’acyle particulièrement réactif dans les substitutions nucléophiles acyles.",
+      "Le chlorure d’acyle réagit précisément avec des nucléophiles sur son carbone carbonylé."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:acides-actives"
+      ]
+    }
+  },
+  {
+    "order": 17,
+    "difficulty": "MEDIUM",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant les thioesters.",
+    "statement": "Sélectionnez exactement les deux propositions exactes concernant les thioesters.",
+    "explanation": "Un thioester possède le motif R–C(=O)–S–R'. Sa liaison acyle–soufre peut être hydrolysée pour redonner un acide carboxylique et un thiol ; l’acétyl-CoA est un exemple biologique majeur de thioester.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:thioesters"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "L’acétyl-CoA est un exemple de thioester.",
+      "L’hydrolyse d’un thioester peut redonner un acide carboxylique et un thiol.",
+      "Un thioester se reconnaît au motif R–C(=O)–O–R'.",
+      "Un thioester ne contient aucun groupement carbonyle.",
+      "L’acétyl-CoA est un ammonium quaternaire et non un dérivé d’acide."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Le groupe acétyle est lié au soufre du coenzyme A par une liaison thioester.",
+      "La coupure de la liaison acyle–soufre régénère ces deux fonctions.",
+      "Ce motif est celui d’un ester oxygéné ; le thioester contient un soufre à la place de l’oxygène alkoxy.",
+      "Le motif C=O est constitutif de la fonction thioester.",
+      "Sa fonction réactive majeure considérée ici est une liaison thioester."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:thioesters"
+      ]
+    }
+  },
+  {
+    "order": 18,
+    "difficulty": "EASY",
+    "question": "Quelles propositions décrivent correctement les acides carboxyliques et leurs dérivés ?",
+    "statement": "Quelles propositions décrivent correctement les acides carboxyliques et leurs dérivés ?",
+    "explanation": "Un acide carboxylique peut céder H+ pour former un carboxylate stabilisé par résonance. Les chlorures d’acyle et anhydrides sont des dérivés d’acides activés plus réactifs vis-à-vis des nucléophiles.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:acides-carboxyliques"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "La déprotonation de R–COOH conduit à R–COO−.",
+      "La charge négative du carboxylate est délocalisée sur les deux oxygènes.",
+      "Un acide carboxylique ne peut jamais former de dérivé d’acide.",
+      "Un chlorure d’acyle est moins électrophile que le carboxylate correspondant.",
+      "La décarboxylation correspond à l’addition d’un groupe carboxyle."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Le proton acide est porté par le groupe carboxyle.",
+      "Cette délocalisation par résonance stabilise l’ion carboxylate.",
+      "Il peut être converti en chlorure d’acyle, anhydride, ester, amide, etc.",
+      "Le chlorure d’acyle est un dérivé activé, tandis que le carboxylate est fortement stabilisé et peu électrophile.",
+      "Elle correspond à une perte de CO2."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:acides-carboxyliques"
+      ]
+    }
+  },
+  {
+    "order": 19,
+    "difficulty": "MEDIUM",
+    "question": "Lorsqu’un organomagnésien R–MgX réagit avec CO2 puis est hydrolysé, de combien d’atomes de carbone la chaîne du produit acide s’allonge-t-elle par rapport au groupe R initial ?",
+    "statement": "Lorsqu’un organomagnésien R–MgX réagit avec CO2 puis est hydrolysé, de combien d’atomes de carbone la chaîne du produit acide s’allonge-t-elle par rapport au groupe R initial ?",
+    "explanation": "Le carbone de CO2 devient le carbone du groupe carboxyle. L’acide carboxylique final contient donc un atome de carbone de plus que le fragment R du réactif organomagnésien.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:carboxylation-organomagnesien"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "number",
+      "numericAnswer": {
+        "value": 1,
+        "tolerance": 0
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:carboxylation-organomagnesien"
+      ]
+    }
+  },
+  {
+    "order": 20,
+    "difficulty": "HARD",
+    "question": "Un substrat carbonylé réagit avec une amine primaire puis perd une molécule d’eau. Quelle fonction azotée est attendue ?",
+    "statement": "Un substrat carbonylé réagit avec une amine primaire puis perd une molécule d’eau. Quelle fonction azotée est attendue ?",
+    "explanation": "La condensation d’une amine primaire avec un aldéhyde ou une cétone conduit à une imine : le carbone initialement carbonylé devient lié par une double liaison à l’azote.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:imines"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Un thioester.",
+      "Un carboxylate.",
+      "Un ion ammonium quaternaire.",
+      "Une amide par simple perte d’eau, sans activation de l’acide.",
+      "Une imine."
+    ],
+    "correctChoiceIndexes": [
+      4
+    ],
+    "choiceExplanations": [
+      "Un thioester nécessite un soufre lié au carbone acyle.",
+      "La formation d’un carboxylate relève d’une déprotonation d’acide carboxylique.",
+      "Cette fonction requiert quatre substituants sur l’azote et ne résulte pas de la condensation décrite.",
+      "La condensation d’une amine primaire avec un aldéhyde ou une cétone conduit à une imine, pas à une amide.",
+      "C’est le produit caractéristique de la condensation d’une amine primaire avec un composé carbonylé."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:imines"
+      ]
+    }
+  },
+  {
+    "order": 21,
+    "difficulty": "MEDIUM",
+    "question": "Une réaction de substitution nucléophile sur un dérivé halogéné R–X est envisagée. Quelles propositions sont exactes ?",
+    "statement": "Une réaction de substitution nucléophile sur un dérivé halogéné R–X est envisagée. Quelles propositions sont exactes ?",
+    "explanation": "Le carbone lié à l’halogène est électrophile et le nucléophile remplace le groupe partant X−. Une SN1 passe par un carbocation et peut conduire à une perte de stéréospécificité ; une SN2 est concertée et provoque une inversion au centre attaqué.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:sn1-sn2"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Dans R–X, le carbone lié à X peut constituer un centre électrophile.",
+      "Une SN2 est une réaction concertée en une étape cinétique élémentaire.",
+      "Une SN2 sur un centre stéréogène conduit à une inversion de configuration géométrique.",
+      "Une SN1 implique la formation d’un carbocation intermédiaire.",
+      "Une SN1 est toujours plus stéréospécifique qu’une SN2 et donne un seul énantiomère pur."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "choiceExplanations": [
+      "La polarisation C–X rend le carbone susceptible d’être attaqué par un nucléophile.",
+      "La formation de la liaison au nucléophile et la rupture de C–X sont couplées dans l’état de transition.",
+      "L’attaque arrière impose l’inversion au carbone réactif.",
+      "Le départ du groupe partant précède l’attaque du nucléophile.",
+      "Le carbocation plan de la SN1 favorise généralement une racémisation ou au moins une perte de stéréospécificité."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:sn1-sn2"
+      ]
+    }
+  },
+  {
+    "order": 22,
+    "difficulty": "EASY",
+    "question": "À propos des relations entre fonctions alcool, aldéhyde, cétone et acide carboxylique, quelles propositions sont exactes ?",
+    "statement": "À propos des relations entre fonctions alcool, aldéhyde, cétone et acide carboxylique, quelles propositions sont exactes ?",
+    "explanation": "L’alcool primaire et l’aldéhyde appartiennent à une même séquence d’oxydation vers l’acide carboxylique. L’alcool secondaire s’oxyde en cétone. Ces relations permettent de prévoir le sens des transformations usuelles.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:relations-fonctions"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Alcool primaire → aldéhyde est une oxydation possible.",
+      "Alcool secondaire → cétone est une oxydation possible.",
+      "Cétone → alcool primaire est le produit normal d’une réduction par NaBH4.",
+      "Aldéhyde → amide est une simple oxydation sans autre réactif.",
+      "Alcool tertiaire → aldéhyde est l’oxydation douce caractéristique des alcools tertiaires."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Une oxydation contrôlée permet d’arrêter la transformation au stade aldéhyde.",
+      "La perte de deux hydrogènes conduit au groupe carbonyle cétonique.",
+      "Une cétone donne un alcool secondaire.",
+      "L’oxydation d’un aldéhyde donne un acide carboxylique ; une amide nécessite une transformation d’acyle avec une amine.",
+      "Les alcools tertiaires ne donnent pas d’aldéhyde par cette voie usuelle."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:relations-fonctions"
+      ]
+    }
+  },
+  {
+    "order": 23,
+    "difficulty": "MEDIUM",
+    "question": "À propos de la décarboxylation et de la préparation des acides carboxyliques, quelles propositions sont exactes ?",
+    "statement": "À propos de la décarboxylation et de la préparation des acides carboxyliques, quelles propositions sont exactes ?",
+    "explanation": "Une décarboxylation élimine CO2, particulièrement facilement pour certains substrats activés par un carbonyle voisin. À l’inverse, la carboxylation d’un organomagnésien par CO2 ajoute un carbone ; l’hydrolyse d’un nitrile ou d’un ester peut également conduire à un acide carboxylique.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:acides-preparation-decarboxylation"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Une décarboxylation correspond à une perte de CO2.",
+      "La présence d’un autre groupement carbonyle en position favorable empêche toute décarboxylation.",
+      "L’hydrolyse d’un nitrile peut conduire, via une amide, à un acide carboxylique.",
+      "L’hydrolyse d’un ester peut donner un acide carboxylique et un alcool en milieu acide.",
+      "La carboxylation d’un organomagnésien par CO2 raccourcit toujours la chaîne carbonée d’un atome."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      2,
+      3
+    ],
+    "choiceExplanations": [
+      "Le groupe carboxyle est éliminé sous forme de dioxyde de carbone.",
+      "Au contraire, certaines structures comportant un carbonyle voisin, comme les β-cétoacides, se décarboxylent particulièrement facilement.",
+      "Le nitrile est hydrolysé progressivement jusqu’à la fonction acide.",
+      "C’est la réaction inverse de l’estérification de Fischer dans un cadre général.",
+      "Elle ajoute au contraire le carbone du CO2 au squelette du groupe R."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:acides-preparation-decarboxylation"
+      ]
+    }
+  },
+  {
+    "order": 24,
+    "difficulty": "HARD",
+    "question": "Sur la molécule A, sélectionnez le carbone carbonylé de la fonction ester.",
+    "statement": "Sur la molécule A, sélectionnez le carbone carbonylé de la fonction ester.",
+    "explanation": "Dans un ester, la liaison C=O est polarisée : l’oxygène attire davantage la densité électronique et le carbone carbonylé devient un centre électrophile. C’est ce carbone qui peut être attaqué par un nucléophile lors d’une substitution nucléophile acyle.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:qzone-ester-carbonyle"
+    ],
+    "format": "QZONE",
+    "questionFormat": "QZONE",
+    "questionType": "hotspot",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "image": {
+        "src": "/images/training/ue14/colles/c07/acyl-derivatives-linked-q24-q25.svg",
+        "alt": "Quatre structures organiques A à D montrant respectivement un ester, une amide, un chlorure d’acyle et un ion carboxylate sans nommer les fonctions.",
+        "width": 1200,
+        "height": 700
+      },
+      "expectedZones": [
+        {
+          "id": "target-ester-carbonyl-carbon",
+          "label": "Carbone carbonylé de la fonction ester",
+          "x": 0.225,
+          "y": 0.2857,
+          "tolerance": 0.04
+        }
+      ],
+      "defaultTolerance": 0.04,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:qzone-ester-carbonyle"
+      ]
+    }
+  },
+  {
+    "order": 25,
+    "difficulty": "MEDIUM",
+    "question": "En vous appuyant sur les structures A à D, quelles propositions permettent de prévoir correctement leur réactivité ?",
+    "statement": "En vous appuyant sur les structures A à D, quelles propositions permettent de prévoir correctement leur réactivité ?",
+    "explanation": "Les quatre structures illustrent des comportements différents du motif acyle. Dans une amide, le doublet de l’azote est délocalisé vers le carbonyle, ce qui stabilise la fonction et réduit la disponibilité du doublet. Dans un ester, le carbone carbonylé reste un centre électrophile susceptible d’une substitution nucléophile acyle. Le carboxylate est stabilisé par délocalisation de la charge sur les deux oxygènes. Le chlorure d’acyle est un dérivé activé particulièrement réactif vis-à-vis des nucléophiles.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C07",
+      "ec:CHIMIE",
+      "theme:integration-derives-acides"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Dans la molécule B, le doublet non liant de l’azote est délocalisé vers le carbonyle, ce qui diminue sa disponibilité par rapport à celui d’une amine simple.",
+      "La molécule A peut subir une substitution nucléophile acyle au niveau de son carbone carbonylé.",
+      "Dans la molécule D, la charge négative est stabilisée par délocalisation entre les deux oxygènes.",
+      "La molécule C est un dérivé d’acide activé : son carbone carbonylé est fortement électrophile et l’ion chlorure peut jouer le rôle de groupe partant.",
+      "Les molécules B et une amine simple présentent nécessairement la même nucléophilie puisque le doublet de l’azote y est toujours également disponible."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "choiceExplanations": [
+      "Cette conjugaison explique le caractère partiel de double liaison C–N et la moindre basicité de l’azote.",
+      "Le nucléophile attaque le centre électrophile C=O et le groupe alkoxy peut être remplacé selon les conditions.",
+      "La charge négative est répartie entre deux formes mésomères équivalentes ou proches.",
+      "Le groupe chlorure est bon partant et renforce la réactivité du carbone acyle.",
+      "Dans l’amide, le doublet est conjugué au carbonyle et donc beaucoup moins disponible."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C07",
+        "ec:CHIMIE",
+        "theme:integration-derives-acides"
+      ]
+    }
+  }
+]

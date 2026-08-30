@@ -1,0 +1,1433 @@
+[
+  {
+    "order": 1,
+    "difficulty": "EASY",
+    "question": "À propos des oses et de leur stéréochimie, quelles propositions sont exactes ?",
+    "statement": "À propos des oses et de leur stéréochimie, quelles propositions sont exactes ?",
+    "explanation": "Les oses sont classés notamment selon la nature du carbonyle et le nombre de carbones. La série D/L est une configuration relative indépendante du signe du pouvoir rotatoire.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:glucides-stereochimie"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le D-glucose est un aldohexose.",
+      "Le D-fructose est un aldohexose.",
+      "Le D-glucose et le D-mannose sont épimères en C2.",
+      "La lettre D signifie nécessairement que le pouvoir rotatoire de l’ose est positif.",
+      "La cyclisation d’un ose supprime définitivement toute présence de forme ouverte en solution."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      2
+    ],
+    "choiceExplanations": [
+      "Sa forme ouverte comporte une fonction aldéhyde et six carbones.",
+      "Le D-fructose est un cétohexose : sa forme ouverte comporte une fonction cétone.",
+      "Ils diffèrent uniquement par la configuration du carbone 2.",
+      "D/L et +/− décrivent deux propriétés différentes et indépendantes.",
+      "Un équilibre subsiste entre formes cycliques et une faible proportion de forme ouverte."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:glucides-stereochimie"
+      ]
+    }
+  },
+  {
+    "order": 2,
+    "difficulty": "HARD",
+    "question": "Quel carbone du D-glucose devient le carbone anomérique lors de la cyclisation en glucopyranose ? Donnez uniquement son numéro.",
+    "statement": "Quel carbone du D-glucose devient le carbone anomérique lors de la cyclisation en glucopyranose ? Donnez uniquement son numéro.",
+    "explanation": "Le carbone de la fonction aldéhyde de la forme ouverte, C1, devient le carbone anomérique après formation de l’hémiacétal intramoléculaire.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:glucose-anomerie"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "number",
+      "numericAnswer": {
+        "value": 1,
+        "tolerance": 0
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:glucose-anomerie"
+      ]
+    }
+  },
+  {
+    "order": 3,
+    "difficulty": "HARD",
+    "question": "Quelle proposition décrit correctement un diholoside réducteur ?",
+    "statement": "Quelle proposition décrit correctement un diholoside réducteur ?",
+    "explanation": "Un diholoside est réducteur lorsqu’au moins un carbone anomérique reste libre et peut retrouver une forme carbonylée ouverte.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:diholosides"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Le maltose possède un carbone anomérique libre et est réducteur.",
+      "Le saccharose possède deux carbones anomériques libres.",
+      "Le lactose est formé de glucose et de fructose.",
+      "Tout diholoside est non réducteur dès qu’il possède une liaison osidique.",
+      "Le pouvoir réducteur impose une liaison β(1→4)."
+    ],
+    "correctChoiceIndexes": [
+      0
+    ],
+    "choiceExplanations": [
+      "Un seul des deux carbones anomériques est engagé dans la liaison osidique du maltose.",
+      "Les deux carbones anomériques sont engagés dans la liaison osidique du saccharose.",
+      "Le lactose associe galactose et glucose.",
+      "Le caractère réducteur dépend de la disponibilité d’un carbone anomérique, pas de la simple présence d’une liaison osidique.",
+      "Plusieurs architectures de liaison sont compatibles avec un carbone anomérique libre."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:diholosides"
+      ]
+    }
+  },
+  {
+    "order": 4,
+    "difficulty": "MEDIUM",
+    "question": "Sélectionnez exactement les deux propositions correctes concernant glycogène et glycosaminoglycanes.",
+    "statement": "Sélectionnez exactement les deux propositions correctes concernant glycogène et glycosaminoglycanes.",
+    "explanation": "Le glycogène est un homopolymère ramifié de glucose, tandis que les GAG sont des polysaccharides hétérogènes constitués de motifs disaccharidiques répétés et souvent chargés.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:polyosides-gag"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le glycogène contient principalement des liaisons α(1→4) et des branchements α(1→6).",
+      "L’héparine appartient aux glycosaminoglycanes et possède une activité anticoagulante.",
+      "Le glycogène est un polymère linéaire de glucose exclusivement relié en β(1→4).",
+      "Un protéoglycane est constitué uniquement d’une chaîne polypeptidique sans fraction glucidique.",
+      "Tous les GAG sont des réserves énergétiques rapidement hydrolysées en glucose."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Les liaisons α(1→4) forment les chaînes et les liaisons α(1→6) les points de branchement.",
+      "Elle potentialise notamment l’action de l’antithrombine.",
+      "Cette description ne correspond pas au glycogène, qui est ramifié et utilise des liaisons α.",
+      "Il associe une protéine cœur à une ou plusieurs chaînes de GAG.",
+      "Leurs fonctions sont surtout structurales, mécaniques ou de signalisation selon les tissus."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:polyosides-gag"
+      ]
+    }
+  },
+  {
+    "order": 5,
+    "difficulty": "MEDIUM",
+    "question": "À partir des acides gras L et A et des voies lipidiques de l’EC, quelles propositions sont exactes ?",
+    "statement": "À partir des acides gras L et A et des voies lipidiques de l’EC, quelles propositions sont exactes ?",
+    "explanation": "Pour un acide gras de la série n, la position est repérée depuis l’extrémité méthyle. L’acide linoléique 18:2 Δ9,12 appartient à la série n-6 et fait partie des acides gras indispensables. L’acide α-linolénique appartient à la série n-3. L’acide arachidonique A peut servir de précurseur à des eicosanoïdes : les leucotriènes relèvent notamment des lipoxygénases, et ces médiateurs sont généralement synthétisés à la demande.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:acides-gras-eicosanoides"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "La série n-6 se détermine en comptant la position de la première double liaison depuis l’extrémité méthyle.",
+      "L correspond à l’acide linoléique, un acide gras indispensable de la série n-6.",
+      "L correspond à l’acide α-linolénique de la série n-3.",
+      "Les leucotriènes dérivent principalement de l’action des cyclo-oxygénases sur A.",
+      "Les eicosanoïdes sont stockés en grande quantité dans des vésicules avant leur libération."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "La nomenclature oméga part du carbone méthyle terminal.",
+      "L’Homme ne peut pas introduire de novo certaines doubles liaisons nécessaires à sa synthèse.",
+      "L’acide α-linolénique appartient à la série n-3.",
+      "Ils sont produits par les voies des lipoxygénases.",
+      "Ils sont généralement synthétisés à la demande à partir de précurseurs lipidiques membranaires."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:acides-gras-eicosanoides"
+      ]
+    }
+  },
+  {
+    "order": 6,
+    "difficulty": "MEDIUM",
+    "question": "Quel est le nom générique de la classe lipidique à laquelle appartient la molécule P, hydrolysée en position sn-2 par la phospholipase A2 ?",
+    "statement": "Quel est le nom générique de la classe lipidique à laquelle appartient la molécule P, hydrolysée en position sn-2 par la phospholipase A2 ?",
+    "explanation": "P est un glycérophospholipide : son squelette glycérol porte deux chaînes acyles et un phosphate. La phospholipase A2 hydrolyse la liaison ester en sn-2 et peut ainsi libérer un acide gras tel que l’acide arachidonique.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:phospholipases"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "glycérophospholipide"
+        },
+        {
+          "value": "glycerophospholipide"
+        },
+        {
+          "value": "glycérophospholipides"
+        },
+        {
+          "value": "glycerophospholipides"
+        },
+        {
+          "value": "phosphoglycéride"
+        },
+        {
+          "value": "phosphoglyceride"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:phospholipases"
+      ]
+    }
+  },
+  {
+    "order": 7,
+    "difficulty": "EASY",
+    "question": "Quelle proposition décrit correctement la molécule C représentée sur le schéma ?",
+    "statement": "Quelle proposition décrit correctement la molécule C représentée sur le schéma ?",
+    "explanation": "La molécule C est un céramide : elle associe un squelette de sphingosine et un acide gras lié à la fonction amine par une liaison amide. Le céramide constitue le noyau structural de nombreux sphingolipides.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:sphingolipides"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Il s’agit d’un triester du glycérol portant trois acides gras.",
+      "Elle associe une sphingosine et un acide gras lié par une liaison amide.",
+      "Elle possède obligatoirement un groupement phosphate et une choline.",
+      "Elle est constituée de cholestérol estérifié par un acide gras.",
+      "Elle est un glycosaminoglycane sulfaté de la matrice extracellulaire."
+    ],
+    "correctChoiceIndexes": [
+      1
+    ],
+    "choiceExplanations": [
+      "Cette structure correspond à un triacylglycérol.",
+      "C’est la définition structurale du céramide.",
+      "Cette tête polaire caractérise la sphingomyéline, pas tous les céramides.",
+      "Cette structure correspond à un stéride.",
+      "Un céramide est un lipide, pas un GAG."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:sphingolipides"
+      ]
+    }
+  },
+  {
+    "order": 8,
+    "difficulty": "MEDIUM",
+    "question": "En comparant S et S’, sélectionnez exactement les deux propositions correctes.",
+    "statement": "En comparant S et S’, sélectionnez exactement les deux propositions correctes.",
+    "explanation": "S représente le cholestérol libre, qui appartient aux stérols et porte un groupement hydroxyle. Dans S’, cet hydroxyle est estérifié par un acide gras : la petite région polaire du cholestérol libre disparaît alors, ce qui augmente le caractère hydrophobe de la molécule.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:sterols-steroides"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "S possède une fonction alcool et appartient aux stérols.",
+      "S’ est plus hydrophobe que S car l’hydroxyle libre de S a été estérifié.",
+      "S est un triacylglycérol à trois chaînes d’acides gras.",
+      "Toutes les hormones stéroïdiennes sont des protéines glycosylées dérivées de S.",
+      "S’ est obligatoirement un phospholipide membranaire."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Le suffixe stérol renvoie notamment à la présence du groupe hydroxyle.",
+      "L’estérification masque le groupe hydroxyle polaire du cholestérol.",
+      "Il possède un noyau stéroïdien tétracyclique.",
+      "Elles sont des dérivés lipidiques du cholestérol.",
+      "Un stéride est un ester entre un stérol et un acide gras."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:sterols-steroides"
+      ]
+    }
+  },
+  {
+    "order": 9,
+    "difficulty": "MEDIUM",
+    "question": "Parmi ces dix propositions sur glucides et lipides, sélectionnez exactement les cinq exactes.",
+    "statement": "Parmi ces dix propositions sur glucides et lipides, sélectionnez exactement les cinq exactes.",
+    "explanation": "Cette synthèse associe propriétés des oses, pouvoir réducteur, polysaccharides, acides gras et classes lipidiques.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:synthese-glucides-lipides"
+    ],
+    "format": "QRPL",
+    "questionFormat": "QRPL",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "La mutarotation traduit l’interconversion des anomères en solution.",
+      "Le saccharose est non réducteur car ses deux carbones anomériques sont engagés.",
+      "Le glycogène est généralement plus ramifié que l’amylopectine.",
+      "Une double liaison cis tend à introduire un coude dans une chaîne d’acide gras.",
+      "Un triacylglycérol est formé par estérification des trois hydroxyles du glycérol.",
+      "Le D-glucose et le D-galactose sont épimères en C2.",
+      "La cellulose est constituée de glucose relié principalement en α(1→4).",
+      "La phospholipase A2 coupe la liaison entre le phosphate et la tête polaire.",
+      "Un céramide est composé de glycérol et de trois acides gras.",
+      "Le cholestérol est dépourvu de tout rôle de précurseur métabolique."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "choiceExplanations": [
+      "Le passage transitoire par la forme ouverte permet l’interconversion α ↔ β.",
+      "Aucun carbone anomérique libre ne peut retrouver directement une forme carbonylée.",
+      "Ses points de branchement α(1→6) sont globalement plus fréquents.",
+      "Cette géométrie diminue l’empilement régulier des chaînes.",
+      "Il comporte donc trois fonctions ester.",
+      "Ils sont épimères en C4.",
+      "La cellulose comporte des liaisons β(1→4).",
+      "Elle hydrolyse la liaison ester de l’acide gras en sn-2.",
+      "Il associe sphingosine et acide gras.",
+      "Il est notamment précurseur d’hormones stéroïdiennes, d’acides biliaires et de vitamine D."
+    ],
+    "requiredSelectionCount": 5,
+    "answerPayload": {
+      "requiredSelectionCount": 5,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:synthese-glucides-lipides"
+      ]
+    }
+  },
+  {
+    "order": 10,
+    "difficulty": "EASY",
+    "question": "À propos de la structure des acides aminés et des protéines, quelles propositions sont exactes ?",
+    "statement": "À propos de la structure des acides aminés et des protéines, quelles propositions sont exactes ?",
+    "explanation": "Les acides aminés protéinogènes partagent une structure α commune, à l’exception de particularités comme la glycine achirale et la proline cyclique.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:aa-structure"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "La glycine est achirale car son carbone α porte deux hydrogènes.",
+      "La proline possède une chaîne latérale cyclisée sur l’azote α.",
+      "Le point isoélectrique correspond au pH où la charge nette moyenne de l’espèce est nulle.",
+      "Tous les acides aminés protéinogènes ont un carbone α asymétrique.",
+      "À pH physiologique, un acide aminé libre ne peut porter simultanément une charge positive et une charge négative."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Le carbone α ne possède donc pas quatre substituants différents.",
+      "Cette structure réduit la flexibilité locale de la chaîne polypeptidique.",
+      "Des charges positives et négatives internes peuvent cependant rester présentes.",
+      "La glycine est l’exception classique.",
+      "De nombreux acides aminés libres sont majoritairement zwitterioniques."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:aa-structure"
+      ]
+    }
+  },
+  {
+    "order": 11,
+    "difficulty": "EASY",
+    "question": "Quel acide aminé protéinogène possède une chaîne latérale portant un groupement guanidinium ?",
+    "statement": "Quel acide aminé protéinogène possède une chaîne latérale portant un groupement guanidinium ?",
+    "explanation": "La chaîne latérale de l’arginine se termine par un groupement guanidinium, basique et majoritairement protoné aux pH physiologiques.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:arginine"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "Arginine"
+        },
+        {
+          "value": "arginine"
+        },
+        {
+          "value": "Arg"
+        },
+        {
+          "value": "R"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:arginine"
+      ]
+    }
+  },
+  {
+    "order": 12,
+    "difficulty": "HARD",
+    "question": "Quelle proposition décrit correctement la liaison peptidique ?",
+    "statement": "Quelle proposition décrit correctement la liaison peptidique ?",
+    "explanation": "La délocalisation électronique entre l’azote et le carbonyle confère à la liaison C–N peptidique un caractère partiel de double liaison, limitant sa rotation.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:liaison-peptidique"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Elle possède une rotation totalement libre comparable à une liaison C–C simple.",
+      "Elle ne contient jamais d’atome d’azote.",
+      "Elle possède un caractère partiel de double liaison et favorise la planéité du groupement peptidique.",
+      "Elle correspond à un pont disulfure entre deux cystéines.",
+      "Elle est rompue spontanément et instantanément dans l’eau à pH neutre."
+    ],
+    "correctChoiceIndexes": [
+      2
+    ],
+    "choiceExplanations": [
+      "La mésomérie limite fortement la rotation autour de C–N.",
+      "La liaison peptidique relie le carbone carbonylé d’un résidu à l’azote du suivant.",
+      "La résonance explique à la fois la planéité et la limitation de rotation.",
+      "Un pont disulfure est une liaison covalente S–S distincte.",
+      "Son hydrolyse non catalysée est lente dans les conditions physiologiques."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:liaison-peptidique"
+      ]
+    }
+  },
+  {
+    "order": 13,
+    "difficulty": "MEDIUM",
+    "question": "Sélectionnez exactement les deux propositions correctes concernant les structures secondaires des protéines.",
+    "statement": "Sélectionnez exactement les deux propositions correctes concernant les structures secondaires des protéines.",
+    "explanation": "L’hélice α et le feuillet β reposent principalement sur des liaisons hydrogène du squelette peptidique. La proline tend à perturber une hélice α lorsqu’elle est placée en position interne.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:structures-secondaires"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Dans une hélice α, une liaison hydrogène relie classiquement C=O(i) à N–H(i+4).",
+      "Les feuillets β peuvent être parallèles ou antiparallèles.",
+      "La proline interne stabilise toujours une hélice α longue et régulière.",
+      "Une structure secondaire est définie uniquement par des ponts disulfure entre cystéines.",
+      "Un feuillet β est nécessairement constitué d’une seule chaîne polypeptidique continue."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Ce motif répétitif stabilise l’hélice.",
+      "Les deux organisations existent dans les protéines.",
+      "Sa rigidité et l’absence d’un N–H peptidique classique tendent à perturber l’hélice.",
+      "Les liaisons hydrogène du squelette constituent l’élément majeur des hélices et feuillets.",
+      "Il peut associer des segments éloignés d’une même chaîne ou appartenant à des chaînes différentes."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:structures-secondaires"
+      ]
+    }
+  },
+  {
+    "order": 14,
+    "difficulty": "EASY",
+    "question": "À propos de quelques rôles biologiques des acides aminés, peptides et protéines, quelles propositions sont exactes ?",
+    "statement": "À propos de quelques rôles biologiques des acides aminés, peptides et protéines, quelles propositions sont exactes ?",
+    "explanation": "Les acides aminés sont aussi des précurseurs métaboliques ; les peptides et protéines assurent des fonctions de signalisation, transport et défense.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:roles-biologiques"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le tryptophane est un précurseur de la sérotonine.",
+      "Le glutamate peut être décarboxylé en GABA.",
+      "L’insuline mature comporte deux chaînes reliées par des ponts disulfure.",
+      "Le peptide C constitue l’unique fraction de l’insuline capable de se lier au récepteur à l’insuline.",
+      "Les cytokines sont obligatoirement des lipides stéroïdiens."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "La voie de biosynthèse de la sérotonine dérive du tryptophane.",
+      "Le GABA est un neurotransmetteur inhibiteur dérivé du glutamate.",
+      "Les chaînes A et B sont issues de la maturation de la proinsuline.",
+      "Le peptide C est libéré lors de la maturation ; il ne constitue pas l’insuline mature.",
+      "Les cytokines sont des protéines ou peptides de signalisation."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:roles-biologiques"
+      ]
+    }
+  },
+  {
+    "order": 15,
+    "difficulty": "MEDIUM",
+    "question": "Quelle mutation classique de la chaîne β de l’hémoglobine est associée à l’HbS dans la drépanocytose ? Répondez sous la forme « acide aminé → acide aminé ».",
+    "statement": "Quelle mutation classique de la chaîne β de l’hémoglobine est associée à l’HbS dans la drépanocytose ? Répondez sous la forme « acide aminé → acide aminé ».",
+    "explanation": "L’HbS comporte classiquement une substitution Glu6Val sur la chaîne β : un glutamate est remplacé par une valine en position 6.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:hemoglobine-hbs"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "Glu → Val"
+        },
+        {
+          "value": "Glu->Val"
+        },
+        {
+          "value": "Glu Val"
+        },
+        {
+          "value": "glutamate → valine"
+        },
+        {
+          "value": "glutamate->valine"
+        },
+        {
+          "value": "acide glutamique → valine"
+        },
+        {
+          "value": "E6V"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:hemoglobine-hbs"
+      ]
+    }
+  },
+  {
+    "order": 16,
+    "difficulty": "HARD",
+    "question": "Quelle proposition décrit correctement une immunoglobuline G monomérique ?",
+    "statement": "Quelle proposition décrit correctement une immunoglobuline G monomérique ?",
+    "explanation": "Une IgG possède deux chaînes lourdes et deux chaînes légères. Les fragments Fab portent les sites de liaison à l’antigène ; la région Fc assure d’autres fonctions effectrices.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:immunoglobulines"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Elle est formée d’une seule chaîne polypeptidique contenant quatre sites catalytiques.",
+      "Ses deux fragments Fab sont dépourvus de toute capacité à reconnaître l’antigène.",
+      "Sa région Fc porte l’ensemble des régions variables de reconnaissance de l’antigène.",
+      "Elle possède deux chaînes lourdes et deux chaînes légères reliées notamment par des ponts disulfure.",
+      "Elle appartient aux glycosaminoglycanes de la matrice extracellulaire."
+    ],
+    "correctChoiceIndexes": [
+      3
+    ],
+    "choiceExplanations": [
+      "Une IgG est constituée de quatre chaînes polypeptidiques.",
+      "Les fragments Fab contiennent les régions variables qui reconnaissent l’antigène.",
+      "Les régions variables sont localisées dans les bras Fab.",
+      "C’est l’organisation H2L2 caractéristique de l’IgG monomérique.",
+      "Une immunoglobuline est une glycoprotéine."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:immunoglobulines"
+      ]
+    }
+  },
+  {
+    "order": 17,
+    "difficulty": "HARD",
+    "question": "Sélectionnez exactement les deux associations correctes entre protéine et fonction.",
+    "statement": "Sélectionnez exactement les deux associations correctes entre protéine et fonction.",
+    "explanation": "L’albumine contribue fortement à la pression oncotique et transporte de nombreux ligands. Le collagène IV est un constituant majeur des membranes basales et s’organise en réseau.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:proteines-fonctions"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Albumine — contribution majeure à la pression oncotique plasmatique.",
+      "Collagène IV — formation de réseaux dans les membranes basales.",
+      "Laminine — filament intermédiaire de la lamina nucléaire.",
+      "Myosine II — constituant principal de l’octamère nucléosomique.",
+      "Hémoglobine A — homotétramère β4 chez l’adulte sain."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Sa forte concentration plasmatique joue un rôle important dans la pression colloïdo-osmotique.",
+      "Le collagène IV est caractéristique des lames basales et ne forme pas les mêmes fibrilles que le collagène I.",
+      "La laminine est une glycoprotéine de matrice extracellulaire ; les lamines sont nucléaires.",
+      "La myosine II est un moteur moléculaire associé à l’actine.",
+      "L’HbA principale est α2β2."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:proteines-fonctions"
+      ]
+    }
+  },
+  {
+    "order": 18,
+    "difficulty": "HARD",
+    "question": "Parmi ces dix propositions sur acides aminés, peptides et protéines, sélectionnez exactement les cinq exactes.",
+    "statement": "Parmi ces dix propositions sur acides aminés, peptides et protéines, sélectionnez exactement les cinq exactes.",
+    "explanation": "Cette synthèse relie structure chimique, architecture protéique, maturation et fonctions biologiques.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:synthese-protides"
+    ],
+    "format": "QRPL",
+    "questionFormat": "QRPL",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Une liaison peptidique possède un caractère partiel de double liaison.",
+      "La proinsuline est maturée par clivage avec libération du peptide C.",
+      "Le récepteur de l’insuline possède une activité tyrosine kinase portée par ses chaînes β.",
+      "Le fer fonctionnel de l’hème doit être à l’état Fe2+ pour lier réversiblement O2.",
+      "Les intégrines sont des hétérodimères α/β transmembranaires impliqués dans l’adhérence.",
+      "La glycine possède deux centres stéréogènes.",
+      "Une hélice α est stabilisée principalement par des ponts disulfure répétés entre résidus successifs.",
+      "Le fragment Fc d’une IgG constitue son site principal de reconnaissance spécifique de l’antigène.",
+      "Le collagène I forme préférentiellement le réseau moléculaire des membranes basales à la place du collagène IV.",
+      "La laminine et la lamine désignent la même protéine."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "choiceExplanations": [
+      "La mésomérie C–N explique sa planéité et la rotation limitée.",
+      "L’insuline mature conserve les chaînes A et B reliées par des ponts disulfure.",
+      "Les domaines cytoplasmiques des chaînes β portent l’activité kinase.",
+      "L’oxydation en Fe3+ produit de la méthémoglobine, incapable de fixer normalement O2.",
+      "Elles relient notamment la matrice extracellulaire à des complexes intracellulaires associés au cytosquelette.",
+      "Elle est achirale au carbone α.",
+      "Sa stabilisation repose surtout sur les liaisons hydrogène du squelette.",
+      "La reconnaissance spécifique est portée par les régions variables des Fab.",
+      "Le collagène IV est typique des réseaux de membrane basale.",
+      "La laminine appartient à la matrice extracellulaire ; les lamines sont des filaments intermédiaires nucléaires."
+    ],
+    "requiredSelectionCount": 5,
+    "answerPayload": {
+      "requiredSelectionCount": 5,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:synthese-protides"
+      ]
+    }
+  },
+  {
+    "order": 19,
+    "difficulty": "MEDIUM",
+    "question": "À propos des enzymes, de leur classification et de leurs cofacteurs, quelles propositions sont exactes ?",
+    "statement": "À propos des enzymes, de leur classification et de leurs cofacteurs, quelles propositions sont exactes ?",
+    "explanation": "La classification EC actuelle comporte sept classes. Une enzyme peut nécessiter un cofacteur ; une apoenzyme associée au cofacteur requis constitue une holoenzyme fonctionnelle.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:enzymes-classification-cofacteurs"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "La classification EC actuelle comporte sept grandes classes, dont les translocases.",
+      "Une coenzyme est un cofacteur organique.",
+      "Une apoenzyme dépourvue de son cofacteur requis est déjà une holoenzyme.",
+      "Une enzyme modifie la constante d’équilibre Keq afin de rendre une réaction spontanée.",
+      "Tout groupement prosthétique est obligatoirement lié de façon covalente et irréversible."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Les translocases constituent la septième classe de la classification EC actuelle.",
+      "Les coenzymes comprennent notamment des dérivés vitaminiques participant à la catalyse.",
+      "Lorsque le cofacteur est requis, l’holoenzyme correspond à l’apoenzyme associée à ce cofacteur.",
+      "Elle modifie la cinétique, pas l’équilibre thermodynamique.",
+      "Un groupement prosthétique est fortement lié, sans que la covalence permanente soit une définition universelle."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:enzymes-classification-cofacteurs"
+      ]
+    }
+  },
+  {
+    "order": 20,
+    "difficulty": "MEDIUM",
+    "question": "Pour une enzyme suivant le modèle de Michaelis-Menten, quelle fraction de Vmax vaut v0 lorsque [S] = Km ? Donnez uniquement la valeur numérique.",
+    "statement": "Pour une enzyme suivant le modèle de Michaelis-Menten, quelle fraction de Vmax vaut v0 lorsque [S] = Km ? Donnez uniquement la valeur numérique.",
+    "explanation": "En remplaçant [S] par Km dans v0 = Vmax[S]/(Km+[S]), on obtient v0 = Vmax/2.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:michaelis-menten"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "number",
+      "numericAnswer": {
+        "value": 0.5,
+        "tolerance": 0.01
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:michaelis-menten"
+      ]
+    }
+  },
+  {
+    "order": 21,
+    "difficulty": "MEDIUM",
+    "question": "Quelle proposition décrit correctement l’action d’une enzyme sur une réaction chimique ?",
+    "statement": "Quelle proposition décrit correctement l’action d’une enzyme sur une réaction chimique ?",
+    "explanation": "Une enzyme accélère l’approche de l’équilibre en abaissant l’énergie libre d’activation ΔG‡, sans modifier ΔG° ni Keq.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:catalyse-thermodynamique"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Elle rend toujours ΔG° plus négatif.",
+      "Elle déplace obligatoirement l’équilibre vers les produits.",
+      "Elle est consommée stœchiométriquement à chaque cycle catalytique.",
+      "Elle n’accélère que la réaction directe et ralentit la réaction inverse.",
+      "Elle diminue l’énergie libre d’activation sans modifier la constante d’équilibre."
+    ],
+    "correctChoiceIndexes": [
+      4
+    ],
+    "choiceExplanations": [
+      "ΔG° est une grandeur thermodynamique indépendante de la présence du catalyseur.",
+      "Keq n’est pas modifiée par le catalyseur.",
+      "Une enzyme est régénérée au terme du cycle catalytique.",
+      "Un catalyseur accélère les deux sens d’une réaction réversible.",
+      "C’est le principe fondamental de la catalyse enzymatique."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:catalyse-thermodynamique"
+      ]
+    }
+  },
+  {
+    "order": 22,
+    "difficulty": "MEDIUM",
+    "question": "À propos de la régulation de l’activité enzymatique, quelles propositions sont exactes ?",
+    "statement": "À propos de la régulation de l’activité enzymatique, quelles propositions sont exactes ?",
+    "explanation": "L’activité enzymatique peut être modulée par allostérie, modifications covalentes, sous-unités régulatrices ou protéolyse limitée. Ces mécanismes n’ont pas tous le même effet selon l’enzyme.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:regulation-enzymatique"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Un effecteur allostérique se fixe sur un site distinct du site actif et peut modifier l’activité.",
+      "La phosphorylation peut activer ou inhiber une protéine selon le contexte.",
+      "Une protéolyse limitée peut activer un zymogène.",
+      "Toutes les ubiquitinations conduisent nécessairement à la dégradation immédiate par le protéasome.",
+      "L’allostérie est impossible chez une protéine monomérique."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "La fixation allostérique modifie l’équilibre conformationnel de l’enzyme.",
+      "L’effet d’une phosphorylation n’a pas de direction universelle.",
+      "Le clivage ciblé de précurseurs inactifs est un mécanisme classique d’activation irréversible.",
+      "L’ubiquitination peut remplir plusieurs fonctions selon son type et son contexte.",
+      "Des protéines monomériques peuvent également subir une régulation allostérique."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:regulation-enzymatique"
+      ]
+    }
+  },
+  {
+    "order": 23,
+    "difficulty": "HARD",
+    "question": "Une préparation enzymatique transforme $9\\,\\mu\\mathrm{mol}$ de substrat en $3\\,\\mathrm{min}$. Quelle est son activité ? Donnez uniquement la valeur numérique, exprimée en $\\mathrm{U}$.\n\nDonnées : $1\\,\\mathrm{U} = 1\\,\\mu\\mathrm{mol}\\cdot\\mathrm{min}^{-1}$.",
+    "statement": "Une préparation enzymatique transforme $9\\,\\mu\\mathrm{mol}$ de substrat en $3\\,\\mathrm{min}$. Quelle est son activité ? Donnez uniquement la valeur numérique, exprimée en $\\mathrm{U}$.\n\nDonnées : $1\\,\\mathrm{U} = 1\\,\\mu\\mathrm{mol}\\cdot\\mathrm{min}^{-1}$.",
+    "explanation": "L’activité vaut $9/3=3\\,\\mu\\mathrm{mol}\\cdot\\mathrm{min}^{-1}$, soit $3\\,\\mathrm{U}$.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:calcul-activite-enzymatique"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "number",
+      "numericAnswer": {
+        "value": 3,
+        "tolerance": 0,
+        "unit": "U",
+        "displayUnit": "\\mathrm{U}"
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:calcul-activite-enzymatique"
+      ]
+    }
+  },
+  {
+    "order": 24,
+    "difficulty": "MEDIUM",
+    "question": "Quel effet cinétique caractérise une inhibition compétitive pure dans le modèle de Michaelis-Menten ?",
+    "statement": "Quel effet cinétique caractérise une inhibition compétitive pure dans le modèle de Michaelis-Menten ?",
+    "explanation": "Un inhibiteur compétitif pur augmente le Km apparent sans modifier Vmax, car un excès de substrat peut surmonter la compétition au site actif.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:inhibition-competitive"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Km diminue et Vmax diminue dans la même proportion.",
+      "Km apparent augmente et Vmax reste inchangée.",
+      "Km reste inchangé et Vmax augmente.",
+      "Km et Vmax deviennent tous deux nuls.",
+      "Km n’a plus d’unité et devient un temps caractéristique."
+    ],
+    "correctChoiceIndexes": [
+      1
+    ],
+    "choiceExplanations": [
+      "Ce motif correspond à une inhibition incompétitive idéale.",
+      "C’est le comportement attendu d’une inhibition compétitive pure.",
+      "Ce n’est pas le comportement d’une inhibition compétitive.",
+      "Une inhibition réversible ne conduit pas à cette situation générale.",
+      "Km conserve l’unité d’une concentration."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:inhibition-competitive"
+      ]
+    }
+  },
+  {
+    "order": 25,
+    "difficulty": "EASY",
+    "question": "À propos de la mesure d’une activité enzymatique et des unités utilisées, quelles propositions sont exactes ?",
+    "statement": "À propos de la mesure d’une activité enzymatique et des unités utilisées, quelles propositions sont exactes ?",
+    "explanation": "La vitesse initiale est mesurée dans la portion initiale approximativement linéaire. L’unité U et le katal décrivent des activités catalytiques avec des échelles différentes.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:unites-activite"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Une unité enzymatique U correspond à une micromole de substrat transformée par minute dans des conditions définies.",
+      "Un katal correspond à $1\\,\\mathrm{mol}\\cdot\\mathrm{s}^{-1}$.",
+      "L’activité spécifique s’exprime typiquement en U/L, sans rapport à une masse de protéines.",
+      "Km s’exprime nécessairement en secondes.",
+      "La vitesse initiale doit être mesurée seulement après épuisement complet du substrat."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Par définition, $1\\,\\mathrm{U} = 1\\,\\mu\\mathrm{mol}\\cdot\\mathrm{min}^{-1}$.",
+      "Le katal est l’unité SI d’activité catalytique.",
+      "L’activité spécifique rapporte typiquement une activité à une masse de protéines, par exemple en U/mg.",
+      "Km possède l’unité d’une concentration.",
+      "Elle est au contraire mesurée au début de la réaction, avant les perturbations dues à l’épuisement du substrat ou à l’accumulation du produit."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:unites-activite"
+      ]
+    }
+  },
+  {
+    "order": 26,
+    "difficulty": "MEDIUM",
+    "question": "À propos du modèle de Michaelis-Menten et de la représentation du panneau B, quelles propositions sont exactes ?",
+    "statement": "À propos du modèle de Michaelis-Menten et de la représentation du panneau B, quelles propositions sont exactes ?",
+    "explanation": "Pour une enzyme michaelienne simple, v0 = Vmax[S]/(Km + [S]), donc v0 = Vmax/2 lorsque [S] = Km. La linéarisation de Lineweaver-Burk donne une ordonnée à l’origine 1/Vmax, une abscisse à l’origine −1/Km et une pente Km/Vmax. À saturation, la vitesse tend vers Vmax, avec Vmax = kcat[E]t.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:michaelis-lineweaver"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "À [S] = Km, v0 = Vmax/2.",
+      "Sur Lineweaver-Burk, l’ordonnée à l’origine vaut 1/Vmax.",
+      "Sur Lineweaver-Burk, l’abscisse à l’origine vaut −1/Km.",
+      "Dans le modèle michaelien simple, Vmax = kcat[E]t.",
+      "À très forte concentration de substrat, v0 croît sans limite de façon proportionnelle à [S]."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "choiceExplanations": [
+      "C’est une conséquence directe de l’équation de Michaelis-Menten.",
+      "On l’obtient pour 1/[S] = 0.",
+      "La droite coupe l’axe des abscisses lorsque 1/v0 = 0.",
+      "La vitesse maximale dépend directement de la concentration enzymatique totale.",
+      "L’enzyme se sature et v0 tend de façon asymptotique vers Vmax."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:michaelis-lineweaver"
+      ]
+    }
+  },
+  {
+    "order": 27,
+    "difficulty": "MEDIUM",
+    "question": "Le panneau A correspond à un suivi spectrophotométrique de la réaction. Quelles propositions sont exactes ?",
+    "statement": "Le panneau A correspond à un suivi spectrophotométrique de la réaction. Quelles propositions sont exactes ?",
+    "explanation": "Dans le domaine de validité de Beer-Lambert, A = ε·l·c : à coefficient d’extinction et trajet optique constants, l’absorbance est proportionnelle à la concentration. La pente initiale d’un signal d’absorbance peut donc être convertie en variation de concentration par unité de temps. L’absorbance est sans dimension.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:beer-lambert"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "La loi de Beer-Lambert s’écrit A = ε·l·c.",
+      "À ε et l constants, si l’absorbance est divisée par deux, la concentration correspondante est divisée par deux.",
+      "Une vitesse enzymatique peut être déterminée à partir de la pente initiale d’absorbance si ε et l sont connus.",
+      "L’absorbance est une grandeur sans dimension.",
+      "Beer-Lambert implique que la concentration est inversement proportionnelle à l’absorbance."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "choiceExplanations": [
+      "A est proportionnelle au coefficient d’extinction, au trajet optique et à la concentration.",
+      "La relation entre A et c est strictement linéaire.",
+      "La pente dA/dt permet de remonter à dc/dt en la divisant par ε·l.",
+      "Elle correspond à un logarithme de rapport d’intensités lumineuses.",
+      "L’absorbance est directement proportionnelle à la concentration."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:beer-lambert"
+      ]
+    }
+  },
+  {
+    "order": 28,
+    "difficulty": "HARD",
+    "question": "En comparant les droites X, Y et Z au témoin du panneau B, quelles propositions sont exactes ?",
+    "statement": "En comparant les droites X, Y et Z au témoin du panneau B, quelles propositions sont exactes ?",
+    "explanation": "Sur Lineweaver-Burk, une inhibition compétitive pure conserve 1/Vmax mais déplace −1/Km vers 0. Une inhibition incompétitive pure produit une droite parallèle au témoin puisque Km et Vmax diminuent dans la même proportion. Une inhibition non compétitive pure conserve −1/Km mais augmente 1/Vmax. Dans une inhibition mixte, Vmax diminue et Km peut varier dans un sens ou dans l’autre.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:inhibitions-reversibles"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le tracé X est compatible avec une inhibition compétitive pure : Km apparent augmente tandis que Vmax reste inchangée.",
+      "Le tracé Y est compatible avec une inhibition incompétitive pure : Km et Vmax diminuent dans la même proportion.",
+      "Le tracé Z est compatible avec une inhibition non compétitive pure : Vmax diminue tandis que Km reste inchangé.",
+      "Dans une inhibition mixte générale, Vmax diminue et Km peut augmenter ou diminuer selon les affinités relatives de l’inhibiteur.",
+      "Une inhibition compétitive pure impose une diminution de Vmax jusqu’à zéro, quelle que soit la concentration de substrat."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "choiceExplanations": [
+      "L’effet de l’inhibiteur compétitif est surmontable à forte concentration de substrat.",
+      "Cette diminution proportionnelle produit des droites parallèles sur le graphe de Lineweaver-Burk.",
+      "Le point d’intersection sur l’axe des abscisses −1/Km reste identique au témoin.",
+      "La variation de Km dépend des constantes d’association de l’inhibiteur pour E et pour ES.",
+      "Dans une inhibition compétitive pure, Vmax n’est pas modifiée à saturation par le substrat."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:inhibitions-reversibles"
+      ]
+    }
+  },
+  {
+    "order": 29,
+    "difficulty": "MEDIUM",
+    "question": "Sur le panneau B, sélectionnez sur l’axe des abscisses l’intersection de la droite Témoin correspondant à −1/Km.",
+    "statement": "Sur le panneau B, sélectionnez sur l’axe des abscisses l’intersection de la droite Témoin correspondant à −1/Km.",
+    "explanation": "Dans une représentation de Lineweaver-Burk, l’équation peut s’écrire 1/v0 = (Km/Vmax)(1/[S]) + 1/Vmax. L’intersection de la droite avec l’axe des abscisses correspond donc à −1/Km. Ici, il fallait sélectionner celle de la droite Témoin.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:qzone-lineweaver-burk"
+    ],
+    "format": "QZONE",
+    "questionFormat": "QZONE",
+    "questionType": "hotspot",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "image": {
+        "src": "/images/training/ue14/colles/c11/enzyme-kinetics-linked-q26-q29.svg",
+        "alt": "Étude de cinétique enzymatique avec une courbe d’absorbance en fonction du temps et plusieurs droites de Lineweaver-Burk obtenues avec ou sans inhibiteurs.",
+        "width": 1200,
+        "height": 760
+      },
+      "expectedZones": [
+        {
+          "id": "target-temoin-x-intercept",
+          "label": "Intersection de la droite Témoin avec l’axe 1/[S] (−1/Km)",
+          "x": 0.6417,
+          "y": 0.6842,
+          "tolerance": 0.04
+        }
+      ],
+      "defaultTolerance": 0.04,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:qzone-lineweaver-burk"
+      ]
+    }
+  },
+  {
+    "order": 30,
+    "difficulty": "HARD",
+    "question": "Pour cette synthèse cumulative de toute l’EC de Biochimie, quelles propositions sont exactes ?",
+    "statement": "Pour cette synthèse cumulative de toute l’EC de Biochimie, quelles propositions sont exactes ?",
+    "explanation": "Une maîtrise cumulative suppose de relier structure, fonction et mesure : glucides, lipides, protéines et enzymes mobilisent des notions chimiques communes mais des organisations biologiques différentes.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C11",
+      "ec:BIOCHIMIE",
+      "theme:synthese-finale"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le saccharose est non réducteur car ses deux carbones anomériques sont engagés dans sa liaison osidique.",
+      "La phospholipase A2 peut libérer un acide gras en position sn-2 d’un glycérophospholipide.",
+      "Une enzyme accélère l’approche de l’équilibre sans modifier Keq.",
+      "L’HbA adulte principale est constituée de quatre chaînes β.",
+      "À très forte [S], une enzyme michaelienne non inhibée produit une vitesse qui dépasse indéfiniment Vmax."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Aucun carbone anomérique libre n’est disponible pour retrouver directement une forme carbonylée.",
+      "Cette position peut notamment porter de l’acide arachidonique.",
+      "Elle abaisse l’énergie d’activation des réactions directe et inverse.",
+      "La forme principale est α2β2.",
+      "La saturation conduit vers une asymptote Vmax."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C11",
+        "ec:BIOCHIMIE",
+        "theme:synthese-finale"
+      ]
+    }
+  }
+]

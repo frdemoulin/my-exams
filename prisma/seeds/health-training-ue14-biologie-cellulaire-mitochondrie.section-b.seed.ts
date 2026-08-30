@@ -1,650 +1,753 @@
-/**
- * UE14 – Biologie cellulaire – Chapitre 7
- * Contenu pédagogique fondé sur la fiche 2024-2025 du Tutorat Santé de Reims.
- */
 import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
 
+/** UE14 Biologie cellulaire — Ch7 — Mitochondrie — Métabolismes et chaîne respiratoire — V2 active */
 export const SECTION_B_QUESTIONS: SeedQuestion[] = [
   {
-    order: 31,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `La fonction principale de la mitochondrie dans la fiche est :`,
-    choices: [
-      `La synthèse d’ATP.`,
-      `La fourniture d’une grande partie de l’énergie cellulaire.`,
-      `La production exclusive d’ARN ribosomal nucléaire.`,
-      `La participation à la respiration cellulaire.`,
+    "order": 23,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Parmi ces propositions relatives aux métabolismes de la matrice mitochondriale, lesquelles sont justes ?",
+    "choices": [
+      {
+        "content": "La succinate déshydrogénase appartient à la fois au cycle de Krebs et au complexe II de la chaîne respiratoire.",
+        "correct": true,
+        "explanation": "Elle relie directement le métabolisme du succinate au transfert d’électrons vers l’ubiquinone."
+      },
+      {
+        "content": "Le cycle de Krebs se déroule dans l’espace intermembranaire.",
+        "correct": false,
+        "explanation": "Il se déroule principalement dans la matrice."
+      },
+      {
+        "content": "La β-oxydation mitochondriale des acides gras se déroule principalement dans la matrice.",
+        "correct": true,
+        "explanation": "Elle fournit de l’acétyl-CoA, du NADH et du FADH2."
+      },
+      {
+        "content": "Le cycle de Krebs oxyde l’acétyl-CoA et génère notamment NADH et FADH2.",
+        "correct": true,
+        "explanation": "Ces coenzymes réduits alimentent ensuite la chaîne respiratoire."
+      },
+      {
+        "content": "Les acides gras à très longue chaîne sont pris en charge préférentiellement par le peroxysome avant un éventuel relais mitochondrial.",
+        "correct": true,
+        "explanation": "Le peroxysome raccourcit notamment les VLCFA."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `La mitochondrie transforme l’énergie issue du catabolisme en ATP par phosphorylation oxydative.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-      `Exact : conforme aux éléments de la fiche.`,
-    ],
+    "explanation": "La matrice héberge notamment la décarboxylation oxydative du pyruvate, le cycle de Krebs et la β-oxydation, qui produisent des coenzymes réduits pour la chaîne respiratoire."
   },
   {
-    order: 32,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Les nutriments contribuant à la production d’ATP comprennent :`,
-    choices: [
-      `Les protéines.`,
-      `Les glucides.`,
-      `Les lipides.`,
-      `Uniquement le cholestérol.`,
+    "order": 24,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Concernant les navettes et transporteurs mitochondriaux, quelle proposition est exacte ?",
+    "choices": [
+      {
+        "content": "Le transporteur ADP/ATP échange l’ADP cytosolique contre l’ATP matriciel à travers la membrane interne.",
+        "correct": true,
+        "explanation": "L’ANT assure cet antiport essentiel."
+      },
+      {
+        "content": "Le NAD+ et le NADH cytosoliques diffusent librement à travers la membrane interne.",
+        "correct": false,
+        "explanation": "La membrane interne est imperméable à ces coenzymes ; les navettes transfèrent les équivalents réducteurs."
+      },
+      {
+        "content": "La navette glycérol-3-phosphate injecte directement des électrons dans le complexe II.",
+        "correct": false,
+        "explanation": "Elle réduit l’ubiquinone via une déshydrogénase distincte du complexe II."
+      },
+      {
+        "content": "La navette malate-aspartate impose un rendement identique à celui de la navette glycérol-3-phosphate.",
+        "correct": false,
+        "explanation": "Le point d’entrée différent dans la chaîne peut modifier le rendement en ATP."
+      },
+      {
+        "content": "Le pyruvate traverse la membrane interne uniquement par diffusion simple.",
+        "correct": false,
+        "explanation": "Un transporteur mitochondrial du pyruvate intervient."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les trois grandes familles de nutriments sont reliées au catabolisme énergétique dans la fiche.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La membrane interne impose des échanges sélectifs : navettes redox et transporteurs permettent le couplage entre métabolisme cytosolique et mitochondrial."
   },
   {
-    order: 33,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Le glucose et certains acides aminés peuvent conduire à la formation de :`,
-    choices: [
-      `Pyruvate.`,
-      `Acétyl-CoA après oxydation mitochondriale.`,
-      `NADH et FADH2 via le cycle de Krebs.`,
-      `Glycocalyx mitochondrial.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le pyruvate et les acides gras alimentent l’acétyl-CoA puis le cycle de Krebs.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "order": 25,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel métabolite est produit par le complexe pyruvate déshydrogénase à partir du pyruvate et entre dans le cycle de Krebs ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "acétyl-CoA",
+        "acetyl-CoA",
+        "acétyl coenzyme A",
+        "acetyl coenzyme A"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "La décarboxylation oxydative du pyruvate produit notamment de l’acétyl-CoA."
   },
   {
-    order: 34,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `À propos des acides gras :`,
-    choices: [
-      `Ils peuvent entrer dans la mitochondrie grâce à des perméases.`,
-      `Leur oxydation contribue à former de l’acétyl-CoA.`,
-      `Ils peuvent alimenter la production de NADH et FADH2.`,
-      `Ils sont transformés directement en ADNmt.`,
+    "order": 26,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Quelles propositions relient correctement génome mitochondrial, traduction et hétéroplasmie ?",
+    "choices": [
+      {
+        "content": "Le génome mitochondrial humain contient des introns abondants comparables à ceux de nombreux gènes nucléaires.",
+        "correct": false,
+        "explanation": "Il est très compact et ne présente pas cette organisation riche en introns."
+      },
+      {
+        "content": "Les ribosomes mitochondriaux participent à la traduction des gènes mitochondriaux codant des protéines.",
+        "correct": true,
+        "explanation": "Ils traduisent les ARN messagers mitochondriaux dans la matrice."
+      },
+      {
+        "content": "L’ADN mitochondrial humain est une grande molécule linéaire organisée en chromosomes homologues.",
+        "correct": false,
+        "explanation": "Il s’agit d’un petit génome circulaire présent en plusieurs copies."
+      },
+      {
+        "content": "L’expression clinique d’une mutation mitochondriale peut dépendre d’un effet de seuil d’hétéroplasmie.",
+        "correct": true,
+        "explanation": "La proportion de génomes mutés nécessaire pour altérer une fonction varie selon le tissu et la mutation."
+      },
+      {
+        "content": "L’ADN mitochondrial est enfermé dans une enveloppe nucléaire propre.",
+        "correct": false,
+        "explanation": "Il se trouve dans la matrice sous forme de nucléoïdes, sans enveloppe nucléaire."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La β-oxydation des acides gras participe à l’approvisionnement énergétique de la chaîne respiratoire.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "Le génome mitochondrial humain est petit, circulaire, transmis habituellement par la mère et ne code qu’une fraction limitée du protéome mitochondrial."
   },
   {
-    order: 35,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Le cycle de Krebs :`,
-    choices: [
-      `Se déroule dans la matrice mitochondriale selon la fiche.`,
-      `Produit notamment NADH et FADH2.`,
-      `Est aussi appelé cycle de l’acide citrique.`,
-      `Se déroule uniquement dans l’espace intermembranaire.`,
+    "order": 27,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "question": "Identifiez exactement deux propositions correctes concernant l’import des protéines mitochondriales.",
+    "choices": [
+      {
+        "content": "Toutes les protéines mitochondriales sont synthétisées sur des ribosomes mitochondriaux.",
+        "correct": false,
+        "explanation": "La majorité est synthétisée sur des ribosomes cytosoliques puis importée."
+      },
+      {
+        "content": "L’import de protéines dans la matrice est généralement compatible avec une protéine complètement repliée et oligomérique.",
+        "correct": false,
+        "explanation": "L’import classique via TOM/TIM nécessite en général un état non replié ou partiellement déplié."
+      },
+      {
+        "content": "Une protéine nucléaire destinée à la mitochondrie doit obligatoirement transiter par le Golgi.",
+        "correct": false,
+        "explanation": "L’import mitochondrial se fait directement depuis le cytosol sans passage obligatoire par le Golgi."
+      },
+      {
+        "content": "Le potentiel électrique de la membrane interne contribue à l’import de nombreuses protéines vers la matrice.",
+        "correct": true,
+        "explanation": "La composante électrique de la force proton-motrice favorise l’entrée de préséquences chargées positivement."
+      },
+      {
+        "content": "Le complexe SAM participe à l’assemblage de protéines β-tonneau dans la membrane externe.",
+        "correct": true,
+        "explanation": "SAM signifie Sorting and Assembly Machinery."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le cycle de Krebs est une voie matricielle fournissant des coenzymes réduits.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La majorité des protéines mitochondriales est codée par le noyau, synthétisée dans le cytosol puis importée par des complexes tels que TOM, TIM et SAM.",
+    "requiredSelectionCount": 2
   },
   {
-    order: 36,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Les coenzymes réduits NADH et FADH2 :`,
-    choices: [
-      `Transportent des électrons à haute énergie.`,
-      `Alimentent la chaîne respiratoire.`,
-      `Sont produits notamment par le cycle de Krebs et la β-oxydation.`,
-      `Sont des antigènes membranaires du système ABO.`,
+    "order": 28,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Identifiez les affirmations justes au sujet des métabolismes de la matrice mitochondriale.",
+    "choices": [
+      {
+        "content": "La matrice contient des ions, des enzymes métaboliques, des ribosomes et l’ADN mitochondrial.",
+        "correct": true,
+        "explanation": "Elle constitue le compartiment interne de la mitochondrie."
+      },
+      {
+        "content": "Le complexe pyruvate déshydrogénase transforme le pyruvate en acétyl-CoA.",
+        "correct": true,
+        "explanation": "Cette réaction produit aussi du NADH et du CO2."
+      },
+      {
+        "content": "La décarboxylation oxydative du pyruvate produit du lactate comme produit principal.",
+        "correct": false,
+        "explanation": "Elle produit de l’acétyl-CoA, du NADH et du CO2."
+      },
+      {
+        "content": "Le pyruvate issu de la glycolyse cytosolique peut entrer dans la matrice mitochondriale.",
+        "correct": true,
+        "explanation": "Le mitochondrial pyruvate carrier permet son passage à travers la membrane interne."
+      },
+      {
+        "content": "Le cycle de Krebs consomme directement de l’oxygène moléculaire à chaque réaction.",
+        "correct": false,
+        "explanation": "L’O2 est consommé par la chaîne respiratoire, pas directement par le cycle de Krebs."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `NADH et FADH2 relient le catabolisme à la chaîne respiratoire.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La matrice héberge notamment la décarboxylation oxydative du pyruvate, le cycle de Krebs et la β-oxydation, qui produisent des coenzymes réduits pour la chaîne respiratoire."
   },
   {
-    order: 37,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `La respiration cellulaire décrite implique :`,
-    choices: [
-      `Une consommation d’O2.`,
-      `Une production de CO2 et d’H2O.`,
-      `Le transfert d’électrons dans la chaîne respiratoire.`,
-      `Une absence totale de gradient protonique.`,
+    "order": 29,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Sur le thème des navettes et transporteurs mitochondriaux, quelle proposition est juste ?",
+    "choices": [
+      {
+        "content": "L’ATP synthétisé dans la matrice reste définitivement dans la mitochondrie.",
+        "correct": false,
+        "explanation": "Il est exporté vers le cytosol via l’ANT."
+      },
+      {
+        "content": "Les acides gras à longue chaîne utilisent notamment la navette carnitine pour accéder à la β-oxydation mitochondriale.",
+        "correct": true,
+        "explanation": "La carnitine permet le transfert des groupements acyles à travers la membrane interne."
+      },
+      {
+        "content": "Le pyruvate traverse la membrane interne uniquement par diffusion simple.",
+        "correct": false,
+        "explanation": "Un transporteur mitochondrial du pyruvate intervient."
+      },
+      {
+        "content": "Le NAD+ et le NADH cytosoliques diffusent librement à travers la membrane interne.",
+        "correct": false,
+        "explanation": "La membrane interne est imperméable à ces coenzymes ; les navettes transfèrent les équivalents réducteurs."
+      },
+      {
+        "content": "La navette glycérol-3-phosphate injecte directement des électrons dans le complexe II.",
+        "correct": false,
+        "explanation": "Elle réduit l’ubiquinone via une déshydrogénase distincte du complexe II."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le transfert électronique permet la constitution d’un gradient de protons.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La membrane interne impose des échanges sélectifs : navettes redox et transporteurs permettent le couplage entre métabolisme cytosolique et mitochondrial."
   },
   {
-    order: 38,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Observe le schéma métabolique :
-
-![Métabolismes et cycle de Krebs](/images/training/ue14/biologie-cellulaire/mitochondrie/metabolismes-cycle-krebs.png)
-
-Quelle(s) proposition(s) est(sont) exacte(s) ?`,
-    choices: [
-      `Les nutriments convergent vers des intermédiaires comme le pyruvate ou l’acétyl-CoA.`,
-      `Le cycle de Krebs produit des coenzymes réduits.`,
-      `NADH et FADH2 apportent des électrons à la chaîne respiratoire.`,
-      `Le cycle de Krebs est localisé dans le glycocalyx.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le schéma relie le catabolisme des nutriments à la chaîne respiratoire.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "order": 30,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel complexe du cycle de Krebs est aussi le complexe II de la chaîne respiratoire ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "succinate déshydrogénase",
+        "succinate dehydrogenase",
+        "complexe II"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "La succinate déshydrogénase est à la fois enzyme du cycle de Krebs et complexe II."
   },
   {
-    order: 39,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `La chaîne respiratoire comporte :`,
-    choices: [
-      `Quatre complexes enzymatiques dans la membrane interne.`,
-      `Le complexe I ou NADH-déshydrogénase.`,
-      `Le complexe II ou succinate-déshydrogénase.`,
-      `Un unique complexe soluble dans le cytosol.`,
+    "order": 31,
+    "difficulty": "EASY",
+    "format": "QRPL",
+    "question": "Concernant le génome mitochondrial et l’autonomie limitée de l’organite, identifiez exactement cinq affirmations correctes parmi les dix proposées.",
+    "choices": [
+      {
+        "content": "L’ADN mitochondrial humain mesure environ 16,6 kb.",
+        "correct": true,
+        "explanation": "Sa longueur est d’environ 16 569 paires de bases."
+      },
+      {
+        "content": "Le génome mitochondrial humain contient des introns abondants comparables à ceux de nombreux gènes nucléaires.",
+        "correct": false,
+        "explanation": "Il est très compact et ne présente pas cette organisation riche en introns."
+      },
+      {
+        "content": "L’ADN mitochondrial humain est circulaire.",
+        "correct": true,
+        "explanation": "Le génome mitochondrial humain est une petite molécule d’ADN circulaire."
+      },
+      {
+        "content": "La réplication de l’ADN mitochondrial est strictement limitée à la phase S nucléaire.",
+        "correct": false,
+        "explanation": "La réplication mitochondriale n’est pas couplée de façon stricte à la phase S du cycle nucléaire."
+      },
+      {
+        "content": "Le génome mitochondrial humain code 13 protéines de la phosphorylation oxydative.",
+        "correct": true,
+        "explanation": "Il code aussi 22 ARNt et 2 ARNr."
+      },
+      {
+        "content": "L’ADN mitochondrial est enfermé dans une enveloppe nucléaire propre.",
+        "correct": false,
+        "explanation": "Il se trouve dans la matrice sous forme de nucléoïdes, sans enveloppe nucléaire."
+      },
+      {
+        "content": "L’hétéroplasmie signifie qu’une cellule ne contient qu’une seule copie d’ADN mitochondrial.",
+        "correct": false,
+        "explanation": "Elle désigne la coexistence de génomes mitochondriaux différents."
+      },
+      {
+        "content": "La transmission de l’ADN mitochondrial est habituellement maternelle.",
+        "correct": true,
+        "explanation": "Chez l’humain, les mitochondries de l’embryon proviennent presque exclusivement de l’ovocyte."
+      },
+      {
+        "content": "L’ADN mitochondrial code toutes les protéines nécessaires à la mitochondrie.",
+        "correct": false,
+        "explanation": "La très grande majorité du protéome mitochondrial est d’origine nucléaire."
+      },
+      {
+        "content": "Le code génétique mitochondrial humain présente quelques différences par rapport au code nucléaire.",
+        "correct": true,
+        "explanation": "Certaines correspondances codon–acide aminé diffèrent."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les complexes I à IV sont implantés dans la membrane interne.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "Le génome mitochondrial humain est petit, circulaire, transmis habituellement par la mère et ne code qu’une fraction limitée du protéome mitochondrial.",
+    "requiredSelectionCount": 5
   },
   {
-    order: 40,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Les complexes III et IV correspondent respectivement à :`,
-    choices: [
-      `Le complexe b-c1.`,
-      `La cytochrome oxydase.`,
-      `L’ATP synthase F1.`,
-      `Des éléments de la chaîne respiratoire.`,
+    "order": 32,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes concernant l’import des protéines mitochondriales, lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "Le complexe TOM est situé dans la membrane interne.",
+        "correct": false,
+        "explanation": "TOM est localisé dans la membrane externe."
+      },
+      {
+        "content": "La peptidase matricielle MPP peut cliver certaines préséquences après import.",
+        "correct": true,
+        "explanation": "De nombreuses protéines de matrice sont maturées après translocation."
+      },
+      {
+        "content": "La grande majorité des protéines mitochondriales est codée par le génome nucléaire.",
+        "correct": true,
+        "explanation": "La mitochondrie ne code qu’une petite fraction de son protéome ; la plupart des protéines sont importées."
+      },
+      {
+        "content": "De nombreuses protéines destinées à la matrice portent une préséquence N-terminale amphipathique.",
+        "correct": true,
+        "explanation": "Cette préséquence peut être reconnue par la machinerie TOM/TIM23 puis clivée dans la matrice."
+      },
+      {
+        "content": "Le complexe TOM constitue une porte d’entrée majeure à travers la membrane externe.",
+        "correct": true,
+        "explanation": "TOM signifie Translocase of the Outer Membrane."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `L’ATP synthase est distincte des complexes III et IV.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-      `Exact : conforme aux éléments de la fiche.`,
-    ],
+    "explanation": "La majorité des protéines mitochondriales est codée par le noyau, synthétisée dans le cytosol puis importée par des complexes tels que TOM, TIM et SAM."
   },
   {
-    order: 41,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Les électrons peuvent entrer dans la chaîne respiratoire :`,
-    choices: [
-      `Au complexe I à partir du NADH.`,
-      `Au complexe II à partir du FADH2 ou de certaines navettes.`,
-      `Directement à l’ATP synthase sans passer par les complexes.`,
-      `Puis converger vers le complexe III.`,
+    "order": 33,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant les navettes et transporteurs mitochondriaux, quelles propositions sont incorrectes ?",
+    "choices": [
+      {
+        "content": "Les acides gras à longue chaîne utilisent notamment la navette carnitine pour accéder à la β-oxydation mitochondriale.",
+        "correct": false,
+        "explanation": "La carnitine permet le transfert des groupements acyles à travers la membrane interne."
+      },
+      {
+        "content": "La navette glycérol-3-phosphate injecte directement des électrons dans le complexe II.",
+        "correct": true,
+        "explanation": "Elle réduit l’ubiquinone via une déshydrogénase distincte du complexe II."
+      },
+      {
+        "content": "Le NAD+ et le NADH cytosoliques diffusent librement à travers la membrane interne.",
+        "correct": true,
+        "explanation": "La membrane interne est imperméable à ces coenzymes ; les navettes transfèrent les équivalents réducteurs."
+      },
+      {
+        "content": "Les transporteurs de la membrane interne contribuent au couplage entre métabolisme cytosolique et mitochondrial.",
+        "correct": false,
+        "explanation": "Ils assurent des échanges sélectifs de métabolites et de nucléotides."
+      },
+      {
+        "content": "Le phosphate inorganique doit aussi être importé dans la matrice pour former de l’ATP.",
+        "correct": false,
+        "explanation": "Un transporteur de phosphate contribue à fournir Pi à l’ATP synthase."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les voies d’entrée I et II convergent ensuite vers le complexe III.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-      `Exact : conforme aux éléments de la fiche.`,
-    ],
+    "explanation": "La membrane interne impose des échanges sélectifs : navettes redox et transporteurs permettent le couplage entre métabolisme cytosolique et mitochondrial."
   },
   {
-    order: 42,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Les navettes citées dans la fiche sont :`,
-    choices: [
-      `La navette malate-aspartate.`,
-      `La navette glycérol-phosphate.`,
-      `Des systèmes transportant les équivalents réducteurs du NADH cytosolique.`,
-      `La navette KDEL.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `KDEL est un signal de rétention du RE, sans rapport avec ce chapitre mitochondrial.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "order": 34,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Dans quel compartiment cellulaire se déroule la glycolyse ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "cytosol",
+        "cytoplasme",
+        "dans le cytosol"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "La glycolyse est cytosolique ; le pyruvate peut ensuite entrer dans la mitochondrie."
   },
   {
-    order: 43,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Le transfert des électrons entre les complexes fait intervenir :`,
-    choices: [
-      `L’ubiquinone entre les complexes I/II et III.`,
-      `Le cytochrome c entre III et IV.`,
-      `Une perte progressive d’énergie des électrons.`,
-      `Une production directe de glucose par le complexe IV.`,
+    "order": 35,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "À propos du génome mitochondrial et l’autonomie limitée de l’organite, quelle affirmation est correcte ?",
+    "choices": [
+      {
+        "content": "L’ADN mitochondrial humain est une grande molécule linéaire organisée en chromosomes homologues.",
+        "correct": false,
+        "explanation": "Il s’agit d’un petit génome circulaire présent en plusieurs copies."
+      },
+      {
+        "content": "L’hétéroplasmie signifie qu’une cellule ne contient qu’une seule copie d’ADN mitochondrial.",
+        "correct": false,
+        "explanation": "Elle désigne la coexistence de génomes mitochondriaux différents."
+      },
+      {
+        "content": "Les ribosomes mitochondriaux participent à la traduction des gènes mitochondriaux codant des protéines.",
+        "correct": true,
+        "explanation": "Ils traduisent les ARN messagers mitochondriaux dans la matrice."
+      },
+      {
+        "content": "L’ADN mitochondrial code toutes les protéines nécessaires à la mitochondrie.",
+        "correct": false,
+        "explanation": "La très grande majorité du protéome mitochondrial est d’origine nucléaire."
+      },
+      {
+        "content": "La réplication de l’ADN mitochondrial est strictement limitée à la phase S nucléaire.",
+        "correct": false,
+        "explanation": "La réplication mitochondriale n’est pas couplée de façon stricte à la phase S du cycle nucléaire."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les transporteurs mobiles assurent la continuité du transfert électronique.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "Le génome mitochondrial humain est petit, circulaire, transmis habituellement par la mère et ne code qu’une fraction limitée du protéome mitochondrial."
   },
   {
-    order: 44,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `À l’extrémité de la chaîne respiratoire :`,
-    choices: [
-      `L’oxygène accepte les électrons.`,
-      `De l’eau est formée.`,
-      `Le complexe IV intervient.`,
-      `Le complexe II synthétise directement l’ADNmt.`,
+    "order": 36,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles propositions décrivent correctement les métabolismes associés à la matrice mitochondriale ?",
+    "choices": [
+      {
+        "content": "La glycolyse mitochondriale produit directement le pyruvate dans la matrice.",
+        "correct": false,
+        "explanation": "La glycolyse se déroule dans le cytosol."
+      },
+      {
+        "content": "Les acides gras à très longue chaîne sont pris en charge préférentiellement par le peroxysome avant un éventuel relais mitochondrial.",
+        "correct": true,
+        "explanation": "Le peroxysome raccourcit notamment les VLCFA."
+      },
+      {
+        "content": "La β-oxydation mitochondriale des acides gras se déroule principalement dans la matrice.",
+        "correct": true,
+        "explanation": "Elle fournit de l’acétyl-CoA, du NADH et du FADH2."
+      },
+      {
+        "content": "La succinate déshydrogénase appartient à la fois au cycle de Krebs et au complexe II de la chaîne respiratoire.",
+        "correct": true,
+        "explanation": "Elle relie directement le métabolisme du succinate au transfert d’électrons vers l’ubiquinone."
+      },
+      {
+        "content": "L’acétyl-CoA traverse librement la membrane interne mitochondriale.",
+        "correct": false,
+        "explanation": "La membrane interne ne laisse pas passer librement l’acétyl-CoA ; des navettes assurent les échanges de carbone selon le contexte."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le complexe IV transfère les électrons à l’oxygène, qui est réduit en eau.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La matrice héberge notamment la décarboxylation oxydative du pyruvate, le cycle de Krebs et la β-oxydation, qui produisent des coenzymes réduits pour la chaîne respiratoire."
   },
   {
-    order: 45,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `La chaîne respiratoire expulse des protons de la matrice vers l’espace intermembranaire au niveau :`,
-    choices: [
-      `Du complexe I.`,
-      `Du complexe III.`,
-      `Du complexe IV.`,
-      `Du complexe II selon la fiche.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La fiche précise qu’il n’y a pas de sortie de protons au complexe II.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "order": 37,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quelle navette transfère les équivalents réducteurs du NADH cytosolique vers du NADH matriciel ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "navette malate-aspartate",
+        "malate-aspartate",
+        "navette malate aspartate"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "La navette malate-aspartate permet une entrée des électrons au niveau du complexe I."
   },
   {
-    order: 46,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Le complexe II se distingue car :`,
-    choices: [
-      `Il ne pompe pas de protons selon la fiche.`,
-      `Son système d’oxydoréduction est décrit comme trop faible pour cette expulsion.`,
-      `Il peut transmettre des électrons vers l’ubiquinone.`,
-      `Il est identique à l’ATP synthase.`,
+    "order": 38,
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "question": "Sur le thème de l’import des protéines mitochondriales, quelles sont les deux affirmations justes ?",
+    "choices": [
+      {
+        "content": "L’import de protéines dans la matrice est généralement compatible avec une protéine complètement repliée et oligomérique.",
+        "correct": false,
+        "explanation": "L’import classique via TOM/TIM nécessite en général un état non replié ou partiellement déplié."
+      },
+      {
+        "content": "De nombreuses protéines destinées à la matrice portent une préséquence N-terminale amphipathique.",
+        "correct": true,
+        "explanation": "Cette préséquence peut être reconnue par la machinerie TOM/TIM23 puis clivée dans la matrice."
+      },
+      {
+        "content": "Le potentiel électrique de la membrane interne contribue à l’import de nombreuses protéines vers la matrice.",
+        "correct": true,
+        "explanation": "La composante électrique de la force proton-motrice favorise l’entrée de préséquences chargées positivement."
+      },
+      {
+        "content": "Toutes les protéines mitochondriales sont synthétisées sur des ribosomes mitochondriaux.",
+        "correct": false,
+        "explanation": "La majorité est synthétisée sur des ribosomes cytosoliques puis importée."
+      },
+      {
+        "content": "Les protéines de la matrice sont toutes codées par l’ADN mitochondrial.",
+        "correct": false,
+        "explanation": "La plupart sont codées par le noyau."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le complexe II participe au transfert d’électrons mais pas au pompage protonique.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La majorité des protéines mitochondriales est codée par le noyau, synthétisée dans le cytosol puis importée par des complexes tels que TOM, TIM et SAM.",
+    "requiredSelectionCount": 2
   },
   {
-    order: 47,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Observe la chaîne respiratoire :
-
-![Chaîne respiratoire et ATP synthase](/images/training/ue14/biologie-cellulaire/mitochondrie/chaine-respiratoire-atp-synthase.png)
-
-Quelle(s) proposition(s) est(sont) correcte(s) ?`,
-    choices: [
-      `Les complexes I, III et IV pompent des protons.`,
-      `Le complexe II ne pompe pas de protons.`,
-      `Les électrons transitent par Q puis le cytochrome c.`,
-      `L’ATP synthase expulse les électrons vers l’oxygène.`,
+    "order": 39,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Parmi ces propositions relatives aux navettes et transporteurs mitochondriaux, lesquelles sont justes ?",
+    "choices": [
+      {
+        "content": "La navette malate-aspartate peut transférer les équivalents réducteurs du NADH cytosolique vers du NADH matriciel.",
+        "correct": true,
+        "explanation": "Les électrons peuvent ensuite entrer dans la chaîne au complexe I."
+      },
+      {
+        "content": "La navette glycérol-3-phosphate transfère des électrons vers l’ubiquinone en contournant le complexe I.",
+        "correct": true,
+        "explanation": "La glycérol-3-phosphate déshydrogénase mitochondriale utilise FAD et réduit la coenzyme Q."
+      },
+      {
+        "content": "Le transporteur ADP/ATP échange l’ADP cytosolique contre l’ATP matriciel à travers la membrane interne.",
+        "correct": true,
+        "explanation": "L’ANT assure cet antiport essentiel."
+      },
+      {
+        "content": "La navette malate-aspartate impose un rendement identique à celui de la navette glycérol-3-phosphate.",
+        "correct": false,
+        "explanation": "Le point d’entrée différent dans la chaîne peut modifier le rendement en ATP."
+      },
+      {
+        "content": "Le NADH cytosolique ne traverse pas librement la membrane interne mitochondriale.",
+        "correct": true,
+        "explanation": "Ses équivalents réducteurs sont transférés par des navettes."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `L’ATP synthase exploite le gradient protonique ; elle ne transfère pas les électrons à l’oxygène.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La membrane interne impose des échanges sélectifs : navettes redox et transporteurs permettent le couplage entre métabolisme cytosolique et mitochondrial."
   },
   {
-    order: 48,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `La force motrice protonique dépend :`,
-    choices: [
-      `D’une différence de concentration en H+ de part et d’autre de la membrane interne.`,
-      `D’une accumulation de H+ dans l’espace intermembranaire.`,
-      `Du fonctionnement de la chaîne respiratoire.`,
-      `D’une absence complète de membrane interne.`,
+    "order": 40,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Concernant le génome mitochondrial et l’autonomie limitée de l’organite, quelle proposition est exacte ?",
+    "choices": [
+      {
+        "content": "L’ADN mitochondrial est enfermé dans une enveloppe nucléaire propre.",
+        "correct": false,
+        "explanation": "Il se trouve dans la matrice sous forme de nucléoïdes, sans enveloppe nucléaire."
+      },
+      {
+        "content": "Le génome mitochondrial humain contient des introns abondants comparables à ceux de nombreux gènes nucléaires.",
+        "correct": false,
+        "explanation": "Il est très compact et ne présente pas cette organisation riche en introns."
+      },
+      {
+        "content": "L’ADN mitochondrial code toutes les protéines nécessaires à la mitochondrie.",
+        "correct": false,
+        "explanation": "La très grande majorité du protéome mitochondrial est d’origine nucléaire."
+      },
+      {
+        "content": "L’ADN mitochondrial humain est circulaire.",
+        "correct": true,
+        "explanation": "Le génome mitochondrial humain est une petite molécule d’ADN circulaire."
+      },
+      {
+        "content": "La réplication de l’ADN mitochondrial est strictement limitée à la phase S nucléaire.",
+        "correct": false,
+        "explanation": "La réplication mitochondriale n’est pas couplée de façon stricte à la phase S du cycle nucléaire."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La membrane interne permet de conserver le gradient électrochimique de protons.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "Le génome mitochondrial humain est petit, circulaire, transmis habituellement par la mère et ne code qu’une fraction limitée du protéome mitochondrial."
   },
   {
-    order: 49,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `La phosphorylation oxydative :`,
-    choices: [
-      `Utilise le gradient protonique.`,
-      `Produit de l’ATP à partir d’ADP et de phosphate.`,
-      `Se déroule grâce à l’ATP synthase.`,
-      `Est indépendante de la respiration cellulaire dans la fiche.`,
+    "order": 41,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles propositions décrivent correctement les métabolismes de la matrice mitochondriale ?",
+    "choices": [
+      {
+        "content": "Le pyruvate issu de la glycolyse cytosolique peut entrer dans la matrice mitochondriale.",
+        "correct": true,
+        "explanation": "Le mitochondrial pyruvate carrier permet son passage à travers la membrane interne."
+      },
+      {
+        "content": "Le cycle de Krebs se déroule dans l’espace intermembranaire.",
+        "correct": false,
+        "explanation": "Il se déroule principalement dans la matrice."
+      },
+      {
+        "content": "Le cycle de Krebs consomme directement de l’oxygène moléculaire à chaque réaction.",
+        "correct": false,
+        "explanation": "L’O2 est consommé par la chaîne respiratoire, pas directement par le cycle de Krebs."
+      },
+      {
+        "content": "La matrice contient des ions, des enzymes métaboliques, des ribosomes et l’ADN mitochondrial.",
+        "correct": true,
+        "explanation": "Elle constitue le compartiment interne de la mitochondrie."
+      },
+      {
+        "content": "La décarboxylation oxydative du pyruvate produit du lactate comme produit principal.",
+        "correct": false,
+        "explanation": "Elle produit de l’acétyl-CoA, du NADH et du CO2."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La phosphorylation oxydative est couplée à la respiration et au gradient protonique.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La matrice héberge notamment la décarboxylation oxydative du pyruvate, le cycle de Krebs et la β-oxydation, qui produisent des coenzymes réduits pour la chaîne respiratoire."
   },
   {
-    order: 50,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `L’ATP nouvellement synthétisé :`,
-    choices: [
-      `Est produit du côté de la matrice.`,
-      `Peut être exporté vers le cytosol par des perméases actives.`,
-      `Alimente des réactions dans divers compartiments cellulaires.`,
-      `Reste obligatoirement enfermé dans la mitochondrie.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `L’ATP doit être distribué à la cellule après sa synthèse mitochondriale.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "order": 42,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Environ quelle est la taille de l’ADN mitochondrial humain ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "16,6 kb",
+        "16.6 kb",
+        "16,5 kb",
+        "16.5 kb",
+        "environ 16,6 kb",
+        "environ 16.6 kb",
+        "16569 pb"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Le génome mitochondrial humain mesure environ 16,6 kb."
   },
   {
-    order: 51,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une inhibition du complexe I empêcherait directement :`,
-    choices: [
-      `L’utilisation normale d’une partie du NADH.`,
-      `Le transfert initial d’électrons entrant par la voie du complexe I.`,
-      `Une part du pompage protonique.`,
-      `Tout passage d’électrons entrant au complexe II dans tous les cas.`,
+    "order": 43,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "À propos de l’import des protéines mitochondriales, quelle affirmation est correcte ?",
+    "choices": [
+      {
+        "content": "Une protéine nucléaire destinée à la mitochondrie doit obligatoirement transiter par le Golgi.",
+        "correct": false,
+        "explanation": "L’import mitochondrial se fait directement depuis le cytosol sans passage obligatoire par le Golgi."
+      },
+      {
+        "content": "Le complexe TOM est situé dans la membrane interne.",
+        "correct": false,
+        "explanation": "TOM est localisé dans la membrane externe."
+      },
+      {
+        "content": "Toutes les protéines mitochondriales sont synthétisées sur des ribosomes mitochondriaux.",
+        "correct": false,
+        "explanation": "La majorité est synthétisée sur des ribosomes cytosoliques puis importée."
+      },
+      {
+        "content": "L’import de protéines dans la matrice est généralement compatible avec une protéine complètement repliée et oligomérique.",
+        "correct": false,
+        "explanation": "L’import classique via TOM/TIM nécessite en général un état non replié ou partiellement déplié."
+      },
+      {
+        "content": "La peptidase matricielle MPP peut cliver certaines préséquences après import.",
+        "correct": true,
+        "explanation": "De nombreuses protéines de matrice sont maturées après translocation."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La voie du complexe II peut encore alimenter la chaîne en aval si elle reste fonctionnelle.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La majorité des protéines mitochondriales est codée par le noyau, synthétisée dans le cytosol puis importée par des complexes tels que TOM, TIM et SAM."
   },
   {
-    order: 52,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une inhibition du complexe III aurait pour conséquences attendues :`,
-    choices: [
-      `Une interruption du transfert vers le cytochrome c.`,
-      `Une diminution du pompage protonique au complexe III.`,
-      `Une perturbation de la réduction de l’oxygène en aval.`,
-      `Une augmentation automatique de la synthèse d’ATP.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le blocage de III réduit le flux électronique et la force motrice protonique.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 53,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une inhibition du complexe IV pourrait provoquer :`,
-    choices: [
-      `Un défaut de transfert des électrons à l’oxygène.`,
-      `Une diminution de la formation d’eau en bout de chaîne.`,
-      `Un arrêt rapide de la respiration mitochondriale.`,
-      `Une stimulation directe du cycle de Krebs sans conséquence énergétique.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le complexe IV constitue l’étape terminale de la chaîne respiratoire.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 54,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Si la membrane interne devient librement perméable aux protons :`,
-    choices: [
-      `Le gradient protonique diminue.`,
-      `La phosphorylation oxydative devient moins efficace.`,
-      `Le retour contrôlé par l’ATP synthase perd une partie de son avantage énergétique.`,
-      `Le complexe II se transforme en porine.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La conservation du gradient dépend de l’imperméabilité relative de la membrane interne aux protons.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 55,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une cellule privée d’oxygène ne peut plus normalement :`,
-    choices: [
-      `Utiliser l’oxygène comme accepteur final d’électrons.`,
-      `Maintenir durablement le flux de la chaîne respiratoire.`,
-      `Assurer normalement la phosphorylation oxydative.`,
-      `Effectuer toute réaction cytosolique quelle qu’elle soit.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `L’absence d’oxygène compromet la respiration mitochondriale, sans supprimer instantanément toutes les réactions cytosoliques.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 56,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Les coenzymes NADH et FADH2 relient :`,
-    choices: [
-      `Le cycle de Krebs à la chaîne respiratoire.`,
-      `La β-oxydation à la chaîne respiratoire.`,
-      `Le catabolisme des nutriments à la production d’ATP.`,
-      `Le système ABO au noyau.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Ces coenzymes sont des intermédiaires énergétiques majeurs.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 57,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Le schéma suivant présente la convergence des nutriments vers l’acétyl-CoA et le cycle de Krebs.
-
-![Métabolismes et cycle de Krebs](/images/training/ue14/biologie-cellulaire/mitochondrie/metabolismes-cycle-krebs.png)
-
-Dans ce schéma intégré, quelle(s) proposition(s) est(sont) exacte(s) concernant l’acétyl-CoA ?`,
-    choices: [
-      `Constitue un point de convergence métabolique.`,
-      `Alimente le cycle de Krebs.`,
-      `Contribue indirectement à produire NADH et FADH2.`,
-      `Est le produit final de la chaîne respiratoire.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La chaîne respiratoire utilise les électrons, tandis que l’acétyl-CoA alimente le cycle de Krebs.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 58,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une mutation du cytochrome c pourrait perturber :`,
-    choices: [
-      `Le transfert d’électrons entre III et IV.`,
-      `La respiration cellulaire.`,
-      `La constitution du gradient protonique en aval.`,
-      `Le passage des petites molécules par les porines uniquement.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le cytochrome c appartient à la chaîne respiratoire et non au système des porines.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 59,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `La localisation de la chaîne respiratoire dans la membrane interne permet :`,
-    choices: [
-      `D’associer transfert d’électrons et pompage protonique.`,
-      `De séparer matrice et espace intermembranaire.`,
-      `De créer une force motrice protonique.`,
-      `De transcrire directement l’ADN nucléaire.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La compartimentation de la membrane interne est essentielle au couplage énergétique.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 60,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Quelle synthèse est correcte ?`,
-    choices: [
-      `Les nutriments fournissent des électrons via NADH et FADH2.`,
-      `Les complexes I à IV transfèrent ces électrons jusqu’à l’oxygène.`,
-      `Le pompage protonique prépare la synthèse d’ATP.`,
-      `Le complexe II est la principale pompe à protons de la chaîne.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le complexe II est précisément celui qui ne pompe pas de protons selon la fiche.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
+    "order": 44,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Combien de protéines de la phosphorylation oxydative sont codées par l’ADN mitochondrial humain ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "13",
+        "treize",
+        "13 protéines"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Le génome mitochondrial humain code 13 protéines de la phosphorylation oxydative."
+  }
 ];
 
 export const SECTION_B_QUIZZES: SeedQuiz[] = [
   {
-    order: 4,
-    slug: `nutriments-acetyl-coa-cycle-krebs`,
-    title: `Des nutriments au cycle de Krebs`,
-    description: `Pyruvate, acides gras, acétyl-CoA, NADH et FADH2.`,
-    stage: 'DISCOVER',
-    sectionOrder: 2,
-    questionOrders: [31, 32, 33, 34, 35, 36, 37, 38, 39, 40],
+    "order": 3,
+    "slug": "mitochondrie-3",
+    "title": "Métabolismes mitochondriaux",
+    "description": "Découvrir : métabolismes mitochondriaux.",
+    "stage": "DISCOVER",
+    "sectionOrder": 2,
+    "questionOrders": [
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ]
   },
   {
-    order: 5,
-    slug: `organisation-chaine-respiratoire`,
-    title: `Organisation de la chaîne respiratoire`,
-    description: `Complexes I à IV, ubiquinone, cytochrome c et oxygène.`,
-    stage: 'PRACTICE',
-    sectionOrder: 2,
-    questionOrders: [41, 42, 43, 44, 45, 46, 47, 48, 49, 50],
-  },
-  {
-    order: 6,
-    slug: `gradient-protonique-et-respiration`,
-    title: `Gradient protonique et respiration`,
-    description: `Couplage entre transfert électronique, pompage des protons et phosphorylation.`,
-    stage: 'MASTER',
-    sectionOrder: 2,
-    questionOrders: [51, 52, 53, 54, 55, 56, 57, 58, 59, 60],
-  },
+    "order": 4,
+    "slug": "mitochondrie-4",
+    "title": "Chaîne respiratoire",
+    "description": "Approfondir : chaîne respiratoire.",
+    "stage": "PRACTICE",
+    "sectionOrder": 2,
+    "questionOrders": [
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44
+    ]
+  }
 ];

@@ -1,1030 +1,1107 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-export const UE14_BIOCH_CH15_SECTION_D_V2: HealthTrainingAuthorQuestion[] = [
+/** UE14 Biochimie — 4.2 Mesure d'une activité enzymatique — Section D — Facteurs influençant l'activité et calculs */
+export const UE14_BIOCH_CH15_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 67,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant l’effet de la concentration en substrat :",
+    "question": "Parmi les affirmations suivantes sur l'effet de la concentration en substrat, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "La vitesse v0 augmente avec la concentration en substrat dans la fiche.",
+        "content": "Une forte [S] peut réduire l'effet d'un inhibiteur compétitif réversible.",
         "correct": true,
-        "explanation": "La concentration en substrat module la vitesse jusqu’à saturation."
+        "explanation": "Elle favorise la liaison du substrat."
       },
       {
-        "content": "Augmenter [S] diminue toujours v0.",
+        "content": "Le substrat ne peut jamais influencer une inhibition compétitive.",
         "correct": false,
-        "explanation": "La concentration en substrat module la vitesse jusqu’à saturation."
+        "explanation": "Il peut la surmonter partiellement."
       },
       {
-        "content": "À forte concentration, la courbe de Michaelis-Menten tend vers la saturation.",
+        "content": "L'effet d'une augmentation de [S] est maximal dans la zone non saturée.",
         "correct": true,
-        "explanation": "La concentration en substrat module la vitesse jusqu’à saturation."
+        "explanation": "Près de Vmax, le gain devient faible."
       },
       {
-        "content": "La vitesse est totalement indépendante de [S] dans toutes les conditions.",
+        "content": "À saturation, doubler [S] double encore v0.",
         "correct": false,
-        "explanation": "La concentration en substrat module la vitesse jusqu’à saturation."
+        "explanation": "L'effet devient très faible."
+      },
+      {
+        "content": "v0 augmente linéairement sans limite avec [S].",
+        "correct": false,
+        "explanation": "La vitesse tend vers Vmax."
       }
     ],
-    "explanation": "La concentration en substrat module la vitesse jusqu’à saturation."
+    "explanation": "L'effet de [S] sature ; une forte [S] peut concurrencer un inhibiteur compétitif mais pas restaurer tous les modèles d'inhibition."
   },
   {
     "order": 68,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle proposition décrit correctement l’effet de la concentration en enzyme selon la fiche ?",
+    "question": "Parmi les affirmations suivantes sur l'effet de la concentration en enzyme, laquelle est correcte ?",
     "choices": [
       {
-        "content": "La quantité de produit formée à un temps donné peut différer selon [E].",
+        "content": "La quantité d'enzyme n'a aucun effet sur la vitesse.",
+        "correct": false,
+        "explanation": "Elle est un déterminant majeur."
+      },
+      {
+        "content": "Doubler [E]t divise Vmax par deux.",
+        "correct": false,
+        "explanation": "Vmax double."
+      },
+      {
+        "content": "Km est directement proportionnel à [E]t dans le modèle idéal.",
+        "correct": false,
+        "explanation": "Il ne l'est pas."
+      },
+      {
+        "content": "Augmenter [E]t déplace l'équilibre thermodynamique vers les produits.",
+        "correct": false,
+        "explanation": "Keq est inchangée."
+      },
+      {
+        "content": "Vmax est proportionnelle à [E]t.",
         "correct": true,
-        "explanation": "Plus d’enzyme augmente la vitesse initiale sans déplacer l’équilibre final."
-      },
-      {
-        "content": "Changer [E] modifie nécessairement l’équilibre thermodynamique final.",
-        "correct": false,
-        "explanation": "Plus d’enzyme augmente la vitesse initiale sans déplacer l’équilibre final."
-      },
-      {
-        "content": "La concentration en enzyme ne modifie jamais la pente initiale.",
-        "correct": false,
-        "explanation": "Plus d’enzyme augmente la vitesse initiale sans déplacer l’équilibre final."
-      },
-      {
-        "content": "Augmenter [E] diminue toujours la vitesse initiale.",
-        "correct": false,
-        "explanation": "Plus d’enzyme augmente la vitesse initiale sans déplacer l’équilibre final."
+        "explanation": "Vmax=kcat[E]t."
       }
     ],
-    "explanation": "Plus d’enzyme augmente la vitesse initiale sans déplacer l’équilibre final."
+    "explanation": "La vitesse et Vmax sont proportionnelles à la quantité d'enzyme active, alors que Keq et Km ne changent pas dans le modèle idéal."
   },
   {
     "order": 69,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Repères fondamentaux sur l’effet du pH :",
-    "choices": [
-      {
-        "content": "Le pH optimal varie selon les enzymes.",
-        "correct": true,
-        "explanation": "Le pH influence l’état du site actif et la stabilité de l’enzyme."
-      },
-      {
-        "content": "Le pH n’influence jamais la structure enzymatique.",
-        "correct": false,
-        "explanation": "Le pH influence l’état du site actif et la stabilité de l’enzyme."
-      },
-      {
-        "content": "Aux pH extrêmes inférieurs à 2 ou supérieurs à 10, la fiche évoque une dénaturation.",
-        "correct": true,
-        "explanation": "Le pH influence l’état du site actif et la stabilité de l’enzyme."
-      },
-      {
-        "content": "Toutes les enzymes ont exactement le même pH optimal.",
-        "correct": false,
-        "explanation": "Le pH influence l’état du site actif et la stabilité de l’enzyme."
+    "format": "QROC",
+    "question": "Pourquoi le pH peut-il modifier l'activité d'une enzyme sans la dénaturer ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "modification de la protonation du site actif",
+        "ionisation des résidus catalytiques",
+        "état de protonation"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le pH influence l’état du site actif et la stabilité de l’enzyme."
+    },
+    "explanation": "Le pH agit sur les états de protonation et parfois sur la stabilité ; les profils d'activité sont enzyme-dépendants."
   },
   {
     "order": 70,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Parmi les propositions suivantes sur l’effet de la température, lesquelles sont exactes ?",
+    "question": "Concernant l'effet de la température sur l'activité enzymatique, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La fiche décrit une augmentation de l’activité quand la température augmente au-delà de 37°C jusqu’à certaines limites.",
-        "correct": true,
-        "explanation": "La température accélère les réactions jusqu’à ce que la dénaturation domine."
-      },
-      {
-        "content": "L’activité humaine augmente indéfiniment jusqu’à 200°C sans dénaturation.",
+        "content": "La température n'influence jamais la vitesse chimique.",
         "correct": false,
-        "explanation": "La température accélère les réactions jusqu’à ce que la dénaturation domine."
+        "explanation": "Elle influence fortement les constantes de vitesse."
       },
       {
-        "content": "Au-delà d’environ 60°C, une dénaturation peut faire diminuer l’activité.",
+        "content": "La température optimale mesurée dépend aussi du temps de dosage.",
         "correct": true,
-        "explanation": "La température accélère les réactions jusqu’à ce que la dénaturation domine."
+        "explanation": "Une enzyme peut être rapide mais instable à température élevée."
       },
       {
-        "content": "La température n’a aucun effet sur une enzyme.",
+        "content": "À température suffisamment élevée, l'inactivation ou la dénaturation peut dominer et faire chuter l'activité.",
+        "correct": true,
+        "explanation": "Le seuil dépend de l'enzyme et de la durée."
+      },
+      {
+        "content": "Toutes les enzymes se dénaturent exactement à 60 °C.",
         "correct": false,
-        "explanation": "La température accélère les réactions jusqu’à ce que la dénaturation domine."
+        "explanation": "La stabilité est très variable."
+      },
+      {
+        "content": "Il n'existe pas de température optimale universelle à 37 °C.",
+        "correct": true,
+        "explanation": "Les enzymes d'organismes thermophiles illustrent une grande diversité."
       }
     ],
-    "explanation": "La température accélère les réactions jusqu’à ce que la dénaturation domine."
+    "explanation": "La température accélère la chimie mais peut aussi inactiver la protéine ; l'optimum résulte de ces effets concurrents."
   },
   {
     "order": 71,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Concernant les repères de température de la fiche :",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes sur le pourcentage d'inhibition, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "Elle cite environ 32°C pour les kératinocytes.",
+        "content": "Le pourcentage d'inhibition est indépendant de [S].",
+        "correct": false,
+        "explanation": "Il peut en dépendre fortement."
+      },
+      {
+        "content": "Le pourcentage d'inhibition peut s'écrire 100×(v0-vI)/v0.",
         "correct": true,
-        "explanation": "Les températures optimales dépendent du contexte biologique."
+        "explanation": "v0 est la vitesse sans inhibiteur et vI la vitesse avec inhibiteur."
       },
       {
-        "content": "Les hépatocytes sont donnés à 0°C.",
+        "content": "Une vitesse avec inhibiteur supérieure à v0 correspond forcément à 100 % d'inhibition.",
         "correct": false,
-        "explanation": "Les températures optimales dépendent du contexte biologique."
+        "explanation": "La formule donnerait une inhibition négative, signe d'activation ou de variabilité."
       },
       {
-        "content": "La fiche affirme que les bactéries thermophiles ne possèdent aucune enzyme.",
-        "correct": false,
-        "explanation": "Les températures optimales dépendent du contexte biologique."
+        "content": "Le pourcentage dépend des conditions, notamment [S] et [I].",
+        "correct": true,
+        "explanation": "Il n'est pas une constante intrinsèque unique de l'inhibiteur."
       },
       {
-        "content": "Les kératinocytes sont donnés à 100°C.",
+        "content": "Le pourcentage d'inhibition vaut 100×vI/v0.",
         "correct": false,
-        "explanation": "Les températures optimales dépendent du contexte biologique."
+        "explanation": "Cela donne l'activité résiduelle en pourcentage."
       }
     ],
-    "explanation": "Les températures optimales dépendent du contexte biologique."
+    "explanation": "Le pourcentage d'inhibition mesure la perte relative de vitesse et dépend du contexte expérimental.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 72,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles propositions décrivent correctement la Taq polymérase selon la fiche ?",
+    "question": "Quelles propositions décrivent correctement un calcul de vitesse par Beer-Lambert ?",
     "choices": [
       {
-        "content": "Elle illustre une enzyme fonctionnant à température élevée.",
+        "content": "Avec ΔA/Δt=0,12 min⁻¹, ε=6 mM⁻¹·cm⁻¹ et l=1 cm, la vitesse vaut 0,020 mM·min⁻¹.",
         "correct": true,
-        "explanation": "La Taq polymérase illustre l’adaptation enzymatique aux températures élevées."
+        "explanation": "0,12/(6×1)=0,020."
       },
       {
-        "content": "Elle est utilisée pour mesurer la pression oncotique.",
-        "correct": false,
-        "explanation": "La Taq polymérase illustre l’adaptation enzymatique aux températures élevées."
-      },
-      {
-        "content": "La Taq polymérase est citée comme enzyme de bactérie thermophile.",
+        "content": "0,020 mM·min⁻¹ correspond à 20 µmol·L⁻¹·min⁻¹.",
         "correct": true,
-        "explanation": "La Taq polymérase illustre l’adaptation enzymatique aux températures élevées."
+        "explanation": "1 mM=1000 µmol/L."
       },
       {
-        "content": "La Taq polymérase est une immunoglobuline humaine.",
+        "content": "Si l augmente à absorbance-pente identique, la vitesse calculée diminue.",
+        "correct": true,
+        "explanation": "v est inversement proportionnelle à l dans la conversion."
+      },
+      {
+        "content": "La longueur de cuve n'intervient jamais dans le calcul.",
         "correct": false,
-        "explanation": "La Taq polymérase illustre l’adaptation enzymatique aux températures élevées."
+        "explanation": "Elle apparaît au dénominateur."
+      },
+      {
+        "content": "Il faut utiliser un ε correspondant à l'espèce et à la longueur d'onde suivies.",
+        "correct": true,
+        "explanation": "Le coefficient d'extinction n'est pas universel."
       }
     ],
-    "explanation": "La Taq polymérase illustre l’adaptation enzymatique aux températures élevées."
+    "explanation": "La pente spectrophotométrique se convertit par v=(ΔA/Δt)/(εl), avec attention aux unités."
   },
   {
     "order": 73,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Repères fondamentaux sur l’inhibition compétitive :",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes sur les conversions U-katal, laquelle est correcte ?",
     "choices": [
       {
-        "content": "L’inhibiteur compétitif se fixe sur l’enzyme libre.",
-        "correct": true,
-        "explanation": "Compétitif : E libre, site actif, Km augmente, Vmax inchangée."
-      },
-      {
-        "content": "L’inhibiteur compétitif se fixe exclusivement sur ES.",
+        "content": "U et kat sont des unités de concentration.",
         "correct": false,
-        "explanation": "Compétitif : E libre, site actif, Km augmente, Vmax inchangée."
+        "explanation": "Ce sont des unités d'activité catalytique."
       },
       {
-        "content": "Il dispute le site actif au substrat.",
-        "correct": true,
-        "explanation": "Compétitif : E libre, site actif, Km augmente, Vmax inchangée."
-      },
-      {
-        "content": "Il diminue Vmax sans modifier Km dans la fiche.",
+        "content": "60 U correspondent à 60 kat.",
         "correct": false,
-        "explanation": "Compétitif : E libre, site actif, Km augmente, Vmax inchangée."
+        "explanation": "Ils correspondent à 1 µkat."
+      },
+      {
+        "content": "1 nkat correspond à 0,060 U.",
+        "correct": true,
+        "explanation": "1 nmol/s=60 nmol/min=0,060 µmol/min."
+      },
+      {
+        "content": "1 nkat correspond à 60 U.",
+        "correct": false,
+        "explanation": "Il correspond à 0,060 U."
+      },
+      {
+        "content": "2 U correspondent à 2 nkat.",
+        "correct": false,
+        "explanation": "Il faut multiplier par 16,67."
       }
     ],
-    "explanation": "Compétitif : E libre, site actif, Km augmente, Vmax inchangée."
+    "explanation": "Les conversions reposent sur 1 U=1 µmol/min≈16,67 nkat."
   },
   {
     "order": 74,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Parmi les propositions suivantes sur l’inhibition non compétitive, laquelle est exacte ?",
-    "choices": [
-      {
-        "content": "Il se fixe sur un site différent de celui du substrat.",
-        "correct": true,
-        "explanation": "Non compétitif : fixation sur E ou ES avec même Ki, Km inchangé, Vmax diminuée."
-      },
-      {
-        "content": "Il augmente Km sans modifier Vmax selon la fiche.",
-        "correct": false,
-        "explanation": "Non compétitif : fixation sur E ou ES avec même Ki, Km inchangé, Vmax diminuée."
-      },
-      {
-        "content": "Il ne peut pas se fixer à ES.",
-        "correct": false,
-        "explanation": "Non compétitif : fixation sur E ou ES avec même Ki, Km inchangé, Vmax diminuée."
-      },
-      {
-        "content": "Il se fixe exclusivement à l’enzyme libre au site actif.",
-        "correct": false,
-        "explanation": "Non compétitif : fixation sur E ou ES avec même Ki, Km inchangé, Vmax diminuée."
-      }
-    ],
-    "explanation": "Non compétitif : fixation sur E ou ES avec même Ki, Km inchangé, Vmax diminuée."
+    "format": "QROC",
+    "question": "Si l'ordonnée à l'origine vaut 0,02 min·µmol⁻¹, quelle est Vmax en µmol·min⁻¹ ?",
+    "answer": {
+      "type": "number",
+      "value": 50,
+      "tolerance": 0
+    },
+    "explanation": "Lineweaver-Burk permet des calculs simples, mais les paramètres expérimentaux sont mieux estimés par régression non linéaire."
   },
   {
     "order": 75,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant l’inhibition incompétitive :",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "La représentation associée donne des droites parallèles.",
-        "correct": true,
-        "explanation": "Incompétitif : fixation sur ES uniquement, modifications proportionnelles de Km et Vmax."
-      },
-      {
-        "content": "Il dispute directement le site actif au substrat avant la formation de ES.",
+        "content": "Toute baisse d'activité liée au pH prouve une dénaturation irréversible.",
         "correct": false,
-        "explanation": "Incompétitif : fixation sur ES uniquement, modifications proportionnelles de Km et Vmax."
+        "explanation": "Elle peut être réversible et due à l'ionisation."
       },
       {
-        "content": "L’inhibiteur incompétitif se fixe exclusivement au complexe ES.",
-        "correct": true,
-        "explanation": "Incompétitif : fixation sur ES uniquement, modifications proportionnelles de Km et Vmax."
-      },
-      {
-        "content": "L’inhibiteur incompétitif se fixe exclusivement à E libre.",
+        "content": "Le pH n'affecte jamais les charges des résidus catalytiques.",
         "correct": false,
-        "explanation": "Incompétitif : fixation sur ES uniquement, modifications proportionnelles de Km et Vmax."
+        "explanation": "Il modifie leur protonation."
+      },
+      {
+        "content": "Non compétitive pure : intersection sur l'axe y.",
+        "correct": false,
+        "explanation": "Elle se fait sur l'axe x dans le cas idéal."
+      },
+      {
+        "content": "Compétitive pure : intersection sur l'axe y.",
+        "correct": true,
+        "explanation": "Vmax est inchangée."
+      },
+      {
+        "content": "Une variation de pH peut modifier l'activité sans provoquer une dénaturation globale.",
+        "correct": true,
+        "explanation": "L'ionisation de quelques groupes catalytiques peut suffire."
+      },
+      {
+        "content": "Mixte général : toutes les droites se coupent obligatoirement sur un axe.",
+        "correct": false,
+        "explanation": "L'intersection peut être hors des axes."
+      },
+      {
+        "content": "Compétitive pure : droites parallèles.",
+        "correct": false,
+        "explanation": "Cela correspond à l'incompétitive."
+      },
+      {
+        "content": "Des pH extrêmes peuvent déstabiliser certaines protéines.",
+        "correct": true,
+        "explanation": "La sensibilité varie fortement selon l'enzyme."
+      },
+      {
+        "content": "Mixte général : intersection typiquement à gauche de l'axe y, avec position dépendant des affinités relatives.",
+        "correct": true,
+        "explanation": "Vmax diminue et Km peut varier dans les deux sens."
+      },
+      {
+        "content": "Incompétitive : droites parallèles.",
+        "correct": true,
+        "explanation": "Km/Vmax reste constant."
       }
     ],
-    "explanation": "Incompétitif : fixation sur ES uniquement, modifications proportionnelles de Km et Vmax."
+    "explanation": "Les motifs de Lineweaver-Burk résument les effets sur Km et Vmax, sans constituer à eux seuls une preuve mécanistique. Le pH agit sur les états de protonation et parfois sur la stabilité ; les profils d'activité sont enzyme-dépendants."
   },
   {
     "order": 76,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quelles propositions décrivent correctement l’inhibition mixte selon la fiche ?",
+    "question": "Concernant l'effet de la concentration en substrat, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "L’inhibiteur mixte peut se fixer sur E et sur ES.",
+        "content": "L'effet d'une augmentation de [S] est maximal dans la zone non saturée.",
         "correct": true,
-        "explanation": "Mixte : fixation sur E/ES avec affinités différentes et modifications non proportionnelles de Km/Vmax."
+        "explanation": "Près de Vmax, le gain devient faible."
       },
       {
-        "content": "L’inhibiteur mixte se fixe uniquement sur ES avec une seule constante identique.",
+        "content": "Une forte [S] annule toujours toute inhibition, quel qu'en soit le type.",
         "correct": false,
-        "explanation": "Mixte : fixation sur E/ES avec affinités différentes et modifications non proportionnelles de Km/Vmax."
+        "explanation": "Ce n'est pas vrai."
       },
       {
-        "content": "Ses affinités pour E et ES sont différentes, avec des constantes d’inhibition distinctes.",
+        "content": "À saturation, doubler [S] double encore v0.",
+        "correct": false,
+        "explanation": "L'effet devient très faible."
+      },
+      {
+        "content": "v0 augmente linéairement sans limite avec [S].",
+        "correct": false,
+        "explanation": "La vitesse tend vers Vmax."
+      },
+      {
+        "content": "Une forte [S] peut réduire l'effet d'un inhibiteur compétitif réversible.",
         "correct": true,
-        "explanation": "Mixte : fixation sur E/ES avec affinités différentes et modifications non proportionnelles de Km/Vmax."
-      },
-      {
-        "content": "Km et Vmax sont toujours inchangés.",
-        "correct": false,
-        "explanation": "Mixte : fixation sur E/ES avec affinités différentes et modifications non proportionnelles de Km/Vmax."
+        "explanation": "Elle favorise la liaison du substrat."
       }
     ],
-    "explanation": "Mixte : fixation sur E/ES avec affinités différentes et modifications non proportionnelles de Km/Vmax."
+    "explanation": "L'effet de [S] sature ; une forte [S] peut concurrencer un inhibiteur compétitif mais pas restaurer tous les modèles d'inhibition."
   },
   {
     "order": 77,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application : quelles propositions relatives à l’effet du pH sont correctes ?",
+    "question": "Concernant l'effet de la concentration en substrat, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "À pH physiologique autour de 7,2, le site actif peut être fonctionnel dans le repère donné.",
+        "content": "Une forte [S] peut réduire l'effet d'un inhibiteur compétitif réversible.",
         "correct": true,
-        "explanation": "Le pH influence l’état du site actif et la stabilité de l’enzyme."
+        "explanation": "Elle favorise la liaison du substrat."
       },
       {
-        "content": "Un pH inférieur à 2 augmente toujours indéfiniment l’activité sans dénaturation.",
+        "content": "À saturation, doubler [S] double encore v0.",
         "correct": false,
-        "explanation": "Le pH influence l’état du site actif et la stabilité de l’enzyme."
+        "explanation": "L'effet devient très faible."
       },
       {
-        "content": "Le pH optimal varie selon les enzymes.",
+        "content": "L'effet d'une augmentation de [S] est maximal dans la zone non saturée.",
         "correct": true,
-        "explanation": "Le pH influence l’état du site actif et la stabilité de l’enzyme."
+        "explanation": "Près de Vmax, le gain devient faible."
       },
       {
-        "content": "Le pH n’influence jamais la structure enzymatique.",
+        "content": "Une forte [S] ne restaure pas Vmax en inhibition non compétitive pure.",
+        "correct": true,
+        "explanation": "Le mécanisme n'est pas une simple compétition pour le même site."
+      },
+      {
+        "content": "v0 augmente linéairement sans limite avec [S].",
         "correct": false,
-        "explanation": "Le pH influence l’état du site actif et la stabilité de l’enzyme."
+        "explanation": "La vitesse tend vers Vmax."
       }
     ],
-    "explanation": "Le pH influence l’état du site actif et la stabilité de l’enzyme."
+    "explanation": "L'effet de [S] sature ; une forte [S] peut concurrencer un inhibiteur compétitif mais pas restaurer tous les modèles d'inhibition."
   },
   {
     "order": 78,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Dans une situation d’application, quelle affirmation sur l’effet de la température faut-il retenir ?",
-    "choices": [
+    "format": "QZONE",
+    "question": "Sur cette droite de Lineweaver-Burk, cliquez sur l'intersection avec l'axe des abscisses correspondant à −1/Km.",
+    "image": {
+      "src": "/images/training/ue14/biochimie/mesure-activite-enzymatique/lineweaver-burk-intercept-qzone.svg",
+      "alt": "Schéma original d'une droite de Lineweaver-Burk avec axes 1/v0 et 1/[S]",
+      "width": 1100,
+      "height": 650
+    },
+    "expectedZones": [
       {
-        "content": "La température optimale dépend notamment de la localisation ou de l’organisme.",
-        "correct": true,
-        "explanation": "La température accélère les réactions jusqu’à ce que la dénaturation domine."
-      },
-      {
-        "content": "Toutes les enzymes ont une température optimale strictement identique.",
-        "correct": false,
-        "explanation": "La température accélère les réactions jusqu’à ce que la dénaturation domine."
-      },
-      {
-        "content": "L’activité humaine augmente indéfiniment jusqu’à 200°C sans dénaturation.",
-        "correct": false,
-        "explanation": "La température accélère les réactions jusqu’à ce que la dénaturation domine."
-      },
-      {
-        "content": "La température n’a aucun effet sur une enzyme.",
-        "correct": false,
-        "explanation": "La température accélère les réactions jusqu’à ce que la dénaturation domine."
+        "id": "minus-inv-km",
+        "label": "−1/Km",
+        "x": 0.209,
+        "y": 0.8,
+        "tolerance": 0.075
       }
     ],
-    "explanation": "La température accélère les réactions jusqu’à ce que la dénaturation domine."
+    "explanation": "Sur une représentation de Lineweaver-Burk, l'abscisse à l'origine vaut −1/Km et l'ordonnée à l'origine 1/Vmax."
   },
   {
     "order": 79,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Pour raisonner à partir de la fiche, quelles affirmations sur les repères de température de la fiche sont exactes ?",
+    "format": "QRU",
+    "question": "Concernant l'effet du pH sur l'activité enzymatique, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "La fiche cite environ 37°C pour les hépatocytes.",
+        "content": "Le pH modifie l'état de protonation des groupes du site actif et du substrat.",
         "correct": true,
-        "explanation": "Les températures optimales dépendent du contexte biologique."
+        "explanation": "Cela peut changer liaison et catalyse."
       },
       {
-        "content": "Les kératinocytes sont donnés à 100°C.",
+        "content": "Le pH n'affecte jamais les charges des résidus catalytiques.",
         "correct": false,
-        "explanation": "Les températures optimales dépendent du contexte biologique."
+        "explanation": "Il modifie leur protonation."
       },
       {
-        "content": "Elle cite environ 32°C pour les kératinocytes.",
-        "correct": true,
-        "explanation": "Les températures optimales dépendent du contexte biologique."
-      },
-      {
-        "content": "Les hépatocytes sont donnés à 0°C.",
+        "content": "Tout pH inférieur à 2 dénature nécessairement toute enzyme connue.",
         "correct": false,
-        "explanation": "Les températures optimales dépendent du contexte biologique."
+        "explanation": "Certaines enzymes sont adaptées à des milieux très acides."
+      },
+      {
+        "content": "Toutes les enzymes humaines ont exactement pH 7,2 comme optimum.",
+        "correct": false,
+        "explanation": "Les optima varient."
+      },
+      {
+        "content": "Toute baisse d'activité liée au pH prouve une dénaturation irréversible.",
+        "correct": false,
+        "explanation": "Elle peut être réversible et due à l'ionisation."
       }
     ],
-    "explanation": "Les températures optimales dépendent du contexte biologique."
+    "explanation": "Le pH agit sur les états de protonation et parfois sur la stabilité ; les profils d'activité sont enzyme-dépendants."
   },
   {
     "order": 80,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Application : quelles propositions relatives à la Taq polymérase sont correctes ?",
+    "format": "QRM",
+    "question": "Concernant l'effet de la température sur l'activité enzymatique, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle est utilisée en PCR.",
+        "content": "Toute enzyme humaine augmente nécessairement son activité dès que la température dépasse 37 °C.",
+        "correct": false,
+        "explanation": "L'inactivation peut rapidement devenir dominante."
+      },
+      {
+        "content": "À température suffisamment élevée, l'inactivation ou la dénaturation peut dominer et faire chuter l'activité.",
         "correct": true,
-        "explanation": "La Taq polymérase illustre l’adaptation enzymatique aux températures élevées."
+        "explanation": "Le seuil dépend de l'enzyme et de la durée."
       },
       {
-        "content": "Elle ne supporte aucune température supérieure à 37°C selon la fiche.",
-        "correct": false,
-        "explanation": "La Taq polymérase illustre l’adaptation enzymatique aux températures élevées."
+        "content": "Une hausse modérée de température accélère souvent la réaction tant que l'enzyme reste stable.",
+        "correct": true,
+        "explanation": "Les constantes cinétiques augmentent généralement avec la température."
       },
       {
-        "content": "Elle est utilisée pour mesurer la pression oncotique.",
-        "correct": false,
-        "explanation": "La Taq polymérase illustre l’adaptation enzymatique aux températures élevées."
+        "content": "Il n'existe pas de température optimale universelle à 37 °C.",
+        "correct": true,
+        "explanation": "Les enzymes d'organismes thermophiles illustrent une grande diversité."
       },
       {
-        "content": "La Taq polymérase est une immunoglobuline humaine.",
-        "correct": false,
-        "explanation": "La Taq polymérase illustre l’adaptation enzymatique aux températures élevées."
+        "content": "La température optimale mesurée dépend aussi du temps de dosage.",
+        "correct": true,
+        "explanation": "Une enzyme peut être rapide mais instable à température élevée."
       }
     ],
-    "explanation": "La Taq polymérase illustre l’adaptation enzymatique aux températures élevées."
+    "explanation": "La température accélère la chimie mais peut aussi inactiver la protéine ; l'optimum résulte de ces effets concurrents."
   },
   {
     "order": 81,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Un inhibiteur occupe le site actif d’une enzyme et peut concurrencer directement le substrat. Dans ce cadre, quelles propositions sur l’inhibition compétitive sont conformes à la fiche ?",
-    "choices": [
-      {
-        "content": "La fiche indique Km augmenté et Vmax inchangée.",
-        "correct": true,
-        "explanation": "Compétitif : E libre, site actif, Km augmente, Vmax inchangée."
-      },
-      {
-        "content": "Il ne peut jamais interagir avec le site du substrat.",
-        "correct": false,
-        "explanation": "Compétitif : E libre, site actif, Km augmente, Vmax inchangée."
-      },
-      {
-        "content": "L’inhibiteur compétitif se fixe sur l’enzyme libre.",
-        "correct": true,
-        "explanation": "Compétitif : E libre, site actif, Km augmente, Vmax inchangée."
-      },
-      {
-        "content": "L’inhibiteur compétitif se fixe exclusivement sur ES.",
-        "correct": false,
-        "explanation": "Compétitif : E libre, site actif, Km augmente, Vmax inchangée."
+    "format": "QROC",
+    "question": "Quelle formule donne le pourcentage d'inhibition à partir de v0 et vI ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "100×(v0-vI)/v0",
+        "(v0-vI)/v0 × 100",
+        "100*(v0-vI)/v0"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Compétitif : E libre, site actif, Km augmente, Vmax inchangée."
+    },
+    "explanation": "Le pourcentage d'inhibition mesure la perte relative de vitesse et dépend du contexte expérimental."
   },
   {
     "order": 82,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Une enzyme a V0 = 100 et V0app = 70 dans les mêmes unités. Quel pourcentage d’inhibition obtient-on ?",
-    "answer": {
-      "type": "number",
-      "value": 30,
-      "tolerance": 0
-    },
-    "explanation": "Le pourcentage compare la vitesse de référence et la vitesse apparente en présence d’inhibiteur."
+    "format": "QRP",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant un calcul de vitesse par Beer-Lambert.",
+    "choices": [
+      {
+        "content": "ε peut être choisi arbitrairement sans rapport avec la longueur d'onde.",
+        "correct": false,
+        "explanation": "Il dépend du chromophore et de λ."
+      },
+      {
+        "content": "0,020 mM·min⁻¹ vaut 0,020 µmol·L⁻¹·min⁻¹.",
+        "correct": false,
+        "explanation": "Il faut multiplier par 1000."
+      },
+      {
+        "content": "La longueur de cuve n'intervient jamais dans le calcul.",
+        "correct": false,
+        "explanation": "Elle apparaît au dénominateur."
+      },
+      {
+        "content": "Avec ΔA/Δt=0,12 min⁻¹, ε=6 mM⁻¹·cm⁻¹ et l=1 cm, la vitesse vaut 0,020 mM·min⁻¹.",
+        "correct": true,
+        "explanation": "0,12/(6×1)=0,020."
+      },
+      {
+        "content": "Si l augmente à absorbance-pente identique, la vitesse calculée diminue.",
+        "correct": true,
+        "explanation": "v est inversement proportionnelle à l dans la conversion."
+      }
+    ],
+    "explanation": "La pente spectrophotométrique se convertit par v=(ΔA/Δt)/(εl), avec attention aux unités.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 83,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application : quelles propositions relatives à l’inhibition incompétitive sont correctes ?",
+    "question": "Concernant les conversions U-katal, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La fiche indique que Km et Vmax sont modifiés dans les mêmes proportions.",
-        "correct": true,
-        "explanation": "Incompétitif : fixation sur ES uniquement, modifications proportionnelles de Km et Vmax."
-      },
-      {
-        "content": "Vmax et Km sont tous deux inchangés.",
+        "content": "2 U correspondent à 2 nkat.",
         "correct": false,
-        "explanation": "Incompétitif : fixation sur ES uniquement, modifications proportionnelles de Km et Vmax."
+        "explanation": "Il faut multiplier par 16,67."
       },
       {
-        "content": "La représentation associée donne des droites parallèles.",
-        "correct": true,
-        "explanation": "Incompétitif : fixation sur ES uniquement, modifications proportionnelles de Km et Vmax."
-      },
-      {
-        "content": "Il dispute directement le site actif au substrat avant la formation de ES.",
+        "content": "U et kat sont des unités de concentration.",
         "correct": false,
-        "explanation": "Incompétitif : fixation sur ES uniquement, modifications proportionnelles de Km et Vmax."
+        "explanation": "Ce sont des unités d'activité catalytique."
+      },
+      {
+        "content": "60 U correspondent à 60 kat.",
+        "correct": false,
+        "explanation": "Ils correspondent à 1 µkat."
+      },
+      {
+        "content": "1 nkat correspond à 0,060 U.",
+        "correct": true,
+        "explanation": "1 nmol/s=60 nmol/min=0,060 µmol/min."
+      },
+      {
+        "content": "2 U correspondent à environ 33,33 nkat.",
+        "correct": true,
+        "explanation": "On double la valeur."
       }
     ],
-    "explanation": "Incompétitif : fixation sur ES uniquement, modifications proportionnelles de Km et Vmax."
+    "explanation": "Les conversions reposent sur 1 U=1 µmol/min≈16,67 nkat."
   },
   {
     "order": 84,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Dans une situation d’application, quelle affirmation sur l’inhibition mixte faut-il retenir ?",
+    "question": "Concernant les calculs sur Lineweaver-Burk, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Km et Vmax sont modifiés indépendamment dans la fiche.",
+        "content": "Une abscisse -0,25 mM⁻¹ donne Km=-4 mM.",
+        "correct": false,
+        "explanation": "Km est positif et vaut 4 mM."
+      },
+      {
+        "content": "Une ordonnée 0,02 donne Vmax=0,02.",
+        "correct": false,
+        "explanation": "Il faut prendre l'inverse."
+      },
+      {
+        "content": "L'abscisse à l'origine vaut toujours +1/Km.",
+        "correct": false,
+        "explanation": "Elle vaut -1/Km."
+      },
+      {
+        "content": "Une pente de 0,08 et une ordonnée à l'origine de 0,02 donnent Km=4 dans les unités cohérentes.",
         "correct": true,
-        "explanation": "Mixte : fixation sur E/ES avec affinités différentes et modifications non proportionnelles de Km/Vmax."
+        "explanation": "Km=(Km/Vmax)/(1/Vmax)=pente/intercept."
       },
       {
-        "content": "Les droites se croisent nécessairement sur les axes selon la fiche.",
+        "content": "La pente de Lineweaver-Burk est 1/Km.",
         "correct": false,
-        "explanation": "Mixte : fixation sur E/ES avec affinités différentes et modifications non proportionnelles de Km/Vmax."
-      },
-      {
-        "content": "L’inhibiteur mixte se fixe uniquement sur ES avec une seule constante identique.",
-        "correct": false,
-        "explanation": "Mixte : fixation sur E/ES avec affinités différentes et modifications non proportionnelles de Km/Vmax."
-      },
-      {
-        "content": "Km et Vmax sont toujours inchangés.",
-        "correct": false,
-        "explanation": "Mixte : fixation sur E/ES avec affinités différentes et modifications non proportionnelles de Km/Vmax."
+        "explanation": "Elle vaut Km/Vmax."
       }
     ],
-    "explanation": "Mixte : fixation sur E/ES avec affinités différentes et modifications non proportionnelles de Km/Vmax."
+    "explanation": "Lineweaver-Burk permet des calculs simples, mais les paramètres expérimentaux sont mieux estimés par régression non linéaire."
   },
   {
     "order": 85,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Pour raisonner à partir de la fiche, quelles affirmations sur le pourcentage d’inhibition sont exactes ?",
+    "question": "Parmi les affirmations suivantes sur les signatures Lineweaver-Burk des inhibitions, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "La fiche utilise V0 sans inhibiteur et V0app avec inhibiteur.",
-        "correct": true,
-        "explanation": "Le pourcentage compare la vitesse de référence et la vitesse apparente en présence d’inhibiteur."
-      },
-      {
-        "content": "La formule donnée est (V0app−V0)/V0app ×100.",
+        "content": "Mixte général : toutes les droites se coupent obligatoirement sur un axe.",
         "correct": false,
-        "explanation": "Le pourcentage compare la vitesse de référence et la vitesse apparente en présence d’inhibiteur."
+        "explanation": "L'intersection peut être hors des axes."
       },
       {
-        "content": "Le pourcentage d’inhibition vaut (V0−V0app)/V0 ×100.",
+        "content": "Incompétitive : droites parallèles.",
         "correct": true,
-        "explanation": "Le pourcentage compare la vitesse de référence et la vitesse apparente en présence d’inhibiteur."
+        "explanation": "Km/Vmax reste constant."
       },
       {
-        "content": "Le calcul ne dépend d’aucune vitesse.",
+        "content": "Mixte général : intersection typiquement à gauche de l'axe y, avec position dépendant des affinités relatives.",
+        "correct": true,
+        "explanation": "Vmax diminue et Km peut varier dans les deux sens."
+      },
+      {
+        "content": "Non compétitive pure : intersection sur l'axe x.",
+        "correct": true,
+        "explanation": "Km est inchangé."
+      },
+      {
+        "content": "Compétitive pure : droites parallèles.",
         "correct": false,
-        "explanation": "Le pourcentage compare la vitesse de référence et la vitesse apparente en présence d’inhibiteur."
+        "explanation": "Cela correspond à l'incompétitive."
       }
     ],
-    "explanation": "Le pourcentage compare la vitesse de référence et la vitesse apparente en présence d’inhibiteur."
+    "explanation": "Les motifs de Lineweaver-Burk résument les effets sur Km et Vmax, sans constituer à eux seuls une preuve mécanistique."
   },
   {
     "order": 86,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Application : quelles propositions relatives à l’effet de la concentration en substrat sont correctes ?",
-    "choices": [
-      {
-        "content": "À forte concentration, la courbe de Michaelis-Menten tend vers la saturation.",
-        "correct": true,
-        "explanation": "La concentration en substrat module la vitesse jusqu’à saturation."
-      },
-      {
-        "content": "La vitesse est totalement indépendante de [S] dans toutes les conditions.",
-        "correct": false,
-        "explanation": "La concentration en substrat module la vitesse jusqu’à saturation."
-      },
-      {
-        "content": "Le substrat est absent des facteurs étudiés.",
-        "correct": false,
-        "explanation": "La concentration en substrat module la vitesse jusqu’à saturation."
-      },
-      {
-        "content": "Augmenter [S] diminue toujours v0.",
-        "correct": false,
-        "explanation": "La concentration en substrat module la vitesse jusqu’à saturation."
+    "format": "QROC",
+    "question": "Vers quelle valeur tend v0 lorsque [S] devient très grande dans Michaelis-Menten ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "Vmax",
+        "vitesse maximale"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La concentration en substrat module la vitesse jusqu’à saturation."
+    },
+    "explanation": "L'effet de [S] sature ; une forte [S] peut concurrencer un inhibiteur compétitif mais pas restaurer tous les modèles d'inhibition."
   },
   {
     "order": 87,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Autour de l’effet de la concentration en substrat : sélectionnez exactement les trois affirmations correctes parmi les propositions suivantes.",
-    "requiredSelectionCount": 3,
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "La fiche utilise V0 sans inhibiteur et V0app avec inhibiteur.",
+        "content": "À substrat non limitant et conditions identiques, v0 est proportionnelle à [E]t.",
         "correct": true,
-        "explanation": "Le pourcentage compare la vitesse de référence et la vitesse apparente en présence d’inhibiteur."
+        "explanation": "Deux fois plus d'enzyme active donne approximativement deux fois plus de vitesse."
       },
       {
-        "content": "À forte concentration, la courbe de Michaelis-Menten tend vers la saturation.",
+        "content": "Si vI=v0, l'inhibition est de 0 %.",
         "correct": true,
-        "explanation": "La concentration en substrat module la vitesse jusqu’à saturation."
+        "explanation": "L'inhibiteur n'a alors aucun effet mesurable."
       },
       {
-        "content": "La fiche précise que l’équilibre final n’est pas modifié par [E].",
+        "content": "La quantité d'enzyme n'a aucun effet sur la vitesse.",
+        "correct": false,
+        "explanation": "Elle est un déterminant majeur."
+      },
+      {
+        "content": "Km est directement proportionnel à [E]t dans le modèle idéal.",
+        "correct": false,
+        "explanation": "Il ne l'est pas."
+      },
+      {
+        "content": "Une inhibition de 50 % signifie nécessairement Ki=50 µM.",
+        "correct": false,
+        "explanation": "Aucune relation directe sans modèle et conditions."
+      },
+      {
+        "content": "Changer [E]t ne modifie pas Keq.",
         "correct": true,
-        "explanation": "Plus d’enzyme augmente la vitesse initiale sans déplacer l’équilibre final."
+        "explanation": "Une enzyme modifie la vitesse, pas l'équilibre."
       },
       {
-        "content": "Toutes les enzymes ont exactement le même pH optimal.",
+        "content": "Augmenter [E]t déplace l'équilibre thermodynamique vers les produits.",
         "correct": false,
-        "explanation": "Le pH influence l’état du site actif et la stabilité de l’enzyme."
+        "explanation": "Keq est inchangée."
       },
       {
-        "content": "La température n’a aucun effet sur une enzyme.",
+        "content": "Une vitesse avec inhibiteur supérieure à v0 correspond forcément à 100 % d'inhibition.",
         "correct": false,
-        "explanation": "La température accélère les réactions jusqu’à ce que la dénaturation domine."
+        "explanation": "La formule donnerait une inhibition négative, signe d'activation ou de variabilité."
       },
       {
-        "content": "La fiche affirme que les bactéries thermophiles ne possèdent aucune enzyme.",
-        "correct": false,
-        "explanation": "Les températures optimales dépendent du contexte biologique."
+        "content": "Vmax est proportionnelle à [E]t.",
+        "correct": true,
+        "explanation": "Vmax=kcat[E]t."
+      },
+      {
+        "content": "Le pourcentage dépend des conditions, notamment [S] et [I].",
+        "correct": true,
+        "explanation": "Il n'est pas une constante intrinsèque unique de l'inhibiteur."
       }
     ],
-    "explanation": "Cette question croise plusieurs repères de la section ; chaque proposition doit être évaluée séparément."
+    "explanation": "La vitesse et Vmax sont proportionnelles à la quantité d'enzyme active, alors que Keq et Km ne changent pas dans le modèle idéal. Le pourcentage d'inhibition mesure la perte relative de vitesse et dépend du contexte expérimental."
   },
   {
     "order": 88,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "question": "Consolidation de l’effet de la concentration en substrat : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur l'effet du pH sur l'activité enzymatique, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "La vitesse v0 augmente avec la concentration en substrat dans la fiche.",
-        "correct": true,
-        "explanation": "La concentration en substrat module la vitesse jusqu’à saturation."
-      },
-      {
-        "content": "La quantité de produit formée à un temps donné peut différer selon [E].",
-        "correct": true,
-        "explanation": "Plus d’enzyme augmente la vitesse initiale sans déplacer l’équilibre final."
-      },
-      {
-        "content": "Le pH optimal varie selon les enzymes.",
-        "correct": true,
-        "explanation": "Le pH influence l’état du site actif et la stabilité de l’enzyme."
-      },
-      {
-        "content": "La fiche décrit une augmentation de l’activité quand la température augmente au-delà de 37°C jusqu’à certaines limites.",
-        "correct": true,
-        "explanation": "La température accélère les réactions jusqu’à ce que la dénaturation domine."
-      },
-      {
-        "content": "Elle cite environ 32°C pour les kératinocytes.",
-        "correct": true,
-        "explanation": "Les températures optimales dépendent du contexte biologique."
-      },
-      {
-        "content": "Elle est utilisée pour mesurer la pression oncotique.",
+        "content": "Toutes les enzymes humaines ont exactement pH 7,2 comme optimum.",
         "correct": false,
-        "explanation": "La Taq polymérase illustre l’adaptation enzymatique aux températures élevées."
+        "explanation": "Les optima varient."
       },
       {
-        "content": "L’inhibiteur compétitif se fixe exclusivement sur ES.",
-        "correct": false,
-        "explanation": "Compétitif : E libre, site actif, Km augmente, Vmax inchangée."
+        "content": "Une variation de pH peut modifier l'activité sans provoquer une dénaturation globale.",
+        "correct": true,
+        "explanation": "L'ionisation de quelques groupes catalytiques peut suffire."
       },
       {
-        "content": "Il augmente Km sans modifier Vmax selon la fiche.",
-        "correct": false,
-        "explanation": "Non compétitif : fixation sur E ou ES avec même Ki, Km inchangé, Vmax diminuée."
+        "content": "Des pH extrêmes peuvent déstabiliser certaines protéines.",
+        "correct": true,
+        "explanation": "La sensibilité varie fortement selon l'enzyme."
+      },
+      {
+        "content": "Chaque enzyme possède un profil de pH qui dépend de son mécanisme et de son environnement.",
+        "correct": true,
+        "explanation": "Il n'existe pas un pH optimal universel."
+      },
+      {
+        "content": "Le pH modifie l'état de protonation des groupes du site actif et du substrat.",
+        "correct": true,
+        "explanation": "Cela peut changer liaison et catalyse."
       }
     ],
-    "explanation": "La sélection longue vérifie la maîtrise simultanée de plusieurs notions du chapitre."
+    "explanation": "Le pH agit sur les états de protonation et parfois sur la stabilité ; les profils d'activité sont enzyme-dépendants."
   },
   {
     "order": 89,
     "difficulty": "HARD",
-    "format": "QZONE",
-    "question": "Sur ce schéma simplifié, cliquez sur le site actif occupé par le substrat et disputé par un inhibiteur compétitif.",
-    "image": {
-      "src": "/images/training/ue14/biochimie/enzyme-activity-measurement/inhibition-competitive-site-actif-qzone.svg",
-      "alt": "Schéma simplifié d’une enzyme montrant un site actif et un site distinct",
-      "width": 900,
-      "height": 520
-    },
-    "expectedZones": [
+    "format": "QRM",
+    "question": "Quelles propositions décrivent correctement l'effet de la concentration en substrat ?",
+    "choices": [
       {
-        "id": "active-site",
-        "label": "site actif",
-        "x": 0.39,
-        "y": 0.36,
-        "tolerance": 0.1
+        "content": "L'effet d'une augmentation de [S] est maximal dans la zone non saturée.",
+        "correct": true,
+        "explanation": "Près de Vmax, le gain devient faible."
+      },
+      {
+        "content": "Le substrat ne peut jamais influencer une inhibition compétitive.",
+        "correct": false,
+        "explanation": "Il peut la surmonter partiellement."
+      },
+      {
+        "content": "Une forte [S] annule toujours toute inhibition, quel qu'en soit le type.",
+        "correct": false,
+        "explanation": "Ce n'est pas vrai."
+      },
+      {
+        "content": "Une forte [S] peut réduire l'effet d'un inhibiteur compétitif réversible.",
+        "correct": true,
+        "explanation": "Elle favorise la liaison du substrat."
+      },
+      {
+        "content": "v0 augmente linéairement sans limite avec [S].",
+        "correct": false,
+        "explanation": "La vitesse tend vers Vmax."
       }
     ],
-    "explanation": "Dans la fiche, l’inhibiteur compétitif dispute au substrat le site actif de l’enzyme libre."
+    "explanation": "L'effet de [S] sature ; une forte [S] peut concurrencer un inhibiteur compétitif mais pas restaurer tous les modèles d'inhibition."
   },
   {
     "order": 90,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise transversale — l’effet de la concentration en enzyme et les repères de température de la fiche : quelles affirmations sont exactes ?",
-    "choices": [
-      {
-        "content": "La quantité de produit formée à un temps donné peut différer selon [E].",
-        "correct": true,
-        "explanation": "Plus d’enzyme augmente la vitesse initiale sans déplacer l’équilibre final."
-      },
-      {
-        "content": "Les hépatocytes sont donnés à 0°C.",
-        "correct": false,
-        "explanation": "Les températures optimales dépendent du contexte biologique."
-      },
-      {
-        "content": "Elle évoque des bactéries thermophiles fonctionnant vers 90-100°C.",
-        "correct": true,
-        "explanation": "Les températures optimales dépendent du contexte biologique."
-      },
-      {
-        "content": "La concentration en enzyme ne modifie jamais la pente initiale.",
-        "correct": false,
-        "explanation": "Plus d’enzyme augmente la vitesse initiale sans déplacer l’équilibre final."
+    "format": "QROC",
+    "question": "Que devient Vmax si [E]t est multipliée par trois ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "elle est multipliée par trois",
+        "×3",
+        "Vmax triple"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Plus d’enzyme augmente la vitesse initiale sans déplacer l’équilibre final. Les températures optimales dépendent du contexte biologique."
+    },
+    "explanation": "La vitesse et Vmax sont proportionnelles à la quantité d'enzyme active, alors que Keq et Km ne changent pas dans le modèle idéal."
   },
   {
     "order": 91,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise transversale — l’effet du pH et la Taq polymérase : quelles affirmations sont exactes ?",
+    "format": "QRP",
+    "question": "Concernant l'effet du pH sur l'activité enzymatique, choisissez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "Le pH optimal varie selon les enzymes.",
-        "correct": true,
-        "explanation": "Le pH influence l’état du site actif et la stabilité de l’enzyme."
-      },
-      {
-        "content": "Elle est utilisée pour mesurer la pression oncotique.",
+        "content": "Tout pH inférieur à 2 dénature nécessairement toute enzyme connue.",
         "correct": false,
-        "explanation": "La Taq polymérase illustre l’adaptation enzymatique aux températures élevées."
+        "explanation": "Certaines enzymes sont adaptées à des milieux très acides."
       },
       {
-        "content": "La Taq polymérase est citée comme enzyme de bactérie thermophile.",
+        "content": "Une variation de pH peut modifier l'activité sans provoquer une dénaturation globale.",
         "correct": true,
-        "explanation": "La Taq polymérase illustre l’adaptation enzymatique aux températures élevées."
+        "explanation": "L'ionisation de quelques groupes catalytiques peut suffire."
       },
       {
-        "content": "Toutes les enzymes ont exactement le même pH optimal.",
+        "content": "Des pH extrêmes peuvent déstabiliser certaines protéines.",
+        "correct": true,
+        "explanation": "La sensibilité varie fortement selon l'enzyme."
+      },
+      {
+        "content": "Le pH n'affecte jamais les charges des résidus catalytiques.",
         "correct": false,
-        "explanation": "Le pH influence l’état du site actif et la stabilité de l’enzyme."
+        "explanation": "Il modifie leur protonation."
+      },
+      {
+        "content": "Toute baisse d'activité liée au pH prouve une dénaturation irréversible.",
+        "correct": false,
+        "explanation": "Elle peut être réversible et due à l'ionisation."
       }
     ],
-    "explanation": "Le pH influence l’état du site actif et la stabilité de l’enzyme. La Taq polymérase illustre l’adaptation enzymatique aux températures élevées."
+    "explanation": "Le pH agit sur les états de protonation et parfois sur la stabilité ; les profils d'activité sont enzyme-dépendants.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 92,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise transversale — l’effet de la température et l’inhibition compétitive : quelles affirmations sont exactes ?",
+    "question": "Parmi les affirmations suivantes sur l'effet de la température sur l'activité enzymatique, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "La fiche décrit une augmentation de l’activité quand la température augmente au-delà de 37°C jusqu’à certaines limites.",
-        "correct": true,
-        "explanation": "La température accélère les réactions jusqu’à ce que la dénaturation domine."
-      },
-      {
-        "content": "L’inhibiteur compétitif se fixe exclusivement sur ES.",
+        "content": "Toute enzyme humaine augmente nécessairement son activité dès que la température dépasse 37 °C.",
         "correct": false,
-        "explanation": "Compétitif : E libre, site actif, Km augmente, Vmax inchangée."
+        "explanation": "L'inactivation peut rapidement devenir dominante."
       },
       {
-        "content": "Il dispute le site actif au substrat.",
-        "correct": true,
-        "explanation": "Compétitif : E libre, site actif, Km augmente, Vmax inchangée."
-      },
-      {
-        "content": "La température n’a aucun effet sur une enzyme.",
+        "content": "Toutes les enzymes se dénaturent exactement à 60 °C.",
         "correct": false,
-        "explanation": "La température accélère les réactions jusqu’à ce que la dénaturation domine."
+        "explanation": "La stabilité est très variable."
+      },
+      {
+        "content": "Une hausse modérée de température accélère souvent la réaction tant que l'enzyme reste stable.",
+        "correct": true,
+        "explanation": "Les constantes cinétiques augmentent généralement avec la température."
+      },
+      {
+        "content": "Il n'existe pas de température optimale universelle à 37 °C.",
+        "correct": true,
+        "explanation": "Les enzymes d'organismes thermophiles illustrent une grande diversité."
+      },
+      {
+        "content": "À température suffisamment élevée, l'inactivation ou la dénaturation peut dominer et faire chuter l'activité.",
+        "correct": true,
+        "explanation": "Le seuil dépend de l'enzyme et de la durée."
       }
     ],
-    "explanation": "La température accélère les réactions jusqu’à ce que la dénaturation domine. Compétitif : E libre, site actif, Km augmente, Vmax inchangée."
+    "explanation": "La température accélère la chimie mais peut aussi inactiver la protéine ; l'optimum résulte de ces effets concurrents."
   },
   {
     "order": 93,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise transversale — les repères de température de la fiche et l’inhibition non compétitive : quelles affirmations sont exactes ?",
+    "format": "QRU",
+    "question": "Concernant le pourcentage d'inhibition, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Elle cite environ 32°C pour les kératinocytes.",
+        "content": "Si vI=v0, l'inhibition est de 0 %.",
         "correct": true,
-        "explanation": "Les températures optimales dépendent du contexte biologique."
+        "explanation": "L'inhibiteur n'a alors aucun effet mesurable."
       },
       {
-        "content": "Il augmente Km sans modifier Vmax selon la fiche.",
+        "content": "Le pourcentage d'inhibition est indépendant de [S].",
         "correct": false,
-        "explanation": "Non compétitif : fixation sur E ou ES avec même Ki, Km inchangé, Vmax diminuée."
+        "explanation": "Il peut en dépendre fortement."
       },
       {
-        "content": "La fiche indique Km inchangé et Vmax diminuée.",
-        "correct": true,
-        "explanation": "Non compétitif : fixation sur E ou ES avec même Ki, Km inchangé, Vmax diminuée."
-      },
-      {
-        "content": "La fiche affirme que les bactéries thermophiles ne possèdent aucune enzyme.",
+        "content": "Une inhibition de 50 % signifie nécessairement Ki=50 µM.",
         "correct": false,
-        "explanation": "Les températures optimales dépendent du contexte biologique."
+        "explanation": "Aucune relation directe sans modèle et conditions."
+      },
+      {
+        "content": "Le pourcentage d'inhibition vaut 100×vI/v0.",
+        "correct": false,
+        "explanation": "Cela donne l'activité résiduelle en pourcentage."
+      },
+      {
+        "content": "Une vitesse avec inhibiteur supérieure à v0 correspond forcément à 100 % d'inhibition.",
+        "correct": false,
+        "explanation": "La formule donnerait une inhibition négative, signe d'activation ou de variabilité."
       }
     ],
-    "explanation": "Les températures optimales dépendent du contexte biologique. Non compétitif : fixation sur E ou ES avec même Ki, Km inchangé, Vmax diminuée."
+    "explanation": "Le pourcentage d'inhibition mesure la perte relative de vitesse et dépend du contexte expérimental."
   },
   {
     "order": 94,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise transversale — la Taq polymérase et l’inhibition incompétitive : quelles affirmations sont exactes ?",
+    "question": "Concernant un calcul de vitesse par Beer-Lambert, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Elle illustre une enzyme fonctionnant à température élevée.",
-        "correct": true,
-        "explanation": "La Taq polymérase illustre l’adaptation enzymatique aux températures élevées."
-      },
-      {
-        "content": "Il dispute directement le site actif au substrat avant la formation de ES.",
+        "content": "ε peut être choisi arbitrairement sans rapport avec la longueur d'onde.",
         "correct": false,
-        "explanation": "Incompétitif : fixation sur ES uniquement, modifications proportionnelles de Km et Vmax."
+        "explanation": "Il dépend du chromophore et de λ."
       },
       {
-        "content": "L’inhibiteur incompétitif se fixe exclusivement au complexe ES.",
+        "content": "Avec ΔA/Δt=0,12 min⁻¹, ε=6 mM⁻¹·cm⁻¹ et l=1 cm, la vitesse vaut 0,020 mM·min⁻¹.",
         "correct": true,
-        "explanation": "Incompétitif : fixation sur ES uniquement, modifications proportionnelles de Km et Vmax."
+        "explanation": "0,12/(6×1)=0,020."
       },
       {
-        "content": "La Taq polymérase est une immunoglobuline humaine.",
-        "correct": false,
-        "explanation": "La Taq polymérase illustre l’adaptation enzymatique aux températures élevées."
+        "content": "Si l augmente à absorbance-pente identique, la vitesse calculée diminue.",
+        "correct": true,
+        "explanation": "v est inversement proportionnelle à l dans la conversion."
+      },
+      {
+        "content": "Il faut utiliser un ε correspondant à l'espèce et à la longueur d'onde suivies.",
+        "correct": true,
+        "explanation": "Le coefficient d'extinction n'est pas universel."
+      },
+      {
+        "content": "0,020 mM·min⁻¹ correspond à 20 µmol·L⁻¹·min⁻¹.",
+        "correct": true,
+        "explanation": "1 mM=1000 µmol/L."
       }
     ],
-    "explanation": "La Taq polymérase illustre l’adaptation enzymatique aux températures élevées. Incompétitif : fixation sur ES uniquement, modifications proportionnelles de Km et Vmax."
+    "explanation": "La pente spectrophotométrique se convertit par v=(ΔA/Δt)/(εl), avec attention aux unités."
   },
   {
     "order": 95,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise transversale — l’inhibition compétitive et l’inhibition mixte : quelles affirmations sont exactes ?",
-    "choices": [
-      {
-        "content": "L’inhibiteur compétitif se fixe sur l’enzyme libre.",
-        "correct": true,
-        "explanation": "Compétitif : E libre, site actif, Km augmente, Vmax inchangée."
-      },
-      {
-        "content": "L’inhibiteur mixte se fixe uniquement sur ES avec une seule constante identique.",
-        "correct": false,
-        "explanation": "Mixte : fixation sur E/ES avec affinités différentes et modifications non proportionnelles de Km/Vmax."
-      },
-      {
-        "content": "Ses affinités pour E et ES sont différentes, avec des constantes d’inhibition distinctes.",
-        "correct": true,
-        "explanation": "Mixte : fixation sur E/ES avec affinités différentes et modifications non proportionnelles de Km/Vmax."
-      },
-      {
-        "content": "Il diminue Vmax sans modifier Km dans la fiche.",
-        "correct": false,
-        "explanation": "Compétitif : E libre, site actif, Km augmente, Vmax inchangée."
-      }
-    ],
-    "explanation": "Compétitif : E libre, site actif, Km augmente, Vmax inchangée. Mixte : fixation sur E/ES avec affinités différentes et modifications non proportionnelles de Km/Vmax."
+    "format": "QROC",
+    "question": "À combien de nkat correspondent 2 U ?",
+    "answer": {
+      "type": "number",
+      "value": 33.34,
+      "tolerance": 0.05
+    },
+    "explanation": "Les conversions reposent sur 1 U=1 µmol/min≈16,67 nkat."
   },
   {
     "order": 96,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise transversale — l’inhibition non compétitive et le pourcentage d’inhibition : quelles affirmations sont exactes ?",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Il se fixe sur un site différent de celui du substrat.",
-        "correct": true,
-        "explanation": "Non compétitif : fixation sur E ou ES avec même Ki, Km inchangé, Vmax diminuée."
-      },
-      {
-        "content": "Le calcul ne dépend d’aucune vitesse.",
+        "content": "Doubler [E]t divise Vmax par deux.",
         "correct": false,
-        "explanation": "Le pourcentage compare la vitesse de référence et la vitesse apparente en présence d’inhibiteur."
+        "explanation": "Vmax double."
       },
       {
-        "content": "Une vitesse apparente plus faible donne un pourcentage d’inhibition positif.",
-        "correct": true,
-        "explanation": "Le pourcentage compare la vitesse de référence et la vitesse apparente en présence d’inhibiteur."
-      },
-      {
-        "content": "Il ne peut pas se fixer à ES.",
+        "content": "L'abscisse à l'origine vaut toujours +1/Km.",
         "correct": false,
-        "explanation": "Non compétitif : fixation sur E ou ES avec même Ki, Km inchangé, Vmax diminuée."
+        "explanation": "Elle vaut -1/Km."
+      },
+      {
+        "content": "À substrat non limitant et conditions identiques, v0 est proportionnelle à [E]t.",
+        "correct": true,
+        "explanation": "Deux fois plus d'enzyme active donne approximativement deux fois plus de vitesse."
+      },
+      {
+        "content": "Une abscisse -0,25 mM⁻¹ donne Km=-4 mM.",
+        "correct": false,
+        "explanation": "Km est positif et vaut 4 mM."
+      },
+      {
+        "content": "La pente de Lineweaver-Burk est 1/Km.",
+        "correct": false,
+        "explanation": "Elle vaut Km/Vmax."
+      },
+      {
+        "content": "La quantité d'enzyme n'a aucun effet sur la vitesse.",
+        "correct": false,
+        "explanation": "Elle est un déterminant majeur."
+      },
+      {
+        "content": "Si l'abscisse à l'origine vaut -0,25 mM⁻¹, Km vaut 4 mM.",
+        "correct": true,
+        "explanation": "-1/Km=-0,25."
+      },
+      {
+        "content": "Si l'ordonnée à l'origine vaut 0,02 min·µmol⁻¹, Vmax vaut 50 µmol·min⁻¹.",
+        "correct": true,
+        "explanation": "Vmax=1/0,02."
+      },
+      {
+        "content": "Changer [E]t ne modifie pas Keq.",
+        "correct": true,
+        "explanation": "Une enzyme modifie la vitesse, pas l'équilibre."
+      },
+      {
+        "content": "Une pente de 0,08 et une ordonnée à l'origine de 0,02 donnent Km=4 dans les unités cohérentes.",
+        "correct": true,
+        "explanation": "Km=(Km/Vmax)/(1/Vmax)=pente/intercept."
       }
     ],
-    "explanation": "Non compétitif : fixation sur E ou ES avec même Ki, Km inchangé, Vmax diminuée. Le pourcentage compare la vitesse de référence et la vitesse apparente en présence d’inhibiteur."
+    "explanation": "Lineweaver-Burk permet des calculs simples, mais les paramètres expérimentaux sont mieux estimés par régression non linéaire. La vitesse et Vmax sont proportionnelles à la quantité d'enzyme active, alors que Keq et Km ne changent pas dans le modèle idéal."
   },
   {
     "order": 97,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise transversale — l’inhibition incompétitive et l’effet de la concentration en substrat : quelles affirmations sont exactes ?",
+    "question": "Concernant les signatures Lineweaver-Burk des inhibitions, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La représentation associée donne des droites parallèles.",
+        "content": "Compétitive pure : intersection sur l'axe y.",
         "correct": true,
-        "explanation": "Incompétitif : fixation sur ES uniquement, modifications proportionnelles de Km et Vmax."
+        "explanation": "Vmax est inchangée."
       },
       {
-        "content": "Le substrat est absent des facteurs étudiés.",
+        "content": "Compétitive pure : droites parallèles.",
         "correct": false,
-        "explanation": "La concentration en substrat module la vitesse jusqu’à saturation."
+        "explanation": "Cela correspond à l'incompétitive."
       },
       {
-        "content": "La vitesse v0 augmente avec la concentration en substrat dans la fiche.",
+        "content": "Non compétitive pure : intersection sur l'axe y.",
+        "correct": false,
+        "explanation": "Elle se fait sur l'axe x dans le cas idéal."
+      },
+      {
+        "content": "Incompétitive : intersection sur l'axe y.",
+        "correct": false,
+        "explanation": "Vmax n'est pas inchangée."
+      },
+      {
+        "content": "Mixte général : intersection typiquement à gauche de l'axe y, avec position dépendant des affinités relatives.",
         "correct": true,
-        "explanation": "La concentration en substrat module la vitesse jusqu’à saturation."
-      },
-      {
-        "content": "L’inhibiteur incompétitif se fixe exclusivement à E libre.",
-        "correct": false,
-        "explanation": "Incompétitif : fixation sur ES uniquement, modifications proportionnelles de Km et Vmax."
+        "explanation": "Vmax diminue et Km peut varier dans les deux sens."
       }
     ],
-    "explanation": "Incompétitif : fixation sur ES uniquement, modifications proportionnelles de Km et Vmax. La concentration en substrat module la vitesse jusqu’à saturation."
+    "explanation": "Les motifs de Lineweaver-Burk résument les effets sur Km et Vmax, sans constituer à eux seuls une preuve mécanistique."
   },
   {
     "order": 98,
     "difficulty": "HARD",
-    "format": "QRP",
-    "question": "Sélectionnez exactement les trois affirmations correctes dans cette situation de maîtrise.",
-    "requiredSelectionCount": 3,
-    "choices": [
-      {
-        "content": "L’inhibiteur mixte peut se fixer sur E et sur ES.",
-        "correct": true,
-        "explanation": "Mixte : fixation sur E/ES avec affinités différentes et modifications non proportionnelles de Km/Vmax."
-      },
-      {
-        "content": "Le pourcentage d’inhibition vaut (V0−V0app)/V0 ×100.",
-        "correct": true,
-        "explanation": "Le pourcentage compare la vitesse de référence et la vitesse apparente en présence d’inhibiteur."
-      },
-      {
-        "content": "La concentration de substrat est donc un facteur de variation de l’activité.",
-        "correct": true,
-        "explanation": "La concentration en substrat module la vitesse jusqu’à saturation."
-      },
-      {
-        "content": "Augmenter [E] diminue toujours la vitesse initiale.",
-        "correct": false,
-        "explanation": "Plus d’enzyme augmente la vitesse initiale sans déplacer l’équilibre final."
-      },
-      {
-        "content": "Un pH inférieur à 2 augmente toujours indéfiniment l’activité sans dénaturation.",
-        "correct": false,
-        "explanation": "Le pH influence l’état du site actif et la stabilité de l’enzyme."
-      },
-      {
-        "content": "Toutes les enzymes ont une température optimale strictement identique.",
-        "correct": false,
-        "explanation": "La température accélère les réactions jusqu’à ce que la dénaturation domine."
+    "format": "QROC",
+    "question": "Quel type d'inhibition réversible peut être surmonté en partie par une forte [S] ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "compétitive",
+        "inhibition compétitive"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Cette question croise plusieurs repères de la section ; chaque proposition doit être évaluée séparément."
+    },
+    "explanation": "L'effet de [S] sature ; une forte [S] peut concurrencer un inhibiteur compétitif mais pas restaurer tous les modèles d'inhibition."
   },
   {
     "order": 99,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise transversale — le pourcentage d’inhibition et l’effet du pH : quelles affirmations sont exactes ?",
+    "format": "QRP",
+    "question": "Concernant l'effet de la concentration en enzyme, choisissez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "Le pourcentage d’inhibition vaut (V0−V0app)/V0 ×100.",
+        "content": "Changer [E]t ne modifie pas Km dans le modèle Michaelis-Menten idéal.",
         "correct": true,
-        "explanation": "Le pourcentage compare la vitesse de référence et la vitesse apparente en présence d’inhibiteur."
+        "explanation": "Km est un paramètre du couple enzyme-substrat et des constantes cinétiques."
       },
       {
-        "content": "Un pH inférieur à 2 augmente toujours indéfiniment l’activité sans dénaturation.",
-        "correct": false,
-        "explanation": "Le pH influence l’état du site actif et la stabilité de l’enzyme."
-      },
-      {
-        "content": "Le pH optimal varie selon les enzymes.",
+        "content": "À substrat non limitant et conditions identiques, v0 est proportionnelle à [E]t.",
         "correct": true,
-        "explanation": "Le pH influence l’état du site actif et la stabilité de l’enzyme."
+        "explanation": "Deux fois plus d'enzyme active donne approximativement deux fois plus de vitesse."
       },
       {
-        "content": "Le pourcentage est toujours nul dès qu’un inhibiteur est présent.",
+        "content": "La quantité d'enzyme n'a aucun effet sur la vitesse.",
         "correct": false,
-        "explanation": "Le pourcentage compare la vitesse de référence et la vitesse apparente en présence d’inhibiteur."
+        "explanation": "Elle est un déterminant majeur."
+      },
+      {
+        "content": "Doubler [E]t divise Vmax par deux.",
+        "correct": false,
+        "explanation": "Vmax double."
+      },
+      {
+        "content": "Augmenter [E]t déplace l'équilibre thermodynamique vers les produits.",
+        "correct": false,
+        "explanation": "Keq est inchangée."
       }
     ],
-    "explanation": "Le pourcentage compare la vitesse de référence et la vitesse apparente en présence d’inhibiteur. Le pH influence l’état du site actif et la stabilité de l’enzyme."
+    "explanation": "La vitesse et Vmax sont proportionnelles à la quantité d'enzyme active, alors que Keq et Km ne changent pas dans le modèle idéal.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 100,
     "difficulty": "HARD",
-    "format": "QRPL",
-    "question": "Sélectionnez exactement les cinq affirmations correctes pour maîtriser cette section.",
-    "requiredSelectionCount": 5,
-    "choices": [
-      {
-        "content": "La vitesse v0 augmente avec la concentration en substrat dans la fiche.",
-        "correct": true,
-        "explanation": "La concentration en substrat module la vitesse jusqu’à saturation."
-      },
-      {
-        "content": "La quantité de produit formée à un temps donné peut différer selon [E].",
-        "correct": true,
-        "explanation": "Plus d’enzyme augmente la vitesse initiale sans déplacer l’équilibre final."
-      },
-      {
-        "content": "Le pH optimal varie selon les enzymes.",
-        "correct": true,
-        "explanation": "Le pH influence l’état du site actif et la stabilité de l’enzyme."
-      },
-      {
-        "content": "La fiche décrit une augmentation de l’activité quand la température augmente au-delà de 37°C jusqu’à certaines limites.",
-        "correct": true,
-        "explanation": "La température accélère les réactions jusqu’à ce que la dénaturation domine."
-      },
-      {
-        "content": "Elle cite environ 32°C pour les kératinocytes.",
-        "correct": true,
-        "explanation": "Les températures optimales dépendent du contexte biologique."
-      },
-      {
-        "content": "Elle est utilisée pour mesurer la pression oncotique.",
-        "correct": false,
-        "explanation": "La Taq polymérase illustre l’adaptation enzymatique aux températures élevées."
-      },
-      {
-        "content": "L’inhibiteur compétitif se fixe exclusivement sur ES.",
-        "correct": false,
-        "explanation": "Compétitif : E libre, site actif, Km augmente, Vmax inchangée."
-      },
-      {
-        "content": "Il augmente Km sans modifier Vmax selon la fiche.",
-        "correct": false,
-        "explanation": "Non compétitif : fixation sur E ou ES avec même Ki, Km inchangé, Vmax diminuée."
+    "format": "QROC",
+    "question": "Pourquoi le pH peut-il modifier l'activité d'une enzyme sans la dénaturer ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "modification de la protonation du site actif",
+        "ionisation des résidus catalytiques",
+        "état de protonation"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La sélection longue vérifie la maîtrise simultanée de plusieurs notions du chapitre."
+    },
+    "explanation": "Le pH agit sur les états de protonation et parfois sur la stabilité ; les profils d'activité sont enzyme-dépendants."
   }
 ];

@@ -1,669 +1,661 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie — Sphingolipides — Section C
- */
-
+/** UE14 Biochimie — Sphingolipides — Section C — Glycosphingolipides, cérébrosides et gangliosides */
 export const UE14_BIOCH_CH7_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 45,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos des glycosphingolipides :",
+    "question": "Concernant les glycosphingolipides, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Ils dérivent de céramides.",
+        "content": "Le premier ose est lié par une liaison O-glycosidique au C1 du céramide.",
         "correct": true,
-        "explanation": "Les glycosphingolipides portent leur tête glucidique sur l'alcool primaire C1."
+        "explanation": "La liaison est classiquement bêta."
       },
       {
-        "content": "Un ou plusieurs oses se fixent en C1.",
-        "correct": true,
-        "explanation": "Les glycosphingolipides portent leur tête glucidique sur l'alcool primaire C1."
-      },
-      {
-        "content": "Il n'y a pas de phosphate en C1 dans cette famille.",
-        "correct": true,
-        "explanation": "Les glycosphingolipides portent leur tête glucidique sur l'alcool primaire C1."
-      },
-      {
-        "content": "Le groupement glucidique se fixe sur C3 par une liaison amide.",
+        "content": "Ils sont des triacylglycérols phosphorylés.",
         "correct": false,
-        "explanation": "Les glycosphingolipides portent leur tête glucidique sur l'alcool primaire C1."
+        "explanation": "Leur noyau est un céramide."
+      },
+      {
+        "content": "Ils ne peuvent contenir qu'un seul ose.",
+        "correct": false,
+        "explanation": "Les gangliosides portent des oligosaccharides."
+      },
+      {
+        "content": "Ils possèdent tous obligatoirement un phosphate.",
+        "correct": false,
+        "explanation": "Ce serait un phosphosphingolipide."
+      },
+      {
+        "content": "Ils ne portent pas de phosphate dans leur définition classique.",
+        "correct": true,
+        "explanation": "La tête est glucidique."
       }
     ],
-    "explanation": "Les glycosphingolipides portent leur tête glucidique sur l'alcool primaire C1."
+    "explanation": "Les glycosphingolipides associent un céramide à une tête glucidique liée au C1."
   },
   {
     "order": 46,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QRU",
-    "question": "Sur quel carbone se fixe le groupement glucidique ?",
+    "question": "Parmi les affirmations suivantes concernant les cérébrosides, laquelle est correcte ?",
     "choices": [
       {
-        "content": "C1",
+        "content": "Le galactosylcéramide est absent de la myéline.",
+        "correct": false,
+        "explanation": "Il y est très abondant."
+      },
+      {
+        "content": "Un cérébroside porte obligatoirement cinq oses.",
+        "correct": false,
+        "explanation": "Il n'en porte qu'un."
+      },
+      {
+        "content": "Tous les cérébrosides sont des gangliosides.",
+        "correct": false,
+        "explanation": "Les gangliosides portent notamment un ou plusieurs acides sialiques."
+      },
+      {
+        "content": "Le galactosylcéramide contient un galactose.",
         "correct": true,
-        "explanation": "Les glycosphingolipides portent leur tête glucidique sur l'alcool primaire C1."
+        "explanation": "Il est particulièrement abondant dans la myéline."
       },
       {
-        "content": "C2",
+        "content": "Le glucosylcéramide possède obligatoirement un phosphate.",
         "correct": false,
-        "explanation": "Les glycosphingolipides portent leur tête glucidique sur l'alcool primaire C1."
-      },
-      {
-        "content": "C3",
-        "correct": false,
-        "explanation": "Les glycosphingolipides portent leur tête glucidique sur l'alcool primaire C1."
-      },
-      {
-        "content": "C18",
-        "correct": false,
-        "explanation": "Les glycosphingolipides portent leur tête glucidique sur l'alcool primaire C1."
+        "explanation": "Il n'en possède pas dans cette classe."
       }
     ],
-    "explanation": "Les glycosphingolipides portent leur tête glucidique sur l'alcool primaire C1."
+    "explanation": "Les cérébrosides sont des monoglycosylcéramides ; GalCer est un composant majeur de la myéline."
   },
   {
     "order": 47,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos de la liaison osidique des glycosphingolipides :",
-    "choices": [
-      {
-        "content": "La liaison en C1 est décrite comme β-osidique.",
-        "correct": true,
-        "explanation": "La tête glucidique est liée par une liaison β-osidique."
-      },
-      {
-        "content": "Elle relie la tête glucidique au céramide.",
-        "correct": true,
-        "explanation": "La tête glucidique est liée par une liaison β-osidique."
-      },
-      {
-        "content": "Elle distingue ces lipides des phosphosphingolipides.",
-        "correct": true,
-        "explanation": "La tête glucidique est liée par une liaison β-osidique."
-      },
-      {
-        "content": "La liaison en C1 est une liaison peptidique.",
-        "correct": false,
-        "explanation": "La tête glucidique est liée par une liaison β-osidique."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel monosaccharide est porté par le glucosylcéramide ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "glucose",
+        "un glucose"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La tête glucidique est liée par une liaison β-osidique."
+    },
+    "explanation": "Le glucosylcéramide est un cérébroside et un précurseur majeur ; son accumulation caractérise Gaucher."
   },
   {
     "order": 48,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel type de liaison unit le groupement glucidique au C1 d’un glycosphingolipide ?",
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant le galactosylcéramide, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "β-osidique",
+        "content": "La galactocérébrosidase participe à sa dégradation lysosomale.",
         "correct": true,
-        "explanation": "La tête glucidique est liée par une liaison β-osidique."
+        "explanation": "Un déficit en GALC cause la maladie de Krabbe."
       },
       {
-        "content": "amide",
+        "content": "Il est absent du système nerveux.",
         "correct": false,
-        "explanation": "La tête glucidique est liée par une liaison β-osidique."
+        "explanation": "Il est abondant dans la myéline."
       },
       {
-        "content": "ester phosphorique",
-        "correct": false,
-        "explanation": "La tête glucidique est liée par une liaison β-osidique."
+        "content": "Il est formé d'un céramide et d'un galactose.",
+        "correct": true,
+        "explanation": "C'est un cérébroside."
       },
       {
-        "content": "peptidique",
+        "content": "Il est abondant dans la myéline.",
+        "correct": true,
+        "explanation": "Il joue un rôle structural dans le tissu nerveux."
+      },
+      {
+        "content": "La maladie de Krabbe est due à une hexosaminidase A déficiente.",
         "correct": false,
-        "explanation": "La tête glucidique est liée par une liaison β-osidique."
+        "explanation": "Cela décrit Tay-Sachs."
       }
     ],
-    "explanation": "La tête glucidique est liée par une liaison β-osidique."
+    "explanation": "Le galactosylcéramide est un cérébroside de la myéline ; GALC et psychosine sont des repères essentiels de Krabbe."
   },
   {
     "order": 49,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos des cérébrosides :",
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant les gangliosides, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Ils possèdent un seul ose en C1.",
+        "content": "Ils sont particulièrement abondants dans les membranes neuronales.",
         "correct": true,
-        "explanation": "Le cérébroside est le glycosphingolipide à un seul ose."
+        "explanation": "Ils participent aux interactions de surface."
       },
       {
-        "content": "Cet ose est lié par une liaison β-osidique.",
-        "correct": true,
-        "explanation": "Le cérébroside est le glycosphingolipide à un seul ose."
-      },
-      {
-        "content": "Ils sont des glycosphingolipides.",
-        "correct": true,
-        "explanation": "Le cérébroside est le glycosphingolipide à un seul ose."
-      },
-      {
-        "content": "Ils comportent obligatoirement 20 résidus d'oses.",
+        "content": "Ils sont dépourvus de tout ose.",
         "correct": false,
-        "explanation": "Le cérébroside est le glycosphingolipide à un seul ose."
+        "explanation": "Ils possèdent une tête glucidique."
+      },
+      {
+        "content": "Ils sont des phosphosphingolipides à choline.",
+        "correct": false,
+        "explanation": "Cela décrit la sphingomyéline."
+      },
+      {
+        "content": "L'acide sialique est toujours fixé par une liaison ester à un hydroxyle.",
+        "correct": false,
+        "explanation": "La liaison dans les glycoconjugués est glycosidique."
+      },
+      {
+        "content": "Ils sont tous électriquement neutres.",
+        "correct": false,
+        "explanation": "Les acides sialiques apportent une charge négative."
       }
     ],
-    "explanation": "Le cérébroside est le glycosphingolipide à un seul ose."
+    "explanation": "Les gangliosides sont des glycosphingolipides complexes contenant un ou plusieurs résidus d'acide sialique."
   },
   {
     "order": 50,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Combien d'oses porte un cérébroside dans la définition ?",
+    "difficulty": "EASY",
+    "format": "QRP",
+    "question": "Concernant la nomenclature GM, GD, GT et GQ, sélectionnez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "1",
+        "content": "GM2 contient deux acides sialiques parce que son chiffre vaut 2.",
+        "correct": false,
+        "explanation": "GM2 est monosialylé."
+      },
+      {
+        "content": "M, D, T et Q indiquent respectivement un, deux, trois ou quatre résidus d'acide sialique.",
         "correct": true,
-        "explanation": "Le cérébroside est le glycosphingolipide à un seul ose."
+        "explanation": "Cette partie du code est directement informative."
       },
       {
-        "content": "0",
+        "content": "M signifie trois acides sialiques.",
         "correct": false,
-        "explanation": "Le cérébroside est le glycosphingolipide à un seul ose."
+        "explanation": "M signifie mono."
       },
       {
-        "content": "2 à 20",
-        "correct": false,
-        "explanation": "Le cérébroside est le glycosphingolipide à un seul ose."
+        "content": "Le chiffre final distingue des structures au sein d'une même série.",
+        "correct": true,
+        "explanation": "Il ne doit pas être interprété comme un simple compteur universel du nombre total d'oses."
       },
       {
-        "content": "4 exactement",
+        "content": "Le chiffre final donne toujours exactement le nombre de monosaccharides.",
         "correct": false,
-        "explanation": "Le cérébroside est le glycosphingolipide à un seul ose."
+        "explanation": "La nomenclature historique est plus subtile."
       }
     ],
-    "explanation": "Le cérébroside est le glycosphingolipide à un seul ose."
+    "explanation": "Dans la nomenclature gangliosidique, M/D/T/Q encode le nombre d'acides sialiques ; le chiffre distingue les structures d'une série.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 51,
-    "difficulty": "MEDIUM",
+    "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos du glucosylcéramide :",
+    "question": "Concernant GM3, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Il porte un glucose en C1.",
+        "content": "Sa structure de base peut être résumée comme céramide-glucose-galactose-acide sialique.",
         "correct": true,
-        "explanation": "Le glucosylcéramide est le cérébroside à glucose."
+        "explanation": "C'est un ganglioside relativement simple."
       },
       {
-        "content": "Il est le précurseur de glycosphingolipides plus complexes.",
-        "correct": true,
-        "explanation": "Le glucosylcéramide est le cérébroside à glucose."
-      },
-      {
-        "content": "Il est présent dans de nombreux tissus et n’est pas spécifique de la substance blanche.",
-        "correct": true,
-        "explanation": "Le glucosylcéramide est le cérébroside à glucose."
-      },
-      {
-        "content": "Il porte un galactose et constitue le principal cérébroside de la myéline.",
+        "content": "GM3 contient trois acides sialiques.",
         "correct": false,
-        "explanation": "Le glucosylcéramide est le cérébroside à glucose."
+        "explanation": "La lettre M indique un seul acide sialique."
+      },
+      {
+        "content": "Il dérive du lactosylcéramide par sialylation.",
+        "correct": true,
+        "explanation": "L'ajout d'un acide sialique produit GM3."
+      },
+      {
+        "content": "GM3 est un monosialoganglioside.",
+        "correct": true,
+        "explanation": "Il contient un résidu d'acide sialique."
+      },
+      {
+        "content": "Il sert de précurseur à des gangliosides plus complexes.",
+        "correct": true,
+        "explanation": "Des glycosyltransférases poursuivent l'élongation."
       }
     ],
-    "explanation": "Le glucosylcéramide porte un glucose et sert de précurseur à de nombreux glycosphingolipides complexes."
+    "explanation": "GM3 est un monosialoganglioside simple dérivé du lactosylcéramide."
   },
   {
     "order": 52,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel ose définit le glucosylcéramide ?",
-    "choices": [
-      {
-        "content": "glucose",
-        "correct": true,
-        "explanation": "Le glucosylcéramide est le cérébroside à glucose."
-      },
-      {
-        "content": "galactose",
-        "correct": false,
-        "explanation": "Le glucosylcéramide est le cérébroside à glucose."
-      },
-      {
-        "content": "fructose",
-        "correct": false,
-        "explanation": "Le glucosylcéramide est le cérébroside à glucose."
-      },
-      {
-        "content": "ribose",
-        "correct": false,
-        "explanation": "Le glucosylcéramide est le cérébroside à glucose."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Dans quelle maladie lysosomale le ganglioside GM2 s'accumule-t-il classiquement ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "Tay-Sachs",
+        "maladie de Tay-Sachs",
+        "Tay Sachs"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le glucosylcéramide est le cérébroside à glucose."
+    },
+    "explanation": "GM2 est le ganglioside emblématique de Tay-Sachs, liée à un déficit d'hexosaminidase A."
   },
   {
     "order": 53,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos du galactosylcéramide :",
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant les glycosphingolipides ?",
     "choices": [
       {
-        "content": "Il porte un galactose en C1.",
-        "correct": true,
-        "explanation": "Le galactosylcéramide est le cérébroside à galactose."
-      },
-      {
-        "content": "Il est particulièrement abondant dans la myéline.",
-        "correct": true,
-        "explanation": "Le galactosylcéramide est le cérébroside à galactose."
-      },
-      {
-        "content": "Il contribue à la composition lipidique de la substance blanche.",
-        "correct": true,
-        "explanation": "Le galactosylcéramide est le cérébroside à galactose."
-      },
-      {
-        "content": "Il est défini par un glucose en C1.",
+        "content": "Ils ne peuvent contenir qu'un seul ose.",
         "correct": false,
-        "explanation": "Le galactosylcéramide est le cérébroside à galactose."
+        "explanation": "Les gangliosides portent des oligosaccharides."
+      },
+      {
+        "content": "Ils sont des triacylglycérols phosphorylés.",
+        "correct": false,
+        "explanation": "Leur noyau est un céramide."
+      },
+      {
+        "content": "Le groupement glucidique est lié à l'amine C2 par une liaison peptidique.",
+        "correct": false,
+        "explanation": "Il est lié à l'OH C1."
+      },
+      {
+        "content": "Ils possèdent tous obligatoirement un phosphate.",
+        "correct": false,
+        "explanation": "Ce serait un phosphosphingolipide."
+      },
+      {
+        "content": "Ils sont formés d'un céramide portant un ou plusieurs résidus glucidiques.",
+        "correct": true,
+        "explanation": "La tête glucidique est attachée au C1."
       }
     ],
-    "explanation": "Le galactosylcéramide porte un galactose et constitue un glycosphingolipide majeur de la myéline."
+    "explanation": "Les glycosphingolipides associent un céramide à une tête glucidique liée au C1."
   },
   {
     "order": 54,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel ose définit le galactosylcéramide ?",
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant les cérébrosides, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "galactose",
+        "content": "Le glucosylcéramide contient un glucose.",
         "correct": true,
-        "explanation": "Le galactosylcéramide est le cérébroside à galactose."
+        "explanation": "Il est largement distribué et sert de précurseur à des glycosphingolipides complexes."
       },
       {
-        "content": "glucose",
+        "content": "Tous les cérébrosides sont des gangliosides.",
         "correct": false,
-        "explanation": "Le galactosylcéramide est le cérébroside à galactose."
+        "explanation": "Les gangliosides portent notamment un ou plusieurs acides sialiques."
       },
       {
-        "content": "mannose",
-        "correct": false,
-        "explanation": "Le galactosylcéramide est le cérébroside à galactose."
+        "content": "Un cérébroside est un monoglycosylcéramide.",
+        "correct": true,
+        "explanation": "Il porte un seul monosaccharide."
       },
       {
-        "content": "ribose",
+        "content": "Un cérébroside porte obligatoirement cinq oses.",
         "correct": false,
-        "explanation": "Le galactosylcéramide est le cérébroside à galactose."
+        "explanation": "Il n'en porte qu'un."
+      },
+      {
+        "content": "Le glucosylcéramide possède obligatoirement un phosphate.",
+        "correct": false,
+        "explanation": "Il n'en possède pas dans cette classe."
       }
     ],
-    "explanation": "Le galactosylcéramide est le cérébroside à galactose."
+    "explanation": "Les cérébrosides sont des monoglycosylcéramides ; GalCer est un composant majeur de la myéline."
   },
   {
     "order": 55,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos des gangliosides :",
+    "question": "Concernant les glycosphingolipides, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Ils portent plusieurs oses en C1.",
+        "content": "Ils sont des constituants de membranes cellulaires.",
         "correct": true,
-        "explanation": "Les gangliosides ont une tête oligosaccharidique complexe."
+        "explanation": "Ils sont particulièrement importants dans le système nerveux et pour la reconnaissance cellulaire."
       },
       {
-        "content": "La chaîne glycanique peut comporter 2 à 20 résidus.",
-        "correct": true,
-        "explanation": "Les gangliosides ont une tête oligosaccharidique complexe."
-      },
-      {
-        "content": "Ils peuvent contenir de l'acide sialique/NANA.",
-        "correct": true,
-        "explanation": "Les gangliosides ont une tête oligosaccharidique complexe."
-      },
-      {
-        "content": "Ils ne contiennent jamais de résidu glucidique.",
+        "content": "Le groupement glucidique est lié à l'amine C2 par une liaison peptidique.",
         "correct": false,
-        "explanation": "Les gangliosides ont une tête oligosaccharidique complexe."
+        "explanation": "Il est lié à l'OH C1."
+      },
+      {
+        "content": "Ils sont formés d'un céramide portant un ou plusieurs résidus glucidiques.",
+        "correct": true,
+        "explanation": "La tête glucidique est attachée au C1."
+      },
+      {
+        "content": "Ils ne peuvent contenir qu'un seul ose.",
+        "correct": false,
+        "explanation": "Les gangliosides portent des oligosaccharides."
+      },
+      {
+        "content": "Ils sont des triacylglycérols phosphorylés.",
+        "correct": false,
+        "explanation": "Leur noyau est un céramide."
       }
     ],
-    "explanation": "Les gangliosides ont une tête oligosaccharidique complexe."
+    "explanation": "Les glycosphingolipides associent un céramide à une tête glucidique liée au C1."
   },
   {
     "order": 56,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Dans ce modèle simplifié, quelle plage de taille est retenue pour la chaîne glycanique d’un ganglioside ?",
-    "choices": [
-      {
-        "content": "2 à 20 résidus",
-        "correct": true,
-        "explanation": "Les gangliosides ont une tête oligosaccharidique complexe."
-      },
-      {
-        "content": "1 résidu exactement",
-        "correct": false,
-        "explanation": "Les gangliosides ont une tête oligosaccharidique complexe."
-      },
-      {
-        "content": "50 à 100 résidus",
-        "correct": false,
-        "explanation": "Les gangliosides ont une tête oligosaccharidique complexe."
-      },
-      {
-        "content": "aucun résidu",
-        "correct": false,
-        "explanation": "Les gangliosides ont une tête oligosaccharidique complexe."
+    "format": "QROC",
+    "question": "Quel cérébroside est particulièrement abondant dans la myéline ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "galactosylcéramide",
+        "galactosylceramide",
+        "GalCer"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les gangliosides ont une tête oligosaccharidique complexe."
+    },
+    "explanation": "Les cérébrosides sont des monoglycosylcéramides ; GalCer est un composant majeur de la myéline."
   },
   {
     "order": 57,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos du lactosylcéramide :",
-    "choices": [
-      {
-        "content": "Il associe un céramide, un glucose et un galactose.",
-        "correct": true,
-        "explanation": "Le lactosylcéramide contient glucose et galactose."
-      },
-      {
-        "content": "Il appartient aux glycosphingolipides.",
-        "correct": true,
-        "explanation": "Le lactosylcéramide contient glucose et galactose."
-      },
-      {
-        "content": "Il sert de repère structural dans la partie gangliosides.",
-        "correct": true,
-        "explanation": "Le lactosylcéramide contient glucose et galactose."
-      },
-      {
-        "content": "Il associe céramide, ribose et désoxyribose.",
-        "correct": false,
-        "explanation": "Le lactosylcéramide contient glucose et galactose."
+    "format": "QROC",
+    "question": "Dans une situation d'application, quel cérébroside est particulièrement abondant dans la myéline ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "galactosylcéramide",
+        "galactosylceramide",
+        "GalCer"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le lactosylcéramide contient glucose et galactose."
+    },
+    "explanation": "Le galactosylcéramide est un composant majeur de la myéline."
   },
   {
     "order": 58,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quels deux oses constituent le lactosylcéramide ?",
+    "format": "QRM",
+    "question": "Concernant le galactosylcéramide, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "glucose et galactose",
+        "content": "Il est abondant dans la myéline.",
         "correct": true,
-        "explanation": "Le lactosylcéramide contient glucose et galactose."
+        "explanation": "Il joue un rôle structural dans le tissu nerveux."
       },
       {
-        "content": "glucose et fructose",
-        "correct": false,
-        "explanation": "Le lactosylcéramide contient glucose et galactose."
+        "content": "Il est formé d'un céramide et d'un galactose.",
+        "correct": true,
+        "explanation": "C'est un cérébroside."
       },
       {
-        "content": "ribose et désoxyribose",
+        "content": "Il contient un glucose et aucun galactose.",
         "correct": false,
-        "explanation": "Le lactosylcéramide contient glucose et galactose."
+        "explanation": "Cela décrit le glucosylcéramide."
       },
       {
-        "content": "mannose et fructose",
+        "content": "La psychosine est un galactosylsphingosine particulièrement toxique dans Krabbe.",
+        "correct": true,
+        "explanation": "Son accumulation contribue à la démyélinisation."
+      },
+      {
+        "content": "La maladie de Krabbe est due à une hexosaminidase A déficiente.",
         "correct": false,
-        "explanation": "Le lactosylcéramide contient glucose et galactose."
+        "explanation": "Cela décrit Tay-Sachs."
       }
     ],
-    "explanation": "Le lactosylcéramide contient glucose et galactose."
+    "explanation": "Le galactosylcéramide est un cérébroside de la myéline ; GALC et psychosine sont des repères essentiels de Krabbe."
   },
   {
     "order": 59,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos de l'acide sialique des gangliosides :",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant les gangliosides, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "Le NANA est aussi appelé acide sialique.",
-        "correct": true,
-        "explanation": "Le NANA est le résidu sialique des gangliosides."
-      },
-      {
-        "content": "Il est présent dans les chaînes glucidiques des gangliosides.",
-        "correct": true,
-        "explanation": "Le NANA est le résidu sialique des gangliosides."
-      },
-      {
-        "content": "Le nombre de résidus sialiques intervient dans la nomenclature.",
-        "correct": true,
-        "explanation": "Le NANA est le résidu sialique des gangliosides."
-      },
-      {
-        "content": "Le NANA est un triglycéride saturé.",
+        "content": "Ils sont dépourvus de tout ose.",
         "correct": false,
-        "explanation": "Le NANA est le résidu sialique des gangliosides."
+        "explanation": "Ils possèdent une tête glucidique."
+      },
+      {
+        "content": "Ils sont des glycosphingolipides à tête oligosaccharidique contenant au moins un acide sialique.",
+        "correct": true,
+        "explanation": "L'acide sialique leur confère une charge négative."
+      },
+      {
+        "content": "L'acide sialique est toujours fixé par une liaison ester à un hydroxyle.",
+        "correct": false,
+        "explanation": "La liaison dans les glycoconjugués est glycosidique."
+      },
+      {
+        "content": "Ils sont tous électriquement neutres.",
+        "correct": false,
+        "explanation": "Les acides sialiques apportent une charge négative."
+      },
+      {
+        "content": "L'acide sialique est relié par une liaison glycosidique.",
+        "correct": true,
+        "explanation": "Il n'est pas fixé par une simple liaison ester."
       }
     ],
-    "explanation": "Le NANA est le résidu sialique des gangliosides."
+    "explanation": "Les gangliosides sont des glycosphingolipides complexes contenant un ou plusieurs résidus d'acide sialique.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 60,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Quel autre nom donne-t-on au NANA dans les gangliosides ?",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "acide sialique",
-        "sialique"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant la nomenclature GM, GD, GT et GQ ?",
+    "choices": [
+      {
+        "content": "G signifie ganglioside.",
+        "correct": true,
+        "explanation": "La première lettre identifie la famille."
+      },
+      {
+        "content": "GM2 et GM3 sont tous deux des monosialogangliosides.",
+        "correct": true,
+        "explanation": "La lettre M indique un acide sialique."
+      },
+      {
+        "content": "M, D, T et Q indiquent respectivement un, deux, trois ou quatre résidus d'acide sialique.",
+        "correct": true,
+        "explanation": "Cette partie du code est directement informative."
+      },
+      {
+        "content": "GM2 contient deux acides sialiques parce que son chiffre vaut 2.",
+        "correct": false,
+        "explanation": "GM2 est monosialylé."
+      },
+      {
+        "content": "Le chiffre final distingue des structures au sein d'une même série.",
+        "correct": true,
+        "explanation": "Il ne doit pas être interprété comme un simple compteur universel du nombre total d'oses."
       }
-    },
-    "explanation": "NANA = acide sialique."
+    ],
+    "explanation": "Dans la nomenclature gangliosidique, M/D/T/Q encode le nombre d'acides sialiques ; le chiffre distingue les structures d'une série."
   },
   {
     "order": 61,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos de la lettre M des gangliosides :",
-    "choices": [
-      {
-        "content": "M indique un résidu d'acide sialique.",
-        "correct": true,
-        "explanation": "La deuxième lettre code le nombre de résidus sialiques."
-      },
-      {
-        "content": "D indique deux résidus.",
-        "correct": true,
-        "explanation": "La deuxième lettre code le nombre de résidus sialiques."
-      },
-      {
-        "content": "T indique trois résidus.",
-        "correct": true,
-        "explanation": "La deuxième lettre code le nombre de résidus sialiques."
-      },
-      {
-        "content": "M indique quatre résidus d'acide sialique.",
-        "correct": false,
-        "explanation": "La deuxième lettre code le nombre de résidus sialiques."
+    "format": "QROC",
+    "question": "Quel ganglioside simple dérive directement du lactosylcéramide par ajout d'un acide sialique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "GM3",
+        "ganglioside GM3"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La deuxième lettre code le nombre de résidus sialiques."
+    },
+    "explanation": "GM3 est un monosialoganglioside simple dérivé du lactosylcéramide."
   },
   {
     "order": 62,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Combien de résidus sialiques indique M ?",
+    "question": "Parmi les affirmations suivantes concernant GM2, laquelle est correcte ?",
     "choices": [
       {
-        "content": "1",
+        "content": "Tay-Sachs est due à un déficit en alpha-galactosidase A.",
+        "correct": false,
+        "explanation": "Cela décrit Fabry."
+      },
+      {
+        "content": "GM2 est un triacylglycérol.",
+        "correct": false,
+        "explanation": "C'est un ganglioside."
+      },
+      {
+        "content": "GM2 ne contient aucun acide sialique.",
+        "correct": false,
+        "explanation": "C'est un monosialoganglioside."
+      },
+      {
+        "content": "Son accumulation touche particulièrement les neurones dans Tay-Sachs.",
         "correct": true,
-        "explanation": "La deuxième lettre code le nombre de résidus sialiques."
+        "explanation": "Cela explique la neurodégénérescence."
       },
       {
-        "content": "2",
+        "content": "GM2 est le substrat accumulé dans Gaucher.",
         "correct": false,
-        "explanation": "La deuxième lettre code le nombre de résidus sialiques."
-      },
-      {
-        "content": "3",
-        "correct": false,
-        "explanation": "La deuxième lettre code le nombre de résidus sialiques."
-      },
-      {
-        "content": "4",
-        "correct": false,
-        "explanation": "La deuxième lettre code le nombre de résidus sialiques."
+        "explanation": "Gaucher implique surtout glucosylcéramide."
       }
     ],
-    "explanation": "La deuxième lettre code le nombre de résidus sialiques."
+    "explanation": "GM2 est le ganglioside emblématique de Tay-Sachs, liée à un déficit d'hexosaminidase A."
   },
   {
     "order": 63,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos de la lettre Q des gangliosides :",
-    "choices": [
-      {
-        "content": "Q correspond à quatre résidus d'acide sialique.",
-        "correct": true,
-        "explanation": "Q code quatre résidus d'acide sialique."
-      },
-      {
-        "content": "La lettre complète la série M/D/T/Q.",
-        "correct": true,
-        "explanation": "Q code quatre résidus d'acide sialique."
-      },
-      {
-        "content": "Le codage porte sur le nombre de résidus sialiques.",
-        "correct": true,
-        "explanation": "Q code quatre résidus d'acide sialique."
-      },
-      {
-        "content": "Q correspond à zéro résidu sialique.",
-        "correct": false,
-        "explanation": "Q code quatre résidus d'acide sialique."
+    "format": "QROC",
+    "question": "Quel ganglioside s'accumule classiquement dans la maladie de Tay-Sachs ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "GM2",
+        "ganglioside GM2"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Q code quatre résidus d'acide sialique."
+    },
+    "explanation": "Le déficit en hexosaminidase A bloque le catabolisme lysosomal de GM2."
   },
   {
     "order": 64,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Combien de résidus sialiques indique Q ?",
+    "format": "QRP",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant la nomenclature des gangliosides.",
     "choices": [
       {
-        "content": "4",
+        "content": "GM2 contient deux acides sialiques.",
+        "correct": false,
+        "explanation": "GM2 est un monosialoganglioside."
+      },
+      {
+        "content": "La lettre M indique un seul résidu d'acide sialique.",
         "correct": true,
-        "explanation": "Q code quatre résidus d'acide sialique."
+        "explanation": "M signifie monosialo."
       },
       {
-        "content": "1",
+        "content": "La lettre G indique un glycérophospholipide.",
         "correct": false,
-        "explanation": "Q code quatre résidus d'acide sialique."
+        "explanation": "G indique ganglioside."
       },
       {
-        "content": "2",
+        "content": "Le chiffre final indique toujours exactement le nombre total d'oses.",
         "correct": false,
-        "explanation": "Q code quatre résidus d'acide sialique."
+        "explanation": "Le suffixe numérique distingue historiquement des structures d'une série et ne se réduit pas à un simple compteur universel."
       },
       {
-        "content": "3",
-        "correct": false,
-        "explanation": "Q code quatre résidus d'acide sialique."
+        "content": "La lettre D indique deux résidus d'acide sialique.",
+        "correct": true,
+        "explanation": "D signifie disialo."
       }
     ],
-    "explanation": "Q code quatre résidus d'acide sialique."
+    "explanation": "M/D/T/Q encode le nombre de résidus sialiques ; le chiffre final ne doit pas être présenté comme un compteur universel du nombre total d'oses.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 65,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux oses constituant le lactosylcéramide.",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes concernant le glucosylcéramide, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "Glucose",
+        "content": "Il est formé d'un céramide et d'un glucose.",
         "correct": true,
-        "explanation": "Présent."
+        "explanation": "C'est un cérébroside."
       },
       {
-        "content": "Galactose",
+        "content": "Il est dégradé par l'alpha-galactosidase A dans Fabry.",
+        "correct": false,
+        "explanation": "Fabry concerne surtout Gb3."
+      },
+      {
+        "content": "Sa déacylation peut former la glucosylsphingosine.",
         "correct": true,
-        "explanation": "Présent."
+        "explanation": "Ce lysosphingolipide peut aussi s'accumuler dans Gaucher."
       },
       {
-        "content": "Fructose",
-        "correct": false,
-        "explanation": "Non."
+        "content": "Il est un précurseur de nombreux glycosphingolipides plus complexes.",
+        "correct": true,
+        "explanation": "Des oses supplémentaires peuvent être ajoutés."
       },
       {
-        "content": "Ribose",
+        "content": "Il ne peut jamais être dégradé dans les lysosomes.",
         "correct": false,
-        "explanation": "Non."
+        "explanation": "Son catabolisme est lysosomal."
       }
     ],
-    "explanation": "Le lactosylcéramide contient glucose et galactose."
+    "explanation": "Le glucosylcéramide est un cérébroside et un précurseur majeur ; son accumulation caractérise Gaucher."
   },
   {
     "order": 66,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "À propos des glycosphingolipides et gangliosides, sélectionnez exactement les cinq affirmations correctes.",
-    "choices": [
-      {
-        "content": "Les glycosphingolipides dérivent de céramides.",
-        "correct": true,
-        "explanation": "Structure."
-      },
-      {
-        "content": "La tête glucidique est en C1.",
-        "correct": true,
-        "explanation": "Position."
-      },
-      {
-        "content": "La liaison est β-osidique.",
-        "correct": true,
-        "explanation": "Liaison."
-      },
-      {
-        "content": "Un cérébroside porte un seul ose.",
-        "correct": true,
-        "explanation": "Définition."
-      },
-      {
-        "content": "GM3 est monosialylé.",
-        "correct": true,
-        "explanation": "Nomenclature."
-      },
-      {
-        "content": "Un ganglioside ne contient jamais de NANA.",
-        "correct": false,
-        "explanation": "En contient."
-      },
-      {
-        "content": "Les glycosphingolipides portent toujours un phosphate en C1.",
-        "correct": false,
-        "explanation": "Pas de phosphate."
-      },
-      {
-        "content": "M signifie 3 acides sialiques.",
-        "correct": false,
-        "explanation": "1."
-      },
-      {
-        "content": "Le galactosylcéramide est un triglycéride.",
-        "correct": false,
-        "explanation": "Glycosphingolipide."
-      },
-      {
-        "content": "GM3 est une sphingomyéline.",
-        "correct": false,
-        "explanation": "Ganglioside."
+    "format": "QROC",
+    "question": "Quel monosaccharide est porté par le galactosylcéramide ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "galactose",
+        "un galactose"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Synthèse des glycosphingolipides."
+    },
+    "explanation": "Le galactosylcéramide est un cérébroside de la myéline ; GALC et psychosine sont des repères essentiels de Krabbe."
   }
 ];

@@ -1,689 +1,682 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-export const UE14_BIOCH_CH12_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
+/** UE14 Biochimie — Rôles biologiques des protéines, partie 1 — Synthèse — Rôles biologiques des protéines, partie 1 */
+export const UE14_BIOCH_CH12_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 101,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Synthèse du chapitre — l’importance générale des protéines / les récepteurs nucléaires : quelles propositions sont exactes ?",
+    "question": "Concernant les immunoglobulines, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Les protéines peuvent représenter environ la moitié du poids sec d’une cellule.",
+        "content": "Ce sont des glycoprotéines de la réponse immunitaire adaptative.",
         "correct": true,
-        "explanation": "Les protéines sont à la fois abondantes et essentielles à la majorité des fonctions cellulaires."
+        "explanation": "Les anticorps appartiennent à la famille des immunoglobulines."
       },
       {
-        "content": "Les récepteurs nucléaires sont exclusivement des canaux ioniques membranaires.",
+        "content": "Un antigène ne peut porter qu'un seul épitope.",
         "correct": false,
-        "explanation": "Les récepteurs nucléaires sont intracellulaires."
+        "explanation": "Il peut en porter plusieurs."
       },
       {
-        "content": "Les récepteurs nucléaires forment une famille de récepteurs intracellulaires régulant la transcription.",
+        "content": "Les antigènes reconnus peuvent être de nature chimique variée.",
         "correct": true,
-        "explanation": "Les récepteurs nucléaires sont intracellulaires."
+        "explanation": "Protéines, glycoconjugués ou autres structures peuvent porter des épitopes."
       },
       {
-        "content": "Les protéines constituent une fraction négligeable du poids sec cellulaire.",
+        "content": "Les immunoglobulines sont des triacylglycérols.",
         "correct": false,
-        "explanation": "Les protéines sont à la fois abondantes et essentielles à la majorité des fonctions cellulaires."
+        "explanation": "Ce sont des protéines glycosylées."
+      },
+      {
+        "content": "Un même antigène peut porter plusieurs épitopes différents.",
+        "correct": true,
+        "explanation": "Plusieurs clones lymphocytaires peuvent donc reconnaître un même antigène."
       }
     ],
-    "explanation": "Les protéines sont à la fois abondantes et essentielles à la majorité des fonctions cellulaires. Les récepteurs nucléaires sont intracellulaires."
+    "explanation": "Une immunoglobuline reconnaît un épitope précis porté par un antigène."
   },
   {
     "order": 102,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse du chapitre — les chaînes légères κ et λ / la structure du récepteur à l’insuline : quelles propositions sont exactes ?",
-    "choices": [
-      {
-        "content": "Une chaîne légère comporte des régions constante et variable.",
-        "correct": true,
-        "explanation": "Chez l’être humain, les chaînes légères sont de type κ ou λ."
-      },
-      {
-        "content": "La chaîne β est uniquement extracellulaire et sans activité enzymatique.",
-        "correct": false,
-        "explanation": "Le récepteur à l’insuline associe chaînes α extracellulaires et β transmembranaires à activité tyrosine kinase."
-      },
-      {
-        "content": "La chaîne β porte un domaine transmembranaire et un domaine tyrosine kinase cytoplasmique.",
-        "correct": true,
-        "explanation": "Le récepteur à l’insuline associe chaînes α extracellulaires et β transmembranaires à activité tyrosine kinase."
-      },
-      {
-        "content": "V désigne une région toujours identique entre anticorps.",
-        "correct": false,
-        "explanation": "Chez l’être humain, les chaînes légères sont de type κ ou λ."
-      }
-    ],
-    "explanation": "Chez l’être humain, les chaînes légères sont de type κ ou λ. Le récepteur à l’insuline associe chaînes α extracellulaires et β transmembranaires à activité tyrosine kinase."
+    "format": "QROC",
+    "question": "Combien de chaînes polypeptidiques comporte l'unité H2L2 d'une immunoglobuline ?",
+    "answer": {
+      "type": "number",
+      "value": 4,
+      "tolerance": 0
+    },
+    "explanation": "L'unité de base d'une immunoglobuline est H2L2 : deux chaînes lourdes et deux chaînes légères."
   },
   {
     "order": 103,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse du chapitre — fragments Fab après action de la papaïne et récepteurs opioïdes : quelles propositions sont exactes ?",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant les classes d'immunoglobulines humaines ?",
     "choices": [
       {
-        "content": "Les Fab comprennent une chaîne légère et la partie N-terminale d’une chaîne lourde.",
-        "correct": true,
-        "explanation": "Le clivage par papaïne sépare deux Fab liant l’antigène et un Fc."
-      },
-      {
-        "content": "Les récepteurs opioïdes sont des pompes ATP-dépendantes.",
+        "content": "Il existe seulement trois classes d'immunoglobulines humaines.",
         "correct": false,
-        "explanation": "Les trois grands types de récepteurs opioïdes sont μ, δ et κ ; ce sont des RCPG."
+        "explanation": "On en distingue cinq."
       },
       {
-        "content": "Les récepteurs opioïdes comprennent notamment les types μ et κ.",
-        "correct": true,
-        "explanation": "Les trois grands types de récepteurs opioïdes sont μ, δ et κ ; ce sont des RCPG."
-      },
-      {
-        "content": "La papaïne ne modifie jamais une IgG.",
+        "content": "IgG est définie par une chaîne lourde delta.",
         "correct": false,
-        "explanation": "Le clivage par papaïne sépare deux Fab liant l’antigène et un Fc."
+        "explanation": "δ définit IgD."
+      },
+      {
+        "content": "IgE est définie par une chaîne lourde bêta.",
+        "correct": false,
+        "explanation": "IgE possède une chaîne lourde ε."
+      },
+      {
+        "content": "IgM possède une chaîne lourde mu.",
+        "correct": true,
+        "explanation": "La chaîne μ définit IgM."
+      },
+      {
+        "content": "IgM est définie par une chaîne lourde kappa.",
+        "correct": false,
+        "explanation": "κ est un type de chaîne légère."
       }
     ],
-    "explanation": "Le clivage par papaïne sépare deux Fab liant l’antigène et un Fc. Les trois grands types de récepteurs opioïdes sont μ, δ et κ ; ce sont des RCPG."
+    "explanation": "Les cinq classes IgA, IgD, IgE, IgG et IgM sont définies par leurs chaînes lourdes."
   },
   {
     "order": 104,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Synthèse du chapitre — les ligands des récepteurs nucléaires / le transport par les canaux ioniques : quelles propositions sont exactes ?",
+    "question": "Concernant les chaînes légères des immunoglobulines humaines, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Les hormones thyroïdiennes sont des ligands de récepteurs nucléaires.",
+        "content": "Les chaînes légères participent au site de liaison à l'antigène.",
         "correct": true,
-        "explanation": "Les ligands de récepteurs nucléaires comprennent notamment des hormones stéroïdiennes et thyroïdiennes, l’acide rétinoïque et la forme active de la vitamine D."
+        "explanation": "Le domaine VL contribue au paratope."
       },
       {
-        "content": "Un canal utilise toujours l’ATP pour déplacer un ion contre son gradient.",
-        "correct": false,
-        "explanation": "Les canaux facilitent la diffusion et ne réalisent pas le transport actif contre gradient."
-      },
-      {
-        "content": "Un canal ne transporte pas un ion contre son gradient.",
+        "content": "Une même immunoglobuline possède deux chaînes légères de même type.",
         "correct": true,
-        "explanation": "Les canaux facilitent la diffusion et ne réalisent pas le transport actif contre gradient."
+        "explanation": "Elle ne mélange pas une κ et une λ au sein d'une même molécule."
       },
       {
-        "content": "Les photons sont les seuls ligands de tous les récepteurs nucléaires.",
+        "content": "Les chaînes légères comportent un domaine variable et un domaine constant.",
+        "correct": true,
+        "explanation": "VL et CL composent la chaîne légère classique."
+      },
+      {
+        "content": "Les seules chaînes légères humaines sont alpha et gamma.",
         "correct": false,
-        "explanation": "Les ligands de récepteurs nucléaires comprennent notamment des hormones stéroïdiennes et thyroïdiennes, l’acide rétinoïque et la forme active de la vitamine D."
+        "explanation": "α et γ sont des chaînes lourdes."
+      },
+      {
+        "content": "Les deux types de chaînes légères sont kappa et lambda.",
+        "correct": true,
+        "explanation": "Une immunoglobuline donnée porte l'un ou l'autre type."
       }
     ],
-    "explanation": "Les ligands de récepteurs nucléaires comprennent notamment des hormones stéroïdiennes et thyroïdiennes, l’acide rétinoïque et la forme active de la vitamine D. Les canaux facilitent la diffusion et ne réalisent pas le transport actif contre gradient."
+    "explanation": "Les chaînes légères humaines sont κ ou λ ; la classe de l'Ig dépend en revanche de la chaîne lourde."
   },
   {
     "order": 105,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse du chapitre — la voie du récepteur à l’insuline / la P-glycoprotéine et la résistance aux médicaments : quelles propositions sont exactes ?",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant les domaines d'immunoglobuline, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "La signalisation insulinique peut emprunter la voie IRS/PI3K/PIP3/PKB.",
-        "correct": true,
-        "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3."
-      },
-      {
-        "content": "Sa surexpression augmente nécessairement la sensibilité des cellules cancéreuses aux cytotoxiques.",
+        "content": "Un domaine d'Ig est formé de sept domaines bêta distincts.",
         "correct": false,
-        "explanation": "La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance."
+        "explanation": "Il s'agit de brins bêta organisés en feuillets, pas de sept domaines."
       },
       {
-        "content": "Sa surexpression peut participer à une résistance de cellules cancéreuses aux médicaments cytotoxiques.",
-        "correct": true,
-        "explanation": "La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance."
-      },
-      {
-        "content": "Le récepteur à l’insuline ne déclenche aucune phosphorylation.",
+        "content": "Les domaines variables sont situés exclusivement aux extrémités C-terminales.",
         "correct": false,
-        "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3."
+        "explanation": "Ils sont N-terminaux."
+      },
+      {
+        "content": "Un pont disulfure intradomaine stabilise de nombreux domaines d'Ig.",
+        "correct": true,
+        "explanation": "Des cystéines conservées participent à cette stabilisation."
+      },
+      {
+        "content": "Les domaines d'Ig sont dépourvus de toute structure secondaire bêta.",
+        "correct": false,
+        "explanation": "Ils sont au contraire riches en brins bêta."
+      },
+      {
+        "content": "Les domaines variables sont situés vers les extrémités N-terminales des chaînes.",
+        "correct": true,
+        "explanation": "VH et VL forment ensemble les sites de liaison antigénique."
       }
     ],
-    "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3. La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance."
+    "explanation": "Un domaine d'immunoglobuline est un module compact en sandwich bêta, et non une succession de « domaines bêta ».",
+    "requiredSelectionCount": 2
   },
   {
     "order": 106,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Synthèse du chapitre — les récepteurs ionotropiques / les trois types de sélectines : quelles propositions sont exactes ?",
+    "question": "Quelles propositions sont exactes concernant les fragments Fab et Fc d'une IgG ?",
     "choices": [
       {
-        "content": "Les canaux sont caractéristiques de certains ions comme Na+, K+, Ca2+ ou Cl−.",
-        "correct": true,
-        "explanation": "Les ionotropiques associent réception du ligand et ouverture d’un canal."
-      },
-      {
-        "content": "La sélectine P est un récepteur nucléaire à la progestérone.",
+        "content": "La papaïne produit un seul Fab et deux Fc.",
         "correct": false,
-        "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
+        "explanation": "Elle produit deux Fab et un Fc."
       },
       {
-        "content": "La sélectine E est associée à l’endothélium.",
-        "correct": true,
-        "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
-      },
-      {
-        "content": "Un récepteur ionotropique agit uniquement comme facteur de transcription nucléaire.",
+        "content": "Fab signifie fragment activating beta.",
         "correct": false,
-        "explanation": "Les ionotropiques associent réception du ligand et ouverture d’un canal."
+        "explanation": "Fab signifie antigen binding."
+      },
+      {
+        "content": "La papaïne transforme l'IgG en acides aminés libres uniquement.",
+        "correct": false,
+        "explanation": "Le clivage limité produit de grands fragments fonctionnels."
+      },
+      {
+        "content": "Chaque fragment Fab conserve un site de liaison à l'antigène.",
+        "correct": true,
+        "explanation": "Fab signifie fragment antigen binding."
+      },
+      {
+        "content": "Le Fc peut interagir avec des récepteurs Fc et des éléments du complément selon la classe.",
+        "correct": true,
+        "explanation": "Il ne porte pas le site antigénique principal."
       }
     ],
-    "explanation": "Les ionotropiques associent réception du ligand et ouverture d’un canal. E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
+    "explanation": "La papaïne clive classiquement une IgG en 2 Fab capables de lier l'antigène et 1 Fc effecteur."
   },
   {
     "order": 107,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse du chapitre — la Na+/K+ ATPase / le motif RGD reconnu par les intégrines : quelles propositions sont exactes ?",
-    "choices": [
-      {
-        "content": "La Na+/K+ ATPase utilise de l’ATP.",
-        "correct": true,
-        "explanation": "La pompe Na+/K+ assure un transport actif ATP-dépendant."
-      },
-      {
-        "content": "RGD signifie Ribose-Guanine-Désoxyribose.",
-        "correct": false,
-        "explanation": "La séquence tripeptidique RGD constitue un repère de reconnaissance matricielle."
-      },
-      {
-        "content": "Certaines intégrines reconnaissent la séquence RGD.",
-        "correct": true,
-        "explanation": "La séquence tripeptidique RGD constitue un repère de reconnaissance matricielle."
-      },
-      {
-        "content": "Elle transporte uniquement du calcium.",
-        "correct": false,
-        "explanation": "La pompe Na+/K+ assure un transport actif ATP-dépendant."
+    "format": "QROC",
+    "question": "Quelle forme moléculaire domine pour l'IgA sécrétoire humaine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "dimère",
+        "dimérique",
+        "IgA dimérique",
+        "dimerique"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La pompe Na+/K+ assure un transport actif ATP-dépendant. La séquence tripeptidique RGD constitue un repère de reconnaissance matricielle."
+    },
+    "explanation": "Il faut distinguer l'IgA sérique, surtout monomérique, de l'IgA sécrétoire, surtout dimérique ; l'IgM sécrétée est classiquement pentamérique."
   },
   {
     "order": 108,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse du chapitre — le canal CFTR / l’absence d’activité kinasique intrinsèque des intégrines : quelles propositions sont exactes ?",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant les fonctions effectrices du fragment Fc, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Il est présent dans des cellules épithéliales.",
-        "correct": true,
-        "explanation": "CFTR est un canal chlorure de la famille ABC associé à la mucoviscidose."
-      },
-      {
-        "content": "Les intégrines n’interagissent avec aucune protéine intracellulaire.",
+        "content": "Le Fc est identique dans toutes les classes d'immunoglobulines.",
         "correct": false,
-        "explanation": "Les intégrines signalent par recrutement de partenaires plutôt que par kinase intrinsèque."
+        "explanation": "Les régions constantes de chaîne lourde diffèrent selon la classe."
       },
       {
-        "content": "Des kinases peuvent être présentes dans les plaques d’adhésion focale.",
+        "content": "Le Fc contribue aux propriétés pharmacocinétiques des IgG.",
         "correct": true,
-        "explanation": "Les intégrines signalent par recrutement de partenaires plutôt que par kinase intrinsèque."
+        "explanation": "Il interagit notamment avec FcRn."
       },
       {
-        "content": "La mutation ΔF508 provoque une drépanocytose.",
+        "content": "Le Fc est un glucide libre détaché de la protéine.",
         "correct": false,
-        "explanation": "CFTR est un canal chlorure de la famille ABC associé à la mucoviscidose."
+        "explanation": "Il s'agit d'un fragment protéique glycosylé."
+      },
+      {
+        "content": "Le Fc ne peut interagir avec aucune cellule.",
+        "correct": false,
+        "explanation": "Il interagit avec des récepteurs Fc."
+      },
+      {
+        "content": "Le Fc contient à lui seul le paratope complet de l'anticorps.",
+        "correct": false,
+        "explanation": "Le paratope est porté par les régions variables des Fab."
       }
     ],
-    "explanation": "CFTR est un canal chlorure de la famille ABC associé à la mucoviscidose. Les intégrines signalent par recrutement de partenaires plutôt que par kinase intrinsèque."
+    "explanation": "Le Fc porte les principales fonctions effectrices et de transport, tandis que les Fab portent la reconnaissance antigénique."
   },
   {
     "order": 109,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Synthèse du chapitre : sélectionnez exactement les trois affirmations correctes.",
-    "requiredSelectionCount": 3,
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant l'organisation générale d'un récepteur membranaire à une traversée ?",
     "choices": [
       {
-        "content": "La Na+/K+ ATPase utilise de l’ATP.",
+        "content": "Il possède un domaine cytoplasmique assurant ou recrutant la transduction du signal.",
         "correct": true,
-        "explanation": "La pompe Na+/K+ assure un transport actif ATP-dépendant."
+        "explanation": "La signalisation se poursuit dans la cellule."
       },
       {
-        "content": "Le Na+ est expulsé depuis le milieu intracellulaire.",
+        "content": "La fixation du ligand peut modifier la conformation ou l'association du récepteur.",
         "correct": true,
-        "explanation": "Le repère à retenir est 3 Na+ sortants pour 2 K+ entrants."
+        "explanation": "Cela permet la transmission de l'information."
       },
       {
-        "content": "Un transporteur ABC canonique comporte deux domaines intracellulaires de liaison aux nucléotides, ou NBD.",
-        "correct": true,
-        "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
-      },
-      {
-        "content": "La P-glycoprotéine est une immunoglobuline sécrétée.",
+        "content": "Le segment transmembranaire est constitué uniquement de sucres.",
         "correct": false,
-        "explanation": "La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance."
+        "explanation": "Il est protéique et hydrophobe."
+      },
+      {
+        "content": "Il possède un domaine extracellulaire capable de reconnaître un ligand.",
+        "correct": true,
+        "explanation": "Ce domaine est exposé au milieu extracellulaire."
+      },
+      {
+        "content": "La liaison d'un ligand ne peut jamais modifier son état structural.",
+        "correct": false,
+        "explanation": "Des changements conformationnels sont fréquents."
       }
     ],
-    "explanation": "Cette question croise plusieurs repères de la section ; chaque proposition doit être évaluée séparément."
+    "explanation": "Les récepteurs membranaires possèdent typiquement des domaines extracellulaire, transmembranaire et cytoplasmique."
   },
   {
     "order": 110,
     "difficulty": "MEDIUM",
     "format": "QRPL",
-    "question": "Synthèse du chapitre : sélectionnez exactement les cinq affirmations correctes.",
     "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "La P-glycoprotéine appartient à la famille ABCB.",
+        "content": "Ils possèdent un domaine de liaison à l'ADN et un domaine de liaison au ligand.",
         "correct": true,
-        "explanation": "La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance."
+        "explanation": "Cette architecture modulaire est caractéristique."
       },
       {
-        "content": "Il est présent dans des cellules épithéliales.",
+        "content": "PI3K hydrolyse PIP2 en DAG et IP3.",
+        "correct": false,
+        "explanation": "Cela correspond à une phospholipase C."
+      },
+      {
+        "content": "La fixation de l'insuline favorise l'autophosphorylation de tyrosines du récepteur.",
         "correct": true,
-        "explanation": "CFTR est un canal chlorure de la famille ABC associé à la mucoviscidose."
+        "explanation": "Cela crée des sites de recrutement intracellulaires."
       },
       {
-        "content": "Les canaux assurent une diffusion facilitée, tandis que les pompes réalisent un transport actif.",
+        "content": "AKT est aussi appelée protéine kinase B.",
         "correct": true,
-        "explanation": "Canal et pompe se distinguent notamment par la possibilité d’un transport actif contre gradient."
+        "explanation": "PKB est un autre nom d'AKT."
       },
       {
-        "content": "Les molécules d’adhérence comprennent notamment les sélectines, les cadhérines, les Ig-CAM et les intégrines.",
+        "content": "L'être humain possède plus de 150 récepteurs nucléaires distincts.",
+        "correct": false,
+        "explanation": "Le nombre de récepteurs nucléaires humains est 48."
+      },
+      {
+        "content": "L'insuline bloque toute phosphorylation du récepteur.",
+        "correct": false,
+        "explanation": "Elle favorise son activation kinase."
+      },
+      {
+        "content": "Leurs ligands comprennent notamment hormones stéroïdiennes, hormones thyroïdiennes, rétinoïdes et vitamine D.",
         "correct": true,
-        "explanation": "Les sélectines, cadhérines, Ig-CAM et intégrines sont quatre grandes familles de molécules d’adhérence."
+        "explanation": "Ce sont souvent des ligands lipophiles."
       },
       {
-        "content": "La sélectine L est associée aux leucocytes.",
+        "content": "Ils ne possèdent aucun domaine de liaison à l'ADN.",
+        "correct": false,
+        "explanation": "Un domaine de liaison à l'ADN est caractéristique."
+      },
+      {
+        "content": "IRS désigne un canal chlorure.",
+        "correct": false,
+        "explanation": "IRS désigne des substrats du récepteur de l'insuline."
+      },
+      {
+        "content": "PI3K favorise la formation de PIP3 à partir de PIP2.",
         "correct": true,
-        "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
-      },
-      {
-        "content": "Les sélectines n’interviennent pas dans l’inflammation.",
-        "correct": false,
-        "explanation": "Les sélectines reconnaissent des glycanes sialylés et participent à l’inflammation."
-      },
-      {
-        "content": "Une intégrine est un pentamère d’immunoglobulines.",
-        "correct": false,
-        "explanation": "Les intégrines sont des hétérodimères α/β transmembranaires."
-      },
-      {
-        "content": "On dénombre exactement 180 intégrines distinctes.",
-        "correct": false,
-        "explanation": "Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
-      },
-      {
-        "content": "La P-glycoprotéine assure une diffusion passive indépendante de l’ATP.",
-        "correct": false,
-        "explanation": "La P-glycoprotéine est un transporteur ABC ATP-dépendant."
-      },
-      {
-        "content": "CFTR est une enzyme cytosolique dépourvue de domaine transmembranaire.",
-        "correct": false,
-        "explanation": "CFTR est une protéine membranaire de la famille ABC qui fonctionne comme canal ionique."
+        "explanation": "PIP3 recrute des protéines de signalisation à la membrane."
       }
     ],
-    "explanation": "La sélection longue vérifie la maîtrise simultanée de plusieurs notions du chapitre."
+    "explanation": "Les 48 récepteurs nucléaires humains sont des facteurs de transcription modulaires ; certains sont orphelins. La voie insulinique classique comprend autophosphorylation du récepteur, IRS, PI3K, PIP3 puis activation d'AKT/PKB."
   },
   {
     "order": 111,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez l’antigène et l’épitope, le fonctionnement transcriptionnel des récepteurs nucléaires et le transport par les canaux ioniques.",
+    "question": "Concernant les immunoglobulines, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Une immunoglobuline reconnaît une partie de l’antigène appelée épitope.",
+        "content": "Elles reconnaissent des déterminants antigéniques appelés épitopes.",
         "correct": true,
-        "explanation": "L’épitope est le motif effectivement reconnu par l’anticorps."
+        "explanation": "Un anticorps ne reconnaît qu'une partie précise d'un antigène."
       },
       {
-        "content": "Ils se lient ensuite à l’ADN dans le noyau.",
+        "content": "Ce sont des glycoprotéines de la réponse immunitaire adaptative.",
         "correct": true,
-        "explanation": "Le ligand conduit à une action transcriptionnelle nucléaire."
+        "explanation": "Les anticorps appartiennent à la famille des immunoglobulines."
       },
       {
-        "content": "Un canal utilise toujours l’ATP pour déplacer un ion contre son gradient.",
-        "correct": false,
-        "explanation": "Les canaux facilitent la diffusion et ne réalisent pas le transport actif contre gradient."
+        "content": "Un même antigène peut porter plusieurs épitopes différents.",
+        "correct": true,
+        "explanation": "Plusieurs clones lymphocytaires peuvent donc reconnaître un même antigène."
       },
       {
-        "content": "Un épitope est obligatoirement un lipide.",
+        "content": "Les immunoglobulines appartiennent à l'immunité innée exclusivement.",
         "correct": false,
-        "explanation": "L’épitope est le motif effectivement reconnu par l’anticorps."
+        "explanation": "Elles sont des effecteurs majeurs de l'immunité adaptative."
+      },
+      {
+        "content": "Les antigènes reconnus peuvent être de nature chimique variée.",
+        "correct": true,
+        "explanation": "Protéines, glycoconjugués ou autres structures peuvent porter des épitopes."
       }
     ],
-    "explanation": "L’épitope est le motif effectivement reconnu par l’anticorps. Le ligand conduit à une action transcriptionnelle nucléaire. Les canaux facilitent la diffusion et ne réalisent pas le transport actif contre gradient."
+    "explanation": "Une immunoglobuline reconnaît un épitope précis porté par un antigène."
   },
   {
     "order": 112,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez le peptide J, les récepteurs ionotropiques et la diversité des sous-unités d’intégrines.",
-    "choices": [
-      {
-        "content": "Le peptide J intervient aussi dans l’IgM pentamérique.",
-        "correct": true,
-        "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM."
-      },
-      {
-        "content": "Les canaux sont caractéristiques de certains ions comme Na+, K+, Ca2+ ou Cl−.",
-        "correct": true,
-        "explanation": "Les ionotropiques associent réception du ligand et ouverture d’un canal."
-      },
-      {
-        "content": "On dénombre exactement 180 intégrines distinctes.",
-        "correct": false,
-        "explanation": "Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
-      },
-      {
-        "content": "Le peptide J définit la classe IgG.",
-        "correct": false,
-        "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM."
-      }
-    ],
-    "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM. Les ionotropiques associent réception du ligand et ouverture d’un canal. Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
+    "format": "QROC",
+    "question": "Combien de chaînes polypeptidiques comporte l'unité H2L2 d'une immunoglobuline ?",
+    "answer": {
+      "type": "number",
+      "value": 4,
+      "tolerance": 0
+    },
+    "explanation": "L'unité de base d'une immunoglobuline est H2L2 : deux chaînes lourdes et deux chaînes légères."
   },
   {
     "order": 113,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez les récepteurs nucléaires, la P-glycoprotéine et la résistance aux médicaments et les associations monomériques et multimériques des immunoglobulines.",
-    "choices": [
-      {
-        "content": "Ils sont des récepteurs intracellulaires.",
-        "correct": true,
-        "explanation": "Les récepteurs nucléaires sont intracellulaires."
-      },
-      {
-        "content": "La P-glycoprotéine appartient à la famille ABCB.",
-        "correct": true,
-        "explanation": "La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance."
-      },
-      {
-        "content": "IgA ne peut jamais former de dimère.",
-        "correct": false,
-        "explanation": "IgD, IgE et IgG sont généralement monomériques ; l’IgA sécrétoire est souvent dimérique et l’IgM sécrétée classiquement pentamérique."
-      },
-      {
-        "content": "Ils sont tous localisés dans la matrice extracellulaire.",
-        "correct": false,
-        "explanation": "Les récepteurs nucléaires sont intracellulaires."
-      }
-    ],
-    "explanation": "Les récepteurs nucléaires sont intracellulaires. La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance. IgD, IgE et IgG sont généralement monomériques ; l’IgA sécrétoire est souvent dimérique et l’IgM sécrétée classiquement pentamérique."
-  },
-  {
-    "order": 114,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez la voie du récepteur à l’insuline et la diversité des sous-unités d’intégrines.",
-    "choices": [
-      {
-        "content": "La fixation de l’insuline précède la phosphorylation de tyrosines.",
-        "correct": true,
-        "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3."
-      },
-      {
-        "content": "Huit sous-unités β d’intégrines sont décrites.",
-        "correct": true,
-        "explanation": "Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
-      },
-      {
-        "content": "Cette voie débute par l’ouverture directe d’un canal Cl−.",
-        "correct": false,
-        "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3."
-      },
-      {
-        "content": "Le récepteur à l’insuline ne déclenche aucune phosphorylation.",
-        "correct": false,
-        "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3."
-      }
-    ],
-    "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3. Chez l’être humain, 18 sous-unités α et 8 sous-unités β s’associent en au moins 23 hétérodimères d’intégrines distincts."
-  },
-  {
-    "order": 115,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez le récepteur 5-HT3, l’antigène et l’épitope et la P-glycoprotéine et la résistance aux médicaments.",
-    "choices": [
-      {
-        "content": "La fixation de sérotonine au 5-HT3 ouvre un canal.",
-        "correct": true,
-        "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
-      },
-      {
-        "content": "Un même antigène peut contenir plusieurs épitopes.",
-        "correct": true,
-        "explanation": "L’épitope est le motif effectivement reconnu par l’anticorps."
-      },
-      {
-        "content": "Sa surexpression augmente nécessairement la sensibilité des cellules cancéreuses aux cytotoxiques.",
-        "correct": false,
-        "explanation": "La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance."
-      },
-      {
-        "content": "Le 5-HT3 provoque une sortie massive de Cl− et une hyperpolarisation.",
-        "correct": false,
-        "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
-      }
-    ],
-    "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante. L’épitope est le motif effectivement reconnu par l’anticorps. La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance."
-  },
-  {
-    "order": 116,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez la structure générale des transporteurs ABC, les fragments Fab après action de la papaïne et les plaques d’adhésion focale.",
-    "choices": [
-      {
-        "content": "Un transporteur ABC canonique comporte deux domaines intracellulaires de liaison aux nucléotides, ou NBD.",
-        "correct": true,
-        "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
-      },
-      {
-        "content": "La papaïne produit deux fragments Fab à partir d’une IgG.",
-        "correct": true,
-        "explanation": "Le clivage par papaïne sépare deux Fab liant l’antigène et un Fc."
-      },
-      {
-        "content": "Elle est localisée exclusivement dans la lumière du réticulum endoplasmique.",
-        "correct": false,
-        "explanation": "Les plaques d’adhésion focales assurent un couplage mécanique et de signalisation vers l’actine."
-      },
-      {
-        "content": "Ils sont dépourvus de tout domaine de fixation de nucléotide.",
-        "correct": false,
-        "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
-      }
-    ],
-    "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal. Le clivage par papaïne sépare deux Fab liant l’antigène et un Fc. Les plaques d’adhésion focales assurent un couplage mécanique et de signalisation vers l’actine."
-  },
-  {
-    "order": 117,
-    "difficulty": "HARD",
     "format": "QROC",
-    "question": "Maîtrise de synthèse — combien de fragments Fab la papaïne produit-elle à partir d’une IgG ?",
+    "question": "Combien de sous-unités alpha et bêta, prises ensemble, composent un hétérodimère d'intégrine ?",
     "answer": {
       "type": "number",
       "value": 2,
       "tolerance": 0
     },
-    "explanation": "Le clivage par papaïne sépare deux Fab liant l’antigène et un Fc."
+    "explanation": "Une intégrine fonctionnelle associe une sous-unité alpha et une sous-unité bêta."
+  },
+  {
+    "order": 114,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Concernant les chaînes légères des immunoglobulines humaines, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Les seules chaînes légères humaines sont alpha et gamma.",
+        "correct": false,
+        "explanation": "α et γ sont des chaînes lourdes."
+      },
+      {
+        "content": "La chaîne légère ne possède aucun domaine variable.",
+        "correct": false,
+        "explanation": "Elle possède un domaine VL."
+      },
+      {
+        "content": "Une immunoglobuline H2L2 contient obligatoirement une chaîne κ et une λ.",
+        "correct": false,
+        "explanation": "Les deux chaînes légères sont du même type."
+      },
+      {
+        "content": "Les deux types de chaînes légères sont kappa et lambda.",
+        "correct": true,
+        "explanation": "Une immunoglobuline donnée porte l'un ou l'autre type."
+      },
+      {
+        "content": "Les chaînes légères participent au site de liaison à l'antigène.",
+        "correct": true,
+        "explanation": "Le domaine VL contribue au paratope."
+      }
+    ],
+    "explanation": "Les chaînes légères humaines sont κ ou λ ; la classe de l'Ig dépend en revanche de la chaîne lourde."
+  },
+  {
+    "order": 115,
+    "difficulty": "HARD",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant les domaines d'immunoglobuline, laquelle est correcte ?",
+    "choices": [
+      {
+        "content": "Un pont disulfure intradomaine stabilise de nombreux domaines d'Ig.",
+        "correct": true,
+        "explanation": "Des cystéines conservées participent à cette stabilisation."
+      },
+      {
+        "content": "Les domaines d'Ig sont dépourvus de toute structure secondaire bêta.",
+        "correct": false,
+        "explanation": "Ils sont au contraire riches en brins bêta."
+      },
+      {
+        "content": "Un domaine d'Ig est formé de sept domaines bêta distincts.",
+        "correct": false,
+        "explanation": "Il s'agit de brins bêta organisés en feuillets, pas de sept domaines."
+      },
+      {
+        "content": "Le repliement immunoglobuline est une unique hélice alpha.",
+        "correct": false,
+        "explanation": "Il s'agit d'un sandwich bêta."
+      },
+      {
+        "content": "Les domaines variables sont situés exclusivement aux extrémités C-terminales.",
+        "correct": false,
+        "explanation": "Ils sont N-terminaux."
+      }
+    ],
+    "explanation": "Un domaine d'immunoglobuline est un module compact en sandwich bêta, et non une succession de « domaines bêta »."
+  },
+  {
+    "order": 116,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant les fragments Fab et Fc d'une IgG ?",
+    "choices": [
+      {
+        "content": "Le Fc contient les deux sites de reconnaissance antigénique.",
+        "correct": false,
+        "explanation": "Ils se trouvent dans les Fab."
+      },
+      {
+        "content": "Le Fc peut interagir avec des récepteurs Fc et des éléments du complément selon la classe.",
+        "correct": true,
+        "explanation": "Il ne porte pas le site antigénique principal."
+      },
+      {
+        "content": "Le fragment Fc est constitué des régions C-terminales des chaînes lourdes.",
+        "correct": true,
+        "explanation": "Il porte des fonctions effectrices de l'anticorps."
+      },
+      {
+        "content": "Chaque fragment Fab conserve un site de liaison à l'antigène.",
+        "correct": true,
+        "explanation": "Fab signifie fragment antigen binding."
+      },
+      {
+        "content": "La papaïne produit un seul Fab et deux Fc.",
+        "correct": false,
+        "explanation": "Elle produit deux Fab et un Fc."
+      }
+    ],
+    "explanation": "La papaïne clive classiquement une IgG en 2 Fab capables de lier l'antigène et 1 Fc effecteur."
+  },
+  {
+    "order": 117,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Quelle forme moléculaire domine pour l'IgA sécrétoire humaine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "dimère",
+        "dimérique",
+        "IgA dimérique",
+        "dimerique"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Il faut distinguer l'IgA sérique, surtout monomérique, de l'IgA sécrétoire, surtout dimérique ; l'IgM sécrétée est classiquement pentamérique."
   },
   {
     "order": 118,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez le rôle des cations dans l’interaction des intégrines, le récepteur GABA-A et les récepteurs ionotropiques.",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Ca2+ et Mg2+ peuvent soutenir la liaison des intégrines à leurs ligands.",
+        "content": "Beaucoup se lient à l'ADN sous forme de dimères.",
         "correct": true,
-        "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands."
+        "explanation": "Des homodimères et hétérodimères sont fréquents."
       },
       {
-        "content": "Chez un neurone mature, l’ouverture favorise généralement une entrée de Cl− et une hyperpolarisation.",
+        "content": "La liaison du ligand peut modifier le recrutement de corégulateurs.",
         "correct": true,
-        "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
+        "explanation": "Coactivateurs et corépresseurs modulent la transcription."
       },
       {
-        "content": "La fixation du ligand ferme toujours tous les canaux.",
+        "content": "Le Fc contient à lui seul le paratope complet de l'anticorps.",
         "correct": false,
-        "explanation": "Les ionotropiques associent réception du ligand et ouverture d’un canal."
+        "explanation": "Le paratope est porté par les régions variables des Fab."
       },
       {
-        "content": "Na+ et K+ sont les seuls cations indispensables à la liaison des intégrines.",
+        "content": "Le Fc ne peut interagir avec aucune cellule.",
         "correct": false,
-        "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands."
+        "explanation": "Il interagit avec des récepteurs Fc."
+      },
+      {
+        "content": "La région Fc ne détermine pas la spécificité fine de reconnaissance de l'épitope.",
+        "correct": true,
+        "explanation": "Cette spécificité dépend des régions variables des Fab."
+      },
+      {
+        "content": "Le Fc contribue aux propriétés pharmacocinétiques des IgG.",
+        "correct": true,
+        "explanation": "Il interagit notamment avec FcRn."
+      },
+      {
+        "content": "Certaines classes d'Ig peuvent activer le complément via leur région Fc.",
+        "correct": true,
+        "explanation": "La capacité varie selon la classe et la sous-classe."
+      },
+      {
+        "content": "Ils forment toujours exactement le même homodimère.",
+        "correct": false,
+        "explanation": "Le mode d'association varie selon le récepteur."
+      },
+      {
+        "content": "Le Fc est identique dans toutes les classes d'immunoglobulines.",
+        "correct": false,
+        "explanation": "Les régions constantes de chaîne lourde diffèrent selon la classe."
+      },
+      {
+        "content": "Le Fc est un glucide libre détaché de la protéine.",
+        "correct": false,
+        "explanation": "Il s'agit d'un fragment protéique glycosylé."
       }
     ],
-    "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands. Le GABA-A illustre une réponse ionotrope inhibitrice. Les ionotropiques associent réception du ligand et ouverture d’un canal."
+    "explanation": "Le Fc porte les principales fonctions effectrices et de transport, tandis que les Fab portent la reconnaissance antigénique. Les récepteurs nucléaires sont des facteurs de transcription dont la localisation et le mode de dimérisation varient selon la famille."
   },
   {
     "order": 119,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez l’antigène et l’épitope, la distinction entre canal et pompe et les trois types de sélectines.",
-    "choices": [
-      {
-        "content": "Un même antigène peut contenir plusieurs épitopes.",
-        "correct": true,
-        "explanation": "L’épitope est le motif effectivement reconnu par l’anticorps."
-      },
-      {
-        "content": "Un canal suit le gradient électrochimique.",
-        "correct": true,
-        "explanation": "Canal et pompe se distinguent notamment par la possibilité d’un transport actif contre gradient."
-      },
-      {
-        "content": "La sélectine P est un récepteur nucléaire à la progestérone.",
-        "correct": false,
-        "explanation": "E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
-      },
-      {
-        "content": "Un antigène ne peut contenir qu’un seul épitope.",
-        "correct": false,
-        "explanation": "L’épitope est le motif effectivement reconnu par l’anticorps."
+    "format": "QROC",
+    "question": "Quel fragment d'une IgG porte principalement les fonctions effectrices via les récepteurs Fc ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "Fc",
+        "fragment Fc",
+        "région Fc"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "L’épitope est le motif effectivement reconnu par l’anticorps. Canal et pompe se distinguent notamment par la possibilité d’un transport actif contre gradient. E, L et P renvoient respectivement à endothéliale, leucocyte et plaquette."
+    },
+    "explanation": "Le Fc porte les principales fonctions effectrices et de transport, tandis que les Fab portent la reconnaissance antigénique."
   },
   {
     "order": 120,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez le peptide J, le rôle des cations dans l’interaction des intégrines et la structure H2L2 des immunoglobulines.",
-    "choices": [
-      {
-        "content": "Le peptide J relie les sous-unités de l’IgA dimérique.",
-        "correct": true,
-        "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM."
-      },
-      {
-        "content": "Ca2+ et Mg2+ peuvent soutenir la liaison des intégrines à leurs ligands.",
-        "correct": true,
-        "explanation": "Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands."
-      },
-      {
-        "content": "Une immunoglobuline comporte quatre chaînes lourdes.",
-        "correct": false,
-        "explanation": "Une immunoglobuline conventionnelle associe deux chaînes lourdes identiques et deux chaînes légères identiques : H2L2."
-      },
-      {
-        "content": "Le peptide J est un domaine transmembranaire du récepteur à l’insuline.",
-        "correct": false,
-        "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM."
-      }
-    ],
-    "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM. Des cations divalents, notamment Ca2+ et Mg2+, modulent la liaison des intégrines à leurs ligands. Une immunoglobuline conventionnelle associe deux chaînes lourdes identiques et deux chaînes légères identiques : H2L2."
+    "format": "QROC",
+    "question": "Combien de récepteurs nucléaires sont codés par le génome humain ?",
+    "answer": {
+      "type": "number",
+      "value": 48,
+      "tolerance": 0
+    },
+    "explanation": "Les 48 récepteurs nucléaires humains sont des facteurs de transcription modulaires ; certains sont orphelins."
   },
   {
     "order": 121,
     "difficulty": "HARD",
     "format": "QRP",
-    "question": "Maîtrise de synthèse : sélectionnez exactement les trois affirmations correctes.",
-    "requiredSelectionCount": 3,
+    "question": "Parmi les affirmations suivantes concernant le fonctionnement des récepteurs nucléaires, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "Le domaine extracellulaire peut assurer la reconnaissance du ligand.",
-        "correct": true,
-        "explanation": "Le schéma général distingue domaines extracellulaire, transmembranaire et cytoplasmique."
-      },
-      {
-        "content": "Les récepteurs nucléaires forment une famille de récepteurs intracellulaires régulant la transcription.",
-        "correct": true,
-        "explanation": "Les récepteurs nucléaires sont intracellulaires."
-      },
-      {
-        "content": "L’acide rétinoïque et la forme active de la vitamine D sont des ligands de récepteurs nucléaires.",
-        "correct": true,
-        "explanation": "Les ligands de récepteurs nucléaires comprennent notamment des hormones stéroïdiennes et thyroïdiennes, l’acide rétinoïque et la forme active de la vitamine D."
-      },
-      {
-        "content": "Leur activation ouvre directement un canal Na+.",
+        "content": "Ils agissent sans interaction avec l'ADN ni avec des protéines régulatrices.",
         "correct": false,
-        "explanation": "Le ligand conduit à une action transcriptionnelle nucléaire."
+        "explanation": "Ils régulent l'expression génique via ADN et corégulateurs."
+      },
+      {
+        "content": "Tous les récepteurs nucléaires sont obligatoirement cytoplasmiques avant ligand.",
+        "correct": false,
+        "explanation": "Certains sont constitutivement nucléaires."
+      },
+      {
+        "content": "La liaison du ligand peut modifier le recrutement de corégulateurs.",
+        "correct": true,
+        "explanation": "Coactivateurs et corépresseurs modulent la transcription."
+      },
+      {
+        "content": "Beaucoup se lient à l'ADN sous forme de dimères.",
+        "correct": true,
+        "explanation": "Des homodimères et hétérodimères sont fréquents."
+      },
+      {
+        "content": "Ils forment toujours exactement le même homodimère.",
+        "correct": false,
+        "explanation": "Le mode d'association varie selon le récepteur."
       }
     ],
-    "explanation": "Cette question croise plusieurs repères de la section ; chaque proposition doit être évaluée séparément."
+    "explanation": "Les récepteurs nucléaires sont des facteurs de transcription dont la localisation et le mode de dimérisation varient selon la famille.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 122,
     "difficulty": "HARD",
-    "format": "QRPL",
-    "question": "Maîtrise de synthèse : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant le récepteur de l'insuline ?",
     "choices": [
       {
-        "content": "Le récepteur à l’insuline est un hétérotétramère comportant des chaînes α et β.",
+        "content": "Les sous-unités alpha sont extracellulaires.",
         "correct": true,
-        "explanation": "Le récepteur à l’insuline associe chaînes α extracellulaires et β transmembranaires à activité tyrosine kinase."
+        "explanation": "Elles participent à la fixation de l'insuline."
       },
       {
-        "content": "La signalisation insulinique peut emprunter la voie IRS/PI3K/PIP3/PKB.",
+        "content": "Des ponts disulfure contribuent à maintenir l'assemblage du récepteur.",
         "correct": true,
-        "explanation": "Après activation du récepteur à l’insuline, IRS peut recruter PI3K et conduire à l’activation de PKB/Akt via PIP3."
+        "explanation": "Le récepteur mature est covalentement associé."
       },
       {
-        "content": "Le fonctionnement de la protéine G dépend de la fixation de GTP.",
+        "content": "Le récepteur mature est un hétérotétramère alpha2bêta2.",
         "correct": true,
-        "explanation": "Les RCPG constituent une vaste famille de récepteurs à sept traversées."
+        "explanation": "Deux sous-unités α et deux β forment le récepteur."
       },
       {
-        "content": "La rhodopsine est une protéine des bâtonnets de la rétine.",
+        "content": "Les sous-unités bêta traversent la membrane et portent l'activité tyrosine kinase.",
         "correct": true,
-        "explanation": "La rhodopsine illustre un RCPG sensoriel activé par la lumière."
+        "explanation": "Le domaine kinase est cytoplasmique."
       },
       {
-        "content": "Ils sont rattachés à la famille des RCPG.",
-        "correct": true,
-        "explanation": "Les trois grands types de récepteurs opioïdes sont μ, δ et κ ; ce sont des RCPG."
-      },
-      {
-        "content": "Le récepteur ionotropique nécessite obligatoirement une sous-unité régulatrice soluble séparée.",
+        "content": "Il est dépourvu de toute activité enzymatique intrinsèque.",
         "correct": false,
-        "explanation": "Les ionotropiques associent réception du ligand et ouverture d’un canal."
-      },
-      {
-        "content": "Le 5-HT3 provoque une sortie massive de Cl− et une hyperpolarisation.",
-        "correct": false,
-        "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
-      },
-      {
-        "content": "Le GABA est une hormone stéroïdienne.",
-        "correct": false,
-        "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
-      },
-      {
-        "content": "La rhodopsine est un récepteur nucléaire des hormones thyroïdiennes.",
-        "correct": false,
-        "explanation": "La rhodopsine est un RCPG photosensible des bâtonnets rétiniens."
-      },
-      {
-        "content": "Chaque chaîne α du récepteur à l’insuline traverse sept fois la membrane.",
-        "correct": false,
-        "explanation": "Les chaînes α du récepteur à l’insuline sont extracellulaires ; les chaînes β traversent la membrane."
+        "explanation": "Il possède une activité tyrosine kinase."
       }
     ],
-    "explanation": "La sélection longue vérifie la maîtrise simultanée de plusieurs notions du chapitre."
+    "explanation": "Le récepteur de l'insuline est un hétérotétramère α2β2 dont les sous-unités β portent l'activité tyrosine kinase."
   }
 ];

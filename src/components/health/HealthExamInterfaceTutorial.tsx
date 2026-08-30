@@ -208,6 +208,7 @@ function toPassageQuestion(
           : null,
     canonicalQuestion: question,
     group: null,
+    themes: [],
     selectedChoiceIndexes: [],
     responsePayload: null,
     markedForReview: false,
@@ -365,20 +366,53 @@ export function HealthExamInterfaceTutorial() {
   }
 
   return (
-    <HealthMockExamSession
-      courseUnitId="interface-tutorial"
-      examSlug="interface-tutorial"
-      mode="tutorial"
-      passage={passage}
-      onLocalSubmit={(answersByAttemptQuestionId, elapsedSeconds) => {
-        setResult(
-          buildTutorialResults({
-            passage,
-            answersByAttemptQuestionId,
-            elapsedSeconds,
-          }),
-        );
-      }}
-    />
+    <div className="space-y-4">
+      <Card className="rounded-3xl border-border bg-card hover:bg-card">
+        <CardHeader>
+          <div className="space-y-3">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+              <div className="space-y-1">
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  Tutoriel d&apos;interface
+                </p>
+                <CardTitle className="text-xl text-heading">
+                  S&apos;entraîner à l&apos;interface d&apos;examen
+                </CardTitle>
+              </div>
+              <div className="flex flex-wrap items-start gap-2 sm:justify-end">
+                <Badge variant="outline" className="w-fit">
+                  Formats UNESS
+                </Badge>
+                <Badge variant="secondary" className="w-fit">
+                  6 questions
+                </Badge>
+              </div>
+            </div>
+            <div className="rounded-xl border border-default bg-neutral-secondary-soft p-4 text-xs text-muted-foreground space-y-1.5">
+              <p className="font-semibold text-heading text-sm">Consignes</p>
+              <p className="text-body">
+                {passage.instructions}
+              </p>
+            </div>
+          </div>
+        </CardHeader>
+      </Card>
+
+      <HealthMockExamSession
+        courseUnitId="interface-tutorial"
+        examSlug="interface-tutorial"
+        mode="tutorial"
+        passage={passage}
+        onLocalSubmit={(answersByAttemptQuestionId, elapsedSeconds) => {
+          setResult(
+            buildTutorialResults({
+              passage,
+              answersByAttemptQuestionId,
+              elapsedSeconds,
+            }),
+          );
+        }}
+      />
+    </div>
   );
 }

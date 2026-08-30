@@ -1,652 +1,747 @@
-/**
- * UE14 – Biologie cellulaire – Chapitre 7
- * Contenu pédagogique fondé sur la fiche 2024-2025 du Tutorat Santé de Reims.
- */
 import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
 
+/** UE14 Biologie cellulaire — Ch7 — Mitochondrie — Structure, membranes, import protéique et génome mitochondrial — V2 active */
 export const SECTION_A_QUESTIONS: SeedQuestion[] = [
   {
-    order: 1,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `À propos de la mitochondrie :`,
-    choices: [
-      `C’est un organite cellulaire complexe.`,
-      `Son origine est bactérienne.`,
-      `Elle est présente dans les hématies matures selon la fiche.`,
-      `Elle est présente chez les eucaryotes.`,
+    "order": 1,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Quelles propositions décrivent correctement l’organisation générale, l’origine et la dynamique mitochondriales ?",
+    "choices": [
+      {
+        "content": "Il est démontré que l’ancêtre mitochondrial était exactement l’espèce actuelle Rickettsia prowazekii.",
+        "correct": false,
+        "explanation": "L’ancêtre est rapproché des alphaprotéobactéries, mais il n’est pas identifié à une espèce actuelle unique."
+      },
+      {
+        "content": "La membrane interne forme des crêtes qui augmentent sa surface.",
+        "correct": true,
+        "explanation": "Les crêtes mitochondriales accroissent la surface disponible pour la chaîne respiratoire et l’ATP synthase."
+      },
+      {
+        "content": "Les hématies humaines matures possèdent de nombreuses mitochondries.",
+        "correct": false,
+        "explanation": "Les hématies humaines matures ont éliminé leurs mitochondries au cours de leur différenciation."
+      },
+      {
+        "content": "Une mitochondrie appartient au système endomembranaire classique RE–Golgi–endosomes.",
+        "correct": false,
+        "explanation": "La mitochondrie constitue un compartiment distinct du système endomembranaire classique."
+      },
+      {
+        "content": "La matrice mitochondriale est séparée du cytosol par deux membranes.",
+        "correct": true,
+        "explanation": "Pour atteindre la matrice, il faut franchir la membrane externe puis la membrane interne."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `La fiche présente la mitochondrie comme un organite complexe d’origine bactérienne, présent dans les cellules eucaryotes à l’exception des hématies.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-      `Exact : conforme aux éléments de la fiche.`,
-    ],
+    "explanation": "La mitochondrie est un organite dynamique à double membrane, issu d’une endosymbiose ancienne et renouvelé par fusion, fission et mitophagie."
   },
   {
-    order: 2,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Concernant l’origine de la mitochondrie :`,
-    choices: [
-      `Elle est reliée à une symbiose ancienne.`,
-      `La fiche évoque la colonisation d’une cellule eucaryote primitive par une bactérie aérobie.`,
-      `Cette origine aide à expliquer son génome propre.`,
-      `Elle dérive directement du noyau.`,
+    "order": 2,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Repérez l’unique proposition exacte concernant les membranes, crêtes et compartiments mitochondriaux.",
+    "choices": [
+      {
+        "content": "L’espace intermembranaire se situe entre les membranes externe et interne.",
+        "correct": true,
+        "explanation": "Il reçoit notamment les protons pompés par la chaîne respiratoire."
+      },
+      {
+        "content": "La glycolyse se déroule dans la matrice mitochondriale.",
+        "correct": false,
+        "explanation": "La glycolyse est cytosolique ; le pyruvate formé peut ensuite entrer dans la mitochondrie."
+      },
+      {
+        "content": "Le cholestérol est absent de toute membrane mitochondriale.",
+        "correct": false,
+        "explanation": "Il est peu abondant par rapport à la membrane plasmique mais il peut être présent et sert notamment de substrat à la stéroïdogenèse."
+      },
+      {
+        "content": "Les crêtes sont des replis de la membrane externe.",
+        "correct": false,
+        "explanation": "Les crêtes sont des replis de la membrane interne."
+      },
+      {
+        "content": "La membrane externe est aussi imperméable aux petits métabolites que la membrane interne.",
+        "correct": false,
+        "explanation": "La membrane externe est relativement perméable aux petites molécules grâce aux VDAC, contrairement à la membrane interne."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `L’origine endosymbiotique est mobilisée dans la fiche pour expliquer plusieurs particularités mitochondriales.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La membrane externe est relativement perméable aux petits métabolites, tandis que la membrane interne, riche en protéines et organisée en crêtes, maintient la force proton-motrice."
   },
   {
-    order: 3,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Les ordres de grandeur indiqués sont :`,
-    choices: [
-      `Longueur inférieure à 7 µm.`,
-      `Diamètre inférieur à 1 µm.`,
-      `Toujours une seule mitochondrie par cellule.`,
-      `Environ 1000 à 3000 mitochondries par cellule selon le contexte.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Le nombre et la morphologie varient selon le type et l’activité cellulaires.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-      `Exact : conforme aux éléments de la fiche.`,
-    ],
+    "order": 3,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Comment nomme-t-on l’autophagie sélective des mitochondries ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "mitophagie",
+        "mitophagy"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "La mitophagie élimine sélectivement des mitochondries endommagées ou devenues inutiles."
   },
   {
-    order: 4,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `La répartition des mitochondries :`,
-    choices: [
-      `Peut être uniforme dans le cytoplasme.`,
-      `Peut être spécialisée selon le type cellulaire.`,
-      `Dans le muscle, elles peuvent être disposées près des myofibrilles.`,
-      `Est toujours totalement aléatoire.`,
+    "order": 4,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Identifiez les affirmations justes au sujet de l’import des protéines mitochondriales.",
+    "choices": [
+      {
+        "content": "Le complexe SAM participe à l’assemblage de protéines β-tonneau dans la membrane externe.",
+        "correct": true,
+        "explanation": "SAM signifie Sorting and Assembly Machinery."
+      },
+      {
+        "content": "Les protéines de la matrice sont toutes codées par l’ADN mitochondrial.",
+        "correct": false,
+        "explanation": "La plupart sont codées par le noyau."
+      },
+      {
+        "content": "Le potentiel électrique de la membrane interne contribue à l’import de nombreuses protéines vers la matrice.",
+        "correct": true,
+        "explanation": "La composante électrique de la force proton-motrice favorise l’entrée de préséquences chargées positivement."
+      },
+      {
+        "content": "Toutes les protéines mitochondriales sont synthétisées sur des ribosomes mitochondriaux.",
+        "correct": false,
+        "explanation": "La majorité est synthétisée sur des ribosomes cytosoliques puis importée."
+      },
+      {
+        "content": "La peptidase matricielle MPP peut cliver certaines préséquences après import.",
+        "correct": true,
+        "explanation": "De nombreuses protéines de matrice sont maturées après translocation."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La localisation mitochondriale peut être adaptée aux besoins énergétiques locaux.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La majorité des protéines mitochondriales est codée par le noyau, synthétisée dans le cytosol puis importée par des complexes tels que TOM, TIM et SAM."
   },
   {
-    order: 5,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Concernant la dynamique mitochondriale :`,
-    choices: [
-      `Les mitochondries peuvent être fixes ou mobiles.`,
-      `Le cytosquelette peut participer à leur mobilité.`,
-      `Les mitochondries âgées peuvent être éliminées par autophagie dans le compartiment lysosomal.`,
-      `Elles ne peuvent jamais se diviser.`,
+    "order": 5,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "question": "Concernant le génome mitochondrial et l’autonomie limitée de l’organite, sélectionnez exactement les deux propositions exactes.",
+    "choices": [
+      {
+        "content": "L’hétéroplasmie signifie qu’une cellule ne contient qu’une seule copie d’ADN mitochondrial.",
+        "correct": false,
+        "explanation": "Elle désigne la coexistence de génomes mitochondriaux différents."
+      },
+      {
+        "content": "La réplication de l’ADN mitochondrial est strictement limitée à la phase S nucléaire.",
+        "correct": false,
+        "explanation": "La réplication mitochondriale n’est pas couplée de façon stricte à la phase S du cycle nucléaire."
+      },
+      {
+        "content": "L’ADN mitochondrial code toutes les protéines nécessaires à la mitochondrie.",
+        "correct": false,
+        "explanation": "La très grande majorité du protéome mitochondrial est d’origine nucléaire."
+      },
+      {
+        "content": "Une cellule peut contenir simultanément des molécules d’ADN mitochondrial normales et mutées.",
+        "correct": true,
+        "explanation": "Cette coexistence est appelée hétéroplasmie."
+      },
+      {
+        "content": "L’expression clinique d’une mutation mitochondriale peut dépendre d’un effet de seuil d’hétéroplasmie.",
+        "correct": true,
+        "explanation": "La proportion de génomes mutés nécessaire pour altérer une fonction varie selon le tissu et la mutation."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La fiche décrit une mobilité dépendant du cytosquelette, une division de mitochondries préexistantes et une élimination autophagique.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "Le génome mitochondrial humain est petit, circulaire, transmis habituellement par la mère et ne code qu’une fraction limitée du protéome mitochondrial.",
+    "requiredSelectionCount": 2
   },
   {
-    order: 6,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `La mitochondrie possède :`,
-    choices: [
-      `Une double membrane d’enveloppe.`,
-      `Un espace intermembranaire.`,
-      `Une matrice mitochondriale.`,
-      `Une enveloppe nucléaire autour de son ADNmt.`,
+    "order": 6,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Sur le thème de l’organisation générale, l’origine et la dynamique mitochondriales, quelles affirmations sont exactes ?",
+    "choices": [
+      {
+        "content": "L’origine mitochondriale est expliquée par une endosymbiose ancienne avec une bactérie apparentée aux alphaprotéobactéries.",
+        "correct": true,
+        "explanation": "Le modèle endosymbiotique explique notamment le génome propre, les ribosomes et la double membrane."
+      },
+      {
+        "content": "La morphologie mitochondriale peut varier selon le type et l’état physiologique de la cellule.",
+        "correct": true,
+        "explanation": "Les mitochondries forment un réseau dynamique dont la morphologie dépend notamment des besoins énergétiques."
+      },
+      {
+        "content": "Les mitochondries sont des organites statiques dont le nombre est fixé une fois pour toutes.",
+        "correct": false,
+        "explanation": "Le réseau mitochondrial est dynamique et subit fusion, fission, transport et renouvellement."
+      },
+      {
+        "content": "La mitochondrie peut se déplacer le long du cytosquelette.",
+        "correct": true,
+        "explanation": "Des moteurs moléculaires et le cytosquelette participent à sa distribution intracellulaire."
+      },
+      {
+        "content": "La mitophagie participe à l’élimination sélective de mitochondries endommagées.",
+        "correct": true,
+        "explanation": "La mitophagie est une forme d’autophagie sélective ciblant les mitochondries."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La mitochondrie possède deux membranes et deux espaces principaux, mais son ADNmt n’est pas entouré d’une enveloppe nucléaire.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La mitochondrie est un organite dynamique à double membrane, issu d’une endosymbiose ancienne et renouvelé par fusion, fission et mitophagie."
   },
   {
-    order: 7,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `À propos du génome mitochondrial :`,
-    choices: [
-      `Chaque mitochondrie comporte 2 à 10 copies d’ADNmt selon la fiche.`,
-      `L’ADNmt est distinct de l’ADN nucléaire.`,
-      `Il est enfermé dans un noyau mitochondrial.`,
-      `Il est cohérent avec l’origine bactérienne de l’organite.`,
+    "order": 7,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Parmi ces affirmations sur les membranes, crêtes et compartiments mitochondriaux, laquelle est exacte ?",
+    "choices": [
+      {
+        "content": "La membrane interne est librement perméable aux protons.",
+        "correct": false,
+        "explanation": "Sa faible perméabilité aux H+ est indispensable au maintien de la force proton-motrice."
+      },
+      {
+        "content": "La matrice contient les enzymes du cycle de Krebs.",
+        "correct": true,
+        "explanation": "La plupart des enzymes du cycle de l’acide citrique sont matricielles ; la succinate déshydrogénase est intégrée à la membrane interne."
+      },
+      {
+        "content": "Le cholestérol est absent de toute membrane mitochondriale.",
+        "correct": false,
+        "explanation": "Il est peu abondant par rapport à la membrane plasmique mais il peut être présent et sert notamment de substrat à la stéroïdogenèse."
+      },
+      {
+        "content": "Les crêtes sont des replis de la membrane externe.",
+        "correct": false,
+        "explanation": "Les crêtes sont des replis de la membrane interne."
+      },
+      {
+        "content": "La membrane externe est aussi imperméable aux petits métabolites que la membrane interne.",
+        "correct": false,
+        "explanation": "La membrane externe est relativement perméable aux petites molécules grâce aux VDAC, contrairement à la membrane interne."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `L’ADNmt est présent dans la matrice sans enveloppe nucléaire.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-      `Exact : conforme aux éléments de la fiche.`,
-    ],
+    "explanation": "La membrane externe est relativement perméable aux petits métabolites, tandis que la membrane interne, riche en protéines et organisée en crêtes, maintient la force proton-motrice."
   },
   {
-    order: 8,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Observe la figure suivante :
-
-![Organisation d’une mitochondrie](/images/training/ue14/biologie-cellulaire/mitochondrie/structure-compartiments-mitochondrie.png)
-
-Quelle(s) proposition(s) est(sont) correcte(s) ?`,
-    choices: [
-      `La membrane interne forme des crêtes.`,
-      `La matrice contient notamment ADNmt et ribosomes mitochondriaux.`,
-      `L’espace intermembranaire se situe entre les deux membranes.`,
-      `Le glycocalyx constitue le principal contenu de la matrice.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La figure résume les compartiments et constituants majeurs de la mitochondrie.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "order": 8,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quelle membrane mitochondriale forme les crêtes ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "membrane interne",
+        "la membrane interne",
+        "membrane mitochondriale interne"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Les crêtes sont des replis de la membrane interne."
   },
   {
-    order: 9,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `La membrane externe mitochondriale :`,
-    choices: [
-      `Comporte plus de protéines que la membrane plasmique selon la fiche.`,
-      `Contient de nombreuses porines.`,
-      `Échange avec le cytosol.`,
-      `Est dépourvue de tout système d’import.`,
+    "order": 9,
+    "difficulty": "EASY",
+    "format": "QRPL",
+    "question": "Parmi les dix propositions suivantes sur l’import des protéines mitochondriales, sélectionnez exactement les cinq exactes.",
+    "choices": [
+      {
+        "content": "Le complexe TOM constitue une porte d’entrée majeure à travers la membrane externe.",
+        "correct": true,
+        "explanation": "TOM signifie Translocase of the Outer Membrane."
+      },
+      {
+        "content": "Une protéine nucléaire destinée à la mitochondrie doit obligatoirement transiter par le Golgi.",
+        "correct": false,
+        "explanation": "L’import mitochondrial se fait directement depuis le cytosol sans passage obligatoire par le Golgi."
+      },
+      {
+        "content": "De nombreuses protéines destinées à la matrice portent une préséquence N-terminale amphipathique.",
+        "correct": true,
+        "explanation": "Cette préséquence peut être reconnue par la machinerie TOM/TIM23 puis clivée dans la matrice."
+      },
+      {
+        "content": "L’import de protéines dans la matrice est généralement compatible avec une protéine complètement repliée et oligomérique.",
+        "correct": false,
+        "explanation": "L’import classique via TOM/TIM nécessite en général un état non replié ou partiellement déplié."
+      },
+      {
+        "content": "Les complexes TIM participent à la translocation de protéines à travers ou dans la membrane interne.",
+        "correct": true,
+        "explanation": "TIM23 et TIM22 sont des voies majeures de la membrane interne."
+      },
+      {
+        "content": "Toutes les protéines mitochondriales sont synthétisées sur des ribosomes mitochondriaux.",
+        "correct": false,
+        "explanation": "La majorité est synthétisée sur des ribosomes cytosoliques puis importée."
+      },
+      {
+        "content": "La grande majorité des protéines mitochondriales est codée par le génome nucléaire.",
+        "correct": true,
+        "explanation": "La mitochondrie ne code qu’une petite fraction de son protéome ; la plupart des protéines sont importées."
+      },
+      {
+        "content": "Le potentiel électrique de la membrane interne contribue à l’import de nombreuses protéines vers la matrice.",
+        "correct": true,
+        "explanation": "La composante électrique de la force proton-motrice favorise l’entrée de préséquences chargées positivement."
+      },
+      {
+        "content": "Les protéines de la matrice sont toutes codées par l’ADN mitochondrial.",
+        "correct": false,
+        "explanation": "La plupart sont codées par le noyau."
+      },
+      {
+        "content": "Le complexe TOM est situé dans la membrane interne.",
+        "correct": false,
+        "explanation": "TOM est localisé dans la membrane externe."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La membrane externe assure des échanges et porte plusieurs systèmes d’import.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La majorité des protéines mitochondriales est codée par le noyau, synthétisée dans le cytosol puis importée par des complexes tels que TOM, TIM et SAM.",
+    "requiredSelectionCount": 5
   },
   {
-    order: 10,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Les porines de la membrane externe :`,
-    choices: [
-      `Sont des canaux ou pores aqueux.`,
-      `Participent au passage de petites molécules.`,
-      `Sont citées pour l’import d’ADP, de phosphate ou de pyruvate.`,
-      `Sont les sous-unités catalytiques F1 de l’ATP synthase.`,
+    "order": 10,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "À propos du génome mitochondrial et l’autonomie limitée de l’organite, sélectionnez les affirmations exactes.",
+    "choices": [
+      {
+        "content": "L’ADN mitochondrial est enfermé dans une enveloppe nucléaire propre.",
+        "correct": false,
+        "explanation": "Il se trouve dans la matrice sous forme de nucléoïdes, sans enveloppe nucléaire."
+      },
+      {
+        "content": "Le génome mitochondrial humain code 13 protéines de la phosphorylation oxydative.",
+        "correct": true,
+        "explanation": "Il code aussi 22 ARNt et 2 ARNr."
+      },
+      {
+        "content": "Le génome mitochondrial humain contient des introns abondants comparables à ceux de nombreux gènes nucléaires.",
+        "correct": false,
+        "explanation": "Il est très compact et ne présente pas cette organisation riche en introns."
+      },
+      {
+        "content": "L’ADN mitochondrial humain est une grande molécule linéaire organisée en chromosomes homologues.",
+        "correct": false,
+        "explanation": "Il s’agit d’un petit génome circulaire présent en plusieurs copies."
+      },
+      {
+        "content": "L’ADN mitochondrial humain mesure environ 16,6 kb.",
+        "correct": true,
+        "explanation": "Sa longueur est d’environ 16 569 paires de bases."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les porines sont des perméases passives de la membrane externe, distinctes de l’ATP synthase.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "Le génome mitochondrial humain est petit, circulaire, transmis habituellement par la mère et ne code qu’une fraction limitée du protéome mitochondrial."
   },
   {
-    order: 11,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `À propos des complexes TOM, TIM et SAM :`,
-    choices: [
-      `TOM intervient dans la translocation de protéines solubles à travers la membrane externe.`,
-      `TIM prolonge l’import vers la matrice à travers la membrane interne.`,
-      `SAM participe à l’insertion de protéines insolubles dans la membrane externe.`,
-      `Tous trois correspondent à des complexes de la chaîne respiratoire.`,
+    "order": 11,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant l’import des protéines mitochondriales, quelles propositions sont correctes ?",
+    "choices": [
+      {
+        "content": "Une protéine nucléaire destinée à la mitochondrie doit obligatoirement transiter par le Golgi.",
+        "correct": false,
+        "explanation": "L’import mitochondrial se fait directement depuis le cytosol sans passage obligatoire par le Golgi."
+      },
+      {
+        "content": "L’import de protéines dans la matrice est généralement compatible avec une protéine complètement repliée et oligomérique.",
+        "correct": false,
+        "explanation": "L’import classique via TOM/TIM nécessite en général un état non replié ou partiellement déplié."
+      },
+      {
+        "content": "Le potentiel électrique de la membrane interne contribue à l’import de nombreuses protéines vers la matrice.",
+        "correct": true,
+        "explanation": "La composante électrique de la force proton-motrice favorise l’entrée de préséquences chargées positivement."
+      },
+      {
+        "content": "La peptidase matricielle MPP peut cliver certaines préséquences après import.",
+        "correct": true,
+        "explanation": "De nombreuses protéines de matrice sont maturées après translocation."
+      },
+      {
+        "content": "Le complexe SAM participe à l’assemblage de protéines β-tonneau dans la membrane externe.",
+        "correct": true,
+        "explanation": "SAM signifie Sorting and Assembly Machinery."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Ces complexes concernent l’import et l’assemblage des protéines mitochondriales, non le transfert d’électrons.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La majorité des protéines mitochondriales est codée par le noyau, synthétisée dans le cytosol puis importée par des complexes tels que TOM, TIM et SAM."
   },
   {
-    order: 12,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Observe le schéma d’import :
-
-![Import des constituants](/images/training/ue14/biologie-cellulaire/mitochondrie/import-proteines-mitochondriales.png)
-
-Quelle(s) proposition(s) est(sont) correcte(s) ?`,
-    choices: [
-      `Une protéine soluble peut traverser TOM puis TIM.`,
-      `Une protéine insoluble peut être prise en charge par SAM.`,
-      `Le cholestérol dispose d’un système de transport spécifique.`,
-      `Toutes les protéines mitochondriales sont codées par l’ADNmt.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La plupart des protéines mitochondriales sont codées par le génome nucléaire et importées depuis le cytosol.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "order": 12,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Dans quel compartiment mitochondrial se déroule principalement le cycle de Krebs ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "matrice",
+        "matrice mitochondriale",
+        "dans la matrice"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "La plupart des enzymes du cycle de Krebs sont localisées dans la matrice."
   },
   {
-    order: 13,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `L’espace intermembranaire :`,
-    choices: [
-      `Est situé entre les membranes externe et interne.`,
-      `Est un lieu de transit de molécules et notamment de protons.`,
-      `Contient davantage de H+ que la matrice pendant la phosphorylation oxydative.`,
-      `Est le lieu principal de synthèse de l’ADNmt.`,
+    "order": 13,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Sur le thème du génome mitochondrial et l’autonomie limitée de l’organite, quelle proposition est juste ?",
+    "choices": [
+      {
+        "content": "L’ADN mitochondrial humain est une grande molécule linéaire organisée en chromosomes homologues.",
+        "correct": false,
+        "explanation": "Il s’agit d’un petit génome circulaire présent en plusieurs copies."
+      },
+      {
+        "content": "L’hétéroplasmie signifie qu’une cellule ne contient qu’une seule copie d’ADN mitochondrial.",
+        "correct": false,
+        "explanation": "Elle désigne la coexistence de génomes mitochondriaux différents."
+      },
+      {
+        "content": "L’ADN mitochondrial humain est circulaire.",
+        "correct": true,
+        "explanation": "Le génome mitochondrial humain est une petite molécule d’ADN circulaire."
+      },
+      {
+        "content": "L’ADN mitochondrial code toutes les protéines nécessaires à la mitochondrie.",
+        "correct": false,
+        "explanation": "La très grande majorité du protéome mitochondrial est d’origine nucléaire."
+      },
+      {
+        "content": "La réplication de l’ADN mitochondrial est strictement limitée à la phase S nucléaire.",
+        "correct": false,
+        "explanation": "La réplication mitochondriale n’est pas couplée de façon stricte à la phase S du cycle nucléaire."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le gradient protonique se constitue entre matrice et espace intermembranaire.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "Le génome mitochondrial humain est petit, circulaire, transmis habituellement par la mère et ne code qu’une fraction limitée du protéome mitochondrial."
   },
   {
-    order: 14,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `La membrane interne mitochondriale :`,
-    choices: [
-      `Présente des replis appelés crêtes.`,
-      `Est constituée d’environ 80 % de protéines selon la fiche.`,
-      `Porte des perméases et le complexe TIM.`,
-      `Est plus perméable que la membrane externe à toutes les petites molécules.`,
+    "order": 14,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "À propos de l’architecture et de la dynamique mitochondriales, quelles affirmations sont exactes ?",
+    "choices": [
+      {
+        "content": "La mitochondrie est un organite à double membrane.",
+        "correct": true,
+        "explanation": "Elle possède une membrane externe et une membrane interne distinctes."
+      },
+      {
+        "content": "La matrice mitochondriale est séparée du cytosol par deux membranes.",
+        "correct": true,
+        "explanation": "Pour atteindre la matrice, il faut franchir la membrane externe puis la membrane interne."
+      },
+      {
+        "content": "La membrane interne forme des crêtes qui augmentent sa surface.",
+        "correct": true,
+        "explanation": "Les crêtes mitochondriales accroissent la surface disponible pour la chaîne respiratoire et l’ATP synthase."
+      },
+      {
+        "content": "Les mitochondries sont des organites statiques dont le nombre est fixé une fois pour toutes.",
+        "correct": false,
+        "explanation": "Le réseau mitochondrial est dynamique et subit fusion, fission, transport et renouvellement."
+      },
+      {
+        "content": "La mitochondrie peut se déplacer le long du cytosquelette.",
+        "correct": true,
+        "explanation": "Des moteurs moléculaires et le cytosquelette participent à sa distribution intracellulaire."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La membrane interne est très riche en protéines et fortement spécialisée.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La mitochondrie est un organite dynamique à double membrane, issu d’une endosymbiose ancienne et renouvelé par fusion, fission et mitophagie."
   },
   {
-    order: 15,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Parmi les éléments associés à la membrane interne, la fiche cite :`,
-    choices: [
-      `Les quatre complexes de la chaîne respiratoire.`,
-      `L’ATP synthase.`,
-      `Des protéines de découplage UCP.`,
-      `Les antigènes du système ABO.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La membrane interne concentre les équipements de respiration, de phosphorylation et de découplage.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "order": 15,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel complexe constitue la porte d’entrée majeure des protéines à travers la membrane externe mitochondriale ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "TOM",
+        "complexe TOM",
+        "translocase TOM"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "TOM signifie Translocase of the Outer Membrane."
   },
   {
-    order: 16,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `La matrice mitochondriale contient notamment :`,
-    choices: [
-      `Des enzymes du cycle de Krebs.`,
-      `Des enzymes de β-oxydation des acides gras.`,
-      `Des ribosomes mitochondriaux.`,
-      `La majorité des antigènes glucidiques de l’hématie.`,
+    "order": 16,
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "question": "Deux affirmations seulement sont exactes à propos des membranes, crêtes et compartiments mitochondriaux. Lesquelles ?",
+    "choices": [
+      {
+        "content": "La membrane externe est aussi imperméable aux petits métabolites que la membrane interne.",
+        "correct": false,
+        "explanation": "La membrane externe est relativement perméable aux petites molécules grâce aux VDAC, contrairement à la membrane interne."
+      },
+      {
+        "content": "Le cholestérol est absent de toute membrane mitochondriale.",
+        "correct": false,
+        "explanation": "Il est peu abondant par rapport à la membrane plasmique mais il peut être présent et sert notamment de substrat à la stéroïdogenèse."
+      },
+      {
+        "content": "Les crêtes sont des replis de la membrane externe.",
+        "correct": false,
+        "explanation": "Les crêtes sont des replis de la membrane interne."
+      },
+      {
+        "content": "La membrane externe contient notamment des canaux VDAC, souvent appelés porines mitochondriales.",
+        "correct": true,
+        "explanation": "VDAC facilite le passage de nombreux petits métabolites à travers la membrane externe."
+      },
+      {
+        "content": "Les complexes respiratoires sont principalement localisés dans la membrane interne.",
+        "correct": true,
+        "explanation": "Les complexes I à IV et l’ATP synthase sont associés à la membrane interne."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La matrice réunit des enzymes métaboliques, l’ADNmt, des ribosomes et des granules ioniques.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La membrane externe est relativement perméable aux petits métabolites, tandis que la membrane interne, riche en protéines et organisée en crêtes, maintient la force proton-motrice.",
+    "requiredSelectionCount": 2
   },
   {
-    order: 17,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Les granules denses de la matrice sont associés dans la fiche à :`,
-    choices: [
-      `Des ions Ca2+.`,
-      `Des ions Mg2+.`,
-      `Des réserves de glycocalyx.`,
-      `La matrice finement granulaire.`,
+    "order": 17,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles propositions décrivent correctement l’import des protéines mitochondriales ?",
+    "choices": [
+      {
+        "content": "Les protéines de la matrice sont toutes codées par l’ADN mitochondrial.",
+        "correct": false,
+        "explanation": "La plupart sont codées par le noyau."
+      },
+      {
+        "content": "De nombreuses protéines destinées à la matrice portent une préséquence N-terminale amphipathique.",
+        "correct": true,
+        "explanation": "Cette préséquence peut être reconnue par la machinerie TOM/TIM23 puis clivée dans la matrice."
+      },
+      {
+        "content": "Toutes les protéines mitochondriales sont synthétisées sur des ribosomes mitochondriaux.",
+        "correct": false,
+        "explanation": "La majorité est synthétisée sur des ribosomes cytosoliques puis importée."
+      },
+      {
+        "content": "La grande majorité des protéines mitochondriales est codée par le génome nucléaire.",
+        "correct": true,
+        "explanation": "La mitochondrie ne code qu’une petite fraction de son protéome ; la plupart des protéines sont importées."
+      },
+      {
+        "content": "Le complexe TOM est situé dans la membrane interne.",
+        "correct": false,
+        "explanation": "TOM est localisé dans la membrane externe."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `La fiche mentionne des granules denses contenant notamment Ca2+ et Mg2+.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-      `Exact : conforme aux éléments de la fiche.`,
-    ],
+    "explanation": "La majorité des protéines mitochondriales est codée par le noyau, synthétisée dans le cytosol puis importée par des complexes tels que TOM, TIM et SAM."
   },
   {
-    order: 18,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `À propos de l’ADN mitochondrial :`,
-    choices: [
-      `Il est circulaire.`,
-      `Sa taille indiquée est d’environ 17 kb.`,
-      `Son code génétique peut différer du code nucléaire.`,
-      `Il est linéaire et enfermé dans une enveloppe nucléaire.`,
+    "order": 18,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Repérez l’unique proposition exacte concernant le génome mitochondrial et l’autonomie limitée de l’organite.",
+    "choices": [
+      {
+        "content": "L’ADN mitochondrial est enfermé dans une enveloppe nucléaire propre.",
+        "correct": false,
+        "explanation": "Il se trouve dans la matrice sous forme de nucléoïdes, sans enveloppe nucléaire."
+      },
+      {
+        "content": "Le génome mitochondrial humain contient des introns abondants comparables à ceux de nombreux gènes nucléaires.",
+        "correct": false,
+        "explanation": "Il est très compact et ne présente pas cette organisation riche en introns."
+      },
+      {
+        "content": "L’ADN mitochondrial humain est une grande molécule linéaire organisée en chromosomes homologues.",
+        "correct": false,
+        "explanation": "Il s’agit d’un petit génome circulaire présent en plusieurs copies."
+      },
+      {
+        "content": "La transmission de l’ADN mitochondrial est habituellement maternelle.",
+        "correct": true,
+        "explanation": "Chez l’humain, les mitochondries de l’embryon proviennent presque exclusivement de l’ovocyte."
+      },
+      {
+        "content": "L’hétéroplasmie signifie qu’une cellule ne contient qu’une seule copie d’ADN mitochondrial.",
+        "correct": false,
+        "explanation": "Elle désigne la coexistence de génomes mitochondriaux différents."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `L’ADNmt est petit, circulaire et non entouré d’une enveloppe nucléaire.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "Le génome mitochondrial humain est petit, circulaire, transmis habituellement par la mère et ne code qu’une fraction limitée du protéome mitochondrial."
   },
   {
-    order: 19,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Le génome mitochondrial est caractérisé par :`,
-    choices: [
-      `Une transmission maternelle selon la fiche.`,
-      `Une réplication indépendante de la phase S.`,
-      `Une autonomie complète vis-à-vis du génome nucléaire.`,
-      `Une autonomie limitée.`,
+    "order": 19,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant l’organisation générale, l’origine et la dynamique mitochondriales, quelles propositions sont correctes ?",
+    "choices": [
+      {
+        "content": "L’origine mitochondriale est expliquée par une endosymbiose ancienne avec une bactérie apparentée aux alphaprotéobactéries.",
+        "correct": true,
+        "explanation": "Le modèle endosymbiotique explique notamment le génome propre, les ribosomes et la double membrane."
+      },
+      {
+        "content": "Une mitochondrie appartient au système endomembranaire classique RE–Golgi–endosomes.",
+        "correct": false,
+        "explanation": "La mitochondrie constitue un compartiment distinct du système endomembranaire classique."
+      },
+      {
+        "content": "La mitophagie participe à l’élimination sélective de mitochondries endommagées.",
+        "correct": true,
+        "explanation": "La mitophagie est une forme d’autophagie sélective ciblant les mitochondries."
+      },
+      {
+        "content": "La morphologie mitochondriale peut varier selon le type et l’état physiologique de la cellule.",
+        "correct": true,
+        "explanation": "Les mitochondries forment un réseau dynamique dont la morphologie dépend notamment des besoins énergétiques."
+      },
+      {
+        "content": "Les hématies humaines matures possèdent de nombreuses mitochondries.",
+        "correct": false,
+        "explanation": "Les hématies humaines matures ont éliminé leurs mitochondries au cours de leur différenciation."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Le fonctionnement mitochondrial dépend largement de protéines codées par le noyau.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-      `Exact : conforme aux éléments de la fiche.`,
-    ],
+    "explanation": "La mitochondrie est un organite dynamique à double membrane, issu d’une endosymbiose ancienne et renouvelé par fusion, fission et mitophagie."
   },
   {
-    order: 20,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Le génome nucléaire contrôle le fonctionnement mitochondrial car :`,
-    choices: [
-      `Beaucoup de protéines mitochondriales sont codées par le noyau.`,
-      `Ces protéines sont synthétisées dans le cytosol puis importées.`,
-      `L’ADNmt code à lui seul toutes les protéines de l’organite.`,
-      `L’autonomie mitochondriale est limitée.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `La coopération entre génomes nucléaire et mitochondrial est indispensable.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-      `Exact : conforme aux éléments de la fiche.`,
-    ],
+    "order": 20,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel est le mode de transmission habituel de l’ADN mitochondrial humain ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "maternelle",
+        "transmission maternelle",
+        "maternel"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Chez l’humain, l’ADN mitochondrial est transmis presque exclusivement par l’ovocyte."
   },
   {
-    order: 21,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une protéine soluble codée par le noyau doit rejoindre la matrice. Le trajet le plus cohérent est :`,
-    choices: [
-      `Synthèse dans le cytosol.`,
-      `Passage par TOM.`,
-      `Passage par TIM.`,
-      `Insertion par SAM uniquement dans la membrane externe.`,
+    "order": 21,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Sur le thème des membranes, crêtes et compartiments mitochondriaux, quelle proposition est juste ?",
+    "choices": [
+      {
+        "content": "La glycolyse se déroule dans la matrice mitochondriale.",
+        "correct": false,
+        "explanation": "La glycolyse est cytosolique ; le pyruvate formé peut ensuite entrer dans la mitochondrie."
+      },
+      {
+        "content": "La membrane interne est librement perméable aux protons.",
+        "correct": false,
+        "explanation": "Sa faible perméabilité aux H+ est indispensable au maintien de la force proton-motrice."
+      },
+      {
+        "content": "Le cholestérol est absent de toute membrane mitochondriale.",
+        "correct": false,
+        "explanation": "Il est peu abondant par rapport à la membrane plasmique mais il peut être présent et sert notamment de substrat à la stéroïdogenèse."
+      },
+      {
+        "content": "Les crêtes sont des replis de la membrane externe.",
+        "correct": false,
+        "explanation": "Les crêtes sont des replis de la membrane interne."
+      },
+      {
+        "content": "La membrane interne est très riche en protéines.",
+        "correct": true,
+        "explanation": "Elle porte de nombreux transporteurs, les complexes respiratoires et l’ATP synthase."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `L’import vers la matrice associe classiquement TOM puis TIM dans le cadre du cours.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
+    "explanation": "La membrane externe est relativement perméable aux petits métabolites, tandis que la membrane interne, riche en protéines et organisée en crêtes, maintient la force proton-motrice."
   },
   {
-    order: 22,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une protéine insoluble destinée à la membrane externe peut faire intervenir :`,
-    choices: [
-      `Une synthèse cytosolique.`,
-      `Le complexe TOM au début de son adressage selon le schéma général.`,
-      `Le complexe SAM pour son assemblage membranaire.`,
-      `Le complexe IV comme machine d’insertion.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `SAM est la machine d’assemblage citée pour les protéines insolubles de la membrane externe.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 23,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une cellule très active énergétiquement pourrait présenter :`,
-    choices: [
-      `Un grand nombre de mitochondries.`,
-      `Une répartition mitochondriale adaptée aux zones consommatrices d’ATP.`,
-      `Des crêtes augmentant la surface de membrane interne.`,
-      `L’absence totale de cytosquelette.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le nombre, la répartition et la surface de membrane interne peuvent s’adapter à l’activité cellulaire.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 24,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `La dégradation d’une mitochondrie vieillissante :`,
-    choices: [
-      `Peut passer par l’autophagie.`,
-      `S’effectue dans le compartiment lysosomal.`,
-      `Illustre une coopération entre organites.`,
-      `Dépend nécessairement d’une fusion avec le noyau.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La fiche relie le renouvellement mitochondrial à l’autophagie et aux lysosomes.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 25,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `La double membrane mitochondriale permet de distinguer :`,
-    choices: [
-      `La membrane externe tournée vers le cytosol.`,
-      `La membrane interne portant la chaîne respiratoire.`,
-      `L’espace intermembranaire où s’accumulent les H+.`,
-      `Un lumen golgien interne.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les compartiments mitochondriaux ne correspondent pas aux citernes de Golgi.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 26,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une mutation d’une protéine nucléaire nécessaire au complexe TIM pourrait perturber :`,
-    choices: [
-      `L’import de protéines solubles vers la matrice.`,
-      `Le fonctionnement de nombreuses voies mitochondriales.`,
-      `L’autonomie limitée de l’organite.`,
-      `La présence des antigènes ABO sur l’hématie.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Une altération de TIM peut affecter des protéines codées par le noyau et destinées à la matrice.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 27,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Quelle(s) proposition(s) relie(nt) correctement structure et fonction ?`,
-    choices: [
-      `Les crêtes augmentent la surface disponible pour les protéines de la membrane interne.`,
-      `Les porines facilitent le passage de petites molécules à travers la membrane externe.`,
-      `La matrice contient les enzymes du cycle de Krebs.`,
-      `L’ADNmt se trouve dans l’espace extracellulaire.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Chaque compartiment porte des fonctions propres et complémentaires.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 28,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `L’absence de mitochondries dans les hématies matures est cohérente avec :`,
-    choices: [
-      `L’exception explicitement donnée dans la fiche.`,
-      `La nécessité d’éviter d’attribuer les structures mitochondriales à toutes les cellules eucaryotes sans exception.`,
-      `La présence néanmoins d’une membrane plasmique dans l’hématie.`,
-      `L’idée que toutes les cellules eucaryotes ont toujours 3000 mitochondries.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La fiche précise une exception importante : les hématies.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 29,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Les deux figures suivantes présentent la structure de la mitochondrie et l’import de ses constituants.
-
-![Organisation d’une mitochondrie](/images/training/ue14/biologie-cellulaire/mitochondrie/structure-compartiments-mitochondrie.png)
-
-![Import des constituants](/images/training/ue14/biologie-cellulaire/mitochondrie/import-proteines-mitochondriales.png)
-
-En croisant ces deux figures, quelle(s) proposition(s) est(sont) exacte(s) ?`,
-    choices: [
-      `Les membranes externe et interne portent des équipements différents.`,
-      `La matrice dépend d’imports depuis le cytosol.`,
-      `L’ADNmt suffit à produire toutes les protéines de l’organite.`,
-      `La compartimentation est essentielle au fonctionnement mitochondrial.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `La mitochondrie est autonome seulement de façon limitée et dépend d’imports nucléaires.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-      `Exact : conforme aux éléments de la fiche.`,
-    ],
-  },
-  {
-    order: 30,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Quelle conclusion résume le mieux la section ?`,
-    choices: [
-      `La mitochondrie associe double membrane, compartiments et génome propre.`,
-      `Sa structure est adaptée à l’import, au métabolisme et à la production d’énergie.`,
-      `Elle reste fortement dépendante du génome nucléaire.`,
-      `Elle appartient au système endomembranaire et ne possède aucun ADN.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La mitochondrie possède une organisation spécifique et une autonomie limitée.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue à la mitochondrie une propriété non décrite.`,
-    ],
-  },
+    "order": 22,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Comment nomme-t-on la coexistence de molécules d’ADN mitochondrial normales et mutées dans une même cellule ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "hétéroplasmie",
+        "heteroplasmie",
+        "hétéroplasmie mitochondriale"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Cette coexistence est appelée hétéroplasmie."
+  }
 ];
 
 export const SECTION_A_QUIZZES: SeedQuiz[] = [
   {
-    order: 1,
-    slug: `organisation-generale-mitochondrie`,
-    title: `Organisation générale de la mitochondrie`,
-    description: `Origine, morphologie, nombre, répartition et renouvellement.`,
-    stage: 'DISCOVER',
-    sectionOrder: 1,
-    questionOrders: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "order": 1,
+    "slug": "mitochondrie-1",
+    "title": "Mitochondrie : structure et origine",
+    "description": "Découvrir : mitochondrie : structure et origine.",
+    "stage": "DISCOVER",
+    "sectionOrder": 1,
+    "questionOrders": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
   },
   {
-    order: 2,
-    slug: `membranes-import-et-compartiments`,
-    title: `Membranes, import et compartiments`,
-    description: `Porines, TOM, TIM, SAM, membrane interne et matrice.`,
-    stage: 'PRACTICE',
-    sectionOrder: 1,
-    questionOrders: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
-  },
-  {
-    order: 3,
-    slug: `genome-et-integration-structure-fonction`,
-    title: `Génome et intégration structure-fonction`,
-    description: `ADNmt, autonomie limitée et raisonnement sur l’organisation mitochondriale.`,
-    stage: 'MASTER',
-    sectionOrder: 1,
-    questionOrders: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
-  },
+    "order": 2,
+    "slug": "mitochondrie-2",
+    "title": "Membranes, import et génome",
+    "description": "Approfondir : membranes, import et génome.",
+    "stage": "PRACTICE",
+    "sectionOrder": 1,
+    "questionOrders": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ]
+  }
 ];

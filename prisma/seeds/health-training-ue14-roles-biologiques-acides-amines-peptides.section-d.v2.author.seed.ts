@@ -1,980 +1,1098 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
+/** UE14 Biochimie — Rôles biologiques des acides aminés et des peptides — Section D — Facteurs de croissance, cytokines, neuromédiateurs et amyloïde */
 export const UE14_BIOCH_CH11_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 67,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant l’ANP et le BNP :",
+    "question": "Concernant l’ANP et le BNP, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "L’ANP mature comporte 28 acides aminés.",
-        "correct": true,
-        "explanation": "L’ANP mature comporte 28 acides aminés et le BNP mature 32 ; tous deux participent à la régulation hydro-sodée."
-      },
-      {
-        "content": "Le BNP mature comporte 32 acides aminés.",
-        "correct": true,
-        "explanation": "L’ANP mature comporte 28 acides aminés et le BNP mature 32 ; tous deux participent à la régulation hydro-sodée."
-      },
-      {
-        "content": "L’ANP mature comporte 280 acides aminés.",
+        "content": "Le BNP est produit exclusivement par les neurones.",
         "correct": false,
-        "explanation": "L’ANP mature comporte 28 acides aminés et le BNP mature 32 ; tous deux participent à la régulation hydro-sodée."
+        "explanation": "Le cœur est sa source clinique majeure."
       },
       {
-        "content": "Le BNP est une protéine de 3200 acides aminés.",
+        "content": "Ils diminuent systématiquement le GMPc.",
         "correct": false,
-        "explanation": "L’ANP mature comporte 28 acides aminés et le BNP mature 32 ; tous deux participent à la régulation hydro-sodée."
+        "explanation": "Leurs récepteurs augmentent le GMPc."
+      },
+      {
+        "content": "Ils sont dépourvus de toute action rénale.",
+        "correct": false,
+        "explanation": "Ils favorisent la natriurèse."
+      },
+      {
+        "content": "L’ANP est particulièrement libéré par les oreillettes en réponse à leur distension.",
+        "correct": true,
+        "explanation": "Son nom historique Atrial Natriuretic Peptide reflète cette origine."
+      },
+      {
+        "content": "Le BNP augmente notamment lors d’une augmentation de la tension pariétale ventriculaire.",
+        "correct": true,
+        "explanation": "Il est utile dans l’insuffisance cardiaque."
       }
     ],
-    "explanation": "L’ANP mature comporte 28 acides aminés et le BNP mature 32 ; tous deux participent à la régulation hydro-sodée."
+    "explanation": "ANP et BNP sont des peptides cardiaques qui activent des récepteurs guanylate cyclase et augmentent le GMPc."
   },
   {
     "order": 68,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Combien d’acides aminés comporte le BNP mature ?",
+    "question": "Parmi les affirmations suivantes concernant l’ANP et le BNP, laquelle est correcte ?",
     "choices": [
       {
-        "content": "32",
+        "content": "Ils sont dépourvus de toute action rénale.",
+        "correct": false,
+        "explanation": "Ils favorisent la natriurèse."
+      },
+      {
+        "content": "Ils diminuent systématiquement le GMPc.",
+        "correct": false,
+        "explanation": "Leurs récepteurs augmentent le GMPc."
+      },
+      {
+        "content": "Le BNP est produit exclusivement par les neurones.",
+        "correct": false,
+        "explanation": "Le cœur est sa source clinique majeure."
+      },
+      {
+        "content": "L’ANP est particulièrement libéré par les oreillettes en réponse à leur distension.",
         "correct": true,
-        "explanation": "L’ANP mature comporte 28 acides aminés et le BNP mature 32 ; tous deux participent à la régulation hydro-sodée."
+        "explanation": "Son nom historique Atrial Natriuretic Peptide reflète cette origine."
       },
       {
-        "content": "28",
+        "content": "ANP et BNP sont des catécholamines.",
         "correct": false,
-        "explanation": "L’ANP mature comporte 28 acides aminés et le BNP mature 32 ; tous deux participent à la régulation hydro-sodée."
-      },
-      {
-        "content": "100",
-        "correct": false,
-        "explanation": "L’ANP mature comporte 28 acides aminés et le BNP mature 32 ; tous deux participent à la régulation hydro-sodée."
-      },
-      {
-        "content": "3",
-        "correct": false,
-        "explanation": "L’ANP mature comporte 28 acides aminés et le BNP mature 32 ; tous deux participent à la régulation hydro-sodée."
+        "explanation": "Ce sont des hormones peptidiques."
       }
     ],
-    "explanation": "L’ANP mature comporte 28 acides aminés et le BNP mature 32 ; tous deux participent à la régulation hydro-sodée."
+    "explanation": "ANP et BNP sont des peptides cardiaques qui activent des récepteurs guanylate cyclase et augmentent le GMPc."
   },
   {
     "order": 69,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant les effets des peptides natriurétiques :",
-    "choices": [
-      {
-        "content": "Ils favorisent la natriurèse.",
-        "correct": true,
-        "explanation": "Leur nom renvoie directement à l’excrétion de sodium."
-      },
-      {
-        "content": "Ils favorisent aussi la diurèse et une baisse de la pression artérielle.",
-        "correct": true,
-        "explanation": "Leur nom renvoie directement à l’excrétion de sodium."
-      },
-      {
-        "content": "Ils provoquent une rétention sodée obligatoire.",
-        "correct": false,
-        "explanation": "Leur nom renvoie directement à l’excrétion de sodium."
-      },
-      {
-        "content": "Ils augmentent systématiquement la pression artérielle.",
-        "correct": false,
-        "explanation": "Leur nom renvoie directement à l’excrétion de sodium."
+    "format": "QROC",
+    "question": "Quel terme désigne l’augmentation de l’excrétion urinaire de sodium ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "natriurèse",
+        "natriurese"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Leur nom renvoie directement à l’excrétion de sodium."
+    },
+    "explanation": "Les peptides natriurétiques favorisent natriurèse, diurèse et réduction du volume/pression."
   },
   {
     "order": 70,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel effet rénal est associé au BNP ?",
+    "format": "QRM",
+    "question": "Concernant les effets des peptides natriurétiques, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "une augmentation de la natriurèse",
+        "content": "Ils favorisent la natriurèse.",
         "correct": true,
-        "explanation": "Leur nom renvoie directement à l’excrétion de sodium."
+        "explanation": "Ils augmentent l’excrétion rénale de sodium."
       },
       {
-        "content": "une suppression totale de la diurèse",
+        "content": "Ils augmentent obligatoirement la pression artérielle.",
         "correct": false,
-        "explanation": "Leur nom renvoie directement à l’excrétion de sodium."
+        "explanation": "Ils tendent à la diminuer."
       },
       {
-        "content": "une rétention sodée exclusive",
-        "correct": false,
-        "explanation": "Leur nom renvoie directement à l’excrétion de sodium."
+        "content": "Ils peuvent favoriser la diurèse.",
+        "correct": true,
+        "explanation": "L’excrétion d’eau accompagne les effets hydro-sodés."
       },
       {
-        "content": "aucun effet hydro-sodé",
+        "content": "Ils n’ont aucun effet rénal.",
         "correct": false,
-        "explanation": "Leur nom renvoie directement à l’excrétion de sodium."
+        "explanation": "Le rein est une cible majeure."
+      },
+      {
+        "content": "Ils inhibent notamment la sécrétion de rénine et d’aldostérone dans plusieurs contextes.",
+        "correct": true,
+        "explanation": "Ils antagonisent le système rénine-angiotensine-aldostérone."
       }
     ],
-    "explanation": "Leur nom renvoie directement à l’excrétion de sodium."
+    "explanation": "Les peptides natriurétiques favorisent natriurèse, diurèse et réduction du volume/pression."
   },
   {
     "order": 71,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant le BNP et le NT-proBNP en biologie clinique :",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant le BNP et le NT-proBNP en biologie clinique, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Leur dosage peut aider au diagnostic d’insuffisance cardiaque.",
-        "correct": true,
-        "explanation": "C’est un contexte clinique classique de dosage de peptides."
-      },
-      {
-        "content": "Le NT-proBNP est décrit comme un fragment biologiquement inactif issu du pro-BNP.",
-        "correct": true,
-        "explanation": "C’est un contexte clinique classique de dosage de peptides."
-      },
-      {
-        "content": "Ils servent uniquement à diagnostiquer une galactosémie.",
+        "content": "Un taux élevé suffit à lui seul à diagnostiquer toute dyspnée comme insuffisance cardiaque.",
         "correct": false,
-        "explanation": "C’est un contexte clinique classique de dosage de peptides."
+        "explanation": "Le biomarqueur doit être interprété dans le contexte."
       },
       {
-        "content": "Le NT-proBNP est l’hormone active principale responsable de la natriurèse.",
+        "content": "Le BNP est un stéroïde.",
         "correct": false,
-        "explanation": "C’est un contexte clinique classique de dosage de peptides."
+        "explanation": "C’est un peptide."
+      },
+      {
+        "content": "Le NT-proBNP possède une demi-vie circulante plus longue que le BNP.",
+        "correct": true,
+        "explanation": "Cela contribue à des concentrations plasmatiques plus élevées."
+      },
+      {
+        "content": "Le NT-proBNP est une hormone hyperglycémiante pancréatique.",
+        "correct": false,
+        "explanation": "C’est un fragment du proBNP."
+      },
+      {
+        "content": "Le NT-proBNP est produit par clivage de l’insuline.",
+        "correct": false,
+        "explanation": "Il dérive du proBNP."
       }
     ],
-    "explanation": "C’est un contexte clinique classique de dosage de peptides."
+    "explanation": "BNP actif et NT-proBNP marqueur sont issus du proBNP ; leur dosage aide à évaluer l’insuffisance cardiaque."
   },
   {
     "order": 72,
     "difficulty": "EASY",
-    "format": "QROC",
-    "question": "Réponse numérique : combien d’acides aminés comporte le BNP mature ?",
-    "answer": {
-      "type": "number",
-      "value": 32,
-      "tolerance": 0
-    },
-    "explanation": "Le BNP mature comporte 32 acides aminés."
+    "format": "QRP",
+    "question": "Concernant le BNP et le NT-proBNP en biologie clinique, sélectionnez exactement les deux affirmations exactes.",
+    "choices": [
+      {
+        "content": "BNP et NT-proBNP peuvent aider au diagnostic et au suivi de l’insuffisance cardiaque.",
+        "correct": true,
+        "explanation": "Leur interprétation dépend de l’âge, de la fonction rénale et du contexte clinique."
+      },
+      {
+        "content": "Le NT-proBNP est une hormone hyperglycémiante pancréatique.",
+        "correct": false,
+        "explanation": "C’est un fragment du proBNP."
+      },
+      {
+        "content": "Le BNP est un stéroïde.",
+        "correct": false,
+        "explanation": "C’est un peptide."
+      },
+      {
+        "content": "Le NT-proBNP est produit par clivage de l’insuline.",
+        "correct": false,
+        "explanation": "Il dérive du proBNP."
+      },
+      {
+        "content": "Le NT-proBNP est biologiquement beaucoup moins actif que le BNP.",
+        "correct": true,
+        "explanation": "Il sert principalement de biomarqueur."
+      }
+    ],
+    "explanation": "BNP actif et NT-proBNP marqueur sont issus du proBNP ; leur dosage aide à évaluer l’insuffisance cardiaque.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 73,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant les facteurs de croissance :",
+    "question": "Concernant les facteurs de croissance, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Ils se fixent sur des récepteurs spécifiques.",
+        "content": "Leur dérégulation peut contribuer à des maladies dont des cancers.",
         "correct": true,
-        "explanation": "EGF, TGFβ, IGF et FGF sont des exemples de signalisation par récepteur."
+        "explanation": "Les voies de croissance sont fortement régulées."
       },
       {
-        "content": "Ils déclenchent des signaux contrôlant notamment prolifération et expression génique.",
+        "content": "Ils peuvent contrôler prolifération, survie, migration ou différenciation.",
         "correct": true,
-        "explanation": "EGF, TGFβ, IGF et FGF sont des exemples de signalisation par récepteur."
+        "explanation": "Leur effet dépend du facteur et du tissu."
       },
       {
-        "content": "Ils agissent sans aucun récepteur.",
-        "correct": false,
-        "explanation": "EGF, TGFβ, IGF et FGF sont des exemples de signalisation par récepteur."
+        "content": "Ils se lient à des récepteurs spécifiques.",
+        "correct": true,
+        "explanation": "La liaison déclenche une signalisation intracellulaire."
       },
       {
-        "content": "Ils sont tous des acides gras saturés.",
+        "content": "Tous les facteurs de croissance ont exactement le même récepteur.",
         "correct": false,
-        "explanation": "EGF, TGFβ, IGF et FGF sont des exemples de signalisation par récepteur."
+        "explanation": "Les familles sont diverses."
+      },
+      {
+        "content": "EGF, TGF-bêta, IGF et FGF sont des exemples de familles de facteurs de croissance.",
+        "correct": true,
+        "explanation": "IGF signifie insulin-like growth factor."
       }
     ],
-    "explanation": "EGF, TGFβ, IGF et FGF sont des exemples de signalisation par récepteur."
+    "explanation": "Les facteurs de croissance activent des récepteurs spécifiques et contrôlent plusieurs dimensions du comportement cellulaire."
   },
   {
     "order": 74,
     "difficulty": "EASY",
     "format": "QROC",
-    "question": "Réponse numérique : combien d’acides aminés comporte l’ANP mature ?",
+    "question": "Que signifie l’abréviation IGF ?",
     "answer": {
-      "type": "number",
-      "value": 28,
-      "tolerance": 0
+      "type": "text",
+      "acceptedAnswers": [
+        "Insulin-like Growth Factor",
+        "insulin like growth factor",
+        "facteur de croissance de type insulinique"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
     },
-    "explanation": "L’ANP mature comporte 28 acides aminés."
+    "explanation": "Les facteurs de croissance activent des récepteurs spécifiques et contrôlent plusieurs dimensions du comportement cellulaire."
   },
   {
     "order": 75,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant les cytokines :",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant les cytokines ?",
     "choices": [
       {
-        "content": "Cette famille comprend notamment les interleukines, le TNFα, les interférons et les chimiokines.",
-        "correct": true,
-        "explanation": "Les cytokines sont de petites protéines ou peptides de communication cellulaire."
-      },
-      {
-        "content": "Elles régulent les fonctions de cellules voisines.",
-        "correct": true,
-        "explanation": "Les cytokines sont de petites protéines ou peptides de communication cellulaire."
-      },
-      {
-        "content": "Elles sont toutes des polysaccharides.",
+        "content": "Une cytokine agit sans récepteur.",
         "correct": false,
-        "explanation": "Les cytokines sont de petites protéines ou peptides de communication cellulaire."
+        "explanation": "Elle agit via des récepteurs spécifiques."
       },
       {
-        "content": "Elles n’interviennent jamais dans l’immunité.",
+        "content": "Elles sont toutes produites uniquement par les lymphocytes.",
         "correct": false,
-        "explanation": "Les cytokines sont de petites protéines ou peptides de communication cellulaire."
+        "explanation": "De nombreuses cellules en produisent."
+      },
+      {
+        "content": "Toutes les cytokines sont exclusivement anti-inflammatoires.",
+        "correct": false,
+        "explanation": "Certaines sont pro-, anti- ou pléiotropes."
+      },
+      {
+        "content": "Elles sont des triglycérides.",
+        "correct": false,
+        "explanation": "Ce sont des signaux protéiques/peptidiques."
+      },
+      {
+        "content": "Ce sont des protéines ou peptides de signalisation intercellulaire.",
+        "correct": true,
+        "explanation": "Elles sont produites par de nombreux types cellulaires."
       }
     ],
-    "explanation": "Les cytokines sont de petites protéines ou peptides de communication cellulaire."
+    "explanation": "Les cytokines sont des signaux intercellulaires pléiotropes produits par de nombreux types cellulaires."
   },
   {
     "order": 76,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quelle famille appartient aux cytokines ?",
+    "format": "QRM",
+    "question": "Concernant les cytokines, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "les interleukines",
+        "content": "Elles sont toutes produites uniquement par les lymphocytes.",
+        "correct": false,
+        "explanation": "De nombreuses cellules en produisent."
+      },
+      {
+        "content": "Ce sont des protéines ou peptides de signalisation intercellulaire.",
         "correct": true,
-        "explanation": "Les cytokines sont de petites protéines ou peptides de communication cellulaire."
+        "explanation": "Elles sont produites par de nombreux types cellulaires."
       },
       {
-        "content": "les triglycérides",
-        "correct": false,
-        "explanation": "Les cytokines sont de petites protéines ou peptides de communication cellulaire."
+        "content": "Une même cytokine peut avoir des effets différents selon la cellule cible.",
+        "correct": true,
+        "explanation": "La réponse dépend des récepteurs et de l’état cellulaire."
       },
       {
-        "content": "les stérides",
+        "content": "Toutes les cytokines sont exclusivement anti-inflammatoires.",
         "correct": false,
-        "explanation": "Les cytokines sont de petites protéines ou peptides de communication cellulaire."
+        "explanation": "Certaines sont pro-, anti- ou pléiotropes."
       },
       {
-        "content": "les oses",
+        "content": "Une cytokine agit sans récepteur.",
         "correct": false,
-        "explanation": "Les cytokines sont de petites protéines ou peptides de communication cellulaire."
+        "explanation": "Elle agit via des récepteurs spécifiques."
       }
     ],
-    "explanation": "Les cytokines sont de petites protéines ou peptides de communication cellulaire."
+    "explanation": "Les cytokines sont des signaux intercellulaires pléiotropes produits par de nombreux types cellulaires."
   },
   {
     "order": 77,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant les interleukines :",
+    "question": "Concernant les interleukines, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "IL-1 et IL-6 ont notamment des effets pro-inflammatoires.",
+        "content": "IL-1 et IL-6 ont de nombreux effets pro-inflammatoires.",
         "correct": true,
-        "explanation": "IL-1 et IL-6 exercent notamment des effets pro-inflammatoires, tandis qu’IL-10 limite plusieurs réponses inflammatoires."
+        "explanation": "Elles participent à la réponse systémique et locale."
       },
       {
-        "content": "IL-10 exerce principalement des effets anti-inflammatoires.",
+        "content": "Les interleukines ne communiquent jamais avec les tissus épithéliaux.",
+        "correct": false,
+        "explanation": "Elles peuvent agir sur de nombreux tissus."
+      },
+      {
+        "content": "Une même interleukine peut avoir plusieurs cellules cibles.",
         "correct": true,
-        "explanation": "IL-1 et IL-6 exercent notamment des effets pro-inflammatoires, tandis qu’IL-10 limite plusieurs réponses inflammatoires."
+        "explanation": "Les effets sont souvent pléiotropes."
       },
       {
-        "content": "IL-10 est une hormone thyroïdienne.",
-        "correct": false,
-        "explanation": "IL-1 et IL-6 exercent notamment des effets pro-inflammatoires, tandis qu’IL-10 limite plusieurs réponses inflammatoires."
+        "content": "Les interleukines assurent une communication entre cellules immunitaires et avec d’autres tissus.",
+        "correct": true,
+        "explanation": "Leur nom historique ne limite pas leur source aux leucocytes."
       },
       {
-        "content": "IL-1 et IL-6 sont décrites comme anti-inflammatoires exclusives.",
+        "content": "IL-10 est un médiateur exclusivement pro-inflammatoire.",
         "correct": false,
-        "explanation": "IL-1 et IL-6 exercent notamment des effets pro-inflammatoires, tandis qu’IL-10 limite plusieurs réponses inflammatoires."
+        "explanation": "Elle est surtout anti-inflammatoire."
       }
     ],
-    "explanation": "IL-1 et IL-6 exercent notamment des effets pro-inflammatoires, tandis qu’IL-10 limite plusieurs réponses inflammatoires."
+    "explanation": "Les interleukines ont des fonctions variées ; IL-1/IL-6 sont souvent pro-inflammatoires et IL-10 anti-inflammatoire."
   },
   {
     "order": 78,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle interleukine exerce principalement un effet anti-inflammatoire ?",
-    "choices": [
-      {
-        "content": "IL-10",
-        "correct": true,
-        "explanation": "IL-1 et IL-6 exercent notamment des effets pro-inflammatoires, tandis qu’IL-10 limite plusieurs réponses inflammatoires."
-      },
-      {
-        "content": "IL-1",
-        "correct": false,
-        "explanation": "IL-1 et IL-6 exercent notamment des effets pro-inflammatoires, tandis qu’IL-10 limite plusieurs réponses inflammatoires."
-      },
-      {
-        "content": "IL-6",
-        "correct": false,
-        "explanation": "IL-1 et IL-6 exercent notamment des effets pro-inflammatoires, tandis qu’IL-10 limite plusieurs réponses inflammatoires."
-      },
-      {
-        "content": "TNFα uniquement",
-        "correct": false,
-        "explanation": "IL-1 et IL-6 exercent notamment des effets pro-inflammatoires, tandis qu’IL-10 limite plusieurs réponses inflammatoires."
+    "format": "QROC",
+    "question": "Quelle interleukine est classiquement considérée comme fortement anti-inflammatoire ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "IL-10",
+        "interleukine 10",
+        "IL10"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "IL-1 et IL-6 exercent notamment des effets pro-inflammatoires, tandis qu’IL-10 limite plusieurs réponses inflammatoires."
+    },
+    "explanation": "Les interleukines ont des fonctions variées ; IL-1/IL-6 sont souvent pro-inflammatoires et IL-10 anti-inflammatoire."
   },
   {
     "order": 79,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant les interférons de type I :",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant les interférons de type I ?",
     "choices": [
       {
-        "content": "IFN-α et IFN-β appartiennent aux interférons de type I.",
+        "content": "Les IFN-alpha et IFN-bêta appartiennent aux interférons de type I.",
         "correct": true,
-        "explanation": "Les interférons I ont une fonction antivirale importante."
+        "explanation": "Ils utilisent un récepteur commun de type I."
       },
       {
-        "content": "Ils peuvent être induits par des infections virales et participent à une réponse antivirale.",
-        "correct": true,
-        "explanation": "Les interférons I ont une fonction antivirale importante."
-      },
-      {
-        "content": "Ils sont synthétisés uniquement par les érythrocytes matures.",
+        "content": "Les IFN de type I sont produits uniquement par les hépatocytes.",
         "correct": false,
-        "explanation": "Les interférons I ont une fonction antivirale importante."
+        "explanation": "De nombreuses cellules peuvent en produire."
       },
       {
-        "content": "Ils correspondent à IFN-γ uniquement.",
+        "content": "IFN-gamma est un interféron de type I.",
         "correct": false,
-        "explanation": "Les interférons I ont une fonction antivirale importante."
+        "explanation": "Il est de type II."
+      },
+      {
+        "content": "Ils stimulent directement la réplication virale.",
+        "correct": false,
+        "explanation": "Ils induisent un état antiviral."
+      },
+      {
+        "content": "Il n’existe que deux types d’interférons chez l’humain.",
+        "correct": false,
+        "explanation": "Un type III, les IFN-lambda, existe aussi."
       }
     ],
-    "explanation": "Les interférons I ont une fonction antivirale importante."
+    "explanation": "IFN-alpha et IFN-bêta sont des interférons de type I à activité antivirale ; l’humain possède aussi des IFN de type III."
   },
   {
     "order": 80,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quels interférons appartiennent au type I ?",
+    "format": "QRM",
+    "question": "Concernant les interférons de type I, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "IFN-α et IFN-β",
+        "content": "IFN-gamma est un interféron de type I.",
+        "correct": false,
+        "explanation": "Il est de type II."
+      },
+      {
+        "content": "Ils induisent un état antiviral dans les cellules cibles.",
         "correct": true,
-        "explanation": "Les interférons I ont une fonction antivirale importante."
+        "explanation": "Ils activent l’expression de gènes stimulés par l’interféron."
       },
       {
-        "content": "IFN-γ seul",
-        "correct": false,
-        "explanation": "Les interférons I ont une fonction antivirale importante."
+        "content": "Ils peuvent être produits par de nombreux types cellulaires lors d’une infection virale.",
+        "correct": true,
+        "explanation": "Les acides nucléiques viraux déclenchent leur production."
       },
       {
-        "content": "IL-1 et IL-6",
-        "correct": false,
-        "explanation": "Les interférons I ont une fonction antivirale importante."
+        "content": "Ils modulent aussi l’immunité innée et adaptative.",
+        "correct": true,
+        "explanation": "Leurs effets dépassent l’action antivirale directe."
       },
       {
-        "content": "ANP et BNP",
-        "correct": false,
-        "explanation": "Les interférons I ont une fonction antivirale importante."
+        "content": "Les IFN-alpha et IFN-bêta appartiennent aux interférons de type I.",
+        "correct": true,
+        "explanation": "Ils utilisent un récepteur commun de type I."
       }
     ],
-    "explanation": "Les interférons I ont une fonction antivirale importante."
+    "explanation": "IFN-alpha et IFN-bêta sont des interférons de type I à activité antivirale ; l’humain possède aussi des IFN de type III."
   },
   {
     "order": 81,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant l’interféron γ :",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant l’interféron gamma, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "Il est l’interféron de type II.",
-        "correct": true,
-        "explanation": "IFN-γ illustre une signalisation immunitaire distincte des IFN de type I."
-      },
-      {
-        "content": "Il est surtout associé aux lymphocytes et à l’activation de cellules immunitaires.",
-        "correct": true,
-        "explanation": "IFN-γ illustre une signalisation immunitaire distincte des IFN de type I."
-      },
-      {
-        "content": "Il appartient aux peptides natriurétiques.",
+        "content": "IFN-gamma appartient au type I avec IFN-alpha.",
         "correct": false,
-        "explanation": "IFN-γ illustre une signalisation immunitaire distincte des IFN de type I."
+        "explanation": "Il est de type II."
       },
       {
-        "content": "Il est un acide gras dérivé de l’arachidonate.",
+        "content": "Il n’a aucun rôle immunitaire.",
         "correct": false,
-        "explanation": "IFN-γ illustre une signalisation immunitaire distincte des IFN de type I."
+        "explanation": "Il est une cytokine immunitaire majeure."
+      },
+      {
+        "content": "Il est produit uniquement par les cardiomyocytes.",
+        "correct": false,
+        "explanation": "Des cellules immunitaires en sont les sources majeures."
+      },
+      {
+        "content": "Il active fortement les macrophages.",
+        "correct": true,
+        "explanation": "Il renforce leurs fonctions microbicides et de présentation antigénique."
+      },
+      {
+        "content": "Il favorise des réponses immunitaires de type Th1.",
+        "correct": true,
+        "explanation": "Il joue un rôle majeur contre les pathogènes intracellulaires."
       }
     ],
-    "explanation": "IFN-γ illustre une signalisation immunitaire distincte des IFN de type I."
+    "explanation": "IFN-gamma est l’interféron de type II, produit notamment par lymphocytes T et NK et activateur des macrophages.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 82,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel interféron correspond au type II ?",
-    "choices": [
-      {
-        "content": "IFN-γ",
-        "correct": true,
-        "explanation": "IFN-γ illustre une signalisation immunitaire distincte des IFN de type I."
-      },
-      {
-        "content": "IFN-α",
-        "correct": false,
-        "explanation": "IFN-γ illustre une signalisation immunitaire distincte des IFN de type I."
-      },
-      {
-        "content": "IFN-β",
-        "correct": false,
-        "explanation": "IFN-γ illustre une signalisation immunitaire distincte des IFN de type I."
-      },
-      {
-        "content": "IL-10",
-        "correct": false,
-        "explanation": "IFN-γ illustre une signalisation immunitaire distincte des IFN de type I."
+    "format": "QROC",
+    "question": "À quel type d’interféron appartient IFN-gamma ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "type II",
+        "interféron de type II",
+        "II"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "IFN-γ illustre une signalisation immunitaire distincte des IFN de type I."
+    },
+    "explanation": "IFN-gamma est l’interféron de type II, produit notamment par lymphocytes T et NK et activateur des macrophages."
   },
   {
     "order": 83,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant les chimiokines :",
-    "choices": [
-      {
-        "content": "Elles sont chimiotactiques pour des cellules immunitaires.",
-        "correct": true,
-        "explanation": "Les chimiokines guident le recrutement de cellules immunitaires."
-      },
-      {
-        "content": "Des cystéines conservées fondent leur classification structurale en familles CC, CXC, CX3C et XC.",
-        "correct": true,
-        "explanation": "Les chimiokines guident le recrutement de cellules immunitaires."
-      },
-      {
-        "content": "Elles suppriment toute migration cellulaire.",
-        "correct": false,
-        "explanation": "Les chimiokines guident le recrutement de cellules immunitaires."
-      },
-      {
-        "content": "Elles ne contiennent jamais de cystéine.",
-        "correct": false,
-        "explanation": "Les chimiokines guident le recrutement de cellules immunitaires."
+    "format": "QROC",
+    "question": "Quel terme décrit la capacité des chimiokines à orienter la migration des cellules ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "chimiotactisme",
+        "chemotaxie",
+        "chimiotaxie"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les chimiokines guident le recrutement de cellules immunitaires."
+    },
+    "explanation": "Les chimiokines sont des cytokines chimiotactiques classées notamment selon des motifs de cystéines conservées."
   },
   {
     "order": 84,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel comportement cellulaire leur nom évoque-t-il ?",
+    "question": "Parmi les affirmations suivantes concernant les chimiokines, laquelle est correcte ?",
     "choices": [
       {
-        "content": "le chimiotactisme",
+        "content": "Elles sont des acides gras.",
+        "correct": false,
+        "explanation": "Ce sont des cytokines protéiques."
+      },
+      {
+        "content": "Leur classification ne tient jamais compte des cystéines.",
+        "correct": false,
+        "explanation": "La disposition des cystéines est un critère classique."
+      },
+      {
+        "content": "Elles agissent souvent via des récepteurs couplés aux protéines G.",
         "correct": true,
-        "explanation": "Les chimiokines guident le recrutement de cellules immunitaires."
+        "explanation": "Les récepteurs CCR et CXCR en sont des exemples."
       },
       {
-        "content": "la photosynthèse",
+        "content": "Elles ne possèdent aucun récepteur.",
         "correct": false,
-        "explanation": "Les chimiokines guident le recrutement de cellules immunitaires."
+        "explanation": "Des récepteurs spécifiques les reconnaissent."
       },
       {
-        "content": "la réplication de l’ADN",
+        "content": "Elles repoussent obligatoirement toutes les cellules immunitaires.",
         "correct": false,
-        "explanation": "Les chimiokines guident le recrutement de cellules immunitaires."
-      },
-      {
-        "content": "la saponification",
-        "correct": false,
-        "explanation": "Les chimiokines guident le recrutement de cellules immunitaires."
+        "explanation": "Elles peuvent diriger leur migration selon des gradients."
       }
     ],
-    "explanation": "Les chimiokines guident le recrutement de cellules immunitaires."
+    "explanation": "Les chimiokines sont des cytokines chimiotactiques classées notamment selon des motifs de cystéines conservées."
   },
   {
     "order": 85,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant les endorphines et encéphalines :",
+    "question": "Quelles propositions sont exactes concernant les endorphines et les encéphalines ?",
     "choices": [
       {
-        "content": "Ce sont de petits peptides opioïdes endogènes.",
+        "content": "La bêta-endorphine est un peptide issu de la POMC.",
         "correct": true,
-        "explanation": "Les endorphines et les encéphalines activent des récepteurs opioïdes et modulent notamment la transmission nociceptive."
+        "explanation": "Elle est plus longue que les encéphalines."
       },
       {
-        "content": "Ils se lient à des récepteurs opioïdes.",
+        "content": "Les encéphalines sont des pentapeptides.",
         "correct": true,
-        "explanation": "Les endorphines et les encéphalines activent des récepteurs opioïdes et modulent notamment la transmission nociceptive."
+        "explanation": "Met- et Leu-encéphaline diffèrent par leur résidu C-terminal."
       },
       {
-        "content": "Ce sont des glucides de réserve.",
+        "content": "La bêta-endorphine est un stéroïde.",
         "correct": false,
-        "explanation": "Les endorphines et les encéphalines activent des récepteurs opioïdes et modulent notamment la transmission nociceptive."
+        "explanation": "C’est un peptide."
       },
       {
-        "content": "Ils sont dépourvus de toute analogie fonctionnelle avec les opioïdes exogènes comme la morphine.",
+        "content": "Ils n’interagissent jamais avec les récepteurs opioïdes.",
         "correct": false,
-        "explanation": "Les endorphines et les encéphalines activent des récepteurs opioïdes et modulent notamment la transmission nociceptive."
+        "explanation": "C’est leur cible majeure."
+      },
+      {
+        "content": "Ils ont une structure chimique identique à la morphine.",
+        "correct": false,
+        "explanation": "Ils partagent des récepteurs/effets opioïdes mais pas la même structure chimique."
       }
     ],
-    "explanation": "Les endorphines et les encéphalines activent des récepteurs opioïdes et modulent notamment la transmission nociceptive."
+    "explanation": "Endorphines et encéphalines sont des peptides opioïdes endogènes ; ils ne sont pas structurellement identiques à la morphine."
   },
   {
     "order": 86,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "À quelle famille de récepteurs se lient-ils ?",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "aux récepteurs opioïdes",
+        "content": "Les encéphalines sont des pentapeptides.",
         "correct": true,
-        "explanation": "Les endorphines et les encéphalines activent des récepteurs opioïdes et modulent notamment la transmission nociceptive."
+        "explanation": "Met- et Leu-encéphaline diffèrent par leur résidu C-terminal."
       },
       {
-        "content": "aux récepteurs nucléaires de vitamine D uniquement",
+        "content": "Les encéphalines sont des protéines de 500 résidus.",
         "correct": false,
-        "explanation": "Les endorphines et les encéphalines activent des récepteurs opioïdes et modulent notamment la transmission nociceptive."
+        "explanation": "Ce sont des pentapeptides."
       },
       {
-        "content": "aux récepteurs de l’insuline uniquement",
-        "correct": false,
-        "explanation": "Les endorphines et les encéphalines activent des récepteurs opioïdes et modulent notamment la transmission nociceptive."
+        "content": "Des cystéines conservées structurent plusieurs familles de chimiokines.",
+        "correct": true,
+        "explanation": "Les motifs CC et CXC participent à leur classification."
       },
       {
-        "content": "à aucun récepteur",
+        "content": "Elles sont des acides gras.",
         "correct": false,
-        "explanation": "Les endorphines et les encéphalines activent des récepteurs opioïdes et modulent notamment la transmission nociceptive."
+        "explanation": "Ce sont des cytokines protéiques."
+      },
+      {
+        "content": "Elles sont souvent produites lors de réactions inflammatoires.",
+        "correct": true,
+        "explanation": "Elles recrutent des leucocytes vers les tissus."
+      },
+      {
+        "content": "Elles agissent souvent via des récepteurs couplés aux protéines G.",
+        "correct": true,
+        "explanation": "Les récepteurs CCR et CXCR en sont des exemples."
+      },
+      {
+        "content": "Ils ont une structure chimique identique à la morphine.",
+        "correct": false,
+        "explanation": "Ils partagent des récepteurs/effets opioïdes mais pas la même structure chimique."
+      },
+      {
+        "content": "Ils modulent notamment la nociception.",
+        "correct": true,
+        "explanation": "Leur activation de récepteurs opioïdes peut réduire la transmission de la douleur."
+      },
+      {
+        "content": "Elles repoussent obligatoirement toutes les cellules immunitaires.",
+        "correct": false,
+        "explanation": "Elles peuvent diriger leur migration selon des gradients."
+      },
+      {
+        "content": "La bêta-endorphine est un stéroïde.",
+        "correct": false,
+        "explanation": "C’est un peptide."
       }
     ],
-    "explanation": "Les endorphines et les encéphalines activent des récepteurs opioïdes et modulent notamment la transmission nociceptive."
+    "explanation": "Endorphines et encéphalines sont des peptides opioïdes endogènes ; ils ne sont pas structurellement identiques à la morphine. Les chimiokines sont des cytokines chimiotactiques classées notamment selon des motifs de cystéines conservées."
   },
   {
     "order": 87,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant le peptide β-amyloïde et la maladie d’Alzheimer :",
+    "question": "Parmi les affirmations suivantes concernant le peptide bêta-amyloïde et la maladie d’Alzheimer, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "La maladie est associée à des amas de peptides β-amyloïdes formant des plaques séniles.",
+        "content": "Les peptides Aβ sont produits par clivages protéolytiques de l’APP.",
         "correct": true,
-        "explanation": "L’APP est un précurseur membranaire soumis à des clivages par des sécrétases."
+        "explanation": "La voie amyloïdogénique implique bêta- puis gamma-sécrétase."
       },
       {
-        "content": "L’APP peut suivre une voie de clivage amyloïdogénique ou une voie non amyloïdogénique.",
+        "content": "Les plaques amyloïdes et les dégénérescences neurofibrillaires sont deux lésions caractéristiques de la maladie d’Alzheimer.",
         "correct": true,
-        "explanation": "L’APP est un précurseur membranaire soumis à des clivages par des sécrétases."
+        "explanation": "La pathologie ne se réduit pas à un seul biomarqueur."
       },
       {
-        "content": "Le peptide β-amyloïde est nécessairement protecteur et ne peut pas s’agréger.",
+        "content": "Aβ42 contient moins de résidus qu’Aβ40.",
         "correct": false,
-        "explanation": "L’APP est un précurseur membranaire soumis à des clivages par des sécrétases."
+        "explanation": "Il en contient deux de plus."
       },
       {
-        "content": "APP est une enzyme soluble sans domaine transmembranaire.",
+        "content": "Les peptides Aβ sont produits par traduction directe d’un gène Aβ indépendant.",
         "correct": false,
-        "explanation": "L’APP est un précurseur membranaire soumis à des clivages par des sécrétases."
+        "explanation": "Ils proviennent du clivage d’APP."
+      },
+      {
+        "content": "Aβ42 est plus hydrophobe et plus agrégant que Aβ40.",
+        "correct": true,
+        "explanation": "Il est fortement impliqué dans la formation de plaques."
       }
     ],
-    "explanation": "L’APP est un précurseur membranaire soumis à des clivages par des sécrétases."
+    "explanation": "Aβ40/Aβ42 proviennent de l’APP ; Aβ42 est plus agrégant et les mutations ne sont pas nécessaires à toute production amyloïdogénique."
   },
   {
     "order": 88,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux interférons de type I.",
-    "choices": [
-      {
-        "content": "IFN-α",
-        "correct": true,
-        "explanation": "Les IFN-α et IFN-β constituent le type I ; IFN-γ est le type II."
-      },
-      {
-        "content": "IFN-β",
-        "correct": true,
-        "explanation": "Les IFN-α et IFN-β constituent le type I ; IFN-γ est le type II."
-      },
-      {
-        "content": "IFN-γ",
-        "correct": false,
-        "explanation": "Les IFN-α et IFN-β constituent le type I ; IFN-γ est le type II."
-      },
-      {
-        "content": "IL-10",
-        "correct": false,
-        "explanation": "Les IFN-α et IFN-β constituent le type I ; IFN-γ est le type II."
+    "format": "QROC",
+    "question": "Quelle forme, Aβ40 ou Aβ42, est généralement la plus agrégante ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "Aβ42",
+        "Abeta42",
+        "A beta 42",
+        "amyloïde bêta 42"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les IFN-α et IFN-β constituent le type I ; IFN-γ est le type II."
+    },
+    "explanation": "Aβ40/Aβ42 proviennent de l’APP ; Aβ42 est plus agrégant et les mutations ne sont pas nécessaires à toute production amyloïdogénique."
   },
   {
     "order": 89,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Concernant l’intégration des signaux peptidiques en clinique :",
+    "question": "Concernant l’intégration clinique des signaux peptidiques, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Le peptide C informe sur la production endogène d’insuline.",
+        "content": "BNP/NT-proBNP renseignent sur la contrainte cardiaque mais ne suffisent pas seuls à un diagnostic.",
         "correct": true,
-        "explanation": "Les peptides peuvent être à la fois effecteurs biologiques et biomarqueurs."
+        "explanation": "Ils s’intègrent à l’examen clinique et à l’imagerie."
       },
       {
-        "content": "BNP ou NT-proBNP peuvent contribuer à l’évaluation d’une insuffisance cardiaque.",
+        "content": "Le NT-proBNP est totalement indépendant de la fonction rénale.",
+        "correct": false,
+        "explanation": "La fonction rénale influence ses concentrations."
+      },
+      {
+        "content": "Un biomarqueur peptidique doit être interprété avec le contexte clinique.",
         "correct": true,
-        "explanation": "Les peptides peuvent être à la fois effecteurs biologiques et biomarqueurs."
+        "explanation": "Âge, fonction rénale, traitements et délai peuvent influencer la concentration."
       },
       {
-        "content": "Ces dosages mesurent directement la séquence de l’ADN du patient.",
-        "correct": false,
-        "explanation": "Les peptides peuvent être à la fois effecteurs biologiques et biomarqueurs."
+        "content": "Peptide C renseigne sur la sécrétion endogène d’insuline.",
+        "correct": true,
+        "explanation": "Il est libéré équimolairement avec l’insuline endogène."
       },
       {
-        "content": "Le peptide C est utilisé comme marqueur de natriurèse cardiaque.",
-        "correct": false,
-        "explanation": "Les peptides peuvent être à la fois effecteurs biologiques et biomarqueurs."
+        "content": "La concentration d’un peptide dépend aussi de sa production et de sa clairance.",
+        "correct": true,
+        "explanation": "Un taux élevé n’implique pas nécessairement une production seule augmentée."
       }
     ],
-    "explanation": "Les peptides peuvent être à la fois effecteurs biologiques et biomarqueurs."
+    "explanation": "Les peptides cliniques sont des biomarqueurs contextuels : peptide C pour l’insuline endogène, BNP/NT-proBNP pour le stress cardiaque."
   },
   {
     "order": 90,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel marqueur renseigne sur la sécrétion endogène d’insuline ?",
-    "choices": [
-      {
-        "content": "le peptide C",
-        "correct": true,
-        "explanation": "Les peptides peuvent être à la fois effecteurs biologiques et biomarqueurs."
-      },
-      {
-        "content": "le BNP",
-        "correct": false,
-        "explanation": "Les peptides peuvent être à la fois effecteurs biologiques et biomarqueurs."
-      },
-      {
-        "content": "l’ANP",
-        "correct": false,
-        "explanation": "Les peptides peuvent être à la fois effecteurs biologiques et biomarqueurs."
-      },
-      {
-        "content": "l’APP",
-        "correct": false,
-        "explanation": "Les peptides peuvent être à la fois effecteurs biologiques et biomarqueurs."
-      }
-    ],
-    "explanation": "Les peptides peuvent être à la fois effecteurs biologiques et biomarqueurs."
-  },
-  {
-    "order": 91,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Concernant l’opposition insuline–glucagon :",
-    "choices": [
-      {
-        "content": "L’insuline est hypoglycémiante.",
-        "correct": true,
-        "explanation": "Les deux hormones pancréatiques illustrent une régulation antagoniste de la glycémie."
-      },
-      {
-        "content": "Le glucagon est hyperglycémiant et favorise la mobilisation hépatique du glycogène.",
-        "correct": true,
-        "explanation": "Les deux hormones pancréatiques illustrent une régulation antagoniste de la glycémie."
-      },
-      {
-        "content": "Les deux hormones sont hyperglycémiantes.",
-        "correct": false,
-        "explanation": "Les deux hormones pancréatiques illustrent une régulation antagoniste de la glycémie."
-      },
-      {
-        "content": "Le glucagon est produit par les cellules β pancréatiques.",
-        "correct": false,
-        "explanation": "Les deux hormones pancréatiques illustrent une régulation antagoniste de la glycémie."
-      }
-    ],
-    "explanation": "Les deux hormones pancréatiques illustrent une régulation antagoniste de la glycémie."
-  },
-  {
-    "order": 92,
-    "difficulty": "HARD",
     "format": "QROC",
-    "question": "Quel peptide de maturation est dosé pour estimer la production endogène d’insuline ?",
+    "question": "Quel peptide est particulièrement utile pour estimer la sécrétion endogène d’insuline ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
         "peptide C",
-        "C-peptide",
-        "peptide c"
+        "C-peptide"
       ],
       "normalization": {
         "trim": true,
-        "caseSensitive": false,
         "collapseWhitespace": true,
+        "caseSensitive": false,
         "ignoreAccents": true
       }
     },
-    "explanation": "Le peptide C est libéré en quantité équimolaire avec l’insuline endogène lors de la maturation."
+    "explanation": "Les peptides cliniques sont des biomarqueurs contextuels : peptide C pour l’insuline endogène, BNP/NT-proBNP pour le stress cardiaque."
+  },
+  {
+    "order": 91,
+    "difficulty": "HARD",
+    "format": "QRP",
+    "question": "Concernant l’opposition fonctionnelle insuline–glucagon, sélectionnez exactement les deux affirmations exactes.",
+    "choices": [
+      {
+        "content": "Le glucagon favorise la production hépatique de glucose.",
+        "correct": true,
+        "explanation": "Il stimule notamment glycogénolyse et néoglucogenèse."
+      },
+      {
+        "content": "L’insuline favorise globalement la baisse de la glycémie.",
+        "correct": true,
+        "explanation": "Elle stimule l’utilisation et le stockage des substrats."
+      },
+      {
+        "content": "Le foie ne répond jamais au glucagon.",
+        "correct": false,
+        "explanation": "C’est une cible majeure."
+      },
+      {
+        "content": "Insuline et glucagon sont tous deux principalement hypoglycémiants.",
+        "correct": false,
+        "explanation": "Le glucagon est hyperglycémiant."
+      },
+      {
+        "content": "Le glucagon est produit par les cellules bêta.",
+        "correct": false,
+        "explanation": "Il est surtout produit par les cellules alpha."
+      }
+    ],
+    "explanation": "Insuline et glucagon sont des hormones peptidiques antagonistes sur la disponibilité du glucose.",
+    "requiredSelectionCount": 2
+  },
+  {
+    "order": 92,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Concernant l’opposition fonctionnelle insuline–glucagon, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Le rapport insuline/glucagon aide à orienter le métabolisme vers stockage ou mobilisation.",
+        "correct": true,
+        "explanation": "Il varie entre état nourri et jeûne."
+      },
+      {
+        "content": "L’insuline est une hormone stéroïdienne.",
+        "correct": false,
+        "explanation": "C’est un peptide."
+      },
+      {
+        "content": "Le glucagon favorise la production hépatique de glucose.",
+        "correct": true,
+        "explanation": "Il stimule notamment glycogénolyse et néoglucogenèse."
+      },
+      {
+        "content": "Le foie ne répond jamais au glucagon.",
+        "correct": false,
+        "explanation": "C’est une cible majeure."
+      },
+      {
+        "content": "Insuline et glucagon sont tous deux principalement hypoglycémiants.",
+        "correct": false,
+        "explanation": "Le glucagon est hyperglycémiant."
+      }
+    ],
+    "explanation": "Insuline et glucagon sont des hormones peptidiques antagonistes sur la disponibilité du glucose."
   },
   {
     "order": 93,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Concernant les précurseurs polypeptidiques :",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant les précurseurs polypeptidiques, laquelle est correcte ?",
     "choices": [
       {
-        "content": "La proinsuline donne l’insuline après clivage du peptide C.",
-        "correct": true,
-        "explanation": "La maturation de précurseurs augmente la diversité des peptides biologiques."
-      },
-      {
-        "content": "La POMC peut donner plusieurs peptides différents selon le tissu.",
-        "correct": true,
-        "explanation": "La maturation de précurseurs augmente la diversité des peptides biologiques."
-      },
-      {
-        "content": "Un précurseur protéique ne peut produire qu’un seul peptide final.",
+        "content": "Les enzymes de maturation sont identiques dans tous les tissus.",
         "correct": false,
-        "explanation": "La maturation de précurseurs augmente la diversité des peptides biologiques."
+        "explanation": "Leur expression peut différer."
       },
       {
-        "content": "Les clivages protéolytiques n’interviennent jamais dans les hormones peptidiques.",
+        "content": "Le clivage protéolytique ajoute des résidus au précurseur.",
         "correct": false,
-        "explanation": "La maturation de précurseurs augmente la diversité des peptides biologiques."
+        "explanation": "Il coupe la chaîne."
+      },
+      {
+        "content": "La proinsuline donne insuline et peptide C.",
+        "correct": true,
+        "explanation": "Le précurseur est traité dans les granules sécrétoires."
+      },
+      {
+        "content": "Toutes les prohormones sont des stéroïdes.",
+        "correct": false,
+        "explanation": "Ce sont des précurseurs protéiques."
+      },
+      {
+        "content": "Un précurseur polypeptidique ne peut produire qu’un seul produit final.",
+        "correct": false,
+        "explanation": "Plusieurs produits sont possibles."
       }
     ],
-    "explanation": "La maturation de précurseurs augmente la diversité des peptides biologiques."
+    "explanation": "La maturation protéolytique convertit des précurseurs en peptides et peut être tissu-spécifique."
   },
   {
     "order": 94,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel mécanisme permet d’obtenir plusieurs peptides à partir de POMC ?",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant les précurseurs polypeptidiques ?",
     "choices": [
       {
-        "content": "des clivages protéolytiques différenciés",
+        "content": "La POMC donne plusieurs peptides selon le tissu.",
         "correct": true,
-        "explanation": "La maturation de précurseurs augmente la diversité des peptides biologiques."
+        "explanation": "Les convertases exprimées déterminent le profil de produits."
       },
       {
-        "content": "une saponification",
-        "correct": false,
-        "explanation": "La maturation de précurseurs augmente la diversité des peptides biologiques."
+        "content": "Une prohormone peut donner un ou plusieurs peptides actifs après clivage.",
+        "correct": true,
+        "explanation": "La maturation protéolytique est un mécanisme fréquent."
       },
       {
-        "content": "une glycosylation de l’ADN",
+        "content": "Le clivage protéolytique ajoute des résidus au précurseur.",
         "correct": false,
-        "explanation": "La maturation de précurseurs augmente la diversité des peptides biologiques."
+        "explanation": "Il coupe la chaîne."
       },
       {
-        "content": "une β-oxydation",
+        "content": "Un précurseur polypeptidique ne peut produire qu’un seul produit final.",
         "correct": false,
-        "explanation": "La maturation de précurseurs augmente la diversité des peptides biologiques."
+        "explanation": "Plusieurs produits sont possibles."
+      },
+      {
+        "content": "La proinsuline donne insuline et peptide C.",
+        "correct": true,
+        "explanation": "Le précurseur est traité dans les granules sécrétoires."
       }
     ],
-    "explanation": "La maturation de précurseurs augmente la diversité des peptides biologiques."
+    "explanation": "La maturation protéolytique convertit des précurseurs en peptides et peut être tissu-spécifique."
   },
   {
     "order": 95,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Concernant l’inflammation et les cytokines :",
-    "choices": [
-      {
-        "content": "IL-1 et IL-6 illustrent des signaux pro-inflammatoires.",
-        "correct": true,
-        "explanation": "La communication immunitaire associe médiateurs pro/anti-inflammatoires et chimiotactiques."
-      },
-      {
-        "content": "IL-10 illustre un signal anti-inflammatoire.",
-        "correct": true,
-        "explanation": "La communication immunitaire associe médiateurs pro/anti-inflammatoires et chimiotactiques."
-      },
-      {
-        "content": "Toutes les cytokines ont exactement le même effet.",
-        "correct": false,
-        "explanation": "La communication immunitaire associe médiateurs pro/anti-inflammatoires et chimiotactiques."
-      },
-      {
-        "content": "Les chimiokines empêchent toute migration des leucocytes.",
-        "correct": false,
-        "explanation": "La communication immunitaire associe médiateurs pro/anti-inflammatoires et chimiotactiques."
+    "format": "QROC",
+    "question": "Quelle cytokine est un repère classique de régulation anti-inflammatoire ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "IL-10",
+        "IL10",
+        "interleukine 10"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La communication immunitaire associe médiateurs pro/anti-inflammatoires et chimiotactiques."
+    },
+    "explanation": "L’inflammation associe cytokines pro- et anti-inflammatoires et chimiokines de recrutement."
   },
   {
     "order": 96,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quelle famille guide notamment la migration de cellules immunitaires ?",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "les chimiokines",
+        "content": "Des cytokines anti-inflammatoires limitent la réponse.",
         "correct": true,
-        "explanation": "La communication immunitaire associe médiateurs pro/anti-inflammatoires et chimiotactiques."
+        "explanation": "IL-10 est un exemple majeur."
       },
       {
-        "content": "les stérides",
+        "content": "Les chimiokines n’influencent jamais la migration.",
         "correct": false,
-        "explanation": "La communication immunitaire associe médiateurs pro/anti-inflammatoires et chimiotactiques."
+        "explanation": "C’est une fonction majeure."
       },
       {
-        "content": "les polyosides",
-        "correct": false,
-        "explanation": "La communication immunitaire associe médiateurs pro/anti-inflammatoires et chimiotactiques."
+        "content": "Le proglucagon peut donner des peptides différents selon le tissu.",
+        "correct": true,
+        "explanation": "Pancréas et intestin n’expriment pas les mêmes convertases."
       },
       {
-        "content": "les triglycérides",
+        "content": "Les cytokines pro-inflammatoires coordonnent recrutement et activation cellulaires.",
+        "correct": true,
+        "explanation": "IL-1, IL-6 et TNF en sont des exemples importants."
+      },
+      {
+        "content": "IL-10 amplifie obligatoirement toute inflammation.",
         "correct": false,
-        "explanation": "La communication immunitaire associe médiateurs pro/anti-inflammatoires et chimiotactiques."
+        "explanation": "Elle est principalement régulatrice/anti-inflammatoire."
+      },
+      {
+        "content": "La POMC donne plusieurs peptides selon le tissu.",
+        "correct": true,
+        "explanation": "Les convertases exprimées déterminent le profil de produits."
+      },
+      {
+        "content": "Les chimiokines contribuent au recrutement spatial des leucocytes.",
+        "correct": true,
+        "explanation": "Elles établissent des gradients chimiotactiques."
+      },
+      {
+        "content": "Toute cytokine inflammatoire a exactement le même effet.",
+        "correct": false,
+        "explanation": "Les fonctions sont pléiotropes."
+      },
+      {
+        "content": "Toutes les prohormones sont des stéroïdes.",
+        "correct": false,
+        "explanation": "Ce sont des précurseurs protéiques."
+      },
+      {
+        "content": "Le clivage protéolytique ajoute des résidus au précurseur.",
+        "correct": false,
+        "explanation": "Il coupe la chaîne."
       }
     ],
-    "explanation": "La communication immunitaire associe médiateurs pro/anti-inflammatoires et chimiotactiques."
+    "explanation": "L’inflammation associe cytokines pro- et anti-inflammatoires et chimiokines de recrutement. La maturation protéolytique convertit des précurseurs en peptides et peut être tissu-spécifique."
   },
   {
     "order": 97,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Concernant la signalisation cardiaque par peptides natriurétiques :",
+    "question": "Quelles propositions sont exactes concernant la signalisation cardiaque par peptides natriurétiques ?",
     "choices": [
       {
-        "content": "Leur sécrétion par les cardiomyocytes agit sur l’équilibre hydro-sodé.",
+        "content": "L’étirement myocardique augmente la synthèse/libération de peptides natriurétiques.",
         "correct": true,
-        "explanation": "Le lien cœur–rein est central pour comprendre ces peptides."
+        "explanation": "Ils signalent une surcharge de pression ou de volume."
       },
       {
-        "content": "Le dosage de BNP/NT-proBNP a un intérêt clinique en insuffisance cardiaque.",
+        "content": "Le dosage du BNP ou NT-proBNP exploite cette physiologie en clinique.",
         "correct": true,
-        "explanation": "Le lien cœur–rein est central pour comprendre ces peptides."
+        "explanation": "Une forte contrainte cardiaque peut augmenter les concentrations."
       },
       {
-        "content": "Ils sont produits par les cellules β pancréatiques pour faire baisser la glycémie.",
-        "correct": false,
-        "explanation": "Le lien cœur–rein est central pour comprendre ces peptides."
+        "content": "Leurs récepteurs membranaires produisent du GMPc.",
+        "correct": true,
+        "explanation": "La guanylate cyclase est intrinsèque à certains récepteurs natriurétiques."
       },
       {
-        "content": "Ils bloquent obligatoirement toute diurèse.",
+        "content": "Le BNP n’a aucun lien avec le cœur.",
         "correct": false,
-        "explanation": "Le lien cœur–rein est central pour comprendre ces peptides."
+        "explanation": "Il est un peptide cardiaque majeur."
+      },
+      {
+        "content": "Ils s’opposent à plusieurs mécanismes de rétention hydro-sodée.",
+        "correct": true,
+        "explanation": "Ils favorisent natriurèse et vasodilatation."
       }
     ],
-    "explanation": "Le lien cœur–rein est central pour comprendre ces peptides."
+    "explanation": "Les peptides natriurétiques convertissent un signal d’étirement cardiaque en réponse endocrine via le GMPc."
   },
   {
     "order": 98,
     "difficulty": "HARD",
-    "format": "QRU",
-    "question": "Quel effet commun est cohérent avec leur nom ?",
-    "choices": [
-      {
-        "content": "favoriser l’excrétion de sodium",
-        "correct": true,
-        "explanation": "Le lien cœur–rein est central pour comprendre ces peptides."
-      },
-      {
-        "content": "stimuler la rétention de sodium",
-        "correct": false,
-        "explanation": "Le lien cœur–rein est central pour comprendre ces peptides."
-      },
-      {
-        "content": "augmenter la glycémie",
-        "correct": false,
-        "explanation": "Le lien cœur–rein est central pour comprendre ces peptides."
-      },
-      {
-        "content": "produire du GABA",
-        "correct": false,
-        "explanation": "Le lien cœur–rein est central pour comprendre ces peptides."
+    "format": "QROC",
+    "question": "Quel nucléotide cyclique relaie classiquement le signal de l’ANP et du BNP ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "GMPc",
+        "cGMP"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le lien cœur–rein est central pour comprendre ces peptides."
+    },
+    "explanation": "Les peptides natriurétiques convertissent un signal d’étirement cardiaque en réponse endocrine via le GMPc."
   },
   {
     "order": 99,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Concernant les peptides opioïdes et amyloïdes :",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant les peptides opioïdes et les peptides amyloïdes, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "Les endorphines sont des peptides opioïdes endogènes.",
-        "correct": true,
-        "explanation": "Le chapitre oppose des peptides physiologiques de signalisation et des peptides pathologiques."
-      },
-      {
-        "content": "Les peptides β-amyloïdes illustrent au contraire un rôle délétère lorsqu’ils s’accumulent.",
-        "correct": true,
-        "explanation": "Le chapitre oppose des peptides physiologiques de signalisation et des peptides pathologiques."
-      },
-      {
-        "content": "Les deux groupes sont des hormones pancréatiques contrôlant la glycémie.",
+        "content": "Les peptides ne peuvent jamais former d’agrégats.",
         "correct": false,
-        "explanation": "Le chapitre oppose des peptides physiologiques de signalisation et des peptides pathologiques."
+        "explanation": "Certains peptides amyloïdes s’agrègent fortement."
       },
       {
-        "content": "APP est un peptide natriurétique.",
+        "content": "Bêta-endorphine et Aβ ont des origines et des fonctions radicalement différentes.",
+        "correct": true,
+        "explanation": "La première est un neuromédiateur opioïde, le second un produit de clivage d’APP."
+      },
+      {
+        "content": "Bêta-endorphine et Aβ sont la même molécule.",
         "correct": false,
-        "explanation": "Le chapitre oppose des peptides physiologiques de signalisation et des peptides pathologiques."
+        "explanation": "Ils sont totalement distincts."
+      },
+      {
+        "content": "Aβ est une hormone pancréatique.",
+        "correct": false,
+        "explanation": "Il dérive d’APP."
+      },
+      {
+        "content": "Les peptides amyloïdes peuvent s’agréger en structures riches en feuillets bêta.",
+        "correct": true,
+        "explanation": "L’agrégation modifie leurs propriétés physiques."
       }
     ],
-    "explanation": "Le chapitre oppose des peptides physiologiques de signalisation et des peptides pathologiques."
+    "explanation": "Les peptides ont des fonctions extrêmement diverses, des opioïdes endogènes aux peptides amyloïdes pathologiques.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 100,
     "difficulty": "HARD",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Pour conclure le niveau MASTER, sélectionnez exactement les cinq affirmations correctes.",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant les peptides opioïdes et les peptides amyloïdes ?",
     "choices": [
       {
-        "content": "Le peptide C renseigne sur la synthèse endogène d’insuline.",
-        "correct": true,
-        "explanation": "Ce niveau transversal associe mécanismes, signalisation et applications cliniques."
-      },
-      {
-        "content": "Le glucagon est hyperglycémiant.",
-        "correct": true,
-        "explanation": "Ce niveau transversal associe mécanismes, signalisation et applications cliniques."
-      },
-      {
-        "content": "BNP/NT-proBNP peuvent aider à évaluer une insuffisance cardiaque.",
-        "correct": true,
-        "explanation": "Ce niveau transversal associe mécanismes, signalisation et applications cliniques."
-      },
-      {
-        "content": "Les chimiokines sont chimiotactiques.",
-        "correct": true,
-        "explanation": "Ce niveau transversal associe mécanismes, signalisation et applications cliniques."
-      },
-      {
-        "content": "Les peptides β-amyloïdes peuvent s’accumuler en plaques séniles.",
-        "correct": true,
-        "explanation": "Ce niveau transversal associe mécanismes, signalisation et applications cliniques."
-      },
-      {
-        "content": "Le peptide C constitue une troisième chaîne active de l’insuline.",
+        "content": "Aβ est une hormone pancréatique.",
         "correct": false,
-        "explanation": "Ce niveau transversal associe mécanismes, signalisation et applications cliniques."
+        "explanation": "Il dérive d’APP."
       },
       {
-        "content": "Le BNP est une hormone pancréatique.",
+        "content": "Bêta-endorphine et Aβ sont la même molécule.",
         "correct": false,
-        "explanation": "Ce niveau transversal associe mécanismes, signalisation et applications cliniques."
+        "explanation": "Ils sont totalement distincts."
       },
       {
-        "content": "IL-10 exerce principalement un effet pro-inflammatoire.",
-        "correct": false,
-        "explanation": "Ce niveau transversal associe mécanismes, signalisation et applications cliniques."
+        "content": "Bêta-endorphine et Aβ ont des origines et des fonctions radicalement différentes.",
+        "correct": true,
+        "explanation": "La première est un neuromédiateur opioïde, le second un produit de clivage d’APP."
       },
       {
-        "content": "Les endorphines sont des polysaccharides.",
+        "content": "Tous les peptides se lient aux récepteurs opioïdes.",
         "correct": false,
-        "explanation": "Ce niveau transversal associe mécanismes, signalisation et applications cliniques."
+        "explanation": "Seuls certains peptides opioïdes le font."
       },
       {
-        "content": "APP est dépourvue de traversée membranaire.",
-        "correct": false,
-        "explanation": "Ce niveau transversal associe mécanismes, signalisation et applications cliniques."
+        "content": "Les peptides amyloïdes peuvent s’agréger en structures riches en feuillets bêta.",
+        "correct": true,
+        "explanation": "L’agrégation modifie leurs propriétés physiques."
       }
     ],
-    "explanation": "Ce niveau transversal associe mécanismes, signalisation et applications cliniques."
+    "explanation": "Les peptides ont des fonctions extrêmement diverses, des opioïdes endogènes aux peptides amyloïdes pathologiques."
   }
 ];

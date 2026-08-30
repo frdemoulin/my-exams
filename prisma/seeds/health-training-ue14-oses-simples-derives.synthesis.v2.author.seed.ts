@@ -1,683 +1,726 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie – Chapitre 1.2 – Synthèse
- */
-
+/** UE14 Biochimie – Chapitre 1.2 – Synthèse */
 export const UE14_BIOCH_CH2_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 101,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Quels couples ose → caractéristique sont corrects ?",
+    "question": "Concernant le glucose, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Glucose → aldose énergétique majeur.",
-        "correct": true,
-        "explanation": "La forme linéaire du glucose porte une fonction aldéhyde et son catabolisme contribue fortement à la production d'énergie cellulaire."
-      },
-      {
-        "content": "Fructose → cétose présent dans le saccharose.",
-        "correct": true,
-        "explanation": "La forme linéaire du fructose porte une fonction cétone et le saccharose associe un résidu de fructose à un résidu de glucose."
-      },
-      {
-        "content": "Ribose → pentose de l'ARN.",
-        "correct": true,
-        "explanation": "Le ribose possède cinq carbones et constitue le sucre des ribonucléotides de l'ARN."
-      },
-      {
-        "content": "Mannose → épimère C4 du glucose.",
+        "content": "La glycémie mesure le galactose sanguin.",
         "correct": false,
-        "explanation": "Il est épimère C2."
+        "explanation": "Elle mesure le glucose."
+      },
+      {
+        "content": "Le glucose est un aldohexose.",
+        "correct": true,
+        "explanation": "Sa forme ouverte contient un aldéhyde et six carbones."
+      },
+      {
+        "content": "Le glucose est exclusivement sous forme ouverte en eau.",
+        "correct": false,
+        "explanation": "Les formes cycliques dominent."
+      },
+      {
+        "content": "Le glucose est un pentose.",
+        "correct": false,
+        "explanation": "Il possède six carbones."
+      },
+      {
+        "content": "Le glucose est majoritairement cyclique en solution aqueuse.",
+        "correct": true,
+        "explanation": "Le glucopyranose domine."
       }
     ],
-    "explanation": "Cette question croise classification et rôles des principaux oses."
+    "explanation": "Le glucose est l'aldohexose énergétique de référence."
   },
   {
     "order": 102,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Quels couples transformation → produit sont corrects ?",
-    "choices": [
-      {
-        "content": "Glucose oxydé en C6 → acide glucuronique.",
-        "correct": true,
-        "explanation": "L'oxydation de l'alcool primaire en C6 forme la fonction carboxylique de l'acide glucuronique."
-      },
-      {
-        "content": "Glucose réduit → sorbitol.",
-        "correct": true,
-        "explanation": "La réduction de la fonction aldéhyde du glucose forme le sorbitol."
-      },
-      {
-        "content": "Mannose réduit → mannitol.",
-        "correct": true,
-        "explanation": "La réduction de la fonction aldéhyde du mannose forme le mannitol."
-      },
-      {
-        "content": "Glucose phosphorylé → glucosamine.",
-        "correct": false,
-        "explanation": "La glucosamine implique une fonction amine en C2."
-      }
-    ],
-    "explanation": "Les principales transformations fonctionnelles doivent être distinguées."
+    "format": "QROC",
+    "question": "À quel carbone le galactose est-il épimère du glucose ?",
+    "answer": {
+      "type": "number",
+      "value": 4,
+      "tolerance": 0
+    },
+    "explanation": "Le galactose est un aldohexose épimère C4 du glucose."
   },
   {
     "order": 103,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Une molécule glucidique porte NHCOCH3 en C2. Quelles propositions sont compatibles ?",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur le mannose, laquelle est exacte ?",
     "choices": [
       {
-        "content": "Il peut s'agir d'une osamine N-acétylée.",
-        "correct": true,
-        "explanation": "Le motif NHCOCH3 correspond à une fonction amine portant un groupement acétyl."
-      },
-      {
-        "content": "Elle contient de l'azote.",
-        "correct": true,
-        "explanation": "Le symbole N du motif NHCOCH3 représente l'atome d'azote."
-      },
-      {
-        "content": "Elle peut participer à un polymère structural.",
-        "correct": true,
-        "explanation": "La chitine est un polymère structural constitué de N-acétylglucosamine portant ce motif."
-      },
-      {
-        "content": "Elle est obligatoirement un acide uronique.",
+        "content": "Le mannose est absent des glycoprotéines.",
         "correct": false,
-        "explanation": "Un acide uronique porte une fonction acide terminale."
+        "explanation": "Il y est fréquent."
+      },
+      {
+        "content": "Il est fréquent dans les N-glycanes de glycoprotéines.",
+        "correct": true,
+        "explanation": "Les oligosaccharides N-liés comportent souvent du mannose."
+      },
+      {
+        "content": "Il est épimère C4 du glucose.",
+        "correct": false,
+        "explanation": "C4 correspond au galactose."
+      },
+      {
+        "content": "Sa réduction donne uniquement du xylitol.",
+        "correct": false,
+        "explanation": "Le mannitol est le polyol attendu."
+      },
+      {
+        "content": "Le mannose est un cétose.",
+        "correct": false,
+        "explanation": "C'est un aldose."
       }
     ],
-    "explanation": "Le motif N-acétylé identifie une famille de dérivés aminés."
+    "explanation": "Le mannose est un aldohexose épimère C2 du glucose."
   },
   {
     "order": 104,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Quels groupements ionisés peuvent contribuer à la charge négative d'un dérivé glucidique ?",
+    "question": "Concernant le fructose, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Un carboxylate.",
+        "content": "Il peut adopter une forme furanose.",
         "correct": true,
-        "explanation": "Le glucuronate et la forme ionisée du Neu5Ac portent notamment un groupement carboxylate COO−."
+        "explanation": "Le fructofuranose est courant dans le saccharose."
       },
       {
-        "content": "Un sulfate.",
-        "correct": true,
-        "explanation": "Les esters sulfates ionisés contribuent fortement à la charge négative des GAG sulfatés."
-      },
-      {
-        "content": "Un phosphate.",
-        "correct": true,
-        "explanation": "Les esters phosphates des oses sont ionisés dans les conditions biologiques usuelles."
-      },
-      {
-        "content": "Uniquement un groupe méthyle.",
+        "content": "Il est épimère C4 du glucose.",
         "correct": false,
-        "explanation": "Un méthyle n'explique pas cette charge."
+        "explanation": "Ils diffèrent d'abord par la fonction carbonyle."
+      },
+      {
+        "content": "Le fructose est un aldopentose.",
+        "correct": false,
+        "explanation": "C'est un cétohexose."
+      },
+      {
+        "content": "Le saccharose ne contient aucun fructose.",
+        "correct": false,
+        "explanation": "Il en contient un résidu."
+      },
+      {
+        "content": "Il entre dans la composition du saccharose.",
+        "correct": true,
+        "explanation": "Le saccharose associe glucose et fructose."
       }
     ],
-    "explanation": "Carboxylates, sulfates et phosphates peuvent contribuer aux charges négatives."
+    "explanation": "Le fructose est le cétohexose majeur, présent notamment dans le saccharose."
   },
   {
     "order": 105,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant la réaction de Fehling :",
+    "format": "QRP",
+    "question": "À propos du ribose et le 2-désoxyribose, sélectionnez exactement les deux affirmations correctes.",
     "choices": [
       {
-        "content": "Elle met en évidence un pouvoir réducteur.",
+        "content": "Le 2-désoxyribose est le sucre de l'ADN.",
         "correct": true,
-        "explanation": "Un sucre réducteur réduit les ions cuivre(II) pendant qu'il est lui-même oxydé."
+        "explanation": "Il manque l'OH en C2 par rapport au ribose."
       },
       {
-        "content": "Le sucre réducteur est oxydé.",
-        "correct": true,
-        "explanation": "La fonction carbonyle accessible du sucre est oxydée tandis que Cu2+ est réduit."
-      },
-      {
-        "content": "Un précipité rouge brique de Cu2O apparaît.",
-        "correct": true,
-        "explanation": "La réduction des ions cuivre(II) conduit à l'oxyde de cuivre(I) Cu2O, insoluble et rouge brique."
-      },
-      {
-        "content": "Elle transforme le glucose en sorbitol.",
+        "content": "La différence ribose/désoxyribose porte sur C5.",
         "correct": false,
-        "explanation": "Le sorbitol résulte d'une réduction différente."
+        "explanation": "Elle porte sur C2."
+      },
+      {
+        "content": "Le ribose est un cétose.",
+        "correct": false,
+        "explanation": "C'est un aldopentose."
+      },
+      {
+        "content": "Dans les nucléotides, ces pentoses sont sous forme furanose.",
+        "correct": true,
+        "explanation": "Le cycle à cinq sommets est la forme structurale usuelle."
+      },
+      {
+        "content": "Le ribose est un hexose.",
+        "correct": false,
+        "explanation": "Il possède cinq carbones."
       }
     ],
-    "explanation": "Fehling est un test redox, à distinguer de la réduction en polyol."
+    "explanation": "Ribose et 2-désoxyribose se distinguent par l'OH porté ou non par C2.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 106,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Un patient élimine un médicament sous forme glucuronoconjuguée. Quelles conclusions sont cohérentes ?",
+    "question": "Parmi les affirmations suivantes sur les propriétés physiques des oses simples, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "L'acide glucuronique participe à la transformation.",
+        "content": "La cyclisation n'empêche pas la présence de nombreux groupes hydroxyle.",
         "correct": true,
-        "explanation": "Un groupement glucuronyle, fourni par l'UDP-acide glucuronique, est transféré sur le médicament ou son métabolite."
+        "explanation": "Les formes cycliques restent polaires."
       },
       {
-        "content": "La solubilité du métabolite augmente.",
-        "correct": true,
-        "explanation": "Le groupement glucuronyle polaire augmente généralement l'hydrosolubilité du composé conjugué."
-      },
-      {
-        "content": "L'élimination est facilitée.",
-        "correct": true,
-        "explanation": "La polarité accrue favorise souvent l'excrétion urinaire ou biliaire du glucuronide."
-      },
-      {
-        "content": "Le médicament est nécessairement converti en mannitol.",
+        "content": "La présence d'OH rend les oses apolaires.",
         "correct": false,
-        "explanation": "Le mannitol provient de la réduction du mannose et n'est pas le produit d'une glucuronoconjugaison."
+        "explanation": "Elle augmente leur polarité."
+      },
+      {
+        "content": "Les oses sont généralement très hydrophiles.",
+        "correct": true,
+        "explanation": "Leurs nombreux groupes hydroxyle interagissent avec l'eau."
+      },
+      {
+        "content": "Les oses simples sont souvent très solubles dans l'eau.",
+        "correct": true,
+        "explanation": "Les liaisons hydrogène favorisent leur solvatation."
+      },
+      {
+        "content": "Les oses sont généralement des solides moléculaires peu volatils.",
+        "correct": true,
+        "explanation": "Leur réseau de liaisons hydrogène renforce la cohésion."
       }
     ],
-    "explanation": "La glucuronoconjugaison est une voie de solubilisation et d'excrétion."
+    "explanation": "Les nombreux groupes hydroxyle rendent les oses polaires et hydrosolubles."
   },
   {
     "order": 107,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Une glycoprotéine de surface riche en acide sialique :",
-    "choices": [
-      {
-        "content": "Peut participer à la reconnaissance cellulaire.",
-        "correct": true,
-        "explanation": "Les acides sialiques terminaux peuvent servir de déterminants reconnus par certaines lectines."
-      },
-      {
-        "content": "Peut porter des charges négatives.",
-        "correct": true,
-        "explanation": "Le carboxylate COO− du Neu5Ac confère une charge négative au glycanne."
-      },
-      {
-        "content": "Peut moduler des interactions de surface par répulsion électrostatique.",
-        "correct": true,
-        "explanation": "La densité de charges négatives peut limiter le rapprochement de surfaces ou de macromolécules voisines."
-      },
-      {
-        "content": "Est dépourvue de glucides.",
-        "correct": false,
-        "explanation": "Une glycoprotéine contient des glycannes."
+    "format": "QROC",
+    "question": "Quelle couleur caractéristique présente le précipité lors d'un test de Fehling positif ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "rouge brique",
+        "rouge",
+        "rouge-brique"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le NANA contribue aux propriétés de surface des glycoconjugués."
+    },
+    "explanation": "Le pouvoir réducteur dépend de l'accessibilité d'une forme carbonylée ; le fructose peut être positif en milieu alcalin par isomérisation."
   },
   {
     "order": 108,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos des précurseurs glucidiques des nucléotides :",
+    "format": "QRU",
+    "question": "À propos des trioses phosphorylés de la glycolyse, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Le ribose-5-phosphate contribue à la biosynthèse des ribonucléotides.",
-        "correct": true,
-        "explanation": "Le ribose-5-phosphate est converti en PRPP, puis engagé dans la biosynthèse des nucléotides."
-      },
-      {
-        "content": "Les précurseurs désoxyribonucléotidiques de l'ADN sont produits par réduction de ribonucléotides.",
-        "correct": true,
-        "explanation": "Les ribonucléotide réductases convertissent des ribonucléotides en désoxyribonucléotides."
-      },
-      {
-        "content": "Les nucléotides libres portent leurs phosphates sur le carbone 5′ du pentose.",
-        "correct": true,
-        "explanation": "Les nucléosides mono-, di- et triphosphates sont phosphorylés sur le groupement hydroxyle 5′."
-      },
-      {
-        "content": "Ce sont des hexoses.",
+        "content": "DHAP est un aldohexose.",
         "correct": false,
-        "explanation": "Ce sont des pentoses."
+        "explanation": "C'est un cétotriose phosphorylé."
+      },
+      {
+        "content": "L'interconversion GAP/DHAP nécessite une transmutation nucléaire.",
+        "correct": false,
+        "explanation": "C'est une isomérisation enzymatique."
+      },
+      {
+        "content": "Le glycéraldéhyde-3-phosphate est un intermédiaire de la glycolyse.",
+        "correct": true,
+        "explanation": "Il poursuit la phase de rendement."
+      },
+      {
+        "content": "GAP et DHAP sont étrangers au métabolisme glucidique.",
+        "correct": false,
+        "explanation": "Ils sont des intermédiaires centraux de la glycolyse."
+      },
+      {
+        "content": "Le glycéraldéhyde-3-phosphate possède six carbones.",
+        "correct": false,
+        "explanation": "Il en possède trois."
       }
     ],
-    "explanation": "Le ribose-5-phosphate alimente la synthèse des ribonucléotides, dont la réduction fournit les précurseurs de l'ADN."
+    "explanation": "Les trioses phosphorylés GAP et DHAP sont des intermédiaires glycolytiques interconvertibles."
   },
   {
     "order": 109,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux polyols obtenus par réduction du glucose ou du mannose.",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur l'acide glucuronique, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Mannitol.",
+        "content": "Le glucuronate entre dans la composition de glycosaminoglycanes.",
         "correct": true,
-        "explanation": "La réduction de la fonction aldéhyde du mannose produit le mannitol."
+        "explanation": "Il est présent dans hyaluronane et chondroïtine sulfate."
       },
       {
-        "content": "Sorbitol.",
+        "content": "Le glucuronate est un polyol dépourvu de fonction acide.",
+        "correct": false,
+        "explanation": "Il porte un carboxylate."
+      },
+      {
+        "content": "Il dérive du glucose par oxydation de l'alcool primaire C6.",
         "correct": true,
-        "explanation": "La réduction de la fonction aldéhyde du glucose produit le sorbitol."
+        "explanation": "CH2OH devient COOH."
       },
       {
-        "content": "NANA.",
-        "correct": false,
-        "explanation": "Le Neu5Ac est un ose acide à neuf carbones et non un polyol issu de la réduction du glucose ou du mannose."
+        "content": "À pH physiologique, il est largement sous forme glucuronate.",
+        "correct": true,
+        "explanation": "La fonction carboxylique est déprotonée."
       },
       {
-        "content": "Acide glucuronique.",
+        "content": "La transformation caractéristique oxyde C2 en amine.",
         "correct": false,
-        "explanation": "L'acide glucuronique est obtenu par oxydation du glucose en C6."
+        "explanation": "Elle oxyde C6 en acide carboxylique."
       }
     ],
-    "explanation": "Le mannitol résulte de la réduction du mannose et le sorbitol de celle du glucose."
+    "explanation": "L'acide glucuronique est l'acide uronique C6 du glucose."
   },
   {
     "order": 110,
     "difficulty": "MEDIUM",
     "format": "QRPL",
     "requiredSelectionCount": 5,
-    "question": "Parmi les dix affirmations suivantes, sélectionnez exactement les cinq correctes.",
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Une osamine peut être N-acétylée.",
+        "content": "Elle est importante dans le métabolisme hépatique de nombreux xénobiotiques.",
         "correct": true,
-        "explanation": "La fonction amine d'une osamine peut recevoir un groupement acétyl et former un motif NHCOCH3."
+        "explanation": "Des UDP-glucuronosyltransférases catalysent ces réactions."
       },
       {
-        "content": "Un ose peut être phosphorylé.",
+        "content": "La bilirubine est glucuronoconjuguée avant son excrétion biliaire.",
         "correct": true,
-        "explanation": "La phosphorylation forme un ester phosphorique sur une fonction hydroxyle de l'ose."
+        "explanation": "La conjugaison augmente sa solubilité."
       },
       {
-        "content": "Un ose peut être sulfaté.",
+        "content": "Le mannitol est le polyol correspondant au mannose.",
         "correct": true,
-        "explanation": "La sulfatation forme un ester sulfate sur une fonction hydroxyle de l'ose."
+        "explanation": "Il résulte de la réduction du carbonyle."
       },
       {
-        "content": "Un aldose peut être oxydé lors du test de Fehling.",
+        "content": "Le mannitol peut être utilisé comme agent osmotique en médecine.",
         "correct": true,
-        "explanation": "L'aldose réduit les ions cuivre(II) et est simultanément oxydé."
+        "explanation": "Il est notamment utilisé comme diurétique osmotique dans certaines indications."
       },
       {
-        "content": "Chez les espèces capables de le synthétiser, l'acide ascorbique dérive du métabolisme glucidique.",
+        "content": "Le mannitol est obtenu par oxydation du mannose en acide.",
+        "correct": false,
+        "explanation": "C'est un produit de réduction."
+      },
+      {
+        "content": "Elle détruit le noyau de l'acide glucuronique.",
+        "correct": false,
+        "explanation": "Le groupement glucuronyle est transféré."
+      },
+      {
+        "content": "Il est plus réduit que le mannose correspondant.",
         "correct": true,
-        "explanation": "La voie animale classique part de dérivés du glucose et passe par la L-gulono-1,4-lactone."
+        "explanation": "Le carbonyle a été transformé en alcool."
       },
       {
-        "content": "Toutes ces transformations donnent le même produit.",
+        "content": "Le mannitol est un peptide.",
         "correct": false,
-        "explanation": "N-acétylation, phosphorylation, sulfatation et oxydation modifient des fonctions différentes et produisent des familles distinctes."
+        "explanation": "C'est un dérivé glucidique."
       },
       {
-        "content": "Le sorbitol est un acide sialique.",
+        "content": "Le mannitol est un cétose.",
         "correct": false,
-        "explanation": "Le sorbitol est le polyol obtenu par réduction du glucose."
+        "explanation": "Il ne possède plus de carbonyle."
       },
       {
-        "content": "Le glucuronate est une osamine.",
+        "content": "Elle consiste à réduire un carbonyle en alcool.",
         "correct": false,
-        "explanation": "Le glucuronate est la forme ionisée d'un dérivé oxydé du glucose et ne porte pas la fonction amine caractéristique d'une osamine."
-      },
-      {
-        "content": "La chitine est un ester phosphorique.",
-        "correct": false,
-        "explanation": "La chitine est un polymère de N-acétylglucosamine liée en β(1→4)."
-      },
-      {
-        "content": "La streptomycine est une vitamine.",
-        "correct": false,
-        "explanation": "La streptomycine est un antibiotique aminoglycosidique."
+        "explanation": "C'est une réaction de conjugaison."
       }
     ],
-    "explanation": "Ces transformations conduisent à des familles distinctes de dérivés glucidiques aux propriétés différentes."
+    "explanation": "La glucuronoconjugaison est une voie majeure de conjugaison augmentant souvent l'hydrosolubilité et l'élimination. Le mannitol est l'alditol du mannose et possède des usages médicaux osmotiques."
   },
   {
     "order": 111,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un ose est d'abord oxydé sur un alcool terminal, tandis qu'un autre exemplaire est réduit sur sa fonction carbonyle. Quelles conclusions sont correctes ?",
+    "question": "Concernant le glucose, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Le premier peut devenir un acide uronique.",
+        "content": "Le glucose est un substrat énergétique majeur.",
         "correct": true,
-        "explanation": "L'oxydation de l'alcool primaire en C6 du glucose produit l'acide glucuronique."
+        "explanation": "Il alimente notamment la glycolyse."
       },
       {
-        "content": "Le second devient un polyol.",
-        "correct": true,
-        "explanation": "La réduction de la fonction carbonyle en alcool transforme l'ose en polyol."
-      },
-      {
-        "content": "Les transformations sont de sens redox opposé.",
-        "correct": true,
-        "explanation": "La première transformation augmente l'état d'oxydation, tandis que la seconde le diminue."
-      },
-      {
-        "content": "Les deux produits sont fonctionnellement identiques.",
+        "content": "Le glucose est un pentose.",
         "correct": false,
-        "explanation": "Le premier porte une fonction carboxylique, tandis que le second possède une fonction alcool supplémentaire."
+        "explanation": "Il possède six carbones."
+      },
+      {
+        "content": "Le glucose est un aldohexose.",
+        "correct": true,
+        "explanation": "Sa forme ouverte contient un aldéhyde et six carbones."
+      },
+      {
+        "content": "Le glucose est exclusivement sous forme ouverte en eau.",
+        "correct": false,
+        "explanation": "Les formes cycliques dominent."
+      },
+      {
+        "content": "Le glucose est majoritairement cyclique en solution aqueuse.",
+        "correct": true,
+        "explanation": "Le glucopyranose domine."
       }
     ],
-    "explanation": "L'oxydation d'un alcool terminal peut former un acide uronique, tandis que la réduction du carbonyle forme un polyol."
+    "explanation": "Le glucose est l'aldohexose énergétique de référence."
   },
   {
     "order": 112,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Un composé possède à la fois un dérivé aminé et un groupement acétyl lié à l'azote. Quelles propositions sont cohérentes ?",
-    "choices": [
-      {
-        "content": "Il s'agit d'une N-acétylation.",
-        "correct": true,
-        "explanation": "Le préfixe N-acétyl signifie qu'un groupement acétyl est lié à l'atome d'azote."
-      },
-      {
-        "content": "Le motif est compatible avec une osamine N-acétylée.",
-        "correct": true,
-        "explanation": "Une osamine N-acétylée porte un motif acétamide NHCOCH3 en C2."
-      },
-      {
-        "content": "La chitine constitue un exemple de polymère lié à ce type de motif.",
-        "correct": true,
-        "explanation": "Chaque résidu de N-acétylglucosamine de la chitine porte un groupement N-acétyl."
-      },
-      {
-        "content": "La modification correspond à une phosphorylation.",
-        "correct": false,
-        "explanation": "Ce n'est pas un phosphate."
-      }
-    ],
-    "explanation": "La lecture du motif fonctionnel permet d'identifier la transformation."
+    "format": "QROC",
+    "question": "À quel carbone le galactose est-il épimère du glucose ?",
+    "answer": {
+      "type": "number",
+      "value": 4,
+      "tolerance": 0
+    },
+    "explanation": "Le galactose est un aldohexose épimère C4 du glucose."
   },
   {
     "order": 113,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Concernant la biosynthèse cytosolique du Neu5Ac chez les vertébrés, quelles propositions sont exactes ?",
+    "format": "QRP",
+    "question": "Parmi les propositions suivantes sur le mannose, retenez exactement les deux exactes.",
     "choices": [
       {
-        "content": "Le ManNAc-6-P constitue le précurseur glucidique à six carbones.",
-        "correct": true,
-        "explanation": "Le N-acétyl-D-mannosamine est phosphorylé en C6 avant la condensation."
+        "content": "Le mannose est absent des glycoprotéines.",
+        "correct": false,
+        "explanation": "Il y est fréquent."
       },
       {
-        "content": "Le phosphoénolpyruvate apporte un fragment à trois carbones.",
+        "content": "Sa réduction donne du mannitol.",
         "correct": true,
-        "explanation": "Le PEP se condense avec le ManNAc-6-P pour construire le squelette à neuf carbones."
+        "explanation": "La fonction carbonyle est réduite."
       },
       {
-        "content": "Le Neu5Ac-9-phosphate est un intermédiaire de la voie.",
-        "correct": true,
-        "explanation": "La condensation catalysée par NANS forme le Neu5Ac-9-phosphate."
+        "content": "Sa réduction donne uniquement du xylitol.",
+        "correct": false,
+        "explanation": "Le mannitol est le polyol attendu."
       },
       {
-        "content": "Une déphosphorylation libère le Neu5Ac, principal acide sialique humain.",
+        "content": "Le mannose est un aldohexose.",
         "correct": true,
-        "explanation": "Une phosphatase spécifique retire le phosphate avant l'activation ultérieure du Neu5Ac en CMP-Neu5Ac."
+        "explanation": "Il possède une fonction aldéhyde ouverte."
+      },
+      {
+        "content": "Il est épimère C4 du glucose.",
+        "correct": false,
+        "explanation": "C4 correspond au galactose."
       }
     ],
-    "explanation": "La voie vertébrée associe ManNAc-6-P, PEP, Neu5Ac-9-P puis une déphosphorylation finale."
+    "explanation": "Le mannose est un aldohexose épimère C2 du glucose.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 114,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Une glycoprotéine porte de nombreux NANA ionisés et des chaînes glycaniques étendues. Quel raisonnement est compatible ?",
+    "question": "Concernant le fructose, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Les carboxylates COO− se repoussent.",
+        "content": "Le D-fructose est lévogyre malgré sa série D.",
         "correct": true,
-        "explanation": "Deux charges négatives proches peuvent exercer une interaction électrostatique répulsive."
+        "explanation": "Il illustre l'indépendance D/L et +/−."
       },
       {
-        "content": "Cette répulsion peut limiter le rapprochement de surfaces voisines.",
+        "content": "Il peut adopter une forme furanose.",
         "correct": true,
-        "explanation": "Une forte densité de charges négatives contribue à des effets électrostatiques répulsifs."
+        "explanation": "Le fructofuranose est courant dans le saccharose."
       },
       {
-        "content": "Les NANA peuvent participer à la reconnaissance cellulaire.",
+        "content": "Le fructose est un cétohexose.",
         "correct": true,
-        "explanation": "Les acides sialiques terminaux peuvent servir de déterminants reconnus par certaines lectines."
+        "explanation": "Sa forme ouverte possède une cétone en C2."
       },
       {
-        "content": "L'ionisation neutralise toutes les charges.",
+        "content": "Il entre dans la composition du saccharose.",
+        "correct": true,
+        "explanation": "Le saccharose associe glucose et fructose."
+      },
+      {
+        "content": "Le saccharose ne contient aucun fructose.",
         "correct": false,
-        "explanation": "La déprotonation du COOH forme au contraire un carboxylate COO− chargé négativement."
+        "explanation": "Il en contient un résidu."
       }
     ],
-    "explanation": "Le NANA relie chimie acide, électrostatique et biologie cellulaire."
+    "explanation": "Le fructose est le cétohexose majeur, présent notamment dans le saccharose."
   },
   {
     "order": 115,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Un métabolite est nommé fructose-1,6-bisphosphate. Quelles informations sont directement codées par le nom ?",
+    "format": "QRU",
+    "question": "À propos du ribose et le 2-désoxyribose, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Il dérive du fructose.",
+        "content": "Le ribose est un pentose de l'ARN.",
         "correct": true,
-        "explanation": "Le premier terme de la nomenclature identifie le squelette glucidique comme celui du fructose."
+        "explanation": "Il entre dans les ribonucléotides."
       },
       {
-        "content": "Il possède deux phosphates.",
-        "correct": true,
-        "explanation": "Le préfixe bis- indique la présence de deux groupements phosphate distincts."
-      },
-      {
-        "content": "Les positions sont C1 et C6.",
-        "correct": true,
-        "explanation": "Les indices 1 et 6 désignent les deux carbones porteurs des phosphates."
-      },
-      {
-        "content": "Il s'agit nécessairement d'une osamine.",
+        "content": "L'ADN contient du ribose non désoxygéné.",
         "correct": false,
-        "explanation": "Cette nomenclature décrit un fructose bisphosphorylé et ne comporte aucun motif amino."
+        "explanation": "Il contient du 2-désoxyribose."
+      },
+      {
+        "content": "Le ribose est un hexose.",
+        "correct": false,
+        "explanation": "Il possède cinq carbones."
+      },
+      {
+        "content": "La différence ribose/désoxyribose porte sur C5.",
+        "correct": false,
+        "explanation": "Elle porte sur C2."
+      },
+      {
+        "content": "Le ribose est un cétose.",
+        "correct": false,
+        "explanation": "C'est un aldopentose."
       }
     ],
-    "explanation": "La nomenclature des esters phosphoriques fournit les positions de substitution."
+    "explanation": "Ribose et 2-désoxyribose se distinguent par l'OH porté ou non par C2."
   },
   {
     "order": 116,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un GAG porte simultanément une osamine sulfatée et un acide uronique. Quelles propriétés sont cohérentes ?",
+    "question": "Parmi les affirmations suivantes sur les propriétés physiques des oses simples, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Des sulfates peuvent apporter des charges négatives.",
+        "content": "Les oses sont généralement des solides moléculaires peu volatils.",
         "correct": true,
-        "explanation": "Les esters sulfates sont ionisés aux pH biologiques usuels."
+        "explanation": "Leur réseau de liaisons hydrogène renforce la cohésion."
       },
       {
-        "content": "Le carboxylate de l'acide uronique peut aussi être négatif.",
-        "correct": true,
-        "explanation": "La déprotonation de la fonction carboxylique forme un groupement COO−."
-      },
-      {
-        "content": "La molécule peut être fortement hydrophile.",
-        "correct": true,
-        "explanation": "Les charges et les nombreuses fonctions hydroxyle favorisent les interactions avec l'eau et les contre-ions."
-      },
-      {
-        "content": "Il s'agit nécessairement d'une protéine fibrillaire.",
+        "content": "Les oses sont généralement très lipophiles.",
         "correct": false,
-        "explanation": "Un GAG est glucidique."
+        "explanation": "Leurs nombreux OH les rendent hydrophiles."
+      },
+      {
+        "content": "Les oses simples sont souvent très solubles dans l'eau.",
+        "correct": true,
+        "explanation": "Les liaisons hydrogène favorisent leur solvatation."
+      },
+      {
+        "content": "La cyclisation n'empêche pas la présence de nombreux groupes hydroxyle.",
+        "correct": true,
+        "explanation": "Les formes cycliques restent polaires."
+      },
+      {
+        "content": "La présence d'OH rend les oses apolaires.",
+        "correct": false,
+        "explanation": "Elle augmente leur polarité."
       }
     ],
-    "explanation": "La forte charge de certains GAG vient de plusieurs fonctions ionisables."
+    "explanation": "Les nombreux groupes hydroxyle rendent les oses polaires et hydrosolubles."
   },
   {
     "order": 117,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Quel polyol formé par réduction du glucose est utilisé comme édulcorant et comme humectant dans certains dentifrices ?",
+    "question": "Quelle couleur caractéristique présente le précipité lors d'un test de Fehling positif ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
-        "sorbitol",
-        "le sorbitol"
+        "rouge brique",
+        "rouge",
+        "rouge-brique"
       ],
       "normalization": {
         "trim": true,
-        "caseSensitive": false,
         "collapseWhitespace": true,
+        "caseSensitive": false,
         "ignoreAccents": true
       }
     },
-    "explanation": "Le sorbitol résulte de la réduction du glucose ; son goût sucré et son caractère hygroscopique expliquent ses usages comme édulcorant et humectant."
+    "explanation": "Le pouvoir réducteur dépend de l'accessibilité d'une forme carbonylée ; le fructose peut être positif en milieu alcalin par isomérisation."
   },
   {
     "order": 118,
-    "difficulty": "HARD",
-    "format": "QROC",
-    "question": "Combien de positions phosphorylées distinctes sont indiquées dans le nom fructose-1,6-bisphosphate ?",
-    "answer": {
-      "type": "number",
-      "value": 2,
-      "tolerance": 0
-    },
-    "explanation": "Les phosphates sont portés en C1 et C6."
-  },
-  {
-    "order": 119,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Concernant la vitamine C, quelles propositions sont exactes ?",
-    "choices": [
-      {
-        "content": "Il s'agit de l'acide ascorbique.",
-        "correct": true,
-        "explanation": "L'acide L-ascorbique est la forme chimique communément appelée vitamine C."
-      },
-      {
-        "content": "Chez les espèces capables de la synthétiser, elle dérive du glucose via la L-gulono-1,4-lactone.",
-        "correct": true,
-        "explanation": "La voie animale classique aboutit à la L-gulono-1,4-lactone, ensuite oxydée en L-ascorbate."
-      },
-      {
-        "content": "L'être humain ne possède pas de L-gulonolactone oxydase fonctionnelle.",
-        "correct": true,
-        "explanation": "L'absence de cette activité enzymatique empêche l'achèvement de la biosynthèse endogène de la vitamine C."
-      },
-      {
-        "content": "L'être humain en synthétise suffisamment à partir du glucose.",
-        "correct": false,
-        "explanation": "La vitamine C doit être apportée par l'alimentation chez l'être humain."
-      }
-    ],
-    "explanation": "La vitamine C est l'acide L-ascorbique ; elle est essentielle dans l'alimentation humaine faute de biosynthèse endogène complète."
-  },
-  {
-    "order": 120,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Quelle substance est un antibiotique aminoglycosidique ?",
-    "choices": [
-      {
-        "content": "Streptomycine.",
-        "correct": true,
-        "explanation": "La streptomycine est un antibiotique appartenant à la famille des aminoglycosides."
-      },
-      {
-        "content": "Acide ascorbique.",
-        "correct": false,
-        "explanation": "L'acide ascorbique est la vitamine C, pas un antibiotique."
-      },
-      {
-        "content": "Mannitol.",
-        "correct": false,
-        "explanation": "Le mannitol est un polyol, pas un antibiotique aminoglycosidique."
-      },
-      {
-        "content": "Glucuronate.",
-        "correct": false,
-        "explanation": "Le glucuronate est la forme ionisée de l'acide glucuronique."
-      }
-    ],
-    "explanation": "La streptomycine est un antibiotique aminoglycosidique comportant plusieurs unités apparentées à des oses aminés."
-  },
-  {
-    "order": 121,
-    "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Quelle démarche permet de classer un dérivé d'ose inconnu à partir de sa fonction nouvelle ?",
-    "choices": [
-      {
-        "content": "COOH terminal issu d'une oxydation → dérivé acide/uronique.",
-        "correct": true,
-        "explanation": "L'oxydation d'un alcool primaire terminal en fonction carboxylique forme un acide uronique."
-      },
-      {
-        "content": "Carbonyle réduit en alcool → polyol.",
-        "correct": true,
-        "explanation": "La réduction d'une fonction aldéhyde ou cétone en alcool produit un alditol, aussi appelé polyol."
-      },
-      {
-        "content": "NH2 en C2 → osamine.",
-        "correct": true,
-        "explanation": "Le remplacement du OH de C2 par NH2 caractérise une osamine comme la glucosamine."
-      },
-      {
-        "content": "Phosphate ou sulfate sur OH → ose estérifié.",
-        "correct": true,
-        "explanation": "La liaison d'un phosphate ou d'un sulfate à l'oxygène d'un OH forme un ester."
-      }
-    ],
-    "explanation": "Les familles de dérivés peuvent être reconnues par la transformation fonctionnelle."
-  },
-  {
-    "order": 122,
     "difficulty": "HARD",
     "format": "QRPL",
     "requiredSelectionCount": 5,
     "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Glucose → acide glucuronique par oxydation de C6.",
-        "correct": true,
-        "explanation": "L'alcool primaire en C6 est oxydé en fonction carboxylique."
-      },
-      {
-        "content": "Glucose → sorbitol par réduction.",
-        "correct": true,
-        "explanation": "La fonction aldéhyde du glucose est réduite en alcool primaire."
-      },
-      {
-        "content": "Une osamine porte une amine en C2.",
-        "correct": true,
-        "explanation": "Dans une osamine comme la glucosamine, NH2 remplace le OH porté par C2."
-      },
-      {
-        "content": "Le Neu5Ac, aussi abrégé NANA, appartient à la famille des acides sialiques.",
-        "correct": true,
-        "explanation": "Le Neu5Ac est le principal acide sialique chez l'être humain."
-      },
-      {
-        "content": "Le ribose peut être phosphorylé en C5 dans le contexte des acides nucléiques.",
-        "correct": true,
-        "explanation": "Le ribose-5-phosphate contribue via le PRPP à la biosynthèse des ribonucléotides."
-      },
-      {
-        "content": "Mannose → sorbitol par réduction.",
+        "content": "DHAP est un aldohexose.",
         "correct": false,
-        "explanation": "La réduction du mannose forme le mannitol ; le sorbitol provient de la réduction du glucose."
+        "explanation": "C'est un cétotriose phosphorylé."
       },
       {
-        "content": "La chitine est un ester sulfurique.",
-        "correct": false,
-        "explanation": "La chitine est un polymère de N-acétylglucosamine liée en β(1→4)."
+        "content": "La dihydroxyacétone phosphate est un intermédiaire de la glycolyse.",
+        "correct": true,
+        "explanation": "Elle est interconvertie avec le glycéraldéhyde-3-phosphate."
       },
       {
-        "content": "Le NANA ne peut pas être ionisé.",
-        "correct": false,
-        "explanation": "Sa fonction carboxylique COOH peut se déprotoner en carboxylate COO−."
+        "content": "La réduction du glycéraldéhyde donne du glycérol.",
+        "correct": true,
+        "explanation": "Le carbonyle devient alcool."
       },
       {
-        "content": "La streptomycine est la vitamine C.",
+        "content": "L'interconversion GAP/DHAP nécessite une transmutation nucléaire.",
         "correct": false,
-        "explanation": "La streptomycine est un antibiotique aminoglycosidique ; la vitamine C est l'acide ascorbique."
+        "explanation": "C'est une isomérisation enzymatique."
       },
       {
-        "content": "Fehling positif correspond à une réduction de l'aldose en polyol.",
+        "content": "La réduction du glucose donne du sorbitol.",
+        "correct": true,
+        "explanation": "Le sorbitol est aussi appelé glucitol."
+      },
+      {
+        "content": "La réduction du glucose donne directement de l'acide glucuronique.",
         "correct": false,
-        "explanation": "Lors du test de Fehling, l'aldose est oxydé tandis que les ions cuivre(II) sont réduits en Cu2O."
+        "explanation": "Cela correspond à une oxydation C6."
+      },
+      {
+        "content": "GAP et DHAP sont étrangers au métabolisme glucidique.",
+        "correct": false,
+        "explanation": "Ils sont des intermédiaires centraux de la glycolyse."
+      },
+      {
+        "content": "La réduction supprime tous les groupes hydroxyle.",
+        "correct": false,
+        "explanation": "Elle transforme le carbonyle en hydroxyle."
+      },
+      {
+        "content": "Le glycéraldéhyde-3-phosphate est un intermédiaire de la glycolyse.",
+        "correct": true,
+        "explanation": "Il poursuit la phase de rendement."
+      },
+      {
+        "content": "Les deux trioses possèdent trois carbones.",
+        "correct": true,
+        "explanation": "Leur squelette carboné est un triose."
       }
     ],
-    "explanation": "Cette sélection mobilise les principales transformations fonctionnelles et quelques rôles biologiques des dérivés glucidiques."
+    "explanation": "Les trioses phosphorylés GAP et DHAP sont des intermédiaires glycolytiques interconvertibles. La réduction du carbonyle d'un ose forme un polyol : glucose→sorbitol, mannose→mannitol."
+  },
+  {
+    "order": 119,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur l'acide glucuronique, lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "Le carbone C1 n'est pas celui oxydé lors de sa formation à partir du glucose.",
+        "correct": true,
+        "explanation": "L'oxydation caractéristique porte sur C6."
+      },
+      {
+        "content": "Le glucuronate est un polyol dépourvu de fonction acide.",
+        "correct": false,
+        "explanation": "Il porte un carboxylate."
+      },
+      {
+        "content": "Le glucuronate entre dans la composition de glycosaminoglycanes.",
+        "correct": true,
+        "explanation": "Il est présent dans hyaluronane et chondroïtine sulfate."
+      },
+      {
+        "content": "Il dérive du glucose par oxydation de l'alcool primaire C6.",
+        "correct": true,
+        "explanation": "CH2OH devient COOH."
+      },
+      {
+        "content": "À pH physiologique, il est largement sous forme glucuronate.",
+        "correct": true,
+        "explanation": "La fonction carboxylique est déprotonée."
+      }
+    ],
+    "explanation": "L'acide glucuronique est l'acide uronique C6 du glucose."
+  },
+  {
+    "order": 120,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Quel nucléotide-sucre activé fournit le groupement glucuronyle lors de la glucuronoconjugaison ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "UDP-acide glucuronique",
+        "UDP glucuronate",
+        "UDP-glucuronate",
+        "UDP-glucuronic acid"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "La glucuronoconjugaison est une voie majeure de conjugaison augmentant souvent l'hydrosolubilité et l'élimination."
+  },
+  {
+    "order": 121,
+    "difficulty": "HARD",
+    "format": "QRP",
+    "question": "À propos de la réduction des oses en polyols, sélectionnez exactement les deux affirmations correctes.",
+    "choices": [
+      {
+        "content": "La réduction d'une fonction carbonyle d'un ose donne une fonction alcool.",
+        "correct": true,
+        "explanation": "Le produit est un alditol ou polyol."
+      },
+      {
+        "content": "Le mannitol est le produit d'oxydation C6 du mannose.",
+        "correct": false,
+        "explanation": "Il est un produit de réduction."
+      },
+      {
+        "content": "La réduction du mannose donne du mannitol.",
+        "correct": true,
+        "explanation": "Le mannitol est l'alditol correspondant."
+      },
+      {
+        "content": "Un polyol possède obligatoirement une fonction aldéhyde libre.",
+        "correct": false,
+        "explanation": "Le carbonyle a été réduit."
+      },
+      {
+        "content": "La réduction supprime tous les groupes hydroxyle.",
+        "correct": false,
+        "explanation": "Elle transforme le carbonyle en hydroxyle."
+      }
+    ],
+    "explanation": "La réduction du carbonyle d'un ose forme un polyol : glucose→sorbitol, mannose→mannitol.",
+    "requiredSelectionCount": 2
+  },
+  {
+    "order": 122,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur le sorbitol, lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "Le sorbitol est un polyol dérivé du glucose.",
+        "correct": true,
+        "explanation": "Il est obtenu par réduction du carbonyle."
+      },
+      {
+        "content": "Il peut s'accumuler dans certaines cellules lorsque la voie des polyols est très active.",
+        "correct": true,
+        "explanation": "Cette accumulation est discutée dans certaines complications du diabète."
+      },
+      {
+        "content": "Le sorbitol est un acide uronique.",
+        "correct": false,
+        "explanation": "C'est un polyol."
+      },
+      {
+        "content": "Le sorbitol ne possède aucun groupe hydroxyle.",
+        "correct": false,
+        "explanation": "Il en possède plusieurs."
+      },
+      {
+        "content": "Le sorbitol est le même composé que le glucose.",
+        "correct": false,
+        "explanation": "La fonction carbonyle a été réduite."
+      }
+    ],
+    "explanation": "Le sorbitol ou glucitol est l'alditol du glucose."
   }
 ];

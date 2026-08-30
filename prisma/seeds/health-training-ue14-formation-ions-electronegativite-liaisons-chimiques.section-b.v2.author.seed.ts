@@ -1,571 +1,670 @@
-import { TEX_UNITS, texQuantity } from './tex-units';
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-const U = TEX_UNITS;
-
-/**
- * UE14 – Chimie générale
- * Chapitre 2 – Formation des ions, électronégativité et liaisons chimiques
- * Section B – Liaisons chimiques
- */
-
+/** UE14 – Chimie générale – Chapitre 1.2 – Section B – Liaisons chimiques */
 export const UE14_CH2_LIAISONS_DISCOVER_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
-    order: 21,
-    difficulty: 'EASY',
-    format: 'QRU',
-    question: `Quelle proposition décrit correctement une liaison covalente simple ?`,
-    choices: [
+    "order": 21,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Quelle proposition décrit le mieux une liaison covalente ?",
+    "choices": [
       {
-        content: `Deux électrons célibataires s'apparient pour former un doublet liant commun aux deux atomes.`,
-        correct: true,
-        explanation: `C'est le principe de la liaison covalente présenté dans la fiche.`,
+        "content": "Deux neutrons sont échangés.",
+        "correct": false,
+        "explanation": "Les neutrons ne participent pas aux liaisons chimiques ordinaires."
       },
       {
-        content: `Un doublet non liant est transféré définitivement au noyau de l'autre atome.`,
-        correct: false,
-        explanation: `Un doublet non liant ne constitue pas une liaison covalente simple par lui-même.`,
+        "content": "Aucun électron n'intervient.",
+        "correct": false,
+        "explanation": "Les électrons de valence sont au cœur de la liaison."
       },
       {
-        content: `Elle correspond nécessairement à une liaison $\\pi$.`,
-        correct: false,
-        explanation: `Une liaison covalente simple correspond à une liaison $\\sigma$.`,
+        "content": "Deux noyaux fusionnent.",
+        "correct": false,
+        "explanation": "Une liaison chimique ne modifie pas les noyaux."
       },
       {
-        content: `Elle implique toujours un transfert complet d'électron d'un atome vers l'autre.`,
-        correct: false,
-        explanation: `Un transfert complet correspond au modèle ionique, pas au partage covalent.`,
+        "content": "Un électron est toujours totalement transféré d'un atome à l'autre.",
+        "correct": false,
+        "explanation": "Cela décrit le modèle limite d'une liaison ionique."
       },
+      {
+        "content": "Deux atomes partagent un ou plusieurs doublets d'électrons.",
+        "correct": true,
+        "explanation": "La liaison covalente repose sur le partage électronique."
+      }
     ],
-    explanation:
-      `Une liaison covalente simple est formée par un doublet liant partagé entre les deux atomes et correspond à une liaison $\\sigma$.`,
+    "explanation": "Une liaison covalente peut être simple, double ou triple selon le nombre de doublets partagés."
   },
   {
-    order: 22,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `Concernant les doublets liants et non liants, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 22,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "question": "Concernant doublets liants et non liants, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Dans $\\ce{NH3}$, l'azote conserve un doublet non liant.`,
-        correct: true,
-        explanation: `L'azote forme trois liaisons N–H et conserve un doublet libre.`,
+        "content": "Un doublet non liant reste localisé principalement sur un atome.",
+        "correct": true,
+        "explanation": "Il n'est pas engagé dans une liaison covalente ordinaire."
       },
       {
-        content: `Dans une représentation usuelle de l'eau, l'oxygène possède deux doublets non liants.`,
-        correct: true,
-        explanation: `L'oxygène forme deux liaisons et conserve deux doublets non liants.`,
+        "content": "Un doublet liant contient toujours quatre électrons.",
+        "correct": false,
+        "explanation": "Un doublet contient deux électrons."
       },
       {
-        content: `Un halogène engagé dans une liaison simple conserve typiquement trois doublets non liants.`,
-        correct: true,
-        explanation: `C'est le repère donné dans la fiche pour le chlore.`,
+        "content": "Un doublet non liant ne peut jamais participer à une réaction.",
+        "correct": false,
+        "explanation": "Il peut agir comme donneur d'électrons."
       },
       {
-        content: `Tous les doublets électroniques d'une molécule sont nécessairement liants.`,
-        correct: false,
-        explanation: `De nombreux atomes portent des doublets non liants.`,
+        "content": "Un doublet liant est partagé entre deux atomes dans une liaison covalente.",
+        "correct": true,
+        "explanation": "Il contribue directement à la liaison."
       },
+      {
+        "content": "Les doublets non liants peuvent influencer la géométrie moléculaire.",
+        "correct": true,
+        "explanation": "Ils exercent des répulsions électroniques."
+      }
     ],
-    explanation:
-      `Les électrons de valence peuvent constituer des doublets liants partagés ou des doublets non liants localisés sur un atome.`,
+    "explanation": "La distinction liant/non liant est essentielle pour comprendre géométrie, réactivité et coordination.",
+    "requiredSelectionCount": 3
   },
   {
-    order: 23,
-    difficulty: 'EASY',
-    format: 'QROC',
-    question: `Combien de doublets non liants porte l'atome d'azote dans la molécule $\\ce{NH3}$ ?`,
-    answer: { type: 'number', value: 1, tolerance: 0 },
-    explanation:
-      `L'azote possède cinq électrons de valence : trois participent aux trois liaisons N–H et les deux autres forment un doublet non liant.`,
+    "order": 23,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Combien de doublets non liants porte l'azote dans une molécule neutre d'ammoniac $\\ce{NH3}$ ?",
+    "answer": {
+      "type": "number",
+      "value": 1,
+      "tolerance": 0
+    },
+    "explanation": "L'azote forme trois liaisons N–H et conserve un doublet non liant."
   },
   {
-    order: 26,
-    difficulty: 'EASY',
-    format: 'QRU',
-    question: `Quelle proposition décrit correctement la formation d'une liaison de coordination ?`,
-    choices: [
+    "order": 26,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Qu'est-ce qu'une liaison de coordination dans le modèle de Lewis ?",
+    "choices": [
       {
-        content: `Un donneur fournit un doublet non liant à un accepteur disposant d'une orbitale vacante.`,
-        correct: true,
-        explanation: `C'est la définition de la liaison de coordination dans la fiche.`,
+        "content": "Une liaison exclusivement entre deux anions.",
+        "correct": false,
+        "explanation": "Elle implique un donneur et un accepteur de doublet."
       },
       {
-        content: `Chaque partenaire fournit obligatoirement un électron célibataire.`,
-        correct: false,
-        explanation: `Cela décrit la formation covalente classique, pas l'origine d'une liaison de coordination.`,
+        "content": "Une liaison ne comportant aucun électron.",
+        "correct": false,
+        "explanation": "Elle repose au contraire sur un doublet."
       },
       {
-        content: `Le donneur est nécessairement un ion métallique.`,
-        correct: false,
-        explanation: `Les ions métalliques sont typiquement accepteurs ; N ou O sont souvent donneurs de doublet.`,
+        "content": "Une liaison créée par transfert d'un neutron.",
+        "correct": false,
+        "explanation": "Aucun neutron n'intervient."
       },
       {
-        content: `La liaison formée reste toujours distinguable des autres liaisons covalentes de la molécule.`,
-        correct: false,
-        explanation: `Après sa formation, elle est assimilable à une liaison covalente ordinaire.`,
+        "content": "Une liaison covalente dont les deux électrons du doublet liant proviennent initialement du même partenaire.",
+        "correct": true,
+        "explanation": "Un donneur fournit un doublet à un accepteur."
       },
+      {
+        "content": "Une interaction qui reste toujours différente des autres liaisons après formation.",
+        "correct": false,
+        "explanation": "Après formation, elle peut devenir indiscernable de liaisons covalentes équivalentes."
+      }
     ],
-    explanation:
-      `La particularité d'une liaison de coordination réside dans l'origine du doublet liant : les deux électrons sont initialement apportés par le donneur.`,
+    "explanation": "La notion de coordination décrit l'origine du doublet lors de la formation de la liaison."
   },
   {
-    order: 28,
-    difficulty: 'EASY',
-    format: 'QRU',
-    question: `Qu'appelle-t-on complexe de coordination dans le cadre du cours ?`,
-    choices: [
+    "order": 28,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Dans un complexe de coordination, quel rôle joue un ligand donneur ?",
+    "choices": [
       {
-        content: `Un édifice comportant plusieurs liaisons de coordination, souvent autour d'un centre métallique.`,
-        correct: true,
-        explanation: `C'est le modèle retenu pour les complexes de coordination.`,
+        "content": "Il fournit un doublet électronique au centre accepteur.",
+        "correct": true,
+        "explanation": "Le ligand agit comme base de Lewis."
       },
       {
-        content: `Une molécule ne comportant que des liaisons non polarisées.`,
-        correct: false,
-        explanation: `La polarité n'est pas la définition d'un complexe.`,
+        "content": "Il détruit le noyau du métal.",
+        "correct": false,
+        "explanation": "Aucune transformation nucléaire n'a lieu."
       },
       {
-        content: `Un ion possédant obligatoirement une charge nulle.`,
-        correct: false,
-        explanation: `Un complexe peut être chargé ou neutre.`,
+        "content": "Il fournit un neutron au métal.",
+        "correct": false,
+        "explanation": "La coordination est électronique."
       },
       {
-        content: `Une molécule composée exclusivement de carbone et d'hydrogène.`,
-        correct: false,
-        explanation: `Cela correspondrait à un hydrocarbure, pas à un complexe de coordination.`,
+        "content": "Il doit toujours être chargé négativement.",
+        "correct": false,
+        "explanation": "Des ligands neutres comme $\\ce{NH3}$ existent."
       },
+      {
+        "content": "Il capte nécessairement un proton.",
+        "correct": false,
+        "explanation": "Ce n'est pas la définition d'un ligand."
+      }
     ],
-    explanation:
-      `Un complexe de coordination comprend un centre accepteur, souvent métallique, relié à plusieurs ligands donneurs de doublets.`,
+    "explanation": "La liaison métal-ligand est souvent décrite comme une interaction donneur-accepteur de doublet."
   },
   {
-    order: 30,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `Concernant une liaison covalente polarisée entre deux atomes d'électronégativités différentes, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 30,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Dans une liaison polarisée A–B, si B est plus électronégatif que A, quelle notation est cohérente ?",
+    "choices": [
       {
-        content: `Le doublet liant est davantage attiré vers l'atome le plus électronégatif.`,
-        correct: true,
-        explanation: `L'atome le plus électronégatif porte alors une charge partielle négative.`,
+        "content": "La liaison est nécessairement apolaire.",
+        "correct": false,
+        "explanation": "Une différence d'électronégativité entraîne une polarisation."
       },
       {
-        content: `L'atome le moins électronégatif porte une charge partielle $\\delta^{+}$.`,
-        correct: true,
-        explanation: `Le déplacement du doublet laisse un déficit électronique relatif sur cet atome.`,
+        "content": "$\\ce{A^{\\delta-}-B^{\\delta+}}$.",
+        "correct": false,
+        "explanation": "Les charges partielles seraient inversées."
       },
       {
-        content: `Selon la convention du cours, le moment dipolaire est orienté du pôle $+$ vers le pôle $-$.`,
-        correct: true,
-        explanation: `La fiche précise cette convention chimique.`,
+        "content": "A et B portent nécessairement des charges entières.",
+        "correct": false,
+        "explanation": "Une liaison polarisée covalente porte des charges partielles."
       },
       {
-        content: `Une liaison polarisée implique nécessairement une charge globale non nulle de la molécule.`,
-        correct: false,
-        explanation: `Les charges partielles opposées peuvent appartenir à une molécule globalement neutre.`,
+        "content": "$\\ce{A^{\\delta+}-B^{\\delta-}}$.",
+        "correct": true,
+        "explanation": "Le doublet est déplacé vers l'atome le plus électronégatif."
       },
+      {
+        "content": "B perd obligatoirement tous ses électrons de valence.",
+        "correct": false,
+        "explanation": "Une polarisation ne correspond pas à un transfert total."
+      }
     ],
-    explanation:
-      `Une différence d'électronégativité déplace partiellement le doublet liant et crée un dipôle de liaison caractérisé par des charges partielles opposées.`,
+    "explanation": "Le symbole δ traduit une charge partielle, différente d'une charge ionique entière."
   },
   {
-    order: 32,
-    difficulty: 'EASY',
-    format: 'QROC',
-    question: `On utilise $\\chi(\\ce{C})=2{,}5$ et $\\chi(\\ce{O})=3{,}5$. Quelle est la différence d'électronégativité $|\\Delta\\chi|$ d'une liaison $\\ce{C-O}$ ?`,
-    answer: { type: 'number', value: 1, tolerance: 0.01 },
-    explanation:
-      `$|\\Delta\\chi|=|3{,}5-2{,}5|=1{,}0$. Le doublet est donc davantage attiré vers l'oxygène.`,
+    "order": 32,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "On prend $\\chi(\\ce{C})=2{,}5$ et $\\chi(\\ce{O})=3{,}5$. Quelle est la différence d'électronégativité $\\Delta\\chi$ de la liaison C–O ?",
+    "answer": {
+      "type": "number",
+      "value": 1.0,
+      "tolerance": 0.01
+    },
+    "explanation": "$\\Delta\\chi=|3{,}5-2{,}5|=1{,}0$."
   },
   {
-    order: 33,
-    difficulty: 'EASY',
-    format: 'QRU',
-    question: `Quelle proposition décrit correctement la mésomérie ?`,
-    choices: [
+    "order": 33,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Quelle définition correspond à la mésomérie (résonance) ?",
+    "choices": [
       {
-        content: `Plusieurs écritures de Lewis décrivent une même structure réelle dans laquelle certains électrons sont délocalisés.`,
-        correct: true,
-        explanation: `Les formes mésomères ne sont pas des molécules distinctes en équilibre.`,
+        "content": "Plusieurs formules limites décrivent une même structure électronique délocalisée.",
+        "correct": true,
+        "explanation": "La structure réelle est un hybride de résonance."
       },
       {
-        content: `Les atomes changent de position entre deux molécules qui s'interconvertissent.`,
-        correct: false,
-        explanation: `L'enchaînement des atomes reste identique ; ce sont les électrons qui sont redistribués.`,
+        "content": "Les noyaux changent de place entre les formes limites.",
+        "correct": false,
+        "explanation": "Seule la représentation électronique diffère."
       },
       {
-        content: `Elle correspond obligatoirement à la rupture homolytique d'une liaison.`,
-        correct: false,
-        explanation: `La rupture homolytique produit des radicaux et constitue un autre phénomène.`,
+        "content": "Elle n'existe que pour les ions métalliques.",
+        "correct": false,
+        "explanation": "Elle est fréquente en chimie organique et inorganique."
       },
       {
-        content: `Elle ne concerne jamais les liaisons amides.`,
-        correct: false,
-        explanation: `La liaison peptidique est précisément un exemple de mésomérie dans la fiche.`,
+        "content": "La molécule alterne physiquement entre plusieurs structures indépendantes.",
+        "correct": false,
+        "explanation": "Les formes limites ne sont pas des espèces qui s'interconvertissent."
       },
+      {
+        "content": "La mésomérie implique toujours une rupture de liaison.",
+        "correct": false,
+        "explanation": "Elle décrit une délocalisation électronique."
+      }
     ],
-    explanation:
-      `La mésomérie traduit une délocalisation électronique. La structure réelle est un hybride des différentes formes de Lewis pertinentes.`,
+    "explanation": "La mésomérie traduit une délocalisation d'électrons qu'une seule formule de Lewis représente imparfaitement."
   },
   {
-    order: 37,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `Concernant la rupture homolytique d'une liaison covalente, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 37,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Quelle rupture d'une liaison covalente conduit directement à deux espèces radicalaires ?",
+    "choices": [
       {
-        content: `Chaque atome récupère un électron du doublet liant.`,
-        correct: true,
-        explanation: `La rupture homolytique partage les deux électrons entre les deux fragments.`,
+        "content": "Une rupture hétérolytique.",
+        "correct": false,
+        "explanation": "Le doublet va entièrement vers un fragment, donnant des ions."
       },
       {
-        content: `Elle peut produire des espèces radicalaires portant un électron célibataire.`,
-        correct: true,
-        explanation: `C'est le cas de la radiolyse simplifiée de l'eau présentée dans la fiche.`,
+        "content": "Une rupture homolytique.",
+        "correct": true,
+        "explanation": "Chaque fragment récupère un électron du doublet liant."
       },
       {
-        content: `Les radicaux libres sont généralement très réactifs.`,
-        correct: true,
-        explanation: `Leur électron célibataire les rend particulièrement réactifs.`,
+        "content": "Une coordination.",
+        "correct": false,
+        "explanation": "La coordination forme une liaison."
       },
       {
-        content: `Elle nécessite toujours un transfert complet des deux électrons vers le même atome.`,
-        correct: false,
-        explanation: `Cette description ne correspond pas à une rupture homolytique.`,
+        "content": "Une protonation.",
+        "correct": false,
+        "explanation": "Ce n'est pas un mode de rupture de liaison."
       },
+      {
+        "content": "Une solvatation.",
+        "correct": false,
+        "explanation": "La solvatation n'implique pas nécessairement une rupture covalente."
+      }
     ],
-    explanation:
-      `Une rupture homolytique produit deux fragments possédant chacun un électron célibataire ; ces radicaux sont généralement très réactifs.`,
+    "explanation": "La rupture homolytique produit des radicaux, alors que la rupture hétérolytique produit des espèces ioniques."
   },
   {
-    order: 38,
-    difficulty: 'EASY',
-    format: 'QRU',
-    question: `Un atome fortement électronégatif est lié à une chaîne carbonée portant une fonction acide carboxylique. Quel effet peut-il exercer par effet inductif ?`,
-    choices: [
+    "order": 38,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant l'effet inductif, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Il attire la densité électronique à travers les liaisons $\\sigma$ et peut favoriser la dissociation du proton acide.`,
-        correct: true,
-        explanation: `Vrai : l'effet inductif électroattracteur se transmet par les liaisons $\\sigma$ et peut stabiliser la charge négative formée.`,
+        "content": "Il nécessite obligatoirement une conjugaison pi.",
+        "correct": false,
+        "explanation": "La conjugaison est plutôt associée aux effets mésomères."
       },
       {
-        content: `Il fournit automatiquement un doublet au proton.`,
-        correct: false,
-        explanation: `Faux : ceci décrirait la formation d'une liaison de coordination ou une réaction acido-basique directe.`,
+        "content": "Un substituant électronégatif peut exercer un effet inductif attracteur.",
+        "correct": true,
+        "explanation": "Il attire la densité électronique à travers les liaisons σ."
       },
       {
-        content: `Il transforme la liaison en liaison de coordination.`,
-        correct: false,
-        explanation: `Faux : l'effet inductif modifie la répartition électronique sans changer la nature covalente des liaisons.`,
+        "content": "Il implique le déplacement des noyaux atomiques.",
+        "correct": false,
+        "explanation": "Il s'agit d'une redistribution électronique."
       },
       {
-        content: `Il supprime toute polarisation des liaisons voisines.`,
-        correct: false,
-        explanation: `Faux : il induit au contraire une polarisation qui se transmet le long des liaisons $\\sigma$.`,
+        "content": "Il décroît généralement avec la distance.",
+        "correct": true,
+        "explanation": "Son influence s'atténue rapidement."
       },
+      {
+        "content": "Il correspond à une polarisation transmise au travers des liaisons sigma.",
+        "correct": true,
+        "explanation": "L'effet se propage le long du squelette σ."
+      }
     ],
-    explanation:
-      `L'effet inductif correspond à la transmission d'une polarisation électronique au travers des liaisons $\\sigma$ sous l'influence d'un substituant électronégatif ou électropositif. Dans l'exemple d'un substituant électronégatif proche d'une fonction acide carboxylique, cet effet peut stabiliser la charge négative de la base conjuguée et donc favoriser l'acidité.`,
-  },
+    "explanation": "Effets inductif et mésomère sont deux modes distincts de redistribution électronique."
+  }
 ];
 
 export const UE14_CH2_LIAISONS_PRACTICE_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
-    order: 25,
-    difficulty: 'MEDIUM',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `Sélectionnez exactement les deux propositions correctes concernant les liaisons simples, doubles et triples.`,
-    choices: [
+    "order": 25,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant les liaisons simple, double et triple entre deux atomes de carbone, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Une liaison simple comporte une liaison $\\sigma$.`,
-        correct: true,
-        explanation: `Vrai : une liaison covalente simple est formée par une liaison de type $\\sigma$.`,
+        "content": "Une double liaison C=C comporte une sigma et une pi.",
+        "correct": true,
+        "explanation": "La première liaison est σ, la seconde π."
       },
       {
-        content: `Une liaison double comporte une liaison $\\sigma$ et une liaison $\\pi$.`,
-        correct: true,
-        explanation: `Vrai : une liaison double associe une liaison $\\sigma$ et une liaison $\\pi$.`,
+        "content": "Une liaison pi résulte typiquement d'un recouvrement axial.",
+        "correct": false,
+        "explanation": "Le recouvrement axial donne σ ; le recouvrement latéral donne π."
       },
       {
-        content: `Une liaison triple comporte trois liaisons $\\pi$.`,
-        correct: false,
-        explanation: `Faux : une liaison triple comporte une liaison $\\sigma$ et deux liaisons $\\pi$.`,
+        "content": "Une triple liaison C≡C comporte une sigma et deux pi.",
+        "correct": true,
+        "explanation": "Une triple liaison est σ+2π."
       },
       {
-        content: `Une liaison double comporte deux liaisons $\\sigma$.`,
-        correct: false,
-        explanation: `Faux : elle comporte une liaison $\\sigma$ et une liaison $\\pi$.`,
+        "content": "Une triple liaison contient trois liaisons sigma.",
+        "correct": false,
+        "explanation": "Elle contient une seule σ."
       },
+      {
+        "content": "Une liaison simple C–C comporte une liaison sigma.",
+        "correct": true,
+        "explanation": "Une liaison simple est une liaison σ."
+      }
     ],
-    explanation:
-      `Dans le modèle présenté dans le cours, une liaison simple correspond à une liaison $\\sigma$, une liaison double à une liaison $\\sigma$ et une liaison $\\pi$, et une liaison triple à une liaison $\\sigma$ et deux liaisons $\\pi$.`,
+    "explanation": "Le décompte σ/π prépare directement l'étude de l'hybridation et de la géométrie moléculaire."
   },
   {
-    order: 24,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `Concernant le carbone et le phosphore engagés dans des molécules, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 24,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles propositions sur les valences usuelles du carbone et du phosphore sont exactes ?",
+    "choices": [
       {
-        content: `Le modèle du carbone moléculaire présenté dans la fiche permet quatre électrons célibataires disponibles pour quatre liaisons.`,
-        correct: true,
-        explanation: `La réorganisation électronique présentée rend compte de la tétravalence du carbone.`,
+        "content": "Le phosphore ne peut jamais dépasser l'octet dans les modèles usuels.",
+        "correct": false,
+        "explanation": "Des descriptions hypervalentes sont courantes pour des composés du phosphore."
       },
       {
-        content: `Dans $\\ce{PCl3}$, le phosphore forme trois liaisons avec les atomes de chlore.`,
-        correct: true,
-        explanation: `La configuration représentée laisse trois électrons célibataires.`,
+        "content": "Le carbone neutre forme très souvent quatre liaisons covalentes dans les molécules organiques.",
+        "correct": true,
+        "explanation": "La tétravalence du carbone est fondamentale."
       },
       {
-        content: `Dans $\\ce{PCl5}$, le phosphore peut former cinq liaisons dans le modèle présenté.`,
-        correct: true,
-        explanation: `La fiche présente une configuration permettant cinq électrons célibataires.`,
+        "content": "Le carbone forme typiquement six liaisons simples simultanées dans les molécules organiques neutres usuelles.",
+        "correct": false,
+        "explanation": "Ce n'est pas sa valence usuelle."
       },
       {
-        content: `Le carbone engagé dans une molécule ne peut former que deux liaisons.`,
-        correct: false,
-        explanation: `Le carbone forme couramment quatre liaisons.`,
+        "content": "Le carbone respecte couramment l'octet dans les molécules organiques stables.",
+        "correct": true,
+        "explanation": "Quatre liaisons lui donnent huit électrons autour de lui."
       },
+      {
+        "content": "Le phosphore peut former plus de quatre liaisons dans certains composés.",
+        "correct": true,
+        "explanation": "Des espèces hypercoordonnées du phosphore existent."
+      }
     ],
-    explanation:
-      `La fiche utilise une réorganisation des électrons célibataires pour rendre compte du nombre de liaisons du carbone et du phosphore dans différents environnements.`,
+    "explanation": "Le carbone est typiquement tétravalent ; le phosphore présente une chimie de coordination plus variée."
   },
   {
-    order: 27,
-    difficulty: 'MEDIUM',
-    format: 'QROC',
-    question: `Dans l'ion ammonium $\\ce{NH4+}$, combien de liaisons $\\ce{N-H}$ équivalentes trouve-t-on après formation de l'ion ?`,
-    answer: { type: 'number', value: 4, tolerance: 0 },
-    explanation:
-      `Le doublet non liant de $\\ce{NH3}$ a initialement permis la formation d'une liaison de coordination avec $\\ce{H+}$. Dans l'ion formé, les quatre liaisons N–H sont équivalentes.`,
+    "order": 27,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Lors de $\\ce{NH3 + H+ -> NH4+}$, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Après formation de $\\ce{NH4+}$, les quatre liaisons N–H sont équivalentes.",
+        "correct": true,
+        "explanation": "L'origine différente d'une liaison n'est plus distinguable dans l'ion tétraédrique."
+      },
+      {
+        "content": "Le proton agit comme accepteur de doublet.",
+        "correct": true,
+        "explanation": "$\\ce{H+}$ ne possède pas d'électron à partager."
+      },
+      {
+        "content": "Le doublet non liant de l'azote est donné au proton lors de la formation de la nouvelle liaison.",
+        "correct": true,
+        "explanation": "L'ammoniac agit comme donneur de doublet."
+      },
+      {
+        "content": "La réaction implique une rupture homolytique.",
+        "correct": false,
+        "explanation": "Il s'agit d'une formation de liaison par donation de doublet."
+      },
+      {
+        "content": "L'azote perd un proton.",
+        "correct": false,
+        "explanation": "Il fixe au contraire un proton."
+      }
+    ],
+    "explanation": "La liaison dite dative décrit le mécanisme de formation, pas une différence permanente entre les quatre liaisons N–H."
   },
   {
-    order: 29,
-    difficulty: 'MEDIUM',
-    format: 'QROC',
-    question: `Dans le modèle de l'hémoglobine présenté dans la fiche, combien de liaisons de coordination peut établir au total l'ion $\\ce{Fe^2+}$ de l'hème ?`,
-    answer: { type: 'number', value: 6, tolerance: 0 },
-    explanation:
-      `Le fer est coordonné à quatre azotes de l'hème, un azote d'histidine et une sixième position pouvant fixer transitoirement le dioxygène.`,
+    "order": 29,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant la coordination du fer de l'hème dans l'hémoglobine, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Le fer est lié à l'hème par des liaisons exclusivement ioniques sans donation de doublet.",
+        "correct": false,
+        "explanation": "La coordination implique des interactions donneur-accepteur."
+      },
+      {
+        "content": "Un azote d'une histidine proximale coordonne également le fer.",
+        "correct": true,
+        "explanation": "Il constitue le cinquième ligand."
+      },
+      {
+        "content": "Quatre atomes d'azote de la porphyrine coordonnent le fer.",
+        "correct": true,
+        "explanation": "Ils occupent quatre positions dans le plan de l'hème."
+      },
+      {
+        "content": "Le fer de l'hème est un atome d'hydrogène.",
+        "correct": false,
+        "explanation": "Il s'agit d'un ion ferreux dans l'hémoglobine fonctionnelle."
+      },
+      {
+        "content": "Le dioxygène peut occuper transitoirement une sixième position de coordination.",
+        "correct": true,
+        "explanation": "C'est la base de la fixation réversible de O2."
+      }
+    ],
+    "explanation": "La géométrie de coordination du fer de l'hème est centrale pour le transport du dioxygène."
   },
   {
-    order: 31,
-    difficulty: 'MEDIUM',
-    format: 'QROC',
-    question:
-      `Pour une liaison polarisée, on mesure $\\mu=3{,}2\\times10^{-30}\\,\\mathrm{C\\cdot m}$ et $d=160\\,\\mathrm{pm}$. Quelle est la valeur absolue de la charge partielle $\\delta$ en coulombs ?`,
-    answer: { type: 'number', value: 2.0e-20, tolerance: 0.1e-20 },
-    explanation:
-      `Avec $d=160\\,\\mathrm{pm}=1{,}60\\times10^{-10}\\,\\mathrm{m}$ et $\\mu=\\delta d$, on obtient $\\delta=\\mu/d=2{,}0\\times10^{-20}\\,\\mathrm{C}$.`,
-  },
-  {
-    order: 36,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question:
-      `Le protoxyde d'azote $\\ce{N2O}$ est utilisé en médecine pour ses propriétés antalgiques et sédatives. Les deux formes ci-dessous représentent sa mésomérie. Quelles propositions sont exactes ?`,
-    questionDiagram: {
-      type: 'lewis-resonance',
-      forms: [
-        {
-          atoms: [
-            { element: 'N', lonePairs: ['left'] },
-            { element: 'N', charge: 1, lonePairs: [] },
-            { element: 'O', charge: -1, lonePairs: ['top', 'right', 'bottom'] },
-          ],
-          bonds: ['triple', 'single'],
-        },
-        {
-          atoms: [
-            { element: 'N', charge: -1, lonePairs: ['top', 'bottom'] },
-            { element: 'N', charge: 1, lonePairs: [] },
-            { element: 'O', lonePairs: ['top', 'bottom'] },
-          ],
-          bonds: ['double', 'double'],
-        },
-      ],
+    "order": 31,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Une liaison possède un moment dipolaire $\\mu=1{,}0\\,\\mathrm{D}$ et une distance internucléaire $d=100\\,\\mathrm{pm}$. Avec $1\\,\\mathrm{D}=3{,}34\\times10^{-30}\\,\\mathrm{C\\,m}$, quelle charge partielle q obtient-on en coulombs avec $\\mu=q d$ ?",
+    "answer": {
+      "type": "number",
+      "value": 3.34e-20,
+      "tolerance": 3e-22
     },
-    choices: [
-      {
-        content: `L'enchaînement des atomes $\\ce{N-N-O}$ est identique dans les deux formes.`,
-        correct: true,
-        explanation: `La mésomérie modifie la répartition électronique, pas l'ordre des atomes.`,
-      },
-      {
-        content: `L'azote central porte une charge formelle positive dans les deux formes représentées.`,
-        correct: true,
-        explanation: `C'est ce que montre le diagramme.`,
-      },
-      {
-        content: `Les deux dessins correspondent à deux molécules différentes en équilibre chimique.`,
-        correct: false,
-        explanation: `Ce sont deux formes canoniques d'une même structure réelle.`,
-      },
-      {
-        content: `La mésomérie suppose un déplacement physique des noyaux entre les deux formes.`,
-        correct: false,
-        explanation: `Seule la distribution électronique diffère.`,
-      },
-    ],
-    explanation:
-      `Les formes mésomères sont plusieurs écritures de Lewis d'une même espèce. La structure réelle est un hybride de résonance.`,
+    "explanation": "$d=100\\,\\mathrm{pm}=10^{-10}\\,\\mathrm{m}$ ; q=$3{,}34\\times10^{-30}/10^{-10}=3{,}34\\times10^{-20}\\,\\mathrm C$."
   },
   {
-    order: 39,
-    difficulty: 'MEDIUM',
-    format: 'QZONE',
-    question:
-      `Dans la forme neutre de la liaison amide représentée, cliquez sur l'atome dont le doublet non liant peut se délocaliser vers le groupement carbonyle.`,
-    image: {
-      src: '/images/training/ue14/chimie/amide-mesomerie-qzone.svg',
-      alt: 'Schéma simplifié d’un groupement amide R-CO-NH-R prime avec atomes O, C et N identifiés',
-      width: 1000,
-      height: 420,
+    "order": 36,
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "question": "Concernant la mésomérie du protoxyde d'azote $\\ce{N2O}$, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Les atomes changent d'ordre entre les formes mésomères.",
+        "correct": false,
+        "explanation": "Le squelette atomique reste identique."
+      },
+      {
+        "content": "La mésomérie signifie que la molécule se casse puis se reforme.",
+        "correct": false,
+        "explanation": "Il n'y a pas rupture et recombinaison."
+      },
+      {
+        "content": "La structure réelle est mieux décrite comme un hybride de ces formes.",
+        "correct": true,
+        "explanation": "Les électrons sont délocalisés."
+      },
+      {
+        "content": "Une seule formule de Lewis suffit toujours à décrire exactement la distribution électronique.",
+        "correct": false,
+        "explanation": "La mésomérie apparaît précisément lorsque ce n'est pas le cas."
+      },
+      {
+        "content": "Plusieurs formules de Lewis limites peuvent contribuer à sa description.",
+        "correct": true,
+        "explanation": "La répartition des charges et des liaisons peut être représentée par plusieurs formes limites."
+      }
+    ],
+    "explanation": "La mésomérie est une propriété de la description électronique, pas une oscillation structurale.",
+    "requiredSelectionCount": 2
+  },
+  {
+    "order": 39,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Dans une liaison amide $\\ce{-C(=O)-NH-}$, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "La liaison C–N acquiert un caractère partiel de double liaison.",
+        "correct": true,
+        "explanation": "La délocalisation raccourcit et rigidifie la liaison C–N."
+      },
+      {
+        "content": "La rotation autour de C–N est plus limitée que pour une liaison simple ordinaire.",
+        "correct": true,
+        "explanation": "Le caractère partiel de double liaison augmente la barrière de rotation."
+      },
+      {
+        "content": "Le doublet de l'azote peut être délocalisé vers le groupe carbonyle.",
+        "correct": true,
+        "explanation": "C'est une contribution mésomère importante."
+      },
+      {
+        "content": "La liaison amide est librement rotatable comme une simple liaison C–C d'alcane.",
+        "correct": false,
+        "explanation": "La rotation est restreinte."
+      },
+      {
+        "content": "Le doublet de l'azote est totalement sans influence sur le carbonyle.",
+        "correct": false,
+        "explanation": "Il participe à la conjugaison."
+      }
+    ],
+    "explanation": "La mésomérie explique la planéité et la rigidité de la liaison peptidique."
+  },
+  {
+    "order": 50,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Quelle définition décrit correctement une espèce radicalaire ?",
+    "choices": [
+      {
+        "content": "Une espèce nécessairement métallique.",
+        "correct": false,
+        "explanation": "De nombreux radicaux sont organiques."
+      },
+      {
+        "content": "Une espèce dont tous les électrons sont appariés.",
+        "correct": false,
+        "explanation": "Cela exclurait précisément le caractère radicalaire."
+      },
+      {
+        "content": "Une espèce possédant au moins un électron non apparié.",
+        "correct": true,
+        "explanation": "C'est la caractéristique électronique d'un radical."
+      },
+      {
+        "content": "Une espèce possédant obligatoirement une charge négative.",
+        "correct": false,
+        "explanation": "Un radical peut être neutre ou chargé."
+      },
+      {
+        "content": "Une espèce ne contenant aucun électron.",
+        "correct": false,
+        "explanation": "Un radical contient des électrons."
+      }
+    ],
+    "explanation": "La présence d'un électron célibataire explique souvent la forte réactivité des radicaux."
+  },
+  {
+    "order": 40,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Lors de la radiolyse de l'eau par rupture homolytique d'une liaison O–H, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "La transformation implique une réaction nucléaire.",
+        "correct": false,
+        "explanation": "Il s'agit d'une transformation électronique."
+      },
+      {
+        "content": "La rupture est hétérolytique.",
+        "correct": false,
+        "explanation": "Une hétérolyse attribuerait les deux électrons au même fragment."
+      },
+      {
+        "content": "Chaque fragment récupère un électron du doublet liant.",
+        "correct": true,
+        "explanation": "C'est la définition de l'homolyse."
+      },
+      {
+        "content": "Le radical hydroxyle peut participer à des dommages oxydatifs biomoléculaires.",
+        "correct": true,
+        "explanation": "$\\ce{HO.}$ est extrêmement réactif."
+      },
+      {
+        "content": "Des espèces radicalaires peuvent être formées.",
+        "correct": true,
+        "explanation": "Par exemple $\\ce{HO.}$ et $\\ce{H.}$."
+      }
+    ],
+    "explanation": "La radiolyse de l'eau constitue un lien important entre énergie ionisante et chimie radicalaire."
+  },
+  {
+    "order": 41,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "L'énergie de dissociation d'une liaison O–H vaut $460\\,\\mathrm{kJ\\,mol^{-1}}$. Quelle énergie cela représente-t-il en joules par mole ?",
+    "answer": {
+      "type": "number",
+      "value": 460000,
+      "tolerance": 1
     },
-    expectedZones: [
-      {
-        id: 'amide-nitrogen',
-        label: `Azote de la fonction amide`,
-        x: 0.63,
-        y: 0.50,
-        tolerance: 0.075,
-      },
-    ],
-    explanation:
-      `Le doublet non liant de l'azote peut se délocaliser vers le carbonyle. Cette mésomérie confère à la liaison C–N un caractère partiel de double liaison et limite sa rotation.`,
+    "explanation": "$460\\,\\mathrm{kJ\\,mol^{-1}}=460000\\,\\mathrm{J\\,mol^{-1}}$."
   },
   {
-    order: 50,
-    difficulty: 'MEDIUM',
-    format: 'QRU',
-    question: `Quelle proposition décrit correctement une espèce radicalaire ?`,
-    choices: [
+    "order": 63,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Dans le cisplatine $\\ce{[PtCl2(NH3)2]}$, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Elle possède au moins un électron célibataire.`,
-        correct: true,
-        explanation: `L'électron célibataire est le caractère distinctif utilisé dans la fiche.`,
+        "content": "Les ions chlorure sont également des ligands du platine.",
+        "correct": true,
+        "explanation": "Ils occupent deux positions de coordination."
       },
       {
-        content: `Elle possède nécessairement une charge électrique positive.`,
-        correct: false,
-        explanation: `Un radical peut être neutre ou chargé.`,
+        "content": "Le platine est le centre de coordination.",
+        "correct": true,
+        "explanation": "Pt(II) accepte des doublets de ligands."
       },
       {
-        content: `Elle ne peut se former que par gain de deux électrons.`,
-        correct: false,
-        explanation: `La radiolyse montre une formation par rupture homolytique.`,
+        "content": "Le complexe ne contient aucune liaison de coordination.",
+        "correct": false,
+        "explanation": "La coordination est au cœur de sa structure."
       },
       {
-        content: `Elle est toujours chimiquement inerte.`,
-        correct: false,
-        explanation: `Les radicaux sont au contraire généralement très réactifs.`,
+        "content": "Les molécules d'ammoniac coordonnent le platine par l'azote.",
+        "correct": true,
+        "explanation": "Le doublet de N est donneur."
       },
+      {
+        "content": "Le platine agit comme donneur principal de doublet vers l'ammoniac.",
+        "correct": false,
+        "explanation": "Le métal agit comme accepteur de doublet dans le modèle de Lewis."
+      }
     ],
-    explanation:
-      `Une espèce radicalaire possède un électron célibataire, ce qui explique sa forte réactivité chimique.`,
+    "explanation": "Le cisplatine illustre la chimie donneur-accepteur des complexes métalliques."
   },
   {
-    order: 40,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `Dans la radiolyse simplifiée de l'eau décrite dans l'énoncé commun, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 64,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant les liaisons polarisées et apolaires, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `La rupture homolytique forme deux fragments radicalaires.`,
-        correct: true,
-        explanation: `Chaque fragment récupère un électron du doublet de liaison.`,
+        "content": "Une liaison H–Cl est polarisée vers l'hydrogène.",
+        "correct": false,
+        "explanation": "Cl est plus électronégatif que H."
       },
       {
-        content: `Le radical hydroxyle $\\ce{HO.}$ possède un électron célibataire.`,
-        correct: true,
-        explanation: `C'est ce qui le rend très réactif.`,
+        "content": "Une liaison polarisée implique obligatoirement des charges entières.",
+        "correct": false,
+        "explanation": "Elle peut porter seulement des charges partielles."
       },
       {
-        content: `La rupture nécessite un apport d'énergie.`,
-        correct: true,
-        explanation: `La fiche cite notamment les rayonnements ionisants parmi les sources d'énergie possibles.`,
+        "content": "Une liaison C–O est polarisée vers l'oxygène.",
+        "correct": true,
+        "explanation": "O est plus électronégatif que C."
       },
       {
-        content: `La rupture homolytique transfère les deux électrons de la liaison sur le même fragment.`,
-        correct: false,
-        explanation: `Dans une rupture homolytique, chaque fragment récupère un électron.`,
+        "content": "Une différence d'électronégativité crée généralement une polarisation de liaison.",
+        "correct": true,
+        "explanation": "Le doublet est attiré vers l'atome le plus électronégatif."
       },
+      {
+        "content": "Une liaison entre deux atomes identiques est apolaire dans le modèle simple.",
+        "correct": true,
+        "explanation": "Les électronégativités sont identiques."
+      }
     ],
-    explanation:
-      `La radiolyse de l'eau fournit un exemple biomédical de rupture homolytique et de formation de radicaux libres.`,
-  },
-  {
-    order: 41,
-    difficulty: 'MEDIUM',
-    format: 'QROC',
-    question:
-      `L'énergie moyenne de dissociation d'une liaison $\\ce{O-H}$ est $${texQuantity(460, U.KJ_PER_MOL)}$. Quelle énergie faut-il fournir pour rompre une mole de ces liaisons, en joules ?`,
-    answer: { type: 'number', value: 460000, tolerance: 1000 },
-    explanation:
-      `$${texQuantity(460, U.KJ_PER_MOL)}=${texQuantity('460\\,000', U.J_PER_MOL)}$. La question vérifie seulement la conversion d'unité.`,
-  },
-  {
-    order: 63,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question:
-      `Le cisplatine est un médicament anticancéreux. À proximité de l'ADN, le platine peut substituer des ligands chlorure par des atomes d'azote de bases nucléiques. Quelles propositions sont exactes ?`,
-    choices: [
-      {
-        content: `Le platine joue le rôle de centre accepteur de doublets.`,
-        correct: true,
-        explanation: `Le centre métallique possède des orbitales disponibles pour accepter les doublets des ligands.`,
-      },
-      {
-        content: `Les atomes d'azote de l'ADN jouent le rôle de donneurs de doublets.`,
-        correct: true,
-        explanation: `Ils fournissent un doublet non liant au platine.`,
-      },
-      {
-        content: `La substitution des ligands supprime toute coordination autour du platine.`,
-        correct: false,
-        explanation: `Elle remplace certains ligands par d'autres.`,
-      },
-      {
-        content: `Une liaison de coordination exige que le platine fournisse les deux électrons du doublet liant.`,
-        correct: false,
-        explanation: `Dans ce cas, le ligand azoté fournit le doublet.`,
-      },
-    ],
-    explanation:
-      `Le cisplatine illustre la coordination d'un centre métallique par des donneurs azotés ; la fixation à l'ADN modifie sa conformation et perturbe ses fonctions.`,
-  },
-  {
-    order: 64,
-    difficulty: 'MEDIUM',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `Sélectionnez exactement les deux liaisons considérées comme peu ou non polarisées dans le cadre simplifié du cours.`,
-    choices: [
-      {
-        content: `$\\ce{C-C}$.`,
-        correct: true,
-        explanation: `Liaison homoatomique : les électronégativités sont identiques.`,
-      },
-      {
-        content: `$\\ce{C-H}$.`,
-        correct: true,
-        explanation: `La fiche considère les électronégativités de C et H comme proches.`,
-      },
-      {
-        content: `$\\ce{O-H}$.`,
-        correct: false,
-        explanation: `L'oxygène est nettement plus électronégatif que l'hydrogène.`,
-      },
-      {
-        content: `$\\ce{C-O}$.`,
-        correct: false,
-        explanation: `La différence d'électronégativité polarise la liaison vers l'oxygène.`,
-      },
-    ],
-    explanation:
-      `Une liaison est peu ou non polarisée lorsque les deux atomes ont des électronégativités identiques ou proches dans le modèle du cours.`,
-  },
+    "explanation": "La polarité de liaison est une notion continue, distincte de l'attribution formelle de charges entières."
+  }
 ];

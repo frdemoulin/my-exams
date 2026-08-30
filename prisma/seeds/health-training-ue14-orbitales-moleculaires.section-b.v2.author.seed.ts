@@ -1,315 +1,671 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 – Chimie générale
- * Chapitre 3 – Orbitales moléculaires
- * Section B – Hybridation et géométrie des molécules simples
- */
-
+/** UE14 – Chimie générale – Chapitre 1.3 – Section B – Hybridation et géométrie des molécules simples */
 export const UE14_CH3_HYBRIDATION_DISCOVER_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
-    order: 21,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `À propos du modèle d'hybridation des orbitales atomiques, quelles propositions sont exactes ?`,
-    choices: [
-      { content: `Il combine des orbitales atomiques de valence d'un même atome.`, correct: true, explanation: `Vrai.` },
-      { content: `Il produit des orbitales hybrides équivalentes orientées dans l'espace.`, correct: true, explanation: `Vrai.` },
-      { content: `Le nombre d'orbitales hybrides obtenues est égal au nombre d'orbitales atomiques combinées.`, correct: true, explanation: `Le nombre d'orbitales est conservé.` },
-      { content: `Il transforme les orbitales en trajectoires précises suivies par les électrons.`, correct: false, explanation: `Une orbitale reste une région de probabilité de présence.` },
+    "order": 21,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant le modèle d'hybridation des orbitales atomiques, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Il combine des orbitales atomiques de valence d'un même atome.",
+        "correct": true,
+        "explanation": "Le modèle construit des orbitales hybrides locales."
+      },
+      {
+        "content": "Il transforme les électrons en particules suivant des trajectoires fixes.",
+        "correct": false,
+        "explanation": "Le modèle reste quantique."
+      },
+      {
+        "content": "Il exige toujours l'utilisation d'orbitales d.",
+        "correct": false,
+        "explanation": "Les hybridations sp, sp2 et sp3 utilisent s et p."
+      },
+      {
+        "content": "Il aide à rationaliser l'orientation des liaisons dans l'espace.",
+        "correct": true,
+        "explanation": "sp, sp2 et sp3 correspondent à des directions caractéristiques."
+      },
+      {
+        "content": "Le nombre d'orbitales hybrides obtenues est égal au nombre d'orbitales combinées.",
+        "correct": true,
+        "explanation": "Le nombre total d'orbitales est conservé."
+      }
     ],
-    explanation: `L'hybridation est un modèle qui permet de relier les orbitales de valence à l'orientation et à l'équivalence des liaisons.`,
+    "explanation": "L'hybridation est un modèle local de liaison ; elle complète, sans remplacer, les descriptions quantiques plus générales."
   },
   {
-    order: 22,
-    difficulty: 'EASY',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `Sélectionnez exactement les deux caractéristiques d'une hybridation $\\mathrm{sp}$.`,
-    choices: [
-      { content: `Elle combine une orbitale $\\mathrm{s}$ et une orbitale $\\mathrm{p}$.`, correct: true, explanation: `Vrai.` },
-      { content: `Elle produit deux orbitales hybrides orientées à $180^\\circ$.`, correct: true, explanation: `Vrai.` },
-      { content: `Elle produit trois orbitales hybrides coplanaires à $120^\\circ$.`, correct: false, explanation: `Cela correspond à sp2.` },
-      { content: `Elle ne laisse aucune orbitale $\\mathrm{p}$ non hybridée sur le carbone.`, correct: false, explanation: `Sur le carbone, deux orbitales p restent non hybridées après une hybridation sp.` },
+    "order": 22,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "Sélectionnez exactement les deux caractéristiques d'une hybridation $\\mathrm{sp}$.",
+    "choices": [
+      {
+        "content": "Deux orbitales hybrides sont orientées à $180^\\circ$.",
+        "correct": true,
+        "explanation": "La géométrie électronique est linéaire."
+      },
+      {
+        "content": "Une orbitale s et une orbitale p sont combinées.",
+        "correct": true,
+        "explanation": "Elles donnent deux hybrides sp."
+      },
+      {
+        "content": "Quatre hybrides tétraédriques sont produits.",
+        "correct": false,
+        "explanation": "Cela correspond à sp3."
+      },
+      {
+        "content": "Trois orbitales p restent non hybridées.",
+        "correct": false,
+        "explanation": "Deux orbitales p restent non hybridées."
+      },
+      {
+        "content": "Trois orbitales hybrides coplanaires sont formées.",
+        "correct": false,
+        "explanation": "Cela correspond à sp2."
+      }
     ],
-    explanation: `Une hybridation sp donne deux orbitales hybrides opposées à 180° et laisse deux orbitales p non hybridées sur un carbone.`,
+    "explanation": "L'hybridation sp produit deux directions opposées et laisse deux orbitales p disponibles pour d'éventuelles liaisons pi."
   },
   {
-    order: 23,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `L'hydrure de béryllium $\\ce{BeH2}$ illustre l'hybridation $\\mathrm{sp}$. Quelles propositions sont exactes ?`,
-    choices: [
-      { content: `À l'état atomique fondamental, le béryllium a la configuration $1\\mathrm{s}^2\,2\\mathrm{s}^2$.`, correct: true, explanation: `Vrai pour Z=4.` },
-      { content: `Le modèle moléculaire fait intervenir une redistribution permettant deux électrons célibataires.`, correct: true, explanation: `Le cours présente une redistribution 2s/2p avant hybridation.` },
-      { content: `Deux orbitales $\\mathrm{sp}$ expliquent deux liaisons équivalentes et une géométrie linéaire.`, correct: true, explanation: `Les deux directions sont opposées.` },
-      { content: `L'angle H–Be–H est voisin de $109{,}5^\\circ$.`, correct: false, explanation: `Il vaut 180° dans le modèle présenté.` },
+    "order": 23,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Dans le modèle local de $\\ce{BeH2}$, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Le béryllium central peut être décrit avec deux orbitales hybrides sp.",
+        "correct": true,
+        "explanation": "Deux directions de liaison sont nécessaires."
+      },
+      {
+        "content": "Le béryllium est décrit comme sp3.",
+        "correct": false,
+        "explanation": "Deux domaines conduisent à sp."
+      },
+      {
+        "content": "L'angle H–Be–H est voisin de $109{,}5^\\circ$.",
+        "correct": false,
+        "explanation": "Il est proche de 180°."
+      },
+      {
+        "content": "La molécule est linéaire.",
+        "correct": true,
+        "explanation": "Les deux domaines sont séparés de 180°."
+      },
+      {
+        "content": "Les deux liaisons Be–H sont équivalentes dans ce modèle.",
+        "correct": true,
+        "explanation": "Les deux hybrides sp sont équivalents."
+      }
     ],
-    explanation: `$\\ce{BeH2}$ est l'exemple de référence d'une hybridation sp conduisant à une géométrie linéaire.`,
+    "explanation": "BeH2 constitue un exemple simple reliant deux domaines électroniques, sp et géométrie linéaire."
   },
   {
-    order: 24,
-    difficulty: 'EASY',
-    format: 'QRU',
-    question: `Quelle association décrit correctement l'hybridation $\\mathrm{sp}^2$ ?`,
-    choices: [
-      { content: `Une orbitale s + deux orbitales p → trois orbitales hybrides coplanaires à environ $120^\\circ$.`, correct: true, explanation: `C'est l'hybridation sp2.` },
-      { content: `Une orbitale s + une orbitale p → deux orbitales à $180^\\circ$.`, correct: false, explanation: `Cela correspond à sp.` },
-      { content: `Une orbitale s + trois orbitales p → quatre orbitales tétraédriques.`, correct: false, explanation: `Cela correspond à sp3.` },
-      { content: `Deux orbitales s + deux orbitales p → quatre orbitales carrées planes.`, correct: false, explanation: `Ce n'est pas le modèle présenté dans ce chapitre.` },
+    "order": 24,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Quelle association décrit correctement une hybridation $\\mathrm{sp}^2$ ?",
+    "choices": [
+      {
+        "content": "Aucune orbitale p ne reste disponible pour une liaison pi.",
+        "correct": false,
+        "explanation": "Une orbitale p reste non hybridée."
+      },
+      {
+        "content": "Une orbitale s et deux orbitales p donnent trois hybrides coplanaires proches de $120^\\circ$.",
+        "correct": true,
+        "explanation": "Une orbitale p reste non hybridée."
+      },
+      {
+        "content": "Une s et trois p donnent quatre hybrides tétraédriques.",
+        "correct": false,
+        "explanation": "C'est sp3."
+      },
+      {
+        "content": "Une s et une p donnent deux hybrides à 180°.",
+        "correct": false,
+        "explanation": "C'est sp."
+      },
+      {
+        "content": "Deux s et deux p donnent quatre hybrides carrés plans.",
+        "correct": false,
+        "explanation": "Ce n'est pas le modèle usuel."
+      }
     ],
-    explanation: `L'hybridation sp2 produit trois orbitales équivalentes dans un même plan, séparées par des angles proches de 120°.`,
+    "explanation": "sp2 décrit notamment les carbones d'une double liaison et les carbones carbonylés."
   },
   {
-    order: 25,
-    difficulty: 'EASY',
-    format: 'QRU',
-    question: `Quelle association décrit correctement l'hybridation $\\mathrm{sp}^3$ ?`,
-    choices: [
-      { content: `Une orbitale s + trois orbitales p → quatre orbitales hybrides orientées selon un tétraèdre.`, correct: true, explanation: `C'est l'hybridation sp3.` },
-      { content: `Une orbitale s + deux orbitales p → trois orbitales coplanaires.`, correct: false, explanation: `C'est sp2.` },
-      { content: `Une orbitale s + une orbitale p → deux orbitales opposées.`, correct: false, explanation: `C'est sp.` },
-      { content: `Quatre orbitales p → quatre orbitales hybrides planes.`, correct: false, explanation: `Ce modèle n'est pas celui du cours.` },
+    "order": 25,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Quelle association décrit correctement une hybridation $\\mathrm{sp}^3$ ?",
+    "choices": [
+      {
+        "content": "Une orbitale s et trois orbitales p donnent quatre hybrides orientés selon un tétraèdre.",
+        "correct": true,
+        "explanation": "L'angle idéal est proche de 109,5°."
+      },
+      {
+        "content": "Deux orbitales p restent non hybridées.",
+        "correct": false,
+        "explanation": "En sp3, les trois p sont hybridées."
+      },
+      {
+        "content": "Une s et une p donnent deux hybrides linéaires.",
+        "correct": false,
+        "explanation": "C'est sp."
+      },
+      {
+        "content": "Une s et deux p donnent trois hybrides plans.",
+        "correct": false,
+        "explanation": "C'est sp2."
+      },
+      {
+        "content": "Elle impose toujours une géométrie moléculaire tétraédrique visible.",
+        "correct": false,
+        "explanation": "Des doublets non liants peuvent donner des formes pyramidale ou coudée."
+      }
     ],
-    explanation: `Une hybridation sp3 donne quatre directions orbitalaires orientées vers les sommets d'un tétraèdre.`,
+    "explanation": "La géométrie électronique sp3 comporte quatre domaines ; la géométrie moléculaire dépend ensuite des doublets liants et non liants."
   },
   {
-    order: 26,
-    difficulty: 'EASY',
-    format: 'QROC',
-    question: `Dans le méthane $\\ce{CH4}$, combien d'orbitales hybrides $\\mathrm{sp}^3$ équivalentes sont portées par le carbone ?`,
-    answer: { type: 'number', value: 4, tolerance: 0 },
-    explanation: `Le carbone du méthane est décrit par quatre orbitales sp3 équivalentes, chacune engagée dans une liaison C–H.`,
+    "order": 26,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Dans le méthane $\\ce{CH4}$, combien d'orbitales hybrides $\\mathrm{sp}^3$ équivalentes porte le carbone ?",
+    "answer": {
+      "type": "number",
+      "value": 4,
+      "tolerance": 0
+    },
+    "explanation": "Les quatre hybrides sp3 sont dirigés vers les sommets d'un tétraèdre."
   },
   {
-    order: 27,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `À propos de l'ammoniac $\\ce{NH3}$ dans le modèle d'hybridation du cours, quelles propositions sont exactes ?`,
-    choices: [
-      { content: `L'azote est décrit par quatre orbitales $\\mathrm{sp}^3$.`, correct: true, explanation: `Vrai.` },
-      { content: `Trois orbitales participent aux liaisons N–H.`, correct: true, explanation: `Il existe trois liaisons N–H.` },
-      { content: `Une orbitale contient un doublet non liant.`, correct: true, explanation: `Ce doublet influence la géométrie.` },
-      { content: `La molécule est parfaitement tétraédrique avec quatre hydrogènes.`, correct: false, explanation: `La géométrie moléculaire est pyramidale et ne comporte que trois hydrogènes.` },
+    "order": 27,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "À propos de l'ammoniac $\\ce{NH3}$, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "L'azote est sp dans l'ammoniac.",
+        "correct": false,
+        "explanation": "Il est décrit comme sp3."
+      },
+      {
+        "content": "L'azote peut être décrit par quatre orbitales sp3.",
+        "correct": true,
+        "explanation": "Il existe quatre domaines électroniques."
+      },
+      {
+        "content": "Une orbitale contient un doublet non liant.",
+        "correct": true,
+        "explanation": "Ce doublet modifie les angles et la forme."
+      },
+      {
+        "content": "La géométrie moléculaire est parfaitement tétraédrique avec quatre hydrogènes.",
+        "correct": false,
+        "explanation": "La forme visible est pyramidale à trois hydrogènes."
+      },
+      {
+        "content": "Trois orbitales sont engagées dans les liaisons N–H.",
+        "correct": true,
+        "explanation": "Il y a trois liaisons."
+      }
     ],
-    explanation: `L'organisation électronique autour de l'azote est sp3 ; la présence d'un doublet non liant conduit à une géométrie pyramidale.`,
+    "explanation": "NH3 illustre la différence entre géométrie électronique tétraédrique et géométrie moléculaire pyramidale."
   },
   {
-    order: 28,
-    difficulty: 'EASY',
-    format: 'QROC',
-    question: `Combien de doublets non liants sont portés par l'oxygène central dans la représentation $\\mathrm{sp}^3$ de l'eau ?`,
-    answer: { type: 'number', value: 2, tolerance: 0 },
-    explanation: `L'oxygène de l'eau forme deux liaisons O–H et conserve deux doublets non liants dans quatre orbitales sp3.`,
+    "order": 28,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Combien de doublets non liants porte l'oxygène central de $\\ce{H2O}$ dans le modèle de Lewis usuel ?",
+    "answer": {
+      "type": "number",
+      "value": 2,
+      "tolerance": 0
+    },
+    "explanation": "L'oxygène forme deux liaisons O–H et conserve deux doublets non liants."
   },
   {
-    order: 29,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `On compare $\\ce{CH4}$, $\\ce{NH3}$ et $\\ce{H2O}$. Quelles propositions sont exactes ?`,
-    choices: [
-      { content: `Les trois atomes centraux sont décrits avec quatre directions électroniques compatibles avec $\\mathrm{sp}^3$.`, correct: true, explanation: `Vrai.` },
-      { content: `Le nombre de doublets non liants augmente de $\\ce{CH4}$ à $\\ce{NH3}$ puis $\\ce{H2O}$.`, correct: true, explanation: `0, puis 1, puis 2.` },
-      { content: `L'angle caractéristique diminue approximativement de $109{,}5^\\circ$ à $107{,}5^\\circ$ puis $104{,}5^\\circ$.`, correct: true, explanation: `C'est la tendance donnée dans la fiche.` },
-      { content: `Les trois molécules possèdent exactement la même géométrie moléculaire visible.`, correct: false, explanation: `Tétraédrique, pyramidale puis coudée.` },
+    "order": 29,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "On compare $\\ce{CH4}$, $\\ce{NH3}$ et $\\ce{H2O}$. Quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Les trois molécules ont exactement la même géométrie moléculaire.",
+        "correct": false,
+        "explanation": "Elles sont tétraédrique, pyramidale et coudée."
+      },
+      {
+        "content": "Le nombre de doublets non liants du centre vaut respectivement 0, 1 et 2.",
+        "correct": true,
+        "explanation": "Cette progression modifie les géométries."
+      },
+      {
+        "content": "L'eau est linéaire dans son état fondamental.",
+        "correct": false,
+        "explanation": "Elle est coudée."
+      },
+      {
+        "content": "Les angles H–X–H diminuent globalement de CH4 vers NH3 puis H2O.",
+        "correct": true,
+        "explanation": "Les doublets non liants exercent des répulsions plus fortes."
+      },
+      {
+        "content": "Les trois centres peuvent être décrits avec quatre domaines électroniques.",
+        "correct": true,
+        "explanation": "Ils correspondent à une organisation électronique proche du tétraèdre."
+      }
     ],
-    explanation: `Les doublets non liants modifient la géométrie visible et compriment progressivement les angles de liaison.`,
+    "explanation": "La répulsion des doublets non liants explique la diminution des angles par rapport au tétraèdre idéal."
   },
   {
-    order: 30,
-    difficulty: 'EASY',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `Sélectionnez exactement les deux associations correctes hybridation → organisation.`,
-    choices: [
-      { content: `$\\mathrm{sp}$ → linéaire, $180^\\circ$.`, correct: true, explanation: `Deux directions opposées.` },
-      { content: `$\\mathrm{sp}^2$ → trigonale plane, environ $120^\\circ$.`, correct: true, explanation: `Trois directions coplanaires.` },
-      { content: `$\\mathrm{sp}^3$ → linéaire, $180^\\circ$.`, correct: false, explanation: `sp3 donne quatre directions tétraédriques.` },
-      { content: `$\\mathrm{sp}^2$ → tétraédrique, environ $109{,}5^\\circ$.`, correct: false, explanation: `La géométrie tétraédrique correspond à sp3.` },
+    "order": 30,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "Sélectionnez exactement les deux associations correctes.",
+    "choices": [
+      {
+        "content": "$\\mathrm{sp}^2$ → organisation tétraédrique.",
+        "correct": false,
+        "explanation": "C'est sp3."
+      },
+      {
+        "content": "$\\mathrm{sp}^2$ → organisation trigonale plane, environ $120^\\circ$.",
+        "correct": true,
+        "explanation": "Trois domaines électroniques."
+      },
+      {
+        "content": "$\\mathrm{sp}^3$ → organisation linéaire.",
+        "correct": false,
+        "explanation": "sp3 correspond à quatre directions tétraédriques."
+      },
+      {
+        "content": "$\\mathrm{sp}$ → quatre directions à $109{,}5^\\circ$.",
+        "correct": false,
+        "explanation": "C'est sp3."
+      },
+      {
+        "content": "$\\mathrm{sp}$ → organisation linéaire, $180^\\circ$.",
+        "correct": true,
+        "explanation": "Deux domaines électroniques."
+      }
     ],
-    explanation: `Le nombre d'orbitales hybrides permet de relier directement sp, sp2 et sp3 aux organisations linéaire, trigonale plane et tétraédrique.`,
-  },
+    "explanation": "Le nombre d'hybrides vaut 2, 3 ou 4 pour sp, sp2 ou sp3."
+  }
 ];
 
 export const UE14_CH3_HYBRIDATION_PRACTICE_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
-    order: 31,
-    difficulty: 'MEDIUM',
-    format: 'QRU',
-    question: `En cas d'acidocétose diabétique, l'acétone peut donner une odeur fruitée à l'haleine. Le carbone du groupe carbonyle de $\\ce{CH3-C(=O)-CH3}$ est hybridé $\\mathrm{sp}^2$. Quelle représentation en cases quantiques lui correspond après hybridation ?`,
-    choices: [
+    "order": 31,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Le carbone carbonylé de l'acétone $\\ce{CH3-C(=O)-CH3}$ est décrit comme $\\mathrm{sp}^2$. Quelle conséquence en découle ?",
+    "choices": [
       {
-        content: { type: 'quantum-boxes', orbitals: [{ label: '2\\mathrm{s}', boxes: ['pair'] }, { label: '2\\mathrm{p}', boxes: ['up', 'up', 'empty'] }] },
-        correct: false,
-        explanation: `État atomique avant hybridation.`,
+        "content": "Sa géométrie locale est linéaire.",
+        "correct": false,
+        "explanation": "Elle est trigonale plane."
       },
       {
-        content: { type: 'quantum-boxes', orbitals: [{ label: '2\\mathrm{sp}^{2}', boxes: ['up', 'up', 'up'] }, { label: '2\\mathrm{p}', boxes: ['up'] }] },
-        correct: true,
-        explanation: `Trois orbitales sp2 et une orbitale p non hybridée, toutes simplement occupées.`,
+        "content": "Il possède quatre hybrides sp3 et aucune orbitale p disponible.",
+        "correct": false,
+        "explanation": "Cela correspondrait à un carbone saturé."
       },
       {
-        content: { type: 'quantum-boxes', orbitals: [{ label: '2\\mathrm{sp}^{3}', boxes: ['up', 'up', 'up', 'up'] }] },
-        correct: false,
-        explanation: `Cette représentation correspond à sp3.`,
+        "content": "Il possède trois directions hybrides coplanaires et une orbitale p non hybridée.",
+        "correct": true,
+        "explanation": "Cette orbitale p participe à la liaison pi C=O."
       },
       {
-        content: { type: 'quantum-boxes', orbitals: [{ label: '2\\mathrm{sp}', boxes: ['up', 'up'] }, { label: '2\\mathrm{p}', boxes: ['up', 'up'] }] },
-        correct: false,
-        explanation: `Cette représentation correspond à sp.`,
-      },
-    ],
-    explanation: `Un carbone sp2 possède trois orbitales hybrides sp2 pour les liaisons sigma et une orbitale p non hybridée pour la composante pi.`,
-  },
-  {
-    order: 32,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `Le dioxyde de carbone $\\ce{O=C=O}$ est produit par le métabolisme puis éliminé par les poumons. Quelles propositions sont exactes pour son carbone central ?`,
-    choices: [
-      { content: `Il est hybridé $\\mathrm{sp}$.`, correct: true, explanation: `Deux directions de liaison.` },
-      { content: `Deux orbitales $\\mathrm{sp}$ participent aux deux liaisons $\\sigma$.`, correct: true, explanation: `Une vers chaque oxygène.` },
-      { content: `Deux orbitales $\\mathrm{p}$ non hybridées participent aux deux liaisons $\\pi$.`, correct: true, explanation: `Une pi pour chaque C=O.` },
-      { content: `Il utilise quatre orbitales $\\mathrm{sp}^3$ équivalentes.`, correct: false, explanation: `Ce serait incompatible avec les deux composantes pi.` },
-    ],
-    explanation: `L'hybridation sp du carbone explique à la fois la linéarité du CO2 et la présence de deux orbitales p pour les deux liaisons pi.`,
-  },
-  {
-    order: 33,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `L'ion ammonium $\\ce{NH4+}$ participe à l'élimination rénale de la charge acide. Quelles propositions sont exactes ?`,
-    choices: [
-      { content: `L'azote est décrit comme $\\mathrm{sp}^3$ dans $\\ce{NH3}$ comme dans $\\ce{NH4+}$.`, correct: true, explanation: `Quatre directions orbitalaires dans les deux espèces.` },
-      { content: `La protonation utilise le doublet non liant de $\\ce{NH3}$ pour former une quatrième liaison N–H.`, correct: true, explanation: `Le proton ne fournit pas d'électron.` },
-      { content: `$\\ce{NH4+}$ présente une géométrie tétraédrique.`, correct: true, explanation: `Quatre liaisons sans doublet non liant.` },
-      { content: `$\\ce{NH4+}$ reste pyramidal car $\\ce{NH3}$ l'était avant protonation.`, correct: false, explanation: `Le doublet est désormais engagé dans une liaison.` },
-    ],
-    explanation: `La protonation transforme le doublet non liant de NH3 en quatrième liaison sans changer le caractère sp3 de l'azote.`,
-  },
-  {
-    order: 34,
-    difficulty: 'MEDIUM',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `On compare les occupations des orbitales $\\mathrm{sp}^3$ de $\\ce{NH3}$ et de $\\ce{H2O}$. Sélectionnez exactement les deux propositions correctes.`,
-    choices: [
-      {
-        content: { type: 'quantum-boxes', orbitals: [{ label: '\\ce{NH3}', boxes: ['pair', 'up', 'up', 'up'] }] },
-        correct: true,
-        explanation: `Un doublet non liant et trois électrons engagés dans des liaisons.`,
+        "content": "Il ne peut former aucune liaison pi.",
+        "correct": false,
+        "explanation": "Il en forme précisément une avec l'oxygène."
       },
       {
-        content: { type: 'quantum-boxes', orbitals: [{ label: '\\ce{H2O}', boxes: ['pair', 'pair', 'up', 'up'] }] },
-        correct: true,
-        explanation: `Deux doublets non liants et deux électrons engagés dans des liaisons.`,
+        "content": "Il possède deux hybrides sp et deux orbitales p non hybridées.",
+        "correct": false,
+        "explanation": "C'est le modèle d'un centre sp."
+      }
+    ],
+    "explanation": "Un carbone carbonylé sp2 est approximativement plan, avec une orbitale p perpendiculaire au plan sigma."
+  },
+  {
+    "order": 32,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant le carbone central de $\\ce{CO2}$, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Deux orbitales p non hybridées restent disponibles.",
+        "correct": true,
+        "explanation": "Elles forment les deux composantes pi."
       },
       {
-        content: { type: 'quantum-boxes', orbitals: [{ label: '\\ce{NH3}', boxes: ['pair', 'pair', 'up', 'up'] }] },
-        correct: false,
-        explanation: `Cela correspond plutôt au schéma électronique de l'eau.`,
+        "content": "Le carbone est sp3.",
+        "correct": false,
+        "explanation": "Il n'existe pas quatre domaines sigma autour du carbone."
       },
       {
-        content: { type: 'quantum-boxes', orbitals: [{ label: '\\ce{H2O}', boxes: ['pair', 'up', 'up', 'up'] }] },
-        correct: false,
-        explanation: `Cela correspond plutôt au schéma électronique de NH3.`,
+        "content": "La molécule est linéaire autour du carbone.",
+        "correct": true,
+        "explanation": "Les deux hybrides sp sont opposés."
       },
+      {
+        "content": "Aucune liaison pi n'est présente.",
+        "correct": false,
+        "explanation": "Il y en a deux."
+      },
+      {
+        "content": "Il est décrit comme sp.",
+        "correct": true,
+        "explanation": "Deux domaines sigma conduisent à sp."
+      }
     ],
-    explanation: `NH3 et H2O utilisent quatre orbitales sp3, mais leur occupation diffère par le nombre de doublets non liants.`,
+    "explanation": "CO2 constitue un exemple majeur de centre sp combinant deux liaisons sigma et deux liaisons pi."
   },
   {
-    order: 35,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `La figure représente trois organisations d'orbitales hybrides.\n\n![Orientations des hybridations sp, sp2 et sp3](/images/training/ue14/orbitales-moleculaires/geometries-hybridation-sp-sp2-sp3.png)`,
-    choices: [
-      { content: `Le schéma A correspond à $\\mathrm{sp}$ et $180^\\circ$.`, correct: true, explanation: `Deux directions opposées.` },
-      { content: `Le schéma B correspond à $\\mathrm{sp}^2$ et environ $120^\\circ$.`, correct: true, explanation: `Trois directions coplanaires.` },
-      { content: `Le schéma C correspond à $\\mathrm{sp}^3$ et à une organisation tétraédrique.`, correct: true, explanation: `Quatre directions tridimensionnelles.` },
-      { content: `Le schéma C est strictement plan avec des angles de $90^\\circ$.`, correct: false, explanation: `Une organisation sp3 est tétraédrique.` },
+    "order": 33,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Lors de la protonation $\\ce{NH3 -> NH4+}$, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Le doublet non liant de NH3 sert à former une nouvelle liaison N–H.",
+        "correct": true,
+        "explanation": "Il est donné au proton."
+      },
+      {
+        "content": "L'azote devient sp après protonation.",
+        "correct": false,
+        "explanation": "Il reste compatible avec une description sp3."
+      },
+      {
+        "content": "NH4+ possède une géométrie tétraédrique.",
+        "correct": true,
+        "explanation": "Quatre liaisons et aucun doublet non liant."
+      },
+      {
+        "content": "NH4+ possède encore un doublet non liant sur l'azote.",
+        "correct": false,
+        "explanation": "Le doublet a servi à la liaison."
+      },
+      {
+        "content": "L'azote reste décrit avec quatre domaines électroniques avant et après protonation.",
+        "correct": true,
+        "explanation": "NH3 : 3 liaisons + 1 doublet ; NH4+ : 4 liaisons."
+      }
     ],
-    explanation: `Les représentations spatiales permettent d'associer directement le nombre d'orbitales hybrides à la géométrie correspondante.`,
+    "explanation": "La protonation change la nature d'un domaine électronique sans changer le nombre total de domaines autour de l'azote."
   },
   {
-    order: 36,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `L'éthanol $\\ce{CH3-CH2-OH}$ est utilisé dans les solutions hydroalcooliques. Quelles propositions sont exactes ?`,
-    choices: [
-      { content: `Les deux carbones sont hybridés $\\mathrm{sp}^3$.`, correct: true, explanation: `Ils ne participent qu'à des liaisons simples.` },
-      { content: `L'oxygène peut être décrit avec quatre orbitales $\\mathrm{sp}^3$, dont deux contiennent des doublets non liants.`, correct: true, explanation: `Deux liaisons et deux doublets.` },
-      { content: `Toutes les liaisons de cette formule sont de type $\\sigma$.`, correct: true, explanation: `Il n'y a aucune liaison multiple.` },
-      { content: `La liaison C–O comporte une liaison $\\pi$.`, correct: false, explanation: `C'est une liaison simple sigma.` },
+    "order": 34,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant l'occupation des orbitales sp3 de $\\ce{NH3}$ et $\\ce{H2O}$, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Les doublets non liants exercent des répulsions importantes.",
+        "correct": true,
+        "explanation": "Ils influencent fortement les angles."
+      },
+      {
+        "content": "NH3 ne possède aucun domaine non liant.",
+        "correct": false,
+        "explanation": "Il en possède un."
+      },
+      {
+        "content": "H2O possède deux doublets non liants sur l'oxygène.",
+        "correct": true,
+        "explanation": "Deux des quatre domaines ne sont pas liants."
+      },
+      {
+        "content": "H2O possède quatre liaisons O–H.",
+        "correct": false,
+        "explanation": "Elle n'en possède que deux."
+      },
+      {
+        "content": "NH3 possède un doublet non liant sur l'azote.",
+        "correct": true,
+        "explanation": "Un domaine sp3 contient ce doublet."
+      }
     ],
-    explanation: `Dans l'éthanol, les atomes de carbone et l'oxygène sont décrits localement par des environnements sp3.`,
+    "explanation": "Les doublets non liants modifient la géométrie moléculaire sans changer l'organisation électronique de base à quatre domaines."
   },
   {
-    order: 37,
-    difficulty: 'MEDIUM',
-    format: 'QROC',
-    question: `Le lactate est dosé dans certaines situations d'hypoperfusion. Dans l'acide lactique $\\ce{CH3-CH(OH)-C(=O)-OH}$, combien des trois atomes de carbone sont hybridés $\\mathrm{sp}^3$ ?`,
-    answer: { type: 'number', value: 2, tolerance: 0 },
-    explanation: `Le carbone du méthyle et le carbone portant OH sont sp3 ; le carbone du carboxyle est sp2.`,
-  },
-  {
-    order: 38,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `L'ion hydrogénocarbonate $\\ce{HCO3-}$ participe au système tampon du sang. Autour de son carbone central, on considère trois directions C–O. Quelles propositions sont exactes ?`,
-    choices: [
-      { content: `Le carbone est décrit comme hybridé $\\mathrm{sp}^2$.`, correct: true, explanation: `Trois directions sigma.` },
-      { content: `Les trois orbitales hybrides sont approximativement coplanaires à $120^\\circ$.`, correct: true, explanation: `Organisation trigonale plane.` },
-      { content: `Une orbitale $\\mathrm{p}$ non hybridée reste disponible.`, correct: true, explanation: `L'hybridation sp2 laisse une p non hybridée.` },
-      { content: `Le carbone est $\\mathrm{sp}^3$ parce que l'ion contient plusieurs oxygènes.`, correct: false, explanation: `Il faut compter les directions autour du carbone, pas les atomes de la formule brute.` },
+    "order": 35,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Quel enchaînement hybridation → géométrie électronique est correct ?",
+    "choices": [
+      {
+        "content": "Les hybridations n'ont aucun lien avec l'organisation spatiale.",
+        "correct": false,
+        "explanation": "Le modèle est précisément utilisé pour cette relation."
+      },
+      {
+        "content": "$\\mathrm{sp}$ → linéaire ; $\\mathrm{sp}^2$ → trigonale plane ; $\\mathrm{sp}^3$ → tétraédrique.",
+        "correct": true,
+        "explanation": "C'est la correspondance fondamentale."
+      },
+      {
+        "content": "$\\mathrm{sp}$ → coudée ; $\\mathrm{sp}^2$ → pyramidale ; $\\mathrm{sp}^3$ → linéaire.",
+        "correct": false,
+        "explanation": "Ces formes dépendent aussi des doublets et ne correspondent pas directement."
+      },
+      {
+        "content": "$\\mathrm{sp}$ → octaédrique ; $\\mathrm{sp}^2$ → bipyramidale ; $\\mathrm{sp}^3$ → linéaire.",
+        "correct": false,
+        "explanation": "Ces associations sont incorrectes."
+      },
+      {
+        "content": "$\\mathrm{sp}$ → tétraédrique ; $\\mathrm{sp}^2$ → linéaire ; $\\mathrm{sp}^3$ → plane.",
+        "correct": false,
+        "explanation": "Les trois correspondances sont inversées."
+      }
     ],
-    explanation: `Le carbone de l'hydrogénocarbonate est un exemple biologique d'environnement tricoordonné compatible avec sp2.`,
+    "explanation": "Cette correspondance sert de base au raisonnement local sur de nombreuses molécules organiques."
   },
   {
-    order: 39,
-    difficulty: 'MEDIUM',
-    format: 'QRU',
-    question: `Quel est l'intérêt principal du modèle d'hybridation pour expliquer le méthane $\\ce{CH4}$ ?`,
-    choices: [
-      { content: `Rendre compte de quatre liaisons C–H équivalentes orientées tétraédriquement.`, correct: true, explanation: `Quatre orbitales sp3 équivalentes expliquent les quatre liaisons.` },
-      { content: `Déterminer la trajectoire exacte de chacun des quatre électrons.`, correct: false, explanation: `Une orbitale ne définit pas une trajectoire précise.` },
-      { content: `Transformer les atomes d'hydrogène en orbitales moléculaires.`, correct: false, explanation: `L'hybridation concerne ici les orbitales de valence du carbone.` },
-      { content: `Montrer que le méthane est plan.`, correct: false, explanation: `Le méthane est tétraédrique.` },
+    "order": 36,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Dans l'éthanol $\\ce{CH3-CH2-OH}$, quelles propositions sont exactes dans un modèle local simple ?",
+    "choices": [
+      {
+        "content": "L'oxygène ne possède aucun doublet non liant.",
+        "correct": false,
+        "explanation": "Il en possède deux."
+      },
+      {
+        "content": "Les deux carbones sont sp3.",
+        "correct": true,
+        "explanation": "Chacun forme quatre liaisons sigma."
+      },
+      {
+        "content": "La molécule ne comporte aucune liaison pi.",
+        "correct": true,
+        "explanation": "Toutes les liaisons sont simples."
+      },
+      {
+        "content": "Le carbone du groupe CH3 est sp2.",
+        "correct": false,
+        "explanation": "Il est saturé et sp3."
+      },
+      {
+        "content": "L'oxygène peut être décrit comme sp3.",
+        "correct": true,
+        "explanation": "Deux liaisons et deux doublets non liants donnent quatre domaines."
+      }
     ],
-    explanation: `L'hybridation sp3 relie la structure électronique de valence du carbone à quatre liaisons équivalentes orientées dans l'espace.`,
+    "explanation": "L'éthanol est un bon exemple de squelette entièrement sigma avec centres sp3."
   },
   {
-    order: 40,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `Dans l'ion oxonium $\\ce{H3O+}$, quelles propositions sont exactes ?`,
-    choices: [
-      { content: `L'oxygène est décrit comme $\\mathrm{sp}^3$.`, correct: true, explanation: `Trois liaisons et un doublet non liant.` },
-      { content: `Trois orbitales participent aux liaisons O–H et la quatrième contient un doublet non liant.`, correct: true, explanation: `Quatre domaines électroniques.` },
-      { content: `La géométrie moléculaire est pyramidale.`, correct: true, explanation: `Type AX3E1.` },
-      { content: `La géométrie est trigonale plane parce qu'il y a trois hydrogènes visibles.`, correct: false, explanation: `Le doublet non liant doit être pris en compte.` },
+    "order": 37,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Combien de carbones sp3 contient l'acide lactique $\\ce{CH3-CH(OH)-COOH}$ ?",
+    "answer": {
+      "type": "number",
+      "value": 2,
+      "tolerance": 0
+    },
+    "explanation": "Le carbone du CH3 et le carbone porteur de OH sont sp3 ; le carbone carboxylique est sp2."
+  },
+  {
+    "order": 38,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant le carbone de l'ion hydrogénocarbonate $\\ce{HCO3-}$ dans une description mésomère usuelle, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "La géométrie locale est approximativement trigonale plane.",
+        "correct": true,
+        "explanation": "Les trois oxygènes définissent un arrangement plan."
+      },
+      {
+        "content": "Les trois liaisons C–O sont nécessairement décrites comme totalement indépendantes sans délocalisation.",
+        "correct": false,
+        "explanation": "La charge et le caractère pi sont délocalisés."
+      },
+      {
+        "content": "Il est approximativement sp2.",
+        "correct": true,
+        "explanation": "Trois directions sigma entourent le carbone."
+      },
+      {
+        "content": "Le carbone est sp3 tétraédrique.",
+        "correct": false,
+        "explanation": "La géométrie est plane."
+      },
+      {
+        "content": "Une orbitale p permet la délocalisation électronique sur le groupe carbonate.",
+        "correct": true,
+        "explanation": "La mésomérie implique ce système pi."
+      }
     ],
-    explanation: `H3O+ est un exemple de centre sp3 dont un domaine électronique est occupé par un doublet non liant.`,
+    "explanation": "L'hydrogénocarbonate relie hybridation sp2 et mésomérie."
   },
   {
-    order: 83,
-    difficulty: 'MEDIUM',
-    format: 'QROC',
-    question: `Un carbone hybridé $\\mathrm{sp}^2$ possède combien d'orbitales $\\mathrm{p}$ non hybridées restantes ?`,
-    answer: { type: 'number', value: 1, tolerance: 0 },
-    explanation: `Deux orbitales p sont combinées avec une s pour former trois sp2 ; une orbitale p reste non hybridée.`,
-  },
-  {
-    order: 84,
-    difficulty: 'MEDIUM',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `Sélectionnez exactement les deux espèces dont l'atome central est décrit comme $\\mathrm{sp}$ dans le modèle du chapitre.`,
-    choices: [
-      { content: `$\\ce{BeH2}$.`, correct: true, explanation: `Deux directions de liaison, géométrie linéaire.` },
-      { content: `$\\ce{CO2}$.`, correct: true, explanation: `Deux directions autour du carbone central.` },
-      { content: `$\\ce{NH3}$.`, correct: false, explanation: `L'azote est sp3.` },
-      { content: `$\\ce{H2O}$.`, correct: false, explanation: `L'oxygène est sp3.` },
+    "order": 39,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quel est l'intérêt du modèle d'hybridation ?",
+    "choices": [
+      {
+        "content": "Décrire exactement toutes les propriétés électroniques de toute molécule.",
+        "correct": false,
+        "explanation": "C'est un modèle local et simplifié."
+      },
+      {
+        "content": "Remplacer totalement la mécanique quantique moléculaire.",
+        "correct": false,
+        "explanation": "Il en constitue une rationalisation pédagogique."
+      },
+      {
+        "content": "Fournir un langage simple pour comparer des centres sp, sp2 et sp3.",
+        "correct": true,
+        "explanation": "Il est pratique pour la chimie structurale."
+      },
+      {
+        "content": "Relier liaisons multiples et orbitales p non hybridées.",
+        "correct": true,
+        "explanation": "Les pi utilisent les orbitales restantes."
+      },
+      {
+        "content": "Rationaliser l'orientation locale des liaisons.",
+        "correct": true,
+        "explanation": "Les hybrides pointent dans des directions géométriques définies."
+      }
     ],
-    explanation: `BeH2 et CO2 possèdent un centre décrit par deux directions orbitalaires opposées, donc une hybridation sp.`,
+    "explanation": "Le modèle d'hybridation est utile s'il est employé comme outil descriptif, pas comme une réalité indépendante des orbitales moléculaires."
   },
+  {
+    "order": 40,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "À propos de l'ion oxonium $\\ce{H3O+}$, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Il reste un doublet non liant sur l'oxygène.",
+        "correct": true,
+        "explanation": "Le centre possède quatre domaines."
+      },
+      {
+        "content": "L'oxygène possède trois liaisons O–H.",
+        "correct": true,
+        "explanation": "Trois hydrogènes sont liés au centre."
+      },
+      {
+        "content": "L'oxygène est décrit comme sp.",
+        "correct": false,
+        "explanation": "Il est compatible avec sp3."
+      },
+      {
+        "content": "La géométrie est linéaire.",
+        "correct": false,
+        "explanation": "Quatre domaines électroniques excluent une forme linéaire."
+      },
+      {
+        "content": "La géométrie moléculaire est pyramidale.",
+        "correct": true,
+        "explanation": "Type AX3E1."
+      }
+    ],
+    "explanation": "H3O+ et NH3 partagent le type VSEPR AX3E1 et une forme pyramidale."
+  },
+  {
+    "order": 83,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Combien d'orbitales p non hybridées restent sur un carbone $\\mathrm{sp}^2$ ?",
+    "answer": {
+      "type": "number",
+      "value": 1,
+      "tolerance": 0
+    },
+    "explanation": "Une s et deux p sont hybridées ; une orbitale p reste non hybridée."
+  },
+  {
+    "order": 84,
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "Sélectionnez exactement les deux centres carbonés typiquement décrits comme $\\mathrm{sp}$.",
+    "choices": [
+      {
+        "content": "Le carbone du groupe nitrile dans $\\ce{H-C#N}$.",
+        "correct": true,
+        "explanation": "La triple liaison est compatible avec sp."
+      },
+      {
+        "content": "Le carbone carbonylé de l'acétone.",
+        "correct": false,
+        "explanation": "Il est sp2."
+      },
+      {
+        "content": "Un carbone du méthane $\\ce{CH4}$.",
+        "correct": false,
+        "explanation": "Il est sp3."
+      },
+      {
+        "content": "Le carbone central de $\\ce{CO2}$.",
+        "correct": true,
+        "explanation": "Deux domaines sigma et deux orbitales p non hybridées."
+      },
+      {
+        "content": "Un carbone de l'éthylène $\\ce{C2H4}$.",
+        "correct": false,
+        "explanation": "Il est sp2."
+      }
+    ],
+    "explanation": "Un centre sp est associé à deux directions sigma et à deux orbitales p non hybridées."
+  }
 ];

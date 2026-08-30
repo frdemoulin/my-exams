@@ -1,642 +1,771 @@
-/**
- * UE14 – Biologie cellulaire – Chapitre 8
- * Contenu fondé sur la fiche 2024-2025 du Tutorat Santé de Reims.
- */
 import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
 
+/** UE14 Biologie cellulaire — Ch8 — Organisation générale, enveloppe, morphologie et mitose — V2 active */
 export const SECTION_A_QUESTIONS: SeedQuestion[] = [
   {
-    order: 1,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `À propos des caractéristiques générales du noyau :`,
-    choices: [
-      `Il est délimité par une enveloppe nucléaire.`,
-      `Le volume interne est appelé nucléoplasme.`,
-      `Il contient la totalité absolue de l’information génétique cellulaire.`,
-      `Il contient de la chromatine et des nucléoles.`,
+    "order": 1,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur « Organisation générale du noyau », laquelle est exacte ?",
+    "choices": [
+      {
+        "content": "Le noyau contient la quasi-totalité de l’information génétique d’une cellule humaine nucléée.",
+        "correct": true,
+        "explanation": "Une petite fraction du génome cellulaire se trouve dans les mitochondries."
+      },
+      {
+        "content": "Le noyau est limité par une seule bicouche lipidique.",
+        "correct": false,
+        "explanation": "L’enveloppe nucléaire est formée de deux membranes."
+      },
+      {
+        "content": "Les nucléoles sont des organites cytoplasmiques.",
+        "correct": false,
+        "explanation": "Les nucléoles sont des domaines du noyau."
+      },
+      {
+        "content": "L’ADN mitochondrial est normalement inclus dans le noyau.",
+        "correct": false,
+        "explanation": "L’ADN mitochondrial est localisé dans les mitochondries."
+      },
+      {
+        "content": "Le nucléoplasme est un compartiment cytoplasmique extérieur à l’enveloppe nucléaire.",
+        "correct": false,
+        "explanation": "Le nucléoplasme est à l’intérieur du noyau."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Cette enveloppe définit le compartiment nucléaire.`,
-      `Exact. Le nucléoplasme correspond au contenu délimité par l’enveloppe.`,
-      `Faux. Une fraction de l’information génétique est mitochondriale.`,
-      `Exact. Ces éléments participent à l’organisation du nucléoplasme.`,
-    ],
+    "explanation": "Le noyau délimite le nucléoplasme, contient l’essentiel du génome nucléaire sous forme de chromatine et comporte des domaines non membranaires comme les nucléoles."
   },
   {
-    order: 2,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Les grandes fonctions du noyau comprennent :`,
-    choices: [
-      `La synthèse et la réparation de l’ADN.`,
-      `La synthèse et la maturation des ARN.`,
-      `Le contrôle des échanges nucléocytoplasmiques.`,
-      `La sortie régulière de l’ADN vers le cytoplasme.`,
+    "order": 2,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant le thème « Fonctions nucléaires » ?",
+    "choices": [
+      {
+        "content": "La traduction cytosolique des protéines a lieu dans le nucléole.",
+        "correct": false,
+        "explanation": "La traduction cytosolique a lieu sur les ribosomes du cytoplasme et du RER."
+      },
+      {
+        "content": "La réplication de l’ADN nucléaire se déroule dans le noyau.",
+        "correct": true,
+        "explanation": "Chez les eucaryotes, la réplication du génome nucléaire a lieu dans le noyau."
+      },
+      {
+        "content": "La membrane nucléaire synthétise directement les ARN ribosomaux.",
+        "correct": false,
+        "explanation": "Les ARNr sont synthétisés à partir des gènes ribosomaux, principalement au niveau du nucléole."
+      },
+      {
+        "content": "Le noyau participe à la réparation de l’ADN.",
+        "correct": true,
+        "explanation": "Les systèmes de réparation du génome nucléaire fonctionnent dans le noyau."
+      },
+      {
+        "content": "L’ADN chromosomique doit sortir du noyau pour être transcrit.",
+        "correct": false,
+        "explanation": "La transcription se déroule dans le noyau sans export préalable de l’ADN."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Ces activités appartiennent au métabolisme de l’ADN.`,
-      `Exact. Ces étapes se déroulent dans le noyau.`,
-      `Exact. L’enveloppe et ses pores régulent les entrées et sorties.`,
-      `Faux. Le cours précise que l’ADN ne sort jamais du noyau.`,
-    ],
+    "explanation": "Le noyau est le siège majeur de la réplication et de la réparation de l’ADN, de la transcription et de nombreuses étapes de maturation des ARN."
   },
   {
-    order: 3,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Concernant les échanges assurés par le noyau :`,
-    choices: [
-      `Des nucléotides, protéines et ions peuvent entrer.`,
-      `Des ARN associés à des protéines peuvent sortir.`,
-      `L’ADN est exporté vers le cytoplasme pour être traduit.`,
-      `Les pores nucléaires interrompent l’enveloppe.`,
+    "order": 3,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant le thème « Enveloppe nucléaire et mitose », quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "La chromatine reste totalement décondensée pendant la mitose.",
+        "correct": false,
+        "explanation": "La chromatine se condense en chromosomes mitotiques."
+      },
+      {
+        "content": "La reformation du noyau exige une synthèse de novo de toutes ses membranes à partir d’acides gras libres.",
+        "correct": false,
+        "explanation": "Les membranes du RE participent à la reconstitution de l’enveloppe."
+      },
+      {
+        "content": "L’enveloppe nucléaire se reconstitue autour des chromosomes en fin de mitose.",
+        "correct": true,
+        "explanation": "Elle se reforme lors de la télophase."
+      },
+      {
+        "content": "Les lamines sont phosphorylées lors de la désorganisation de la lamina en mitose.",
+        "correct": true,
+        "explanation": "La phosphorylation des lamines favorise le désassemblage de la lamina."
+      },
+      {
+        "content": "La membrane externe de l’enveloppe nucléaire est continue avec le réticulum endoplasmique.",
+        "correct": true,
+        "explanation": "La membrane externe et le RE appartiennent à un même continuum membranaire."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Ils sont nécessaires au métabolisme des acides nucléiques.`,
-      `Exact. Ils sont exportés sous forme de complexes.`,
-      `Faux. L’ADN reste protégé dans le noyau.`,
-      `Exact. Ils constituent les ouvertures d’échange.`,
-    ],
+    "explanation": "Lors de la mitose ouverte des cellules animales, l’enveloppe nucléaire se désassemble puis se reconstitue autour des chromosomes en fin de mitose, avec une continuité fonctionnelle avec le RE."
   },
   {
-    order: 4,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Au début de la mitose :`,
-    choices: [
-      `Le matériel génétique se condense en chromosomes.`,
-      `Les nucléoles se désorganisent et disparaissent.`,
-      `L’enveloppe nucléaire se fragmente.`,
-      `Le noyau conserve strictement son organisation interphasique.`,
+    "order": 4,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur « Morphologie nucléaire », lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "La condensation de la chromatine augmente fortement au cours de la différenciation du spermatozoïde.",
+        "correct": true,
+        "explanation": "Le noyau spermatique devient très compact."
+      },
+      {
+        "content": "La forme du noyau peut être caractéristique d’un type cellulaire.",
+        "correct": true,
+        "explanation": "Par exemple, les granulocytes possèdent un noyau polylobé."
+      },
+      {
+        "content": "La différenciation cellulaire n’a aucun effet possible sur la morphologie nucléaire.",
+        "correct": false,
+        "explanation": "De nombreux programmes de différenciation modifient le noyau."
+      },
+      {
+        "content": "Un granulocyte polynucléaire possède en réalité un noyau unique composé de plusieurs lobes reliés.",
+        "correct": true,
+        "explanation": "Le terme polynucléaire est historique : il s’agit d’un noyau lobulé."
+      },
+      {
+        "content": "La morphologie nucléaire peut évoluer au cours de la différenciation cellulaire.",
+        "correct": true,
+        "explanation": "La spermiogenèse s’accompagne notamment d’une forte transformation du noyau."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La chromatine devient fortement condensée.`,
-      `Exact. Le cours décrit leur disparition au début de la mitose.`,
-      `Exact. Ses fragments se fondent dans le réticulum endoplasmique.`,
-      `Faux. L’organisation nucléaire disparaît transitoirement.`,
-    ],
+    "explanation": "La forme et la taille du noyau varient selon le type cellulaire et l’état de différenciation ; ces caractères sont utiles en cytologie et en anatomopathologie."
   },
   {
-    order: 5,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `À la fin de la mitose :`,
-    choices: [
-      `L’enveloppe nucléaire se reconstitue.`,
-      `Le réticulum endoplasmique participe à cette reconstitution.`,
-      `L’ADN sort du noyau nouvellement formé.`,
-      `Deux noyaux peuvent être individualisés dans les cellules filles.`,
+    "order": 5,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur « Morphologie nucléaire et anatomopathologie », lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "Un seul critère nucléaire permet à lui seul d’affirmer un cancer dans tous les cas.",
+        "correct": false,
+        "explanation": "Le diagnostic repose sur un ensemble de critères morphologiques et contextuels."
+      },
+      {
+        "content": "Des nucléoles volumineux ou irréguliers peuvent contribuer à l’évaluation morphologique d’une tumeur.",
+        "correct": true,
+        "explanation": "La morphologie nucléolaire fait partie des critères cytologiques."
+      },
+      {
+        "content": "Les nucléoles ne sont jamais examinés en cytologie tumorale.",
+        "correct": false,
+        "explanation": "Leur nombre, leur taille et leur aspect peuvent être informatifs."
+      },
+      {
+        "content": "Le rapport nucléocytoplasmique compare la surface du nucléole à celle du cytosol.",
+        "correct": false,
+        "explanation": "Il compare la taille du noyau à celle du cytoplasme."
+      },
+      {
+        "content": "La texture de la chromatine est un élément analysé en anatomopathologie.",
+        "correct": true,
+        "explanation": "Une chromatine grossière ou irrégulière peut être un signe d’atypie."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Elle se reforme autour des lots chromosomiques.`,
-      `Exact. L’enveloppe est reformée à partir du RE.`,
-      `Faux. L’ADN reste nucléaire.`,
-      `Exact. La reconstitution accompagne la fin de la division nucléaire.`,
-    ],
+    "explanation": "L’anatomopathologie évalue notamment le rapport nucléocytoplasmique, la taille et la forme des noyaux, la texture de la chromatine et les nucléoles, sans qu’un critère isolé suffise au diagnostic."
   },
   {
-    order: 6,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `L’analyse anatomopathologique du noyau tumoral peut rechercher :`,
-    choices: [
-      `Une augmentation du rapport nucléocytoplasmique.`,
-      `Une anisocaryose.`,
-      `Des encoches ou des formes nucléaires irrégulières.`,
-      `Une uniformité parfaite de la chromatine.`,
+    "order": 6,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Concernant le thème « Structure de l’enveloppe nucléaire », quelle est l’unique proposition exacte ?",
+    "choices": [
+      {
+        "content": "L’espace périnucléaire est identique au nucléoplasme.",
+        "correct": false,
+        "explanation": "Le nucléoplasme est à l’intérieur de la membrane interne ; l’espace périnucléaire se trouve entre les deux membranes."
+      },
+      {
+        "content": "L’espace périnucléaire est situé entre les membranes interne et externe de l’enveloppe nucléaire.",
+        "correct": true,
+        "explanation": "Il sépare les deux membranes nucléaires."
+      },
+      {
+        "content": "La membrane externe est totalement indépendante du réticulum endoplasmique.",
+        "correct": false,
+        "explanation": "Elle est continue avec le RE."
+      },
+      {
+        "content": "Les pores nucléaires sont des ruptures non protéiques de l’enveloppe.",
+        "correct": false,
+        "explanation": "Ils sont occupés par de grands complexes protéiques de nucléoporines."
+      },
+      {
+        "content": "La lamina est située sur la face cytosolique de la membrane externe.",
+        "correct": false,
+        "explanation": "Elle se trouve du côté nucléoplasmique de la membrane interne."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Le noyau est relativement plus volumineux.`,
-      `Exact. La taille des noyaux devient irrégulière.`,
-      `Exact. La morphologie nucléaire est un critère diagnostique.`,
-      `Faux. Une chromatine grossière ou irrégulière est au contraire recherchée.`,
-    ],
+    "explanation": "L’enveloppe nucléaire comprend deux membranes séparées par l’espace périnucléaire et percées de complexes de pores nucléaires ; sa membrane externe est continue avec le RE."
   },
   {
-    order: 7,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `À propos de la forme du noyau :`,
-    choices: [
-      `Elle peut être caractéristique du type cellulaire.`,
-      `Le noyau du lymphocyte est plutôt sphérique.`,
-      `Le noyau du granulocyte peut être polylobé.`,
-      `Un noyau polylobé correspond nécessairement à plusieurs noyaux distincts.`,
+    "order": 7,
+    "difficulty": "HARD",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Concernant « Organisation générale du noyau », cinq affirmations sont exactes : sélectionnez-les.",
+    "choices": [
+      {
+        "content": "La transcription des ARN nucléaires se déroule dans le noyau.",
+        "correct": true,
+        "explanation": "Les ARN sont synthétisés à partir de l’ADN nucléaire dans le noyau."
+      },
+      {
+        "content": "La réplication de l’ADN nucléaire se déroule dans le noyau.",
+        "correct": true,
+        "explanation": "Chez les eucaryotes, la réplication du génome nucléaire a lieu dans le noyau."
+      },
+      {
+        "content": "L’ADN mitochondrial est normalement inclus dans le noyau.",
+        "correct": false,
+        "explanation": "L’ADN mitochondrial est localisé dans les mitochondries."
+      },
+      {
+        "content": "Le volume interne délimité par l’enveloppe nucléaire est le nucléoplasme.",
+        "correct": true,
+        "explanation": "Le nucléoplasme correspond au compartiment interne du noyau."
+      },
+      {
+        "content": "Le noyau contient la quasi-totalité de l’information génétique d’une cellule humaine nucléée.",
+        "correct": true,
+        "explanation": "Une petite fraction du génome cellulaire se trouve dans les mitochondries."
+      },
+      {
+        "content": "Le noyau est limité par une seule bicouche lipidique.",
+        "correct": false,
+        "explanation": "L’enveloppe nucléaire est formée de deux membranes."
+      },
+      {
+        "content": "L’ADN chromosomique doit sortir du noyau pour être transcrit.",
+        "correct": false,
+        "explanation": "La transcription se déroule dans le noyau sans export préalable de l’ADN."
+      },
+      {
+        "content": "Le nucléoplasme est un compartiment cytoplasmique extérieur à l’enveloppe nucléaire.",
+        "correct": false,
+        "explanation": "Le nucléoplasme est à l’intérieur du noyau."
+      },
+      {
+        "content": "Le noyau est délimité par une enveloppe nucléaire constituée de deux membranes.",
+        "correct": true,
+        "explanation": "L’enveloppe nucléaire possède une membrane interne et une membrane externe."
+      },
+      {
+        "content": "La traduction cytosolique des protéines a lieu dans le nucléole.",
+        "correct": false,
+        "explanation": "La traduction cytosolique a lieu sur les ribosomes du cytoplasme et du RER."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Le lymphocyte et le granulocyte en fournissent des exemples.`,
-      `Exact. C’est la morphologie décrite dans la fiche.`,
-      `Exact. Il s’agit d’un seul noyau dont les lobes sont reliés.`,
-      `Faux. Les lobes appartiennent à un même noyau.`,
-    ],
+    "explanation": "Le noyau délimite le nucléoplasme, contient l’essentiel du génome nucléaire sous forme de chromatine et comporte des domaines non membranaires comme les nucléoles. Le noyau est le siège majeur de la réplication et de la réparation de l’ADN, de la transcription et de nombreuses étapes de maturation des ARN."
   },
   {
-    order: 8,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Pendant la spermatogenèse :`,
-    choices: [
-      `La forme du noyau évolue avec la différenciation.`,
-      `La spermatogonie possède un gros noyau.`,
-      `Le spermatozoïde possède un petit noyau très allongé.`,
-      `Le noyau devient de plus en plus volumineux au cours de la différenciation.`,
+    "order": 8,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur « Fonctions nucléaires », lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "De nombreuses étapes de maturation des ARN ont lieu dans le noyau.",
+        "correct": true,
+        "explanation": "Épissage, maturation des extrémités et assemblage en ribonucléoprotéines sont notamment nucléaires."
+      },
+      {
+        "content": "L’ADN chromosomique doit sortir du noyau pour être transcrit.",
+        "correct": false,
+        "explanation": "La transcription se déroule dans le noyau sans export préalable de l’ADN."
+      },
+      {
+        "content": "Le noyau participe à la réparation de l’ADN.",
+        "correct": true,
+        "explanation": "Les systèmes de réparation du génome nucléaire fonctionnent dans le noyau."
+      },
+      {
+        "content": "La transcription des ARN nucléaires se déroule dans le noyau.",
+        "correct": true,
+        "explanation": "Les ARN sont synthétisés à partir de l’ADN nucléaire dans le noyau."
+      },
+      {
+        "content": "La glycolyse constitue la fonction principale du noyau.",
+        "correct": false,
+        "explanation": "La glycolyse est une voie cytosolique."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Le noyau se réduit et s’allonge progressivement.`,
-      `Exact. Elle est la cellule la moins différenciée de la série décrite.`,
-      `Exact. La chromatine y est fortement condensée.`,
-      `Faux. Il devient au contraire plus petit et plus condensé.`,
-    ],
+    "explanation": "Le noyau est le siège majeur de la réplication et de la réparation de l’ADN, de la transcription et de nombreuses étapes de maturation des ARN."
   },
   {
-    order: 9,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `L’enveloppe nucléaire :`,
-    choices: [
-      `Est une expansion du réticulum endoplasmique rugueux.`,
-      `Comporte deux membranes.`,
-      `Les deux membranes sont séparées par un espace périnucléaire.`,
-      `Est une membrane unique dépourvue de pores.`,
+    "order": 9,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur « Enveloppe nucléaire et mitose », lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "La membrane externe de l’enveloppe nucléaire est continue avec le réticulum endoplasmique.",
+        "correct": true,
+        "explanation": "La membrane externe et le RE appartiennent à un même continuum membranaire."
+      },
+      {
+        "content": "Au début d’une mitose ouverte, l’enveloppe nucléaire se désassemble.",
+        "correct": true,
+        "explanation": "La rupture de l’enveloppe nucléaire permet l’accès du fuseau mitotique aux chromosomes."
+      },
+      {
+        "content": "L’enveloppe nucléaire se reconstitue autour des chromosomes en fin de mitose.",
+        "correct": true,
+        "explanation": "Elle se reforme lors de la télophase."
+      },
+      {
+        "content": "Les nucléoles restent morphologiquement inchangés pendant toute la mitose.",
+        "correct": false,
+        "explanation": "Les nucléoles se désorganisent puis se reforment."
+      },
+      {
+        "content": "Les lamines sont phosphorylées lors de la désorganisation de la lamina en mitose.",
+        "correct": true,
+        "explanation": "La phosphorylation des lamines favorise le désassemblage de la lamina."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La continuité structurale avec le RER est soulignée.`,
-      `Exact. Une membrane interne et une membrane externe sont distinguées.`,
-      `Exact. Cet espace se situe entre les deux membranes.`,
-      `Faux. Elle comporte deux membranes interrompues par des pores.`,
-    ],
+    "explanation": "Lors de la mitose ouverte des cellules animales, l’enveloppe nucléaire se désassemble puis se reconstitue autour des chromosomes en fin de mitose, avec une continuité fonctionnelle avec le RE."
   },
   {
-    order: 10,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Concernant la membrane externe de l’enveloppe nucléaire :`,
-    choices: [
-      `Elle peut porter des ribosomes.`,
-      `Elle contribue au lien structural avec le RER.`,
-      `Elle est séparée du RER par une barrière définitive.`,
-      `Sa présence aide à comprendre la disparition et la reformation de l’enveloppe en mitose.`,
+    "order": 10,
+    "difficulty": "EASY",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Concernant « Morphologie nucléaire », cinq affirmations sont exactes : sélectionnez-les.",
+    "choices": [
+      {
+        "content": "Tous les noyaux humains ont une forme sphérique identique.",
+        "correct": false,
+        "explanation": "La morphologie nucléaire varie beaucoup selon les cellules."
+      },
+      {
+        "content": "Un seul critère nucléaire permet à lui seul d’affirmer un cancer dans tous les cas.",
+        "correct": false,
+        "explanation": "Le diagnostic repose sur un ensemble de critères morphologiques et contextuels."
+      },
+      {
+        "content": "Un rapport nucléocytoplasmique augmenté peut être observé dans des cellules tumorales.",
+        "correct": true,
+        "explanation": "De nombreuses cellules malignes présentent un noyau relativement volumineux."
+      },
+      {
+        "content": "La forme du noyau peut être caractéristique d’un type cellulaire.",
+        "correct": true,
+        "explanation": "Par exemple, les granulocytes possèdent un noyau polylobé."
+      },
+      {
+        "content": "Un granulocyte polynucléaire possède en réalité un noyau unique composé de plusieurs lobes reliés.",
+        "correct": true,
+        "explanation": "Le terme polynucléaire est historique : il s’agit d’un noyau lobulé."
+      },
+      {
+        "content": "L’anisocaryose signifie une diminution du nombre de mitochondries.",
+        "correct": false,
+        "explanation": "Elle concerne la taille des noyaux."
+      },
+      {
+        "content": "La morphologie nucléaire peut évoluer au cours de la différenciation cellulaire.",
+        "correct": true,
+        "explanation": "La spermiogenèse s’accompagne notamment d’une forte transformation du noyau."
+      },
+      {
+        "content": "Un granulocyte polynucléaire contient plusieurs noyaux indépendants.",
+        "correct": false,
+        "explanation": "Il possède un noyau unique plurilobé."
+      },
+      {
+        "content": "La différenciation cellulaire n’a aucun effet possible sur la morphologie nucléaire.",
+        "correct": false,
+        "explanation": "De nombreux programmes de différenciation modifient le noyau."
+      },
+      {
+        "content": "L’anisocaryose désigne une variabilité anormale de taille des noyaux.",
+        "correct": true,
+        "explanation": "L’anisocaryose est un critère morphologique de variabilité nucléaire."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Cela rappelle sa continuité avec le RER.`,
-      `Exact. L’enveloppe nucléaire est une expansion du RER.`,
-      `Faux. La continuité avec le RE est un point majeur du cours.`,
-      `Exact. Les membranes nucléaires fusionnent avec le RE puis en dérivent à nouveau.`,
-    ],
+    "explanation": "La forme et la taille du noyau varient selon le type cellulaire et l’état de différenciation ; ces caractères sont utiles en cytologie et en anatomopathologie. L’anatomopathologie évalue notamment le rapport nucléocytoplasmique, la taille et la forme des noyaux, la texture de la chromatine et les nucléoles, sans qu’un critère isolé suffise au diagnostic."
   },
   {
-    order: 11,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `À propos de l’espace périnucléaire :`,
-    choices: [
-      `Il est compris entre les membranes interne et externe.`,
-      `Il correspond au nucléoplasme.`,
-      `Il est appelé espace péri-cytoplasmique dans la fiche.`,
-      `Il appartient à l’organisation de l’enveloppe nucléaire.`,
-    ],
-    correctChoiceIndexes: [0, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. C’est sa définition.`,
-      `Faux. Le nucléoplasme est le volume situé à l’intérieur de l’enveloppe.`,
-      `Faux. Le terme retenu est espace périnucléaire.`,
-      `Exact. Il sépare ses deux membranes.`,
-    ],
+    "order": 11,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Comment nomme-t-on le compartiment interne délimité par l’enveloppe nucléaire ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "nucléoplasme",
+        "nucleoplasme"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Le nucléoplasme est le compartiment interne du noyau, délimité par la membrane nucléaire interne."
   },
   {
-    order: 12,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Un noyau contenant une chromatine grossière, des nucléoles irréguliers et un rapport nucléocytoplasmique augmenté :`,
-    choices: [
-      `Peut présenter des critères morphologiques évocateurs de malignité.`,
-      `Est obligatoirement un noyau normal.`,
-      `Doit être comparé aux cellules du tissu environnant.`,
-      `Peut présenter une anisocaryose.`,
+    "order": 12,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur « Morphologie nucléaire et anatomopathologie », laquelle est exacte ?",
+    "choices": [
+      {
+        "content": "Les nucléoles ne sont jamais examinés en cytologie tumorale.",
+        "correct": false,
+        "explanation": "Leur nombre, leur taille et leur aspect peuvent être informatifs."
+      },
+      {
+        "content": "Un seul critère nucléaire permet à lui seul d’affirmer un cancer dans tous les cas.",
+        "correct": false,
+        "explanation": "Le diagnostic repose sur un ensemble de critères morphologiques et contextuels."
+      },
+      {
+        "content": "La texture de la chromatine est un élément analysé en anatomopathologie.",
+        "correct": true,
+        "explanation": "Une chromatine grossière ou irrégulière peut être un signe d’atypie."
+      },
+      {
+        "content": "L’anisocaryose signifie une diminution du nombre de mitochondries.",
+        "correct": false,
+        "explanation": "Elle concerne la taille des noyaux."
+      },
+      {
+        "content": "Le rapport nucléocytoplasmique compare la surface du nucléole à celle du cytosol.",
+        "correct": false,
+        "explanation": "Il compare la taille du noyau à celle du cytoplasme."
+      }
     ],
-    correctChoiceIndexes: [0, 2, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Ces critères sont utilisés en anatomopathologie.`,
-      `Faux. Ces anomalies motivent au contraire une comparaison avec le tissu normal.`,
-      `Exact. Le diagnostic morphologique repose sur cette comparaison.`,
-      `Exact. L’irrégularité de taille des noyaux est un critère cité.`,
-    ],
+    "explanation": "L’anatomopathologie évalue notamment le rapport nucléocytoplasmique, la taille et la forme des noyaux, la texture de la chromatine et les nucléoles, sans qu’un critère isolé suffise au diagnostic."
   },
   {
-    order: 13,
-    difficulty: 'MEDIUM',
-    answerFormat: 'SINGLE',
-    question: `Dans un prélèvement tumoral, l’anisocaryose désigne :`,
-    choices: [
-      `Une irrégularité de taille des noyaux.`,
-      `Une absence totale de nucléole.`,
-      `Une augmentation uniforme de la taille cytoplasmique.`,
-      `La présence de plusieurs membranes nucléaires.`,
-    ],
-    correctChoiceIndexes: [0],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Le terme correspond à la variabilité de taille nucléaire.`,
-      `Faux. Ce n’est pas la définition de l’anisocaryose.`,
-      `Faux. Le phénomène concerne les noyaux.`,
-      `Faux. Le nombre de membranes n’est pas en cause.`,
-    ],
+    "order": 13,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel terme désigne la variabilité de taille des noyaux observée en cytologie ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "anisocaryose"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "L’anisocaryose correspond à une variation anormale de la taille des noyaux au sein d’une population cellulaire."
   },
   {
-    order: 14,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `En observant la figure suivante :
-
-![Structure du noyau](/images/training/ue14/biologie-cellulaire/noyau/structure-noyau-enveloppe.png)
-
-Quelle(s) proposition(s) est(sont) correcte(s) ?`,
-    choices: [
-      `La membrane externe est en continuité avec le RER.`,
-      `Les pores interrompent localement les deux membranes.`,
-      `Le nucléole se trouve dans le nucléoplasme.`,
-      `La chromatine se trouve exclusivement dans l’espace périnucléaire.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La figure montre la prolongation vers les citernes portant des ribosomes.`,
-      `Exact. Ils constituent les points de passage à travers l’enveloppe.`,
-      `Exact. Il est représenté à l’intérieur du noyau.`,
-      `Faux. Elle se trouve dans le nucléoplasme.`,
-    ],
+    "order": 14,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Comment nomme-t-on l’espace situé entre les membranes interne et externe de l’enveloppe nucléaire ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "espace périnucléaire",
+        "espace perinucleaire",
+        "périnucléaire",
+        "perinucleaire"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "L’espace périnucléaire sépare les membranes interne et externe et communique avec la lumière du réticulum endoplasmique."
   },
   {
-    order: 15,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `À propos de la relation noyau–réticulum endoplasmique :`,
-    choices: [
-      `L’enveloppe nucléaire est structurellement liée au RER.`,
-      `La fragmentation de l’enveloppe peut alimenter le réseau du RE en mitose.`,
-      `La reformation nucléaire utilise des membranes issues du RE.`,
-      `Le noyau et le RE sont toujours totalement indépendants.`,
+    "order": 15,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Sur le thème « Structure de l’enveloppe nucléaire », repérez l’unique affirmation correcte.",
+    "choices": [
+      {
+        "content": "La lamina est située sur la face cytosolique de la membrane externe.",
+        "correct": false,
+        "explanation": "Elle se trouve du côté nucléoplasmique de la membrane interne."
+      },
+      {
+        "content": "L’espace périnucléaire est identique au nucléoplasme.",
+        "correct": false,
+        "explanation": "Le nucléoplasme est à l’intérieur de la membrane interne ; l’espace périnucléaire se trouve entre les deux membranes."
+      },
+      {
+        "content": "La membrane externe est totalement indépendante du réticulum endoplasmique.",
+        "correct": false,
+        "explanation": "Elle est continue avec le RE."
+      },
+      {
+        "content": "La lamina est accolée à la face nucléoplasmique de la membrane interne.",
+        "correct": true,
+        "explanation": "La lamina nucléaire forme un réseau sous-jacent à la membrane interne."
+      },
+      {
+        "content": "Les pores nucléaires sont des ruptures non protéiques de l’enveloppe.",
+        "correct": false,
+        "explanation": "Ils sont occupés par de grands complexes protéiques de nucléoporines."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La membrane externe porte des ribosomes et se prolonge dans le RE.`,
-      `Exact. Les vésicules se fondent dans le réticulum.`,
-      `Exact. Le noyau se reconstitue à partir du réticulum.`,
-      `Faux. Le cours insiste au contraire sur leur continuité.`,
-    ],
+    "explanation": "L’enveloppe nucléaire comprend deux membranes séparées par l’espace périnucléaire et percées de complexes de pores nucléaires ; sa membrane externe est continue avec le RE."
   },
   {
-    order: 16,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Quelle(s) association(s) est(sont) correcte(s) ?`,
-    choices: [
-      `Lymphocyte — noyau sphérique.`,
-      `Granulocyte — noyau polylobé.`,
-      `Spermatozoïde — petit noyau allongé et très condensé.`,
-      `Spermatogonie — noyau minuscule et très allongé.`,
+    "order": 16,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant le thème « Organisation générale du noyau », quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Le nucléoplasme est un compartiment cytoplasmique extérieur à l’enveloppe nucléaire.",
+        "correct": false,
+        "explanation": "Le nucléoplasme est à l’intérieur du noyau."
+      },
+      {
+        "content": "Le noyau est délimité par une enveloppe nucléaire constituée de deux membranes.",
+        "correct": true,
+        "explanation": "L’enveloppe nucléaire possède une membrane interne et une membrane externe."
+      },
+      {
+        "content": "Les nucléoles sont des organites cytoplasmiques.",
+        "correct": false,
+        "explanation": "Les nucléoles sont des domaines du noyau."
+      },
+      {
+        "content": "L’ADN mitochondrial est normalement inclus dans le noyau.",
+        "correct": false,
+        "explanation": "L’ADN mitochondrial est localisé dans les mitochondries."
+      },
+      {
+        "content": "Les nucléoles sont des domaines nucléaires non entourés d’une membrane propre.",
+        "correct": true,
+        "explanation": "Le nucléole est un condensat nucléaire spécialisé dans la biogenèse ribosomale."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. C’est l’exemple morphologique donné.`,
-      `Exact. Les lobes appartiennent à un seul noyau.`,
-      `Exact. Cette forme est liée à la différenciation.`,
-      `Faux. La spermatogonie possède au contraire un gros noyau.`,
-    ],
+    "explanation": "Le noyau délimite le nucléoplasme, contient l’essentiel du génome nucléaire sous forme de chromatine et comporte des domaines non membranaires comme les nucléoles."
   },
   {
-    order: 17,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Le nucléoplasme :`,
-    choices: [
-      `Est le volume interne défini par l’enveloppe nucléaire.`,
-      `Est organisé par le nucléosquelette.`,
-      `Peut contenir plusieurs nucléoles.`,
-      `Est synonyme de cytosol.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Il correspond au compartiment nucléaire.`,
-      `Exact. Le cours souligne cette organisation.`,
-      `Exact. Les nucléoles compartimentent le nucléoplasme.`,
-      `Faux. Le cytosol est le compartiment cytoplasmique.`,
-    ],
+    "order": 17,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel organite contient la fraction du génome cellulaire qui n’est pas nucléaire ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "mitochondrie",
+        "mitochondries"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Les mitochondries possèdent leur propre ADN ; le noyau contient donc la quasi-totalité, mais pas la totalité, du génome cellulaire."
   },
   {
-    order: 18,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `La quasi-totalité de l’information génétique eucaryote se trouve :`,
-    choices: [
-      `Dans la chromatine nucléaire.`,
-      `Exclusivement dans les mitochondries.`,
-      `Avec une fraction complémentaire dans l’ADN mitochondrial.`,
-      `Dans le nucléole uniquement.`,
-    ],
-    correctChoiceIndexes: [0, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. C’est la localisation principale de l’ADN cellulaire.`,
-      `Faux. Les mitochondries n’en contiennent qu’une petite fraction.`,
-      `Exact. Le cours mentionne explicitement cet ADN extranucléaire.`,
-      `Faux. Le nucléole est surtout impliqué dans les ARNr et la biogenèse ribosomale.`,
-    ],
+    "order": 18,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Comment nomme-t-on le réseau protéique situé sous la membrane nucléaire interne ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "lamina",
+        "lamina nucléaire",
+        "lamina nucleaire"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "La lamina est un réseau de lamines, filaments intermédiaires de type V, appliqué contre la face nucléoplasmique de la membrane interne."
   },
   {
-    order: 19,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `La disparition du noyau au début de la mitose comprend :`,
-    choices: [
-      `La fragmentation de l’enveloppe.`,
-      `La disparition des nucléoles.`,
-      `La condensation de la chromatine.`,
-      `La destruction définitive de toute l’information génétique.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Elle perd son intégrité.`,
-      `Exact. Ils se désorganisent.`,
-      `Exact. Elle devient chromosome mitotique.`,
-      `Faux. L’ADN est conservé et réparti dans les cellules filles.`,
-    ],
+    "order": 19,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel terme désigne le rapport entre la taille du noyau et celle du cytoplasme ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "rapport nucléocytoplasmique",
+        "rapport nucleocytoplasmique",
+        "rapport noyau cytoplasme"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Le rapport nucléocytoplasmique compare la taille du noyau à celle du cytoplasme et fait partie des critères morphologiques étudiés en cytologie."
   },
   {
-    order: 20,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `À propos des nucléoles observés en anatomopathologie :`,
-    choices: [
-      `Leur taille peut être irrégulière.`,
-      `Leur forme peut être irrégulière.`,
-      `Leur nombre peut être analysé.`,
-      `Ils ne présentent jamais d’intérêt diagnostique.`,
+    "order": 20,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "Parmi ces propositions concernant « Fonctions nucléaires », retenez exactement les 2 affirmations justes.",
+    "choices": [
+      {
+        "content": "La transcription des ARN nucléaires se déroule dans le noyau.",
+        "correct": true,
+        "explanation": "Les ARN sont synthétisés à partir de l’ADN nucléaire dans le noyau."
+      },
+      {
+        "content": "De nombreuses étapes de maturation des ARN ont lieu dans le noyau.",
+        "correct": true,
+        "explanation": "Épissage, maturation des extrémités et assemblage en ribonucléoprotéines sont notamment nucléaires."
+      },
+      {
+        "content": "L’ADN chromosomique doit sortir du noyau pour être transcrit.",
+        "correct": false,
+        "explanation": "La transcription se déroule dans le noyau sans export préalable de l’ADN."
+      },
+      {
+        "content": "La glycolyse constitue la fonction principale du noyau.",
+        "correct": false,
+        "explanation": "La glycolyse est une voie cytosolique."
+      },
+      {
+        "content": "La membrane nucléaire synthétise directement les ARN ribosomaux.",
+        "correct": false,
+        "explanation": "Les ARNr sont synthétisés à partir des gènes ribosomaux, principalement au niveau du nucléole."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. C’est un critère morphologique cité.`,
-      `Exact. La morphologie nucléolaire est évaluée.`,
-      `Exact. Le nombre fait partie des critères.`,
-      `Faux. Le cours les inclut explicitement dans l’analyse morphologique.`,
-    ],
+    "explanation": "Le noyau est le siège majeur de la réplication et de la réparation de l’ADN, de la transcription et de nombreuses étapes de maturation des ARN."
   },
   {
-    order: 21,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une cellule différenciée présente un noyau très allongé et une chromatine très condensée. L’interprétation la plus cohérente est :`,
-    choices: [
-      `La forme nucléaire peut traduire un état physiologique de différenciation.`,
-      `Toute condensation nucléaire prouve un cancer.`,
-      `La morphologie doit être interprétée selon le type cellulaire.`,
-      `La cellule possède nécessairement plusieurs noyaux.`,
+    "order": 21,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "requiredSelectionCount": 3,
+    "question": "Parmi ces propositions concernant « Enveloppe nucléaire et mitose », retenez exactement les 3 affirmations justes.",
+    "choices": [
+      {
+        "content": "Les nucléoles restent morphologiquement inchangés pendant toute la mitose.",
+        "correct": false,
+        "explanation": "Les nucléoles se désorganisent puis se reforment."
+      },
+      {
+        "content": "Au début d’une mitose ouverte, l’enveloppe nucléaire se désassemble.",
+        "correct": true,
+        "explanation": "La rupture de l’enveloppe nucléaire permet l’accès du fuseau mitotique aux chromosomes."
+      },
+      {
+        "content": "Les lamines sont phosphorylées lors de la désorganisation de la lamina en mitose.",
+        "correct": true,
+        "explanation": "La phosphorylation des lamines favorise le désassemblage de la lamina."
+      },
+      {
+        "content": "L’enveloppe nucléaire reste parfaitement intacte pendant toute la mitose des cellules animales.",
+        "correct": false,
+        "explanation": "Dans la mitose ouverte typique des cellules animales, elle se désassemble."
+      },
+      {
+        "content": "La membrane externe de l’enveloppe nucléaire est continue avec le réticulum endoplasmique.",
+        "correct": true,
+        "explanation": "La membrane externe et le RE appartiennent à un même continuum membranaire."
+      }
     ],
-    correctChoiceIndexes: [0, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La spermatogenèse en est l’exemple détaillé.`,
-      `Faux. La condensation peut être physiologique.`,
-      `Exact. La forme du noyau dépend du contexte.`,
-      `Faux. Un noyau allongé reste un noyau unique.`,
-    ],
+    "explanation": "Lors de la mitose ouverte des cellules animales, l’enveloppe nucléaire se désassemble puis se reconstitue autour des chromosomes en fin de mitose, avec une continuité fonctionnelle avec le RE."
   },
   {
-    order: 22,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une observation en microscopie électronique montre deux membranes séparées par un espace et percées d’ouvertures. Il s’agit probablement :`,
-    choices: [
-      `De l’enveloppe nucléaire.`,
-      `D’une membrane plasmique simple.`,
-      `D’une structure pouvant être continue avec le RER.`,
-      `D’un nucléole.`,
+    "order": 22,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant le thème « Morphologie nucléaire », quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "La morphologie nucléaire peut évoluer au cours de la différenciation cellulaire.",
+        "correct": true,
+        "explanation": "La spermiogenèse s’accompagne notamment d’une forte transformation du noyau."
+      },
+      {
+        "content": "Un granulocyte polynucléaire contient plusieurs noyaux indépendants.",
+        "correct": false,
+        "explanation": "Il possède un noyau unique plurilobé."
+      },
+      {
+        "content": "Tous les noyaux humains ont une forme sphérique identique.",
+        "correct": false,
+        "explanation": "La morphologie nucléaire varie beaucoup selon les cellules."
+      },
+      {
+        "content": "La forme du noyau peut être caractéristique d’un type cellulaire.",
+        "correct": true,
+        "explanation": "Par exemple, les granulocytes possèdent un noyau polylobé."
+      },
+      {
+        "content": "Un granulocyte polynucléaire possède en réalité un noyau unique composé de plusieurs lobes reliés.",
+        "correct": true,
+        "explanation": "Le terme polynucléaire est historique : il s’agit d’un noyau lobulé."
+      }
     ],
-    correctChoiceIndexes: [0, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Cette organisation correspond exactement à sa structure.`,
-      `Faux. La membrane plasmique ne comporte pas deux membranes séparées par un espace périnucléaire.`,
-      `Exact. La membrane externe est liée au RER.`,
-      `Faux. Le nucléole n’est pas limité par deux membranes.`,
-    ],
-  },
-  {
-    order: 23,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une cellule en début de mitose présente encore une enveloppe nucléaire intacte et des nucléoles bien visibles. On peut en déduire que :`,
-    choices: [
-      `La désorganisation nucléaire est déjà complète.`,
-      `La cellule se situe probablement avant la fragmentation complète de l’enveloppe.`,
-      `La chromatine peut être en cours de condensation.`,
-      `Le RER ne participera jamais à la reformation du noyau.`,
-    ],
-    correctChoiceIndexes: [1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Faux. Ces structures devraient avoir disparu si elle était complète.`,
-      `Exact. La disparition est progressive au début de la mitose.`,
-      `Exact. La condensation accompagne les premières étapes mitotiques.`,
-      `Faux. Le RE est au contraire impliqué à la fin de la mitose.`,
-    ],
-  },
-  {
-    order: 24,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `À propos du rapport nucléocytoplasmique :`,
-    choices: [
-      `Il compare la taille du noyau à celle du cytoplasme.`,
-      `Il peut être augmenté dans des cellules tumorales.`,
-      `Il est nécessairement diminué lorsque le noyau grossit.`,
-      `Il s’interprète par comparaison avec les cellules normales du prélèvement.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Il s’agit d’un critère morphologique relatif.`,
-      `Exact. Le cours le cite parmi les anomalies observables.`,
-      `Faux. Un noyau relativement plus volumineux augmente ce rapport.`,
-      `Exact. La comparaison au tissu environnant est essentielle.`,
-    ],
-  },
-  {
-    order: 25,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Le noyau d’un granulocyte polynucléaire :`,
-    choices: [
-      `Est un seul noyau composé de plusieurs lobes reliés.`,
-      `Est toujours sphérique.`,
-      `Illustre la relation entre morphologie et type cellulaire.`,
-      `Ne contient aucune chromatine.`,
-    ],
-    correctChoiceIndexes: [0, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Le terme polynucléaire ne signifie pas ici plusieurs noyaux indépendants.`,
-      `Faux. La forme décrite est polylobée.`,
-      `Exact. La forme nucléaire est caractéristique.`,
-      `Faux. Il contient bien de la chromatine nucléaire.`,
-    ],
-  },
-  {
-    order: 26,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `La protection de l’ADN nucléaire repose notamment sur :`,
-    choices: [
-      `Son maintien à l’intérieur de l’enveloppe nucléaire.`,
-      `Le contrôle des échanges par les pores.`,
-      `Son export régulier vers le cytoplasme.`,
-      `L’organisation de la chromatine.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Le cours précise que l’ADN ne sort jamais du noyau.`,
-      `Exact. Le trafic est sélectif.`,
-      `Faux. L’ADN reste nucléaire.`,
-      `Exact. L’ADN est structuré et compacté avec des histones.`,
-    ],
-  },
-  {
-    order: 27,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une cellule dont l’enveloppe nucléaire se reforme autour de deux lots chromosomiques se trouve vraisemblablement :`,
-    choices: [
-      `À la fin de la mitose.`,
-      `Au début de la phase G1 avant toute mitose.`,
-      `Dans une étape où le RER contribue à reformer l’enveloppe.`,
-      `Dans une situation où les pores nucléaires sont définitivement absents.`,
-    ],
-    correctChoiceIndexes: [0, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La reconstitution de l’enveloppe est un événement tardif.`,
-      `Faux. L’observation décrit spécifiquement la fin de la division nucléaire.`,
-      `Exact. Le cours relie la reformation au réticulum.`,
-      `Faux. Les pores seront réintégrés à l’enveloppe reformée.`,
-    ],
-  },
-  {
-    order: 28,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Parmi les éléments suivants, lesquels appartiennent au noyau interphasique ?`,
-    choices: [
-      `La chromatine.`,
-      `Le nucléole.`,
-      `La matrice nucléaire.`,
-      `Le fuseau mitotique complet.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Elle contient l’ADN associé aux protéines.`,
-      `Exact. Il est un compartiment du nucléoplasme.`,
-      `Exact. Elle constitue le nucléosquelette.`,
-      `Faux. Le fuseau est une structure de la division et n’appartient pas au noyau interphasique.`,
-    ],
-  },
-  {
-    order: 29,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Un noyau tumoral peut être qualifié d’irrégulier en raison :`,
-    choices: [
-      `D’encoches de son contour.`,
-      `D’une chromatine grossière.`,
-      `D’une variabilité de taille entre noyaux.`,
-      `D’une disparition obligatoire de toute enveloppe nucléaire.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Les encoches sont un critère morphologique cité.`,
-      `Exact. La texture chromatinienne est évaluée.`,
-      `Exact. C’est l’anisocaryose.`,
-      `Faux. Une cellule tumorale interphasique conserve une enveloppe nucléaire.`,
-    ],
-  },
-  {
-    order: 30,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Synthèse de la section :`,
-    choices: [
-      `Le noyau est un compartiment organisé et dynamique.`,
-      `Sa morphologie varie selon le type et l’état cellulaire.`,
-      `Son enveloppe est liée au RER.`,
-      `Il est totalement isolé du cytoplasme.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Il disparaît transitoirement en mitose et se reconstitue ensuite.`,
-      `Exact. Les exemples lymphocyte, granulocyte et spermatogenèse l’illustrent.`,
-      `Exact. Cette continuité explique sa dynamique mitotique.`,
-      `Faux. Les pores assurent des échanges contrôlés.`,
-    ],
-  },
+    "explanation": "La forme et la taille du noyau varient selon le type cellulaire et l’état de différenciation ; ces caractères sont utiles en cytologie et en anatomopathologie."
+  }
 ];
 
 export const SECTION_A_QUIZZES: SeedQuiz[] = [
   {
-    order: 1,
-    slug: `organisation-generale-noyau`,
-    title: `Organisation générale du noyau`,
-    description: `Caractéristiques, fonctions et dynamique mitotique du noyau.`,
-    stage: 'DISCOVER',
-    sectionOrder: 1,
-    questionOrders: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "order": 1,
+    "slug": "noyau-organisation-1",
+    "title": "Organisation générale et enveloppe",
+    "description": "Repères essentiels sur le noyau et son enveloppe.",
+    "stage": "DISCOVER",
+    "sectionOrder": 1,
+    "questionOrders": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
   },
   {
-    order: 2,
-    slug: `enveloppe-nucleaire-et-morphologie`,
-    title: `Enveloppe nucléaire et morphologie`,
-    description: `Structure de l’enveloppe, formes nucléaires et applications cytologiques.`,
-    stage: 'PRACTICE',
-    sectionOrder: 1,
-    questionOrders: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
-  },
-  {
-    order: 3,
-    slug: `dynamique-et-pathologie-nucleaires`,
-    title: `Dynamique et pathologie nucléaires`,
-    description: `Applications intégrées sur la mitose et l’analyse anatomopathologique.`,
-    stage: 'MASTER',
-    sectionOrder: 1,
-    questionOrders: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
-  },
+    "order": 2,
+    "slug": "noyau-organisation-2",
+    "title": "Morphologie, mitose et enveloppe",
+    "description": "Appliquer les notions d’organisation et de dynamique nucléaire.",
+    "stage": "PRACTICE",
+    "sectionOrder": 1,
+    "questionOrders": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ]
+  }
 ];

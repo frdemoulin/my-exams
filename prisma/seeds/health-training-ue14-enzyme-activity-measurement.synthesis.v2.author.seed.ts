@@ -1,698 +1,663 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-export const UE14_BIOCH_CH15_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
+/** UE14 Biochimie — 4.2 Mesure d'une activité enzymatique — Synthèse — Mesure d'une activité enzymatique */
+export const UE14_BIOCH_CH15_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 101,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Synthèse du chapitre — la définition de la cinétique enzymatique / le katal : quelles propositions sont exactes ?",
+    "question": "Concernant la cinétique enzymatique, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La cinétique enzymatique étudie la vitesse de la réaction.",
+        "content": "La vitesse dépend des conditions expérimentales, notamment pH et température.",
         "correct": true,
-        "explanation": "La cinétique enzymatique porte sur la vitesse et ses déterminants."
+        "explanation": "Une activité mesurée n'a de sens qu'avec des conditions définies."
       },
       {
-        "content": "Un katal correspond à 1 µmol par minute.",
-        "correct": false,
-        "explanation": "Le katal exprime des moles par seconde."
-      },
-      {
-        "content": "Le symbole de l’unité est kat.",
+        "content": "Une vitesse peut être suivie par disparition du substrat ou apparition du produit.",
         "correct": true,
-        "explanation": "Le katal exprime des moles par seconde."
+        "explanation": "Les deux approches donnent la même information stœchiométrique si la réaction est simple."
       },
       {
-        "content": "Elle exclut toute notion de vitesse.",
+        "content": "Les mesures initiales limitent les effets de l'épuisement du substrat et de l'accumulation de produit.",
+        "correct": true,
+        "explanation": "C'est pourquoi v0 est privilégiée."
+      },
+      {
+        "content": "Une activité mesurée est universelle quel que soit le pH ou la température.",
         "correct": false,
-        "explanation": "La cinétique enzymatique porte sur la vitesse et ses déterminants."
+        "explanation": "Elle dépend des conditions."
+      },
+      {
+        "content": "Elle décrit uniquement la structure tridimensionnelle des enzymes.",
+        "correct": false,
+        "explanation": "Elle étudie surtout les vitesses de réaction."
       }
     ],
-    "explanation": "La cinétique enzymatique porte sur la vitesse et ses déterminants. Le katal exprime des moles par seconde."
+    "explanation": "La cinétique enzymatique étudie les vitesses et privilégie souvent la vitesse initiale dans des conditions expérimentales définies."
   },
   {
     "order": 102,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse du chapitre — la concentration totale en enzyme / les exemples de Kcat : quelles propositions sont exactes ?",
-    "choices": [
-      {
-        "content": "[E]t combine enzyme libre et enzyme engagée dans le complexe ES.",
-        "correct": true,
-        "explanation": "La concentration totale est la somme enzyme libre + enzyme liée au substrat."
-      },
-      {
-        "content": "L’anhydrase carbonique est donnée à 1 s−1.",
-        "correct": false,
-        "explanation": "Les valeurs illustrent de fortes différences de turnover."
-      },
-      {
-        "content": "Elle cite environ 100 s−1 pour la chymotrypsine.",
-        "correct": true,
-        "explanation": "Les valeurs illustrent de fortes différences de turnover."
-      },
-      {
-        "content": "L’enzyme libre est exclue de la concentration totale.",
-        "correct": false,
-        "explanation": "La concentration totale est la somme enzyme libre + enzyme liée au substrat."
+    "format": "QROC",
+    "question": "Quelle dérivée temporelle est approximativement nulle sous l'hypothèse de quasi-état stationnaire ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "d[ES]/dt",
+        "variation de [ES]",
+        "dES/dt"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La concentration totale est la somme enzyme libre + enzyme liée au substrat. Les valeurs illustrent de fortes différences de turnover."
+    },
+    "explanation": "Le quasi-état stationnaire signifie [ES] approximativement constante, pas équilibre thermodynamique."
   },
   {
     "order": 103,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse du chapitre — la formule de la vitesse initiale par absorbance / la saturation enzymatique et Kcat : quelles propositions sont exactes ?",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes sur le bilan de concentration enzymatique, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Cette relation permet d’obtenir une vitesse de formation du produit.",
-        "correct": true,
-        "explanation": "La relation dérive directement de Beer-Lambert."
-      },
-      {
-        "content": "Le plateau de vitesse correspond à Km.",
+        "content": "Une diminution de [E] libre prouve une destruction de l'enzyme.",
         "correct": false,
-        "explanation": "La saturation relie Vmax et Kcat à la capacité catalytique maximale."
+        "explanation": "Elle peut simplement refléter la formation de ES."
       },
       {
-        "content": "La définition de Kcat suppose l’enzyme saturée en substrat.",
-        "correct": true,
-        "explanation": "La saturation relie Vmax et Kcat à la capacité catalytique maximale."
-      },
-      {
-        "content": "La fiche donne V0 = ε·l/(ΔA/Δt).",
+        "content": "La relation correcte est [E]t=[E]-[ES].",
         "correct": false,
-        "explanation": "La relation dérive directement de Beer-Lambert."
+        "explanation": "Les deux populations s'additionnent."
+      },
+      {
+        "content": "À saturation, aucune enzyme ne lie le substrat.",
+        "correct": false,
+        "explanation": "Une grande fraction est engagée dans ES."
+      },
+      {
+        "content": "La concentration totale en enzyme reste constante pendant une mesure initiale si l'enzyme n'est ni ajoutée ni inactivée.",
+        "correct": true,
+        "explanation": "La catalyse régénère l'enzyme."
+      },
+      {
+        "content": "L'enzyme totale est consommée à mesure que le produit se forme.",
+        "correct": false,
+        "explanation": "Elle est régénérée."
       }
     ],
-    "explanation": "La relation dérive directement de Beer-Lambert. La saturation relie Vmax et Kcat à la capacité catalytique maximale."
+    "explanation": "Dans le modèle simple, [E]t=[E]+[ES] ; l'enzyme libre varie, la quantité totale est conservée."
   },
   {
     "order": 104,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Synthèse du chapitre — la conversion UI-nkat / les exemples de Km : quelles propositions sont exactes ?",
+    "question": "Concernant la mesure spectrophotométrique par Beer-Lambert, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La fiche donne 1 UI = 16,67 nkat.",
+        "content": "La loi de Beer-Lambert s'écrit A=ε·l·c dans son domaine de validité.",
         "correct": true,
-        "explanation": "Les conversions 1 UI = 16,67 nkat et 1 nkat = 0,060 UI sont à retenir."
+        "explanation": "A est sans dimension et ε dépend de la longueur d'onde."
       },
       {
-        "content": "La pénicillinase/benzylpénicilline est donnée à 12000 mM.",
+        "content": "A est toujours proportionnelle à c².",
         "correct": false,
-        "explanation": "Les exemples illustrent des Km très différents."
+        "explanation": "Dans le régime linéaire, A est proportionnelle à c."
       },
       {
-        "content": "Elle cite anhydrase carbonique/CO2 avec environ 12000 µM.",
+        "content": "Une pente ΔA/Δt peut être convertie en vitesse de variation de concentration si ε et l sont connus.",
         "correct": true,
-        "explanation": "Les exemples illustrent des Km très différents."
+        "explanation": "v=(ΔA/Δt)/(εl) en valeur absolue selon l'espèce suivie."
       },
       {
-        "content": "1 nkat vaut exactement 1000 UI.",
-        "correct": false,
-        "explanation": "Les conversions 1 UI = 16,67 nkat et 1 nkat = 0,060 UI sont à retenir."
+        "content": "Le signe de la pente dépend de l'espèce absorbante suivie.",
+        "correct": true,
+        "explanation": "Un substrat consommé peut donner une pente négative."
+      },
+      {
+        "content": "Une mesure cinétique utilise plusieurs points dans la zone initiale linéaire.",
+        "correct": true,
+        "explanation": "La pente est plus robuste qu'une mesure unique."
       }
     ],
-    "explanation": "Les conversions 1 UI = 16,67 nkat et 1 nkat = 0,060 UI sont à retenir. Les exemples illustrent des Km très différents."
+    "explanation": "Beer-Lambert permet de convertir une pente d'absorbance en vitesse de concentration lorsque ε et l sont connus."
   },
   {
     "order": 105,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse du chapitre — l’activité spécifique / la réaction d’ordre deux : quelles propositions sont exactes ?",
-    "choices": [
-      {
-        "content": "Une unité citée est UI·mg−1 d’enzyme.",
-        "correct": true,
-        "explanation": "L’activité spécifique rapporte l’activité catalytique à une masse d’enzyme."
-      },
-      {
-        "content": "La vitesse est indépendante des concentrations.",
-        "correct": false,
-        "explanation": "Ordre deux : vitesse proportionnelle au produit des concentrations de deux réactifs."
-      },
-      {
-        "content": "La relation est v=k[A][B].",
-        "correct": true,
-        "explanation": "Ordre deux : vitesse proportionnelle au produit des concentrations de deux réactifs."
-      },
-      {
-        "content": "Elle est identique au Km.",
-        "correct": false,
-        "explanation": "L’activité spécifique rapporte l’activité catalytique à une masse d’enzyme."
-      }
-    ],
-    "explanation": "L’activité spécifique rapporte l’activité catalytique à une masse d’enzyme. Ordre deux : vitesse proportionnelle au produit des concentrations de deux réactifs."
+    "format": "QROC",
+    "question": "À combien de nkat correspond approximativement 1 U ?",
+    "answer": {
+      "type": "number",
+      "value": 16.67,
+      "tolerance": 0.05
+    },
+    "explanation": "1 U = 1 µmol·min⁻¹ ≈ 16,67 nkat dans des conditions de mesure définies."
   },
   {
     "order": 106,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse du chapitre — la courbe de Michaelis-Menten / l’effet de la concentration en substrat : quelles propositions sont exactes ?",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes sur le katal, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "Plusieurs mesures de v0 à différentes [S] permettent d’obtenir la courbe.",
-        "correct": true,
-        "explanation": "La courbe v0=f([S]) tend vers Vmax."
-      },
-      {
-        "content": "Le substrat est absent des facteurs étudiés.",
+        "content": "Le katal mesure une absorbance.",
         "correct": false,
-        "explanation": "La concentration en substrat module la vitesse jusqu’à saturation."
+        "explanation": "Il mesure une activité catalytique."
       },
       {
-        "content": "La vitesse v0 augmente avec la concentration en substrat dans la fiche.",
+        "content": "1 nkat correspond à 10⁻9 mol·s⁻1.",
         "correct": true,
-        "explanation": "La concentration en substrat module la vitesse jusqu’à saturation."
+        "explanation": "Les sous-multiples sont donc courants."
       },
       {
-        "content": "La vitesse décroît toujours quand [S] augmente.",
+        "content": "Le symbole du katal est K.",
         "correct": false,
-        "explanation": "La courbe v0=f([S]) tend vers Vmax."
+        "explanation": "Le symbole est kat."
+      },
+      {
+        "content": "1 kat vaut 1 µmol/min.",
+        "correct": false,
+        "explanation": "Cela correspond à 1 U."
+      },
+      {
+        "content": "1 kat correspond à 1 mol de transformation par seconde.",
+        "correct": true,
+        "explanation": "Il s'agit d'une unité très grande pour beaucoup d'analyses biologiques."
       }
     ],
-    "explanation": "La courbe v0=f([S]) tend vers Vmax. La concentration en substrat module la vitesse jusqu’à saturation."
+    "explanation": "Le katal est l'unité SI d'activité catalytique : 1 kat=1 mol·s⁻¹.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 107,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Synthèse du chapitre — l’équation de Michaelis-Menten / les repères de température de la fiche : quelles propositions sont exactes ?",
+    "question": "Quelles propositions décrivent correctement la concentration d'activité catalytique ?",
     "choices": [
       {
-        "content": "La fiche donne v0 = Vmax[S]/(Km+[S]).",
+        "content": "Elle ne doit pas être confondue avec la concentration molaire de l'enzyme.",
         "correct": true,
-        "explanation": "L’équation de Michaelis-Menten permet de relier les paramètres cinétiques."
+        "explanation": "L'une mesure un effet catalytique, l'autre une quantité de matière d'enzyme."
       },
       {
-        "content": "Les kératinocytes sont donnés à 100°C.",
-        "correct": false,
-        "explanation": "Les températures optimales dépendent du contexte biologique."
-      },
-      {
-        "content": "Elle cite environ 32°C pour les kératinocytes.",
+        "content": "Elle rapporte une activité catalytique à un volume de solution.",
         "correct": true,
-        "explanation": "Les températures optimales dépendent du contexte biologique."
+        "explanation": "Elle peut s'exprimer en U/L ou kat/L."
       },
       {
-        "content": "Si [S]=Km, alors v0=2Vmax.",
+        "content": "Elle ne dépend jamais du protocole.",
         "correct": false,
-        "explanation": "L’équation de Michaelis-Menten permet de relier les paramètres cinétiques."
+        "explanation": "Les conditions de dosage sont essentielles."
+      },
+      {
+        "content": "Elle s'exprime nécessairement en mg/L d'enzyme.",
+        "correct": false,
+        "explanation": "C'est alors une concentration massique."
+      },
+      {
+        "content": "U/L et µmol·L⁻¹·min⁻¹ sont incompatibles.",
+        "correct": false,
+        "explanation": "Ils expriment la même dimension d'activité par volume."
       }
     ],
-    "explanation": "L’équation de Michaelis-Menten permet de relier les paramètres cinétiques. Les températures optimales dépendent du contexte biologique."
+    "explanation": "La concentration d'activité rapporte une vitesse catalytique à un volume ; elle n'est pas une concentration molaire d'enzyme."
   },
   {
     "order": 108,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse du chapitre — la représentation de Lineweaver-Burk / l’inhibition incompétitive : quelles propositions sont exactes ?",
+    "format": "QRU",
+    "question": "Quelle affirmation décrit correctement la constante catalytique kcat ?",
     "choices": [
       {
-        "content": "L’équation est une droite dont la pente vaut Km/Vmax.",
+        "content": "kcat est le nombre de cycles catalytiques par site actif et par seconde à substrat saturant dans un modèle simple.",
         "correct": true,
-        "explanation": "La double inverse linéarise la relation de Michaelis-Menten."
+        "explanation": "On l'appelle aussi turnover number."
       },
       {
-        "content": "Vmax et Km sont tous deux inchangés.",
+        "content": "kcat est nécessairement égal à Km.",
         "correct": false,
-        "explanation": "Incompétitif : fixation sur ES uniquement, modifications proportionnelles de Km et Vmax."
+        "explanation": "Ce sont des paramètres distincts."
       },
       {
-        "content": "La représentation associée donne des droites parallèles.",
-        "correct": true,
-        "explanation": "Incompétitif : fixation sur ES uniquement, modifications proportionnelles de Km et Vmax."
-      },
-      {
-        "content": "L’ordonnée à l’origine vaut Km.",
+        "content": "Vmax est indépendante de la quantité d'enzyme.",
         "correct": false,
-        "explanation": "La double inverse linéarise la relation de Michaelis-Menten."
+        "explanation": "Elle est proportionnelle à [E]t."
+      },
+      {
+        "content": "kcat s'exprime en mol/L.",
+        "correct": false,
+        "explanation": "Son unité est s⁻¹."
+      },
+      {
+        "content": "kcat se définit à substrat très faible uniquement.",
+        "correct": false,
+        "explanation": "Il est associé au régime saturant."
       }
     ],
-    "explanation": "La double inverse linéarise la relation de Michaelis-Menten. Incompétitif : fixation sur ES uniquement, modifications proportionnelles de Km et Vmax."
+    "explanation": "kcat est le turnover à saturation et vérifie Vmax=kcat[E]t pour un modèle simple."
   },
   {
     "order": 109,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Synthèse du chapitre : sélectionnez exactement les trois affirmations correctes.",
-    "requiredSelectionCount": 3,
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur l'activité spécifique, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "La fiche donne v0 = Vmax[S]/(Km+[S]).",
-        "correct": true,
-        "explanation": "L’équation de Michaelis-Menten permet de relier les paramètres cinétiques."
-      },
-      {
-        "content": "La vitesse ne varie pas avec la diminution de [A] dans ce modèle.",
-        "correct": true,
-        "explanation": "Ordre zéro : vitesse constante par rapport à la concentration considérée."
-      },
-      {
-        "content": "Le modèle concerne la transformation d’un substrat en produit.",
-        "correct": true,
-        "explanation": "Ordre un : vitesse proportionnelle à la concentration du substrat."
-      },
-      {
-        "content": "La réaction d’ordre deux comporte nécessairement un seul substrat.",
+        "content": "Elle est obligatoirement identique avant et après purification.",
         "correct": false,
-        "explanation": "Ordre deux : vitesse proportionnelle au produit des concentrations de deux réactifs."
+        "explanation": "Elle augmente généralement avec l'enrichissement de l'enzyme active."
       },
       {
-        "content": "La pente vaut Vmax/Km dans la formule donnée.",
-        "correct": false,
-        "explanation": "La double inverse linéarise la relation de Michaelis-Menten."
+        "content": "Elle rapporte l'activité catalytique à une masse de protéines.",
+        "correct": true,
+        "explanation": "Elle s'exprime souvent en U/mg."
       },
       {
-        "content": "La fiche n’aborde aucune représentation double inverse.",
+        "content": "Lors d'une purification enzymatique, l'activité spécifique augmente généralement si l'enzyme est enrichie.",
+        "correct": true,
+        "explanation": "Elle sert d'indicateur de pureté fonctionnelle."
+      },
+      {
+        "content": "U/mg et s⁻¹ sont la même grandeur sans information supplémentaire.",
         "correct": false,
-        "explanation": "Le support local imprime 1/Km pour l’abscisse ; la banque le signale explicitement sans le corriger silencieusement."
+        "explanation": "kcat normalise par quantité molaire de sites actifs."
+      },
+      {
+        "content": "Elle ne correspond pas nécessairement à kcat.",
+        "correct": true,
+        "explanation": "La masse totale de protéines peut inclure de nombreuses espèces non enzymatiques."
       }
     ],
-    "explanation": "Cette question croise plusieurs repères de la section ; chaque proposition doit être évaluée séparément."
+    "explanation": "L'activité spécifique est une activité par masse de protéines, utile notamment pour suivre une purification."
   },
   {
     "order": 110,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "question": "Synthèse du chapitre : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
-    "choices": [
-      {
-        "content": "La fiche donne un exemple A+B→C.",
-        "correct": true,
-        "explanation": "Ordre deux : vitesse proportionnelle au produit des concentrations de deux réactifs."
-      },
-      {
-        "content": "L’équation est une droite dont la pente vaut Km/Vmax.",
-        "correct": true,
-        "explanation": "La double inverse linéarise la relation de Michaelis-Menten."
-      },
-      {
-        "content": "L’ordonnée à l’origine est donnée comme 1/Vmax.",
-        "correct": true,
-        "explanation": "Le support local imprime 1/Km pour l’abscisse ; la banque le signale explicitement sans le corriger silencieusement."
-      },
-      {
-        "content": "La fiche présente Lineweaver-Burk comme une représentation utilisée pour déterminer Km et Vmax précisément.",
-        "correct": true,
-        "explanation": "Deux représentations permettent de relier les données expérimentales à Km/Vmax."
-      },
-      {
-        "content": "À forte concentration, la courbe de Michaelis-Menten tend vers la saturation.",
-        "correct": true,
-        "explanation": "La concentration en substrat module la vitesse jusqu’à saturation."
-      },
-      {
-        "content": "La concentration en enzyme ne modifie jamais la pente initiale.",
-        "correct": false,
-        "explanation": "Plus d’enzyme augmente la vitesse initiale sans déplacer l’équilibre final."
-      },
-      {
-        "content": "Toutes les enzymes ont exactement le même pH optimal.",
-        "correct": false,
-        "explanation": "Le pH influence l’état du site actif et la stabilité de l’enzyme."
-      },
-      {
-        "content": "La température n’a aucun effet sur une enzyme.",
-        "correct": false,
-        "explanation": "La température accélère les réactions jusqu’à ce que la dénaturation domine."
-      }
-    ],
-    "explanation": "La sélection longue vérifie la maîtrise simultanée de plusieurs notions du chapitre."
+    "format": "QROC",
+    "question": "Quelle est la valeur de v0/Vmax lorsque [S]=Km ?",
+    "answer": {
+      "type": "number",
+      "value": 0.5,
+      "tolerance": 0
+    },
+    "explanation": "Michaelis-Menten décrit une hyperbole : v0=Vmax[S]/(Km+[S]), avec demi-vitesse à [S]=Km."
   },
   {
     "order": 111,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez la relation entre substrat et produit, la concentration d’activité catalytique Ccat et les exemples de Km.",
+    "question": "Concernant la cinétique enzymatique, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "L’apparition du produit reflète la disparition du substrat.",
+        "content": "La vitesse dépend des conditions expérimentales, notamment pH et température.",
         "correct": true,
-        "explanation": "Deux approches de mesure de vitesse sont présentées."
+        "explanation": "Une activité mesurée n'a de sens qu'avec des conditions définies."
       },
       {
-        "content": "Elle peut s’exprimer en UI·L−1.",
+        "content": "Les mesures initiales limitent les effets de l'épuisement du substrat et de l'accumulation de produit.",
         "correct": true,
-        "explanation": "La Ccat est une activité catalytique par unité de volume."
+        "explanation": "C'est pourquoi v0 est privilégiée."
       },
       {
-        "content": "La pénicillinase/benzylpénicilline est donnée à 12000 mM.",
+        "content": "Elle décrit uniquement la structure tridimensionnelle des enzymes.",
         "correct": false,
-        "explanation": "Les exemples illustrent des Km très différents."
+        "explanation": "Elle étudie surtout les vitesses de réaction."
       },
       {
-        "content": "La concentration du produit n’a aucun lien avec la réaction.",
-        "correct": false,
-        "explanation": "Deux approches de mesure de vitesse sont présentées."
+        "content": "Une vitesse peut être suivie par disparition du substrat ou apparition du produit.",
+        "correct": true,
+        "explanation": "Les deux approches donnent la même information stœchiométrique si la réaction est simple."
+      },
+      {
+        "content": "Elle étudie la vitesse des réactions enzymatiques et les paramètres qui la modifient.",
+        "correct": true,
+        "explanation": "La cinétique relie conditions expérimentales et vitesse observée."
       }
     ],
-    "explanation": "Deux approches de mesure de vitesse sont présentées. La Ccat est une activité catalytique par unité de volume. Les exemples illustrent des Km très différents."
+    "explanation": "La cinétique enzymatique étudie les vitesses et privilégie souvent la vitesse initiale dans des conditions expérimentales définies."
   },
   {
     "order": 112,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez la pente ΔA/Δt, la courbe de Michaelis-Menten et l’effet de la température.",
-    "choices": [
-      {
-        "content": "La fiche recommande plusieurs mesures par minute.",
-        "correct": true,
-        "explanation": "La pente d’absorbance est convertie en vitesse initiale."
-      },
-      {
-        "content": "Plusieurs mesures de v0 à différentes [S] permettent d’obtenir la courbe.",
-        "correct": true,
-        "explanation": "La courbe v0=f([S]) tend vers Vmax."
-      },
-      {
-        "content": "La température n’a aucun effet sur une enzyme.",
-        "correct": false,
-        "explanation": "La température accélère les réactions jusqu’à ce que la dénaturation domine."
-      },
-      {
-        "content": "Une seule mesure après plusieurs jours est nécessaire.",
-        "correct": false,
-        "explanation": "La pente d’absorbance est convertie en vitesse initiale."
+    "format": "QROC",
+    "question": "L'état stationnaire est-il synonyme d'équilibre thermodynamique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "non",
+        "non, un flux net peut persister"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La pente d’absorbance est convertie en vitesse initiale. La courbe v0=f([S]) tend vers Vmax. La température accélère les réactions jusqu’à ce que la dénaturation domine."
+    },
+    "explanation": "Le quasi-état stationnaire signifie [ES] approximativement constante, pas équilibre thermodynamique."
   },
   {
     "order": 113,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez le katal, la réaction d’ordre deux et la phase stationnaire.",
+    "format": "QRP",
+    "question": "Concernant le bilan de concentration enzymatique, choisissez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "La fiche présente le katal comme une unité cohérente.",
-        "correct": true,
-        "explanation": "Le katal exprime des moles par seconde."
-      },
-      {
-        "content": "La fiche donne un exemple A+B→C.",
-        "correct": true,
-        "explanation": "Ordre deux : vitesse proportionnelle au produit des concentrations de deux réactifs."
-      },
-      {
-        "content": "La phase stationnaire est définie par l’absence totale de substrat.",
+        "content": "Une diminution de [E] libre prouve une destruction de l'enzyme.",
         "correct": false,
-        "explanation": "La phase stationnaire fournit la fenêtre de mesure de la vitesse initiale."
+        "explanation": "Elle peut simplement refléter la formation de ES."
       },
       {
-        "content": "Le katal est une unité de masse moléculaire.",
+        "content": "À forte saturation en substrat, une grande fraction de l'enzyme peut être sous forme ES.",
+        "correct": true,
+        "explanation": "Cela mène au plateau de vitesse."
+      },
+      {
+        "content": "La relation correcte est [E]t=[E]-[ES].",
         "correct": false,
-        "explanation": "Le katal exprime des moles par seconde."
+        "explanation": "Les deux populations s'additionnent."
+      },
+      {
+        "content": "La concentration totale en enzyme reste constante pendant une mesure initiale si l'enzyme n'est ni ajoutée ni inactivée.",
+        "correct": true,
+        "explanation": "La catalyse régénère l'enzyme."
+      },
+      {
+        "content": "L'enzyme totale est consommée à mesure que le produit se forme.",
+        "correct": false,
+        "explanation": "Elle est régénérée."
       }
     ],
-    "explanation": "Le katal exprime des moles par seconde. Ordre deux : vitesse proportionnelle au produit des concentrations de deux réactifs. La phase stationnaire fournit la fenêtre de mesure de la vitesse initiale."
+    "explanation": "Dans le modèle simple, [E]t=[E]+[ES] ; l'enzyme libre varie, la quantité totale est conservée.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 114,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez l’activité spécifique, l’effet de la température et la constante catalytique Kcat.",
+    "question": "Quelles propositions décrivent correctement la mesure spectrophotométrique par Beer-Lambert ?",
     "choices": [
       {
-        "content": "L’activité spécifique rapporte la quantité transformée au temps et à la masse d’enzyme.",
+        "content": "La loi de Beer-Lambert s'écrit A=ε·l·c dans son domaine de validité.",
         "correct": true,
-        "explanation": "L’activité spécifique rapporte l’activité catalytique à une masse d’enzyme."
+        "explanation": "A est sans dimension et ε dépend de la longueur d'onde."
       },
       {
-        "content": "Au-delà d’environ 60°C, une dénaturation peut faire diminuer l’activité.",
+        "content": "La longueur de cuve n'intervient pas dans Beer-Lambert.",
+        "correct": false,
+        "explanation": "A est proportionnelle à l."
+      },
+      {
+        "content": "Une pente d'absorbance suffit sans connaître ε ni l pour obtenir une concentration absolue.",
+        "correct": false,
+        "explanation": "Ces paramètres sont nécessaires."
+      },
+      {
+        "content": "Le signe de la pente dépend de l'espèce absorbante suivie.",
         "correct": true,
-        "explanation": "La température accélère les réactions jusqu’à ce que la dénaturation domine."
+        "explanation": "Un substrat consommé peut donner une pente négative."
       },
       {
-        "content": "Kcat est la concentration de substrat à Vmax/2.",
+        "content": "A est toujours proportionnelle à c².",
         "correct": false,
-        "explanation": "Kcat est un nombre de cycles catalytiques par unité de temps à saturation."
-      },
-      {
-        "content": "Elle est identique au Km.",
-        "correct": false,
-        "explanation": "L’activité spécifique rapporte l’activité catalytique à une masse d’enzyme."
+        "explanation": "Dans le régime linéaire, A est proportionnelle à c."
       }
     ],
-    "explanation": "L’activité spécifique rapporte l’activité catalytique à une masse d’enzyme. La température accélère les réactions jusqu’à ce que la dénaturation domine. Kcat est un nombre de cycles catalytiques par unité de temps à saturation."
+    "explanation": "Beer-Lambert permet de convertir une pente d'absorbance en vitesse de concentration lorsque ε et l sont connus."
   },
   {
     "order": 115,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez la définition de Km par Vmax/2, le pourcentage d’inhibition et la réaction d’ordre zéro.",
+    "format": "QRU",
+    "question": "Quelle affirmation décrit correctement l'unité enzymatique U ?",
     "choices": [
       {
-        "content": "Km est donc lu sur l’axe des concentrations à mi-vitesse maximale.",
-        "correct": true,
-        "explanation": "Km correspond à [S] lorsque v0 vaut la moitié de Vmax."
-      },
-      {
-        "content": "Une vitesse apparente plus faible donne un pourcentage d’inhibition positif.",
-        "correct": true,
-        "explanation": "Le pourcentage compare la vitesse de référence et la vitesse apparente en présence d’inhibiteur."
-      },
-      {
-        "content": "Sa vitesse est proportionnelle à [A][B].",
+        "content": "1 U est une unité de masse enzymatique.",
         "correct": false,
-        "explanation": "Ordre zéro : vitesse constante par rapport à la concentration considérée."
+        "explanation": "C'est une unité d'activité."
       },
       {
-        "content": "Km est la vitesse maximale elle-même.",
+        "content": "1 U correspond à environ 16,67 nkat.",
+        "correct": true,
+        "explanation": "La conversion découle de 1 µmol/min en mol/s."
+      },
+      {
+        "content": "1 U vaut 60 kat.",
         "correct": false,
-        "explanation": "Km correspond à [S] lorsque v0 vaut la moitié de Vmax."
+        "explanation": "La conversion est bien plus petite."
+      },
+      {
+        "content": "Une activité en U est indépendante des conditions expérimentales.",
+        "correct": false,
+        "explanation": "Elle doit être définie pour un système donné."
+      },
+      {
+        "content": "1 U vaut 1 mol/s.",
+        "correct": false,
+        "explanation": "Cela définit 1 kat."
       }
     ],
-    "explanation": "Km correspond à [S] lorsque v0 vaut la moitié de Vmax. Le pourcentage compare la vitesse de référence et la vitesse apparente en présence d’inhibiteur. Ordre zéro : vitesse constante par rapport à la concentration considérée."
+    "explanation": "1 U = 1 µmol·min⁻¹ ≈ 16,67 nkat dans des conditions de mesure définies."
   },
   {
     "order": 116,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez la réaction d’ordre un, la pente ΔA/Δt et la Taq polymérase.",
+    "question": "Parmi les affirmations suivantes sur le katal, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "Le modèle concerne la transformation d’un substrat en produit.",
-        "correct": true,
-        "explanation": "Ordre un : vitesse proportionnelle à la concentration du substrat."
-      },
-      {
-        "content": "La pente d’absorbance ΔA/Δt permet de suivre la réaction.",
-        "correct": true,
-        "explanation": "La pente d’absorbance est convertie en vitesse initiale."
-      },
-      {
-        "content": "Elle est utilisée pour mesurer la pression oncotique.",
+        "content": "Le symbole du katal est K.",
         "correct": false,
-        "explanation": "La Taq polymérase illustre l’adaptation enzymatique aux températures élevées."
+        "explanation": "Le symbole est kat."
       },
       {
-        "content": "La formule donnée est v=k[A][B].",
+        "content": "Le katal est l'unité SI cohérente d'activité catalytique.",
+        "correct": true,
+        "explanation": "Son symbole est kat."
+      },
+      {
+        "content": "1 kat correspond à 1 mol de transformation par seconde.",
+        "correct": true,
+        "explanation": "Il s'agit d'une unité très grande pour beaucoup d'analyses biologiques."
+      },
+      {
+        "content": "1 nkat correspond à 10⁻9 mol·s⁻1.",
+        "correct": true,
+        "explanation": "Les sous-multiples sont donc courants."
+      },
+      {
+        "content": "1 nkat vaut 1 mol/s.",
         "correct": false,
-        "explanation": "Ordre un : vitesse proportionnelle à la concentration du substrat."
+        "explanation": "Il vaut 10⁻9 mol/s."
       }
     ],
-    "explanation": "Ordre un : vitesse proportionnelle à la concentration du substrat. La pente d’absorbance est convertie en vitesse initiale. La Taq polymérase illustre l’adaptation enzymatique aux températures élevées."
+    "explanation": "Le katal est l'unité SI d'activité catalytique : 1 kat=1 mol·s⁻¹."
   },
   {
     "order": 117,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Maîtrise de synthèse — Quel symbole représente le coefficient d’absorption dans la relation A = ε·l·[P] ?",
+    "question": "Quelle unité courante exprime une concentration d'activité enzymatique en laboratoire ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
-        "ε",
-        "epsilon",
-        "eps"
+        "U/L",
+        "UI/L",
+        "kat/L"
       ],
       "normalization": {
         "trim": true,
-        "caseSensitive": false,
         "collapseWhitespace": true,
+        "caseSensitive": false,
         "ignoreAccents": true
       }
     },
-    "explanation": "Beer-Lambert relie absorbance et concentration du produit."
+    "explanation": "La concentration d'activité rapporte une vitesse catalytique à un volume ; elle n'est pas une concentration molaire d'enzyme."
   },
   {
     "order": 118,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez la Taq polymérase, la courbe de Michaelis-Menten et l’activité spécifique.",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Elle est utilisée en PCR.",
-        "correct": true,
-        "explanation": "La Taq polymérase illustre l’adaptation enzymatique aux températures élevées."
-      },
-      {
-        "content": "Plusieurs mesures de v0 à différentes [S] permettent d’obtenir la courbe.",
-        "correct": true,
-        "explanation": "La courbe v0=f([S]) tend vers Vmax."
-      },
-      {
-        "content": "Elle rapporte l’activité à la masse de substrat et jamais à celle de l’enzyme.",
+        "content": "Km est une vitesse exprimée en mol/s.",
         "correct": false,
-        "explanation": "L’activité spécifique rapporte l’activité catalytique à une masse d’enzyme."
+        "explanation": "Km a l'unité d'une concentration."
       },
       {
-        "content": "La Taq polymérase est une immunoglobuline humaine.",
+        "content": "Vmax est indépendante de la quantité d'enzyme.",
         "correct": false,
-        "explanation": "La Taq polymérase illustre l’adaptation enzymatique aux températures élevées."
+        "explanation": "Elle est proportionnelle à [E]t."
+      },
+      {
+        "content": "Km est la concentration de substrat donnant v0=Vmax/2 dans le modèle de Michaelis-Menten.",
+        "correct": true,
+        "explanation": "C'est sa définition cinétique la plus sûre."
+      },
+      {
+        "content": "kcat est le nombre de cycles catalytiques par site actif et par seconde à substrat saturant dans un modèle simple.",
+        "correct": true,
+        "explanation": "On l'appelle aussi turnover number."
+      },
+      {
+        "content": "kcat caractérise l'étape globale de turnover sous les conditions expérimentales considérées.",
+        "correct": true,
+        "explanation": "Il peut résumer plusieurs étapes microscopiques."
+      },
+      {
+        "content": "kcat se définit à substrat très faible uniquement.",
+        "correct": false,
+        "explanation": "Il est associé au régime saturant."
+      },
+      {
+        "content": "Son unité est s⁻¹.",
+        "correct": true,
+        "explanation": "Il s'agit d'une fréquence de turnover."
+      },
+      {
+        "content": "kcat s'exprime en mol/L.",
+        "correct": false,
+        "explanation": "Son unité est s⁻¹."
+      },
+      {
+        "content": "Un Km plus faible n'implique pas universellement une plus forte affinité sans information mécanistique.",
+        "correct": true,
+        "explanation": "Cette interprétation pédagogique est une approximation."
+      },
+      {
+        "content": "Km est toujours exactement la constante de dissociation Kd.",
+        "correct": false,
+        "explanation": "Ce n'est pas vrai en général."
       }
     ],
-    "explanation": "La Taq polymérase illustre l’adaptation enzymatique aux températures élevées. La courbe v0=f([S]) tend vers Vmax. L’activité spécifique rapporte l’activité catalytique à une masse d’enzyme."
+    "explanation": "kcat est le turnover à saturation et vérifie Vmax=kcat[E]t pour un modèle simple. Km est avant tout un paramètre cinétique ; son interprétation directe comme « affinité » est conditionnelle."
   },
   {
     "order": 119,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez le pourcentage d’inhibition et la réaction d’ordre deux.",
+    "question": "Concernant l'activité spécifique, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Une vitesse apparente plus faible donne un pourcentage d’inhibition positif.",
+        "content": "Elle rapporte l'activité catalytique à une masse de protéines.",
         "correct": true,
-        "explanation": "Le pourcentage compare la vitesse de référence et la vitesse apparente en présence d’inhibiteur."
+        "explanation": "Elle s'exprime souvent en U/mg."
       },
       {
-        "content": "La fiche donne un exemple A+B→C.",
+        "content": "Son interprétation dépend du protocole de dosage de l'activité.",
         "correct": true,
-        "explanation": "Ordre deux : vitesse proportionnelle au produit des concentrations de deux réactifs."
+        "explanation": "Les conditions doivent être comparables."
       },
       {
-        "content": "La relation est v=k uniquement.",
+        "content": "U/mg et s⁻¹ sont la même grandeur sans information supplémentaire.",
         "correct": false,
-        "explanation": "Ordre deux : vitesse proportionnelle au produit des concentrations de deux réactifs."
+        "explanation": "kcat normalise par quantité molaire de sites actifs."
       },
       {
-        "content": "Le calcul ne dépend d’aucune vitesse.",
-        "correct": false,
-        "explanation": "Le pourcentage compare la vitesse de référence et la vitesse apparente en présence d’inhibiteur."
+        "content": "Elle ne correspond pas nécessairement à kcat.",
+        "correct": true,
+        "explanation": "La masse totale de protéines peut inclure de nombreuses espèces non enzymatiques."
+      },
+      {
+        "content": "Lors d'une purification enzymatique, l'activité spécifique augmente généralement si l'enzyme est enrichie.",
+        "correct": true,
+        "explanation": "Elle sert d'indicateur de pureté fonctionnelle."
       }
     ],
-    "explanation": "Le pourcentage compare la vitesse de référence et la vitesse apparente en présence d’inhibiteur. Ordre deux : vitesse proportionnelle au produit des concentrations de deux réactifs."
+    "explanation": "L'activité spécifique est une activité par masse de protéines, utile notamment pour suivre une purification. À distinguer de l'activité molaire spécifique : exprimée par mole d'enzyme, celle-ci rejoint kcat lorsque le substrat est saturant."
   },
   {
     "order": 120,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez la concentration totale en enzyme, l’effet de la température et l’inhibition non compétitive.",
-    "choices": [
-      {
-        "content": "La fiche donne [E]t = [E] + [ES].",
-        "correct": true,
-        "explanation": "La concentration totale est la somme enzyme libre + enzyme liée au substrat."
-      },
-      {
-        "content": "Au-delà d’environ 60°C, une dénaturation peut faire diminuer l’activité.",
-        "correct": true,
-        "explanation": "La température accélère les réactions jusqu’à ce que la dénaturation domine."
-      },
-      {
-        "content": "Il se fixe exclusivement à l’enzyme libre au site actif.",
-        "correct": false,
-        "explanation": "Non compétitif : fixation sur E ou ES avec même Ki, Km inchangé, Vmax diminuée."
-      },
-      {
-        "content": "L’enzyme libre est exclue de la concentration totale.",
-        "correct": false,
-        "explanation": "La concentration totale est la somme enzyme libre + enzyme liée au substrat."
-      }
-    ],
-    "explanation": "La concentration totale est la somme enzyme libre + enzyme liée au substrat. La température accélère les réactions jusqu’à ce que la dénaturation domine. Non compétitif : fixation sur E ou ES avec même Ki, Km inchangé, Vmax diminuée."
+    "format": "QROC",
+    "question": "Quelle est la valeur de v0/Vmax lorsque [S]=Km ?",
+    "answer": {
+      "type": "number",
+      "value": 0.5,
+      "tolerance": 0
+    },
+    "explanation": "Michaelis-Menten décrit une hyperbole : v0=Vmax[S]/(Km+[S]), avec demi-vitesse à [S]=Km."
   },
   {
     "order": 121,
     "difficulty": "HARD",
     "format": "QRP",
-    "question": "Maîtrise de synthèse : sélectionnez exactement les trois affirmations correctes.",
-    "requiredSelectionCount": 3,
+    "question": "Parmi les affirmations suivantes sur la constante de Michaelis Km, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "La fiche donne V0 = (ΔA/Δt)/(ε·l).",
-        "correct": true,
-        "explanation": "La relation dérive directement de Beer-Lambert."
-      },
-      {
-        "content": "La phase stationnaire est privilégiée pour la mesure.",
-        "correct": true,
-        "explanation": "Le déroulement temporel comprend plusieurs phases, dont la stationnaire est la fenêtre analytique principale."
-      },
-      {
-        "content": "Son unité peut s’écrire µmol·min−1.",
-        "correct": true,
-        "explanation": "La fiche définit 1 UI = 1 µmol·min−1."
-      },
-      {
-        "content": "Un katal correspond à 1 µmol par minute.",
+        "content": "Km est une vitesse exprimée en mol/s.",
         "correct": false,
-        "explanation": "Le katal exprime des moles par seconde."
+        "explanation": "Km a l'unité d'une concentration."
       },
       {
-        "content": "1 nkat vaut exactement 1000 UI.",
+        "content": "Km est toujours exactement la constante de dissociation Kd.",
         "correct": false,
-        "explanation": "Les conversions 1 UI = 16,67 nkat et 1 nkat = 0,060 UI sont à retenir."
+        "explanation": "Ce n'est pas vrai en général."
       },
       {
-        "content": "La fiche l’exprime uniquement en secondes.",
+        "content": "Km n'est pas généralement égal à la constante de dissociation Kd de ES.",
+        "correct": true,
+        "explanation": "L'égalité n'apparaît que dans certaines limites, notamment rapid-equilibrium."
+      },
+      {
+        "content": "Km correspond à [S] lorsque v0=Vmax.",
         "correct": false,
-        "explanation": "La Ccat est une activité catalytique par unité de volume."
+        "explanation": "À [S]=Km, v0=Vmax/2."
+      },
+      {
+        "content": "Km est la concentration de substrat donnant v0=Vmax/2 dans le modèle de Michaelis-Menten.",
+        "correct": true,
+        "explanation": "C'est sa définition cinétique la plus sûre."
       }
     ],
-    "explanation": "Cette question croise plusieurs repères de la section ; chaque proposition doit être évaluée séparément."
+    "explanation": "Km est avant tout un paramètre cinétique ; son interprétation directe comme « affinité » est conditionnelle.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 122,
     "difficulty": "HARD",
-    "format": "QRPL",
-    "question": "Maîtrise de synthèse : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
-    "choices": [
-      {
-        "content": "La Ccat rapporte l’activité au volume de solution enzymatique.",
-        "correct": true,
-        "explanation": "La Ccat est une activité catalytique par unité de volume."
-      },
-      {
-        "content": "Kcat s’exprime en s−1.",
-        "correct": true,
-        "explanation": "Kcat est un nombre de cycles catalytiques par unité de temps à saturation."
-      },
-      {
-        "content": "Elle cite environ 100 s−1 pour la chymotrypsine.",
-        "correct": true,
-        "explanation": "Les valeurs illustrent de fortes différences de turnover."
-      },
-      {
-        "content": "L’activité spécifique rapporte la quantité transformée au temps et à la masse d’enzyme.",
-        "correct": true,
-        "explanation": "L’activité spécifique rapporte l’activité catalytique à une masse d’enzyme."
-      },
-      {
-        "content": "Elle peut s’exprimer en UI·mol−1 d’enzyme.",
-        "correct": true,
-        "explanation": "L’AMS est une activité par mole d’enzyme."
-      },
-      {
-        "content": "L’AMS rapporte exclusivement au pH.",
-        "correct": false,
-        "explanation": "Le dénominateur distingue ces trois paramètres."
-      },
-      {
-        "content": "Kcat est défini uniquement lorsque [S]=0.",
-        "correct": false,
-        "explanation": "La saturation relie Vmax et Kcat à la capacité catalytique maximale."
-      },
-      {
-        "content": "La courbe ne présente aucun plateau.",
-        "correct": false,
-        "explanation": "La courbe v0=f([S]) tend vers Vmax."
+    "format": "QROC",
+    "question": "Que devient Vmax si l'on double [E]t sans modifier kcat ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "elle double",
+        "Vmax double",
+        "×2"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La sélection longue vérifie la maîtrise simultanée de plusieurs notions du chapitre."
+    },
+    "explanation": "Vmax est une capacité de réaction dépendant de la quantité d'enzyme ; kcat en est la normalisation molaire."
   }
 ];

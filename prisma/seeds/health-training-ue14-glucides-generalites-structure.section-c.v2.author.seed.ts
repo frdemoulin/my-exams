@@ -1,677 +1,711 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie – Chapitre 1.1 – Section C – Isomérie, énantiomérie et épimérie
- */
-
+/** UE14 Biochimie – Chapitre 1.1 – Section C – Isomérie, énantiomérie et épimérie */
 export const UE14_BIOCH_CH1_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 45,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Deux isomères :",
+    "question": "Concernant l'isomérie de constitution des oses, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Ont la même formule brute.",
+        "content": "Une isomérie de fonction peut distinguer un aldose d'un cétose.",
         "correct": true,
-        "explanation": "Par définition, des isomères ont la même formule brute."
+        "explanation": "La nature ou la position du carbonyle diffère."
       },
       {
-        "content": "Peuvent avoir des formules développées différentes.",
+        "content": "Deux isomères de constitution ont la même formule brute.",
         "correct": true,
-        "explanation": "L'isomérie de constitution l'illustre."
+        "explanation": "Leur connectivité diffère."
       },
       {
-        "content": "Sont nécessairement superposables.",
+        "content": "Glycéraldéhyde et dihydroxyacétone sont isomères de fonction.",
+        "correct": true,
+        "explanation": "Ils ont même formule brute mais aldéhyde versus cétone."
+      },
+      {
+        "content": "Une isomérie de fonction ne change jamais la connectivité.",
         "correct": false,
-        "explanation": "Des isomères sont des espèces distinctes."
+        "explanation": "Elle modifie l'organisation des liaisons."
       },
       {
-        "content": "Peuvent différer par leur fonction.",
-        "correct": true,
-        "explanation": "Exemple glycéraldéhyde/dihydroxyacétone."
+        "content": "Glycéraldéhyde et dihydroxyacétone sont énantiomères.",
+        "correct": false,
+        "explanation": "Ils diffèrent par leur fonction."
       }
     ],
-    "explanation": "Des isomères ont la même formule brute mais diffèrent par leur connectivité ou leur organisation spatiale."
+    "explanation": "Les isomères de constitution partagent une formule brute mais diffèrent par la connectivité."
   },
   {
     "order": 46,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Le glycéraldéhyde et la dihydroxyacétone :",
+    "format": "QRU",
+    "question": "À propos des énantiomères, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Ont la même formule brute $\\mathrm{C_3H_6O_3}$.",
-        "correct": true,
-        "explanation": "Formule commune."
-      },
-      {
-        "content": "Diffèrent par la nature de leur fonction carbonyle.",
-        "correct": true,
-        "explanation": "Aldéhyde versus cétone."
-      },
-      {
-        "content": "Sont des isomères de fonction.",
-        "correct": true,
-        "explanation": "Le glycéraldéhyde est un aldose et la dihydroxyacétone un cétose."
-      },
-      {
-        "content": "Sont deux énantiomères.",
+        "content": "Les enzymes sont incapables de distinguer des énantiomères.",
         "correct": false,
-        "explanation": "Leur connectivité diffère."
+        "explanation": "Les systèmes biologiques sont chiraux."
+      },
+      {
+        "content": "Deux énantiomères ont des formules brutes différentes.",
+        "correct": false,
+        "explanation": "Ils ont la même formule brute."
+      },
+      {
+        "content": "Un environnement biologique chiral peut distinguer deux énantiomères.",
+        "correct": true,
+        "explanation": "Les enzymes et récepteurs sont stéréosélectifs."
+      },
+      {
+        "content": "Glucose et galactose sont énantiomères.",
+        "correct": false,
+        "explanation": "Ils sont épimères en C4."
+      },
+      {
+        "content": "Deux énantiomères sont toujours superposables.",
+        "correct": false,
+        "explanation": "La non-superposabilité est essentielle."
       }
     ],
-    "explanation": "Ils illustrent une isomérie de fonction entre aldotriose et cétotriose."
+    "explanation": "Les énantiomères sont des images miroir non superposables."
   },
   {
     "order": 47,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Des stéréoisomères :",
-    "choices": [
-      {
-        "content": "Conservent la même connectivité atomique.",
-        "correct": true,
-        "explanation": "Les atomes sont enchaînés de la même façon."
-      },
-      {
-        "content": "Diffèrent par l'organisation spatiale.",
-        "correct": true,
-        "explanation": "Définition de la stéréoisomérie."
-      },
-      {
-        "content": "Peuvent être des énantiomères ou des diastéréoisomères.",
-        "correct": true,
-        "explanation": "Grandes relations étudiées."
-      },
-      {
-        "content": "Ont nécessairement des formules brutes différentes.",
-        "correct": false,
-        "explanation": "La formule brute est commune."
+    "format": "QROC",
+    "question": "Quel terme général désigne deux stéréoisomères non images miroir l'un de l'autre ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "diastéréoisomères",
+        "diastereoisomeres",
+        "diastéréoisomère",
+        "diastereoisomere"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les stéréoisomères se distinguent dans l'espace, pas par la formule brute."
+    },
+    "explanation": "Les diastéréoisomères ne sont pas images miroir ; les épimères en sont un cas particulier."
   },
   {
     "order": 48,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Deux énantiomères :",
+    "question": "Concernant l'épimérie, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Sont images l'un de l'autre dans un miroir.",
+        "content": "Deux épimères diffèrent par la configuration d'un seul centre stéréogène.",
         "correct": true,
-        "explanation": "Définition."
+        "explanation": "Les autres centres comparables restent identiques."
       },
       {
-        "content": "Ne sont pas superposables.",
-        "correct": true,
-        "explanation": "Définition."
-      },
-      {
-        "content": "Dans un environnement achiral, ont les mêmes propriétés physiques usuelles mais des pouvoirs rotatoires opposés.",
-        "correct": true,
-        "explanation": "Deux énantiomères purs ont des rotations de même valeur absolue et de signes opposés dans les mêmes conditions."
-      },
-      {
-        "content": "Sont obligatoirement des épimères.",
+        "content": "Deux épimères diffèrent à tous leurs centres stéréogènes.",
         "correct": false,
-        "explanation": "Un épimère est un type de diastéréoisomère, pas un énantiomère."
+        "explanation": "Ils diffèrent à un seul centre."
+      },
+      {
+        "content": "Glucose et fructose sont épimères.",
+        "correct": false,
+        "explanation": "Ils sont isomères de fonction."
+      },
+      {
+        "content": "D-glucose et D-mannose sont épimères en C2.",
+        "correct": true,
+        "explanation": "Leur différence porte sur C2."
+      },
+      {
+        "content": "Glucose et mannose sont épimères en C4.",
+        "correct": false,
+        "explanation": "Ils le sont en C2."
       }
     ],
-    "explanation": "L'énantiomérie combine relation miroir et non-superposabilité."
+    "explanation": "L'épimérie ne concerne qu'un centre stéréogène ; mannose C2 et galactose C4 sont les repères majeurs du glucose."
   },
   {
     "order": 49,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle propriété optique distingue deux énantiomères purs placés dans les mêmes conditions ?",
+    "question": "À propos de glucose et galactose, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Le pouvoir rotatoire.",
+        "content": "Le galactose est un cétose.",
+        "correct": false,
+        "explanation": "C'est un aldose."
+      },
+      {
+        "content": "Le lactose associe fructose et galactose.",
+        "correct": false,
+        "explanation": "Il associe galactose et glucose."
+      },
+      {
+        "content": "Galactose et glucose sont énantiomères.",
+        "correct": false,
+        "explanation": "Ils sont diastéréoisomères épimères."
+      },
+      {
+        "content": "Le galactose entre dans la composition du lactose.",
         "correct": true,
-        "explanation": "Leurs pouvoirs rotatoires ont la même valeur absolue et des signes opposés."
+        "explanation": "Le lactose associe galactose et glucose."
       },
       {
-        "content": "La formule brute.",
+        "content": "Le galactose est épimère C2 du glucose.",
         "correct": false,
-        "explanation": "Elle est identique."
-      },
-      {
-        "content": "Le nombre d'atomes de carbone.",
-        "correct": false,
-        "explanation": "Identique."
-      },
-      {
-        "content": "La connectivité.",
-        "correct": false,
-        "explanation": "Elle est identique pour des stéréoisomères."
+        "explanation": "C2 correspond au mannose."
       }
     ],
-    "explanation": "Le signe du pouvoir rotatoire distingue notamment deux énantiomères."
+    "explanation": "Galactose et glucose sont des aldohexoses épimères en C4."
   },
   {
     "order": 50,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos de la stéréospécificité enzymatique :",
+    "format": "QRP",
+    "question": "Parmi les propositions suivantes sur glucose et mannose, retenez exactement les deux exactes.",
     "choices": [
       {
-        "content": "Certaines enzymes ne métabolisent qu'une forme L ou qu'une forme D.",
-        "correct": true,
-        "explanation": "Le site actif d'une enzyme peut reconnaître sélectivement une configuration donnée."
-      },
-      {
-        "content": "La configuration spatiale peut donc avoir une conséquence biologique.",
-        "correct": true,
-        "explanation": "C'est l'intérêt de l'exemple."
-      },
-      {
-        "content": "Toutes les enzymes métabolisent indifféremment tous les stéréoisomères.",
+        "content": "Mannose et glucose sont énantiomères.",
         "correct": false,
-        "explanation": "La reconnaissance enzymatique dépend souvent de la stéréochimie du substrat."
+        "explanation": "Ils sont épimères."
       },
       {
-        "content": "Elle illustre l'importance biologique de la stéréochimie.",
+        "content": "Le mannose est épimère C4 du glucose.",
+        "correct": false,
+        "explanation": "C4 correspond au galactose."
+      },
+      {
+        "content": "La réduction du mannose peut conduire au mannitol.",
         "correct": true,
-        "explanation": "Conclusion."
+        "explanation": "Le carbonyle est réduit en alcool."
+      },
+      {
+        "content": "Le mannose entre dans des glycoconjugués.",
+        "correct": true,
+        "explanation": "Il est fréquent dans les oligosaccharides de glycoprotéines."
+      },
+      {
+        "content": "Le mannose est absent de tous les glycoconjugués humains.",
+        "correct": false,
+        "explanation": "Il est fréquent dans les N-glycanes."
       }
     ],
-    "explanation": "La reconnaissance enzymatique peut être spécifique d'une configuration."
+    "explanation": "Mannose et glucose sont épimères en C2.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 51,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Deux diastéréoisomères :",
+    "question": "Concernant les épimérases et la galactosémie, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Ont la même connectivité atomique.",
-        "correct": true,
-        "explanation": "Ce sont des stéréoisomères : leur connectivité est identique et leur organisation spatiale diffère."
-      },
-      {
-        "content": "Ne sont pas énantiomères.",
-        "correct": true,
-        "explanation": "Ils ne sont pas images miroir l'un de l'autre."
-      },
-      {
-        "content": "Ne sont pas superposables.",
-        "correct": true,
-        "explanation": "Ils restent des stéréoisomères distincts."
-      },
-      {
-        "content": "Sont nécessairement images miroir.",
+        "content": "L'UDP-galactose 4-épimérase agit au carbone 2.",
         "correct": false,
-        "explanation": "Cela définirait des énantiomères."
+        "explanation": "Elle agit sur la configuration en C4."
+      },
+      {
+        "content": "Un déficit de cette épimérase peut provoquer une forme de galactosémie.",
+        "correct": true,
+        "explanation": "Il existe plusieurs causes enzymatiques de galactosémie."
+      },
+      {
+        "content": "L'UDP-galactose 4-épimérase interconvertit UDP-galactose et UDP-glucose.",
+        "correct": true,
+        "explanation": "Elle agit au niveau du carbone 4."
+      },
+      {
+        "content": "Une épimérase modifie la configuration d'un centre stéréogène sans changer la formule brute.",
+        "correct": true,
+        "explanation": "Elle catalyse une stéréoisomérisation."
+      },
+      {
+        "content": "La galactosémie classique est le plus souvent liée à un déficit en GALT.",
+        "correct": true,
+        "explanation": "Il faut distinguer les différents défauts enzymatiques."
       }
     ],
-    "explanation": "Les diastéréoisomères sont des stéréoisomères non énantiomères."
+    "explanation": "Les épimérases changent la configuration d'un centre précis ; les galactosémies ont plusieurs causes enzymatiques."
   },
   {
     "order": 52,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Deux épimères :",
-    "choices": [
-      {
-        "content": "Sont des diastéréoisomères.",
-        "correct": true,
-        "explanation": "Définition."
-      },
-      {
-        "content": "Ne diffèrent que par la configuration d'un seul carbone asymétrique.",
-        "correct": true,
-        "explanation": "Critère central."
-      },
-      {
-        "content": "Diffèrent obligatoirement sur tous leurs C*.",
-        "correct": false,
-        "explanation": "Un seul C* diffère."
-      },
-      {
-        "content": "Peuvent être interconvertis par une épimérase.",
-        "correct": true,
-        "explanation": "Une épimérase catalyse l'inversion de configuration sur un centre stéréogène déterminé."
+    "format": "QROC",
+    "question": "Quelle représentation plane classique permet de comparer la configuration des oses ouverts ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "projection de Fischer",
+        "Fischer",
+        "représentation de Fischer",
+        "representation de Fischer"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "L'épimérie correspond à une différence de configuration sur un seul carbone asymétrique."
+    },
+    "explanation": "La formule brute ne suffit pas à définir la stéréochimie d'un ose."
   },
   {
     "order": 53,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel ose est épimère en C4 du D-glucose ?",
+    "question": "Parmi les propositions suivantes sur l'isomérie de constitution des oses, laquelle est exacte ?",
     "choices": [
       {
-        "content": "D-galactose.",
+        "content": "Glycéraldéhyde et dihydroxyacétone sont énantiomères.",
+        "correct": false,
+        "explanation": "Ils diffèrent par leur fonction."
+      },
+      {
+        "content": "La formule $\\mathrm{C_6H_{12}O_6}$ identifie uniquement le glucose.",
+        "correct": false,
+        "explanation": "Fructose, galactose et mannose partagent cette formule."
+      },
+      {
+        "content": "La formule brute seule ne détermine pas l'identité d'un ose.",
         "correct": true,
-        "explanation": "Le D-galactose ne diffère du D-glucose que par la configuration de C4."
+        "explanation": "Plusieurs isomères peuvent partager la même formule."
       },
       {
-        "content": "D-mannose.",
+        "content": "Une isomérie de fonction ne change jamais la connectivité.",
         "correct": false,
-        "explanation": "Il est épimère en C2."
+        "explanation": "Elle modifie l'organisation des liaisons."
       },
       {
-        "content": "D-fructose.",
+        "content": "Deux isomères de constitution ont nécessairement des formules brutes différentes.",
         "correct": false,
-        "explanation": "C'est un cétose."
-      },
-      {
-        "content": "Dihydroxyacétone.",
-        "correct": false,
-        "explanation": "Triose et autre fonction."
+        "explanation": "Ils ont la même formule brute."
       }
     ],
-    "explanation": "Le D-galactose diffère du D-glucose en C4."
+    "explanation": "Les isomères de constitution partagent une formule brute mais diffèrent par la connectivité."
   },
   {
     "order": 54,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel ose est épimère en C2 du D-glucose ?",
+    "format": "QRM",
+    "question": "Concernant les énantiomères, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "D-mannose.",
+        "content": "Deux énantiomères sont images l'un de l'autre dans un miroir et non superposables.",
         "correct": true,
-        "explanation": "Le D-mannose ne diffère du D-glucose que par la configuration de C2."
+        "explanation": "Leurs configurations sont opposées à tous les centres correspondants."
       },
       {
-        "content": "D-galactose.",
-        "correct": false,
-        "explanation": "C4."
+        "content": "D-glucose et L-glucose sont énantiomères.",
+        "correct": true,
+        "explanation": "Toutes leurs configurations stéréogènes sont inversées."
       },
       {
-        "content": "L-glucose.",
+        "content": "Deux énantiomères ont des formules brutes différentes.",
         "correct": false,
-        "explanation": "C'est l'énantiomère du D-glucose."
+        "explanation": "Ils ont la même formule brute."
       },
       {
-        "content": "Fructose.",
-        "correct": false,
-        "explanation": "Isomère de fonction à l'échelle hexose."
+        "content": "Deux énantiomères ont des propriétés physiques très proches en milieu achiral.",
+        "correct": true,
+        "explanation": "Le pouvoir rotatoire présente des signes opposés."
+      },
+      {
+        "content": "Un environnement biologique chiral peut distinguer deux énantiomères.",
+        "correct": true,
+        "explanation": "Les enzymes et récepteurs sont stéréosélectifs."
       }
     ],
-    "explanation": "Le D-mannose diffère du D-glucose en C2."
+    "explanation": "Les énantiomères sont des images miroir non superposables."
   },
   {
     "order": 55,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "On compare D-glucose et D-galactose. Quelles propositions sont exactes ?",
+    "question": "Concernant l'isomérie de constitution des oses, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Ils ont la même formule brute.",
+        "content": "Deux isomères de constitution ont la même formule brute.",
         "correct": true,
-        "explanation": "Ce sont des stéréoisomères."
+        "explanation": "Leur connectivité diffère."
       },
       {
-        "content": "Ils sont diastéréoisomères.",
+        "content": "Une isomérie de fonction peut distinguer un aldose d'un cétose.",
         "correct": true,
-        "explanation": "Ils ne sont pas images miroir."
+        "explanation": "La nature ou la position du carbonyle diffère."
       },
       {
-        "content": "Ils sont épimères.",
+        "content": "Glycéraldéhyde et dihydroxyacétone sont isomères de fonction.",
         "correct": true,
-        "explanation": "Ils ne diffèrent qu'en C4."
+        "explanation": "Ils ont même formule brute mais aldéhyde versus cétone."
       },
       {
-        "content": "Ils sont énantiomères.",
+        "content": "La formule brute seule ne détermine pas l'identité d'un ose.",
+        "correct": true,
+        "explanation": "Plusieurs isomères peuvent partager la même formule."
+      },
+      {
+        "content": "Une isomérie de fonction ne change jamais la connectivité.",
         "correct": false,
-        "explanation": "Ils ne diffèrent pas sur tous les C*."
+        "explanation": "Elle modifie l'organisation des liaisons."
       }
     ],
-    "explanation": "Le couple glucose/galactose est l'exemple d'épimérie en C4."
+    "explanation": "Les isomères de constitution partagent une formule brute mais diffèrent par la connectivité."
   },
   {
     "order": 56,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "On compare D-glucose et D-mannose. Quelles propositions sont exactes ?",
-    "choices": [
-      {
-        "content": "Ils sont stéréoisomères.",
-        "correct": true,
-        "explanation": "Même connectivité, organisation spatiale différente."
-      },
-      {
-        "content": "Ils sont diastéréoisomères.",
-        "correct": true,
-        "explanation": "Non images miroir."
-      },
-      {
-        "content": "Ils sont épimères en C2.",
-        "correct": true,
-        "explanation": "D-glucose et D-mannose ne diffèrent que par la configuration de C2."
-      },
-      {
-        "content": "Ils diffèrent aussi en C4.",
-        "correct": false,
-        "explanation": "Leur configuration est identique en C4 ; la différence porte sur C2."
+    "format": "QROC",
+    "question": "Quel terme désigne deux stéréoisomères images miroir non superposables ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "énantiomères",
+        "enantiomeres",
+        "énantiomère",
+        "enantiomere"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le couple glucose/mannose est l'exemple d'épimérie en C2."
+    },
+    "explanation": "Les énantiomères sont des images miroir non superposables."
   },
   {
     "order": 57,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos du D-galactose et du D-mannose :",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur les diastéréoisomères, laquelle est exacte ?",
     "choices": [
       {
-        "content": "Sont des diastéréoisomères.",
-        "correct": true,
-        "explanation": "Ils ne sont pas images miroir."
-      },
-      {
-        "content": "Diffèrent sur plus d'un carbone asymétrique.",
-        "correct": true,
-        "explanation": "Leurs motifs diffèrent notamment par rapport au glucose en C4 et C2."
-      },
-      {
-        "content": "Ne sont donc pas épimères l'un de l'autre.",
-        "correct": true,
-        "explanation": "L'épimérie exige une seule différence."
-      },
-      {
-        "content": "Sont deux énantiomères.",
+        "content": "Tous les diastéréoisomères sont des énantiomères.",
         "correct": false,
-        "explanation": "Ils appartiennent tous deux à la série D."
+        "explanation": "Les deux catégories s'excluent."
+      },
+      {
+        "content": "Les épimères diffèrent à tous les centres stéréogènes.",
+        "correct": false,
+        "explanation": "Ils diffèrent à un seul."
+      },
+      {
+        "content": "Deux diastéréoisomères doivent différer par leur formule brute.",
+        "correct": false,
+        "explanation": "Ils ont la même formule brute."
+      },
+      {
+        "content": "D-glucose et L-glucose sont diastéréoisomères.",
+        "correct": false,
+        "explanation": "Ils sont énantiomères."
+      },
+      {
+        "content": "Deux épimères sont des diastéréoisomères particuliers.",
+        "correct": true,
+        "explanation": "Ils diffèrent à un seul centre stéréogène."
       }
     ],
-    "explanation": "Comparer leurs relations au glucose permet de conclure qu'ils ne sont pas épimères entre eux."
+    "explanation": "Les diastéréoisomères ne sont pas images miroir ; les épimères en sont un cas particulier."
   },
   {
     "order": 58,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "L'épimérisation :",
+    "question": "Concernant l'épimérie, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Correspond au passage d'un épimère à un autre.",
+        "content": "D-glucose et D-mannose sont épimères en C2.",
         "correct": true,
-        "explanation": "Définition."
+        "explanation": "Leur différence porte sur C2."
       },
       {
-        "content": "Peut être réalisée chimiquement en milieu alcalin.",
-        "correct": true,
-        "explanation": "Une énolisation en milieu alcalin peut conduire à une épimérisation."
-      },
-      {
-        "content": "Peut être réalisée enzymatiquement par une épimérase.",
-        "correct": true,
-        "explanation": "Une épimérase catalyse une épimérisation stéréospécifique."
-      },
-      {
-        "content": "Exige toujours une rupture complète de la chaîne carbonée.",
+        "content": "Glucose et mannose sont épimères en C4.",
         "correct": false,
-        "explanation": "Ce n'est pas le mécanisme décrit."
+        "explanation": "Ils le sont en C2."
+      },
+      {
+        "content": "Glucose et galactose sont épimères en C2.",
+        "correct": false,
+        "explanation": "Ils le sont en C4."
+      },
+      {
+        "content": "Deux épimères diffèrent à tous leurs centres stéréogènes.",
+        "correct": false,
+        "explanation": "Ils diffèrent à un seul centre."
+      },
+      {
+        "content": "D-glucose et D-galactose sont épimères en C4.",
+        "correct": true,
+        "explanation": "Leur différence porte sur C4."
       }
     ],
-    "explanation": "Une épimérisation peut être obtenue chimiquement, notamment via un intermédiaire énediol en milieu alcalin, ou catalysée par une épimérase."
+    "explanation": "L'épimérie ne concerne qu'un centre stéréogène ; mannose C2 et galactose C4 sont les repères majeurs du glucose."
   },
   {
     "order": 59,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos des épimérases :",
+    "format": "QRP",
+    "question": "À propos de glucose et galactose, sélectionnez exactement les deux affirmations correctes.",
     "choices": [
       {
-        "content": "Elles catalysent l'interconversion d'épimères.",
+        "content": "Le galactose est épimère C4 du glucose.",
         "correct": true,
-        "explanation": "Une épimérase inverse la configuration d'un centre stéréogène déterminé."
+        "explanation": "Un seul centre les distingue."
       },
       {
-        "content": "Elles sont stéréospécifiques par nature de la transformation.",
+        "content": "Le galactose entre dans la composition du lactose.",
         "correct": true,
-        "explanation": "Elles modifient une configuration déterminée."
+        "explanation": "Le lactose associe galactose et glucose."
       },
       {
-        "content": "Un déficit en UDP-galactose 4-épimérase peut provoquer une galactosémie de type III.",
-        "correct": true,
-        "explanation": "La galactosémie de type III est liée à un déficit de l'enzyme GALE."
-      },
-      {
-        "content": "Elles transforment tous les oses en protéines.",
+        "content": "Le lactose associe fructose et galactose.",
         "correct": false,
-        "explanation": "Sans rapport."
+        "explanation": "Il associe galactose et glucose."
+      },
+      {
+        "content": "Le galactose est un cétose.",
+        "correct": false,
+        "explanation": "C'est un aldose."
+      },
+      {
+        "content": "Galactose et glucose sont énantiomères.",
+        "correct": false,
+        "explanation": "Ils sont diastéréoisomères épimères."
       }
     ],
-    "explanation": "L'UDP-galactose 4-épimérase catalyse l'interconversion de l'UDP-galactose et de l'UDP-glucose dans la voie de Leloir."
+    "explanation": "Galactose et glucose sont des aldohexoses épimères en C4.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 60,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans la galactosémie de type III, un déficit en UDP-galactose 4-épimérase :",
+    "question": "Parmi les affirmations suivantes sur glucose et mannose, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Perturbe l'interconversion de l'UDP-galactose et de l'UDP-glucose.",
-        "correct": true,
-        "explanation": "L'enzyme GALE catalyse cette interconversion dans la voie de Leloir."
-      },
-      {
-        "content": "Peut conduire à une galactosémie congénitale.",
-        "correct": true,
-        "explanation": "Le déficit en GALE définit la galactosémie par déficit en épimérase, dite de type III."
-      },
-      {
-        "content": "Illustre l'importance biologique de la stéréospécificité.",
-        "correct": true,
-        "explanation": "GALE reconnaît des nucléotides-osides et catalyse une transformation stéréochimique précise."
-      },
-      {
-        "content": "Améliore le métabolisme du galactose.",
+        "content": "Mannose et glucose sont énantiomères.",
         "correct": false,
-        "explanation": "C'est l'inverse."
+        "explanation": "Ils sont épimères."
+      },
+      {
+        "content": "Le mannose est épimère C2 du glucose.",
+        "correct": true,
+        "explanation": "Un seul centre les distingue."
+      },
+      {
+        "content": "Le mannose est absent de tous les glycoconjugués humains.",
+        "correct": false,
+        "explanation": "Il est fréquent dans les N-glycanes."
+      },
+      {
+        "content": "Le mannose est un cétose.",
+        "correct": false,
+        "explanation": "C'est un aldose."
+      },
+      {
+        "content": "La réduction du mannose peut conduire au mannitol.",
+        "correct": true,
+        "explanation": "Le carbonyle est réduit en alcool."
       }
     ],
-    "explanation": "La galactosémie de type III illustre les conséquences métaboliques d'un déficit en UDP-galactose 4-épimérase."
+    "explanation": "Mannose et glucose sont épimères en C2."
   },
   {
     "order": 61,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "D-ribose et L-ribose :",
-    "choices": [
-      {
-        "content": "Sont énantiomères.",
-        "correct": true,
-        "explanation": "Images miroir non superposables."
-      },
-      {
-        "content": "Ont la même formule brute.",
-        "correct": true,
-        "explanation": "Stéréoisomères."
-      },
-      {
-        "content": "Diffèrent par la configuration de tous leurs centres correspondants dans le couple miroir.",
-        "correct": true,
-        "explanation": "Relation d'énantiomérie."
-      },
-      {
-        "content": "Sont épimères.",
-        "correct": false,
-        "explanation": "Ce ne sont pas des diastéréoisomères."
+    "format": "QROC",
+    "question": "Quel type d'enzyme catalyse l'interconversion de deux épimères ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "épimérase",
+        "epimerase",
+        "une épimérase",
+        "une epimerase"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les séries D et L d'un même ose forment un couple d'énantiomères."
+    },
+    "explanation": "Les épimérases changent la configuration d'un centre précis ; les galactosémies ont plusieurs causes enzymatiques."
   },
   {
     "order": 62,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "D-glucose et L-glucose :",
+    "format": "QRU",
+    "question": "À propos de la formule brute et la stéréochimie, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Sont images miroir l'un de l'autre.",
-        "correct": true,
-        "explanation": "Couple d'énantiomères."
-      },
-      {
-        "content": "Ne sont pas superposables.",
-        "correct": true,
-        "explanation": "Définition."
-      },
-      {
-        "content": "Ont des pouvoirs rotatoires de signes opposés dans les mêmes conditions.",
-        "correct": true,
-        "explanation": "Deux énantiomères purs présentent des rotations de même valeur absolue et de signes opposés dans les mêmes conditions."
-      },
-      {
-        "content": "Sont diastéréoisomères.",
+        "content": "Une différence stéréochimique implique nécessairement un atome supplémentaire.",
         "correct": false,
-        "explanation": "Ils sont énantiomères."
+        "explanation": "La composition atomique reste identique."
+      },
+      {
+        "content": "Deux épimères ont la même formule brute.",
+        "correct": true,
+        "explanation": "Ils ne diffèrent que par configuration."
+      },
+      {
+        "content": "Une formule brute identifie toujours un seul stéréoisomère.",
+        "correct": false,
+        "explanation": "Plusieurs stéréoisomères partagent la même formule."
+      },
+      {
+        "content": "Les projections de Fischer sont inutiles pour comparer les oses.",
+        "correct": false,
+        "explanation": "Elles montrent précisément les configurations."
+      },
+      {
+        "content": "Glucose et galactose ont des nombres de carbones différents.",
+        "correct": false,
+        "explanation": "Ils ont chacun six carbones."
       }
     ],
-    "explanation": "Le couple D/L-glucose illustre énantiomérie et pouvoir rotatoire opposé."
+    "explanation": "La formule brute ne suffit pas à définir la stéréochimie d'un ose."
   },
   {
     "order": 63,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Quelle hiérarchie de relations stéréochimiques est cohérente ?",
+    "question": "Parmi les affirmations suivantes sur l'isomérie de constitution des oses, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Un épimère est un diastéréoisomère.",
-        "correct": true,
-        "explanation": "Sous-catégorie."
-      },
-      {
-        "content": "Un diastéréoisomère est un stéréoisomère.",
-        "correct": true,
-        "explanation": "Catégorie plus large."
-      },
-      {
-        "content": "Un énantiomère est aussi un stéréoisomère.",
-        "correct": true,
-        "explanation": "Autre grande catégorie."
-      },
-      {
-        "content": "Tout diastéréoisomère est un épimère.",
+        "content": "Une isomérie de fonction ne change jamais la connectivité.",
         "correct": false,
-        "explanation": "Seulement s'il ne diffère que sur un seul C*."
+        "explanation": "Elle modifie l'organisation des liaisons."
+      },
+      {
+        "content": "Une isomérie de fonction peut distinguer un aldose d'un cétose.",
+        "correct": true,
+        "explanation": "La nature ou la position du carbonyle diffère."
+      },
+      {
+        "content": "Deux isomères de constitution ont la même formule brute.",
+        "correct": true,
+        "explanation": "Leur connectivité diffère."
+      },
+      {
+        "content": "Glycéraldéhyde et dihydroxyacétone sont énantiomères.",
+        "correct": false,
+        "explanation": "Ils diffèrent par leur fonction."
+      },
+      {
+        "content": "La formule $\\mathrm{C_6H_{12}O_6}$ identifie uniquement le glucose.",
+        "correct": false,
+        "explanation": "Fructose, galactose et mannose partagent cette formule."
       }
     ],
-    "explanation": "Épimérie et énantiomérie sont des relations particulières à l'intérieur de la stéréoisomérie."
+    "explanation": "Les isomères de constitution partagent une formule brute mais diffèrent par la connectivité."
   },
   {
     "order": 64,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos des anomères formés lors de la cyclisation d'un ose :",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Ce sont des diastéréoisomères.",
-        "correct": true,
-        "explanation": "Ils ne sont pas images miroir l'un de l'autre."
-      },
-      {
-        "content": "Ils peuvent être considérés comme des épimères.",
-        "correct": true,
-        "explanation": "Ils diffèrent au carbone anomérique."
-      },
-      {
-        "content": "Ils sont nécessairement énantiomères.",
+        "content": "Deux énantiomères ont des formules brutes différentes.",
         "correct": false,
-        "explanation": "Deux anomères d'un même ose ne sont pas images miroir l'un de l'autre."
+        "explanation": "Ils ont la même formule brute."
       },
       {
-        "content": "Ils apparaissent lors de la cyclisation.",
+        "content": "Le galactose est épimère C2 du glucose.",
+        "correct": false,
+        "explanation": "C2 correspond au mannose."
+      },
+      {
+        "content": "Glucose et galactose sont énantiomères.",
+        "correct": false,
+        "explanation": "Ils sont épimères en C4."
+      },
+      {
+        "content": "Le galactose entre dans la composition du lactose.",
         "correct": true,
-        "explanation": "Le carbone anomérique devient un nouveau C*."
+        "explanation": "Le lactose associe galactose et glucose."
+      },
+      {
+        "content": "Deux énantiomères ont des propriétés physiques très proches en milieu achiral.",
+        "correct": true,
+        "explanation": "Le pouvoir rotatoire présente des signes opposés."
+      },
+      {
+        "content": "Le lactose associe fructose et galactose.",
+        "correct": false,
+        "explanation": "Il associe galactose et glucose."
+      },
+      {
+        "content": "Le galactose est épimère C4 du glucose.",
+        "correct": true,
+        "explanation": "Un seul centre les distingue."
+      },
+      {
+        "content": "Le métabolisme du galactose rejoint celui du glucose après transformations enzymatiques.",
+        "correct": true,
+        "explanation": "Les voies sont interconnectées."
+      },
+      {
+        "content": "Deux énantiomères sont images l'un de l'autre dans un miroir et non superposables.",
+        "correct": true,
+        "explanation": "Leurs configurations sont opposées à tous les centres correspondants."
+      },
+      {
+        "content": "Galactose et glucose sont énantiomères.",
+        "correct": false,
+        "explanation": "Ils sont diastéréoisomères épimères."
       }
     ],
-    "explanation": "L'anomérie est une forme particulière de stéréoisomérie créée par la cyclisation."
+    "explanation": "Les énantiomères sont des images miroir non superposables. Galactose et glucose sont des aldohexoses épimères en C4."
   },
   {
     "order": 65,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Pour identifier deux épimères à partir de projections de Fischer :",
+    "question": "À propos des diastéréoisomères, quelles propositions sont correctes ?",
     "choices": [
       {
-        "content": "Comparer les positions des OH sur les carbones asymétriques.",
+        "content": "Deux diastéréoisomères sont des stéréoisomères qui ne sont pas images miroir l'un de l'autre.",
         "correct": true,
-        "explanation": "Méthode adaptée."
+        "explanation": "Ils diffèrent par une partie seulement de leurs configurations."
       },
       {
-        "content": "Vérifier qu'une seule configuration diffère.",
-        "correct": true,
-        "explanation": "Critère de l'épimérie."
-      },
-      {
-        "content": "Vérifier qu'ils ne sont pas images miroir globales.",
-        "correct": true,
-        "explanation": "Sinon ce seraient des énantiomères."
-      },
-      {
-        "content": "La formule brute seule suffit.",
+        "content": "Deux diastéréoisomères doivent différer par leur formule brute.",
         "correct": false,
-        "explanation": "Elle ne décrit pas la configuration."
+        "explanation": "Ils ont la même formule brute."
+      },
+      {
+        "content": "Deux épimères sont des diastéréoisomères particuliers.",
+        "correct": true,
+        "explanation": "Ils diffèrent à un seul centre stéréogène."
+      },
+      {
+        "content": "Les épimères diffèrent à tous les centres stéréogènes.",
+        "correct": false,
+        "explanation": "Ils diffèrent à un seul."
+      },
+      {
+        "content": "D-glucose et D-mannose sont diastéréoisomères.",
+        "correct": true,
+        "explanation": "Ils diffèrent en C2."
       }
     ],
-    "explanation": "La comparaison carbone par carbone est la méthode robuste."
+    "explanation": "Les diastéréoisomères ne sont pas images miroir ; les épimères en sont un cas particulier."
   },
   {
     "order": 66,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Parmi les dix affirmations suivantes, sélectionnez exactement les cinq correctes.",
-    "choices": [
-      {
-        "content": "Deux énantiomères sont images miroir non superposables.",
-        "correct": true,
-        "explanation": "Définition."
-      },
-      {
-        "content": "Deux épimères diffèrent sur un seul carbone asymétrique.",
-        "correct": true,
-        "explanation": "Définition."
-      },
-      {
-        "content": "D-glucose et D-galactose sont épimères en C4.",
-        "correct": true,
-        "explanation": "Exemple."
-      },
-      {
-        "content": "D-glucose et D-mannose sont épimères en C2.",
-        "correct": true,
-        "explanation": "Exemple."
-      },
-      {
-        "content": "Une épimérase peut catalyser une épimérisation.",
-        "correct": true,
-        "explanation": "Voie enzymatique."
-      },
-      {
-        "content": "D-glucose et L-glucose sont diastéréoisomères.",
-        "correct": false,
-        "explanation": "Énantiomères."
-      },
-      {
-        "content": "Tous les diastéréoisomères sont des épimères.",
-        "correct": false,
-        "explanation": "Pas nécessairement."
-      },
-      {
-        "content": "La formule brute seule identifie une épimérie.",
-        "correct": false,
-        "explanation": "Il faut la configuration."
-      },
-      {
-        "content": "La galactosémie de type III résulte d'un excès d'UDP-galactose 4-épimérase.",
-        "correct": false,
-        "explanation": "Elle résulte d'un déficit en UDP-galactose 4-épimérase, et non d'un excès."
-      },
-      {
-        "content": "Deux énantiomères ont toujours le même pouvoir rotatoire signé.",
-        "correct": false,
-        "explanation": "Deux énantiomères purs ont des pouvoirs rotatoires de signes opposés dans les mêmes conditions."
-      }
-    ],
-    "explanation": "Cette sélection consolide les principales relations d'isomérie de la section."
+    "format": "QROC",
+    "question": "À quel carbone le D-mannose est-il épimère du D-glucose ?",
+    "answer": {
+      "type": "number",
+      "value": 2,
+      "tolerance": 0
+    },
+    "explanation": "L'épimérie ne concerne qu'un centre stéréogène ; mannose C2 et galactose C4 sont les repères majeurs du glucose."
   }
 ];

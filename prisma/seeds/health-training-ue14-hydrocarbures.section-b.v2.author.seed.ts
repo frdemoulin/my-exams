@@ -650,7 +650,6 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 123,
     "difficulty": "MEDIUM",
     "format": "QRPL",
-    "requiredSelectionCount": 5,
     "question": "Parmi les dix affirmations suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
@@ -666,7 +665,7 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un diène possède deux doubles liaisons.",
         "correct": true,
-        "explanation": "Définition."
+        "explanation": "Le préfixe di- indique deux insaturations de type double liaison : un diène possède donc deux liaisons $\\ce{C=C}$."
       },
       {
         "content": "Une déshydratation d'alcool peut former un alcène.",
@@ -704,6 +703,7 @@ export const UE14_CH7_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Elle la sature."
       }
     ],
+    "requiredSelectionCount": 5,
     "explanation": "Cette sélection consolide structure, nomenclature et préparation des alcènes."
   },
   {

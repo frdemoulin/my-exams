@@ -1,669 +1,676 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie — Glycérides et glycérophospholipides — Section A
- */
-
+/** UE14 Biochimie — Glycérides et glycérophospholipides — Section A — Glycérol et acylglycérols */
 export const UE14_BIOCH_CH6_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 1,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de la structure du glycérol :",
+    "question": "Concernant le glycérol, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Le glycérol comporte trois carbones.",
+        "content": "Il possède trois atomes de carbone.",
         "correct": true,
-        "explanation": "Le glycérol est un trialcool à trois carbones ; C2 porte l'alcool secondaire."
+        "explanation": "Le glycérol est un triol C3."
       },
       {
-        "content": "Il possède trois fonctions alcool.",
+        "content": "Il porte trois fonctions alcool.",
         "correct": true,
-        "explanation": "Le glycérol est un trialcool à trois carbones ; C2 porte l'alcool secondaire."
+        "explanation": "Les carbones terminaux portent des alcools primaires et C2 un alcool secondaire."
       },
       {
-        "content": "C1 et C3 portent des alcools primaires.",
-        "correct": true,
-        "explanation": "Le glycérol est un trialcool à trois carbones ; C2 porte l'alcool secondaire."
-      },
-      {
-        "content": "Le C2 porte un alcool primaire.",
+        "content": "C2 porte une fonction acide carboxylique.",
         "correct": false,
-        "explanation": "Le glycérol est un trialcool à trois carbones ; C2 porte l'alcool secondaire."
+        "explanation": "C2 porte un alcool secondaire."
+      },
+      {
+        "content": "Le glycérol libre est un acide gras.",
+        "correct": false,
+        "explanation": "C'est un triol."
+      },
+      {
+        "content": "Il ne porte qu'une fonction alcool.",
+        "correct": false,
+        "explanation": "Il en porte trois."
       }
     ],
-    "explanation": "Le glycérol est un trialcool à trois carbones ; C2 porte l'alcool secondaire."
+    "explanation": "Le glycérol est un triol à trois carbones ; la nomenclature sn permet de distinguer ses positions en biochimie."
   },
   {
     "order": 2,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Combien de carbones possède le glycérol ?",
+    "question": "Parmi les affirmations suivantes concernant la nomenclature stéréospécifique sn du glycérol, laquelle est correcte ?",
     "choices": [
       {
-        "content": "3",
+        "content": "sn-2 désigne le groupement phosphate.",
+        "correct": false,
+        "explanation": "sn-2 est une position carbonée du glycérol."
+      },
+      {
+        "content": "Toutes les enzymes hydrolysent indifféremment sn-1, sn-2 et sn-3.",
+        "correct": false,
+        "explanation": "Beaucoup sont régiospécifiques."
+      },
+      {
+        "content": "sn-1 et sn-3 sont les deux doubles liaisons d'un acide gras.",
+        "correct": false,
+        "explanation": "Ce sont des positions sur le glycérol."
+      },
+      {
+        "content": "La nomenclature sn ne peut jamais être appliquée aux glycérophospholipides.",
+        "correct": false,
+        "explanation": "Elle y est très utilisée."
+      },
+      {
+        "content": "De nombreuses enzymes reconnaissent une position précise du squelette glycérol.",
         "correct": true,
-        "explanation": "Le glycérol est un trialcool à trois carbones ; C2 porte l'alcool secondaire."
-      },
-      {
-        "content": "2",
-        "correct": false,
-        "explanation": "Le glycérol est un trialcool à trois carbones ; C2 porte l'alcool secondaire."
-      },
-      {
-        "content": "4",
-        "correct": false,
-        "explanation": "Le glycérol est un trialcool à trois carbones ; C2 porte l'alcool secondaire."
-      },
-      {
-        "content": "6",
-        "correct": false,
-        "explanation": "Le glycérol est un trialcool à trois carbones ; C2 porte l'alcool secondaire."
+        "explanation": "La régiospécificité est importante en biochimie."
       }
     ],
-    "explanation": "Le glycérol est un trialcool à trois carbones ; C2 porte l'alcool secondaire."
+    "explanation": "La nomenclature sn distingue les positions du squelette glycérol et évite d'assimiler les deux extrémités dans un lipide substitué."
   },
   {
     "order": 3,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos de la numérotation du glycérol :",
-    "choices": [
-      {
-        "content": "C1 correspond à la position α.",
-        "correct": true,
-        "explanation": "Dans la nomenclature traditionnelle, les positions 1, 2 et 3 sont aussi notées α, β et α′."
-      },
-      {
-        "content": "C2 correspond à la position β.",
-        "correct": true,
-        "explanation": "La position centrale C2 correspond à β."
-      },
-      {
-        "content": "C3 peut être noté α′.",
-        "correct": true,
-        "explanation": "La seconde extrémité du glycérol peut être notée α′."
-      },
-      {
-        "content": "La notation α, β, α′ rend C1 et C3 strictement équivalents pour toutes les enzymes.",
-        "correct": false,
-        "explanation": "Les extrémités du glycérol sont énantiotopiques et peuvent être distinguées par une enzyme."
+    "format": "QROC",
+    "question": "Quel type de liaison relie un acide gras au glycérol dans un acylglycérol ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "liaison ester",
+        "ester",
+        "liaison estérifiée",
+        "liaison esterifiée"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La nomenclature stéréospécifique sn permet de distinguer les positions du squelette glycérol."
+    },
+    "explanation": "Les acylglycérols résultent de l'estérification d'une à trois fonctions alcool du glycérol par des acides gras."
   },
   {
     "order": 4,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quelle lettre traditionnelle correspond à C2 ?",
+    "format": "QRM",
+    "question": "Concernant les monoacylglycérols, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "β",
+        "content": "Un 1-monoacylglycérol porte l'acyle sur une position terminale du glycérol.",
         "correct": true,
-        "explanation": "La position centrale C2 est traditionnellement notée β."
+        "explanation": "Il s'agit d'une position sn-1 ou équivalente selon la convention utilisée."
       },
       {
-        "content": "α",
+        "content": "Un 2-monoacylglycérol porte deux acides gras.",
         "correct": false,
-        "explanation": "α correspond à une position terminale, pas à C2."
+        "explanation": "Il n'en porte qu'un."
       },
       {
-        "content": "α′",
-        "correct": false,
-        "explanation": "α′ correspond à l'autre position terminale, pas à C2."
+        "content": "Ils possèdent une seule chaîne acyle.",
+        "correct": true,
+        "explanation": "Deux fonctions alcool restent libres."
       },
       {
-        "content": "γ",
+        "content": "Un 2-monoacylglycérol porte l'acyle sur le carbone central.",
+        "correct": true,
+        "explanation": "La position sn-2 est le carbone central."
+      },
+      {
+        "content": "Le carbone central du glycérol est sn-3.",
         "correct": false,
-        "explanation": "La notation traditionnelle de C2 est β."
+        "explanation": "Il est sn-2."
       }
     ],
-    "explanation": "C2 est la position β du glycérol."
+    "explanation": "Les monoacylglycérols diffèrent notamment par la position sn-1 ou sn-2 de leur unique chaîne acyle."
   },
   {
     "order": 5,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos de la stéréospécificité du glycérol :",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant les diacylglycérols, laquelle est correcte ?",
     "choices": [
       {
-        "content": "C1 et C3 sont énantiotopiques et peuvent être distingués par une enzyme.",
+        "content": "Un diacylglycérol contient deux liaisons ester acyle-glycérol.",
         "correct": true,
-        "explanation": "La tridimensionnalité permet une reconnaissance enzymatique spécifique."
+        "explanation": "Chaque acide gras est relié par une liaison ester."
       },
       {
-        "content": "De nombreuses enzymes distinguent les positions du glycérol.",
-        "correct": true,
-        "explanation": "La tridimensionnalité permet une reconnaissance enzymatique spécifique."
-      },
-      {
-        "content": "La glycérol kinase forme du sn-glycérol-3-phosphate.",
-        "correct": true,
-        "explanation": "La tridimensionnalité permet une reconnaissance enzymatique spécifique."
-      },
-      {
-        "content": "La glycérol kinase phosphoryle indifféremment C1 ou C3.",
+        "content": "Le DAG ne contient aucune fonction alcool libre.",
         "correct": false,
-        "explanation": "La tridimensionnalité permet une reconnaissance enzymatique spécifique."
+        "explanation": "Une fonction alcool reste libre."
+      },
+      {
+        "content": "Tout DAG contient obligatoirement une tête choline.",
+        "correct": false,
+        "explanation": "La choline caractérise notamment la phosphatidylcholine."
+      },
+      {
+        "content": "Un diacylglycérol porte obligatoirement trois acides gras.",
+        "correct": false,
+        "explanation": "Il en porte deux."
+      },
+      {
+        "content": "1,2-DAG et 1,3-DAG sont synonymes.",
+        "correct": false,
+        "explanation": "Ils diffèrent par les positions estérifiées."
       }
     ],
-    "explanation": "La tridimensionnalité permet une reconnaissance enzymatique spécifique."
+    "explanation": "Un DAG comporte deux chaînes acyles ; les principaux isomères de position sont 1,2-DAG et 1,3-DAG."
   },
   {
     "order": 6,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quelle position est phosphorylée dans le sn-glycérol-3-phosphate formé par la glycérol kinase ?",
+    "format": "QRP",
+    "question": "Concernant les triacylglycérols, sélectionnez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "C3",
+        "content": "Ils comportent trois chaînes acyles estérifiées au glycérol.",
         "correct": true,
-        "explanation": "La glycérol kinase forme le sn-glycérol-3-phosphate."
+        "explanation": "Les trois fonctions alcool sont estérifiées."
       },
       {
-        "content": "C1",
+        "content": "Ils contiennent obligatoirement un groupement phosphate.",
         "correct": false,
-        "explanation": "La tridimensionnalité permet une reconnaissance enzymatique spécifique."
+        "explanation": "Ce n'est pas nécessaire."
       },
       {
-        "content": "C2",
-        "correct": false,
-        "explanation": "La tridimensionnalité permet une reconnaissance enzymatique spécifique."
+        "content": "Un triacylglycérol homogène possède trois résidus acyles identiques.",
+        "correct": true,
+        "explanation": "R1=R2=R3 dans cette définition."
       },
       {
-        "content": "les trois positions",
+        "content": "Ils possèdent toujours une tête fortement chargée.",
         "correct": false,
-        "explanation": "La tridimensionnalité permet une reconnaissance enzymatique spécifique."
+        "explanation": "Les TAG sont globalement neutres et hydrophobes."
+      },
+      {
+        "content": "Ils sont des constituants obligatoires de la bicouche membranaire.",
+        "correct": false,
+        "explanation": "Les glycérophospholipides sont les principaux lipides structuraux étudiés ici."
       }
     ],
-    "explanation": "La tridimensionnalité permet une reconnaissance enzymatique spécifique."
+    "explanation": "Un triacylglycérol est le triester du glycérol ; il peut être homogène ou mixte.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 7,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos des monoacylglycérols :",
+    "question": "Concernant un triacylglycérol 1,3-distéaroyl-2-oléoyl, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Ils portent un seul acide gras.",
+        "content": "Il porte un résidu oléoyl en position 2.",
         "correct": true,
-        "explanation": "Un monoacylglycérol est un monoester du glycérol ; la position C2 correspond à la forme β."
+        "explanation": "Ce résidu dérive de l'acide oléique 18:1."
       },
       {
-        "content": "L'acide gras peut être fixé en C1.",
+        "content": "Il possède trois liaisons ester entre glycérol et acides gras.",
         "correct": true,
-        "explanation": "Un monoacylglycérol est un monoester du glycérol ; la position C2 correspond à la forme β."
+        "explanation": "Chaque chaîne acyle est estérifiée."
       },
       {
-        "content": "L'acide gras peut être fixé en C2.",
+        "content": "Il porte deux résidus stéaroyl en positions 1 et 3.",
         "correct": true,
-        "explanation": "Un monoacylglycérol est un monoester du glycérol ; la position C2 correspond à la forme β."
+        "explanation": "Ces chaînes dérivent de l'acide stéarique 18:0."
       },
       {
-        "content": "La liaison entre glycérol et acide gras est une liaison amide.",
+        "content": "Il ne possède qu'une chaîne acyle.",
         "correct": false,
-        "explanation": "Un monoacylglycérol est un monoester du glycérol ; la position C2 correspond à la forme β."
+        "explanation": "Il en possède trois."
+      },
+      {
+        "content": "Il s'agit d'un triacylglycérol mixte.",
+        "correct": true,
+        "explanation": "Au moins deux types de résidus acyles sont présents."
       }
     ],
-    "explanation": "Un monoacylglycérol est un monoester du glycérol ; la position C2 correspond à la forme β."
+    "explanation": "Le 1,3-distéaroyl-2-oléoyl-glycérol est un TAG mixte illustrant la nomenclature par positions."
   },
   {
     "order": 8,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Comment appelle-t-on la forme portant l'acyle en C2 ?",
-    "choices": [
-      {
-        "content": "2-monoacylglycérol",
-        "correct": true,
-        "explanation": "Un monoacylglycérol est un monoester du glycérol ; la position C2 correspond à la forme β."
-      },
-      {
-        "content": "1,3-diacylglycérol",
-        "correct": false,
-        "explanation": "Un monoacylglycérol est un monoester du glycérol ; la position C2 correspond à la forme β."
-      },
-      {
-        "content": "triacylglycérol",
-        "correct": false,
-        "explanation": "Un monoacylglycérol est un monoester du glycérol ; la position C2 correspond à la forme β."
-      },
-      {
-        "content": "phosphatidate",
-        "correct": false,
-        "explanation": "Un monoacylglycérol est un monoester du glycérol ; la position C2 correspond à la forme β."
+    "format": "QROC",
+    "question": "Quel produit est formé par phosphorylation du glycérol par la glycérol kinase ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "glycérol-3-phosphate",
+        "glycerol-3-phosphate",
+        "sn-glycérol-3-phosphate",
+        "glycerol 3 phosphate"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Un monoacylglycérol est un monoester du glycérol ; la position C2 correspond à la forme β."
+    },
+    "explanation": "La glycérol kinase forme le glycérol-3-phosphate, intermédiaire central du métabolisme des glycérolipides."
   },
   {
     "order": 9,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos des diacylglycérols :",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant le glycérol ?",
     "choices": [
       {
-        "content": "Ils portent deux acides gras.",
-        "correct": true,
-        "explanation": "Les diacylglycérols se distinguent notamment par les positions 1,2 ou 1,3."
-      },
-      {
-        "content": "Le 1,3-diacylglycérol est estérifié sur les deux alcools primaires.",
-        "correct": true,
-        "explanation": "Les diacylglycérols se distinguent notamment par les positions 1,2 ou 1,3."
-      },
-      {
-        "content": "Le 1,2-diacylglycérol implique un alcool primaire et l'alcool secondaire.",
-        "correct": true,
-        "explanation": "Les diacylglycérols se distinguent notamment par les positions 1,2 ou 1,3."
-      },
-      {
-        "content": "Le 1,3-diacylglycérol possède trois acides gras.",
+        "content": "Il possède six carbones.",
         "correct": false,
-        "explanation": "Les diacylglycérols se distinguent notamment par les positions 1,2 ou 1,3."
+        "explanation": "Il en possède trois."
+      },
+      {
+        "content": "Les carbones terminaux peuvent être distingués par la nomenclature stéréospécifique sn.",
+        "correct": true,
+        "explanation": "Le glycérol libre est prochiral et les positions sn-1 et sn-3 sont distinguées en biochimie."
+      },
+      {
+        "content": "Le glycérol libre est un acide gras.",
+        "correct": false,
+        "explanation": "C'est un triol."
+      },
+      {
+        "content": "Il ne porte qu'une fonction alcool.",
+        "correct": false,
+        "explanation": "Il en porte trois."
+      },
+      {
+        "content": "C2 porte une fonction acide carboxylique.",
+        "correct": false,
+        "explanation": "C2 porte un alcool secondaire."
       }
     ],
-    "explanation": "Les diacylglycérols se distinguent notamment par les positions 1,2 ou 1,3."
+    "explanation": "Le glycérol est un triol à trois carbones ; la nomenclature sn permet de distinguer ses positions en biochimie."
   },
   {
     "order": 10,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel diacylglycérol est estérifié sur C1 et C3 ?",
+    "format": "QRM",
+    "question": "Concernant la nomenclature stéréospécifique sn du glycérol, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "1,3-diacylglycérol",
+        "content": "De nombreuses enzymes reconnaissent une position précise du squelette glycérol.",
         "correct": true,
-        "explanation": "Les diacylglycérols se distinguent notamment par les positions 1,2 ou 1,3."
+        "explanation": "La régiospécificité est importante en biochimie."
       },
       {
-        "content": "1,2-diacylglycérol",
+        "content": "Toutes les enzymes hydrolysent indifféremment sn-1, sn-2 et sn-3.",
         "correct": false,
-        "explanation": "Les diacylglycérols se distinguent notamment par les positions 1,2 ou 1,3."
+        "explanation": "Beaucoup sont régiospécifiques."
       },
       {
-        "content": "2-monoacylglycérol",
+        "content": "La nomenclature sn ne peut jamais être appliquée aux glycérophospholipides.",
         "correct": false,
-        "explanation": "Les diacylglycérols se distinguent notamment par les positions 1,2 ou 1,3."
+        "explanation": "Elle y est très utilisée."
       },
       {
-        "content": "triacylglycérol",
+        "content": "sn-1 et sn-3 sont les deux doubles liaisons d'un acide gras.",
         "correct": false,
-        "explanation": "Les diacylglycérols se distinguent notamment par les positions 1,2 ou 1,3."
+        "explanation": "Ce sont des positions sur le glycérol."
+      },
+      {
+        "content": "sn-2 correspond au carbone central du glycérol.",
+        "correct": true,
+        "explanation": "C'est le carbone portant l'alcool secondaire dans le glycérol."
       }
     ],
-    "explanation": "Les diacylglycérols se distinguent notamment par les positions 1,2 ou 1,3."
+    "explanation": "La nomenclature sn distingue les positions du squelette glycérol et évite d'assimiler les deux extrémités dans un lipide substitué."
   },
   {
     "order": 11,
-    "difficulty": "EASY",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos des triacylglycérols :",
+    "question": "Concernant le glycérol, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Ils portent trois acides gras.",
+        "content": "Il possède trois atomes de carbone.",
         "correct": true,
-        "explanation": "Le triacylglycérol correspond à l'estérification complète du glycérol."
+        "explanation": "Le glycérol est un triol C3."
       },
       {
-        "content": "Les trois fonctions alcool du glycérol sont estérifiées.",
-        "correct": true,
-        "explanation": "Le triacylglycérol correspond à l'estérification complète du glycérol."
-      },
-      {
-        "content": "Ils sont aussi appelés triglycérides.",
-        "correct": true,
-        "explanation": "Le triacylglycérol correspond à l'estérification complète du glycérol."
-      },
-      {
-        "content": "Ils dérivent de la sphingosine.",
+        "content": "C2 porte une fonction acide carboxylique.",
         "correct": false,
-        "explanation": "Le triacylglycérol correspond à l'estérification complète du glycérol."
+        "explanation": "C2 porte un alcool secondaire."
+      },
+      {
+        "content": "Il ne porte qu'une fonction alcool.",
+        "correct": false,
+        "explanation": "Il en porte trois."
+      },
+      {
+        "content": "Il possède six carbones.",
+        "correct": false,
+        "explanation": "Il en possède trois."
+      },
+      {
+        "content": "C2 porte une fonction alcool secondaire.",
+        "correct": true,
+        "explanation": "C2 est le carbone central."
       }
     ],
-    "explanation": "Le triacylglycérol correspond à l'estérification complète du glycérol."
+    "explanation": "Le glycérol est un triol à trois carbones ; la nomenclature sn permet de distinguer ses positions en biochimie."
   },
   {
     "order": 12,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Combien d'acides gras porte un triacylglycérol ?",
-    "choices": [
-      {
-        "content": "3",
-        "correct": true,
-        "explanation": "Le triacylglycérol correspond à l'estérification complète du glycérol."
-      },
-      {
-        "content": "1",
-        "correct": false,
-        "explanation": "Le triacylglycérol correspond à l'estérification complète du glycérol."
-      },
-      {
-        "content": "2",
-        "correct": false,
-        "explanation": "Le triacylglycérol correspond à l'estérification complète du glycérol."
-      },
-      {
-        "content": "4",
-        "correct": false,
-        "explanation": "Le triacylglycérol correspond à l'estérification complète du glycérol."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel préfixe de nomenclature est utilisé pour numéroter stéréospécifiquement le glycérol en biochimie ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "sn",
+        "sn-",
+        "nomenclature sn"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le triacylglycérol correspond à l'estérification complète du glycérol."
+    },
+    "explanation": "La nomenclature sn distingue les positions du squelette glycérol et évite d'assimiler les deux extrémités dans un lipide substitué."
   },
   {
     "order": 13,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos des triglycérides homogènes et mixtes :",
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant l'estérification du glycérol par des acides gras ?",
     "choices": [
       {
-        "content": "Un triglycéride homogène porte trois acides gras identiques.",
+        "content": "Un diacylglycérol possède deux acides gras estérifiés.",
         "correct": true,
-        "explanation": "Homogène et mixte décrivent l'identité ou non des trois chaînes acyles."
+        "explanation": "Une fonction alcool du glycérol reste libre."
       },
       {
-        "content": "Un triglycéride mixte porte au moins deux chaînes acyles différentes.",
-        "correct": true,
-        "explanation": "Homogène et mixte décrivent l'identité ou non des trois chaînes acyles."
-      },
-      {
-        "content": "La nature des chaînes acyles influence les propriétés physiques.",
-        "correct": true,
-        "explanation": "Homogène et mixte décrivent l'identité ou non des trois chaînes acyles."
-      },
-      {
-        "content": "Un triglycéride mixte ne contient qu'un seul acide gras.",
+        "content": "Un diacylglycérol ne contient jamais de liaison ester.",
         "correct": false,
-        "explanation": "Homogène et mixte décrivent l'identité ou non des trois chaînes acyles."
+        "explanation": "Il en contient deux."
+      },
+      {
+        "content": "Un monoacylglycérol porte trois acides gras.",
+        "correct": false,
+        "explanation": "Il n'en porte qu'un."
+      },
+      {
+        "content": "Un triacylglycérol possède nécessairement un phosphate.",
+        "correct": false,
+        "explanation": "Le phosphate caractérise les glycérophospholipides, pas les TAG."
+      },
+      {
+        "content": "L'estérification forme une liaison peptidique.",
+        "correct": false,
+        "explanation": "Elle forme une liaison ester."
       }
     ],
-    "explanation": "Homogène et mixte décrivent l'identité ou non des trois chaînes acyles."
+    "explanation": "Les acylglycérols résultent de l'estérification d'une à trois fonctions alcool du glycérol par des acides gras."
   },
   {
     "order": 14,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Comment appelle-t-on un triglycéride dont R1=R2=R3 ?",
-    "choices": [
-      {
-        "content": "triglycéride homogène",
-        "correct": true,
-        "explanation": "Homogène et mixte décrivent l'identité ou non des trois chaînes acyles."
-      },
-      {
-        "content": "triglycéride mixte",
-        "correct": false,
-        "explanation": "Homogène et mixte décrivent l'identité ou non des trois chaînes acyles."
-      },
-      {
-        "content": "lysophospholipide",
-        "correct": false,
-        "explanation": "Homogène et mixte décrivent l'identité ou non des trois chaînes acyles."
-      },
-      {
-        "content": "céramide",
-        "correct": false,
-        "explanation": "Homogène et mixte décrivent l'identité ou non des trois chaînes acyles."
-      }
-    ],
-    "explanation": "Homogène et mixte décrivent l'identité ou non des trois chaînes acyles."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Combien de liaisons ester acyle-glycérol comporte un triacylglycérol complètement estérifié ?",
+    "answer": {
+      "type": "number",
+      "value": 3,
+      "tolerance": 0
+    },
+    "explanation": "Chaque chaîne acyle est reliée au glycérol par une liaison ester : un TAG en possède donc trois."
   },
   {
     "order": 15,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos du 1,3-distéaryl-2-oléyl-glycérol :",
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant les diacylglycérols, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "Il porte deux stéaryls en C1 et C3.",
+        "content": "Un 1,3-diacylglycérol porte les chaînes acyles sur les deux carbones terminaux.",
         "correct": true,
-        "explanation": "L'exemple associe deux chaînes stéaryles saturées et une chaîne oléyle mono-insaturée."
+        "explanation": "Les positions sont sn-1 et sn-3."
       },
       {
-        "content": "Il porte un oléyl en C2.",
+        "content": "Un 1,2-diacylglycérol porte des chaînes acyles sur deux carbones adjacents.",
         "correct": true,
-        "explanation": "L'exemple associe deux chaînes stéaryles saturées et une chaîne oléyle mono-insaturée."
+        "explanation": "Les positions sont sn-1 et sn-2."
       },
       {
-        "content": "C'est un triglycéride mixte.",
-        "correct": true,
-        "explanation": "L'exemple associe deux chaînes stéaryles saturées et une chaîne oléyle mono-insaturée."
-      },
-      {
-        "content": "Il ne contient aucun résidu saturé.",
+        "content": "Le DAG ne contient aucune fonction alcool libre.",
         "correct": false,
-        "explanation": "L'exemple associe deux chaînes stéaryles saturées et une chaîne oléyle mono-insaturée."
+        "explanation": "Une fonction alcool reste libre."
+      },
+      {
+        "content": "Tout DAG contient obligatoirement une tête choline.",
+        "correct": false,
+        "explanation": "La choline caractérise notamment la phosphatidylcholine."
+      },
+      {
+        "content": "1,2-DAG et 1,3-DAG sont synonymes.",
+        "correct": false,
+        "explanation": "Ils diffèrent par les positions estérifiées."
       }
     ],
-    "explanation": "L'exemple associe deux chaînes stéaryles saturées et une chaîne oléyle mono-insaturée."
+    "explanation": "Un DAG comporte deux chaînes acyles ; les principaux isomères de position sont 1,2-DAG et 1,3-DAG.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 16,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quelle chaîne est portée en C2 dans cet exemple ?",
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant les triacylglycérols ?",
     "choices": [
       {
-        "content": "oléyl",
+        "content": "Un triacylglycérol homogène possède trois résidus acyles identiques.",
         "correct": true,
-        "explanation": "L'exemple associe deux chaînes stéaryles saturées et une chaîne oléyle mono-insaturée."
+        "explanation": "R1=R2=R3 dans cette définition."
       },
       {
-        "content": "stéaryl",
+        "content": "Ils contiennent obligatoirement un groupement phosphate.",
         "correct": false,
-        "explanation": "L'exemple associe deux chaînes stéaryles saturées et une chaîne oléyle mono-insaturée."
+        "explanation": "Ce n'est pas nécessaire."
       },
       {
-        "content": "palmitoyl",
-        "correct": false,
-        "explanation": "L'exemple associe deux chaînes stéaryles saturées et une chaîne oléyle mono-insaturée."
+        "content": "Un triacylglycérol mixte contient au moins deux résidus acyles différents.",
+        "correct": true,
+        "explanation": "C'est le cas fréquent dans les lipides naturels."
       },
       {
-        "content": "arachidonyl",
-        "correct": false,
-        "explanation": "L'exemple associe deux chaînes stéaryles saturées et une chaîne oléyle mono-insaturée."
+        "content": "Ils constituent une forme majeure de stockage des acides gras dans le tissu adipeux.",
+        "correct": true,
+        "explanation": "Ils sont des réserves énergétiques neutres."
+      },
+      {
+        "content": "Ils comportent trois chaînes acyles estérifiées au glycérol.",
+        "correct": true,
+        "explanation": "Les trois fonctions alcool sont estérifiées."
       }
     ],
-    "explanation": "L'exemple associe deux chaînes stéaryles saturées et une chaîne oléyle mono-insaturée."
+    "explanation": "Un triacylglycérol est le triester du glycérol ; il peut être homogène ou mixte."
   },
   {
     "order": 17,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos de l'estérification du glycérol :",
-    "choices": [
-      {
-        "content": "Les fonctions alcool du glycérol peuvent être estérifiées par des acides gras.",
-        "correct": true,
-        "explanation": "Les acylglycérols sont des esters d'acides gras et de glycérol."
-      },
-      {
-        "content": "La liaison formée est une liaison ester.",
-        "correct": true,
-        "explanation": "Les acylglycérols sont des esters d'acides gras et de glycérol."
-      },
-      {
-        "content": "Le nombre de fonctions estérifiées détermine mono-, di- ou triacylglycérol.",
-        "correct": true,
-        "explanation": "Les acylglycérols sont des esters d'acides gras et de glycérol."
-      },
-      {
-        "content": "L'estérification remplace nécessairement les trois carbones du glycérol par du phosphate.",
-        "correct": false,
-        "explanation": "Les acylglycérols sont des esters d'acides gras et de glycérol."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel résidu acyle occupe la position 2 dans le 1,3-distéaroyl-2-oléoyl-glycérol ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "oléoyl",
+        "oleoyl",
+        "résidu oléoyl",
+        "residu oleoyl"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les acylglycérols sont des esters d'acides gras et de glycérol."
+    },
+    "explanation": "Le 1,3-distéaroyl-2-oléoyl-glycérol est un TAG mixte illustrant la nomenclature par positions."
   },
   {
     "order": 18,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel autre nom donne-t-on aux glycérides ?",
+    "question": "Quel isomère de diacylglycérol porte des chaînes acyles sur les deux carbones terminaux du glycérol ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
-        "acylglycérols",
-        "acylglycerols"
+        "1,3-diacylglycérol",
+        "1,3-DAG",
+        "1,3-diglycéride",
+        "1,3 diacylglycerol"
       ],
       "normalization": {
         "trim": true,
-        "caseSensitive": false,
         "collapseWhitespace": true,
+        "caseSensitive": false,
         "ignoreAccents": true
       }
     },
-    "explanation": "Glycérides et acylglycérols sont synonymes."
+    "explanation": "Le 1,3-DAG porte des acyles en sn-1 et sn-3 ; le 1,2-DAG les porte sur deux carbones adjacents."
   },
   {
     "order": 19,
-    "difficulty": "EASY",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos des fonctions alcool du glycérol :",
+    "question": "Quelles propositions sont exactes concernant le glycérol ?",
     "choices": [
       {
-        "content": "C1 porte un alcool primaire.",
+        "content": "Il porte trois fonctions alcool.",
         "correct": true,
-        "explanation": "Le carbone central C2 porte l'alcool secondaire."
+        "explanation": "Les carbones terminaux portent des alcools primaires et C2 un alcool secondaire."
       },
       {
-        "content": "C2 porte un alcool secondaire.",
-        "correct": true,
-        "explanation": "Le carbone central C2 porte l'alcool secondaire."
-      },
-      {
-        "content": "C3 porte un alcool primaire.",
-        "correct": true,
-        "explanation": "Le carbone central C2 porte l'alcool secondaire."
-      },
-      {
-        "content": "Le glycérol ne possède qu'une seule fonction alcool.",
+        "content": "Le glycérol libre est un acide gras.",
         "correct": false,
-        "explanation": "Le carbone central C2 porte l'alcool secondaire."
+        "explanation": "C'est un triol."
+      },
+      {
+        "content": "Il ne porte qu'une fonction alcool.",
+        "correct": false,
+        "explanation": "Il en porte trois."
+      },
+      {
+        "content": "Les carbones terminaux peuvent être distingués par la nomenclature stéréospécifique sn.",
+        "correct": true,
+        "explanation": "Le glycérol libre est prochiral et les positions sn-1 et sn-3 sont distinguées en biochimie."
+      },
+      {
+        "content": "C2 porte une fonction acide carboxylique.",
+        "correct": false,
+        "explanation": "C2 porte un alcool secondaire."
       }
     ],
-    "explanation": "Le carbone central C2 porte l'alcool secondaire."
+    "explanation": "Le glycérol est un triol à trois carbones ; la nomenclature sn permet de distinguer ses positions en biochimie."
   },
   {
     "order": 20,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel carbone porte l'alcool secondaire ?",
+    "difficulty": "MEDIUM",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "C2",
+        "content": "Certains diacylglycérols membranaires peuvent participer à la signalisation.",
         "correct": true,
-        "explanation": "Le carbone central C2 porte l'alcool secondaire."
+        "explanation": "Le DAG produit à partir de PIP2 est un second messager."
       },
       {
-        "content": "C1",
+        "content": "Toutes les enzymes hydrolysent indifféremment sn-1, sn-2 et sn-3.",
         "correct": false,
-        "explanation": "Le carbone central C2 porte l'alcool secondaire."
+        "explanation": "Beaucoup sont régiospécifiques."
       },
       {
-        "content": "C3",
-        "correct": false,
-        "explanation": "Le carbone central C2 porte l'alcool secondaire."
+        "content": "De nombreuses enzymes reconnaissent une position précise du squelette glycérol.",
+        "correct": true,
+        "explanation": "La régiospécificité est importante en biochimie."
       },
       {
-        "content": "aucun",
+        "content": "Elle permet de distinguer les positions sn-1, sn-2 et sn-3.",
+        "correct": true,
+        "explanation": "Cette nomenclature est utile pour les lipides glycérolés."
+      },
+      {
+        "content": "Un 1,2-diacylglycérol porte des chaînes acyles sur deux carbones adjacents.",
+        "correct": true,
+        "explanation": "Les positions sont sn-1 et sn-2."
+      },
+      {
+        "content": "Le DAG ne contient aucune fonction alcool libre.",
         "correct": false,
-        "explanation": "Le carbone central C2 porte l'alcool secondaire."
+        "explanation": "Une fonction alcool reste libre."
+      },
+      {
+        "content": "1,2-DAG et 1,3-DAG sont synonymes.",
+        "correct": false,
+        "explanation": "Ils diffèrent par les positions estérifiées."
+      },
+      {
+        "content": "Un diacylglycérol porte obligatoirement trois acides gras.",
+        "correct": false,
+        "explanation": "Il en porte deux."
+      },
+      {
+        "content": "sn-2 correspond au carbone central du glycérol.",
+        "correct": true,
+        "explanation": "C'est le carbone portant l'alcool secondaire dans le glycérol."
+      },
+      {
+        "content": "sn-2 désigne le groupement phosphate.",
+        "correct": false,
+        "explanation": "sn-2 est une position carbonée du glycérol."
       }
     ],
-    "explanation": "Le carbone central C2 porte l'alcool secondaire."
+    "explanation": "La nomenclature sn distingue les positions du squelette glycérol et évite d'assimiler les deux extrémités dans un lipide substitué. Un DAG comporte deux chaînes acyles ; les principaux isomères de position sont 1,2-DAG et 1,3-DAG."
   },
   {
     "order": 21,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux positions du glycérol portant un alcool primaire.",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes concernant l'estérification du glycérol par des acides gras, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "C1",
-        "correct": true,
-        "explanation": "C1 est primaire."
-      },
-      {
-        "content": "C3",
-        "correct": true,
-        "explanation": "C3 est primaire."
-      },
-      {
-        "content": "C2",
+        "content": "Un diacylglycérol ne contient jamais de liaison ester.",
         "correct": false,
-        "explanation": "C2 est secondaire."
+        "explanation": "Il en contient deux."
       },
       {
-        "content": "C4",
+        "content": "Un monoacylglycérol possède un seul acide gras estérifié au glycérol.",
+        "correct": true,
+        "explanation": "Deux fonctions alcool restent libres."
+      },
+      {
+        "content": "Un diacylglycérol possède deux acides gras estérifiés.",
+        "correct": true,
+        "explanation": "Une fonction alcool du glycérol reste libre."
+      },
+      {
+        "content": "L'estérification forme une liaison peptidique.",
         "correct": false,
-        "explanation": "Le glycérol n'a pas de C4."
+        "explanation": "Elle forme une liaison ester."
+      },
+      {
+        "content": "Un triacylglycérol possède trois acides gras estérifiés.",
+        "correct": true,
+        "explanation": "Les trois fonctions alcool du glycérol sont acylées."
       }
     ],
-    "explanation": "Les alcools primaires sont en C1 et C3."
+    "explanation": "Les acylglycérols résultent de l'estérification d'une à trois fonctions alcool du glycérol par des acides gras."
   },
   {
     "order": 22,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Parmi les dix affirmations, sélectionnez exactement les cinq correctes.",
-    "choices": [
-      {
-        "content": "Le glycérol possède 3 carbones.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "C2 porte l'alcool secondaire.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Un monoacylglycérol porte un acide gras.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Un diacylglycérol porte deux acides gras.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Un triacylglycérol porte trois acides gras.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "C1 et C3 sont toujours indiscernables pour les enzymes.",
-        "correct": false,
-        "explanation": "Une enzyme peut distinguer les deux positions énantiotopiques."
-      },
-      {
-        "content": "La liaison acyle-glycérol est une amide.",
-        "correct": false,
-        "explanation": "C'est un ester."
-      },
-      {
-        "content": "Un triglycéride homogène porte trois chaînes différentes.",
-        "correct": false,
-        "explanation": "Identiques."
-      },
-      {
-        "content": "Le glycérol possède 6 carbones.",
-        "correct": false,
-        "explanation": "3."
-      },
-      {
-        "content": "La glycérol kinase produit du glycérol-2-phosphate.",
-        "correct": false,
-        "explanation": "Elle produit du sn-glycérol-3-phosphate."
-      }
-    ],
-    "explanation": "Cette synthèse structurelle clôt la section."
+    "format": "QROC",
+    "question": "Quel carbone du glycérol porte l'acyle dans un 2-monoacylglycérol ?",
+    "answer": {
+      "type": "number",
+      "value": 2,
+      "tolerance": 0
+    },
+    "explanation": "Les monoacylglycérols diffèrent notamment par la position sn-1 ou sn-2 de leur unique chaîne acyle."
   }
 ];

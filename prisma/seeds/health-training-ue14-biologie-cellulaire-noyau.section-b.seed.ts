@@ -1,646 +1,747 @@
-/**
- * UE14 – Biologie cellulaire – Chapitre 8
- * Contenu fondé sur la fiche 2024-2025 du Tutorat Santé de Reims.
- */
 import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
 
+/** UE14 Biologie cellulaire — Ch8 — Échanges nucléocytoplasmiques, NLS et pores — V2 active */
 export const SECTION_B_QUESTIONS: SeedQuestion[] = [
   {
-    order: 31,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `L’expérience historique sur l’entrée des protéines nucléaires utilise :`,
-    choices: [
-      `La nucléoplasmine.`,
-      `Des ovocytes d’amphibiens vivants.`,
-      `Un marquage fluorescent des fractions protéiques.`,
-      `Des hématies humaines comme modèle principal.`,
+    "order": 23,
+    "difficulty": "HARD",
+    "format": "QRU",
+    "question": "Sur le thème « Expérience de la nucléoplasmine », repérez l’unique affirmation correcte.",
+    "choices": [
+      {
+        "content": "La région caudale empêche l’entrée de la nucléoplasmine dans le noyau.",
+        "correct": false,
+        "explanation": "Elle contient au contraire le signal nécessaire à l’import."
+      },
+      {
+        "content": "L’expérience montre que toute protéine globulaire diffuse librement dans le noyau quelle que soit sa taille.",
+        "correct": false,
+        "explanation": "L’import de macromolécules est sélectif et dépend de signaux et récepteurs."
+      },
+      {
+        "content": "La partie globulaire seule est suffisante pour l’import nucléaire depuis le cytoplasme.",
+        "correct": false,
+        "explanation": "Elle n’assure pas l’import efficace sans la région portant le NLS."
+      },
+      {
+        "content": "La nucléoplasmine doit être clivée dans le cytoplasme avant d’entrer dans le noyau.",
+        "correct": false,
+        "explanation": "Le clivage expérimental sert à localiser le déterminant d’adressage ; il n’est pas une étape physiologique obligatoire."
+      },
+      {
+        "content": "La partie globulaire injectée directement dans le noyau peut y rester.",
+        "correct": true,
+        "explanation": "L’expérience distingue import et rétention nucléaire."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. C’est une protéine de la matrice nucléaire.`,
-      `Exact. Ils servent de modèle cellulaire.`,
-      `Exact. Il permet leur localisation.`,
-      `Faux. Les hématies sont dépourvues de noyau.`,
-    ],
+    "explanation": "Les expériences de micro-injection de nucléoplasmine ont montré qu’un déterminant porté par la région caudale est nécessaire à son import nucléaire, tandis que la région globulaire peut être retenue dans le noyau une fois injectée directement."
   },
   {
-    order: 32,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `La nucléoplasmine est décrite comme :`,
-    choices: [
-      `Un pentamère.`,
-      `Chaque monomère possède une partie globulaire.`,
-      `Chaque monomère possède une partie effilée.`,
-      `Une molécule dépourvue de toute structure modulaire.`,
+    "order": 24,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Concernant le thème « Signal de localisation nucléaire », quelles propositions sont incorrectes ?",
+    "choices": [
+      {
+        "content": "Un NLS fonctionnel est obligatoirement excisé après import.",
+        "correct": true,
+        "explanation": "Cette affirmation est incorrecte et doit être sélectionnée ici. Il est généralement conservé, ce qui permet des cycles d’import répétés."
+      },
+      {
+        "content": "Tout NLS humain est constitué exactement de cinq acides aminés identiques.",
+        "correct": true,
+        "explanation": "Cette affirmation est incorrecte et doit être sélectionnée ici. Les NLS ont des séquences et des organisations variables."
+      },
+      {
+        "content": "Le NLS du grand antigène T de SV40 est un exemple classique de signal nucléaire basique.",
+        "correct": false,
+        "explanation": "Cette affirmation est exacte biologiquement ; elle ne doit donc pas être sélectionnée ici. Ce motif a joué un rôle historique dans l’étude de l’adressage nucléaire."
+      },
+      {
+        "content": "Les NLS sont reconnus directement par l’ADN chromosomique sans récepteur de transport.",
+        "correct": true,
+        "explanation": "Cette affirmation est incorrecte et doit être sélectionnée ici. Des récepteurs d’import, notamment les importines, participent à la reconnaissance et au transport."
+      },
+      {
+        "content": "Le NLS est un lipide membranaire du pore nucléaire.",
+        "correct": true,
+        "explanation": "Cette affirmation est incorrecte et doit être sélectionnée ici. Il s’agit d’un motif porté par une protéine cargo."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Elle comporte cinq monomères.`,
-      `Exact. Cette partie peut être séparée par protéolyse modérée.`,
-      `Exact. Cette partie contient le message d’import nucléaire.`,
-      `Faux. La fiche distingue clairement deux parties.`,
-    ],
+    "explanation": "Un NLS est un motif d’adressage reconnu par la machinerie d’import nucléaire ; les NLS classiques sont souvent riches en lysine et arginine et ne sont généralement pas excisés après import."
   },
   {
-    order: 33,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Après micro-injection de nucléoplasmine entière fluorescente dans le cytoplasme :`,
-    choices: [
-      `La fluorescence devient nucléaire en trois minutes.`,
-      `L’expérience sert de contrôle positif.`,
-      `La protéine reste exclusivement cytoplasmique.`,
-      `La présence de la partie effilée est compatible avec cet import.`,
+    "order": 25,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "Parmi ces propositions concernant « Complexe du pore nucléaire », retenez exactement les 2 affirmations justes.",
+    "choices": [
+      {
+        "content": "Le canal central participe au transport sélectif des macromolécules.",
+        "correct": true,
+        "explanation": "Les cargos récepteur-dépendants traversent la barrière de nucléoporines FG du canal central."
+      },
+      {
+        "content": "Le pore nucléaire coupe physiquement l’ADN pour permettre son export.",
+        "correct": false,
+        "explanation": "L’ADN chromosomique n’est pas exporté de cette manière."
+      },
+      {
+        "content": "Un même pore peut assurer des transports dans les deux directions.",
+        "correct": true,
+        "explanation": "Import et export peuvent se produire simultanément."
+      },
+      {
+        "content": "Les pores nucléaires sont composés uniquement de lipides.",
+        "correct": false,
+        "explanation": "Ce sont de grands complexes protéiques insérés dans l’enveloppe."
+      },
+      {
+        "content": "Les pores nucléaires sont fermés à toute petite molécule.",
+        "correct": false,
+        "explanation": "Les petites molécules peuvent diffuser passivement selon leur taille et leurs propriétés."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La protéine est rapidement transloquée.`,
-      `Exact. Elle vérifie que la protéine marquée reste fonctionnelle.`,
-      `Faux. Elle rejoint le noyau.`,
-      `Exact. Cette partie porte le NLS.`,
-    ],
+    "explanation": "Le complexe du pore nucléaire est un assemblage de nucléoporines à symétrie approximativement octogonale qui contrôle des transports passifs et récepteur-dépendants dans les deux sens."
   },
   {
-    order: 34,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Après micro-injection de la partie globulaire dans le cytoplasme :`,
-    choices: [
-      `La fluorescence reste cytoplasmique.`,
-      `Deux hypothèses initiales sont possibles.`,
-      `Cette expérience démontre immédiatement que la partie globulaire ne peut jamais rester dans le noyau.`,
-      `L’absence de partie effilée est déterminante.`,
+    "order": 26,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur « Transport nucléocytoplasmique », lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "Le système Ran-GTP/Ran-GDP contribue à la directionnalité de nombreux transports nucléaires.",
+        "correct": true,
+        "explanation": "Le gradient de Ran fournit une asymétrie fonctionnelle entre noyau et cytoplasme."
+      },
+      {
+        "content": "Les ARN ribosomaux matures sont importés depuis le cytoplasme pour former le nucléole.",
+        "correct": false,
+        "explanation": "Les ARNr sont synthétisés et maturés dans le noyau, puis les sous-unités ribosomales sont exportées."
+      },
+      {
+        "content": "Les ARN matures sont exportés sous forme de complexes ribonucléoprotéiques.",
+        "correct": true,
+        "explanation": "Leur export est organisé et récepteur-dépendant."
+      },
+      {
+        "content": "Les protéines nucléaires sont synthétisées dans le noyau puis exportées vers le cytosol.",
+        "correct": false,
+        "explanation": "La traduction des protéines nucléaires a lieu dans le cytosol, puis elles sont importées."
+      },
+      {
+        "content": "Tous les échanges noyau-cytoplasme sont strictement passifs.",
+        "correct": false,
+        "explanation": "Les macromolécules utilisent des transports sélectifs et énergétiquement couplés."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La partie globulaire n’est pas importée depuis le cytoplasme.`,
-      `Exact. Elle peut ne pas entrer ou entrer sans être retenue.`,
-      `Faux. Une autre expérience montre qu’elle y demeure si elle y est injectée.`,
-      `Exact. Le signal d’import se trouve dans cette partie.`,
-    ],
+    "explanation": "Les petites molécules peuvent diffuser passivement à travers le pore, alors que de nombreuses macromolécules utilisent des récepteurs de transport et le système Ran pour un transport sélectif."
   },
   {
-    order: 35,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Après injection de la partie globulaire directement dans le noyau :`,
-    choices: [
-      `Elle reste dans le noyau.`,
-      `La partie effilée n’est donc pas nécessaire à l’ancrage nucléaire.`,
-      `Elle est immédiatement expulsée vers le cytoplasme.`,
-      `Cette expérience permet de trancher entre les deux hypothèses précédentes.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La fluorescence demeure nucléaire.`,
-      `Exact. La rétention est possible sans elle.`,
-      `Faux. L’expérience montre le contraire.`,
-      `Exact. Elle démontre que le défaut concerne l’entrée, non la rétention.`,
-    ],
+    "order": 27,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel sigle désigne un signal de localisation nucléaire ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "NLS",
+        "signal de localisation nucléaire",
+        "signal de localisation nucleaire"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Un NLS est un signal porté par une protéine cargo et reconnu par la machinerie d’import nucléaire ; il n’est généralement pas clivé après import."
   },
   {
-    order: 36,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Après injection de la partie effilée dans le cytoplasme :`,
-    choices: [
-      `Elle entre dans le noyau.`,
-      `Elle y reste au moins pendant l’expérience.`,
-      `Cette partie contient le message de translocation nucléaire.`,
-      `Elle est dépourvue de toute information d’adressage.`,
+    "order": 28,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Dans une vérification ciblée, sur le thème « Expérience de la nucléoplasmine », repérez l’unique affirmation correcte.",
+    "choices": [
+      {
+        "content": "La région caudale de la nucléoplasmine contient l’information nécessaire à l’import nucléaire.",
+        "correct": true,
+        "explanation": "Cette région porte un signal de localisation nucléaire."
+      },
+      {
+        "content": "La nucléoplasmine doit être clivée dans le cytoplasme avant d’entrer dans le noyau.",
+        "correct": false,
+        "explanation": "Le clivage expérimental sert à localiser le déterminant d’adressage ; il n’est pas une étape physiologique obligatoire."
+      },
+      {
+        "content": "La région caudale empêche l’entrée de la nucléoplasmine dans le noyau.",
+        "correct": false,
+        "explanation": "Elle contient au contraire le signal nécessaire à l’import."
+      },
+      {
+        "content": "L’expérience montre que toute protéine globulaire diffuse librement dans le noyau quelle que soit sa taille.",
+        "correct": false,
+        "explanation": "L’import de macromolécules est sélectif et dépend de signaux et récepteurs."
+      },
+      {
+        "content": "La partie globulaire seule est suffisante pour l’import nucléaire depuis le cytoplasme.",
+        "correct": false,
+        "explanation": "Elle n’assure pas l’import efficace sans la région portant le NLS."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La fluorescence devient nucléaire.`,
-      `Exact. Le signal est localisé dans le noyau après trois minutes.`,
-      `Exact. Elle porte le NLS.`,
-      `Faux. C’est précisément elle qui porte le signal.`,
-    ],
+    "explanation": "Les expériences de micro-injection de nucléoplasmine ont montré qu’un déterminant porté par la région caudale est nécessaire à son import nucléaire, tandis que la région globulaire peut être retenue dans le noyau une fois injectée directement."
   },
   {
-    order: 37,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Le signal de localisation nucléaire (NLS) :`,
-    choices: [
-      `Est une séquence de quelques acides aminés.`,
-      `Doit conserver une séquence correcte pour être fonctionnel.`,
-      `Est toujours excisé après l’entrée dans le noyau.`,
-      `Permet le retour des protéines nucléaires après la mitose.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Le message d’adressage est court.`,
-      `Exact. Une substitution peut abolir l’import.`,
-      `Faux. Le cours précise qu’il n’est pas excisé.`,
-      `Exact. Il reste présent après la dispersion mitotique.`,
-    ],
+    "order": 29,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quelle protéine historique a servi à démontrer expérimentalement l’existence d’un signal d’import nucléaire ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "nucléoplasmine",
+        "nucleoplasmine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "La nucléoplasmine a servi de modèle expérimental pour montrer qu’une séquence portée par sa région caudale permet l’import nucléaire."
   },
   {
-    order: 38,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Dans l’antigène T du virus SV40, le NLS sauvage est :`,
-    choices: [
-      `Lys-Lys-Lys-Arg-Lys.`,
-      `Gly-Ala-Gly-Ala-Gly.`,
-      `Riche en acides aminés basiques.`,
-      `Une séquence lipidique membranaire.`,
+    "order": 30,
+    "difficulty": "EASY",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Sur le thème « Signal de localisation nucléaire », sélectionnez exactement les cinq propositions exactes parmi les dix proposées.",
+    "choices": [
+      {
+        "content": "Un NLS classique est souvent enrichi en résidus basiques lysine et arginine.",
+        "correct": true,
+        "explanation": "Les importines reconnaissent fréquemment des motifs basiques."
+      },
+      {
+        "content": "Tout NLS humain est constitué exactement de cinq acides aminés identiques.",
+        "correct": false,
+        "explanation": "Les NLS ont des séquences et des organisations variables."
+      },
+      {
+        "content": "Un NLS fonctionnel est obligatoirement excisé après import.",
+        "correct": false,
+        "explanation": "Il est généralement conservé, ce qui permet des cycles d’import répétés."
+      },
+      {
+        "content": "Le NLS reste généralement présent sur la protéine après son entrée dans le noyau.",
+        "correct": true,
+        "explanation": "Contrairement à de nombreux peptides signaux du RE ou de la mitochondrie, il n’est généralement pas clivé."
+      },
+      {
+        "content": "L’architecture globale du pore présente une symétrie d’ordre huit.",
+        "correct": true,
+        "explanation": "Le complexe du pore possède une organisation annulaire approximativement octogonale."
+      },
+      {
+        "content": "Les pores nucléaires sont composés uniquement de lipides.",
+        "correct": false,
+        "explanation": "Ce sont de grands complexes protéiques insérés dans l’enveloppe."
+      },
+      {
+        "content": "Une mutation d’un NLS peut empêcher l’accumulation nucléaire d’une protéine.",
+        "correct": true,
+        "explanation": "La reconnaissance par la machinerie d’import peut être compromise."
+      },
+      {
+        "content": "Chaque pore ne fonctionne que dans le sens cytoplasme vers noyau.",
+        "correct": false,
+        "explanation": "Le transport est bidirectionnel."
+      },
+      {
+        "content": "Le complexe du pore nucléaire est constitué de nombreuses protéines appelées nucléoporines.",
+        "correct": true,
+        "explanation": "Les nucléoporines s’assemblent en un complexe macromoléculaire traversant l’enveloppe."
+      },
+      {
+        "content": "Le NLS est un lipide membranaire du pore nucléaire.",
+        "correct": false,
+        "explanation": "Il s’agit d’un motif porté par une protéine cargo."
+      }
     ],
-    correctChoiceIndexes: [0, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Cette séquence de cinq acides aminés est donnée dans la fiche.`,
-      `Faux. Ce n’est pas le NLS décrit.`,
-      `Exact. La lysine et l’arginine dominent.`,
-      `Faux. Il s’agit d’une séquence peptidique.`,
-    ],
+    "explanation": "Un NLS est un motif d’adressage reconnu par la machinerie d’import nucléaire ; les NLS classiques sont souvent riches en lysine et arginine et ne sont généralement pas excisés après import. Le complexe du pore nucléaire est un assemblage de nucléoporines à symétrie approximativement octogonale qui contrôle des transports passifs et récepteur-dépendants dans les deux sens."
   },
   {
-    order: 39,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `La mutation Lys → Thr dans le NLS de l’antigène T :`,
-    choices: [
-      `Empêche sa localisation nucléaire normale.`,
-      `Montre l’importance de la séquence exacte.`,
-      `Renforce obligatoirement l’import nucléaire.`,
-      `Concerne la deuxième lysine du motif présenté.`,
+    "order": 31,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Sur le thème « Complexe du pore nucléaire », repérez l’unique affirmation correcte.",
+    "choices": [
+      {
+        "content": "Les pores nucléaires sont composés uniquement de lipides.",
+        "correct": false,
+        "explanation": "Ce sont de grands complexes protéiques insérés dans l’enveloppe."
+      },
+      {
+        "content": "Le complexe du pore nucléaire est constitué de nombreuses protéines appelées nucléoporines.",
+        "correct": true,
+        "explanation": "Les nucléoporines s’assemblent en un complexe macromoléculaire traversant l’enveloppe."
+      },
+      {
+        "content": "Chaque pore ne fonctionne que dans le sens cytoplasme vers noyau.",
+        "correct": false,
+        "explanation": "Le transport est bidirectionnel."
+      },
+      {
+        "content": "Les pores nucléaires sont fermés à toute petite molécule.",
+        "correct": false,
+        "explanation": "Les petites molécules peuvent diffuser passivement selon leur taille et leurs propriétés."
+      },
+      {
+        "content": "Le pore nucléaire coupe physiquement l’ADN pour permettre son export.",
+        "correct": false,
+        "explanation": "L’ADN chromosomique n’est pas exporté de cette manière."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La protéine mutée reste cytoplasmique.`,
-      `Exact. Une seule substitution suffit à perturber le signal.`,
-      `Faux. L’import est au contraire aboli.`,
-      `Exact. La fiche détaille cette substitution.`,
-    ],
+    "explanation": "Le complexe du pore nucléaire est un assemblage de nucléoporines à symétrie approximativement octogonale qui contrôle des transports passifs et récepteur-dépendants dans les deux sens."
   },
   {
-    order: 40,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Les pores nucléaires :`,
-    choices: [
-      `Permettent des échanges bidirectionnels.`,
-      `Contrôlent le trafic entre noyau et cytoplasme.`,
-      `Peuvent assurer des passages simultanés.`,
-      `Ne servent qu’à l’entrée de protéines.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Import et export peuvent avoir lieu.`,
-      `Exact. L’enveloppe n’est pas librement perméable à tout.`,
-      `Exact. L’expérience à l’or colloïdal le montre.`,
-      `Faux. Ils assurent aussi la sortie des ARN.`,
-    ],
+    "order": 32,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Comment nomme-t-on les protéines constitutives du complexe du pore nucléaire ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "nucléoporines",
+        "nucleoporines"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Les nucléoporines sont les protéines qui s’assemblent pour former le complexe du pore nucléaire."
   },
   {
-    order: 41,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Dans l’expérience à l’or colloïdal :`,
-    choices: [
-      `L’or-nucléoplasmine de 20 nm est injecté dans le cytoplasme.`,
-      `L’or-ARNt de 5 nm est injecté dans le noyau.`,
-      `Les deux complexes sont observés au niveau d’un même pore.`,
-      `Les deux complexes ont exactement le même diamètre.`,
+    "order": 33,
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "requiredSelectionCount": 3,
+    "question": "Sur le thème « Transport nucléocytoplasmique », sélectionnez exactement 3 propositions exactes.",
+    "choices": [
+      {
+        "content": "Tous les échanges noyau-cytoplasme sont strictement passifs.",
+        "correct": false,
+        "explanation": "Les macromolécules utilisent des transports sélectifs et énergétiquement couplés."
+      },
+      {
+        "content": "De petites molécules peuvent traverser passivement le complexe du pore nucléaire.",
+        "correct": true,
+        "explanation": "La diffusion passive est possible pour de petites espèces."
+      },
+      {
+        "content": "Les protéines nucléaires de grande taille utilisent souvent des récepteurs d’import.",
+        "correct": true,
+        "explanation": "Les importines reconnaissent des cargos porteurs de signaux d’adressage."
+      },
+      {
+        "content": "Le système Ran-GTP/Ran-GDP contribue à la directionnalité de nombreux transports nucléaires.",
+        "correct": true,
+        "explanation": "Le gradient de Ran fournit une asymétrie fonctionnelle entre noyau et cytoplasme."
+      },
+      {
+        "content": "Les ARN ribosomaux matures sont importés depuis le cytoplasme pour former le nucléole.",
+        "correct": false,
+        "explanation": "Les ARNr sont synthétisés et maturés dans le noyau, puis les sous-unités ribosomales sont exportées."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Il suit une voie d’import nucléaire.`,
-      `Exact. Il suit une voie d’export.`,
-      `Exact. Cela démontre la simultanéité et la bidirectionnalité.`,
-      `Faux. Leurs diamètres sont différents : 20 et 5 nm.`,
-    ],
+    "explanation": "Les petites molécules peuvent diffuser passivement à travers le pore, alors que de nombreuses macromolécules utilisent des récepteurs de transport et le système Ran pour un transport sélectif."
   },
   {
-    order: 42,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `À propos de la structure du pore nucléaire :`,
-    choices: [
-      `Il s’agit d’un assemblage protéique.`,
-      `Il comporte un anneau principal.`,
-      `Il possède huit bras radiaires.`,
-      `Il est constitué uniquement de phospholipides.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La coupe en MET révèle un complexe organisé.`,
-      `Exact. Cet anneau constitue l’échafaudage.`,
-      `Exact. Ces bras délimitent des canaux latéraux.`,
-      `Faux. Le pore est un complexe protéique.`,
-    ],
+    "order": 34,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Quel type de récepteur reconnaît fréquemment un NLS classique pour l’import nucléaire ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "importine",
+        "importines"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Les importines reconnaissent de nombreux cargos porteurs d’un NLS et les accompagnent à travers le pore nucléaire."
   },
   {
-    order: 43,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Le transporteur central du pore nucléaire :`,
-    choices: [
-      `Est impliqué dans les échanges actifs.`,
-      `Peut assurer l’import de protéines nucléaires.`,
-      `Peut assurer l’export d’ARN.`,
-      `Est le seul lieu de diffusion passive des petites molécules.`,
+    "order": 35,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Sur le thème « Expérience de la nucléoplasmine », repérez l’unique affirmation correcte.",
+    "choices": [
+      {
+        "content": "La région caudale empêche l’entrée de la nucléoplasmine dans le noyau.",
+        "correct": false,
+        "explanation": "Elle contient au contraire le signal nécessaire à l’import."
+      },
+      {
+        "content": "L’expérience montre que toute protéine globulaire diffuse librement dans le noyau quelle que soit sa taille.",
+        "correct": false,
+        "explanation": "L’import de macromolécules est sélectif et dépend de signaux et récepteurs."
+      },
+      {
+        "content": "La partie globulaire injectée directement dans le noyau peut y rester.",
+        "correct": true,
+        "explanation": "L’expérience distingue import et rétention nucléaire."
+      },
+      {
+        "content": "La partie globulaire seule est suffisante pour l’import nucléaire depuis le cytoplasme.",
+        "correct": false,
+        "explanation": "Elle n’assure pas l’import efficace sans la région portant le NLS."
+      },
+      {
+        "content": "La nucléoplasmine doit être clivée dans le cytoplasme avant d’entrer dans le noyau.",
+        "correct": false,
+        "explanation": "Le clivage expérimental sert à localiser le déterminant d’adressage ; il n’est pas une étape physiologique obligatoire."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Les complexes d’importation et d’exportation y transitent.`,
-      `Exact. Le sens cytoplasme-noyau concerne notamment ces protéines.`,
-      `Exact. Le sens noyau-cytoplasme concerne les ARN.`,
-      `Faux. Le passage passif emprunte surtout les canaux latéraux.`,
-    ],
+    "explanation": "Les expériences de micro-injection de nucléoplasmine ont montré qu’un déterminant porté par la région caudale est nécessaire à son import nucléaire, tandis que la région globulaire peut être retenue dans le noyau une fois injectée directement."
   },
   {
-    order: 44,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Les échanges passifs à travers le pore :`,
-    choices: [
-      `Concernent les petites molécules.`,
-      `Se font au niveau des canaux latéraux.`,
-      `Peuvent laisser passer de l’eau et des ions.`,
-      `Nécessitent toujours un complexe d’importation.`,
+    "order": 36,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant le thème « Signal de localisation nucléaire » ?",
+    "choices": [
+      {
+        "content": "Le NLS du grand antigène T de SV40 est un exemple classique de signal nucléaire basique.",
+        "correct": true,
+        "explanation": "Ce motif a joué un rôle historique dans l’étude de l’adressage nucléaire."
+      },
+      {
+        "content": "Tout NLS humain est constitué exactement de cinq acides aminés identiques.",
+        "correct": false,
+        "explanation": "Les NLS ont des séquences et des organisations variables."
+      },
+      {
+        "content": "Le NLS reste généralement présent sur la protéine après son entrée dans le noyau.",
+        "correct": true,
+        "explanation": "Contrairement à de nombreux peptides signaux du RE ou de la mitochondrie, il n’est généralement pas clivé."
+      },
+      {
+        "content": "Un NLS classique est souvent enrichi en résidus basiques lysine et arginine.",
+        "correct": true,
+        "explanation": "Les importines reconnaissent fréquemment des motifs basiques."
+      },
+      {
+        "content": "Les NLS sont reconnus directement par l’ADN chromosomique sans récepteur de transport.",
+        "correct": false,
+        "explanation": "Des récepteurs d’import, notamment les importines, participent à la reconnaissance et au transport."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La taille limite la diffusion passive.`,
-      `Exact. Ils sont situés entre les bras radiaires.`,
-      `Exact. Ces exemples sont explicitement cités.`,
-      `Faux. Les complexes sont requis pour les échanges actifs.`,
-    ],
+    "explanation": "Un NLS est un motif d’adressage reconnu par la machinerie d’import nucléaire ; les NLS classiques sont souvent riches en lysine et arginine et ne sont généralement pas excisés après import."
   },
   {
-    order: 45,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Les échanges actifs nucléocytoplasmiques :`,
-    choices: [
-      `Impliquent un complexe d’importation ou d’exportation.`,
-      `Se déroulent au niveau du transporteur central.`,
-      `Sont bidirectionnels selon la cargaison.`,
-      `Sont limités à la diffusion de l’eau.`,
+    "order": 37,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur « Complexe du pore nucléaire », lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "Les pores nucléaires sont fermés à toute petite molécule.",
+        "correct": false,
+        "explanation": "Les petites molécules peuvent diffuser passivement selon leur taille et leurs propriétés."
+      },
+      {
+        "content": "Un même pore peut assurer des transports dans les deux directions.",
+        "correct": true,
+        "explanation": "Import et export peuvent se produire simultanément."
+      },
+      {
+        "content": "Le complexe du pore nucléaire est constitué de nombreuses protéines appelées nucléoporines.",
+        "correct": true,
+        "explanation": "Les nucléoporines s’assemblent en un complexe macromoléculaire traversant l’enveloppe."
+      },
+      {
+        "content": "L’architecture globale du pore présente une symétrie d’ordre huit.",
+        "correct": true,
+        "explanation": "Le complexe du pore possède une organisation annulaire approximativement octogonale."
+      },
+      {
+        "content": "Le canal central participe au transport sélectif des macromolécules.",
+        "correct": true,
+        "explanation": "Les cargos récepteur-dépendants traversent la barrière de nucléoporines FG du canal central."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La cargaison est associée à une machinerie de transport.`,
-      `Exact. C’est le passage actif du pore.`,
-      `Exact. Les protéines entrent et les ARN sortent.`,
-      `Faux. L’eau relève du passage passif.`,
-    ],
+    "explanation": "Le complexe du pore nucléaire est un assemblage de nucléoporines à symétrie approximativement octogonale qui contrôle des transports passifs et récepteur-dépendants dans les deux sens."
   },
   {
-    order: 46,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `En observant la figure :
-
-![Pore nucléaire](/images/training/ue14/biologie-cellulaire/noyau/pore-nucleaire-echanges.png)
-
-Quelle(s) proposition(s) est(sont) correcte(s) ?`,
-    choices: [
-      `Les canaux latéraux sont associés aux passages passifs.`,
-      `Le transporteur central assure les échanges actifs.`,
-      `Les échanges peuvent avoir lieu dans les deux sens.`,
-      `Le pore est fermé à tous les ARN.`,
+    "order": 38,
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "requiredSelectionCount": 2,
+    "question": "Sur le thème « Transport nucléocytoplasmique », sélectionnez exactement 2 propositions exactes.",
+    "choices": [
+      {
+        "content": "Les protéines nucléaires sont synthétisées dans le noyau puis exportées vers le cytosol.",
+        "correct": false,
+        "explanation": "La traduction des protéines nucléaires a lieu dans le cytosol, puis elles sont importées."
+      },
+      {
+        "content": "Les ARN matures sont exportés sous forme de complexes ribonucléoprotéiques.",
+        "correct": true,
+        "explanation": "Leur export est organisé et récepteur-dépendant."
+      },
+      {
+        "content": "Tous les échanges noyau-cytoplasme sont strictement passifs.",
+        "correct": false,
+        "explanation": "Les macromolécules utilisent des transports sélectifs et énergétiquement couplés."
+      },
+      {
+        "content": "Les ARN ribosomaux matures sont importés depuis le cytoplasme pour former le nucléole.",
+        "correct": false,
+        "explanation": "Les ARNr sont synthétisés et maturés dans le noyau, puis les sous-unités ribosomales sont exportées."
+      },
+      {
+        "content": "Le système Ran-GTP/Ran-GDP contribue à la directionnalité de nombreux transports nucléaires.",
+        "correct": true,
+        "explanation": "Le gradient de Ran fournit une asymétrie fonctionnelle entre noyau et cytoplasme."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La figure les montre en périphérie du transporteur central.`,
-      `Exact. Les flèches d’import et d’export y convergent.`,
-      `Exact. Import et export sont représentés simultanément.`,
-      `Faux. Les ARN sont exportés activement.`,
-    ],
+    "explanation": "Les petites molécules peuvent diffuser passivement à travers le pore, alors que de nombreuses macromolécules utilisent des récepteurs de transport et le système Ran pour un transport sélectif."
   },
   {
-    order: 47,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `En observant la figure des expériences de nucléoplasmine :
-
-![Expérience NLS](/images/training/ue14/biologie-cellulaire/noyau/experience-nucleoplasmine-NLS.png)
-
-On peut conclure que :`,
-    choices: [
-      `La partie effilée contient l’information d’import.`,
-      `La partie globulaire peut être retenue dans le noyau si elle y est injectée.`,
-      `La partie globulaire porte seule le NLS.`,
-      `L’expérience complète distingue import et rétention.`,
+    "order": 39,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur « Expérience de la nucléoplasmine », lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "La partie globulaire seule est suffisante pour l’import nucléaire depuis le cytoplasme.",
+        "correct": false,
+        "explanation": "Elle n’assure pas l’import efficace sans la région portant le NLS."
+      },
+      {
+        "content": "L’expérience montre que toute protéine globulaire diffuse librement dans le noyau quelle que soit sa taille.",
+        "correct": false,
+        "explanation": "L’import de macromolécules est sélectif et dépend de signaux et récepteurs."
+      },
+      {
+        "content": "La partie globulaire injectée directement dans le noyau peut y rester.",
+        "correct": true,
+        "explanation": "L’expérience distingue import et rétention nucléaire."
+      },
+      {
+        "content": "La partie globulaire seule injectée dans le cytoplasme ne s’accumule pas efficacement dans le noyau.",
+        "correct": true,
+        "explanation": "Elle ne possède pas le déterminant d’import porté par la région caudale."
+      },
+      {
+        "content": "La région caudale empêche l’entrée de la nucléoplasmine dans le noyau.",
+        "correct": false,
+        "explanation": "Elle contient au contraire le signal nécessaire à l’import."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Elle suffit à diriger une fraction vers le noyau.`,
-      `Exact. L’ancrage ne nécessite pas la partie effilée.`,
-      `Faux. Injectée dans le cytoplasme, elle ne rejoint pas le noyau.`,
-      `Exact. Les injections dans des compartiments différents permettent cette distinction.`,
-    ],
+    "explanation": "Les expériences de micro-injection de nucléoplasmine ont montré qu’un déterminant porté par la région caudale est nécessaire à son import nucléaire, tandis que la région globulaire peut être retenue dans le noyau une fois injectée directement."
   },
   {
-    order: 48,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Le maintien du NLS après l’entrée dans le noyau est utile car :`,
-    choices: [
-      `L’enveloppe nucléaire disparaît au début de la mitose.`,
-      `Les protéines doivent retourner dans le noyau en fin de mitose.`,
-      `Le NLS sert uniquement lors de la première synthèse de la protéine.`,
-      `Le signal n’est pas excisé.`,
+    "order": 40,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Sur le thème « Signal de localisation nucléaire », sélectionnez les affirmations exactes.",
+    "choices": [
+      {
+        "content": "Le NLS du grand antigène T de SV40 est un exemple classique de signal nucléaire basique.",
+        "correct": true,
+        "explanation": "Ce motif a joué un rôle historique dans l’étude de l’adressage nucléaire."
+      },
+      {
+        "content": "Un NLS classique est souvent enrichi en résidus basiques lysine et arginine.",
+        "correct": true,
+        "explanation": "Les importines reconnaissent fréquemment des motifs basiques."
+      },
+      {
+        "content": "Les NLS sont reconnus directement par l’ADN chromosomique sans récepteur de transport.",
+        "correct": false,
+        "explanation": "Des récepteurs d’import, notamment les importines, participent à la reconnaissance et au transport."
+      },
+      {
+        "content": "Tout NLS humain est constitué exactement de cinq acides aminés identiques.",
+        "correct": false,
+        "explanation": "Les NLS ont des séquences et des organisations variables."
+      },
+      {
+        "content": "Le NLS reste généralement présent sur la protéine après son entrée dans le noyau.",
+        "correct": true,
+        "explanation": "Contrairement à de nombreux peptides signaux du RE ou de la mitochondrie, il n’est généralement pas clivé."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Les protéines nucléaires sont alors dispersées dans le cytoplasme.`,
-      `Exact. Le NLS permet une nouvelle importation.`,
-      `Faux. Il reste fonctionnel au cours des cycles cellulaires.`,
-      `Exact. Cette conservation est explicitement mentionnée.`,
-    ],
+    "explanation": "Un NLS est un motif d’adressage reconnu par la machinerie d’import nucléaire ; les NLS classiques sont souvent riches en lysine et arginine et ne sont généralement pas excisés après import."
   },
   {
-    order: 49,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Une protéine nucléaire mutée dans son NLS est observée dans le cytoplasme. Cette observation est cohérente avec :`,
-    choices: [
-      `Une perte de la capacité d’import nucléaire.`,
-      `Une amélioration de l’ancrage dans la matrice nucléaire.`,
-      `Le modèle de l’antigène T de SV40.`,
-      `La disparition obligatoire de tous les pores.`,
-    ],
-    correctChoiceIndexes: [0, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La mutation peut abolir la reconnaissance du signal.`,
-      `Faux. La localisation cytoplasmique traduit surtout un défaut d’entrée.`,
-      `Exact. La substitution Lys/Thr produit ce phénotype.`,
-      `Faux. Un défaut de signal suffit, sans altération générale des pores.`,
-    ],
+    "order": 41,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quelle petite GTPase organise la directionnalité de nombreux transports nucléocytoplasmiques ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "Ran",
+        "Ran GTPase",
+        "GTPase Ran"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "La petite GTPase Ran contribue à imposer la directionnalité de nombreux cycles d’import et d’export nucléocytoplasmiques."
   },
   {
-    order: 50,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Une molécule de grande taille dépourvue de NLS :`,
-    choices: [
-      `A peu de chances d’entrer activement dans le noyau comme une protéine nucléaire.`,
-      `Entre toujours passivement par les canaux latéraux.`,
-      `Peut rester cytoplasmique.`,
-      `Est automatiquement transformée en ARN.`,
-    ],
-    correctChoiceIndexes: [0, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Elle ne peut pas recruter normalement la machinerie d’import.`,
-      `Faux. Le passage passif concerne surtout les petites molécules.`,
-      `Exact. L’absence de signal d’adressage l’empêche d’être ciblée.`,
-      `Faux. La nature de la molécule ne change pas par le pore.`,
-    ],
+    "order": 42,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Quel grand complexe protéique traverse l’enveloppe nucléaire et contrôle les échanges ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "complexe du pore nucléaire",
+        "pore nucléaire",
+        "pore nucleaire",
+        "NPC"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Le complexe du pore nucléaire traverse l’enveloppe et constitue la voie sélective principale des échanges macromoléculaires entre noyau et cytoplasme."
   },
   {
-    order: 51,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une protéine entière entre dans le noyau, sa partie globulaire seule n’y entre pas depuis le cytoplasme mais y reste si on l’y injecte. L’interprétation correcte est :`,
-    choices: [
-      `La partie effilée est nécessaire à l’import.`,
-      `La partie globulaire contribue à la rétention nucléaire.`,
-      `La partie effilée est nécessaire à l’ancrage nucléaire.`,
-      `Import et ancrage sont deux propriétés distinctes.`,
+    "order": 43,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant le thème « Complexe du pore nucléaire », quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Le canal central participe au transport sélectif des macromolécules.",
+        "correct": true,
+        "explanation": "Les cargos récepteur-dépendants traversent la barrière de nucléoporines FG du canal central."
+      },
+      {
+        "content": "Le complexe du pore nucléaire est constitué de nombreuses protéines appelées nucléoporines.",
+        "correct": true,
+        "explanation": "Les nucléoporines s’assemblent en un complexe macromoléculaire traversant l’enveloppe."
+      },
+      {
+        "content": "Les pores nucléaires sont composés uniquement de lipides.",
+        "correct": false,
+        "explanation": "Ce sont de grands complexes protéiques insérés dans l’enveloppe."
+      },
+      {
+        "content": "L’architecture globale du pore présente une symétrie d’ordre huit.",
+        "correct": true,
+        "explanation": "Le complexe du pore possède une organisation annulaire approximativement octogonale."
+      },
+      {
+        "content": "Un même pore peut assurer des transports dans les deux directions.",
+        "correct": true,
+        "explanation": "Import et export peuvent se produire simultanément."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Elle porte le NLS.`,
-      `Exact. Elle reste dans le noyau si elle y est placée.`,
-      `Faux. La globulaire seule y demeure.`,
-      `Exact. Les expériences les dissocient clairement.`,
-    ],
+    "explanation": "Le complexe du pore nucléaire est un assemblage de nucléoporines à symétrie approximativement octogonale qui contrôle des transports passifs et récepteur-dépendants dans les deux sens."
   },
   {
-    order: 52,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une substitution d’un seul acide aminé dans un NLS peut :`,
-    choices: [
-      `Abolir l’import nucléaire.`,
-      `Maintenir la protéine dans le cytoplasme.`,
-      `Être sans aucune conséquence par définition.`,
-      `Fournir un argument expérimental pour localiser le signal d’adressage.`,
+    "order": 44,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant le thème « Transport nucléocytoplasmique » ?",
+    "choices": [
+      {
+        "content": "De petites molécules peuvent traverser passivement le complexe du pore nucléaire.",
+        "correct": true,
+        "explanation": "La diffusion passive est possible pour de petites espèces."
+      },
+      {
+        "content": "Les chromosomes entiers diffusent librement au travers des pores en interphase.",
+        "correct": false,
+        "explanation": "L’ADN chromosomique reste dans le noyau."
+      },
+      {
+        "content": "Tous les échanges noyau-cytoplasme sont strictement passifs.",
+        "correct": false,
+        "explanation": "Les macromolécules utilisent des transports sélectifs et énergétiquement couplés."
+      },
+      {
+        "content": "Les protéines nucléaires de grande taille utilisent souvent des récepteurs d’import.",
+        "correct": true,
+        "explanation": "Les importines reconnaissent des cargos porteurs de signaux d’adressage."
+      },
+      {
+        "content": "Les protéines nucléaires sont synthétisées dans le noyau puis exportées vers le cytosol.",
+        "correct": false,
+        "explanation": "La traduction des protéines nucléaires a lieu dans le cytosol, puis elles sont importées."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Le motif doit être conservé précisément.`,
-      `Exact. C’est le résultat observé pour l’antigène T muté.`,
-      `Faux. La séquence exacte est déterminante.`,
-      `Exact. La comparaison sauvage/mutant établit la fonction du motif.`,
-    ],
-  },
-  {
-    order: 53,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une particule de 20 nm associée à une protéine nucléaire est observée dans un pore simultanément à une particule de 5 nm associée à un ARNt. Cela montre :`,
-    choices: [
-      `La capacité de passage de complexes de tailles différentes.`,
-      `La bidirectionnalité du pore.`,
-      `La simultanéité possible des échanges.`,
-      `L’existence de deux enveloppes nucléaires indépendantes.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Les deux diamètres sont observés.`,
-      `Exact. L’une est importée, l’autre exportée.`,
-      `Exact. Les deux complexes sont vus au même pore.`,
-      `Faux. L’observation concerne un même pore dans une seule enveloppe.`,
-    ],
-  },
-  {
-    order: 54,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Un passage localisé entre deux bras radiaires du pore correspond préférentiellement :`,
-    choices: [
-      `À un canal latéral.`,
-      `À une voie de diffusion passive.`,
-      `Au transporteur central.`,
-      `À un nucléole.`,
-    ],
-    correctChoiceIndexes: [0, 1],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Ces canaux sont définis par les bras radiaires.`,
-      `Exact. Les petites molécules y transitent.`,
-      `Faux. Celui-ci occupe le centre du pore.`,
-      `Faux. Le nucléole est un compartiment intranucléaire sans lien structurel direct avec le pore.`,
-    ],
-  },
-  {
-    order: 55,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Un complexe protéine-importine se déplaçant du cytoplasme vers le noyau utilise :`,
-    choices: [
-      `Un échange actif.`,
-      `Le transporteur central du pore.`,
-      `Les canaux latéraux uniquement.`,
-      `Un signal de localisation nucléaire porté par la cargaison.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La cargaison est associée à un complexe d’importation.`,
-      `Exact. C’est le trajet actif décrit.`,
-      `Faux. Ils concernent surtout les passages passifs.`,
-      `Exact. Le NLS permet la reconnaissance de la protéine nucléaire.`,
-    ],
-  },
-  {
-    order: 56,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Un ARN associé à des protéines quitte le noyau :`,
-    choices: [
-      `Par un échange actif.`,
-      `Via le transporteur central du pore.`,
-      `En traversant librement la bicouche lipidique.`,
-      `Dans le sens noyau-cytoplasme.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. La cargaison utilise une machinerie d’export.`,
-      `Exact. Le cours place les échanges actifs au centre.`,
-      `Faux. L’enveloppe contrôle les échanges via les pores.`,
-      `Exact. C’est le sens de l’export des ARN.`,
-    ],
-  },
-  {
-    order: 57,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Les échanges nucléocytoplasmiques sont qualifiés de contrôlés parce que :`,
-    choices: [
-      `Les pores distinguent petites molécules et complexes.`,
-      `Les protéines nucléaires nécessitent souvent un NLS.`,
-      `Les ARN sont exportés sous forme de complexes.`,
-      `Toutes les molécules traversent selon le même mécanisme.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Les voies passives et actives diffèrent.`,
-      `Exact. L’adressage est spécifique.`,
-      `Exact. L’export n’est pas une fuite libre.`,
-      `Faux. Plusieurs voies et mécanismes sont distingués.`,
-    ],
-  },
-  {
-    order: 58,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une mutation touchant les huit bras radiaires d’un pore pourrait perturber particulièrement :`,
-    choices: [
-      `L’organisation des canaux latéraux.`,
-      `Les passages passifs de petites molécules.`,
-      `La séquence du NLS de toutes les protéines.`,
-      `La structure générale du complexe du pore.`,
-    ],
-    correctChoiceIndexes: [0, 1, 3],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Ils sont définis entre les bras.`,
-      `Exact. Ces passages utilisent les canaux latéraux.`,
-      `Faux. Le NLS appartient aux cargaisons, pas au pore.`,
-      `Exact. Les bras participent à l’échafaudage protéique.`,
-    ],
-  },
-  {
-    order: 59,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `À propos du rôle des pores nucléaires :`,
-    choices: [
-      `Ils assurent l’import de protéines nucléaires.`,
-      `Ils assurent l’export des ARN.`,
-      `Ils permettent également des diffusions passives.`,
-      `Ils laissent sortir l’ADN chromosomique.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Cet import peut être actif.`,
-      `Exact. Les ARN associés à des protéines quittent le noyau.`,
-      `Exact. Les petites molécules empruntent les canaux latéraux.`,
-      `Faux. L’ADN ne sort jamais du noyau.`,
-    ],
-  },
-  {
-    order: 60,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Synthèse de la section :`,
-    choices: [
-      `Le NLS est un signal peptidique d’import nucléaire.`,
-      `Les pores possèdent des voies passives et actives.`,
-      `Les échanges peuvent être bidirectionnels et simultanés.`,
-      `Le trafic nucléaire est purement passif.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les propositions exactes correspondent aux notions explicitement présentées dans la fiche du Tutorat Santé de Reims.`,
-    choiceExplanations: [
-      `Exact. Il est nécessaire à la reconnaissance de nombreuses protéines nucléaires.`,
-      `Exact. Canaux latéraux et transporteur central sont distingués.`,
-      `Exact. L’expérience à l’or colloïdal le démontre.`,
-      `Faux. De nombreuses cargaisons utilisent des complexes actifs.`,
-    ],
-  },
+    "explanation": "Les petites molécules peuvent diffuser passivement à travers le pore, alors que de nombreuses macromolécules utilisent des récepteurs de transport et le système Ran pour un transport sélectif."
+  }
 ];
 
 export const SECTION_B_QUIZZES: SeedQuiz[] = [
   {
-    order: 4,
-    slug: `nucleoplasmine-et-NLS`,
-    title: `Nucléoplasmine et signal NLS`,
-    description: `Expériences historiques, signal d’import et antigène T de SV40.`,
-    stage: 'DISCOVER',
-    sectionOrder: 2,
-    questionOrders: [31, 32, 33, 34, 35, 36, 37, 38, 39, 40],
+    "order": 3,
+    "slug": "noyau-echanges-1",
+    "title": "Adressage nucléaire et nucléoplasmine",
+    "description": "Comprendre les expériences fondatrices et le NLS.",
+    "stage": "DISCOVER",
+    "sectionOrder": 2,
+    "questionOrders": [
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ]
   },
   {
-    order: 5,
-    slug: `pores-et-echanges-nucleocytoplasmiques`,
-    title: `Pores et échanges nucléocytoplasmiques`,
-    description: `Structure du pore, transports passifs et actifs, bidirectionnalité.`,
-    stage: 'PRACTICE',
-    sectionOrder: 2,
-    questionOrders: [41, 42, 43, 44, 45, 46, 47, 48, 49, 50],
-  },
-  {
-    order: 6,
-    slug: `raisonnement-experimental-import-export`,
-    title: `Raisonnement expérimental sur l’import et l’export`,
-    description: `Interprétation de protocoles et conséquences de mutations.`,
-    stage: 'MASTER',
-    sectionOrder: 2,
-    questionOrders: [51, 52, 53, 54, 55, 56, 57, 58, 59, 60],
-  },
+    "order": 4,
+    "slug": "noyau-echanges-2",
+    "title": "Pores et transports nucléocytoplasmiques",
+    "description": "Raisonner sur les transports passifs et actifs.",
+    "stage": "PRACTICE",
+    "sectionOrder": 2,
+    "questionOrders": [
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44
+    ]
+  }
 ];

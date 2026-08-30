@@ -1,697 +1,662 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-export const UE14_BIOCH_CH14_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
+/** UE14 Biochimie — Enzymologie 4.1 — Synthèse — Enzymologie 4.1 */
+export const UE14_BIOCH_CH14_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 101,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse du chapitre — la définition d’un catalyseur / les coenzymes : quelles propositions sont exactes ?",
+    "format": "QRU",
+    "question": "Concernant un catalyseur, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Un catalyseur accélère une réaction chimique.",
-        "correct": true,
-        "explanation": "Le support part de la définition générale d’un catalyseur."
-      },
-      {
-        "content": "Un coenzyme est toujours une chaîne peptidique de 500 kDa.",
+        "content": "Il déplace obligatoirement l'équilibre vers les produits.",
         "correct": false,
-        "explanation": "Les coenzymes sont les cofacteurs organiques."
+        "explanation": "Il accélère les deux sens sans changer Keq."
       },
       {
-        "content": "Un coenzyme est une partie non protéique.",
-        "correct": true,
-        "explanation": "Les coenzymes sont les cofacteurs organiques."
-      },
-      {
-        "content": "Tous les catalyseurs sont obligatoirement des protéines.",
+        "content": "Il rend spontanée une réaction dont le ΔG est positif dans les mêmes conditions.",
         "correct": false,
-        "explanation": "Le support part de la définition générale d’un catalyseur."
+        "explanation": "Un catalyseur ne modifie pas le ΔG de réaction."
+      },
+      {
+        "content": "Il est régénéré au terme du cycle catalytique.",
+        "correct": true,
+        "explanation": "Un catalyseur n'est pas consommé stœchiométriquement par la réaction globale."
+      },
+      {
+        "content": "Il est consommé en quantité équimolaire avec le substrat.",
+        "correct": false,
+        "explanation": "Il est régénéré au cours du cycle."
+      },
+      {
+        "content": "Il augmente l'énergie d'activation de la réaction.",
+        "correct": false,
+        "explanation": "Il la diminue."
       }
     ],
-    "explanation": "Le support part de la définition générale d’un catalyseur. Les coenzymes sont les cofacteurs organiques."
+    "explanation": "Un catalyseur agit sur la cinétique en abaissant l'énergie d'activation ; il ne modifie ni le ΔG global ni la constante d'équilibre."
   },
   {
     "order": 102,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse du chapitre — la spécificité enzymatique / l’ALAT : quelles propositions sont exactes ?",
-    "choices": [
-      {
-        "content": "Elle peut être spécifique du substrat transformé.",
-        "correct": true,
-        "explanation": "La spécificité porte sur réaction et substrat, avec des degrés variables."
-      },
-      {
-        "content": "L’ALAT est une ligase de l’ADN.",
-        "correct": false,
-        "explanation": "L’ALAT illustre une réaction de transamination dépendant du PLP."
-      },
-      {
-        "content": "La fiche décrit aussi la réaction réciproque impliquant glutamate et pyruvate.",
-        "correct": true,
-        "explanation": "L’ALAT illustre une réaction de transamination dépendant du PLP."
-      },
-      {
-        "content": "La fiche affirme que la spécificité est absolue dans tous les cas.",
-        "correct": false,
-        "explanation": "La spécificité porte sur réaction et substrat, avec des degrés variables."
+    "format": "QROC",
+    "question": "Comment appelle-t-on un ARN possédant une activité catalytique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "ribozyme",
+        "un ribozyme"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La spécificité porte sur réaction et substrat, avec des degrés variables. L’ALAT illustre une réaction de transamination dépendant du PLP."
+    },
+    "explanation": "La majorité des enzymes sont protéiques, mais des ARN catalytiques existent : les ribozymes."
   },
   {
     "order": 103,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse du chapitre — les interactions enzyme-substrat / la distinction lyases-ligases selon la fiche : quelles propositions sont exactes ?",
+    "format": "QRU",
+    "question": "Concernant la spécificité enzymatique, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Ces interactions expliquent qu’un substrat puisse être fixé à faible concentration.",
-        "correct": true,
-        "explanation": "De nombreuses interactions non covalentes expliquent l’affinité enzyme-substrat."
-      },
-      {
-        "content": "Les ligases sont décrites comme indépendantes de tout apport énergétique.",
+        "content": "La reconnaissance d'un substrat repose uniquement sur une liaison covalente permanente.",
         "correct": false,
-        "explanation": "La terminologie locale synthases/synthétases est conservée explicitement."
+        "explanation": "Elle repose surtout sur un ensemble d'interactions réversibles."
       },
       {
-        "content": "La fiche appelle les lyases « synthases ».",
+        "content": "La spécificité n'est pas toujours absolue.",
         "correct": true,
-        "explanation": "La terminologie locale synthases/synthétases est conservée explicitement."
+        "explanation": "Certaines enzymes acceptent plusieurs substrats apparentés."
       },
       {
-        "content": "La fixation dépend uniquement de liaisons phosphodiester covalentes irréversibles.",
+        "content": "La spécificité ne dépend jamais de la structure du site actif.",
         "correct": false,
-        "explanation": "De nombreuses interactions non covalentes expliquent l’affinité enzyme-substrat."
+        "explanation": "La géométrie et la chimie du site actif sont déterminantes."
+      },
+      {
+        "content": "Une enzyme protéolytique reconnaît nécessairement toutes les liaisons peptidiques avec la même efficacité.",
+        "correct": false,
+        "explanation": "Les protéases ont des préférences de séquence variables."
+      },
+      {
+        "content": "Toutes les enzymes ne catalysent qu'une seule réaction sur une seule molécule possible sans aucune tolérance.",
+        "correct": false,
+        "explanation": "La spécificité peut être plus ou moins étroite."
       }
     ],
-    "explanation": "De nombreuses interactions non covalentes expliquent l’affinité enzyme-substrat. La terminologie locale synthases/synthétases est conservée explicitement."
+    "explanation": "La spécificité enzymatique concerne à la fois le type de réaction et la reconnaissance du substrat, avec un degré de sélectivité variable."
   },
   {
     "order": 104,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Synthèse du chapitre — les groupements prosthétiques et les cofacteurs labiles / l’énergie d’activation sans enzyme : quelles propositions sont exactes ?",
+    "question": "Concernant l'affinité enzyme-substrat, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Un groupement prosthétique reste fixé en permanence à l’enzyme dans la fiche.",
-        "correct": true,
-        "explanation": "La durée de fixation distingue prosthétique et labile."
-      },
-      {
-        "content": "Sans enzyme, aucune barrière énergétique n’existe.",
+        "content": "L'affinité est nécessairement identique pour tous les analogues d'un substrat.",
         "correct": false,
-        "explanation": "L’énergie d’activation constitue une barrière cinétique."
+        "explanation": "Les variations structurales modifient souvent la liaison."
       },
       {
-        "content": "Une énergie d’activation élevée ralentit fortement la réaction.",
+        "content": "L'affinité dépend du microenvironnement du site de liaison.",
         "correct": true,
-        "explanation": "L’énergie d’activation constitue une barrière cinétique."
+        "explanation": "pH, ionisation et conformation peuvent l'influencer."
       },
       {
-        "content": "Un cofacteur labile est fixé définitivement.",
+        "content": "Elle repose sur de multiples interactions non covalentes entre enzyme et substrat.",
+        "correct": true,
+        "explanation": "La somme de nombreuses interactions peut stabiliser ES."
+      },
+      {
+        "content": "Affinité et vitesse catalytique sont deux notions distinctes.",
+        "correct": true,
+        "explanation": "Une enzyme peut bien lier un substrat sans nécessairement le transformer rapidement."
+      },
+      {
+        "content": "Une forte affinité signifie automatiquement une vitesse maximale élevée.",
         "correct": false,
-        "explanation": "La durée de fixation distingue prosthétique et labile."
+        "explanation": "La liaison et la catalyse sont des propriétés distinctes."
       }
     ],
-    "explanation": "La durée de fixation distingue prosthétique et labile. L’énergie d’activation constitue une barrière cinétique."
+    "explanation": "L'affinité décrit la liaison enzyme-substrat ; elle ne doit pas être confondue avec la vitesse de transformation chimique."
   },
   {
     "order": 105,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse du chapitre — les vitamines B2 et B3 comme précurseurs de coenzymes / le site de fixation et le site catalytique : quelles propositions sont exactes ?",
-    "choices": [
-      {
-        "content": "Les coenzymes flaviniques comme FADH2 dérivent de la vitamine B2.",
-        "correct": true,
-        "explanation": "B3 est reliée aux nicotinamides et B2 aux flavines."
-      },
-      {
-        "content": "Le site catalytique ne contient jamais d’acides aminés.",
-        "correct": false,
-        "explanation": "Le site actif associe reconnaissance/fixation et catalyse."
-      },
-      {
-        "content": "Ces deux composantes appartiennent au site actif.",
-        "correct": true,
-        "explanation": "Le site actif associe reconnaissance/fixation et catalyse."
-      },
-      {
-        "content": "NADH et FADH2 sont exclus des réactions d’oxydo-réduction.",
-        "correct": false,
-        "explanation": "B3 est reliée aux nicotinamides et B2 aux flavines."
+    "format": "QROC",
+    "question": "Comment appelle-t-on la partie protéique seule d'une enzyme nécessitant un cofacteur ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "apoenzyme",
+        "l'apoenzyme"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "B3 est reliée aux nicotinamides et B2 aux flavines. Le site actif associe reconnaissance/fixation et catalyse."
+    },
+    "explanation": "Apoenzyme = partie protéique ; cofacteur = composante non protéique requise ; holoenzyme = ensemble fonctionnel."
   },
   {
     "order": 106,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse du chapitre — les isoenzymes / la régénération de la triade catalytique : quelles propositions sont exactes ?",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes sur les coenzymes et groupements prosthétiques, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "La fiche décrit des sous-unités B et M pour la créatine kinase.",
-        "correct": true,
-        "explanation": "Les isoenzymes illustrent une diversité structurale pour une même activité catalytique."
-      },
-      {
-        "content": "La sérine est éliminée de l’enzyme après chaque cycle.",
+        "content": "NAD+ est nécessairement un groupement prosthétique fixé en permanence.",
         "correct": false,
-        "explanation": "Le mécanisme se termine par la régénération du site catalytique."
+        "explanation": "Il agit fréquemment comme cosubstrat mobile."
       },
       {
-        "content": "Après libération du second produit, la triade catalytique est régénérée.",
+        "content": "Un coenzyme est un cofacteur organique.",
         "correct": true,
-        "explanation": "Le mécanisme se termine par la régénération du site catalytique."
+        "explanation": "NAD+, FAD ou PLP sont des exemples de coenzymes dans différents systèmes."
       },
       {
-        "content": "Des isoenzymes catalysent obligatoirement des réactions différentes.",
+        "content": "FAD est toujours un cosubstrat libre dans toutes les enzymes.",
         "correct": false,
-        "explanation": "Les isoenzymes illustrent une diversité structurale pour une même activité catalytique."
+        "explanation": "Il est souvent fortement lié dans les flavoprotéines."
+      },
+      {
+        "content": "Tout coenzyme est obligatoirement lié covalemment et définitivement à l'enzyme.",
+        "correct": false,
+        "explanation": "Certains sont des cosubstrats diffusibles."
+      },
+      {
+        "content": "FAD peut être fortement lié comme groupement prosthétique dans de nombreuses flavoprotéines.",
+        "correct": true,
+        "explanation": "Ce n'est pas pour autant une règle universelle pour toute flavine."
       }
     ],
-    "explanation": "Les isoenzymes illustrent une diversité structurale pour une même activité catalytique. Le mécanisme se termine par la régénération du site catalytique."
+    "explanation": "Les coenzymes sont des cofacteurs organiques ; certains sont mobiles, d'autres sont fortement liés comme groupements prosthétiques.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 107,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Synthèse du chapitre — l’effet d’une enzyme sur l’énergie d’activation / l’enzyme allostérique monomérique : quelles propositions sont exactes ?",
+    "question": "Quelles propositions décrivent correctement le phosphate de pyridoxal et la vitamine B6 ?",
     "choices": [
       {
-        "content": "L’enzyme diminue considérablement l’énergie d’activation.",
+        "content": "L'ALAT utilise le PLP.",
         "correct": true,
-        "explanation": "La catalyse fractionne le chemin réactionnel en étapes de plus faible énergie d’activation."
+        "explanation": "Elle catalyse une transamination entre alanine/pyruvate et glutamate/alpha-cétoglutarate."
       },
       {
-        "content": "Une enzyme monomérique possède obligatoirement deux sous-unités différentes.",
-        "correct": false,
-        "explanation": "La fiche montre que l’allostérie n’exige pas forcément plusieurs sous-unités."
-      },
-      {
-        "content": "Un activateur se fixe au site de régulation.",
+        "content": "Le PLP dérive de la vitamine B6.",
         "correct": true,
-        "explanation": "La fiche montre que l’allostérie n’exige pas forcément plusieurs sous-unités."
+        "explanation": "La pyridoxine et formes apparentées sont des précurseurs vitaminiques du PLP."
       },
       {
-        "content": "Une enzyme supprime tout complexe enzyme-substrat.",
+        "content": "Le PLP forme des intermédiaires covalents réversibles avec les substrats aminés.",
+        "correct": true,
+        "explanation": "Cette chimie stabilise des intermédiaires réactionnels."
+      },
+      {
+        "content": "Le PLP est un coenzyme majeur des aminotransférases.",
+        "correct": true,
+        "explanation": "Il permet notamment le transfert réversible de groupes aminés."
+      },
+      {
+        "content": "Le PLP dérive de la vitamine C.",
         "correct": false,
-        "explanation": "La catalyse fractionne le chemin réactionnel en étapes de plus faible énergie d’activation."
+        "explanation": "Il dérive de la vitamine B6."
       }
     ],
-    "explanation": "La catalyse fractionne le chemin réactionnel en étapes de plus faible énergie d’activation. La fiche montre que l’allostérie n’exige pas forcément plusieurs sous-unités."
+    "explanation": "Le PLP, dérivé de la vitamine B6, est un coenzyme central des aminotransférases telles que l'ALAT."
   },
   {
     "order": 108,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse du chapitre — la spécificité de la chymotrypsine dans la fiche / la modification covalente comme stratégie de régulation : quelles propositions sont exactes ?",
+    "format": "QRU",
+    "question": "Quelle affirmation décrit correctement les coenzymes NAD et FAD ?",
     "choices": [
       {
-        "content": "La fiche indique qu’elle clive des liaisons Phe-X et Trp-X.",
-        "correct": true,
-        "explanation": "Le support utilise la chymotrypsine comme exemple moléculaire de sérine-protéase."
-      },
-      {
-        "content": "Une modification covalente signifie nécessairement destruction totale de l’enzyme.",
+        "content": "FAD et NAD+ ne participent jamais aux réactions d'oxydoréduction.",
         "correct": false,
-        "explanation": "La fiche distingue modification covalente, dégradation et protéolyse limitée."
+        "explanation": "C'est précisément un de leurs rôles majeurs."
       },
       {
-        "content": "Elle est distincte de la protéolyse limitée dans la classification de la fiche.",
-        "correct": true,
-        "explanation": "La fiche distingue modification covalente, dégradation et protéolyse limitée."
-      },
-      {
-        "content": "Elle ne contient aucune sérine catalytique.",
+        "content": "NAD+ dérive de la vitamine B12.",
         "correct": false,
-        "explanation": "Le support utilise la chymotrypsine comme exemple moléculaire de sérine-protéase."
+        "explanation": "Il dérive de la niacine B3."
+      },
+      {
+        "content": "NADH est la forme oxydée du couple NAD+/NADH.",
+        "correct": false,
+        "explanation": "NADH est la forme réduite."
+      },
+      {
+        "content": "FAD dérive de la vitamine B6.",
+        "correct": false,
+        "explanation": "Il dérive de la riboflavine B2."
+      },
+      {
+        "content": "FAD dérive de la riboflavine, vitamine B2.",
+        "correct": true,
+        "explanation": "Les flavoprotéines utilisent FAD/FADH2 dans des réactions redox."
       }
     ],
-    "explanation": "Le support utilise la chymotrypsine comme exemple moléculaire de sérine-protéase. La fiche distingue modification covalente, dégradation et protéolyse limitée."
+    "explanation": "NAD(P) dérive de la vitamine B3/PP et FAD de la vitamine B2 ; ces coenzymes participent largement aux réactions redox."
   },
   {
     "order": 109,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Synthèse du chapitre : sélectionnez exactement les trois affirmations correctes.",
-    "requiredSelectionCount": 3,
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur la biotine et le thiamine-pyrophosphate, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "L’enzyme diminue considérablement l’énergie d’activation.",
-        "correct": true,
-        "explanation": "La catalyse fractionne le chemin réactionnel en étapes de plus faible énergie d’activation."
-      },
-      {
-        "content": "Le produit peut rester transitoirement complexé à l’enzyme sous forme EP.",
-        "correct": true,
-        "explanation": "La fiche représente le chemin E+S → ES → EP → E+P."
-      },
-      {
-        "content": "L’enzyme peut orienter et attirer le substrat.",
-        "correct": true,
-        "explanation": "La fixation combine effets conformationnels, entropiques et interactions favorables."
-      },
-      {
-        "content": "Le site de fixation assure directement la transcription de l’ADN.",
+        "content": "Le TPP est un ion métallique.",
         "correct": false,
-        "explanation": "Le site actif associe reconnaissance/fixation et catalyse."
+        "explanation": "C'est un coenzyme organique."
       },
       {
-        "content": "Elle clive uniquement Lys-X et Arg-X dans cette partie du support.",
+        "content": "La biotine transporte principalement des groupes phosphate.",
         "correct": false,
-        "explanation": "Le support utilise la chymotrypsine comme exemple moléculaire de sérine-protéase."
+        "explanation": "Elle transporte du CO2 activé."
       },
       {
-        "content": "La triade est localisée sur l’hème.",
+        "content": "Le TPP dérive de la vitamine B2.",
         "correct": false,
-        "explanation": "Ser-His-Asp constitue la triade catalytique présentée."
+        "explanation": "Il dérive de la thiamine B1."
+      },
+      {
+        "content": "Le TPP intervient notamment dans la décarboxylation oxydative des alpha-cétoacides.",
+        "correct": true,
+        "explanation": "Il stabilise un carbanion grâce au noyau thiazolium."
+      },
+      {
+        "content": "Le thiamine-pyrophosphate dérive de la vitamine B1.",
+        "correct": true,
+        "explanation": "Le TPP intervient dans des réactions de transfert de fragments carbonés."
       }
     ],
-    "explanation": "Cette question croise plusieurs repères de la section ; chaque proposition doit être évaluée séparément."
+    "explanation": "Biotine et TPP sont des coenzymes vitaminiques : biotine pour les carboxylations, TPP pour plusieurs transferts/décarboxylations de fragments carbonés."
   },
   {
     "order": 110,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "question": "Synthèse du chapitre : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
-    "choices": [
-      {
-        "content": "Le site de fixation assure la reconnaissance spatiale du substrat.",
-        "correct": true,
-        "explanation": "Le site actif associe reconnaissance/fixation et catalyse."
-      },
-      {
-        "content": "La fiche indique qu’elle clive des liaisons Phe-X et Trp-X.",
-        "correct": true,
-        "explanation": "Le support utilise la chymotrypsine comme exemple moléculaire de sérine-protéase."
-      },
-      {
-        "content": "La triade appartient au site catalytique.",
-        "correct": true,
-        "explanation": "Ser-His-Asp constitue la triade catalytique présentée."
-      },
-      {
-        "content": "La fiche décrit un intermédiaire tétraédrique instable.",
-        "correct": true,
-        "explanation": "La catalyse de la chymotrypsine passe par intermédiaires tétraédriques et acyl-enzyme."
-      },
-      {
-        "content": "La sérine retrouve son état permettant un nouveau cycle.",
-        "correct": true,
-        "explanation": "Le mécanisme se termine par la régénération du site catalytique."
-      },
-      {
-        "content": "Elle exclut la protéolyse limitée.",
-        "correct": false,
-        "explanation": "Cinq stratégies principales de régulation sont listées."
-      },
-      {
-        "content": "Le site allostérique est obligatoirement le site de fixation du substrat.",
-        "correct": false,
-        "explanation": "Un ligand allostérique régule l’enzyme depuis un site spécifique."
-      },
-      {
-        "content": "Un activateur rend nécessairement le site actif inaccessible.",
-        "correct": false,
-        "explanation": "La régulation allostérique peut déplacer l’équilibre entre conformations."
+    "format": "QROC",
+    "question": "Quel type de réaction réalise une aminotransférase ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "transfert d'un groupe amine",
+        "transamination",
+        "transfert de groupe amine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La sélection longue vérifie la maîtrise simultanée de plusieurs notions du chapitre."
+    },
+    "explanation": "La nomenclature fonctionnelle décrit souvent substrat et réaction, tandis que la nomenclature EC classe la réaction de façon structurée."
   },
   {
     "order": 111,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez la catalyse hétérogène et homogène, les exemples de cofacteurs métalliques et organiques et l’énergie d’activation sans enzyme.",
+    "question": "Concernant un catalyseur, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Les catalyseurs insolubles sont associés à la catalyse hétérogène.",
-        "correct": true,
-        "explanation": "La fiche utilise la solubilité pour distinguer catalyse hétérogène et homogène."
-      },
-      {
-        "content": "Le FAD/FADH2 est cité comme groupement prosthétique dans la cholestérol oxydase.",
-        "correct": true,
-        "explanation": "Les exemples illustrent métaux, coenzyme fixé et coenzyme labile."
-      },
-      {
-        "content": "Sans enzyme, aucune barrière énergétique n’existe.",
+        "content": "Il augmente l'énergie d'activation de la réaction.",
         "correct": false,
-        "explanation": "L’énergie d’activation constitue une barrière cinétique."
+        "explanation": "Il la diminue."
       },
       {
-        "content": "La solubilité ne joue aucun rôle dans la distinction proposée.",
+        "content": "Il peut être de nature minérale ou organique.",
+        "correct": true,
+        "explanation": "La catalyse ne se limite pas aux enzymes biologiques."
+      },
+      {
+        "content": "Il est consommé en quantité équimolaire avec le substrat.",
         "correct": false,
-        "explanation": "La fiche utilise la solubilité pour distinguer catalyse hétérogène et homogène."
+        "explanation": "Il est régénéré au cours du cycle."
+      },
+      {
+        "content": "Il est régénéré au terme du cycle catalytique.",
+        "correct": true,
+        "explanation": "Un catalyseur n'est pas consommé stœchiométriquement par la réaction globale."
+      },
+      {
+        "content": "Il accélère l'approche de l'équilibre sans déplacer la position de cet équilibre.",
+        "correct": true,
+        "explanation": "L'équilibre thermodynamique final est inchangé."
       }
     ],
-    "explanation": "La fiche utilise la solubilité pour distinguer catalyse hétérogène et homogène. Les exemples illustrent métaux, coenzyme fixé et coenzyme labile. L’énergie d’activation constitue une barrière cinétique."
+    "explanation": "Un catalyseur agit sur la cinétique en abaissant l'énergie d'activation ; il ne modifie ni le ΔG global ni la constante d'équilibre."
   },
   {
     "order": 112,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez la trypsine, les isoenzymes et les conformations active et inactive.",
-    "choices": [
-      {
-        "content": "La trypsine est une enzyme protéolytique.",
-        "correct": true,
-        "explanation": "Dans l’exemple de spécificité, la trypsine reconnaît Arg-X et Lys-X."
-      },
-      {
-        "content": "La fiche décrit des sous-unités B et M pour la créatine kinase.",
-        "correct": true,
-        "explanation": "Les isoenzymes illustrent une diversité structurale pour une même activité catalytique."
-      },
-      {
-        "content": "Un activateur rend nécessairement le site actif inaccessible.",
-        "correct": false,
-        "explanation": "La régulation allostérique peut déplacer l’équilibre entre conformations."
-      },
-      {
-        "content": "La trypsine ne reconnaît que Trp-X selon cette fiche.",
-        "correct": false,
-        "explanation": "Dans l’exemple de spécificité, la trypsine reconnaît Arg-X et Lys-X."
+    "format": "QROC",
+    "question": "Quelle est la nature macromoléculaire de la majorité des enzymes humaines ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "protéique",
+        "protéine",
+        "protéines"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Dans l’exemple de spécificité, la trypsine reconnaît Arg-X et Lys-X. Les isoenzymes illustrent une diversité structurale pour une même activité catalytique. La régulation allostérique peut déplacer l’équilibre entre conformations."
+    },
+    "explanation": "La majorité des enzymes sont protéiques, mais des ARN catalytiques existent : les ribozymes."
   },
   {
     "order": 113,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez les coenzymes, le site de fixation et le site catalytique et les enzymes protéiques et les ribozymes.",
+    "format": "QRP",
+    "question": "Concernant la spécificité enzymatique, choisissez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "Certains coenzymes dérivent de vitamines alimentaires.",
-        "correct": true,
-        "explanation": "Les coenzymes sont les cofacteurs organiques."
-      },
-      {
-        "content": "Le site de fixation assure la reconnaissance spatiale du substrat.",
-        "correct": true,
-        "explanation": "Le site actif associe reconnaissance/fixation et catalyse."
-      },
-      {
-        "content": "La fiche définit une enzyme comme une molécule dépourvue de pouvoir catalytique.",
+        "content": "La spécificité ne dépend jamais de la structure du site actif.",
         "correct": false,
-        "explanation": "Le ribozyme constitue l’exception ARN à la nature protéique habituelle des enzymes."
+        "explanation": "La géométrie et la chimie du site actif sont déterminantes."
       },
       {
-        "content": "Tous les cofacteurs sont des ions métalliques et aucun n’est organique.",
+        "content": "Elle peut aussi reconnaître préférentiellement certains substrats ou motifs structuraux.",
+        "correct": true,
+        "explanation": "La spécificité de substrat est variable selon l'enzyme."
+      },
+      {
+        "content": "La reconnaissance d'un substrat repose uniquement sur une liaison covalente permanente.",
         "correct": false,
-        "explanation": "Les coenzymes sont les cofacteurs organiques."
+        "explanation": "Elle repose surtout sur un ensemble d'interactions réversibles."
+      },
+      {
+        "content": "Toutes les enzymes ne catalysent qu'une seule réaction sur une seule molécule possible sans aucune tolérance.",
+        "correct": false,
+        "explanation": "La spécificité peut être plus ou moins étroite."
+      },
+      {
+        "content": "Les interactions non covalentes du site actif contribuent à la reconnaissance du substrat.",
+        "correct": true,
+        "explanation": "Liaisons H, interactions ioniques, hydrophobes et Van der Waals peuvent intervenir."
       }
     ],
-    "explanation": "Les coenzymes sont les cofacteurs organiques. Le site actif associe reconnaissance/fixation et catalyse. Le ribozyme constitue l’exception ARN à la nature protéique habituelle des enzymes."
+    "explanation": "La spécificité enzymatique concerne à la fois le type de réaction et la reconnaissance du substrat, avec un degré de sélectivité variable.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 114,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez les vitamines B2 et B3 comme précurseurs de coenzymes, les conformations active et inactive et les exemples de cofacteurs métalliques et organiques.",
+    "question": "Quelles propositions décrivent correctement l'affinité enzyme-substrat ?",
     "choices": [
       {
-        "content": "Les coenzymes NADH/NADPH dérivent de la vitamine PP ou B3 dans la fiche.",
-        "correct": true,
-        "explanation": "B3 est reliée aux nicotinamides et B2 aux flavines."
-      },
-      {
-        "content": "Un ligand activateur peut favoriser une conformation active.",
-        "correct": true,
-        "explanation": "La régulation allostérique peut déplacer l’équilibre entre conformations."
-      },
-      {
-        "content": "La phosphotriestérase ne contient aucun métal dans l’exemple.",
+        "content": "L'affinité est indépendante de toute interaction moléculaire.",
         "correct": false,
-        "explanation": "Les exemples illustrent métaux, coenzyme fixé et coenzyme labile."
+        "explanation": "Elle résulte précisément des interactions enzyme-substrat."
       },
       {
-        "content": "NADH et FADH2 sont exclus des réactions d’oxydo-réduction.",
-        "correct": false,
-        "explanation": "B3 est reliée aux nicotinamides et B2 aux flavines."
+        "content": "Affinité et vitesse catalytique sont deux notions distinctes.",
+        "correct": true,
+        "explanation": "Une enzyme peut bien lier un substrat sans nécessairement le transformer rapidement."
+      },
+      {
+        "content": "L'affinité dépend du microenvironnement du site de liaison.",
+        "correct": true,
+        "explanation": "pH, ionisation et conformation peuvent l'influencer."
+      },
+      {
+        "content": "Une forte affinité peut permettre une fixation efficace à faible concentration de substrat.",
+        "correct": true,
+        "explanation": "La concentration requise dépend cependant du système étudié."
+      },
+      {
+        "content": "Elle repose sur de multiples interactions non covalentes entre enzyme et substrat.",
+        "correct": true,
+        "explanation": "La somme de nombreuses interactions peut stabiliser ES."
       }
     ],
-    "explanation": "B3 est reliée aux nicotinamides et B2 aux flavines. La régulation allostérique peut déplacer l’équilibre entre conformations. Les exemples illustrent métaux, coenzyme fixé et coenzyme labile."
+    "explanation": "L'affinité décrit la liaison enzyme-substrat ; elle ne doit pas être confondue avec la vitesse de transformation chimique."
   },
   {
     "order": 115,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez le modèle clé-serrure de Fisher, la protéolyse limitée et l’effet d’une enzyme sur l’énergie d’activation.",
+    "format": "QRU",
+    "question": "Concernant les notions d'apoenzyme, cofacteur et holoenzyme, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Il repose sur une complémentarité géométrique préexistante entre enzyme et substrat.",
-        "correct": true,
-        "explanation": "Fisher représente une adaptation parfaite dès le départ."
-      },
-      {
-        "content": "Ce mécanisme est particulièrement illustré par des enzymes digestives.",
-        "correct": true,
-        "explanation": "La protéolyse limitée transforme certains précurseurs inactifs en enzymes actives."
-      },
-      {
-        "content": "Une enzyme supprime tout complexe enzyme-substrat.",
+        "content": "L'apoenzyme désigne uniquement le cofacteur métallique.",
         "correct": false,
-        "explanation": "La catalyse fractionne le chemin réactionnel en étapes de plus faible énergie d’activation."
+        "explanation": "Elle désigne la partie protéique."
       },
       {
-        "content": "Le modèle de Fisher suppose un ajustement induit après fixation.",
+        "content": "Certaines enzymes fonctionnent sans cofacteur supplémentaire.",
+        "correct": true,
+        "explanation": "La présence d'un cofacteur n'est pas une propriété universelle."
+      },
+      {
+        "content": "Un cofacteur est nécessairement une protéine.",
         "correct": false,
-        "explanation": "Fisher représente une adaptation parfaite dès le départ."
+        "explanation": "Il est par définition non protéique dans ce contexte."
+      },
+      {
+        "content": "Une holoenzyme est une enzyme dont on a retiré son cofacteur.",
+        "correct": false,
+        "explanation": "C'est au contraire l'ensemble complet fonctionnel."
+      },
+      {
+        "content": "Toutes les enzymes ont obligatoirement un cofacteur.",
+        "correct": false,
+        "explanation": "Certaines n'en nécessitent pas."
       }
     ],
-    "explanation": "Fisher représente une adaptation parfaite dès le départ. La protéolyse limitée transforme certains précurseurs inactifs en enzymes actives. La catalyse fractionne le chemin réactionnel en étapes de plus faible énergie d’activation."
+    "explanation": "Apoenzyme = partie protéique ; cofacteur = composante non protéique requise ; holoenzyme = ensemble fonctionnel."
   },
   {
     "order": 116,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez les effets entropiques et interactions lors de la fixation, la subtilisine et l’enzyme allostérique monomérique.",
+    "question": "Parmi les affirmations suivantes sur les coenzymes et groupements prosthétiques, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "L’enzyme peut orienter et attirer le substrat.",
-        "correct": true,
-        "explanation": "La fixation combine effets conformationnels, entropiques et interactions favorables."
-      },
-      {
-        "content": "La subtilisine est d’origine bactérienne dans la fiche.",
-        "correct": true,
-        "explanation": "La subtilisine illustre une protéase à faible spécificité."
-      },
-      {
-        "content": "L’activateur détruit systématiquement le site actif.",
+        "content": "FAD est toujours un cosubstrat libre dans toutes les enzymes.",
         "correct": false,
-        "explanation": "La fiche montre que l’allostérie n’exige pas forcément plusieurs sous-unités."
+        "explanation": "Il est souvent fortement lié dans les flavoprotéines."
       },
       {
-        "content": "Aucune interaction non covalente n’intervient.",
+        "content": "Tout coenzyme est obligatoirement lié covalemment et définitivement à l'enzyme.",
         "correct": false,
-        "explanation": "La fixation combine effets conformationnels, entropiques et interactions favorables."
+        "explanation": "Certains sont des cosubstrats diffusibles."
+      },
+      {
+        "content": "FAD peut être fortement lié comme groupement prosthétique dans de nombreuses flavoprotéines.",
+        "correct": true,
+        "explanation": "Ce n'est pas pour autant une règle universelle pour toute flavine."
+      },
+      {
+        "content": "Un groupement prosthétique est toujours un ion métallique libre.",
+        "correct": false,
+        "explanation": "Il peut être organique ou métallique et est fortement associé."
+      },
+      {
+        "content": "Un groupement prosthétique est lié très fortement, souvent durablement, à la protéine.",
+        "correct": true,
+        "explanation": "La liaison peut être covalente ou non covalente mais très stable."
       }
     ],
-    "explanation": "La fixation combine effets conformationnels, entropiques et interactions favorables. La subtilisine illustre une protéase à faible spécificité. La fiche montre que l’allostérie n’exige pas forcément plusieurs sous-unités."
+    "explanation": "Les coenzymes sont des cofacteurs organiques ; certains sont mobiles, d'autres sont fortement liés comme groupements prosthétiques."
   },
   {
     "order": 117,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Maîtrise de synthèse — Quel terme désigne l’association de l’apoenzyme et de son cofacteur ?",
+    "question": "De quelle vitamine dérive le phosphate de pyridoxal ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
-        "holoenzyme",
-        "holo-enzyme"
+        "vitamine B6",
+        "B6",
+        "pyridoxine"
       ],
       "normalization": {
         "trim": true,
-        "caseSensitive": false,
         "collapseWhitespace": true,
+        "caseSensitive": false,
         "ignoreAccents": true
       }
     },
-    "explanation": "La terminologie distingue partie protéique, partie non protéique et complexe fonctionnel."
+    "explanation": "Le PLP, dérivé de la vitamine B6, est un coenzyme central des aminotransférases telles que l'ALAT."
   },
   {
     "order": 118,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez l’enzyme allostérique dimérique, la distinction lyases-ligases selon la fiche et le PLP et la vitamine B6.",
+    "question": "Concernant les coenzymes NAD et FAD, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La fixation du ligand régulateur entraîne un changement de conformation.",
+        "content": "NADP+ est chimiquement proche de NAD+ mais possède un phosphate supplémentaire.",
         "correct": true,
-        "explanation": "La régulation peut être transmise entre sous-unités."
+        "explanation": "Cette différence contribue à la spécialisation métabolique des couples NAD(H) et NADP(H)."
       },
       {
-        "content": "Les ligases mettent en place des liaisons entre deux molécules et nécessitent généralement de l’énergie avec hydrolyse d’ATP ou d’un autre nucléotide.",
+        "content": "NAD+ dérive de la vitamine B12.",
+        "correct": false,
+        "explanation": "Il dérive de la niacine B3."
+      },
+      {
+        "content": "FAD dérive de la riboflavine, vitamine B2.",
         "correct": true,
-        "explanation": "La terminologie locale synthases/synthétases est conservée explicitement."
+        "explanation": "Les flavoprotéines utilisent FAD/FADH2 dans des réactions redox."
       },
       {
-        "content": "Le PLP est le principal ion du canal CFTR.",
+        "content": "FAD dérive de la vitamine B6.",
         "correct": false,
-        "explanation": "Le PLP est un coenzyme dérivé de la vitamine B6 impliqué dans les transaminations."
+        "explanation": "Il dérive de la riboflavine B2."
       },
       {
-        "content": "Les deux sous-unités sont décrites comme indépendantes sans communication.",
-        "correct": false,
-        "explanation": "La régulation peut être transmise entre sous-unités."
+        "content": "NADH et FADH2 sont des formes réduites de leurs couples respectifs.",
+        "correct": true,
+        "explanation": "Ils transportent des équivalents réducteurs."
       }
     ],
-    "explanation": "La régulation peut être transmise entre sous-unités. La terminologie locale synthases/synthétases est conservée explicitement. Le PLP est un coenzyme dérivé de la vitamine B6 impliqué dans les transaminations."
+    "explanation": "NAD(P) dérive de la vitamine B3/PP et FAD de la vitamine B2 ; ces coenzymes participent largement aux réactions redox."
   },
   {
     "order": 119,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez la protéolyse limitée, les effets entropiques et interactions lors de la fixation et les complexes ES et EP.",
+    "question": "Concernant la biotine et le thiamine-pyrophosphate, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Ce mécanisme est particulièrement illustré par des enzymes digestives.",
+        "content": "Le TPP intervient notamment dans la décarboxylation oxydative des alpha-cétoacides.",
         "correct": true,
-        "explanation": "La protéolyse limitée transforme certains précurseurs inactifs en enzymes actives."
+        "explanation": "Il stabilise un carbanion grâce au noyau thiazolium."
       },
       {
-        "content": "La fixation augmente l’ordre du système dans le modèle de la fiche.",
+        "content": "La biotine est appelée vitamine B8 en nomenclature française usuelle.",
         "correct": true,
-        "explanation": "La fixation combine effets conformationnels, entropiques et interactions favorables."
+        "explanation": "Elle est aussi appelée vitamine B7 dans de nombreuses nomenclatures internationales."
       },
       {
-        "content": "Le produit est toujours lié irréversiblement à l’enzyme.",
-        "correct": false,
-        "explanation": "La fiche représente le chemin E+S → ES → EP → E+P."
+        "content": "La biotine transfère du CO2 activé dans les réactions de carboxylation.",
+        "correct": true,
+        "explanation": "Les carboxylases biotine-dépendantes créent des liaisons C-C."
       },
       {
-        "content": "Les zymogènes sont présentés comme déjà pleinement actifs.",
+        "content": "La biotine transporte principalement des groupes phosphate.",
         "correct": false,
-        "explanation": "La protéolyse limitée transforme certains précurseurs inactifs en enzymes actives."
+        "explanation": "Elle transporte du CO2 activé."
+      },
+      {
+        "content": "Le thiamine-pyrophosphate dérive de la vitamine B1.",
+        "correct": true,
+        "explanation": "Le TPP intervient dans des réactions de transfert de fragments carbonés."
       }
     ],
-    "explanation": "La protéolyse limitée transforme certains précurseurs inactifs en enzymes actives. La fixation combine effets conformationnels, entropiques et interactions favorables. La fiche représente le chemin E+S → ES → EP → E+P."
+    "explanation": "Biotine et TPP sont des coenzymes vitaminiques : biotine pour les carboxylations, TPP pour plusieurs transferts/décarboxylations de fragments carbonés."
   },
   {
     "order": 120,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez le pouvoir catalytique des enzymes, le site allostérique et l’enzyme allostérique dimérique.",
-    "choices": [
-      {
-        "content": "La fiche indique une accélération d’au moins 10^6 pour les réactions biologiques.",
-        "correct": true,
-        "explanation": "Les exemples illustrent des gains considérables de vitesse."
-      },
-      {
-        "content": "Un ligand allostérique peut modifier l’activité enzymatique.",
-        "correct": true,
-        "explanation": "Un ligand allostérique régule l’enzyme depuis un site spécifique."
-      },
-      {
-        "content": "Les deux sous-unités sont décrites comme indépendantes sans communication.",
-        "correct": false,
-        "explanation": "La régulation peut être transmise entre sous-unités."
-      },
-      {
-        "content": "L’anhydrase carbonique est une immunoglobuline.",
-        "correct": false,
-        "explanation": "Les exemples illustrent des gains considérables de vitesse."
+    "format": "QROC",
+    "question": "Quel suffixe est fréquent dans les noms fonctionnels d'enzymes ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "-ase",
+        "ase"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les exemples illustrent des gains considérables de vitesse. Un ligand allostérique régule l’enzyme depuis un site spécifique. La régulation peut être transmise entre sous-unités."
+    },
+    "explanation": "La nomenclature fonctionnelle décrit souvent substrat et réaction, tandis que la nomenclature EC classe la réaction de façon structurée."
   },
   {
     "order": 121,
     "difficulty": "HARD",
     "format": "QRP",
-    "question": "Maîtrise de synthèse : sélectionnez exactement les trois affirmations correctes.",
-    "requiredSelectionCount": 3,
+    "question": "Parmi les affirmations suivantes sur le numéro EC, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "La fiche illustre une très haute spécificité par la thrombine.",
+        "content": "Un numéro EC comporte quatre niveaux numériques séparés par des points.",
         "correct": true,
-        "explanation": "La thrombine illustre une spécificité très élevée dans le support."
+        "explanation": "La forme générale est EC x.x.x.x."
       },
       {
-        "content": "Des liaisons ioniques et hydrogène peuvent contribuer à la fixation.",
+        "content": "Le quatrième nombre est toujours la masse moléculaire en kDa.",
+        "correct": false,
+        "explanation": "C'est un numéro d'ordre/entrée dans la sous-sous-classe."
+      },
+      {
+        "content": "Le premier chiffre ne peut prendre que les valeurs 1 à 6 dans la classification actuelle.",
+        "correct": false,
+        "explanation": "La classe EC 7 des translocases existe."
+      },
+      {
+        "content": "Tout numéro se terminant par 99 signifie universellement que l'enzyme est mal caractérisée.",
+        "correct": false,
+        "explanation": "Le suffixe 99 sert souvent à une catégorie « autres » dans une subdivision, pas à une règle générale d'incomplétude."
+      },
+      {
+        "content": "Le numéro EC classe une activité enzymatique selon la réaction catalysée.",
         "correct": true,
-        "explanation": "De nombreuses interactions non covalentes expliquent l’affinité enzyme-substrat."
-      },
-      {
-        "content": "L’affinité est distincte de la notion de vitesse catalytique.",
-        "correct": true,
-        "explanation": "La fiche relie forte affinité et fixation à très faibles concentrations."
-      },
-      {
-        "content": "L’apoenzyme est la partie glucidique d’une immunoglobuline.",
-        "correct": false,
-        "explanation": "La terminologie distingue partie protéique, partie non protéique et complexe fonctionnel."
-      },
-      {
-        "content": "Tous les cofacteurs sont des ions métalliques et aucun n’est organique.",
-        "correct": false,
-        "explanation": "Les coenzymes sont les cofacteurs organiques."
-      },
-      {
-        "content": "La fiche ne distingue aucune modalité de fixation des cofacteurs.",
-        "correct": false,
-        "explanation": "La durée de fixation distingue prosthétique et labile."
+        "explanation": "Des protéines différentes peuvent partager une activité EC."
       }
     ],
-    "explanation": "Cette question croise plusieurs repères de la section ; chaque proposition doit être évaluée séparément."
+    "explanation": "Le numéro EC x.x.x.x classe une activité enzymatique selon la réaction ; la classification actuelle comporte sept classes principales.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 122,
     "difficulty": "HARD",
-    "format": "QRPL",
-    "question": "Maîtrise de synthèse : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
-    "choices": [
-      {
-        "content": "Un groupement prosthétique reste fixé en permanence à l’enzyme dans la fiche.",
-        "correct": true,
-        "explanation": "La durée de fixation distingue prosthétique et labile."
-      },
-      {
-        "content": "Le FAD/FADH2 est cité comme groupement prosthétique dans la cholestérol oxydase.",
-        "correct": true,
-        "explanation": "Les exemples illustrent métaux, coenzyme fixé et coenzyme labile."
-      },
-      {
-        "content": "Les enzymes concernées sont des transaminases ou aminotransférases.",
-        "correct": true,
-        "explanation": "Le PLP est un coenzyme dérivé de la vitamine B6 impliqué dans les transaminations."
-      },
-      {
-        "content": "L’ALAT est une alanine aminotransférase.",
-        "correct": true,
-        "explanation": "L’ALAT illustre une réaction de transamination dépendant du PLP."
-      },
-      {
-        "content": "Les coenzymes flaviniques comme FADH2 dérivent de la vitamine B2.",
-        "correct": true,
-        "explanation": "B3 est reliée aux nicotinamides et B2 aux flavines."
-      },
-      {
-        "content": "La nomenclature EC classe les protéines selon leur couleur.",
-        "correct": false,
-        "explanation": "La fiche décrit un code EC X1.X2.X3.X4."
-      },
-      {
-        "content": "La classe 1 correspond aux immunoglobulines.",
-        "correct": false,
-        "explanation": "La fiche enseigne six grandes classes EC selon la réaction."
-      },
-      {
-        "content": "Les ligases ne forment jamais de liaison entre deux molécules.",
-        "correct": false,
-        "explanation": "La terminologie locale synthases/synthétases est conservée explicitement."
+    "format": "QROC",
+    "question": "Quel type de réaction catalyse une déshydrogénase ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "oxydoréduction",
+        "réaction redox",
+        "transfert d'électrons ou d'hydrogènes"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La sélection longue vérifie la maîtrise simultanée de plusieurs notions du chapitre."
+    },
+    "explanation": "EC 1 regroupe les oxydoréductases, dont de nombreuses déshydrogénases."
   }
 ];

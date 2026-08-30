@@ -1,649 +1,665 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-export const UE14_BIOCH_CH12_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
+/** UE14 Biochimie — Rôles biologiques des protéines, partie 1 — Section A — Protection : immunoglobulines */
+export const UE14_BIOCH_CH12_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 1,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant l’importance générale des protéines :",
+    "question": "Concernant les immunoglobulines, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Les protéines peuvent représenter environ la moitié du poids sec d’une cellule.",
+        "content": "Ce sont des glycoprotéines de la réponse immunitaire adaptative.",
         "correct": true,
-        "explanation": "Les protéines sont à la fois abondantes et essentielles à la majorité des fonctions cellulaires."
+        "explanation": "Les anticorps appartiennent à la famille des immunoglobulines."
       },
       {
-        "content": "Les protéines ne jouent qu’un rôle structural.",
-        "correct": false,
-        "explanation": "Les protéines sont à la fois abondantes et essentielles à la majorité des fonctions cellulaires."
-      },
-      {
-        "content": "Les protéines participent à pratiquement toutes les fonctions cellulaires.",
+        "content": "Elles reconnaissent des déterminants antigéniques appelés épitopes.",
         "correct": true,
-        "explanation": "Les protéines sont à la fois abondantes et essentielles à la majorité des fonctions cellulaires."
+        "explanation": "Un anticorps ne reconnaît qu'une partie précise d'un antigène."
       },
       {
-        "content": "Les protéines constituent une fraction négligeable du poids sec cellulaire.",
+        "content": "Une immunoglobuline reconnaît obligatoirement l'intégralité d'un antigène.",
         "correct": false,
-        "explanation": "Les protéines sont à la fois abondantes et essentielles à la majorité des fonctions cellulaires."
+        "explanation": "La reconnaissance porte sur un épitope."
+      },
+      {
+        "content": "Les immunoglobulines sont des triacylglycérols.",
+        "correct": false,
+        "explanation": "Ce sont des protéines glycosylées."
+      },
+      {
+        "content": "Les immunoglobulines appartiennent à l'immunité innée exclusivement.",
+        "correct": false,
+        "explanation": "Elles sont des effecteurs majeurs de l'immunité adaptative."
       }
     ],
-    "explanation": "Les protéines sont à la fois abondantes et essentielles à la majorité des fonctions cellulaires."
+    "explanation": "Une immunoglobuline reconnaît un épitope précis porté par un antigène."
   },
   {
     "order": 2,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle proposition décrit correctement l’antigène et l’épitope ?",
+    "question": "Parmi les affirmations suivantes concernant la structure H2L2 d'une immunoglobuline, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Un épitope peut correspondre à une séquence protéique ou à une conformation particulière.",
+        "content": "L'unité immunoglobuline classique comporte deux chaînes lourdes et deux chaînes légères.",
         "correct": true,
-        "explanation": "L’épitope est le motif effectivement reconnu par l’anticorps."
+        "explanation": "La structure de base est H2L2."
       },
       {
-        "content": "Un antigène ne peut contenir qu’un seul épitope.",
+        "content": "La classe d'Ig est définie par la chaîne légère.",
         "correct": false,
-        "explanation": "L’épitope est le motif effectivement reconnu par l’anticorps."
+        "explanation": "Elle est définie par la chaîne lourde."
       },
       {
-        "content": "Un épitope est obligatoirement un lipide.",
+        "content": "L'unité de base comporte trois chaînes lourdes et une légère.",
         "correct": false,
-        "explanation": "L’épitope est le motif effectivement reconnu par l’anticorps."
+        "explanation": "La structure de base est H2L2."
       },
       {
-        "content": "Une immunoglobuline reconnaît nécessairement la totalité d’un antigène.",
+        "content": "Les quatre chaînes sont reliées uniquement par des liaisons peptidiques continues.",
         "correct": false,
-        "explanation": "L’épitope est le motif effectivement reconnu par l’anticorps."
+        "explanation": "Les chaînes distinctes sont notamment associées par des ponts disulfure."
+      },
+      {
+        "content": "Une immunoglobuline ne comporte aucune région variable.",
+        "correct": false,
+        "explanation": "Les régions variables sont essentielles à la reconnaissance antigénique."
       }
     ],
-    "explanation": "L’épitope est le motif effectivement reconnu par l’anticorps."
+    "explanation": "L'unité de base d'une immunoglobuline est H2L2 : deux chaînes lourdes et deux chaînes légères."
   },
   {
     "order": 3,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Repères fondamentaux sur la structure H2L2 des immunoglobulines :",
-    "choices": [
-      {
-        "content": "Des ponts disulfure unissent les chaînes.",
-        "correct": true,
-        "explanation": "Une immunoglobuline conventionnelle associe deux chaînes lourdes identiques et deux chaînes légères identiques : H2L2."
-      },
-      {
-        "content": "Les chaînes ne sont jamais reliées par des ponts disulfure.",
-        "correct": false,
-        "explanation": "Une immunoglobuline conventionnelle associe deux chaînes lourdes identiques et deux chaînes légères identiques : H2L2."
-      },
-      {
-        "content": "Une immunoglobuline comporte deux chaînes lourdes identiques.",
-        "correct": true,
-        "explanation": "Une immunoglobuline conventionnelle associe deux chaînes lourdes identiques et deux chaînes légères identiques : H2L2."
-      },
-      {
-        "content": "Une immunoglobuline comporte quatre chaînes lourdes.",
-        "correct": false,
-        "explanation": "Une immunoglobuline conventionnelle associe deux chaînes lourdes identiques et deux chaînes légères identiques : H2L2."
-      }
-    ],
-    "explanation": "Une immunoglobuline conventionnelle associe deux chaînes lourdes identiques et deux chaînes légères identiques : H2L2."
-  },
-  {
-    "order": 4,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Parmi les propositions suivantes sur les classes d’immunoglobulines, lesquelles sont exactes ?",
-    "choices": [
-      {
-        "content": "Les cinq classes d’immunoglobulines sont IgA, IgD, IgE, IgG et IgM.",
-        "correct": true,
-        "explanation": "La classe dépend de la chaîne lourde."
-      },
-      {
-        "content": "La classe d’une immunoglobuline est définie uniquement par sa chaîne légère.",
-        "correct": false,
-        "explanation": "La classe dépend de la chaîne lourde."
-      },
-      {
-        "content": "Les classes sont définies par la nature de la chaîne lourde.",
-        "correct": true,
-        "explanation": "La classe dépend de la chaîne lourde."
-      },
-      {
-        "content": "Il n’existe que deux classes d’immunoglobulines.",
-        "correct": false,
-        "explanation": "La classe dépend de la chaîne lourde."
-      }
-    ],
-    "explanation": "La classe dépend de la chaîne lourde."
-  },
-  {
-    "order": 5,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Concernant les chaînes légères κ et λ :",
-    "choices": [
-      {
-        "content": "Une chaîne légère comporte des régions constante et variable.",
-        "correct": true,
-        "explanation": "Chez l’être humain, les chaînes légères sont de type κ ou λ."
-      },
-      {
-        "content": "κ et λ sont des chaînes lourdes.",
-        "correct": false,
-        "explanation": "Chez l’être humain, les chaînes légères sont de type κ ou λ."
-      },
-      {
-        "content": "V désigne une région toujours identique entre anticorps.",
-        "correct": false,
-        "explanation": "Chez l’être humain, les chaînes légères sont de type κ ou λ."
-      },
-      {
-        "content": "Il n’existe qu’un seul type de chaîne légère humaine.",
-        "correct": false,
-        "explanation": "Chez l’être humain, les chaînes légères sont de type κ ou λ."
-      }
-    ],
-    "explanation": "Chez l’être humain, les chaînes légères sont de type κ ou λ."
-  },
-  {
-    "order": 6,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Quelles propositions décrivent correctement les associations monomériques et multimériques des immunoglobulines ?",
-    "choices": [
-      {
-        "content": "IgM peut être pentamérique.",
-        "correct": true,
-        "explanation": "IgD, IgE et IgG sont généralement monomériques ; l’IgA sécrétoire est souvent dimérique et l’IgM sécrétée classiquement pentamérique."
-      },
-      {
-        "content": "IgA ne peut jamais former de dimère.",
-        "correct": false,
-        "explanation": "IgD, IgE et IgG sont généralement monomériques ; l’IgA sécrétoire est souvent dimérique et l’IgM sécrétée classiquement pentamérique."
-      },
-      {
-        "content": "IgD, IgE et IgG sont généralement monomériques.",
-        "correct": true,
-        "explanation": "IgD, IgE et IgG sont généralement monomériques ; l’IgA sécrétoire est souvent dimérique et l’IgM sécrétée classiquement pentamérique."
-      },
-      {
-        "content": "L’IgM sécrétée est strictement monomérique.",
-        "correct": false,
-        "explanation": "IgD, IgE et IgG sont généralement monomériques ; l’IgA sécrétoire est souvent dimérique et l’IgM sécrétée classiquement pentamérique."
-      }
-    ],
-    "explanation": "IgD, IgE et IgG sont généralement monomériques ; l’IgA sécrétoire est souvent dimérique et l’IgM sécrétée classiquement pentamérique."
-  },
-  {
-    "order": 7,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Repères fondamentaux sur le peptide J :",
-    "choices": [
-      {
-        "content": "Le peptide J relie les sous-unités de l’IgA dimérique.",
-        "correct": true,
-        "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM."
-      },
-      {
-        "content": "Le peptide J définit la classe IgG.",
-        "correct": false,
-        "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM."
-      },
-      {
-        "content": "Le peptide J intervient aussi dans l’IgM pentamérique.",
-        "correct": true,
-        "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM."
-      },
-      {
-        "content": "Le peptide J remplace les chaînes légères.",
-        "correct": false,
-        "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM."
-      }
-    ],
-    "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM."
-  },
-  {
-    "order": 8,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Dans le modèle d’une IgG, quelle proposition sur l’organisation modulaire est exacte ?",
-    "choices": [
-      {
-        "content": "La chaîne lourde comporte les domaines VH, CH1, CH2 et CH3.",
-        "correct": true,
-        "explanation": "Une immunoglobuline est organisée en domaines variables et constants stabilisés par des ponts disulfure."
-      },
-      {
-        "content": "La chaîne lourde ne possède aucune région variable.",
-        "correct": false,
-        "explanation": "Une immunoglobuline est organisée en domaines variables et constants stabilisés par des ponts disulfure."
-      },
-      {
-        "content": "Les immunoglobulines ne contiennent aucun domaine stabilisé par pont disulfure.",
-        "correct": false,
-        "explanation": "Une immunoglobuline est organisée en domaines variables et constants stabilisés par des ponts disulfure."
-      },
-      {
-        "content": "La chaîne légère comporte quatre domaines CH.",
-        "correct": false,
-        "explanation": "Une immunoglobuline est organisée en domaines variables et constants stabilisés par des ponts disulfure."
-      }
-    ],
-    "explanation": "Une immunoglobuline est organisée en domaines variables et constants stabilisés par des ponts disulfure."
-  },
-  {
-    "order": 9,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant les fragments Fab après action de la papaïne :",
-    "choices": [
-      {
-        "content": "Les Fab comprennent une chaîne légère et la partie N-terminale d’une chaîne lourde.",
-        "correct": true,
-        "explanation": "Le clivage par papaïne sépare deux Fab liant l’antigène et un Fc."
-      },
-      {
-        "content": "Le Fab est incapable de participer à la reconnaissance antigénique.",
-        "correct": false,
-        "explanation": "Le clivage par papaïne sépare deux Fab liant l’antigène et un Fc."
-      },
-      {
-        "content": "La papaïne produit deux fragments Fab à partir d’une IgG.",
-        "correct": true,
-        "explanation": "Le clivage par papaïne sépare deux Fab liant l’antigène et un Fc."
-      },
-      {
-        "content": "La papaïne ne modifie jamais une IgG.",
-        "correct": false,
-        "explanation": "Le clivage par papaïne sépare deux Fab liant l’antigène et un Fc."
-      }
-    ],
-    "explanation": "Le clivage par papaïne sépare deux Fab liant l’antigène et un Fc."
-  },
-  {
-    "order": 10,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Quelles propositions décrivent correctement le fragment Fc ?",
-    "choices": [
-      {
-        "content": "Le fragment Fc est formé des parties C-terminales des deux chaînes lourdes.",
-        "correct": true,
-        "explanation": "Le Fc assure des fonctions effectrices distinctes de la liaison antigénique."
-      },
-      {
-        "content": "Le Fc est le seul fragment qui reconnaît directement l’épitope par ses régions variables.",
-        "correct": false,
-        "explanation": "Le Fc assure des fonctions effectrices distinctes de la liaison antigénique."
-      },
-      {
-        "content": "Le Fc participe à l’interaction avec le complément.",
-        "correct": true,
-        "explanation": "Le Fc assure des fonctions effectrices distinctes de la liaison antigénique."
-      },
-      {
-        "content": "Le Fc est constitué des deux chaînes légères seules.",
-        "correct": false,
-        "explanation": "Le Fc assure des fonctions effectrices distinctes de la liaison antigénique."
-      }
-    ],
-    "explanation": "Le Fc assure des fonctions effectrices distinctes de la liaison antigénique."
-  },
-  {
-    "order": 11,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Application : quelles propositions relatives à la structure H2L2 des immunoglobulines sont correctes ?",
-    "choices": [
-      {
-        "content": "Une immunoglobuline comporte deux chaînes légères identiques.",
-        "correct": true,
-        "explanation": "Une immunoglobuline conventionnelle associe deux chaînes lourdes identiques et deux chaînes légères identiques : H2L2."
-      },
-      {
-        "content": "La structure générale est H4L1.",
-        "correct": false,
-        "explanation": "Une immunoglobuline conventionnelle associe deux chaînes lourdes identiques et deux chaînes légères identiques : H2L2."
-      },
-      {
-        "content": "Des ponts disulfure unissent les chaînes.",
-        "correct": true,
-        "explanation": "Une immunoglobuline conventionnelle associe deux chaînes lourdes identiques et deux chaînes légères identiques : H2L2."
-      },
-      {
-        "content": "Les chaînes ne sont jamais reliées par des ponts disulfure.",
-        "correct": false,
-        "explanation": "Une immunoglobuline conventionnelle associe deux chaînes lourdes identiques et deux chaînes légères identiques : H2L2."
-      }
-    ],
-    "explanation": "Une immunoglobuline conventionnelle associe deux chaînes lourdes identiques et deux chaînes légères identiques : H2L2."
-  },
-  {
-    "order": 12,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Dans une situation d’application, quelle affirmation sur les classes d’immunoglobulines faut-il retenir ?",
-    "choices": [
-      {
-        "content": "Les chaînes lourdes α, δ, ε, γ et μ correspondent respectivement à IgA, IgD, IgE, IgG et IgM.",
-        "correct": true,
-        "explanation": "La classe dépend de la chaîne lourde."
-      },
-      {
-        "content": "IgG est définie par une chaîne lourde μ.",
-        "correct": false,
-        "explanation": "La classe dépend de la chaîne lourde."
-      },
-      {
-        "content": "La classe d’une immunoglobuline est définie uniquement par sa chaîne légère.",
-        "correct": false,
-        "explanation": "La classe dépend de la chaîne lourde."
-      },
-      {
-        "content": "Il n’existe que deux classes d’immunoglobulines.",
-        "correct": false,
-        "explanation": "La classe dépend de la chaîne lourde."
-      }
-    ],
-    "explanation": "La classe dépend de la chaîne lourde."
-  },
-  {
-    "order": 13,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Quelles affirmations sur les chaînes légères κ et λ sont exactes ?",
-    "choices": [
-      {
-        "content": "Chez l’être humain, les chaînes légères sont de type κ ou λ.",
-        "correct": true,
-        "explanation": "Chez l’être humain, les chaînes légères sont de type κ ou λ."
-      },
-      {
-        "content": "Il n’existe qu’un seul type de chaîne légère humaine.",
-        "correct": false,
-        "explanation": "Chez l’être humain, les chaînes légères sont de type κ ou λ."
-      },
-      {
-        "content": "Une chaîne légère comporte des régions constante et variable.",
-        "correct": true,
-        "explanation": "Chez l’être humain, les chaînes légères sont de type κ ou λ."
-      },
-      {
-        "content": "κ et λ sont des chaînes lourdes.",
-        "correct": false,
-        "explanation": "Chez l’être humain, les chaînes légères sont de type κ ou λ."
-      }
-    ],
-    "explanation": "Chez l’être humain, les chaînes légères sont de type κ ou λ."
-  },
-  {
-    "order": 14,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Application : quelles propositions relatives aux associations monomériques et multimériques des immunoglobulines sont correctes ?",
-    "choices": [
-      {
-        "content": "IgA peut être dimérique.",
-        "correct": true,
-        "explanation": "IgD, IgE et IgG sont généralement monomériques ; l’IgA sécrétoire est souvent dimérique et l’IgM sécrétée classiquement pentamérique."
-      },
-      {
-        "content": "IgG est obligatoirement pentamérique.",
-        "correct": false,
-        "explanation": "IgD, IgE et IgG sont généralement monomériques ; l’IgA sécrétoire est souvent dimérique et l’IgM sécrétée classiquement pentamérique."
-      },
-      {
-        "content": "IgA ne peut jamais former de dimère.",
-        "correct": false,
-        "explanation": "IgD, IgE et IgG sont généralement monomériques ; l’IgA sécrétoire est souvent dimérique et l’IgM sécrétée classiquement pentamérique."
-      },
-      {
-        "content": "L’IgM sécrétée est strictement monomérique.",
-        "correct": false,
-        "explanation": "IgD, IgE et IgG sont généralement monomériques ; l’IgA sécrétoire est souvent dimérique et l’IgM sécrétée classiquement pentamérique."
-      }
-    ],
-    "explanation": "IgD, IgE et IgG sont généralement monomériques ; l’IgA sécrétoire est souvent dimérique et l’IgM sécrétée classiquement pentamérique."
-  },
-  {
-    "order": 15,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Dans une situation d’application, quelles affirmations sur le peptide J faut-il retenir ?",
-    "choices": [
-      {
-        "content": "Le peptide J participe donc à des associations multimériques.",
-        "correct": true,
-        "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM."
-      },
-      {
-        "content": "Le peptide J est un domaine transmembranaire du récepteur à l’insuline.",
-        "correct": false,
-        "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM."
-      },
-      {
-        "content": "Le peptide J relie les sous-unités de l’IgA dimérique.",
-        "correct": true,
-        "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM."
-      },
-      {
-        "content": "Le peptide J définit la classe IgG.",
-        "correct": false,
-        "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM."
-      }
-    ],
-    "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM."
-  },
-  {
-    "order": 16,
-    "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Réponse numérique : combien de chaînes peptidiques possède une immunoglobuline H2L2 ?",
+    "question": "Combien de chaînes polypeptidiques comporte l'unité H2L2 d'une immunoglobuline ?",
     "answer": {
       "type": "number",
       "value": 4,
       "tolerance": 0
     },
-    "explanation": "Une immunoglobuline conventionnelle associe deux chaînes lourdes identiques et deux chaînes légères identiques : H2L2."
+    "explanation": "L'unité de base d'une immunoglobuline est H2L2 : deux chaînes lourdes et deux chaînes légères."
+  },
+  {
+    "order": 4,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant les chaînes légères des immunoglobulines humaines, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Les seules chaînes légères humaines sont alpha et gamma.",
+        "correct": false,
+        "explanation": "α et γ sont des chaînes lourdes."
+      },
+      {
+        "content": "La chaîne légère ne possède aucun domaine variable.",
+        "correct": false,
+        "explanation": "Elle possède un domaine VL."
+      },
+      {
+        "content": "Les chaînes légères comportent un domaine variable et un domaine constant.",
+        "correct": true,
+        "explanation": "VL et CL composent la chaîne légère classique."
+      },
+      {
+        "content": "Les chaînes légères participent au site de liaison à l'antigène.",
+        "correct": true,
+        "explanation": "Le domaine VL contribue au paratope."
+      },
+      {
+        "content": "Une même immunoglobuline possède deux chaînes légères de même type.",
+        "correct": true,
+        "explanation": "Elle ne mélange pas une κ et une λ au sein d'une même molécule."
+      }
+    ],
+    "explanation": "Les chaînes légères humaines sont κ ou λ ; la classe de l'Ig dépend en revanche de la chaîne lourde."
+  },
+  {
+    "order": 5,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant les domaines d'immunoglobuline, laquelle est correcte ?",
+    "choices": [
+      {
+        "content": "Les domaines variables sont situés vers les extrémités N-terminales des chaînes.",
+        "correct": true,
+        "explanation": "VH et VL forment ensemble les sites de liaison antigénique."
+      },
+      {
+        "content": "Un domaine d'Ig est formé de sept domaines bêta distincts.",
+        "correct": false,
+        "explanation": "Il s'agit de brins bêta organisés en feuillets, pas de sept domaines."
+      },
+      {
+        "content": "Les domaines variables sont situés exclusivement aux extrémités C-terminales.",
+        "correct": false,
+        "explanation": "Ils sont N-terminaux."
+      },
+      {
+        "content": "Les domaines d'Ig sont dépourvus de toute structure secondaire bêta.",
+        "correct": false,
+        "explanation": "Ils sont au contraire riches en brins bêta."
+      },
+      {
+        "content": "Le repliement immunoglobuline est une unique hélice alpha.",
+        "correct": false,
+        "explanation": "Il s'agit d'un sandwich bêta."
+      }
+    ],
+    "explanation": "Un domaine d'immunoglobuline est un module compact en sandwich bêta, et non une succession de « domaines bêta »."
+  },
+  {
+    "order": 6,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "question": "Concernant les fragments Fab et Fc d'une IgG, sélectionnez exactement les deux affirmations exactes.",
+    "choices": [
+      {
+        "content": "La papaïne produit un seul Fab et deux Fc.",
+        "correct": false,
+        "explanation": "Elle produit deux Fab et un Fc."
+      },
+      {
+        "content": "Chaque fragment Fab conserve un site de liaison à l'antigène.",
+        "correct": true,
+        "explanation": "Fab signifie fragment antigen binding."
+      },
+      {
+        "content": "Le Fc peut interagir avec des récepteurs Fc et des éléments du complément selon la classe.",
+        "correct": true,
+        "explanation": "Il ne porte pas le site antigénique principal."
+      },
+      {
+        "content": "Le Fc contient les deux sites de reconnaissance antigénique.",
+        "correct": false,
+        "explanation": "Ils se trouvent dans les Fab."
+      },
+      {
+        "content": "Fab signifie fragment activating beta.",
+        "correct": false,
+        "explanation": "Fab signifie antigen binding."
+      }
+    ],
+    "explanation": "La papaïne clive classiquement une IgG en 2 Fab capables de lier l'antigène et 1 Fc effecteur.",
+    "requiredSelectionCount": 2
+  },
+  {
+    "order": 7,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant les formes moléculaires d'IgA et d'IgM, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "L'IgA sérique humaine est majoritairement monomérique.",
+        "correct": true,
+        "explanation": "La forme circulante diffère de la forme sécrétoire."
+      },
+      {
+        "content": "La chaîne J est une chaîne lourde gamma.",
+        "correct": false,
+        "explanation": "C'est une petite chaîne distincte participant à certains polymères d'Ig."
+      },
+      {
+        "content": "L'IgM membranaire du lymphocyte B est monomérique.",
+        "correct": true,
+        "explanation": "La forme récepteur membranaire diffère de l'IgM sécrétée."
+      },
+      {
+        "content": "L'IgA sécrétoire est le plus souvent dimérique.",
+        "correct": true,
+        "explanation": "Deux unités sont reliées notamment par une chaîne J et associées à un composant sécrétoire."
+      },
+      {
+        "content": "L'IgM sécrétée est classiquement pentamérique.",
+        "correct": true,
+        "explanation": "Une chaîne J participe à l'assemblage des formes sécrétées usuelles."
+      }
+    ],
+    "explanation": "Il faut distinguer l'IgA sérique, surtout monomérique, de l'IgA sécrétoire, surtout dimérique ; l'IgM sécrétée est classiquement pentamérique."
+  },
+  {
+    "order": 8,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Combien de grandes classes d'immunoglobulines humaines distingue-t-on classiquement ?",
+    "answer": {
+      "type": "number",
+      "value": 5,
+      "tolerance": 0
+    },
+    "explanation": "Les cinq classes IgA, IgD, IgE, IgG et IgM sont définies par leurs chaînes lourdes."
+  },
+  {
+    "order": 9,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant les immunoglobulines ?",
+    "choices": [
+      {
+        "content": "Les immunoglobulines sont des triacylglycérols.",
+        "correct": false,
+        "explanation": "Ce sont des protéines glycosylées."
+      },
+      {
+        "content": "Un antigène ne peut porter qu'un seul épitope.",
+        "correct": false,
+        "explanation": "Il peut en porter plusieurs."
+      },
+      {
+        "content": "Une immunoglobuline reconnaît obligatoirement l'intégralité d'un antigène.",
+        "correct": false,
+        "explanation": "La reconnaissance porte sur un épitope."
+      },
+      {
+        "content": "Ce sont des glycoprotéines de la réponse immunitaire adaptative.",
+        "correct": true,
+        "explanation": "Les anticorps appartiennent à la famille des immunoglobulines."
+      },
+      {
+        "content": "Les immunoglobulines appartiennent à l'immunité innée exclusivement.",
+        "correct": false,
+        "explanation": "Elles sont des effecteurs majeurs de l'immunité adaptative."
+      }
+    ],
+    "explanation": "Une immunoglobuline reconnaît un épitope précis porté par un antigène."
+  },
+  {
+    "order": 10,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant la structure H2L2 d'une immunoglobuline, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Les quatre chaînes sont reliées uniquement par des liaisons peptidiques continues.",
+        "correct": false,
+        "explanation": "Les chaînes distinctes sont notamment associées par des ponts disulfure."
+      },
+      {
+        "content": "L'unité de base comporte trois chaînes lourdes et une légère.",
+        "correct": false,
+        "explanation": "La structure de base est H2L2."
+      },
+      {
+        "content": "Une immunoglobuline ne comporte aucune région variable.",
+        "correct": false,
+        "explanation": "Les régions variables sont essentielles à la reconnaissance antigénique."
+      },
+      {
+        "content": "L'unité immunoglobuline classique comporte deux chaînes lourdes et deux chaînes légères.",
+        "correct": true,
+        "explanation": "La structure de base est H2L2."
+      },
+      {
+        "content": "Chaque chaîne possède une région variable et une région constante.",
+        "correct": true,
+        "explanation": "Les régions variables participent à la reconnaissance de l'antigène."
+      }
+    ],
+    "explanation": "L'unité de base d'une immunoglobuline est H2L2 : deux chaînes lourdes et deux chaînes légères."
+  },
+  {
+    "order": 11,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant les immunoglobulines, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Elles reconnaissent des déterminants antigéniques appelés épitopes.",
+        "correct": true,
+        "explanation": "Un anticorps ne reconnaît qu'une partie précise d'un antigène."
+      },
+      {
+        "content": "Ce sont des glycoprotéines de la réponse immunitaire adaptative.",
+        "correct": true,
+        "explanation": "Les anticorps appartiennent à la famille des immunoglobulines."
+      },
+      {
+        "content": "Les antigènes reconnus peuvent être de nature chimique variée.",
+        "correct": true,
+        "explanation": "Protéines, glycoconjugués ou autres structures peuvent porter des épitopes."
+      },
+      {
+        "content": "Les immunoglobulines sont des triacylglycérols.",
+        "correct": false,
+        "explanation": "Ce sont des protéines glycosylées."
+      },
+      {
+        "content": "Une immunoglobuline reconnaît obligatoirement l'intégralité d'un antigène.",
+        "correct": false,
+        "explanation": "La reconnaissance porte sur un épitope."
+      }
+    ],
+    "explanation": "Une immunoglobuline reconnaît un épitope précis porté par un antigène."
+  },
+  {
+    "order": 12,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Combien de chaînes polypeptidiques comporte l'unité H2L2 d'une immunoglobuline ?",
+    "answer": {
+      "type": "number",
+      "value": 4,
+      "tolerance": 0
+    },
+    "explanation": "L'unité de base d'une immunoglobuline est H2L2 : deux chaînes lourdes et deux chaînes légères."
+  },
+  {
+    "order": 13,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant les classes d'immunoglobulines humaines ?",
+    "choices": [
+      {
+        "content": "Il existe seulement trois classes d'immunoglobulines humaines.",
+        "correct": false,
+        "explanation": "On en distingue cinq."
+      },
+      {
+        "content": "IgM est définie par une chaîne lourde kappa.",
+        "correct": false,
+        "explanation": "κ est un type de chaîne légère."
+      },
+      {
+        "content": "Les cinq grandes classes sont IgA, IgD, IgE, IgG et IgM.",
+        "correct": true,
+        "explanation": "Elles correspondent à cinq isotypes de chaînes lourdes."
+      },
+      {
+        "content": "IgE est définie par une chaîne lourde bêta.",
+        "correct": false,
+        "explanation": "IgE possède une chaîne lourde ε."
+      },
+      {
+        "content": "IgG est définie par une chaîne lourde delta.",
+        "correct": false,
+        "explanation": "δ définit IgD."
+      }
+    ],
+    "explanation": "Les cinq classes IgA, IgD, IgE, IgG et IgM sont définies par leurs chaînes lourdes."
+  },
+  {
+    "order": 14,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant les chaînes légères des immunoglobulines humaines, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Les deux types de chaînes légères sont kappa et lambda.",
+        "correct": true,
+        "explanation": "Une immunoglobuline donnée porte l'un ou l'autre type."
+      },
+      {
+        "content": "Les chaînes légères participent au site de liaison à l'antigène.",
+        "correct": true,
+        "explanation": "Le domaine VL contribue au paratope."
+      },
+      {
+        "content": "Une même immunoglobuline possède deux chaînes légères de même type.",
+        "correct": true,
+        "explanation": "Elle ne mélange pas une κ et une λ au sein d'une même molécule."
+      },
+      {
+        "content": "Les chaînes légères définissent les classes IgG, IgM et IgA.",
+        "correct": false,
+        "explanation": "Ce sont les chaînes lourdes qui définissent la classe."
+      },
+      {
+        "content": "Les chaînes légères comportent un domaine variable et un domaine constant.",
+        "correct": true,
+        "explanation": "VL et CL composent la chaîne légère classique."
+      }
+    ],
+    "explanation": "Les chaînes légères humaines sont κ ou λ ; la classe de l'Ig dépend en revanche de la chaîne lourde."
+  },
+  {
+    "order": 15,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quelle forme moléculaire de l'IgA humaine est majoritaire dans le sérum ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "monomère",
+        "monomérique",
+        "IgA monomérique",
+        "monomerique"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Il faut distinguer l'IgA sérique, surtout monomérique, de l'IgA sécrétoire, surtout dimérique ; l'IgM sécrétée est classiquement pentamérique."
+  },
+  {
+    "order": 16,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant les fragments Fab et Fc d'une IgG ?",
+    "choices": [
+      {
+        "content": "La papaïne transforme l'IgG en acides aminés libres uniquement.",
+        "correct": false,
+        "explanation": "Le clivage limité produit de grands fragments fonctionnels."
+      },
+      {
+        "content": "Le Fc contient les deux sites de reconnaissance antigénique.",
+        "correct": false,
+        "explanation": "Ils se trouvent dans les Fab."
+      },
+      {
+        "content": "Chaque fragment Fab conserve un site de liaison à l'antigène.",
+        "correct": true,
+        "explanation": "Fab signifie fragment antigen binding."
+      },
+      {
+        "content": "Le Fc peut interagir avec des récepteurs Fc et des éléments du complément selon la classe.",
+        "correct": true,
+        "explanation": "Il ne porte pas le site antigénique principal."
+      },
+      {
+        "content": "Fab signifie fragment activating beta.",
+        "correct": false,
+        "explanation": "Fab signifie antigen binding."
+      }
+    ],
+    "explanation": "La papaïne clive classiquement une IgG en 2 Fab capables de lier l'antigène et 1 Fc effecteur."
   },
   {
     "order": 17,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Une IgG est clivée par la papaïne avant une expérience de liaison à un antigène. Quelles propositions sur les fragments Fab sont exactes ?",
-    "choices": [
-      {
-        "content": "Chaque Fab peut encore lier l’antigène.",
-        "correct": true,
-        "explanation": "Le clivage par papaïne sépare deux Fab liant l’antigène et un Fc."
-      },
-      {
-        "content": "Le fragment Fab correspond uniquement aux parties C-terminales des deux chaînes lourdes.",
-        "correct": false,
-        "explanation": "Le clivage par papaïne sépare deux Fab liant l’antigène et un Fc."
-      },
-      {
-        "content": "Les Fab comprennent une chaîne légère et la partie N-terminale d’une chaîne lourde.",
-        "correct": true,
-        "explanation": "Le clivage par papaïne sépare deux Fab liant l’antigène et un Fc."
-      },
-      {
-        "content": "Le Fab est incapable de participer à la reconnaissance antigénique.",
-        "correct": false,
-        "explanation": "Le clivage par papaïne sépare deux Fab liant l’antigène et un Fc."
+    "format": "QROC",
+    "question": "Quelle forme moléculaire domine pour l'IgA sécrétoire humaine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "dimère",
+        "dimérique",
+        "IgA dimérique",
+        "dimerique"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le clivage par papaïne sépare deux Fab liant l’antigène et un Fc."
+    },
+    "explanation": "Il faut distinguer l'IgA sérique, surtout monomérique, de l'IgA sécrétoire, surtout dimérique ; l'IgM sécrétée est classiquement pentamérique."
   },
   {
     "order": 18,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Dans une situation d’application, quelle affirmation sur le fragment Fc faut-il retenir ?",
-    "choices": [
+    "format": "QZONE",
+    "question": "Sur ce schéma simplifié d'une IgG, cliquez sur la région Fc.",
+    "image": {
+      "src": "/images/training/ue14/biochimie/roles-biologiques-proteines-partie-1/igg-fab-fc-qzone.svg",
+      "alt": "Schéma original en Y d'une immunoglobuline G avec les deux bras Fab et la tige Fc",
+      "width": 1000,
+      "height": 700
+    },
+    "expectedZones": [
       {
-        "content": "Le Fc intervient dans la fixation des Ig à la surface cellulaire et leur transport.",
-        "correct": true,
-        "explanation": "Le Fc assure des fonctions effectrices distinctes de la liaison antigénique."
-      },
-      {
-        "content": "Le Fc est absent après clivage d’une IgG par la papaïne.",
-        "correct": false,
-        "explanation": "Le Fc assure des fonctions effectrices distinctes de la liaison antigénique."
-      },
-      {
-        "content": "Le Fc est le seul fragment qui reconnaît directement l’épitope par ses régions variables.",
-        "correct": false,
-        "explanation": "Le Fc assure des fonctions effectrices distinctes de la liaison antigénique."
-      },
-      {
-        "content": "Le Fc est constitué des deux chaînes légères seules.",
-        "correct": false,
-        "explanation": "Le Fc assure des fonctions effectrices distinctes de la liaison antigénique."
+        "id": "fc",
+        "label": "Région Fc",
+        "x": 0.5,
+        "y": 0.73,
+        "tolerance": 0.12
       }
     ],
-    "explanation": "Le Fc assure des fonctions effectrices distinctes de la liaison antigénique."
+    "explanation": "Le fragment Fc correspond à la tige de l'IgG, formée par les régions C-terminales des deux chaînes lourdes ; les bras portent les fragments Fab."
   },
   {
     "order": 19,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Quelle immunoglobuline sécrétée est classiquement pentamérique ?",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "IgM",
-        "igm",
-        "Ig M"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant les immunoglobulines ?",
+    "choices": [
+      {
+        "content": "Un même antigène peut porter plusieurs épitopes différents.",
+        "correct": true,
+        "explanation": "Plusieurs clones lymphocytaires peuvent donc reconnaître un même antigène."
+      },
+      {
+        "content": "Les antigènes reconnus peuvent être de nature chimique variée.",
+        "correct": true,
+        "explanation": "Protéines, glycoconjugués ou autres structures peuvent porter des épitopes."
+      },
+      {
+        "content": "Une immunoglobuline reconnaît obligatoirement l'intégralité d'un antigène.",
+        "correct": false,
+        "explanation": "La reconnaissance porte sur un épitope."
+      },
+      {
+        "content": "Les immunoglobulines appartiennent à l'immunité innée exclusivement.",
+        "correct": false,
+        "explanation": "Elles sont des effecteurs majeurs de l'immunité adaptative."
+      },
+      {
+        "content": "Ce sont des glycoprotéines de la réponse immunitaire adaptative.",
+        "correct": true,
+        "explanation": "Les anticorps appartiennent à la famille des immunoglobulines."
       }
-    },
-    "explanation": "IgD, IgE et IgG sont généralement monomériques ; l’IgA sécrétoire est souvent dimérique et l’IgM sécrétée classiquement pentamérique."
+    ],
+    "explanation": "Une immunoglobuline reconnaît un épitope précis porté par un antigène."
   },
   {
     "order": 20,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Lors d’un test immunologique, un anticorps se fixe sur un motif précis d’une protéine. Quelle proposition sur l’antigène et l’épitope est correcte ?",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Un épitope peut correspondre à une séquence protéique ou à une conformation particulière.",
+        "content": "Un domaine d'immunoglobuline est un module d'environ une centaine de résidus.",
         "correct": true,
-        "explanation": "L’épitope est le motif effectivement reconnu par l’anticorps."
+        "explanation": "La longueur exacte varie selon le type de domaine."
       },
       {
-        "content": "Un antigène ne peut contenir qu’un seul épitope.",
+        "content": "Les quatre chaînes sont reliées uniquement par des liaisons peptidiques continues.",
         "correct": false,
-        "explanation": "L’épitope est le motif effectivement reconnu par l’anticorps."
+        "explanation": "Les chaînes distinctes sont notamment associées par des ponts disulfure."
       },
       {
-        "content": "Un épitope est obligatoirement un lipide.",
-        "correct": false,
-        "explanation": "L’épitope est le motif effectivement reconnu par l’anticorps."
+        "content": "Les deux chaînes lourdes d'une même molécule sont de même classe.",
+        "correct": true,
+        "explanation": "La classe d'Ig est définie par la nature de la chaîne lourde."
       },
       {
-        "content": "Une immunoglobuline reconnaît nécessairement la totalité d’un antigène.",
+        "content": "Les chaînes sont reliées par des ponts disulfure.",
+        "correct": true,
+        "explanation": "Des liaisons S–S stabilisent l'assemblage."
+      },
+      {
+        "content": "Une immunoglobuline ne comporte aucune région variable.",
         "correct": false,
-        "explanation": "L’épitope est le motif effectivement reconnu par l’anticorps."
+        "explanation": "Les régions variables sont essentielles à la reconnaissance antigénique."
+      },
+      {
+        "content": "Un pont disulfure intradomaine stabilise de nombreux domaines d'Ig.",
+        "correct": true,
+        "explanation": "Des cystéines conservées participent à cette stabilisation."
+      },
+      {
+        "content": "L'unité de base comporte trois chaînes lourdes et une légère.",
+        "correct": false,
+        "explanation": "La structure de base est H2L2."
+      },
+      {
+        "content": "Le repliement immunoglobuline est une unique hélice alpha.",
+        "correct": false,
+        "explanation": "Il s'agit d'un sandwich bêta."
+      },
+      {
+        "content": "Le repliement immunoglobuline est un sandwich bêta.",
+        "correct": true,
+        "explanation": "Il comprend typiquement 7 à 9 brins bêta répartis en deux feuillets."
+      },
+      {
+        "content": "Un domaine d'Ig est formé de sept domaines bêta distincts.",
+        "correct": false,
+        "explanation": "Il s'agit de brins bêta organisés en feuillets, pas de sept domaines."
       }
     ],
-    "explanation": "L’épitope est le motif effectivement reconnu par l’anticorps."
+    "explanation": "L'unité de base d'une immunoglobuline est H2L2 : deux chaînes lourdes et deux chaînes légères. Un domaine d'immunoglobuline est un module compact en sandwich bêta, et non une succession de « domaines bêta »."
   },
   {
     "order": 21,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Autour de l’importance générale des protéines : sélectionnez exactement les trois affirmations correctes parmi les propositions suivantes.",
-    "requiredSelectionCount": 3,
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes concernant les classes d'immunoglobulines humaines, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "Les protéines peuvent représenter environ la moitié du poids sec d’une cellule.",
+        "content": "IgA possède une chaîne lourde alpha.",
         "correct": true,
-        "explanation": "Les protéines sont à la fois abondantes et essentielles à la majorité des fonctions cellulaires."
+        "explanation": "La chaîne α définit IgA."
       },
       {
-        "content": "Un épitope peut correspondre à une séquence protéique ou à une conformation particulière.",
-        "correct": true,
-        "explanation": "L’épitope est le motif effectivement reconnu par l’anticorps."
-      },
-      {
-        "content": "Des ponts disulfure unissent les chaînes.",
-        "correct": true,
-        "explanation": "Une immunoglobuline conventionnelle associe deux chaînes lourdes identiques et deux chaînes légères identiques : H2L2."
-      },
-      {
-        "content": "La classe d’une immunoglobuline est définie uniquement par sa chaîne légère.",
+        "content": "IgE est définie par une chaîne lourde bêta.",
         "correct": false,
-        "explanation": "La classe dépend de la chaîne lourde."
+        "explanation": "IgE possède une chaîne lourde ε."
+      },
+      {
+        "content": "Les cinq grandes classes sont IgA, IgD, IgE, IgG et IgM.",
+        "correct": true,
+        "explanation": "Elles correspondent à cinq isotypes de chaînes lourdes."
+      },
+      {
+        "content": "IgM possède une chaîne lourde mu.",
+        "correct": true,
+        "explanation": "La chaîne μ définit IgM."
+      },
+      {
+        "content": "IgG possède une chaîne lourde gamma.",
+        "correct": true,
+        "explanation": "La chaîne γ définit IgG."
       }
     ],
-    "explanation": "Cette question croise plusieurs repères de la section ; chaque proposition doit être évaluée séparément."
+    "explanation": "Les cinq classes IgA, IgD, IgE, IgG et IgM sont définies par leurs chaînes lourdes."
   },
   {
     "order": 22,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "question": "Consolidation de l’importance générale des protéines : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
-    "choices": [
-      {
-        "content": "Une immunoglobuline reconnaît une partie de l’antigène appelée épitope.",
-        "correct": true,
-        "explanation": "L’épitope est le motif effectivement reconnu par l’anticorps."
-      },
-      {
-        "content": "Une immunoglobuline comporte deux chaînes légères identiques.",
-        "correct": true,
-        "explanation": "Une immunoglobuline conventionnelle associe deux chaînes lourdes identiques et deux chaînes légères identiques : H2L2."
-      },
-      {
-        "content": "Les chaînes lourdes α, δ, ε, γ et μ correspondent respectivement à IgA, IgD, IgE, IgG et IgM.",
-        "correct": true,
-        "explanation": "La classe dépend de la chaîne lourde."
-      },
-      {
-        "content": "Chez l’être humain, les chaînes légères sont de type κ ou λ.",
-        "correct": true,
-        "explanation": "Chez l’être humain, les chaînes légères sont de type κ ou λ."
-      },
-      {
-        "content": "IgA peut être dimérique.",
-        "correct": true,
-        "explanation": "IgD, IgE et IgG sont généralement monomériques ; l’IgA sécrétoire est souvent dimérique et l’IgM sécrétée classiquement pentamérique."
-      },
-      {
-        "content": "Le peptide J est un domaine transmembranaire du récepteur à l’insuline.",
-        "correct": false,
-        "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM."
-      },
-      {
-        "content": "La chaîne légère comporte quatre domaines CH.",
-        "correct": false,
-        "explanation": "Une immunoglobuline est organisée en domaines variables et constants stabilisés par des ponts disulfure."
-      },
-      {
-        "content": "Le fragment Fab correspond uniquement aux parties C-terminales des deux chaînes lourdes.",
-        "correct": false,
-        "explanation": "Le clivage par papaïne sépare deux Fab liant l’antigène et un Fc."
-      },
-      {
-        "content": "Une immunoglobuline H2L2 ne comporte aucune chaîne légère.",
-        "correct": false,
-        "explanation": "Une immunoglobuline conventionnelle associe deux chaînes lourdes identiques et deux chaînes légères identiques : H2L2."
-      },
-      {
-        "content": "Le peptide J constitue le site de liaison de l’antigène sur toutes les immunoglobulines.",
-        "correct": false,
-        "explanation": "Le peptide J est associé aux formes multimériques IgA et IgM."
+    "format": "QROC",
+    "question": "Quels sont les deux types de chaînes légères humaines ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "kappa et lambda",
+        "κ et λ",
+        "kappa/lambda"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La sélection longue vérifie la maîtrise simultanée de plusieurs notions du chapitre."
+    },
+    "explanation": "Les chaînes légères humaines sont κ ou λ ; la classe de l'Ig dépend en revanche de la chaîne lourde."
   }
 ];

@@ -581,6 +581,11 @@ enum HealthMockExamAttemptStatus {
   ABANDONED
 }
 
+enum HealthMockExamType {
+  MOCK_EXAM
+  COLLE
+}
+
 enum ChapterSectionKind {
   THEME
   SYNTHESIS
@@ -823,6 +828,7 @@ model Chapter {
   sections                    ChapterSection[]
   trainingQuizzes             TrainingQuiz[]
   trainingQuizProgressEntries UserTrainingQuizProgress[]
+  trainingQuizAttempts        UserTrainingQuizAttempt[]
   assignments                 ChapterAssignment[]
 
   createdAt DateTime @default(now())
@@ -915,6 +921,7 @@ model TrainingQuiz {
   questionGroups  TrainingQuizQuestionGroup[]
   questionLinks   TrainingQuizQuestion[]
   progressEntries UserTrainingQuizProgress[]
+  attempts        UserTrainingQuizAttempt[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -964,6 +971,7 @@ model QuizQuestion {
   chapter   Chapter @relation(fields: [chapterId], references: [id], onDelete: Cascade)
 
   quizLinks TrainingQuizQuestion[]
+  attemptQuestions UserTrainingQuizAttemptQuestion[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -998,13 +1006,15 @@ model TrainingQuizQuestion {
 // Les examens blancs sont rattachés directement à une UE. Ils utilisent leurs
 // propres questions afin de ne jamais recycler les QCM d'entraînement.
 model HealthMockExam {
-  id              String   @id @default(auto()) @map("_id") @db.ObjectId
-  courseUnitId    String   @db.ObjectId
+  id              String             @id @default(auto()) @map("_id") @db.ObjectId
+  type            HealthMockExamType @default(MOCK_EXAM)
+  courseUnitId    String             @db.ObjectId
   title           String
   slug            String
   description     String?
   instructions    String?  @db.String
   durationMinutes Int      @default(150)
+  durationSeconds Int?
   questionCount   Int      @default(100)
   version         Int      @default(1)
   order           Int      @default(0)
@@ -1051,6 +1061,7 @@ model HealthMockExamQuestionGroup {
   examSectionId   String  @db.ObjectId
   title           String?
   sharedStatement String  @db.String
+  sharedMedia     Json?
   order           Int
 
   examSection HealthMockExamSection   @relation(fields: [examSectionId], references: [id], onDelete: Cascade)
@@ -1082,6 +1093,7 @@ model HealthMockExamQuestion {
   order                Int
   globalOrder          Int
   isPublished          Boolean            @default(true)
+  themeIds             String[]           @default([]) @db.ObjectId
 
   examSection   HealthMockExamSection         @relation(fields: [examSectionId], references: [id], onDelete: Cascade)
   group         HealthMockExamQuestionGroup?  @relation(fields: [groupId], references: [id], onDelete: SetNull)
@@ -1107,7 +1119,7 @@ model UserHealthMockExamAttempt {
   deadlineAt     DateTime
   submittedAt    DateTime?
   elapsedSeconds Int?
-  score          Int?
+  score          Float?
   maxScore       Int?
   percentage     Int?
   autoSubmitted  Boolean                      @default(false)
@@ -1154,7 +1166,7 @@ model UserHealthMockExamAttemptSectionResult {
   id            String  @id @default(auto()) @map("_id") @db.ObjectId
   attemptId     String  @db.ObjectId
   examSectionId String  @db.ObjectId
-  score         Int
+  score         Float
   maxScore      Int
   percentage    Int
 
@@ -1186,6 +1198,7 @@ model User {
   subscriptions               UserSubscription[]
   exerciseHistory             UserExerciseHistory[]
   trainingQuizProgressEntries UserTrainingQuizProgress[]
+  trainingQuizAttempts        UserTrainingQuizAttempt[]
   healthMockExamAttempts      UserHealthMockExamAttempt[]
   createdAt                   DateTime                   @default(now())
   updatedAt                   DateTime                   @updatedAt
@@ -1239,6 +1252,58 @@ model UserTrainingQuizProgress {
   @@unique([userId, quizId])
   @@index([userId, chapterId])
   @@index([quizId])
+}
+
+enum TrainingQuizAttemptStatus {
+  IN_PROGRESS
+  COMPLETED
+  ABANDONED
+}
+
+model UserTrainingQuizAttempt {
+  id             String                    @id @default(auto()) @map("_id") @db.ObjectId
+  userId         String                    @db.ObjectId
+  chapterId      String                    @db.ObjectId
+  quizId         String                    @db.ObjectId
+  status         TrainingQuizAttemptStatus @default(IN_PROGRESS)
+  startedAt      DateTime                  @default(now())
+  submittedAt    DateTime?
+  score          Float?
+  maxScore       Float?
+  successRate    Int?
+  totalQuestions Int                       @default(0)
+
+  user             User                              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  chapter          Chapter                           @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+  quiz             TrainingQuiz                      @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  attemptQuestions UserTrainingQuizAttemptQuestion[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId, quizId, status])
+  @@index([userId, chapterId])
+  @@index([quizId, status])
+}
+
+model UserTrainingQuizAttemptQuestion {
+  id                    String    @id @default(auto()) @map("_id") @db.ObjectId
+  attemptId             String    @db.ObjectId
+  questionId            String    @db.ObjectId
+  order                 Int
+  responsePayload       Json?
+  questionUpdatedAt     DateTime?
+  answeredAt            DateTime?
+
+  attempt  UserTrainingQuizAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  question QuizQuestion            @relation(fields: [questionId], references: [id], onDelete: Restrict)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([attemptId, questionId])
+  @@index([attemptId, order])
+  @@index([questionId])
 }
 
 model UserActivity {

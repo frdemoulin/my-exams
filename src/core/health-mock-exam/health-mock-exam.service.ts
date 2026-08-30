@@ -11,21 +11,29 @@ import {
   normalizeTrainingQuestionDiagramContent,
 } from "@/core/training/training-choice-content";
 import { resolveChoiceCorrectionContent } from "@/core/training/training-choice-explanations";
+import {
+  buildThemeLabelById,
+  getQuestionThemes,
+} from "@/core/theme/theme-label";
 import prisma from "@/lib/db/prisma";
-
-import { evaluateQuestion } from "@/core/questions";
 
 import {
   createHealthMockExamStudentAnswer,
   getSelectedChoiceIndexesForQuestion,
   getSelectedChoiceIndexesFromHealthMockExamAnswer,
   isHealthMockExamQuestionAnswered,
+  normalizeHealthMockExamPassageQuestion,
   normalizeHealthMockExamQuestion,
   normalizeHealthMockExamQuestionType,
   normalizeHealthMockExamStudentAnswer,
 } from "./health-mock-exam.question";
-import { scoreHealthMockExamAttempt } from "./health-mock-exam.scoring";
+import {
+  evaluateHealthAssessmentQuestion,
+  scoreHealthMockExamAttempt,
+} from "./health-mock-exam.scoring";
+import { buildHealthMockExamPedagogicalAssessment } from "./health-mock-exam.pedagogy";
 import type {
+  HealthCourseUnitEvaluationsProgress,
   HealthMockExamPassage,
   HealthMockExamResults,
 } from "./health-mock-exam.types";
@@ -33,6 +41,7 @@ import {
   assertHealthMockExamCanBePublished,
   type HealthMockExamValidationInput,
 } from "./health-mock-exam.validation";
+import { generateWatermarkCode } from "@/lib/watermark.server";
 
 const objectIdPattern = /^[a-f0-9]{24}$/i;
 
@@ -52,6 +61,29 @@ function requireObjectId(value: string, label: string) {
   if (!objectIdPattern.test(value)) {
     throw new HealthMockExamError(`${label} invalide.`, 404);
   }
+}
+
+async function resolveCourseUnitId(courseUnitIdOrSlug: string): Promise<string> {
+  if (objectIdPattern.test(courseUnitIdOrSlug)) {
+    return courseUnitIdOrSlug;
+  }
+
+  const courseUnit = await prisma.healthCourseUnit.findFirst({
+    where: {
+      OR: [
+        { slug: courseUnitIdOrSlug },
+        { slug: { startsWith: courseUnitIdOrSlug } },
+      ],
+      isActive: true,
+    },
+    select: { id: true },
+  });
+
+  if (!courseUnit) {
+    throw new HealthMockExamError("UE introuvable.", 404);
+  }
+
+  return courseUnit.id;
 }
 
 function calculateElapsedSeconds({
@@ -81,6 +113,30 @@ function publicMediaExists(publicPath: string) {
 
 function toPrismaJsonValue(value: unknown): Prisma.InputJsonValue | undefined {
   return value === undefined ? undefined : (value as Prisma.InputJsonValue);
+}
+
+async function buildQuestionThemeLabelById(
+  themeIds: readonly string[],
+) {
+  const uniqueThemeIds = [...new Set(themeIds.filter((themeId) => themeId.length > 0))];
+  if (uniqueThemeIds.length === 0) {
+    return new Map<string, string>();
+  }
+
+  const themes = await prisma.theme.findMany({
+    where: {
+      id: {
+        in: uniqueThemeIds,
+      },
+    },
+    select: {
+      id: true,
+      title: true,
+      shortTitle: true,
+    },
+  });
+
+  return buildThemeLabelById(themes);
 }
 
 async function loadMockExamForStart(courseUnitId: string, examSlug: string) {
@@ -116,6 +172,7 @@ async function loadMockExamForStart(courseUnitId: string, examSlug: string) {
             select: {
               id: true,
               sharedStatement: true,
+              sharedMedia: true,
               order: true,
             },
           },
@@ -138,6 +195,7 @@ async function loadMockExamForStart(courseUnitId: string, examSlug: string) {
               answerPayload: true,
               explanation: true,
               choiceExplanations: true,
+              themeIds: true,
             },
           },
         },
@@ -176,6 +234,10 @@ function toValidationInput(exam: NonNullable<LoadedMockExam>): HealthMockExamVal
 }
 
 async function assertPublishedMockExamIsValid(exam: NonNullable<LoadedMockExam>) {
+  if (exam.type === "COLLE") {
+    return;
+  }
+
   assertHealthMockExamCanBePublished(toValidationInput(exam), {
     mediaExists: publicMediaExists,
   });
@@ -219,6 +281,7 @@ async function finalizeHealthMockExamAttempt(
               answerPayload: true,
               explanation: true,
               choiceExplanations: true,
+              themeIds: true,
             },
           },
         },
@@ -327,8 +390,8 @@ export async function startOrResumeHealthMockExamAttempt(input: {
   examSlug: string;
   userId: string;
 }) {
-  requireObjectId(input.courseUnitId, "UE");
-  const exam = await loadMockExamForStart(input.courseUnitId, input.examSlug);
+  const courseUnitId = await resolveCourseUnitId(input.courseUnitId);
+  const exam = await loadMockExamForStart(courseUnitId, input.examSlug);
 
   if (!exam) {
     throw new HealthMockExamError("Examen blanc introuvable.", 404);
@@ -356,7 +419,8 @@ export async function startOrResumeHealthMockExamAttempt(input: {
     await finalizeHealthMockExamAttempt(existingAttempt.id, input.userId, now);
   }
 
-  const deadlineAt = new Date(now.getTime() + exam.durationMinutes * 60 * 1000);
+  const durationSeconds = exam.durationSeconds ?? exam.durationMinutes * 60;
+  const deadlineAt = new Date(now.getTime() + durationSeconds * 1000);
   const attempt = await prisma.userHealthMockExamAttempt.create({
     data: {
       userId: input.userId,
@@ -529,14 +593,14 @@ export async function fetchHealthMockExamTakingState(input: {
   | { kind: "completed"; attemptId: string }
   | { kind: "in-progress"; passage: HealthMockExamPassage }
 > {
-  requireObjectId(input.courseUnitId, "UE");
+  const courseUnitId = await resolveCourseUnitId(input.courseUnitId);
 
   const attempt = await prisma.userHealthMockExamAttempt.findFirst({
     where: {
       userId: input.userId,
       status: "IN_PROGRESS",
       mockExam: {
-        courseUnitId: input.courseUnitId,
+        courseUnitId,
         slug: input.examSlug,
         isPublished: true,
       },
@@ -560,8 +624,21 @@ export async function fetchHealthMockExamTakingState(input: {
       mockExam: {
         select: {
           title: true,
+          slug: true,
+          type: true,
+          description: true,
           instructions: true,
           questionCount: true,
+          durationMinutes: true,
+          durationSeconds: true,
+          courseUnit: {
+            select: {
+              id: true,
+              code: true,
+              title: true,
+              slug: true,
+            },
+          },
           sections: {
             orderBy: { order: "asc" },
             select: {
@@ -587,16 +664,14 @@ export async function fetchHealthMockExamTakingState(input: {
               question: true,
               questionDiagram: true,
               choices: true,
-              correctChoiceIndex: true,
-              correctChoiceIndexes: true,
               answerPayload: true,
-              explanation: true,
-              choiceExplanations: true,
+              themeIds: true,
               group: {
                 select: {
                   id: true,
                   title: true,
                   sharedStatement: true,
+                  sharedMedia: true,
                   order: true,
                 },
               },
@@ -611,6 +686,15 @@ export async function fetchHealthMockExamTakingState(input: {
     return { kind: "completed", attemptId: attempt.id };
   }
 
+  const themeLabelById = await buildQuestionThemeLabelById(
+    passageAttempt.attemptQuestions.flatMap((attemptQuestion) => attemptQuestion.question.themeIds)
+  );
+
+  const watermarkCode = generateWatermarkCode({
+    userId: input.userId,
+    sessionId: passageAttempt.id,
+  });
+
   return {
     kind: "in-progress",
     passage: {
@@ -618,11 +702,18 @@ export async function fetchHealthMockExamTakingState(input: {
       startedAt: passageAttempt.startedAt.toISOString(),
       deadlineAt: passageAttempt.deadlineAt.toISOString(),
       title: passageAttempt.mockExam.title,
+      slug: passageAttempt.mockExam.slug,
+      type: passageAttempt.mockExam.type,
+      description: passageAttempt.mockExam.description,
       instructions: passageAttempt.mockExam.instructions ?? null,
       questionCount: passageAttempt.mockExam.questionCount,
+      durationMinutes: passageAttempt.mockExam.durationMinutes,
+      durationSeconds: passageAttempt.mockExam.durationSeconds,
+      courseUnit: passageAttempt.mockExam.courseUnit,
       sections: passageAttempt.mockExam.sections,
+      watermarkCode,
       questions: passageAttempt.attemptQuestions.map((attemptQuestion) => {
-        const canonicalQuestion = normalizeHealthMockExamQuestion(attemptQuestion.question);
+        const canonicalQuestion = normalizeHealthMockExamPassageQuestion(attemptQuestion.question);
         const responsePayload = normalizeHealthMockExamStudentAnswer({
           question: canonicalQuestion,
           selectedChoiceIndexes: attemptQuestion.selectedChoiceIndexes,
@@ -646,16 +737,21 @@ export async function fetchHealthMockExamTakingState(input: {
             attemptQuestion.question.questionDiagram ?? null,
           ),
           choices: normalizeTrainingChoiceContents(attemptQuestion.question.choices),
-          answerPayload: attemptQuestion.question.answerPayload ?? null,
+          answerPayload: null,
           canonicalQuestion,
           group: attemptQuestion.question.group
             ? {
                 id: attemptQuestion.question.group.id,
                 title: attemptQuestion.question.group.title ?? null,
                 sharedStatement: attemptQuestion.question.group.sharedStatement,
+                sharedMedia: (attemptQuestion.question.group.sharedMedia as any) ?? null,
                 order: attemptQuestion.question.group.order,
               }
             : null,
+          themes: getQuestionThemes({
+            themeIds: attemptQuestion.question.themeIds,
+            themeLabelById,
+          }),
           selectedChoiceIndexes,
           responsePayload,
           markedForReview: attemptQuestion.markedForReview,
@@ -682,6 +778,8 @@ export async function fetchHealthMockExamResults(input: {
         select: {
           title: true,
           slug: true,
+          durationMinutes: true,
+          durationSeconds: true,
           courseUnit: { select: { id: true, title: true } },
         },
       },
@@ -708,11 +806,13 @@ export async function fetchHealthMockExamResults(input: {
               answerPayload: true,
               explanation: true,
               choiceExplanations: true,
+              themeIds: true,
               group: {
                 select: {
                   id: true,
                   title: true,
                   sharedStatement: true,
+                  sharedMedia: true,
                   order: true,
                 },
               },
@@ -727,11 +827,139 @@ export async function fetchHealthMockExamResults(input: {
     return null;
   }
 
+  const themeLabelById = await buildQuestionThemeLabelById(
+    attempt.attemptQuestions.flatMap((attemptQuestion) => attemptQuestion.question.themeIds)
+  );
+
+  const questions: HealthMockExamResults["questions"] = attempt.attemptQuestions.map((attemptQuestion) => {
+    const canonicalQuestion = normalizeHealthMockExamQuestion(attemptQuestion.question);
+    const responsePayload = normalizeHealthMockExamStudentAnswer({
+      question: canonicalQuestion,
+      selectedChoiceIndexes: attemptQuestion.selectedChoiceIndexes,
+      responsePayload: attemptQuestion.responsePayload,
+    });
+    const evaluation = evaluateHealthAssessmentQuestion(canonicalQuestion, responsePayload);
+    const choices = normalizeTrainingChoiceContents(attemptQuestion.question.choices);
+    const correctChoiceIndexes =
+      canonicalQuestion.type === "mcq"
+        ? canonicalQuestion.choices
+            .map((choice, choiceIndex) => ({ choice, choiceIndex }))
+            .filter(({ choice }) => choice.correct)
+            .map(({ choiceIndex }) => choiceIndex)
+        : [];
+    const correction = resolveChoiceCorrectionContent({
+      explanation: attemptQuestion.question.explanation,
+      choiceExplanations: attemptQuestion.question.choiceExplanations,
+      choiceCount: choices.length,
+    });
+    const selectedChoiceIndexes = getSelectedChoiceIndexesFromHealthMockExamAnswer({
+      question: canonicalQuestion,
+      answer: responsePayload,
+      fallbackSelectedChoiceIndexes: attemptQuestion.selectedChoiceIndexes,
+    });
+
+    const format = (canonicalQuestion.format ??
+      (canonicalQuestion.type === "hotspot"
+        ? "QZONE"
+        : canonicalQuestion.type === "short-answer"
+          ? "QROC"
+          : canonicalQuestion.type === "mcq" && canonicalQuestion.selectionMode === "single"
+            ? "QRU"
+            : canonicalQuestion.type === "mcq" && canonicalQuestion.requiredSelectionCount
+              ? (canonicalQuestion.choices.length > 5 ? "QRPL" : "QRP")
+              : "QRM")) as "QRU" | "QRM" | "QRP" | "QRPL" | "QROC" | "QZONE";
+
+    const isRequiredSelectionQuestion = format === "QRP" || format === "QRPL";
+    const details = evaluation.details as Record<string, any> | undefined;
+    const selectionCountValid = isRequiredSelectionQuestion
+      ? details?.reason !== "invalid-selection-count" &&
+        details?.reason !== "invalid-required-selection-configuration"
+      : true;
+
+    const discordanceCount = format === "QRM" && typeof details?.discordanceCount === "number"
+      ? details.discordanceCount
+      : undefined;
+
+    const correctSelectionCount = isRequiredSelectionQuestion && Array.isArray(details?.correctlySelectedChoiceIds)
+      ? details.correctlySelectedChoiceIds.length
+      : undefined;
+
+    const requiredSelectionCount = isRequiredSelectionQuestion
+      ? (typeof details?.expectedSelectionCount === "number"
+          ? details.expectedSelectionCount
+          : (canonicalQuestion.type === "mcq" ? canonicalQuestion.requiredSelectionCount : undefined))
+      : undefined;
+
+    const scoreRatio = typeof details?.scoreRatio === "number"
+      ? details.scoreRatio
+      : (evaluation.maxScore > 0 ? evaluation.score / evaluation.maxScore : 0);
+
+    const scoringDetails = {
+      format,
+      scoringStrategy: ((details?.scoringStrategy as string) ?? "all-or-nothing") as
+        | "all-or-nothing"
+        | "discordance"
+        | "partial"
+        | "custom",
+      discordanceCount,
+      scoreRatio,
+      correctSelectionCount,
+      requiredSelectionCount,
+      selectionCountValid: isRequiredSelectionQuestion ? selectionCountValid : undefined,
+    };
+
+    return {
+      attemptQuestionId: attemptQuestion.id,
+      id: attemptQuestion.question.id,
+      globalOrder: attemptQuestion.globalOrder,
+      order: attemptQuestion.order,
+      questionType: normalizeHealthMockExamQuestionType(attemptQuestion.question.questionType),
+      answerFormat: resolveQuizAnswerFormat(attemptQuestion.question.answerFormat),
+      question: attemptQuestion.question.question,
+      questionDiagram: normalizeTrainingQuestionDiagramContent(
+        attemptQuestion.question.questionDiagram ?? null,
+      ),
+      choices,
+      answerPayload: attemptQuestion.question.answerPayload ?? null,
+      canonicalQuestion,
+      group: attemptQuestion.question.group
+        ? {
+            id: attemptQuestion.question.group.id,
+            title: attemptQuestion.question.group.title ?? null,
+            sharedStatement: attemptQuestion.question.group.sharedStatement,
+            order: attemptQuestion.question.group.order,
+          }
+        : null,
+      themes: getQuestionThemes({
+        themeIds: attemptQuestion.question.themeIds,
+        themeLabelById,
+      }),
+      selectedChoiceIndexes,
+      responsePayload,
+      markedForReview: attemptQuestion.markedForReview,
+      correctChoiceIndexes,
+      explanation: correction.explanation,
+      choiceExplanations: correction.choiceExplanations,
+      evaluationStatus: evaluation.status,
+      score: evaluation.score,
+      maxScore: evaluation.maxScore,
+      scoringDetails,
+    };
+  });
+
+  const pedagogicalAssessment = buildHealthMockExamPedagogicalAssessment(questions);
+  const watermarkCode = generateWatermarkCode({
+    userId: input.userId,
+    sessionId: attempt.id,
+  });
+
   return {
     attemptId: attempt.id,
+    watermarkCode,
     status: attempt.status as "SUBMITTED" | "EXPIRED" | "ABANDONED",
     submittedAt: attempt.submittedAt?.toISOString() ?? null,
     elapsedSeconds: attempt.elapsedSeconds ?? 0,
+    durationSeconds: attempt.mockExam.durationSeconds ?? (attempt.mockExam.durationMinutes ? Math.round(attempt.mockExam.durationMinutes * 60) : null),
     score: attempt.score,
     maxScore: attempt.maxScore,
     percentage: attempt.percentage,
@@ -740,6 +968,7 @@ export async function fetchHealthMockExamResults(input: {
     slug: attempt.mockExam.slug,
     courseUnitId: attempt.mockExam.courseUnit.id,
     courseUnitTitle: attempt.mockExam.courseUnit.title,
+    pedagogicalAssessment,
     sections: attempt.sectionResults
       .sort((left, right) => left.examSection.firstQuestion - right.examSection.firstQuestion)
       .map((result) => ({
@@ -751,65 +980,145 @@ export async function fetchHealthMockExamResults(input: {
         maxScore: result.maxScore,
         percentage: result.percentage,
       })),
-    questions: attempt.attemptQuestions.map((attemptQuestion) => {
-      const canonicalQuestion = normalizeHealthMockExamQuestion(attemptQuestion.question);
-      const responsePayload = normalizeHealthMockExamStudentAnswer({
-        question: canonicalQuestion,
-        selectedChoiceIndexes: attemptQuestion.selectedChoiceIndexes,
-        responsePayload: attemptQuestion.responsePayload,
-      });
-      const evaluation = evaluateQuestion(canonicalQuestion, responsePayload);
-      const choices = normalizeTrainingChoiceContents(attemptQuestion.question.choices);
-      const correctChoiceIndexes =
-        canonicalQuestion.type === "mcq"
-          ? canonicalQuestion.choices
-              .map((choice, choiceIndex) => ({ choice, choiceIndex }))
-              .filter(({ choice }) => choice.correct)
-              .map(({ choiceIndex }) => choiceIndex)
-          : [];
-      const correction = resolveChoiceCorrectionContent({
-        explanation: attemptQuestion.question.explanation,
-        choiceExplanations: attemptQuestion.question.choiceExplanations,
-        choiceCount: choices.length,
-      });
-      const selectedChoiceIndexes = getSelectedChoiceIndexesFromHealthMockExamAnswer({
-        question: canonicalQuestion,
-        answer: responsePayload,
-        fallbackSelectedChoiceIndexes: attemptQuestion.selectedChoiceIndexes,
-      });
+    questions,
+  };
+}
 
-      return {
-        attemptQuestionId: attemptQuestion.id,
-        id: attemptQuestion.question.id,
-        globalOrder: attemptQuestion.globalOrder,
-        order: attemptQuestion.order,
-        questionType: normalizeHealthMockExamQuestionType(attemptQuestion.question.questionType),
-        answerFormat: resolveQuizAnswerFormat(attemptQuestion.question.answerFormat),
-        question: attemptQuestion.question.question,
-        questionDiagram: normalizeTrainingQuestionDiagramContent(
-          attemptQuestion.question.questionDiagram ?? null,
-        ),
-        choices,
-        answerPayload: attemptQuestion.question.answerPayload ?? null,
-        canonicalQuestion,
-        group: attemptQuestion.question.group
-          ? {
-              id: attemptQuestion.question.group.id,
-              title: attemptQuestion.question.group.title ?? null,
-              sharedStatement: attemptQuestion.question.group.sharedStatement,
-              order: attemptQuestion.question.group.order,
-            }
-          : null,
-        selectedChoiceIndexes,
-        responsePayload,
-        markedForReview: attemptQuestion.markedForReview,
-        correctChoiceIndexes,
-        explanation: correction.explanation,
-        choiceExplanations: correction.choiceExplanations,
-        evaluationStatus: evaluation.status,
-        score: evaluation.score,
-        maxScore: evaluation.maxScore,
+export async function fetchHealthCourseUnitEvaluationsProgress(input: {
+  courseUnitId: string;
+  userId?: string | null;
+}): Promise<HealthCourseUnitEvaluationsProgress> {
+  const resolvedCourseUnitId = await resolveCourseUnitId(input.courseUnitId);
+
+  const colles = await prisma.healthMockExam.findMany({
+    where: {
+      courseUnitId: resolvedCourseUnitId,
+      isPublished: true,
+      type: "COLLE",
+    },
+    select: {
+      id: true,
+      slug: true,
+      title: true,
+      type: true,
+    },
+  });
+
+  const collesRecord: HealthCourseUnitEvaluationsProgress["colles"] = {};
+
+  for (const exam of colles) {
+    collesRecord[exam.slug] = {
+      colleId: exam.id,
+      colleSlug: exam.slug,
+      attemptCount: 0,
+      latestAttempt: null,
+      bestAttempt: null,
+      attempts: [],
+    };
+  }
+
+  if (!input.userId) {
+    return {
+      completedCollesCount: 0,
+      totalCollesCount: colles.length,
+      averageScorePercentage: null,
+      bestScorePercentage: null,
+      colles: collesRecord,
+    };
+  }
+
+  const completedAttempts = await prisma.userHealthMockExamAttempt.findMany({
+    where: {
+      userId: input.userId,
+      mockExam: {
+        courseUnitId: resolvedCourseUnitId,
+        type: "COLLE",
+      },
+      status: { in: ["SUBMITTED", "EXPIRED"] },
+      score: { not: null },
+      maxScore: { not: null },
+      percentage: { not: null },
+    },
+    orderBy: {
+      submittedAt: "desc",
+    },
+    select: {
+      id: true,
+      score: true,
+      maxScore: true,
+      percentage: true,
+      elapsedSeconds: true,
+      submittedAt: true,
+      createdAt: true,
+      mockExam: {
+        select: {
+          id: true,
+          slug: true,
+        },
+      },
+    },
+  });
+
+  for (const att of completedAttempts) {
+    const slug = att.mockExam.slug;
+    if (!collesRecord[slug]) {
+      collesRecord[slug] = {
+        colleId: att.mockExam.id,
+        colleSlug: slug,
+        attemptCount: 0,
+        latestAttempt: null,
+        bestAttempt: null,
+        attempts: [],
       };
-    }),
+    }
+
+    const summary = {
+      id: att.id,
+      score: att.score ?? 0,
+      maxScore: att.maxScore ?? 0,
+      percentage: att.percentage ?? 0,
+      elapsedSeconds: att.elapsedSeconds ?? 0,
+      submittedAt: att.submittedAt?.toISOString() ?? att.createdAt.toISOString(),
+      createdAt: att.createdAt.toISOString(),
+    };
+
+    collesRecord[slug].attempts.push(summary);
+  }
+
+  let completedCollesCount = 0;
+  let bestScoresSum = 0;
+  let bestScorePercentage: number | null = null;
+
+  for (const item of Object.values(collesRecord)) {
+    if (item.attempts.length > 0) {
+      completedCollesCount += 1;
+      item.attemptCount = item.attempts.length;
+      item.latestAttempt = item.attempts[0]; // first by submittedAt desc
+
+      // Best score: highest percentage, if tied latest (already sorted desc by date)
+      let best = item.attempts[0];
+      for (const a of item.attempts) {
+        if (a.percentage > best.percentage) {
+          best = a;
+        }
+      }
+      item.bestAttempt = best;
+
+      bestScoresSum += best.percentage;
+      if (bestScorePercentage === null || best.percentage > bestScorePercentage) {
+        bestScorePercentage = best.percentage;
+      }
+    }
+  }
+
+  const averageScorePercentage =
+    completedCollesCount > 0 ? Math.round(bestScoresSum / completedCollesCount) : null;
+
+  return {
+    completedCollesCount,
+    totalCollesCount: colles.length,
+    averageScorePercentage,
+    bestScorePercentage,
+    colles: collesRecord,
   };
 }

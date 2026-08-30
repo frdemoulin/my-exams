@@ -1,0 +1,1153 @@
+[
+  {
+    "order": 1,
+    "difficulty": "MEDIUM",
+    "question": "À propos de la structure atomique et de la classification périodique, quelles propositions sont exactes ?",
+    "statement": "À propos de la structure atomique et de la classification périodique, quelles propositions sont exactes ?",
+    "explanation": "Le numéro atomique Z définit l’élément et correspond au nombre de protons. Les isotopes conservent Z mais diffèrent par leur nombre de neutrons. Une sous-couche p comporte trois orbitales.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:atomes-classification"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le numéro atomique Z correspond au nombre de protons du noyau.",
+      "Deux isotopes d’un même élément possèdent le même Z mais des nombres de neutrons différents.",
+      "Une sous-couche p contient trois orbitales.",
+      "Le nombre de masse A est égal à Z − N.",
+      "Un atome neutre possède toujours plus d’électrons que de protons."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Changer Z revient à changer d’élément chimique.",
+      "Ils ont le même nombre de protons mais des nombres de masse différents.",
+      "Pour ℓ = 1, le nombre d’orbitales vaut 2ℓ + 1 = 3.",
+      "Le nombre de masse est A = Z + N.",
+      "Dans un atome neutre, le nombre d’électrons est égal au nombre de protons."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:atomes-classification"
+      ]
+    }
+  },
+  {
+    "order": 2,
+    "difficulty": "EASY",
+    "question": "Combien d’électrons peut contenir au maximum une sous-couche p complète ? Donnez uniquement la valeur numérique.",
+    "statement": "Combien d’électrons peut contenir au maximum une sous-couche p complète ? Donnez uniquement la valeur numérique.",
+    "explanation": "Une sous-couche p comporte trois orbitales. Chaque orbitale peut accueillir au maximum deux électrons de spins opposés, soit 3 × 2 = 6 électrons.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:sous-couche-p"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "6"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:sous-couche-p"
+      ]
+    }
+  },
+  {
+    "order": 3,
+    "difficulty": "MEDIUM",
+    "question": "Quel ion possède la même configuration électronique que le néon après perte d’électrons par l’atome neutre correspondant ?",
+    "statement": "Quel ion possède la même configuration électronique que le néon après perte d’électrons par l’atome neutre correspondant ?",
+    "explanation": "Le magnésium perd deux électrons pour former Mg²⁺, qui possède alors dix électrons comme le néon.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:formation-ions"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "$\\mathrm{Mg^{2+}}$",
+      "$\\mathrm{Cl^-}$",
+      "$\\mathrm{K^+}$",
+      "$\\mathrm{F^-}$ formé par perte d’un électron",
+      "$\\mathrm{Na^{2+}}$ comme ion monoatomique usuel"
+    ],
+    "correctChoiceIndexes": [
+      0
+    ],
+    "choiceExplanations": [
+      "Mg possède Z = 12 ; Mg²⁺ possède donc 10 électrons.",
+      "Cl⁻ possède 18 électrons, comme l’argon.",
+      "K⁺ possède 18 électrons, comme l’argon.",
+      "F⁻ est obtenu par gain d’un électron, pas par perte.",
+      "Le sodium forme préférentiellement Na⁺ en perdant un électron."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:formation-ions"
+      ]
+    }
+  },
+  {
+    "order": 4,
+    "difficulty": "EASY",
+    "question": "Sélectionnez exactement les deux propositions correctes concernant l’électronégativité et la polarisation des liaisons.",
+    "statement": "Sélectionnez exactement les deux propositions correctes concernant l’électronégativité et la polarisation des liaisons.",
+    "explanation": "Le fluor est l’élément le plus électronégatif dans l’échelle utilisée et une différence d’électronégativité attire le doublet de liaison vers l’atome le plus électronégatif.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:electronegativite-polarisation"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le fluor est l’élément le plus électronégatif parmi ceux étudiés.",
+      "Dans une liaison polarisée, le doublet liant est attiré vers l’atome le plus électronégatif.",
+      "L’électronégativité augmente lorsqu’on descend une même colonne du tableau périodique.",
+      "Une liaison C–C est fortement polarisée par différence d’électronégativité entre les deux carbones.",
+      "L’électronégativité s’exprime en $\\mathrm{J\\cdot mol^{-1}}$."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Son électronégativité est la plus élevée dans l’échelle présentée.",
+      "La densité électronique est déplacée vers le pôle le plus électronégatif.",
+      "La tendance générale présentée est une diminution du haut vers le bas.",
+      "Deux atomes identiques ont la même électronégativité ; la liaison C–C n’est pas polarisée en permanence.",
+      "L’échelle d’électronégativité utilisée est sans unité."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:electronegativite-polarisation"
+      ]
+    }
+  },
+  {
+    "order": 5,
+    "difficulty": "MEDIUM",
+    "question": "À propos des liaisons covalentes, de coordination et de leur rupture, quelles propositions sont exactes ?",
+    "statement": "À propos des liaisons covalentes, de coordination et de leur rupture, quelles propositions sont exactes ?",
+    "explanation": "Une liaison de coordination utilise un doublet déjà constitué fourni par un donneur vers un accepteur disposant d’une orbitale vacante. La formation de deux radicaux correspond en revanche à une rupture homolytique, et non hétérolytique.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:liaisons-coordination-radicaux"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Une liaison de coordination peut se former lorsqu’un donneur apporte un doublet non liant à un accepteur possédant une orbitale vacante.",
+      "L’azote ou l’oxygène peuvent jouer le rôle de donneurs de doublet dans des complexes de coordination.",
+      "Une rupture hétérolytique d’une liaison covalente produit nécessairement deux radicaux portant chacun un électron célibataire.",
+      "Une liaison de coordination ne peut jamais se dissocier une fois formée.",
+      "Un radical libre est défini par l’absence totale d’électron."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Le doublet liant provient initialement du donneur.",
+      "Leurs doublets non liants peuvent être engagés dans une liaison de coordination.",
+      "Une rupture hétérolytique attribue les deux électrons du doublet à un même fragment ; la formation de deux radicaux correspond à une rupture homolytique.",
+      "Certaines liaisons de coordination sont réversibles et peuvent se dissocier.",
+      "Un radical possède au moins un électron célibataire."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:liaisons-coordination-radicaux"
+      ]
+    }
+  },
+  {
+    "order": 6,
+    "difficulty": "EASY",
+    "question": "Combien de liaisons $\\pi$ comporte une triple liaison carbone–carbone ? Donnez uniquement la valeur numérique.",
+    "statement": "Combien de liaisons $\\pi$ comporte une triple liaison carbone–carbone ? Donnez uniquement la valeur numérique.",
+    "explanation": "Une triple liaison C≡C comprend une liaison σ et deux liaisons π.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:liaisons-multiples"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "number",
+      "numericAnswer": {
+        "value": 2,
+        "tolerance": 0
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:liaisons-multiples"
+      ]
+    }
+  },
+  {
+    "order": 7,
+    "difficulty": "MEDIUM",
+    "question": "Quelle association hybridation–géométrie est correcte pour un carbone engagé dans une double liaison C=C ?",
+    "statement": "Quelle association hybridation–géométrie est correcte pour un carbone engagé dans une double liaison C=C ?",
+    "explanation": "Un carbone alcénique est classiquement sp² et adopte une géométrie trigonale plane, avec des angles proches de 120°.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:hybridation-sp2"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "sp³ — linéaire",
+      "sp² — trigonale plane",
+      "sp — tétraédrique",
+      "sp² — octaédrique",
+      "sp³ — trigonale plane"
+    ],
+    "correctChoiceIndexes": [
+      1
+    ],
+    "choiceExplanations": [
+      "Une hybridation sp³ correspond à quatre directions tétraédriques.",
+      "Trois orbitales sp² coplanaires forment des angles proches de 120°.",
+      "Une hybridation sp correspond à une géométrie digonale ou linéaire.",
+      "La géométrie octaédrique correspond à six directions de liaison.",
+      "La géométrie trigonale plane est associée à sp² dans ce cadre."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:hybridation-sp2"
+      ]
+    }
+  },
+  {
+    "order": 8,
+    "difficulty": "MEDIUM",
+    "question": "Concernant l’hybridation et la géométrie moléculaire, quelles propositions sont exactes ?",
+    "statement": "Concernant l’hybridation et la géométrie moléculaire, quelles propositions sont exactes ?",
+    "explanation": "Le modèle relie sp à une disposition digonale/linéaire, sp² à une géométrie trigonale plane et sp³ à une organisation tétraédrique des domaines électroniques. Les doublets non liants modifient la forme moléculaire observée.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:hybridation-vsepr"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Une hybridation sp conduit à deux directions opposées et à une géométrie digonale, couramment dite linéaire.",
+      "Une hybridation sp² place trois orbitales hybridées dans un même plan.",
+      "Dans NH₃, quatre domaines électroniques entourent l’azote mais la forme moléculaire est pyramidale à cause du doublet non liant.",
+      "H₂O est de type AX₂E₂ et présente une géométrie coudée.",
+      "Le terme scientifique correct pour la géométrie sp est « hybridation diagonale »."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "choiceExplanations": [
+      "Les deux orbitales sp sont séparées de 180°.",
+      "Les trois directions sont coplanaires et séparées d’environ 120°.",
+      "La géométrie électronique est tétraédrique tandis que la géométrie moléculaire est pyramidale.",
+      "Deux doublets liants et deux doublets non liants donnent une forme en V.",
+      "Le terme attendu est digonale, ou linéaire pour la géométrie ; « diagonale » est un faux ami lexical."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:hybridation-vsepr"
+      ]
+    }
+  },
+  {
+    "order": 9,
+    "difficulty": "HARD",
+    "question": "Parmi ces dix propositions reliant structure atomique, liaisons, orbitales et forces intermoléculaires, sélectionnez exactement les cinq correctes.",
+    "statement": "Parmi ces dix propositions reliant structure atomique, liaisons, orbitales et forces intermoléculaires, sélectionnez exactement les cinq correctes.",
+    "explanation": "Cette synthèse vérifie le passage de la structure électronique à la géométrie et à la polarité moléculaires : remplissage orbitalaire, nature σ/π, hybridation, somme vectorielle des dipôles et liaisons hydrogène.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:synthese-chimie-generale"
+    ],
+    "format": "QRPL",
+    "questionFormat": "QRPL",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Une orbitale atomique peut accueillir au maximum deux électrons.",
+      "La règle de Hund conduit à apparier immédiatement les électrons dans la première orbitale disponible d’une sous-couche.",
+      "Une liaison σ présente une symétrie axiale autour de l’axe internucléaire.",
+      "Une liaison π autorise une libre rotation autour de l’axe de liaison sans perte de recouvrement.",
+      "Le carbone d’une triple liaison C≡C est classiquement hybridé sp.",
+      "Une molécule peut être apolaire alors même qu’elle contient plusieurs liaisons polarisées.",
+      "BCl₃ est polaire parce que chacune de ses liaisons B–Cl est polarisée.",
+      "Une liaison hydrogène exige nécessairement une liaison covalente directe entre les deux hétéroatomes concernés.",
+      "Une molécule d’eau peut participer à plusieurs liaisons hydrogène grâce à ses hydrogènes et à ses doublets non liants.",
+      "Les forces intermoléculaires n’ont aucun effet sur les températures de fusion ou d’ébullition."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      2,
+      4,
+      5,
+      8
+    ],
+    "choiceExplanations": [
+      "Le remplissage d’une orbitale est limité à deux électrons de spins opposés.",
+      "Les orbitales dégénérées sont d’abord occupées individuellement avant appariement.",
+      "Le recouvrement est centré sur l’axe des noyaux.",
+      "La rotation détruirait le recouvrement latéral des orbitales p.",
+      "Il conserve deux orbitales p permettant la formation de deux liaisons π.",
+      "Les moments dipolaires de liaison peuvent s’annuler vectoriellement par symétrie.",
+      "Dans la géométrie trigonale plane, les trois moments dipolaires s’annulent.",
+      "Il s’agit d’une interaction non covalente entre un H lié à N/O/F et un autre atome électronégatif.",
+      "Elle peut être donneuse et accepteur de liaisons hydrogène.",
+      "Une cohésion intermoléculaire plus forte tend à augmenter les températures de changement d’état."
+    ],
+    "requiredSelectionCount": 5,
+    "answerPayload": {
+      "requiredSelectionCount": 5,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:synthese-chimie-generale"
+      ]
+    }
+  },
+  {
+    "order": 10,
+    "difficulty": "MEDIUM",
+    "question": "Sélectionnez exactement les deux propositions correctes concernant la polarité moléculaire.",
+    "statement": "Sélectionnez exactement les deux propositions correctes concernant la polarité moléculaire.",
+    "explanation": "La polarité globale dépend de la somme vectorielle des moments dipolaires de liaison, donc à la fois de la polarisation des liaisons et de la géométrie moléculaire.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:polarite-moleculaire"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Dans BCl₃, les trois moments dipolaires de liaison peuvent s’annuler par symétrie.",
+      "Dans H₂O, les moments dipolaires O–H ne s’annulent pas complètement à cause de la géométrie coudée.",
+      "Toute molécule possédant une liaison polarisée est nécessairement polaire.",
+      "La polarité d’une molécule polyatomique se calcule en additionnant uniquement les valeurs scalaires des moments de liaison.",
+      "Une molécule apolaire ne peut présenter aucune interaction intermoléculaire attractive."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "La géométrie trigonale plane symétrique conduit à un moment dipolaire résultant nul.",
+      "La somme vectorielle est non nulle, ce qui rend l’eau polaire.",
+      "La géométrie peut conduire à une annulation des moments dipolaires.",
+      "Il faut effectuer une somme vectorielle.",
+      "Des interactions de dispersion peuvent exister entre espèces apolaires."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:polarite-moleculaire"
+      ]
+    }
+  },
+  {
+    "order": 11,
+    "difficulty": "MEDIUM",
+    "question": "À propos des interactions intermoléculaires, quelles propositions sont exactes ?",
+    "statement": "À propos des interactions intermoléculaires, quelles propositions sont exactes ?",
+    "explanation": "Les interactions dipôle–dipôle concernent des molécules polaires. Les liaisons hydrogène renforcent fortement la cohésion, et une cohésion accrue tend à augmenter la température de vaporisation.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:forces-intermoleculaires"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Les interactions dipôle–dipôle contribuent à la cohésion entre molécules polaires.",
+      "Une liaison hydrogène peut s’établir lorsqu’un hydrogène est lié à O, N ou F et interagit avec un autre atome électronégatif approprié.",
+      "Les liaisons hydrogène sont plus fortes que les liaisons covalentes usuelles.",
+      "L’augmentation des interactions intermoléculaires peut accroître la température de vaporisation d’un liquide.",
+      "Une molécule d’eau ne peut former qu’une seule liaison hydrogène à la fois."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      3
+    ],
+    "choiceExplanations": [
+      "Des pôles de signes opposés s’attirent entre molécules voisines.",
+      "C’est le motif classique présenté pour cette interaction.",
+      "Elles sont nettement plus faibles que les liaisons covalentes.",
+      "Une cohésion plus forte demande davantage d’énergie pour séparer les molécules lors de la vaporisation.",
+      "L’eau peut participer à plusieurs liaisons hydrogène via ses deux H et ses doublets non liants."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:forces-intermoleculaires"
+      ]
+    }
+  },
+  {
+    "order": 12,
+    "difficulty": "MEDIUM",
+    "question": "Laquelle des molécules suivantes peut jouer à la fois le rôle de donneur et d’accepteur de liaison hydrogène ?",
+    "statement": "Laquelle des molécules suivantes peut jouer à la fois le rôle de donneur et d’accepteur de liaison hydrogène ?",
+    "explanation": "Le méthanol possède une liaison O–H qui peut donner une liaison hydrogène et des doublets non liants sur l’oxygène qui peuvent en accepter.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:liaison-hydrogene"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Le méthane $\\mathrm{CH_4}$",
+      "Le dioxyde de carbone $\\mathrm{CO_2}$",
+      "Le méthanol $\\mathrm{CH_3OH}$",
+      "Le tétrachlorure de carbone $\\mathrm{CCl_4}$",
+      "Le propane $\\mathrm{C_3H_8}$"
+    ],
+    "correctChoiceIndexes": [
+      2
+    ],
+    "choiceExplanations": [
+      "Il ne possède ni hétéroatome électronégatif ni liaison X–H adaptée.",
+      "Ses oxygènes peuvent accepter des interactions mais la molécule ne possède pas de H lié à N, O ou F pour en donner.",
+      "Son groupe O–H en fait un donneur et l’oxygène porteur de doublets en fait un accepteur.",
+      "Il ne possède pas de liaison H–N, H–O ou H–F.",
+      "Il ne possède pas d’hétéroatome permettant une liaison hydrogène classique."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:liaison-hydrogene"
+      ]
+    }
+  },
+  {
+    "order": 13,
+    "difficulty": "HARD",
+    "question": "On compare plusieurs molécules de géométries différentes. Quelles propositions sont exactes ?",
+    "statement": "On compare plusieurs molécules de géométries différentes. Quelles propositions sont exactes ?",
+    "explanation": "La géométrie contrôle la somme vectorielle des moments dipolaires. Une structure symétrique peut être apolaire malgré des liaisons polarisées, tandis qu’une géométrie coudée ou une disposition cis peut laisser un dipôle résultant.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:geometrie-polarite"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Le tétrachlorure de carbone peut être globalement apolaire malgré la polarisation des liaisons C–Cl.",
+      "L’eau est polaire parce que sa géométrie coudée empêche l’annulation des moments dipolaires O–H.",
+      "Le cis-dichloroéthène peut présenter un moment dipolaire résultant supérieur à celui de l’isomère trans correspondant.",
+      "La géométrie d’une molécule est sans influence sur sa polarité globale.",
+      "Une molécule linéaire comportant deux liaisons identiques opposées est nécessairement très polaire."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "La géométrie tétraédrique symétrique permet l’annulation vectorielle des moments de liaison.",
+      "Le moment dipolaire résultant est orienté globalement vers l’oxygène.",
+      "Dans la forme cis, les contributions ne se compensent pas comme dans une disposition plus symétrique trans.",
+      "La somme vectorielle dépend directement de l’orientation spatiale des liaisons.",
+      "Des dipôles identiques et opposés peuvent s’annuler."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:geometrie-polarite"
+      ]
+    }
+  },
+  {
+    "order": 14,
+    "difficulty": "MEDIUM",
+    "question": "L’éthanol a pour formule $\\ce{C2H6O}$. Calculez sa masse molaire moléculaire.\\n\\nDonnées : $M_{\\mathrm C}=12\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$, $M_{\\mathrm H}=1\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$, $M_{\\mathrm O}=16\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$.\\n\\nDonnez uniquement la valeur numérique.",
+    "statement": "L’éthanol a pour formule $\\ce{C2H6O}$. Calculez sa masse molaire moléculaire.\\n\\nDonnées : $M_{\\mathrm C}=12\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$, $M_{\\mathrm H}=1\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$, $M_{\\mathrm O}=16\\,\\mathrm{g}\\cdot\\mathrm{mol}^{-1}$.\\n\\nDonnez uniquement la valeur numérique.",
+    "explanation": "La masse molaire vaut 2×12 + 6×1 + 16 = 46 g·mol⁻¹.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:calcul-masse-molaire"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "number",
+      "numericAnswer": {
+        "value": 46,
+        "tolerance": 0,
+        "unit": "g/mol",
+        "displayUnit": "\\mathrm{g}\\cdot\\mathrm{mol}^{-1}"
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:calcul-masse-molaire"
+      ]
+    }
+  },
+  {
+    "order": 15,
+    "difficulty": "MEDIUM",
+    "question": "Sélectionnez exactement les deux associations fonction–motif correctes.",
+    "statement": "Sélectionnez exactement les deux associations fonction–motif correctes.",
+    "explanation": "Un aldéhyde porte un carbonyle terminal de type R–CHO et un éther relie deux groupes carbonés par un oxygène R–O–R′.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:fonctions-organiques"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Aldéhyde — R–CHO",
+      "Éther — R–O–R′",
+      "Cétone — R–COOH",
+      "Amine — R–C≡N",
+      "Thiol — R–OH"
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Le carbone du carbonyle est en extrémité et porte un hydrogène.",
+      "L’oxygène est lié à deux groupes carbonés.",
+      "R–COOH correspond à un acide carboxylique.",
+      "R–C≡N correspond à un nitrile.",
+      "Un thiol porte le motif R–SH."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:fonctions-organiques"
+      ]
+    }
+  },
+  {
+    "order": 16,
+    "difficulty": "EASY",
+    "question": "Quel nom correspond à un alcane linéaire comportant six atomes de carbone ?",
+    "statement": "Quel nom correspond à un alcane linéaire comportant six atomes de carbone ?",
+    "explanation": "Le préfixe hex- indique six carbones et le suffixe -ane un alcane : hexane.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:nomenclature-chaines"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Pentane",
+      "Heptane",
+      "Hexène",
+      "Hexane",
+      "Cyclohexène"
+    ],
+    "correctChoiceIndexes": [
+      3
+    ],
+    "choiceExplanations": [
+      "Pent- correspond à cinq carbones.",
+      "Hept- correspond à sept carbones.",
+      "Le suffixe -ène indique une double liaison.",
+      "Hex- correspond à six carbones et -ane à un hydrocarbure saturé acyclique.",
+      "Ce nom désigne un cycle à six carbones portant une double liaison."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:nomenclature-chaines"
+      ]
+    }
+  },
+  {
+    "order": 17,
+    "difficulty": "HARD",
+    "question": "À propos des formules, des valences usuelles et des fonctions organiques, quelles propositions sont exactes ?",
+    "statement": "À propos des formules, des valences usuelles et des fonctions organiques, quelles propositions sont exactes ?",
+    "explanation": "La formule brute ne fixe pas l’enchaînement des atomes. Dans les représentations usuelles, le carbone est tétravalent et l’oxygène divalent. Un ammonium quaternaire se distingue d’une amine neutre par un azote tétrasubstitué chargé positivement.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:nomenclature-fonctions-valence"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Une formule brute indique la nature et le nombre des atomes sans imposer leur enchaînement.",
+      "Le carbone forme usuellement quatre liaisons dans les molécules organiques neutres classiques.",
+      "Un ammonium quaternaire porte un azote lié à quatre substituants et une charge positive.",
+      "Un éther est défini par le motif R–S–R′.",
+      "Une formule brute suffit toujours à déterminer le nom IUPAC complet d’une molécule organique."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Plusieurs isomères peuvent partager une même formule brute.",
+      "Cette tétravalence est une règle structurale de base de la chimie organique.",
+      "Il doit être distingué d’une amine tertiaire neutre.",
+      "Le motif R–S–R′ correspond à un thioéther ; l’éther contient un oxygène.",
+      "La connectivité et, parfois, la stéréochimie sont indispensables."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:nomenclature-fonctions-valence"
+      ]
+    }
+  },
+  {
+    "order": 18,
+    "difficulty": "MEDIUM",
+    "question": "En observant le carbone α de l’alanine, combien de substituants différents doivent être liés à un carbone tétraédrique pour qu’il constitue un centre stéréogène classique ? Donnez uniquement la valeur numérique.",
+    "statement": "En observant le carbone α de l’alanine, combien de substituants différents doivent être liés à un carbone tétraédrique pour qu’il constitue un centre stéréogène classique ? Donnez uniquement la valeur numérique.",
+    "explanation": "Un carbone tétraédrique constitue classiquement un centre stéréogène lorsqu’il est lié à quatre substituants différents. Dans l’alanine, le carbone α est lié à \\ce{NH2}, \\ce{COOH}, \\ce{CH3} et H.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:stereochimie-centre"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "number",
+      "numericAnswer": {
+        "value": 4,
+        "tolerance": 0
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:stereochimie-centre"
+      ]
+    }
+  },
+  {
+    "order": 19,
+    "difficulty": "HARD",
+    "question": "À propos des deux représentations A et B de l’alanine et de la nomenclature stéréochimique, quelles propositions sont exactes ?",
+    "statement": "À propos des deux représentations A et B de l’alanine et de la nomenclature stéréochimique, quelles propositions sont exactes ?",
+    "explanation": "Deux molécules images miroir non superposables sont des énantiomères. L’excès énantiomérique correspond à la différence entre les proportions des deux énantiomères : un mélange 75/25 possède donc un excès de 50 %. Les règles de Cahn–Ingold–Prelog permettent d’attribuer une configuration R ou S en hiérarchisant les substituants ; cette notation ne prédit pas le signe du pouvoir rotatoire. La glycine est un contre-exemple classique de chiralité des acides aminés α car son carbone α porte deux hydrogènes identiques.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:stereochimie-enantiomerie"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Si A et B sont images l’une de l’autre dans un miroir et non superposables, elles constituent une paire d’énantiomères.",
+      "Un mélange contenant 75 % d’un énantiomère et 25 % de l’autre possède un excès énantiomérique de 50 %.",
+      "Dans les règles de Cahn–Ingold–Prelog, un atome directement lié de numéro atomique plus élevé reçoit en première approximation une priorité plus élevée.",
+      "La notation R/S décrit une configuration absolue mais ne permet pas, à elle seule, de déduire le signe du pouvoir rotatoire.",
+      "La glycine possède un centre stéréogène sur son carbone α parce que ce carbone est lié à un groupe amine et à un groupe carboxyle."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "choiceExplanations": [
+      "Vrai. C’est la définition d’une paire d’énantiomères.",
+      "Vrai. 75% - 25% = 50%.",
+      "Vrai. Le numéro atomique de l’atome directement lié constitue le premier critère de priorité CIP.",
+      "Vrai. Les notations R/S et (+)/(−) décrivent des propriétés différentes et ne se déduisent pas l’une de l’autre.",
+      "Faux. Le carbone α de la glycine porte deux hydrogènes identiques et n’est donc pas un centre stéréogène classique."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:stereochimie-enantiomerie"
+      ]
+    }
+  },
+  {
+    "order": 20,
+    "difficulty": "MEDIUM",
+    "question": "D’après le schéma, pourquoi la glycine ne possède-t-elle pas de centre stéréogène classique sur son carbone α ?",
+    "statement": "D’après le schéma, pourquoi la glycine ne possède-t-elle pas de centre stéréogène classique sur son carbone α ?",
+    "explanation": "Pour constituer un centre stéréogène classique, un carbone tétraédrique doit porter quatre substituants différents. Le carbone α de la glycine est lié à \\ce{NH2}, \\ce{COOH} et à deux hydrogènes identiques : il n’est donc pas stéréogène.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:stereochimie-glycine"
+    ],
+    "format": "QRU",
+    "questionFormat": "QRU",
+    "questionType": "mcq",
+    "answerFormat": "SINGLE",
+    "choices": [
+      "Parce que son groupe amine est plan.",
+      "Parce que son groupe carboxyle n’est pas polaire.",
+      "Parce que son carbone α est hybridé sp².",
+      "Parce qu’elle ne contient aucun atome de carbone.",
+      "Parce que son carbone α porte deux hydrogènes identiques."
+    ],
+    "correctChoiceIndexes": [
+      4
+    ],
+    "choiceExplanations": [
+      "Faux. L’amine n’est pas la raison de l’absence de centre stéréogène.",
+      "Faux. La polarité du carboxyle n’intervient pas.",
+      "Faux. Le carbone α est sp³.",
+      "Faux. La glycine contient deux atomes de carbone.",
+      "Vrai. La présence de deux hydrogènes identiques sur Cα supprime la chiralité."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:stereochimie-glycine"
+      ]
+    }
+  },
+  {
+    "order": 21,
+    "difficulty": "EASY",
+    "question": "Sélectionnez exactement les deux associations molécule–formule brute correctes.",
+    "statement": "Sélectionnez exactement les deux associations molécule–formule brute correctes.",
+    "explanation": "Un alcane acyclique saturé possède la formule générale \\ce{C_nH_{2n+2}} : pour six carbones, A est donc \\ce{C6H14}. Un monoalcyne acyclique possède la formule \\ce{C_nH_{2n-2}} : D est donc \\ce{C6H10}. Le cyclohexane B et l’hex-2-ène C ont chacun pour formule brute \\ce{C6H12}.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:hydrocarbures-formules"
+    ],
+    "format": "QRP",
+    "questionFormat": "QRP",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Molécule A — \\ce{C6H14}.",
+      "Molécule D — \\ce{C6H10}.",
+      "Molécule C — \\ce{C6H14}.",
+      "Molécule B — \\ce{C6H14}.",
+      "Molécule D — \\ce{C6H12}."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1
+    ],
+    "choiceExplanations": [
+      "Vrai. A est le n-hexane, alcane acyclique C6H14.",
+      "Vrai. D est l’hex-2-yne, monoalcyne C6H10.",
+      "Faux. C est un monoalcène de formule C6H12.",
+      "Faux. B est le cyclohexane de formule C6H12.",
+      "Faux. D possède une triple liaison, soit C6H10."
+    ],
+    "requiredSelectionCount": 2,
+    "answerPayload": {
+      "requiredSelectionCount": 2,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:hydrocarbures-formules"
+      ]
+    }
+  },
+  {
+    "order": 22,
+    "difficulty": "EASY",
+    "question": "La molécule C comporte une double liaison carbone–carbone. Quelles propositions concernant sa structure et sa réactivité sont exactes ?",
+    "statement": "La molécule C comporte une double liaison carbone–carbone. Quelles propositions concernant sa structure et sa réactivité sont exactes ?",
+    "explanation": "Une double liaison C=C associe une liaison σ et une liaison π. La composante π empêche la libre rotation sans rupture du recouvrement latéral. Les alcènes peuvent subir des réactions d’addition, notamment l’hydrogénation catalytique et des additions électrophiles. Un monoalcène acyclique a pour formule générale \\ce{C_nH_{2n}}.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:reactivite-alcenes"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "La liaison π limite fortement la rotation autour de la liaison C=C.",
+      "Une hydrogénation catalytique complète consomme \\ce{H2} et peut conduire à l’alcane correspondant.",
+      "Une addition électrophile de HX sur un alcène dissymétrique peut présenter une régiosélectivité décrite par la règle de Markovnikov.",
+      "La présence d’une double liaison impose la formule générale \\ce{C_nH_{2n-2}} à tout monoalcène acyclique.",
+      "Une double liaison C=C est constituée de deux liaisons σ indépendantes."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2
+    ],
+    "choiceExplanations": [
+      "Vrai. La rotation autour de C=C romprait le recouvrement des orbitales p à l’origine de la liaison π.",
+      "Vrai. L’hydrogénation ajoute les deux hydrogènes de H2 sur la double liaison.",
+      "Vrai. La règle de Markovnikov décrit une régiosélectivité classique de certaines additions de HX sur des alcènes dissymétriques.",
+      "Faux. La formule générale d’un monoalcène acyclique est CnH2n.",
+      "Faux. Une double liaison comporte une liaison σ et une liaison π."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:reactivite-alcenes"
+      ]
+    }
+  },
+  {
+    "order": 23,
+    "difficulty": "MEDIUM",
+    "question": "Quel est le nom de la molécule B ? Donnez uniquement son nom.",
+    "statement": "Quel est le nom de la molécule B ? Donnez uniquement son nom.",
+    "explanation": "La molécule B est un cycle saturé comportant six atomes de carbone : il s’agit du cyclohexane.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:cyclanes-nomenclature"
+    ],
+    "format": "QROC",
+    "questionFormat": "QROC",
+    "questionType": "short-answer",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "answerType": "text",
+      "acceptedAnswers": [
+        {
+          "value": "cyclohexane"
+        },
+        {
+          "value": "le cyclohexane"
+        }
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true,
+        "normalizeUnicode": true
+      },
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:cyclanes-nomenclature"
+      ]
+    }
+  },
+  {
+    "order": 24,
+    "difficulty": "HARD",
+    "question": "Sur la molécule C, sélectionnez la double liaison carbone–carbone.",
+    "statement": "Sur la molécule C, sélectionnez la double liaison carbone–carbone.",
+    "explanation": "La molécule C contient une double liaison carbone–carbone. Une liaison C=C associe une liaison σ et une liaison π ; c’est cette insaturation qui caractérise ici l’alcène représenté.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:qzone-double-liaison"
+    ],
+    "format": "QZONE",
+    "questionFormat": "QZONE",
+    "questionType": "hotspot",
+    "answerFormat": "SINGLE",
+    "choices": [],
+    "correctChoiceIndexes": [],
+    "choiceExplanations": [],
+    "answerPayload": {
+      "image": {
+        "src": "/images/training/ue14/colles/c04/hydrocarbons-c6-linked-q21-q24.svg",
+        "alt": "Quatre représentations topologiques d’hydrocarbures à six atomes de carbone, notées A à D.",
+        "width": 1200,
+        "height": 700
+      },
+      "expectedZones": [
+        {
+          "id": "target-double-bond",
+          "label": "Double liaison C=C",
+          "x": 0.2333,
+          "y": 0.7286,
+          "tolerance": 0.05
+        }
+      ],
+      "defaultTolerance": 0.05,
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:qzone-double-liaison"
+      ]
+    }
+  },
+  {
+    "order": 25,
+    "difficulty": "HARD",
+    "question": "Pour relier orbitales moléculaires, stéréochimie et hydrocarbures, quelles propositions sont exactes ?",
+    "statement": "Pour relier orbitales moléculaires, stéréochimie et hydrocarbures, quelles propositions sont exactes ?",
+    "explanation": "La structure électronique des doubles et triples liaisons explique à la fois la géométrie des carbones, la restriction de rotation et une partie de la réactivité. Les alcènes peuvent en outre présenter une isomérie géométrique lorsque les substituants le permettent.",
+    "points": 1,
+    "tags": [
+      "usage:COLLE",
+      "ue:UE14",
+      "colle:C04",
+      "ec:CHIMIE",
+      "theme:integration-orbitales-hydrocarbures"
+    ],
+    "format": "QRM",
+    "questionFormat": "QRM",
+    "questionType": "mcq",
+    "answerFormat": "MULTIPLE",
+    "choices": [
+      "Chaque carbone d’une double liaison C=C est classiquement sp² et conserve une orbitale p non hybridée.",
+      "Chaque carbone d’une triple liaison C≡C est classiquement sp et conserve deux orbitales p non hybridées.",
+      "Une double liaison carbone–carbone comprend une liaison σ et une liaison π.",
+      "Selon le catalyseur et les conditions, l’hydrogénation d’un alcyne peut être conduite jusqu’à l’alcane ou arrêtée au stade alcène.",
+      "L’existence d’une double liaison interdit toute isomérie géométrique autour de C=C."
+    ],
+    "correctChoiceIndexes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "choiceExplanations": [
+      "Les deux orbitales p se recouvrent latéralement pour former la liaison π.",
+      "Ces deux p participent aux deux liaisons π de la triple liaison.",
+      "La liaison σ résulte du recouvrement axial et la liaison π du recouvrement latéral.",
+      "Le choix du catalyseur permet de moduler le degré d’hydrogénation.",
+      "Au contraire, l’absence de rotation libre permet une isomérie géométrique lorsque chaque carbone porte des substituants appropriés."
+    ],
+    "answerPayload": {
+      "tags": [
+        "usage:COLLE",
+        "ue:UE14",
+        "colle:C04",
+        "ec:CHIMIE",
+        "theme:integration-orbitales-hydrocarbures"
+      ]
+    }
+  }
+]

@@ -1,656 +1,662 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
+/** UE14 Biochimie — Acides aminés : structure et rôles biologiques — Section A — Généralités, structure et besoins nutritionnels */
 export const UE14_BIOCH_CH9_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 1,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant les acides aminés du monde vivant :",
+    "question": "Concernant les acides aminés protéinogènes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Plusieurs centaines d’acides aminés naturels ont été identifiés dans le monde vivant.",
-        "correct": true,
-        "explanation": "On distingue les nombreux acides aminés naturels des vingt acides aminés standards couramment incorporés dans les protéines humaines."
-      },
-      {
-        "content": "Dans les protéines, la masse moyenne d’un résidu d’acide aminé est approximativement de 110 Da.",
-        "correct": true,
-        "explanation": "On distingue les nombreux acides aminés naturels des vingt acides aminés standards couramment incorporés dans les protéines humaines."
-      },
-      {
-        "content": "Tous les acides aminés connus entrent dans les protéines animales.",
+        "content": "La séquence des acides aminés n'influence pas la structure d'une protéine.",
         "correct": false,
-        "explanation": "On distingue les nombreux acides aminés naturels des vingt acides aminés standards couramment incorporés dans les protéines humaines."
+        "explanation": "Elle est déterminante."
       },
       {
-        "content": "La masse moyenne d’un résidu d’acide aminé est d’environ 11 Da.",
+        "content": "Le monde vivant contient de nombreux acides aminés non standards.",
+        "correct": true,
+        "explanation": "Tous ne sont pas directement codés comme constituants usuels des protéines humaines."
+      },
+      {
+        "content": "L'ordre des résidus constitue la séquence de la protéine.",
+        "correct": true,
+        "explanation": "La séquence influence le repliement et la fonction."
+      },
+      {
+        "content": "Le terme résidu désigne uniquement un acide gras.",
         "correct": false,
-        "explanation": "On distingue les nombreux acides aminés naturels des vingt acides aminés standards couramment incorporés dans les protéines humaines."
+        "explanation": "En biochimie des protéines, il désigne un acide aminé incorporé."
+      },
+      {
+        "content": "Toutes les molécules appelées acides aminés sont incorporées dans les protéines humaines.",
+        "correct": false,
+        "explanation": "Seul un sous-ensemble standard est utilisé couramment par la machinerie de traduction humaine."
       }
     ],
-    "explanation": "Le monde vivant contient de nombreux acides aminés, mais les protéines humaines utilisent principalement vingt acides aminés standards ; la masse moyenne d’un résidu est proche de 110 Da."
+    "explanation": "Les protéines humaines sont constituées principalement de vingt acides aminés standards assemblés en résidus."
   },
   {
     "order": 2,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Combien d’acides aminés standards sont couramment utilisés pour constituer les protéines humaines ?",
-    "choices": [
-      {
-        "content": "20",
-        "correct": true,
-        "explanation": "On distingue les nombreux acides aminés naturels des vingt acides aminés standards couramment incorporés dans les protéines humaines."
-      },
-      {
-        "content": "10",
-        "correct": false,
-        "explanation": "On distingue les nombreux acides aminés naturels des vingt acides aminés standards couramment incorporés dans les protéines humaines."
-      },
-      {
-        "content": "100",
-        "correct": false,
-        "explanation": "On distingue les nombreux acides aminés naturels des vingt acides aminés standards couramment incorporés dans les protéines humaines."
-      },
-      {
-        "content": "500",
-        "correct": false,
-        "explanation": "On distingue les nombreux acides aminés naturels des vingt acides aminés standards couramment incorporés dans les protéines humaines."
-      }
-    ],
-    "explanation": "On distingue les nombreux acides aminés naturels des vingt acides aminés standards couramment incorporés dans les protéines humaines."
-  },
-  {
-    "order": 3,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant les acides aminés protéinogènes :",
-    "choices": [
-      {
-        "content": "Ils sont les unités de base des protéines.",
-        "correct": true,
-        "explanation": "L’association et l’ordre des résidus conditionnent la structure et les propriétés des protéines."
-      },
-      {
-        "content": "Dans une chaîne polypeptidique, on parle de résidus d’acides aminés.",
-        "correct": true,
-        "explanation": "L’association et l’ordre des résidus conditionnent la structure et les propriétés des protéines."
-      },
-      {
-        "content": "Une protéine est l’unité de base d’un acide aminé.",
-        "correct": false,
-        "explanation": "L’association et l’ordre des résidus conditionnent la structure et les propriétés des protéines."
-      },
-      {
-        "content": "Le radical R est identique pour tous les acides aminés.",
-        "correct": false,
-        "explanation": "L’association et l’ordre des résidus conditionnent la structure et les propriétés des protéines."
-      }
-    ],
-    "explanation": "L’association et l’ordre des résidus conditionnent la structure et les propriétés des protéines."
-  },
-  {
-    "order": 4,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Comment appelle-t-on un acide aminé intégré dans une chaîne polypeptidique ?",
-    "choices": [
-      {
-        "content": "un résidu",
-        "correct": true,
-        "explanation": "L’association et l’ordre des résidus conditionnent la structure et les propriétés des protéines."
-      },
-      {
-        "content": "un nucléotide",
-        "correct": false,
-        "explanation": "L’association et l’ordre des résidus conditionnent la structure et les propriétés des protéines."
-      },
-      {
-        "content": "un ose",
-        "correct": false,
-        "explanation": "L’association et l’ordre des résidus conditionnent la structure et les propriétés des protéines."
-      },
-      {
-        "content": "un stéride",
-        "correct": false,
-        "explanation": "L’association et l’ordre des résidus conditionnent la structure et les propriétés des protéines."
-      }
-    ],
-    "explanation": "L’association et l’ordre des résidus conditionnent la structure et les propriétés des protéines."
-  },
-  {
-    "order": 5,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant la structure commune d’un acide aminé :",
-    "choices": [
-      {
-        "content": "Le carbone α porte une fonction amine.",
-        "correct": true,
-        "explanation": "La structure commune associe autour du Cα une amine, un carboxyle, un hydrogène et un radical R."
-      },
-      {
-        "content": "Il porte aussi une fonction acide carboxylique.",
-        "correct": true,
-        "explanation": "La structure commune associe autour du Cα une amine, un carboxyle, un hydrogène et un radical R."
-      },
-      {
-        "content": "Le carbone α ne porte jamais d’hydrogène.",
-        "correct": false,
-        "explanation": "La structure commune associe autour du Cα une amine, un carboxyle, un hydrogène et un radical R."
-      },
-      {
-        "content": "Le radical R est toujours un groupement méthyle.",
-        "correct": false,
-        "explanation": "La structure commune associe autour du Cα une amine, un carboxyle, un hydrogène et un radical R."
-      }
-    ],
-    "explanation": "La structure commune associe autour du Cα une amine, un carboxyle, un hydrogène et un radical R."
-  },
-  {
-    "order": 6,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel élément de la structure différencie principalement les acides aminés entre eux ?",
-    "choices": [
-      {
-        "content": "le radical R",
-        "correct": true,
-        "explanation": "La structure commune associe autour du Cα une amine, un carboxyle, un hydrogène et un radical R."
-      },
-      {
-        "content": "le carbone α",
-        "correct": false,
-        "explanation": "La structure commune associe autour du Cα une amine, un carboxyle, un hydrogène et un radical R."
-      },
-      {
-        "content": "la fonction carboxyle commune",
-        "correct": false,
-        "explanation": "La structure commune associe autour du Cα une amine, un carboxyle, un hydrogène et un radical R."
-      },
-      {
-        "content": "la fonction amine commune",
-        "correct": false,
-        "explanation": "La structure commune associe autour du Cα une amine, un carboxyle, un hydrogène et un radical R."
-      }
-    ],
-    "explanation": "La structure commune associe autour du Cα une amine, un carboxyle, un hydrogène et un radical R."
-  },
-  {
-    "order": 7,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant le carbone α :",
-    "choices": [
-      {
-        "content": "Il est au centre de la structure générale des acides α-aminés.",
-        "correct": true,
-        "explanation": "Le carbone α constitue le repère structural central des acides aminés."
-      },
-      {
-        "content": "Dans un acide α-aminé, il correspond au carbone 2 de la chaîne principale.",
-        "correct": true,
-        "explanation": "Le carbone α constitue le repère structural central des acides aminés."
-      },
-      {
-        "content": "Il est toujours un carbone carbonylé.",
-        "correct": false,
-        "explanation": "Le carbone α constitue le repère structural central des acides aminés."
-      },
-      {
-        "content": "Il est absent de tous les acides aminés naturels.",
-        "correct": false,
-        "explanation": "Le carbone α constitue le repère structural central des acides aminés."
-      }
-    ],
-    "explanation": "Le carbone α constitue le repère structural central des acides aminés."
-  },
-  {
-    "order": 8,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel nom porte le carbone central lié au radical R dans un acide α-aminé ?",
-    "choices": [
-      {
-        "content": "carbone α",
-        "correct": true,
-        "explanation": "Le carbone α constitue le repère structural central des acides aminés."
-      },
-      {
-        "content": "carbone ω",
-        "correct": false,
-        "explanation": "Le carbone α constitue le repère structural central des acides aminés."
-      },
-      {
-        "content": "carbone anomérique",
-        "correct": false,
-        "explanation": "Le carbone α constitue le repère structural central des acides aminés."
-      },
-      {
-        "content": "carbone carbonylé",
-        "correct": false,
-        "explanation": "Le carbone α constitue le repère structural central des acides aminés."
-      }
-    ],
-    "explanation": "Le carbone α constitue le repère structural central des acides aminés."
-  },
-  {
-    "order": 9,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant la nomenclature des acides aminés :",
-    "choices": [
-      {
-        "content": "Un acide aminé peut être désigné par son nom.",
-        "correct": true,
-        "explanation": "Les acides aminés sont désignés par leur nom ou par des codes standard à trois lettres et à une lettre."
-      },
-      {
-        "content": "Il peut aussi être codé par trois lettres ou une lettre.",
-        "correct": true,
-        "explanation": "Les acides aminés sont désignés par leur nom ou par des codes standard à trois lettres et à une lettre."
-      },
-      {
-        "content": "Les codes à une lettre sont interdits dans les séquences.",
-        "correct": false,
-        "explanation": "Les acides aminés sont désignés par leur nom ou par des codes standard à trois lettres et à une lettre."
-      },
-      {
-        "content": "Le code à trois lettres de l’alanine est Gly.",
-        "correct": false,
-        "explanation": "Les acides aminés sont désignés par leur nom ou par des codes standard à trois lettres et à une lettre."
-      }
-    ],
-    "explanation": "Les acides aminés sont désignés par leur nom ou par des codes standard à trois lettres et à une lettre."
-  },
-  {
-    "order": 10,
-    "difficulty": "EASY",
     "format": "QROC",
-    "question": "Réponse numérique : combien d’acides aminés standards sont couramment utilisés dans les protéines humaines ?",
+    "question": "Combien d'acides aminés standards sont couramment utilisés pour constituer les protéines humaines ?",
     "answer": {
       "type": "number",
       "value": 20,
       "tolerance": 0
     },
-    "explanation": "Les protéines humaines utilisent couramment vingt acides aminés standards."
+    "explanation": "Les protéines humaines sont constituées principalement de vingt acides aminés standards."
+  },
+  {
+    "order": 3,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel est le code à trois lettres de l'alanine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "Ala",
+        "ALA",
+        "ala"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Les acides aminés standards possèdent des codes conventionnels à trois lettres et à une lettre."
+  },
+  {
+    "order": 4,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant les acides aminés indispensables chez l'adulte, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "L'arginine fait systématiquement partie des neuf acides aminés indispensables de l'adulte sain.",
+        "correct": false,
+        "explanation": "Elle est plutôt classée comme conditionnellement indispensable selon le contexte."
+      },
+      {
+        "content": "La phénylalanine et la méthionine sont indispensables.",
+        "correct": true,
+        "explanation": "Elles servent aussi de précurseurs respectifs de tyrosine et cystéine."
+      },
+      {
+        "content": "Leucine, isoleucine et valine font partie des acides aminés indispensables.",
+        "correct": true,
+        "explanation": "Ce sont également les trois acides aminés à chaîne ramifiée."
+      },
+      {
+        "content": "L'histidine fait partie des neuf acides aminés indispensables chez l'adulte.",
+        "correct": true,
+        "explanation": "Elle ne doit pas être limitée au nourrisson."
+      },
+      {
+        "content": "Un acide aminé indispensable ne se trouve pas dans les aliments.",
+        "correct": false,
+        "explanation": "Au contraire, l'alimentation doit en apporter."
+      }
+    ],
+    "explanation": "Chez l'adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val."
+  },
+  {
+    "order": 5,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant l'arginine et la notion de conditionnellement indispensable, laquelle est correcte ?",
+    "choices": [
+      {
+        "content": "L'arginine est toujours strictement indispensable chez tout adulte sain.",
+        "correct": false,
+        "explanation": "La synthèse endogène est généralement suffisante hors situations particulières."
+      },
+      {
+        "content": "L'arginine ne contient aucun azote dans sa chaîne latérale.",
+        "correct": false,
+        "explanation": "Elle porte un groupement guanidinium riche en azote."
+      },
+      {
+        "content": "L'arginine peut devenir conditionnellement indispensable lorsque les besoins dépassent la capacité de synthèse.",
+        "correct": true,
+        "explanation": "C'est le cas dans certaines situations de croissance ou de stress métabolique."
+      },
+      {
+        "content": "L'arginine n'a aucun rôle métabolique en dehors des protéines.",
+        "correct": false,
+        "explanation": "Elle participe notamment au cycle de l'urée et à la synthèse de NO."
+      },
+      {
+        "content": "Conditionnellement indispensable signifie toxique en dehors de la croissance.",
+        "correct": false,
+        "explanation": "Cela décrit un besoin nutritionnel dépendant du contexte."
+      }
+    ],
+    "explanation": "L'arginine est généralement synthétisable chez l'adulte, mais les besoins peuvent dépasser la synthèse endogène dans certains contextes."
+  },
+  {
+    "order": 6,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "question": "Concernant la glycine comme exception structurale, sélectionnez exactement les deux affirmations exactes.",
+    "choices": [
+      {
+        "content": "La glycine est l'acide aminé standard le plus volumineux.",
+        "correct": false,
+        "explanation": "C'est le plus petit."
+      },
+      {
+        "content": "La glycine n'a donc pas de série D/L au sens d'un centre chiral alpha.",
+        "correct": true,
+        "explanation": "Elle est achirale."
+      },
+      {
+        "content": "Son carbone alpha n'est pas chiral.",
+        "correct": true,
+        "explanation": "Il porte deux hydrogènes identiques."
+      },
+      {
+        "content": "La glycine possède un groupement thiol.",
+        "correct": false,
+        "explanation": "Cela décrit la cystéine."
+      },
+      {
+        "content": "La glycine possède obligatoirement deux énantiomères.",
+        "correct": false,
+        "explanation": "Elle est achirale."
+      }
+    ],
+    "explanation": "La glycine est unique parmi les vingt acides aminés standards : R=H et Cα achiral.",
+    "requiredSelectionCount": 2
+  },
+  {
+    "order": 7,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Dans une application de ce principe, concernant les acides aminés protéinogènes, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Le terme résidu désigne uniquement un acide gras.",
+        "correct": false,
+        "explanation": "En biochimie des protéines, il désigne un acide aminé incorporé."
+      },
+      {
+        "content": "Une fois incorporé dans une chaîne polypeptidique, un acide aminé est appelé résidu.",
+        "correct": true,
+        "explanation": "La liaison peptidique s'accompagne de la perte des éléments d'une molécule d'eau."
+      },
+      {
+        "content": "L'ordre des résidus constitue la séquence de la protéine.",
+        "correct": true,
+        "explanation": "La séquence influence le repliement et la fonction."
+      },
+      {
+        "content": "Le monde vivant contient de nombreux acides aminés non standards.",
+        "correct": true,
+        "explanation": "Tous ne sont pas directement codés comme constituants usuels des protéines humaines."
+      },
+      {
+        "content": "Les protéines humaines utilisent couramment vingt acides aminés standards.",
+        "correct": true,
+        "explanation": "Il s'agit des vingt acides aminés canoniques du code génétique humain."
+      }
+    ],
+    "explanation": "Les protéines humaines sont constituées principalement de vingt acides aminés standards assemblés en résidus."
+  },
+  {
+    "order": 8,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel élément de la structure varie principalement d'un acide aminé standard à l'autre ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "chaîne latérale R",
+        "radical R",
+        "R",
+        "chaine laterale"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "La structure commune est centrée sur Cα ; la chaîne latérale R donne l'identité chimique de l'acide aminé."
+  },
+  {
+    "order": 9,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant la nomenclature des acides aminés ?",
+    "choices": [
+      {
+        "content": "Un même code à une lettre désigne indifféremment plusieurs acides aminés standards.",
+        "correct": false,
+        "explanation": "Les codes standards sont univoques."
+      },
+      {
+        "content": "Le code à trois lettres de l'alanine est Ala.",
+        "correct": true,
+        "explanation": "Le code à une lettre est A."
+      },
+      {
+        "content": "Le code à une lettre de la glycine est A.",
+        "correct": false,
+        "explanation": "G correspond à la glycine."
+      },
+      {
+        "content": "Le code à trois lettres de l'alanine est Gly.",
+        "correct": false,
+        "explanation": "Gly désigne la glycine."
+      },
+      {
+        "content": "Les codes à une lettre ne peuvent jamais être utilisés dans une séquence.",
+        "correct": false,
+        "explanation": "Ils sont précisément conçus pour cela."
+      }
+    ],
+    "explanation": "Les acides aminés standards possèdent des codes conventionnels à trois lettres et à une lettre."
+  },
+  {
+    "order": 10,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Dans une application de ce principe, concernant les acides aminés indispensables chez l'adulte, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "L'arginine fait systématiquement partie des neuf acides aminés indispensables de l'adulte sain.",
+        "correct": false,
+        "explanation": "Elle est plutôt classée comme conditionnellement indispensable selon le contexte."
+      },
+      {
+        "content": "Un acide aminé indispensable ne se trouve pas dans les aliments.",
+        "correct": false,
+        "explanation": "Au contraire, l'alimentation doit en apporter."
+      },
+      {
+        "content": "Leucine, isoleucine et valine font partie des acides aminés indispensables.",
+        "correct": true,
+        "explanation": "Ce sont également les trois acides aminés à chaîne ramifiée."
+      },
+      {
+        "content": "La glycine est toujours un acide aminé indispensable chez l'adulte sain.",
+        "correct": false,
+        "explanation": "Elle est généralement synthétisable."
+      },
+      {
+        "content": "Neuf acides aminés sont classiquement indispensables chez l'adulte humain sain.",
+        "correct": true,
+        "explanation": "Ils doivent être apportés en quantité suffisante par l'alimentation."
+      }
+    ],
+    "explanation": "Chez l'adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val."
   },
   {
     "order": 11,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant la notion d’acide aminé essentiel :",
+    "question": "Concernant les acides aminés protéinogènes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Un acide aminé indispensable n’est pas synthétisé en quantité suffisante par l’organisme humain.",
-        "correct": true,
-        "explanation": "Le caractère essentiel est une notion nutritionnelle liée à l’incapacité de synthèse suffisante."
-      },
-      {
-        "content": "Un acide aminé essentiel doit donc être apporté par l’alimentation.",
-        "correct": true,
-        "explanation": "Le caractère essentiel est une notion nutritionnelle liée à l’incapacité de synthèse suffisante."
-      },
-      {
-        "content": "Essentiel signifie qu’il n’est jamais présent dans les aliments.",
+        "content": "Toutes les molécules appelées acides aminés sont incorporées dans les protéines humaines.",
         "correct": false,
-        "explanation": "Le caractère essentiel est une notion nutritionnelle liée à l’incapacité de synthèse suffisante."
+        "explanation": "Seul un sous-ensemble standard est utilisé couramment par la machinerie de traduction humaine."
       },
       {
-        "content": "Tous les acides aminés sont synthétisés en quantité suffisante par l’Homme.",
+        "content": "Une protéine est un polymère de monosaccharides.",
         "correct": false,
-        "explanation": "Le caractère essentiel est une notion nutritionnelle liée à l’incapacité de synthèse suffisante."
+        "explanation": "Elle est formée de résidus d'acides aminés."
+      },
+      {
+        "content": "L'ordre des résidus constitue la séquence de la protéine.",
+        "correct": true,
+        "explanation": "La séquence influence le repliement et la fonction."
+      },
+      {
+        "content": "La séquence des acides aminés n'influence pas la structure d'une protéine.",
+        "correct": false,
+        "explanation": "Elle est déterminante."
+      },
+      {
+        "content": "Une fois incorporé dans une chaîne polypeptidique, un acide aminé est appelé résidu.",
+        "correct": true,
+        "explanation": "La liaison peptidique s'accompagne de la perte des éléments d'une molécule d'eau."
       }
     ],
-    "explanation": "Le caractère essentiel est une notion nutritionnelle liée à l’incapacité de synthèse suffisante."
+    "explanation": "Les protéines humaines sont constituées principalement de vingt acides aminés standards assemblés en résidus."
   },
   {
     "order": 12,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle voie d’apport est nécessaire pour un acide aminé indispensable ?",
-    "choices": [
-      {
-        "content": "l’alimentation",
-        "correct": true,
-        "explanation": "Le caractère essentiel est une notion nutritionnelle liée à l’incapacité de synthèse suffisante."
-      },
-      {
-        "content": "la photosynthèse cutanée",
-        "correct": false,
-        "explanation": "Le caractère essentiel est une notion nutritionnelle liée à l’incapacité de synthèse suffisante."
-      },
-      {
-        "content": "la filtration rénale",
-        "correct": false,
-        "explanation": "Le caractère essentiel est une notion nutritionnelle liée à l’incapacité de synthèse suffisante."
-      },
-      {
-        "content": "la bile",
-        "correct": false,
-        "explanation": "Le caractère essentiel est une notion nutritionnelle liée à l’incapacité de synthèse suffisante."
-      }
-    ],
-    "explanation": "Le caractère essentiel est une notion nutritionnelle liée à l’incapacité de synthèse suffisante."
+    "format": "QROC",
+    "question": "Combien d'acides aminés sont classiquement indispensables chez l'adulte humain sain ?",
+    "answer": {
+      "type": "number",
+      "value": 9,
+      "tolerance": 0
+    },
+    "explanation": "Chez l'adulte sain, neuf acides aminés sont indispensables, dont l'histidine."
   },
   {
     "order": 13,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant le groupe Leu, Thr, Lys, Trp, Phe, Val, Met et Ile :",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant la nomenclature des acides aminés ?",
     "choices": [
       {
-        "content": "Leucine, thréonine, lysine et tryptophane appartiennent à ce groupe.",
-        "correct": true,
-        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
-      },
-      {
-        "content": "Phénylalanine, valine, méthionine et isoleucine appartiennent aussi à ce groupe.",
-        "correct": true,
-        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
-      },
-      {
-        "content": "La tyrosine et la glycine remplacent la leucine et la lysine dans ce groupe.",
+        "content": "Un même code à une lettre désigne indifféremment plusieurs acides aminés standards.",
         "correct": false,
-        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
+        "explanation": "Les codes standards sont univoques."
       },
       {
-        "content": "Ce groupe ne contient aucun acide aminé ramifié.",
+        "content": "Le code à une lettre de la glycine est A.",
         "correct": false,
-        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
+        "explanation": "G correspond à la glycine."
+      },
+      {
+        "content": "Les codes à une lettre ne peuvent jamais être utilisés dans une séquence.",
+        "correct": false,
+        "explanation": "Ils sont précisément conçus pour cela."
+      },
+      {
+        "content": "Le code à trois lettres de l'alanine est Gly.",
+        "correct": false,
+        "explanation": "Gly désigne la glycine."
+      },
+      {
+        "content": "Chaque acide aminé standard possède un nom, un code à trois lettres et un code à une lettre.",
+        "correct": true,
+        "explanation": "Ces codes sont utilisés dans les séquences."
       }
     ],
-    "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile forment un groupe de huit acides aminés indispensables ; cette formulation ne prétend pas dresser une liste exhaustive."
+    "explanation": "Les acides aminés standards possèdent des codes conventionnels à trois lettres et à une lettre."
   },
   {
     "order": 14,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Lequel de ces acides aminés est indispensable chez l’adulte sain ?",
+    "format": "QRM",
+    "question": "Concernant les acides aminés indispensables chez l'adulte, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "leucine",
+        "content": "Leucine, isoleucine et valine font partie des acides aminés indispensables.",
         "correct": true,
-        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
+        "explanation": "Ce sont également les trois acides aminés à chaîne ramifiée."
       },
       {
-        "content": "glycine",
-        "correct": false,
-        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
+        "content": "La phénylalanine et la méthionine sont indispensables.",
+        "correct": true,
+        "explanation": "Elles servent aussi de précurseurs respectifs de tyrosine et cystéine."
       },
       {
-        "content": "alanine",
+        "content": "L'histidine n'est indispensable que chez le nourrisson.",
         "correct": false,
-        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
+        "explanation": "Elle est aussi indispensable chez l'adulte."
       },
       {
-        "content": "proline",
+        "content": "Neuf acides aminés sont classiquement indispensables chez l'adulte humain sain.",
+        "correct": true,
+        "explanation": "Ils doivent être apportés en quantité suffisante par l'alimentation."
+      },
+      {
+        "content": "L'arginine fait systématiquement partie des neuf acides aminés indispensables de l'adulte sain.",
         "correct": false,
-        "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
+        "explanation": "Elle est plutôt classée comme conditionnellement indispensable selon le contexte."
       }
     ],
-    "explanation": "Leu, Thr, Lys, Trp, Phe, Val, Met et Ile appartiennent tous aux acides aminés indispensables. Ce groupe de huit est exact sans être présenté comme exhaustif."
+    "explanation": "Chez l'adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val."
   },
   {
     "order": 15,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant les besoins nutritionnels en histidine et en arginine pendant la croissance :",
-    "choices": [
-      {
-        "content": "Un apport suffisant de ces acides aminés contribue à couvrir les besoins de la croissance.",
-        "correct": true,
-        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
-      },
-      {
-        "content": "L’arginine peut devenir conditionnellement indispensable lorsque les besoins dépassent la synthèse endogène.",
-        "correct": true,
-        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
-      },
-      {
-        "content": "Ces deux acides aminés sont inutiles pendant la croissance.",
-        "correct": false,
-        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
-      },
-      {
-        "content": "Elles sont toutes deux des acides aminés soufrés.",
-        "correct": false,
-        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
+    "format": "QROC",
+    "question": "Quel acide aminé basique est généralement classé comme conditionnellement indispensable plutôt que systématiquement indispensable chez l'adulte sain ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "arginine",
+        "l'arginine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
+    },
+    "explanation": "L'arginine est synthétisable chez l'adulte, mais peut devenir conditionnellement indispensable lorsque les besoins dépassent la synthèse endogène."
   },
   {
     "order": 16,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel acide aminé peut devenir conditionnellement indispensable pendant certaines périodes de croissance ou de stress métabolique ?",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant la glycine comme exception structurale ?",
     "choices": [
       {
-        "content": "L’arginine",
+        "content": "La chaîne latérale de la glycine est un hydrogène.",
         "correct": true,
-        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
+        "explanation": "Elle est l'acide aminé standard le plus simple."
       },
       {
-        "content": "La glycine uniquement après 70 ans",
-        "correct": false,
-        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
+        "content": "Son carbone alpha n'est pas chiral.",
+        "correct": true,
+        "explanation": "Il porte deux hydrogènes identiques."
       },
       {
-        "content": "La leucine uniquement pendant le jeûne",
-        "correct": false,
-        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
+        "content": "La glycine n'a donc pas de série D/L au sens d'un centre chiral alpha.",
+        "correct": true,
+        "explanation": "Elle est achirale."
       },
       {
-        "content": "La valine uniquement pendant la grossesse",
+        "content": "La glycine possède obligatoirement deux énantiomères.",
         "correct": false,
-        "explanation": "Pendant la croissance, les besoins nutritionnels en histidine et en arginine doivent être couverts ; pour l’arginine, la synthèse endogène peut devenir insuffisante au regard des besoins."
+        "explanation": "Elle est achirale."
+      },
+      {
+        "content": "Sa petite taille confère une grande flexibilité locale aux chaînes polypeptidiques.",
+        "correct": true,
+        "explanation": "Elle est fréquente dans les régions exigeant peu d'encombrement."
       }
     ],
-    "explanation": "La synthèse endogène d’arginine peut devenir insuffisante par rapport aux besoins pendant certaines périodes de croissance ou de stress métabolique."
+    "explanation": "La glycine est unique parmi les vingt acides aminés standards : R=H et Cα achiral."
   },
   {
     "order": 17,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant les réactions d’interconversion :",
-    "choices": [
-      {
-        "content": "Elles permettent la synthèse de certains acides aminés par l’organisme.",
-        "correct": true,
-        "explanation": "La synthèse endogène de plusieurs acides aminés est reliée aux réactions d’interconversion."
-      },
-      {
-        "content": "Elles participent à la synthèse endogène d’acides aminés dispensables.",
-        "correct": true,
-        "explanation": "La synthèse endogène de plusieurs acides aminés est reliée aux réactions d’interconversion."
-      },
-      {
-        "content": "Elles transforment nécessairement les acides aminés en lipides.",
-        "correct": false,
-        "explanation": "La synthèse endogène de plusieurs acides aminés est reliée aux réactions d’interconversion."
-      },
-      {
-        "content": "Elles rendent l’apport alimentaire des acides aminés essentiels inutile.",
-        "correct": false,
-        "explanation": "La synthèse endogène de plusieurs acides aminés est reliée aux réactions d’interconversion."
-      }
-    ],
-    "explanation": "La synthèse endogène de plusieurs acides aminés est reliée aux réactions d’interconversion."
+    "format": "QROC",
+    "question": "Combien d'acides aminés standards sont couramment utilisés pour constituer les protéines humaines ?",
+    "answer": {
+      "type": "number",
+      "value": 20,
+      "tolerance": 0
+    },
+    "explanation": "Les protéines humaines sont constituées principalement de vingt acides aminés standards assemblés en résidus."
   },
   {
     "order": 18,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Quel terme désigne les réactions permettant de convertir le squelette d’un acide aminé en un autre ?",
+    "question": "Parmi les affirmations suivantes concernant la structure commune d'un acide alpha-aminé, laquelle est correcte ?",
     "choices": [
       {
-        "content": "interconversion",
+        "content": "À pH physiologique, les fonctions alpha-amine et alpha-carboxyle sont généralement ionisées.",
         "correct": true,
-        "explanation": "La synthèse endogène de plusieurs acides aminés est reliée aux réactions d’interconversion."
+        "explanation": "La forme zwitterionique est alors importante."
       },
       {
-        "content": "hydrogénation",
+        "content": "Le carbone alpha ne porte jamais d'hydrogène.",
         "correct": false,
-        "explanation": "La synthèse endogène de plusieurs acides aminés est reliée aux réactions d’interconversion."
+        "explanation": "Il en porte un dans tous les acides aminés standards, sauf que la glycine en porte deux au total au Cα."
       },
       {
-        "content": "saponification",
+        "content": "La fonction carboxyle est portée par la chaîne latérale de tous les acides aminés.",
         "correct": false,
-        "explanation": "La synthèse endogène de plusieurs acides aminés est reliée aux réactions d’interconversion."
+        "explanation": "Elle appartient à la structure commune."
       },
       {
-        "content": "glycosylation",
+        "content": "Les acides aminés protéinogènes sont des bêta-aminoacides.",
         "correct": false,
-        "explanation": "La synthèse endogène de plusieurs acides aminés est reliée aux réactions d’interconversion."
+        "explanation": "Ils sont principalement des alpha-aminoacides."
+      },
+      {
+        "content": "Le radical R est identique pour tous les acides aminés.",
+        "correct": false,
+        "explanation": "Il varie d'un acide aminé à l'autre."
       }
     ],
-    "explanation": "La synthèse endogène de plusieurs acides aminés est reliée aux réactions d’interconversion."
+    "explanation": "La structure commune est centrée sur Cα ; la chaîne latérale R donne l'identité chimique de l'acide aminé."
   },
   {
     "order": 19,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant la glycine comme cas structural :",
+    "question": "Quelles propositions sont exactes concernant la nomenclature des acides aminés ?",
     "choices": [
       {
-        "content": "Son radical R est un simple hydrogène.",
-        "correct": true,
-        "explanation": "La glycine est le cas le plus simple parmi les acides aminés décrits."
-      },
-      {
-        "content": "C’est le plus petit acide aminé protéinogène.",
-        "correct": true,
-        "explanation": "La glycine est le cas le plus simple parmi les acides aminés décrits."
-      },
-      {
-        "content": "Son radical est un noyau indole.",
+        "content": "Le code à une lettre de la glycine est A.",
         "correct": false,
-        "explanation": "La glycine est le cas le plus simple parmi les acides aminés décrits."
+        "explanation": "G correspond à la glycine."
       },
       {
-        "content": "Elle appartient aux acides aminés soufrés.",
+        "content": "Chaque acide aminé standard possède un nom, un code à trois lettres et un code à une lettre.",
+        "correct": true,
+        "explanation": "Ces codes sont utilisés dans les séquences."
+      },
+      {
+        "content": "Les codes à une lettre ne peuvent jamais être utilisés dans une séquence.",
         "correct": false,
-        "explanation": "La glycine est le cas le plus simple parmi les acides aminés décrits."
+        "explanation": "Ils sont précisément conçus pour cela."
+      },
+      {
+        "content": "Les codes à une lettre permettent une écriture compacte des séquences protéiques.",
+        "correct": true,
+        "explanation": "Ils sont standardisés."
+      },
+      {
+        "content": "Un même code à une lettre désigne indifféremment plusieurs acides aminés standards.",
+        "correct": false,
+        "explanation": "Les codes standards sont univoques."
       }
     ],
-    "explanation": "La glycine est le cas le plus simple parmi les acides aminés décrits."
+    "explanation": "Les acides aminés standards possèdent des codes conventionnels à trois lettres et à une lettre."
   },
   {
     "order": 20,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel est le radical R de la glycine ?",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "un hydrogène",
+        "content": "L'histidine n'est indispensable que chez le nourrisson.",
+        "correct": false,
+        "explanation": "Elle est aussi indispensable chez l'adulte."
+      },
+      {
+        "content": "L'histidine fait partie des neuf acides aminés indispensables chez l'adulte.",
         "correct": true,
-        "explanation": "La glycine est le cas le plus simple parmi les acides aminés décrits."
+        "explanation": "Elle ne doit pas être limitée au nourrisson."
       },
       {
-        "content": "un méthyle",
+        "content": "L'arginine fait systématiquement partie des neuf acides aminés indispensables de l'adulte sain.",
         "correct": false,
-        "explanation": "La glycine est le cas le plus simple parmi les acides aminés décrits."
+        "explanation": "Elle est plutôt classée comme conditionnellement indispensable selon le contexte."
       },
       {
-        "content": "un thiol",
-        "correct": false,
-        "explanation": "La glycine est le cas le plus simple parmi les acides aminés décrits."
+        "content": "Une fois incorporé dans une chaîne polypeptidique, un acide aminé est appelé résidu.",
+        "correct": true,
+        "explanation": "La liaison peptidique s'accompagne de la perte des éléments d'une molécule d'eau."
       },
       {
-        "content": "un phénol",
+        "content": "La séquence des acides aminés n'influence pas la structure d'une protéine.",
         "correct": false,
-        "explanation": "La glycine est le cas le plus simple parmi les acides aminés décrits."
+        "explanation": "Elle est déterminante."
+      },
+      {
+        "content": "Neuf acides aminés sont classiquement indispensables chez l'adulte humain sain.",
+        "correct": true,
+        "explanation": "Ils doivent être apportés en quantité suffisante par l'alimentation."
+      },
+      {
+        "content": "L'ordre des résidus constitue la séquence de la protéine.",
+        "correct": true,
+        "explanation": "La séquence influence le repliement et la fonction."
+      },
+      {
+        "content": "Le monde vivant contient de nombreux acides aminés non standards.",
+        "correct": true,
+        "explanation": "Tous ne sont pas directement codés comme constituants usuels des protéines humaines."
+      },
+      {
+        "content": "La glycine est toujours un acide aminé indispensable chez l'adulte sain.",
+        "correct": false,
+        "explanation": "Elle est généralement synthétisable."
+      },
+      {
+        "content": "Toutes les molécules appelées acides aminés sont incorporées dans les protéines humaines.",
+        "correct": false,
+        "explanation": "Seul un sous-ensemble standard est utilisé couramment par la machinerie de traduction humaine."
       }
     ],
-    "explanation": "La glycine est le cas le plus simple parmi les acides aminés décrits."
+    "explanation": "Chez l'adulte sain, neuf acides aminés sont indispensables : His, Ile, Leu, Lys, Met, Phe, Thr, Trp et Val. Les protéines humaines sont constituées principalement de vingt acides aminés standards assemblés en résidus."
   },
   {
     "order": 21,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Concernant la relation entre acides aminés et protéines :",
+    "question": "Parmi les affirmations suivantes concernant l'arginine et la notion de conditionnellement indispensable, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "Le type d’acides aminés participe à déterminer le type de protéine formée.",
+        "content": "Le terme conditionnellement indispensable dépend du contexte physiologique ou pathologique.",
         "correct": true,
-        "explanation": "Composition et organisation des acides aminés conditionnent les protéines obtenues."
+        "explanation": "Ce n'est pas une propriété absolue identique à tout âge."
       },
       {
-        "content": "Leur association et leurs rapports dans l’espace influencent les propriétés biologiques.",
+        "content": "L'arginine est toujours strictement indispensable chez tout adulte sain.",
+        "correct": false,
+        "explanation": "La synthèse endogène est généralement suffisante hors situations particulières."
+      },
+      {
+        "content": "L'arginine peut devenir conditionnellement indispensable lorsque les besoins dépassent la capacité de synthèse.",
         "correct": true,
-        "explanation": "Composition et organisation des acides aminés conditionnent les protéines obtenues."
+        "explanation": "C'est le cas dans certaines situations de croissance ou de stress métabolique."
       },
       {
-        "content": "La structure tridimensionnelle d’une protéine est indépendante de sa composition.",
+        "content": "Conditionnellement indispensable signifie toxique en dehors de la croissance.",
         "correct": false,
-        "explanation": "Composition et organisation des acides aminés conditionnent les protéines obtenues."
+        "explanation": "Cela décrit un besoin nutritionnel dépendant du contexte."
       },
       {
-        "content": "Tous les assemblages d’acides aminés ont les mêmes propriétés biologiques.",
-        "correct": false,
-        "explanation": "Composition et organisation des acides aminés conditionnent les protéines obtenues."
+        "content": "L'arginine est un précurseur du monoxyde d'azote.",
+        "correct": true,
+        "explanation": "La NO synthase utilise l'arginine."
       }
     ],
-    "explanation": "Composition et organisation des acides aminés conditionnent les protéines obtenues."
+    "explanation": "L'arginine est généralement synthétisable chez l'adulte, mais les besoins peuvent dépasser la synthèse endogène dans certains contextes."
   },
   {
     "order": 22,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Pour conclure la section sur les généralités, sélectionnez exactement les cinq affirmations correctes.",
-    "choices": [
-      {
-        "content": "Plusieurs centaines d’acides aminés naturels sont connus.",
-        "correct": true,
-        "explanation": "Ces cinq propositions reprennent les repères fondamentaux de la section."
-      },
-      {
-        "content": "Les protéines humaines utilisent couramment vingt acides aminés standards.",
-        "correct": true,
-        "explanation": "Ces cinq propositions reprennent les repères fondamentaux de la section."
-      },
-      {
-        "content": "Le carbone α porte notamment une amine et un carboxyle.",
-        "correct": true,
-        "explanation": "Ces cinq propositions reprennent les repères fondamentaux de la section."
-      },
-      {
-        "content": "Le radical R différencie les acides aminés.",
-        "correct": true,
-        "explanation": "Ces cinq propositions reprennent les repères fondamentaux de la section."
-      },
-      {
-        "content": "Un acide aminé essentiel doit être apporté par l’alimentation.",
-        "correct": true,
-        "explanation": "Ces cinq propositions reprennent les repères fondamentaux de la section."
-      },
-      {
-        "content": "Tous les acides aminés connus sont protéinogènes.",
-        "correct": false,
-        "explanation": "Ces cinq propositions reprennent les repères fondamentaux de la section."
-      },
-      {
-        "content": "Le radical R est identique pour tous.",
-        "correct": false,
-        "explanation": "Ces cinq propositions reprennent les repères fondamentaux de la section."
-      },
-      {
-        "content": "L’alanine s’abrège Gly.",
-        "correct": false,
-        "explanation": "Ces cinq propositions reprennent les repères fondamentaux de la section."
-      },
-      {
-        "content": "Un acide aminé essentiel est toujours synthétisé par l’Homme.",
-        "correct": false,
-        "explanation": "Ces cinq propositions reprennent les repères fondamentaux de la section."
-      },
-      {
-        "content": "La glycine porte un noyau indole.",
-        "correct": false,
-        "explanation": "Ces cinq propositions reprennent les repères fondamentaux de la section."
+    "format": "QROC",
+    "question": "Quel est le radical R de la glycine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "hydrogène",
+        "H",
+        "un hydrogène"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Ces cinq propositions reprennent les repères fondamentaux de la section."
+    },
+    "explanation": "La glycine est unique parmi les vingt acides aminés standards : R=H et Cα achiral."
   }
 ];

@@ -2,6 +2,7 @@ import {
   createMcqStudentAnswerFromIndexes,
   getSelectedChoiceIndexesFromAnswer,
   normalizeChoiceIndexes,
+  normalizePersistedPassageQuestion,
   normalizePersistedQuestion,
   normalizePersistedQuestionType,
   type HotspotPoint,
@@ -22,7 +23,7 @@ export type PersistedHealthMockExamQuestion = {
   answerFormat?: QuizAnswerFormatValue | "SINGLE" | "MULTIPLE" | null;
   correctChoiceIndex?: number | null;
   correctChoiceIndexes?: number[] | null;
-  explanation: string;
+  explanation?: string | null;
   choiceExplanations?: unknown;
 };
 
@@ -47,6 +48,19 @@ export function normalizeHealthMockExamQuestion(
     correctChoiceIndexes: question.correctChoiceIndexes,
     explanation: question.explanation,
     choiceExplanations: question.choiceExplanations,
+  });
+}
+
+export function normalizeHealthMockExamPassageQuestion(
+  question: PersistedHealthMockExamQuestion,
+): Question {
+  return normalizePersistedPassageQuestion({
+    id: question.id,
+    questionType: question.questionType,
+    answerPayload: question.answerPayload,
+    question: question.question,
+    choices: question.choices,
+    answerFormat: question.answerFormat,
   });
 }
 

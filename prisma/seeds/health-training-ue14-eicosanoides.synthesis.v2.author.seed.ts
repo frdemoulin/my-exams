@@ -1,678 +1,720 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie — Les eicosanoïdes — Synthèse
- * Banque éditoriale auteur — à intégrer via le helper partagé du repo.
- */
-
+/** UE14 Biochimie — Les eicosanoïdes — Synthèse — Eicosanoïdes */
 export const UE14_BIOCH_CH5_SYNTHESIS_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 101,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Le schéma général des eicosanoïdes associe :",
+    "question": "Concernant les eicosanoïdes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Acide arachidonique → COX → prostanoïdes.",
-        "correct": true,
-        "explanation": "Branche."
-      },
-      {
-        "content": "Acide arachidonique → lipoxygénases → leucotriènes/lipoxines.",
-        "correct": true,
-        "explanation": "Branche."
-      },
-      {
-        "content": "Un précurseur C20:4 n-6.",
-        "correct": true,
-        "explanation": "Arachidonique."
-      },
-      {
-        "content": "Le glycogène comme précurseur lipidique unique.",
+        "content": "Ce sont tous des protéines enzymatiques.",
         "correct": false,
-        "explanation": "Incorrect."
+        "explanation": "Ce sont des médiateurs lipidiques."
+      },
+      {
+        "content": "Leurs effets dépendent du médiateur et du tissu cible.",
+        "correct": true,
+        "explanation": "Des médiateurs proches peuvent avoir des effets opposés."
+      },
+      {
+        "content": "Ils n'ont aucun rôle dans l'inflammation ni l'hémostase.",
+        "correct": false,
+        "explanation": "Plusieurs eicosanoïdes modulent inflammation, tonus vasculaire et fonction plaquettaire."
+      },
+      {
+        "content": "Ils sont des médiateurs lipidiques dérivés d'acides gras à 20 carbones ou de précurseurs voisins.",
+        "correct": true,
+        "explanation": "Le terme eicosa- renvoie au squelette C20."
+      },
+      {
+        "content": "Ils sont tous stockés durablement dans des vésicules de sécrétion.",
+        "correct": false,
+        "explanation": "Ils sont souvent synthétisés à la demande."
       }
     ],
-    "explanation": "L'acide arachidonique alimente notamment les voies COX et lipoxygénases."
+    "explanation": "Les eicosanoïdes sont des médiateurs lipidiques issus de précurseurs C20 ou voisins, à action généralement locale et brève."
   },
   {
     "order": 102,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Les prostanoïdes de série 2 :",
-    "choices": [
-      {
-        "content": "Possède deux doubles liaisons sur les chaînes latérales.",
-        "correct": true,
-        "explanation": "Série."
-      },
-      {
-        "content": "Est reliée à l’acide arachidonique.",
-        "correct": true,
-        "explanation": "Précurseur."
-      },
-      {
-        "content": "Comprend notamment PGE₂, PGI₂ et TXA₂.",
-        "correct": true,
-        "explanation": "Ces prostanoïdes de série 2 dérivent de l'acide arachidonique."
-      },
-      {
-        "content": "Est nécessairement un leucotriène.",
-        "correct": false,
-        "explanation": "Famille différente."
+    "format": "QROC",
+    "question": "Quelle notation abrégée correspond à l'acide arachidonique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "20:4 Δ5,8,11,14",
+        "20:4 n-6",
+        "20:4",
+        "20:4 delta 5,8,11,14"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les prostanoïdes de série 2 dérivent de l'acide arachidonique et portent deux doubles liaisons latérales."
+    },
+    "explanation": "L'acide arachidonique est un acide gras 20:4 Δ5,8,11,14 de la série n-6."
   },
   {
     "order": 103,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Dans le vaisseau sanguin :",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur la libération de l'acide arachidonique membranaire, laquelle est exacte ?",
     "choices": [
       {
-        "content": "TXA₂ est relié aux plaquettes.",
-        "correct": true,
-        "explanation": "Origine."
-      },
-      {
-        "content": "PGI₂ est reliée à l’endothélium.",
-        "correct": true,
-        "explanation": "Origine."
-      },
-      {
-        "content": "Leurs effets sur agrégation et tonus vasculaire sont antagonistes.",
-        "correct": true,
-        "explanation": "Fonctions."
-      },
-      {
-        "content": "Les deux sont proagrégants.",
+        "content": "Une phospholipase A2 synthétise directement du TXA2 sans libérer d'acide gras.",
         "correct": false,
-        "explanation": "PGI₂ est antiagrégante."
+        "explanation": "Elle libère un acide gras du phospholipide."
+      },
+      {
+        "content": "Les membranes ne contiennent jamais d'acide arachidonique estérifié.",
+        "correct": false,
+        "explanation": "Il peut y être abondant dans certains phospholipides."
+      },
+      {
+        "content": "La synthèse d'eicosanoïdes ne dépend jamais de la disponibilité du précurseur.",
+        "correct": false,
+        "explanation": "Elle dépend du substrat accessible."
+      },
+      {
+        "content": "Une phospholipase A2 peut libérer l'acide arachidonique à partir de phospholipides.",
+        "correct": true,
+        "explanation": "Cette étape fournit le substrat aux voies eicosanoïdes."
+      },
+      {
+        "content": "L'acide arachidonique est stocké uniquement sous forme de glycogène.",
+        "correct": false,
+        "explanation": "Le glycogène est un polymère de glucose."
       }
     ],
-    "explanation": "Le couple TXA₂/PGI₂ est une synthèse fonctionnelle majeure."
+    "explanation": "La phospholipase A2 peut libérer l'acide arachidonique des phospholipides membranaires avant sa transformation en eicosanoïdes."
   },
   {
     "order": 104,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Parmi les molécules agissant sur la voie des eicosanoïdes :",
+    "question": "Concernant la voie cyclo-oxygénase COX, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Misoprostol, analogue de PGE₁.",
-        "correct": true,
-        "explanation": "Exemple."
-      },
-      {
-        "content": "Aspirine, inhibiteur de COX.",
-        "correct": true,
-        "explanation": "Exemple."
-      },
-      {
-        "content": "Ibuprofène, inhibiteur de COX.",
-        "correct": true,
-        "explanation": "Exemple."
-      },
-      {
-        "content": "Lactase comme inhibiteur de COX.",
+        "content": "Les prostanoïdes ne dérivent jamais de COX.",
         "correct": false,
-        "explanation": "Enzyme digestive, sans rapport."
+        "explanation": "Ils en sont les produits majeurs."
+      },
+      {
+        "content": "La COX est l'enzyme principale de synthèse du glycogène.",
+        "correct": false,
+        "explanation": "Elle oxygène des acides gras précurseurs de prostanoïdes."
+      },
+      {
+        "content": "COX-1 et COX-2 sont deux isoformes majeures chez l'être humain.",
+        "correct": true,
+        "explanation": "Leur expression et leur régulation diffèrent selon les tissus."
+      },
+      {
+        "content": "La voie COX ne produit pas directement les leucotriènes.",
+        "correct": true,
+        "explanation": "Les leucotriènes relèvent surtout de la voie 5-lipoxygénase."
+      },
+      {
+        "content": "La voie COX transforme l'acide arachidonique en précurseurs de prostanoïdes.",
+        "correct": true,
+        "explanation": "Prostaglandines, prostacycline et thromboxanes dérivent de cette voie."
       }
     ],
-    "explanation": "Le misoprostol est un analogue de prostaglandine ; l'aspirine et l'ibuprofène inhibent COX."
+    "explanation": "La cyclo-oxygénase oriente l'acide arachidonique vers les prostanoïdes."
   },
   {
     "order": 105,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos des leucotriènes et de leurs effets biologiques :",
+    "format": "QRP",
+    "question": "À propos de la voie des lipoxygénases, retenez exactement les deux affirmations correctes.",
     "choices": [
       {
-        "content": "Peuvent provoquer une bronchoconstriction.",
+        "content": "La 5-lipoxygénase participe à la formation de LTA4 à partir de l'acide arachidonique.",
         "correct": true,
-        "explanation": "Effet."
+        "explanation": "LTA4 est un intermédiaire clé des leucotriènes."
       },
       {
-        "content": "Peuvent participer au chimiotactisme.",
+        "content": "Les lipoxygénases oxygènent des acides gras polyinsaturés.",
         "correct": true,
-        "explanation": "Effet immunitaire."
+        "explanation": "Elles orientent notamment vers leucotriènes et lipoxines."
       },
       {
-        "content": "Peuvent être produits notamment par des leucocytes et mastocytes.",
-        "correct": true,
-        "explanation": "Cellules."
-      },
-      {
-        "content": "Sont des glucides de réserve.",
+        "content": "Les lipoxines sont des triglycérides de stockage.",
         "correct": false,
-        "explanation": "Dérivés lipidiques."
+        "explanation": "Ce sont des médiateurs lipidiques."
+      },
+      {
+        "content": "Les lipoxygénases ne peuvent agir que sur des protéines.",
+        "correct": false,
+        "explanation": "Leurs substrats sont notamment des acides gras polyinsaturés."
+      },
+      {
+        "content": "La 5-lipoxygénase est une glycosidase digestive.",
+        "correct": false,
+        "explanation": "Elle oxygène des acides gras."
       }
     ],
-    "explanation": "Les leucotriènes ont des fonctions musculaires lisses et immunitaires."
+    "explanation": "La 5-lipoxygénase mène à LTA4 ; d'autres réactions lipoxygénases participent notamment à la formation de lipoxines.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 106,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "LTA₄ :",
+    "question": "Parmi les propositions suivantes sur l'orientation du métabolisme de l'acide arachidonique, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Est produit via la 5-lipoxygénase.",
+        "content": "La nature des enzymes exprimées dans une cellule influence les médiateurs produits.",
         "correct": true,
-        "explanation": "Voie."
+        "explanation": "Toutes les cellules ne synthétisent pas le même profil."
       },
       {
-        "content": "Possède un pont époxyde C5–C6.",
+        "content": "Un même précurseur peut donc conduire à des médiateurs aux effets très différents.",
         "correct": true,
-        "explanation": "Structure."
+        "explanation": "C'est une caractéristique importante de la signalisation lipidique."
       },
       {
-        "content": "Peut conduire à plusieurs produits en aval.",
+        "content": "La voie COX mène aux prostanoïdes.",
         "correct": true,
-        "explanation": "Carrefour."
+        "explanation": "Elle inclut prostaglandines, prostacycline et thromboxanes."
       },
       {
-        "content": "Est une prostacycline de voie COX.",
+        "content": "COX et 5-LOX sont deux noms pour la même enzyme.",
         "correct": false,
-        "explanation": "Leucotriène/lipoxygénase."
+        "explanation": "Ce sont des voies enzymatiques distinctes."
+      },
+      {
+        "content": "La voie 5-LOX mène aux leucotriènes.",
+        "correct": true,
+        "explanation": "LTA4 est un intermédiaire central."
       }
     ],
-    "explanation": "LTA₄ relie structure et branchement métabolique."
+    "explanation": "Le devenir de l'acide arachidonique dépend des enzymes disponibles : COX vers prostanoïdes, 5-LOX vers leucotriènes."
   },
   {
     "order": 107,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos de l’aspirine à faible dose :",
-    "choices": [
-      {
-        "content": "Inhibe la voie COX.",
-        "correct": true,
-        "explanation": "Mécanisme."
-      },
-      {
-        "content": "Diminue durablement la synthèse plaquettaire de TXA₂.",
-        "correct": true,
-        "explanation": "La plaquette anucléée ne peut pas resynthétiser rapidement COX-1."
-      },
-      {
-        "content": "A un effet antiagrégant plaquettaire.",
-        "correct": true,
-        "explanation": "Application."
-      },
-      {
-        "content": "Stimule directement l’agrégation via TXA₂.",
-        "correct": false,
-        "explanation": "Effet contraire."
+    "format": "QROC",
+    "question": "Quel intermédiaire prostanoïde commun est converti par des synthases terminales en différents prostanoïdes ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "PGH2",
+        "PGH₂",
+        "prostaglandine H2",
+        "prostaglandine H₂"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "L'aspirine à faible dose inhibe irréversiblement la COX-1 plaquettaire, diminue TXA₂ et exerce un effet antiagrégant."
+    },
+    "explanation": "Les prostanoïdes partagent la voie COX puis divergent selon les synthases terminales exprimées."
   },
   {
     "order": 108,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Quel précurseur majeur des eicosanoïdes est noté 20:4 n-6 ?",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "acide arachidonique",
-        "arachidonique",
-        "l'acide arachidonique",
-        "l’acide arachidonique"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRU",
+    "question": "À propos de l'action locale et la demi-vie des eicosanoïdes, quelle affirmation est correcte ?",
+    "choices": [
+      {
+        "content": "Ils sont toujours stockés sous forme active dans des granules.",
+        "correct": false,
+        "explanation": "Ils sont généralement synthétisés à la demande."
+      },
+      {
+        "content": "Tous les eicosanoïdes circulent plusieurs jours sans dégradation.",
+        "correct": false,
+        "explanation": "Beaucoup ont une durée de vie brève."
+      },
+      {
+        "content": "Une demi-vie courte implique l'absence de tout effet biologique.",
+        "correct": false,
+        "explanation": "Ils peuvent être très puissants malgré leur brièveté."
+      },
+      {
+        "content": "Leur demi-vie est souvent courte.",
+        "correct": true,
+        "explanation": "Ils sont rapidement transformés ou inactivés."
+      },
+      {
+        "content": "Ils agissent uniquement comme hormones endocrines à longue distance.",
+        "correct": false,
+        "explanation": "Ils ont souvent une action locale."
       }
-    },
-    "explanation": "Il s’agit de l’acide arachidonique."
+    ],
+    "explanation": "Les eicosanoïdes sont souvent des médiateurs locaux à demi-vie courte, adaptés à une signalisation rapide et spatialement limitée."
   },
   {
     "order": 109,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux médiateurs antagonistes du couple vasculaire TXA₂/PGI₂.",
+    "format": "QRM",
+    "question": "Parmi les propositions suivantes sur le squelette prostanoïde de référence, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "TXA₂.",
-        "correct": true,
-        "explanation": "Plaquettes, vasoconstricteur/proagrégant."
-      },
-      {
-        "content": "PGI₂.",
-        "correct": true,
-        "explanation": "Endothélium, vasodilatatrice/antiagrégante."
-      },
-      {
-        "content": "Lactose.",
+        "content": "Le squelette prostanoïde est un cycle benzénique C6 sans chaîne latérale.",
         "correct": false,
-        "explanation": "Glucide."
+        "explanation": "Il est différent."
       },
       {
-        "content": "Glycogène.",
+        "content": "Il comporte 20 carbones.",
+        "correct": true,
+        "explanation": "Il dérive d'un squelette eicosanoïde."
+      },
+      {
+        "content": "L'acide prostanoïque est le principal thromboxane circulant.",
         "correct": false,
-        "explanation": "Polyoside de réserve."
+        "explanation": "C'est un squelette de référence."
+      },
+      {
+        "content": "Il contient un cycle à cinq chaînons dans la famille des prostaglandines classiques.",
+        "correct": true,
+        "explanation": "Le cycle cyclopentane constitue un repère structural."
+      },
+      {
+        "content": "Toutes les prostaglandines sont dépourvues de cycle.",
+        "correct": false,
+        "explanation": "Le cycle est caractéristique des prostaglandines classiques."
       }
     ],
-    "explanation": "TXA₂ et PGI₂ constituent le couple antagoniste de référence."
+    "explanation": "Le squelette prostanoïde est un repère C20 comportant un cycle à cinq chaînons et deux chaînes latérales."
   },
   {
     "order": 110,
     "difficulty": "MEDIUM",
     "format": "QRPL",
     "requiredSelectionCount": 5,
-    "question": "Pour cette synthèse appliquée des eicosanoïdes, sélectionnez exactement cinq propositions correctes.",
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Arachidonique = 20:4 n-6.",
+        "content": "Elle est produite notamment par l'endothélium vasculaire.",
         "correct": true,
-        "explanation": "Précurseur."
+        "explanation": "Elle participe à l'équilibre local avec TXA2."
       },
       {
-        "content": "COX conduit aux prostanoïdes.",
+        "content": "Les lettres A, B, C, D, E ou F distinguent des motifs d'oxygénation du cycle.",
         "correct": true,
-        "explanation": "Voie."
+        "explanation": "Elles définissent des groupes structuraux."
       },
       {
-        "content": "TXA₂ est proagrégant.",
+        "content": "Toutes les lettres correspondent au nombre de doubles liaisons.",
+        "correct": false,
+        "explanation": "Le chiffre de série porte cette information."
+      },
+      {
+        "content": "Dans PGI2, I signifie que la molécule appartient à la série 1.",
+        "correct": false,
+        "explanation": "La série est indiquée par le chiffre 2."
+      },
+      {
+        "content": "La lettre E signifie que la molécule possède cinq carbones.",
+        "correct": false,
+        "explanation": "La lettre décrit un groupe structural."
+      },
+      {
+        "content": "Elle est produite uniquement par les plaquettes.",
+        "correct": false,
+        "explanation": "L'endothélium en est une source majeure."
+      },
+      {
+        "content": "PGI2 est principalement proagrégante.",
+        "correct": false,
+        "explanation": "Elle est antiagrégante."
+      },
+      {
+        "content": "PGF2α appartient au groupe F.",
         "correct": true,
-        "explanation": "Effet."
+        "explanation": "La lettre F décrit un autre motif du cycle."
       },
       {
-        "content": "PGI₂ est antiagrégante.",
+        "content": "PGI2 est la prostacycline de série 2.",
         "correct": true,
-        "explanation": "Effet."
+        "explanation": "La lettre I est une lettre de groupe et non le chiffre 1."
       },
       {
-        "content": "LTA₄ est formé par la 5-lipoxygénase.",
+        "content": "La lettre ne donne pas le nombre total de carbones.",
         "correct": true,
-        "explanation": "Voie."
-      },
-      {
-        "content": "PGI₂ est produite principalement par les plaquettes.",
-        "correct": false,
-        "explanation": "Endothélium."
-      },
-      {
-        "content": "TXA₂ est vasodilatateur.",
-        "correct": false,
-        "explanation": "Vasoconstricteur."
-      },
-      {
-        "content": "Le misoprostol est une glycosidase.",
-        "correct": false,
-        "explanation": "Analogue PGE₁."
-      },
-      {
-        "content": "Les leucotriènes sont produits par COX.",
-        "correct": false,
-        "explanation": "Lipoxygénases."
-      },
-      {
-        "content": "L’acide arachidonique est saturé.",
-        "correct": false,
-        "explanation": "20:4."
+        "explanation": "Le squelette reste C20."
       }
     ],
-    "explanation": "Cette synthèse PRACTICE couvre précurseur, voies et principaux médiateurs."
+    "explanation": "La lettre des prostaglandines distingue le motif structural du cycle ; le chiffre indique la série. PGI2 est la prostacycline endothéliale vasodilatatrice et antiagrégante de série 2."
   },
   {
     "order": 111,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Une plaquette produit un médiateur à demi-vie ~30 s qui favorise agrégation et vasoconstriction. Il s’agit :",
+    "question": "Concernant les eicosanoïdes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "De TXA₂.",
+        "content": "Leurs effets dépendent du médiateur et du tissu cible.",
         "correct": true,
-        "explanation": "Tous les indices."
+        "explanation": "Des médiateurs proches peuvent avoir des effets opposés."
       },
       {
-        "content": "D’un prostanoïde.",
-        "correct": true,
-        "explanation": "Famille."
-      },
-      {
-        "content": "D’un produit en aval de COX.",
-        "correct": true,
-        "explanation": "Voie."
-      },
-      {
-        "content": "De PGI₂.",
+        "content": "Ils possèdent tous exactement la même structure cyclique.",
         "correct": false,
-        "explanation": "Effets opposés."
+        "explanation": "Les leucotriènes, par exemple, ne partagent pas le cycle des prostanoïdes."
+      },
+      {
+        "content": "Ils sont tous stockés durablement dans des vésicules de sécrétion.",
+        "correct": false,
+        "explanation": "Ils sont souvent synthétisés à la demande."
+      },
+      {
+        "content": "Ce sont tous des protéines enzymatiques.",
+        "correct": false,
+        "explanation": "Ce sont des médiateurs lipidiques."
+      },
+      {
+        "content": "Ils comprennent notamment prostanoïdes, leucotriènes et lipoxines.",
+        "correct": true,
+        "explanation": "Ce sont les grandes familles étudiées."
       }
     ],
-    "explanation": "Le contexte regroupe origine cellulaire, demi-vie, fonction et voie."
+    "explanation": "Les eicosanoïdes sont des médiateurs lipidiques issus de précurseurs C20 ou voisins, à action généralement locale et brève."
   },
   {
     "order": 112,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Une cellule endothéliale produit un médiateur à demi-vie ~2–3 min qui est vasodilatateur et antiagrégant. Il s’agit :",
-    "choices": [
-      {
-        "content": "De PGI₂.",
-        "correct": true,
-        "explanation": "Tous les indices."
-      },
-      {
-        "content": "D’une prostacycline.",
-        "correct": true,
-        "explanation": "Groupe I."
-      },
-      {
-        "content": "D’un prostanoïde.",
-        "correct": true,
-        "explanation": "Famille."
-      },
-      {
-        "content": "De TXA₂.",
-        "correct": false,
-        "explanation": "Plaquettaire et proagrégant."
+    "format": "QROC",
+    "question": "Quelle notation abrégée correspond à l'acide arachidonique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "20:4 Δ5,8,11,14",
+        "20:4 n-6",
+        "20:4",
+        "20:4 delta 5,8,11,14"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "PGI₂ est l’élément endothélial du couple antagoniste."
+    },
+    "explanation": "L'acide arachidonique est un acide gras 20:4 Δ5,8,11,14 de la série n-6."
   },
   {
     "order": 113,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Une patiente reçoit du misoprostol dans le cadre médical d’un déclenchement obstétrical. Quelles propositions sont exactes ?",
-    "choices": [
-      {
-        "content": "Le misoprostol est un analogue synthétique de PGE₁.",
-        "correct": true,
-        "explanation": "Nature."
-      },
-      {
-        "content": "Il favorise la contraction utérine.",
-        "correct": true,
-        "explanation": "Effet."
-      },
-      {
-        "content": "Il favorise l’assouplissement du col dans ce contexte.",
-        "correct": true,
-        "explanation": "Effet."
-      },
-      {
-        "content": "Il s’agit d’un leucotriène produit par la 5-lipoxygénase.",
-        "correct": false,
-        "explanation": "Analogue de prostaglandine."
+    "format": "QROC",
+    "question": "Quelle molécule thérapeutique est un analogue de PGE1 ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "misoprostol",
+        "le misoprostol"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le contexte clinique reste strictement celui explicitement enseigné."
+    },
+    "explanation": "Le misoprostol est un analogue synthétique de PGE1."
   },
   {
     "order": 114,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un traitement inhibe COX. Cela peut réduire :",
+    "question": "Concernant la voie cyclo-oxygénase COX, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La synthèse des prostaglandines.",
-        "correct": true,
-        "explanation": "Produits COX."
-      },
-      {
-        "content": "La synthèse des thromboxanes.",
-        "correct": true,
-        "explanation": "Produits COX."
-      },
-      {
-        "content": "La production globale de prostanoïdes.",
-        "correct": true,
-        "explanation": "Famille."
-      },
-      {
-        "content": "La formation de LTA₄ par la 5-lipoxygénase par ce seul mécanisme.",
+        "content": "L'aspirine stimule la COX pour augmenter TXA2.",
         "correct": false,
-        "explanation": "Voie distincte."
+        "explanation": "Elle inhibe la COX."
+      },
+      {
+        "content": "COX-1 et COX-2 sont deux isoformes majeures chez l'être humain.",
+        "correct": true,
+        "explanation": "Leur expression et leur régulation diffèrent selon les tissus."
+      },
+      {
+        "content": "L'aspirine et l'ibuprofène inhibent la cyclo-oxygénase.",
+        "correct": true,
+        "explanation": "Ils diminuent la synthèse de prostanoïdes."
+      },
+      {
+        "content": "La voie COX ne produit pas directement les leucotriènes.",
+        "correct": true,
+        "explanation": "Les leucotriènes relèvent surtout de la voie 5-lipoxygénase."
+      },
+      {
+        "content": "COX transforme directement l'acide arachidonique en LTB4.",
+        "correct": false,
+        "explanation": "LTB4 relève de la voie 5-LOX/LTA4."
       }
     ],
-    "explanation": "La connaissance du branchement évite de confondre COX et lipoxygénases."
+    "explanation": "La cyclo-oxygénase oriente l'acide arachidonique vers les prostanoïdes."
   },
   {
     "order": 115,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Un médiateur C20 possède quatre doubles liaisons dont trois conjuguées et un pont époxyde C5–C6. On peut conclure :",
+    "format": "QRU",
+    "question": "À propos de la voie des lipoxygénases, quelle affirmation est correcte ?",
     "choices": [
       {
-        "content": "Il s’agit de LTA₄.",
-        "correct": true,
-        "explanation": "Structure."
-      },
-      {
-        "content": "Il dérive de l’acide arachidonique.",
-        "correct": true,
-        "explanation": "Précurseur."
-      },
-      {
-        "content": "Sa formation fait intervenir la 5-lipoxygénase.",
-        "correct": true,
-        "explanation": "Enzyme."
-      },
-      {
-        "content": "Il s’agit de PGI₂.",
+        "content": "La 5-lipoxygénase est une glycosidase digestive.",
         "correct": false,
-        "explanation": "Prostacycline de voie COX."
+        "explanation": "Elle oxygène des acides gras."
+      },
+      {
+        "content": "LTA4 est le produit direct majeur de COX.",
+        "correct": false,
+        "explanation": "Il relève de la voie 5-LOX."
+      },
+      {
+        "content": "Des coopérations entre lipoxygénases peuvent participer à la biosynthèse des lipoxines.",
+        "correct": true,
+        "explanation": "Les lipoxines sont des médiateurs de résolution."
+      },
+      {
+        "content": "Les lipoxygénases ne peuvent agir que sur des protéines.",
+        "correct": false,
+        "explanation": "Leurs substrats sont notamment des acides gras polyinsaturés."
+      },
+      {
+        "content": "Les lipoxines sont des triglycérides de stockage.",
+        "correct": false,
+        "explanation": "Ce sont des médiateurs lipidiques."
       }
     ],
-    "explanation": "La structure permet d’identifier LTA₄ et sa voie."
+    "explanation": "La 5-lipoxygénase mène à LTA4 ; d'autres réactions lipoxygénases participent notamment à la formation de lipoxines."
   },
   {
     "order": 116,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un eicosanoïde participe au chimiotactisme et à la bronchoconstriction. Le profil correspond particulièrement :",
+    "question": "Parmi les propositions suivantes sur l'orientation du métabolisme de l'acide arachidonique, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "À un leucotriène.",
+        "content": "La voie 5-LOX mène aux leucotriènes.",
         "correct": true,
-        "explanation": "Le chimiotactisme et la bronchoconstriction sont deux effets possibles de leucotriènes distincts."
+        "explanation": "LTA4 est un intermédiaire central."
       },
       {
-        "content": "À un médiateur pouvant être produit par des leucocytes/mastocytes.",
+        "content": "Un même précurseur peut donc conduire à des médiateurs aux effets très différents.",
         "correct": true,
-        "explanation": "Cellules."
+        "explanation": "C'est une caractéristique importante de la signalisation lipidique."
       },
       {
-        "content": "À une branche lipoxygénase.",
+        "content": "La voie COX mène aux prostanoïdes.",
         "correct": true,
-        "explanation": "Voie."
+        "explanation": "Elle inclut prostaglandines, prostacycline et thromboxanes."
       },
       {
-        "content": "À un triglycéride de réserve.",
+        "content": "Toutes les cellules transforment l'acide arachidonique en exactement le même médiateur.",
         "correct": false,
-        "explanation": "Sans rapport."
+        "explanation": "Le profil enzymatique cellulaire est déterminant."
+      },
+      {
+        "content": "La nature des enzymes exprimées dans une cellule influence les médiateurs produits.",
+        "correct": true,
+        "explanation": "Toutes les cellules ne synthétisent pas le même profil."
       }
     ],
-    "explanation": "Les leucotriènes relient réponses immunitaires et effets sur muscles lisses."
+    "explanation": "Le devenir de l'acide arachidonique dépend des enzymes disponibles : COX vers prostanoïdes, 5-LOX vers leucotriènes."
   },
   {
     "order": 117,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Dans la synthèse finale, combien de doubles liaisons porte le précurseur arachidonique noté 20:4 ?",
+    "question": "Quel intermédiaire prostanoïde commun est converti par des synthases terminales en différents prostanoïdes ?",
     "answer": {
-      "type": "number",
-      "value": 4,
-      "tolerance": 0
+      "type": "text",
+      "acceptedAnswers": [
+        "PGH2",
+        "PGH₂",
+        "prostaglandine H2",
+        "prostaglandine H₂"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
     },
-    "explanation": "Le 20:4 contient quatre doubles liaisons."
+    "explanation": "Les prostanoïdes partagent la voie COX puis divergent selon les synthases terminales exprimées."
   },
   {
     "order": 118,
     "difficulty": "HARD",
-    "format": "QROC",
-    "question": "Quel tripeptide est associé à la branche LTC₄ → LTD₄ → LTE₄ ?",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "glutathion",
-        "le glutathion"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
+    "choices": [
+      {
+        "content": "Le chiffre de série reflète le nombre de doubles liaisons conservées dans les chaînes latérales du prostanoïde.",
+        "correct": true,
+        "explanation": "Une série 2 présente deux doubles liaisons latérales."
+      },
+      {
+        "content": "Une demi-vie courte implique l'absence de tout effet biologique.",
+        "correct": false,
+        "explanation": "Ils peuvent être très puissants malgré leur brièveté."
+      },
+      {
+        "content": "Leur production est souvent stimulée en réponse à un signal.",
+        "correct": true,
+        "explanation": "Elle est moins comparable à un stockage hormonal massif."
+      },
+      {
+        "content": "La série 2 correspond à deux atomes d'oxygène.",
+        "correct": false,
+        "explanation": "Elle correspond au nombre de doubles liaisons latérales."
+      },
+      {
+        "content": "Beaucoup d'eicosanoïdes agissent à proximité de leur lieu de synthèse.",
+        "correct": true,
+        "explanation": "Ils fonctionnent comme médiateurs autocrines ou paracrines."
+      },
+      {
+        "content": "La série 1 dérive directement de l'acide linoléique sans étape métabolique intermédiaire.",
+        "correct": false,
+        "explanation": "Le précurseur prostanoïde C20 est le DGLA."
+      },
+      {
+        "content": "Ils sont toujours stockés sous forme active dans des granules.",
+        "correct": false,
+        "explanation": "Ils sont généralement synthétisés à la demande."
+      },
+      {
+        "content": "Leur demi-vie est souvent courte.",
+        "correct": true,
+        "explanation": "Ils sont rapidement transformés ou inactivés."
+      },
+      {
+        "content": "Les prostanoïdes de série 2 dérivent classiquement de l'acide arachidonique.",
+        "correct": true,
+        "explanation": "C'est la série majeure issue du 20:4 n-6."
+      },
+      {
+        "content": "Tous les eicosanoïdes circulent plusieurs jours sans dégradation.",
+        "correct": false,
+        "explanation": "Beaucoup ont une durée de vie brève."
       }
-    },
-    "explanation": "Le glutathion est incorporé puis progressivement clivé dans cette branche."
+    ],
+    "explanation": "Les eicosanoïdes sont souvent des médiateurs locaux à demi-vie courte, adaptés à une signalisation rapide et spatialement limitée. Les séries 1, 2 et 3 dépendent du précurseur C20 et du nombre de doubles liaisons latérales conservées."
   },
   {
     "order": 119,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Un étudiant affirme que « tous les prostanoïdes ont le même effet ». Quelles propositions corrigent cette affirmation ?",
+    "question": "Parmi les propositions suivantes sur le squelette prostanoïde de référence, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "PGF₂α et PGE₂ peuvent avoir des effets différents ou contraires.",
-        "correct": true,
-        "explanation": "Exemple."
-      },
-      {
-        "content": "TXA₂ et PGI₂ ont des effets antagonistes.",
-        "correct": true,
-        "explanation": "Exemple majeur."
-      },
-      {
-        "content": "La fixation sur des récepteurs spécifiques contribue à la diversité des réponses.",
-        "correct": true,
-        "explanation": "Mécanisme général."
-      },
-      {
-        "content": "L’appartenance à une même famille impose une fonction unique.",
+        "content": "L'acide prostanoïque est le principal thromboxane circulant.",
         "correct": false,
-        "explanation": "Les différents récepteurs prostanoïdes entraînent des réponses distinctes."
+        "explanation": "C'est un squelette de référence."
+      },
+      {
+        "content": "Il contient un cycle à cinq chaînons dans la famille des prostaglandines classiques.",
+        "correct": true,
+        "explanation": "Le cycle cyclopentane constitue un repère structural."
+      },
+      {
+        "content": "Le squelette prostanoïde est un cycle benzénique C6 sans chaîne latérale.",
+        "correct": false,
+        "explanation": "Il est différent."
+      },
+      {
+        "content": "Toutes les prostaglandines sont dépourvues de cycle.",
+        "correct": false,
+        "explanation": "Le cycle est caractéristique des prostaglandines classiques."
+      },
+      {
+        "content": "Deux chaînes latérales prolongent le cycle.",
+        "correct": true,
+        "explanation": "Elles portent une partie des doubles liaisons de série."
       }
     ],
-    "explanation": "La diversité des récepteurs et des tissus cibles explique des effets prostanoïdes variés, parfois antagonistes."
+    "explanation": "Le squelette prostanoïde est un repère C20 comportant un cycle à cinq chaînons et deux chaînes latérales."
   },
   {
     "order": 120,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Le caractère très court de la demi-vie des prostanoïdes :",
-    "choices": [
-      {
-        "content": "Est cohérent avec leur rôle de médiateurs locaux.",
-        "correct": true,
-        "explanation": "Lien."
-      },
-      {
-        "content": "Est illustré par TXA₂ ~30 s et PGI₂ ~2–3 min.",
-        "correct": true,
-        "explanation": "Exemples."
-      },
-      {
-        "content": "Limite l’idée d’une action circulante prolongée.",
-        "correct": true,
-        "explanation": "Conséquence générale."
-      },
-      {
-        "content": "Signifie qu’ils sont stockés pendant plusieurs années dans le plasma.",
-        "correct": false,
-        "explanation": "Contradictoire."
+    "format": "QROC",
+    "question": "Dans le nom PGE2, que désigne principalement la lettre E ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "groupe structural",
+        "type de substituants du cycle",
+        "motif d'oxygénation du cycle",
+        "groupe E"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les valeurs de demi-vie renforcent la notion de signal local."
+    },
+    "explanation": "La lettre des prostaglandines distingue le motif structural du cycle ; le chiffre indique la série."
   },
   {
     "order": 121,
     "difficulty": "HARD",
-    "format": "QRP",
-    "requiredSelectionCount": 3,
-    "question": "Sélectionnez exactement les trois associations thérapeutiques ou physiopathologiques correctes.",
-    "choices": [
-      {
-        "content": "Misoprostol — analogue PGE₁ — déclenchement de l’accouchement.",
-        "correct": true,
-        "explanation": "Application."
-      },
-      {
-        "content": "Aspirine faible dose — inhibition des thromboxanes — effet antiagrégant.",
-        "correct": true,
-        "explanation": "Application."
-      },
-      {
-        "content": "Leucotriènes — bronchoconstriction.",
-        "correct": true,
-        "explanation": "Les cystéinyl-leucotriènes peuvent provoquer une bronchoconstriction."
-      },
-      {
-        "content": "PGI₂ — agrégation plaquettaire stimulée.",
-        "correct": false,
-        "explanation": "PGI₂ inhibe l’agrégation."
+    "format": "QROC",
+    "question": "Quel médiateur de la voie 5-LOX est un puissant chimiotactique des neutrophiles ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "LTB4",
+        "LTB₄",
+        "leucotriène B4",
+        "leucotriene B4"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Ces associations relient les voies des eicosanoïdes à des situations thérapeutiques ou physiopathologiques."
+    },
+    "explanation": "LTB4 relie la voie 5-LOX à une réponse inflammatoire de recrutement leucocytaire."
   },
   {
     "order": 122,
     "difficulty": "HARD",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Pour la synthèse finale de maîtrise des eicosanoïdes, sélectionnez exactement cinq propositions correctes.",
+    "format": "QRM",
+    "question": "Parmi les propositions suivantes sur PGE2, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "L’acide arachidonique est 20:4 n-6.",
+        "content": "Elle appartient à la série 2.",
         "correct": true,
-        "explanation": "Précurseur."
+        "explanation": "Elle dérive classiquement de l'acide arachidonique."
       },
       {
-        "content": "La série 2 comprend notamment PGE₂, PGI₂ et TXA₂.",
+        "content": "PGE2 appartient à la voie 5-LOX.",
+        "correct": false,
+        "explanation": "Elle relève de la voie COX."
+      },
+      {
+        "content": "PGE2 est une prostaglandine du groupe E.",
         "correct": true,
-        "explanation": "Ces médiateurs dérivent de l'acide arachidonique."
+        "explanation": "La lettre E décrit le motif du cycle."
       },
       {
-        "content": "TXA₂ est proagrégant et vasoconstricteur.",
+        "content": "Sa structure et ses effets ne se résument pas à ceux de PGF2α.",
         "correct": true,
-        "explanation": "Effets."
+        "explanation": "Des prostaglandines proches peuvent avoir des actions différentes."
       },
       {
-        "content": "PGI₂ est antiagrégante et vasodilatatrice.",
-        "correct": true,
-        "explanation": "Effets."
-      },
-      {
-        "content": "LTA₄ est produit par la 5-lipoxygénase.",
-        "correct": true,
-        "explanation": "Voie."
-      },
-      {
-        "content": "COX produit directement tous les leucotriènes.",
+        "content": "PGE2 est obligatoirement un médiateur antiagrégant plaquettaire majeur équivalent à PGI2.",
         "correct": false,
-        "explanation": "Lipoxygénases."
-      },
-      {
-        "content": "Le misoprostol est un thromboxane naturel.",
-        "correct": false,
-        "explanation": "Analogue PGE₁."
-      },
-      {
-        "content": "PGI₂ est produite principalement par les plaquettes.",
-        "correct": false,
-        "explanation": "Endothélium."
-      },
-      {
-        "content": "LTA₄ ne peut donner aucun autre produit.",
-        "correct": false,
-        "explanation": "Carrefour."
-      },
-      {
-        "content": "Le glutathion n’intervient jamais dans les leucotriènes.",
-        "correct": false,
-        "explanation": "Il intervient dans la branche C4/D4/E4."
+        "explanation": "PGI2 est le repère antiagrégant vasculaire majeur."
       }
     ],
-    "explanation": "Cette synthèse finale mobilise la structure, les voies, les effets et les applications des eicosanoïdes."
+    "explanation": "PGE2 est une prostaglandine du groupe E, de série 2, issue de la voie COX."
   }
 ];

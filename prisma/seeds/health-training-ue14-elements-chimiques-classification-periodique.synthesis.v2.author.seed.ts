@@ -1,306 +1,696 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 – Chimie générale
- * Chapitre 1 – Éléments chimiques et classification périodique
- * Section D – Synthèse
- */
-
+/** UE14 – Chimie générale – Chapitre 1.1 – Synthèse */
 export const UE14_CH1_SYNTHESIS_PRACTICE_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
-    order: 75,
-    difficulty: 'MEDIUM',
-    format: 'QROC',
-    question:
-      `Combien de neutrons de plus possède $\\ce{^{131}_{53}I}$ par rapport à $\\ce{^{127}_{53}I}$ ?`,
-    answer: { type: 'number', value: 4, tolerance: 0 },
-    explanation:
-      `Les deux nucléides ont le même $\\mathrm{Z}=53$. Leurs nombres de neutrons valent respectivement 78 et 74, soit une différence de 4.`,
+    "order": 75,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Les noyaux $\\ce{^{127}_{53}I}$ et $\\ce{^{131}_{53}I}$ diffèrent de combien de neutrons ?",
+    "answer": {
+      "type": "number",
+      "value": 4,
+      "tolerance": 0
+    },
+    "explanation": "$N_{127}=127-53=74$ et $N_{131}=131-53=78$ ; la différence est de 4 neutrons."
   },
   {
-    order: 76,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `Concernant les deux nucléides de l'iode présentés dans l'énoncé commun, quelles propositions sont exactes ?`,
-    choices: [
-      { content: `Ils appartiennent au même élément chimique.`, correct: true, explanation: `Ils ont le même numéro atomique.` },
-      { content: `Ils ont le même nombre de protons.`, correct: true, explanation: `Leur $\\mathrm{Z}$ vaut 53.` },
-      { content: `Ils possèdent exactement la même masse.`, correct: false, explanation: `Leurs nombres de masse sont différents.` },
-      { content: `Leurs propriétés chimiques sont très proches sous forme d'atomes neutres.`, correct: true, explanation: `Leur cortège électronique est identique à l'état neutre.` },
-    ],
-    explanation:
-      `Ce sont deux isotopes de l'iode : même numéro atomique, nombres de neutrons et masses différents, propriétés chimiques très proches.`,
-  },
-  {
-    order: 77,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question:
-      `Le cobalt 60 est un radionucléide émetteur utilisé comme source de rayonnements gamma en radiothérapie. On donne $\\ce{^{60}_{27}Co}$ et une configuration électronique de l'atome neutre se terminant par $4\\mathrm{s}^2\\,3\\mathrm{d}^7$. Quelles propositions sont exactes ?`,
-    choices: [
-      { content: `Son noyau contient 33 neutrons.`, correct: true, explanation: `$60-27=33$.` },
-      { content: `L'atome neutre possède 27 électrons.`, correct: true, explanation: `Un atome neutre possède autant d'électrons que de protons.` },
-      { content: `Le cobalt appartient au bloc $\\mathrm{d}$.`, correct: true, explanation: `La sous-couche d est en cours de remplissage.` },
-      { content: `Le cobalt appartient à la deuxième période.`, correct: false, explanation: `Le plus grand $\\mathrm{n}$ occupé est 4.` },
-    ],
-    explanation:
-      `Cette question combine composition nucléaire, neutralité électronique et lecture de configuration. Le contexte thérapeutique ne change pas les calculs.`,
-  },
-  {
-    order: 78,
-    difficulty: 'MEDIUM',
-    format: 'QRU',
-    question: `Quelle configuration correspond au calcium neutre ($\\mathrm{Z}=20$) présenté dans l'énoncé commun ?`,
-    choices: [
-      { content: `$[\\mathrm{Ar}]\\,4\\mathrm{s}^2$.`, correct: true, explanation: `Le calcium possède 20 électrons et se termine par $4\\mathrm{s}^2$.` },
-      { content: `$[\\mathrm{Ar}]\\,4\\mathrm{s}^1$.`, correct: false, explanation: `Cette configuration correspond au potassium.` },
-      { content: `$[\\mathrm{Ne}]\\,3\\mathrm{s}^2$.`, correct: false, explanation: `Cette configuration correspond au magnésium.` },
-      { content: `$[\\mathrm{Ar}]\\,3\\mathrm{d}^2$.`, correct: false, explanation: `Le remplissage de $4\\mathrm{s}$ précède celui de $3\\mathrm{d}$.` },
-    ],
-    explanation:
-      `Le calcium appartient à la quatrième période et à la colonne 2 ; sa configuration externe est $4\\mathrm{s}^2$.`,
-  },
-  {
-    order: 79,
-    difficulty: 'MEDIUM',
-    format: 'QROC',
-    question: `Quelle valeur de $\\ell$ caractérise les électrons de valence $4\\mathrm{s}$ du calcium ?`,
-    answer: { type: 'number', value: 0, tolerance: 0 },
-    explanation:
-      `Une sous-couche $\\mathrm{s}$ correspond toujours à $\\ell=0$.`,
-  },
-  {
-    order: 80,
-    difficulty: 'MEDIUM',
-    format: 'QRU',
-    question: `Quelle représentation correspond à la couche de valence du phosphore ($\\mathrm{Z}=15$) présenté dans l'énoncé commun ?`,
-    choices: [
+    "order": 76,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "À propos de $\\ce{^{127}_{53}I}$ et $\\ce{^{131}_{53}I}$, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: { type: 'quantum-boxes', orbitals: [{ label: '3\\mathrm{s}', boxes: ['pair'] }, { label: '3\\mathrm{p}', boxes: ['up', 'up', 'up'] }] },
-        correct: true,
-        explanation: `Vrai : le phosphore possède $3\\mathrm{s}^2\\,3\\mathrm{p}^3$.`,
+        "content": "Ils sont isotopes l'un de l'autre.",
+        "correct": true,
+        "explanation": "Même Z, A différent."
       },
       {
-        content: { type: 'quantum-boxes', orbitals: [{ label: '3\\mathrm{s}', boxes: ['pair'] }, { label: '3\\mathrm{p}', boxes: ['pair', 'up', 'empty'] }] },
-        correct: false,
-        explanation: `Le nombre d'électrons est correct mais la règle de Hund n'est pas respectée.`,
+        "content": "Ils appartiennent au même élément chimique.",
+        "correct": true,
+        "explanation": "Leur numéro atomique est identique."
       },
       {
-        content: { type: 'quantum-boxes', orbitals: [{ label: '3\\mathrm{s}', boxes: ['up'] }, { label: '3\\mathrm{p}', boxes: ['pair', 'up', 'up'] }] },
-        correct: false,
-        explanation: `La sous-couche $3\\mathrm{s}$ doit être remplie.`,
+        "content": "Ils possèdent le même nombre d'électrons s'ils sont considérés comme atomes neutres.",
+        "correct": true,
+        "explanation": "Ils ont alors chacun 53 électrons."
       },
       {
-        content: { type: 'quantum-boxes', orbitals: [{ label: '3\\mathrm{s}', boxes: ['pair'] }, { label: '3\\mathrm{p}', boxes: ['pair', 'pair', 'empty'] }] },
-        correct: false,
-        explanation: `Cette représentation contient six électrons de valence.`,
+        "content": "Ils ont le même nombre de neutrons.",
+        "correct": false,
+        "explanation": "Leur nombre de masse diffère."
       },
+      {
+        "content": "Ils ont nécessairement la même stabilité nucléaire.",
+        "correct": false,
+        "explanation": "I-127 est stable alors que I-131 est radioactif."
+      }
     ],
-    explanation:
-      `La configuration externe du phosphore est $3\\mathrm{s}^2\\,3\\mathrm{p}^3$ ; les trois électrons p restent célibataires dans trois orbitales distinctes.`,
+    "explanation": "L'isotopie conserve la structure électronique de l'atome neutre tout en modifiant la composition nucléaire."
   },
   {
-    order: 81,
-    difficulty: 'MEDIUM',
-    format: 'QROC',
-    question: `Combien d'électrons célibataires trouve-t-on dans la sous-couche $3\\mathrm{p}$ du phosphore à l'état fondamental ?`,
-    answer: { type: 'number', value: 3, tolerance: 0 },
-    explanation:
-      `Pour $3\\mathrm{p}^3$, Hund impose un électron dans chacune des trois orbitales p : les trois sont donc célibataires.`,
-  },
-  {
-    order: 82,
-    difficulty: 'MEDIUM',
-    format: 'QROC',
-    question:
-      `Le bore 10 peut être utilisé en thérapie par capture neutronique du bore. Une préparation contient 80 % de $\\ce{^{10}B}$ de masse $10\\,\\mathrm{u}$ et 20 % de $\\ce{^{11}B}$ de masse $11\\,\\mathrm{u}$. Quelle est sa masse atomique moyenne en $\\mathrm{u}$ ? Saisissez uniquement la valeur numérique.`,
-    answer: { type: 'number', value: 10.2, tolerance: 0.01 },
-    explanation:
-      `Moyenne pondérée : $0{,}80\\times10+0{,}20\\times11=10{,}2\\,\\mathrm{u}$. Le contexte thérapeutique illustre l'intérêt d'un isotope particulier mais n'est pas nécessaire au calcul.`,
-  },
-  {
-    order: 83,
-    difficulty: 'MEDIUM',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question:
-      `Le sélénium est un oligoélément. On donne une configuration se terminant par $4\\mathrm{s}^2\\,4\\mathrm{p}^4$. Sélectionnez exactement les deux propositions correctes.`,
-    choices: [
-      { content: `Il appartient à la quatrième période.`, correct: true, explanation: `Le plus grand nombre quantique principal occupé est 4.` },
-      { content: `Il appartient à la colonne 16.`, correct: true, explanation: `La configuration externe $\\mathrm{n}\\mathrm{s}^2\\,\\mathrm{n}\\mathrm{p}^4$ correspond à la colonne 16.` },
-      { content: `Il appartient au bloc $\\mathrm{d}$.`, correct: false, explanation: `La dernière sous-couche occupée est p.` },
-      { content: `Il possède deux électrons de valence.`, correct: false, explanation: `Il en possède six : $4\\mathrm{s}^2\\,4\\mathrm{p}^4$.` },
+    "order": 77,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Le cobalt 60 est un radionucléide de numéro atomique $Z=27$. Quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Son noyau contient 33 neutrons.",
+        "correct": true,
+        "explanation": "$N=60-27=33$."
+      },
+      {
+        "content": "Son noyau contient 27 protons.",
+        "correct": true,
+        "explanation": "Z est le nombre de protons."
+      },
+      {
+        "content": "Le cobalt appartient au bloc d.",
+        "correct": true,
+        "explanation": "C'est un métal de transition."
+      },
+      {
+        "content": "Le nombre 60 correspond au numéro atomique.",
+        "correct": false,
+        "explanation": "60 est le nombre de masse A."
+      },
+      {
+        "content": "Un atome neutre de cobalt 60 possède 27 électrons.",
+        "correct": true,
+        "explanation": "La neutralité impose 27 électrons."
+      }
     ],
-    explanation:
-      `La configuration externe permet de déduire simultanément la période, le bloc et la colonne.`,
+    "explanation": "Une seule notation nucléaire permet de relier composition du noyau, neutralité électronique et identité chimique."
   },
   {
-    order: 84,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question:
-      `Le gadolinium entre dans la composition de certains agents de contraste utilisés en IRM. Il possède $\\mathrm{Z}=64$. Quelles propositions sont exactes ?`,
-    choices: [
-      { content: `Le gadolinium est un lanthanide.`, correct: true, explanation: `Vrai.` },
-      { content: `Il appartient au bloc $\\mathrm{f}$.`, correct: true, explanation: `Les lanthanides correspondent au remplissage du bloc f.` },
-      { content: `C'est un élément métallique.`, correct: true, explanation: `Les lanthanides sont des métaux.` },
-      { content: `Il appartient à la colonne 18 des gaz rares.`, correct: false, explanation: `Faux.` },
+    "order": 78,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Quelle configuration électronique correspond au calcium neutre ($Z=20$) dans son état fondamental ?",
+    "choices": [
+      {
+        "content": "$[Ar]4s^2$.",
+        "correct": true,
+        "explanation": "Après le cœur argon de 18 électrons, les deux électrons restants occupent 4s."
+      },
+      {
+        "content": "$[Ne]3s^2$.",
+        "correct": false,
+        "explanation": "Cette configuration correspond au magnésium."
+      },
+      {
+        "content": "$[Kr]5s^2$.",
+        "correct": false,
+        "explanation": "Cette configuration correspondrait à un élément beaucoup plus lourd."
+      },
+      {
+        "content": "$[Ar]4p^2$.",
+        "correct": false,
+        "explanation": "La sous-couche 4p n'est pas occupée avant 3d."
+      },
+      {
+        "content": "$[Ar]3d^2$.",
+        "correct": false,
+        "explanation": "4s se remplit avant 3d pour le calcium neutre."
+      }
     ],
-    explanation:
-      `Le gadolinium est un lanthanide du bloc f. Le contexte d'IRM donne un usage concret de cet élément sans modifier la compétence de classification évaluée.`,
+    "explanation": "Le calcium est un alcalino-terreux de période 4, configuration externe 4s²."
   },
+  {
+    "order": 79,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quelle est la valeur de $\\ell$ pour les électrons de la sous-couche 4s du calcium ?",
+    "answer": {
+      "type": "number",
+      "value": 0,
+      "tolerance": 0
+    },
+    "explanation": "Toute sous-couche s correspond à $\\ell=0$, quel que soit n."
+  },
+  {
+    "order": 80,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Quelle représentation correspond à la configuration de valence du phosphore neutre ($Z=15$) ?",
+    "choices": [
+      {
+        "content": {
+          "type": "quantum-boxes",
+          "orbitals": [
+            {
+              "label": "3\\mathrm{s}",
+              "boxes": [
+                "pair"
+              ]
+            },
+            {
+              "label": "3\\mathrm{p}",
+              "boxes": [
+                "pair",
+                "pair",
+                "up"
+              ]
+            }
+          ]
+        },
+        "correct": false,
+        "explanation": "Cette représentation correspond à 3p⁵."
+      },
+      {
+        "content": {
+          "type": "quantum-boxes",
+          "orbitals": [
+            {
+              "label": "3\\mathrm{s}",
+              "boxes": [
+                "pair"
+              ]
+            },
+            {
+              "label": "3\\mathrm{p}",
+              "boxes": [
+                "up",
+                "up",
+                "up"
+              ]
+            }
+          ]
+        },
+        "correct": true,
+        "explanation": "Le phosphore possède la configuration externe 3s²3p³."
+      },
+      {
+        "content": {
+          "type": "quantum-boxes",
+          "orbitals": [
+            {
+              "label": "3\\mathrm{s}",
+              "boxes": [
+                "up"
+              ]
+            },
+            {
+              "label": "3\\mathrm{p}",
+              "boxes": [
+                "pair",
+                "up",
+                "up"
+              ]
+            }
+          ]
+        },
+        "correct": false,
+        "explanation": "3s devrait contenir un doublet."
+      },
+      {
+        "content": {
+          "type": "quantum-boxes",
+          "orbitals": [
+            {
+              "label": "3\\mathrm{s}",
+              "boxes": [
+                "pair"
+              ]
+            },
+            {
+              "label": "3\\mathrm{p}",
+              "boxes": [
+                "pair",
+                "up",
+                "empty"
+              ]
+            }
+          ]
+        },
+        "correct": false,
+        "explanation": "Hund impose trois occupations simples pour 3p³."
+      },
+      {
+        "content": {
+          "type": "quantum-boxes",
+          "orbitals": [
+            {
+              "label": "3\\mathrm{s}",
+              "boxes": [
+                "pair"
+              ]
+            },
+            {
+              "label": "3\\mathrm{p}",
+              "boxes": [
+                "empty",
+                "empty",
+                "empty"
+              ]
+            }
+          ]
+        },
+        "correct": false,
+        "explanation": "Elle omet les trois électrons 3p."
+      }
+    ],
+    "explanation": "Le phosphore a cinq électrons de valence : 3s²3p³, avec trois électrons célibataires dans les orbitales p."
+  },
+  {
+    "order": 81,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Combien d'électrons célibataires possède le phosphore neutre dans sa couche de valence $3s^2 3p^3$ ?",
+    "answer": {
+      "type": "number",
+      "value": 3,
+      "tolerance": 0
+    },
+    "explanation": "Les trois électrons 3p occupent séparément les trois orbitales p selon Hund."
+  },
+  {
+    "order": 82,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Un mélange isotopique de bore contient 20 % de bore 10 et 80 % de bore 11. En prenant les masses 10 u et 11 u, quelle est la masse atomique moyenne en u ?",
+    "answer": {
+      "type": "number",
+      "value": 10.8,
+      "tolerance": 0.01
+    },
+    "explanation": "La moyenne pondérée vaut $0{,}20\\times10+0{,}80\\times11=10{,}8\\,\\mathrm{u}$. Le bore 10 est notamment étudié dans le contexte de la capture neutronique au bore."
+  },
+  {
+    "order": 83,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Le sélénium a une configuration externe $4s^2 4p^4$. Quelle position est cohérente ?",
+    "choices": [
+      {
+        "content": "Période 3, groupe 16, bloc p.",
+        "correct": false,
+        "explanation": "Le plus grand n est 4."
+      },
+      {
+        "content": "Période 4, groupe 14, bloc d.",
+        "correct": false,
+        "explanation": "La sous-couche en cours de remplissage est p."
+      },
+      {
+        "content": "Période 4, groupe 18, bloc p.",
+        "correct": false,
+        "explanation": "Le groupe 18 aurait une configuration externe np⁶."
+      },
+      {
+        "content": "Période 4, groupe 16, bloc p.",
+        "correct": true,
+        "explanation": "n=4 indique la période 4 et ns²np⁴ le groupe 16."
+      },
+      {
+        "content": "Période 5, groupe 2, bloc s.",
+        "correct": false,
+        "explanation": "Cette proposition ne correspond pas à la configuration donnée."
+      }
+    ],
+    "explanation": "La configuration externe suffit ici à lire période, groupe principal et bloc."
+  },
+  {
+    "order": 84,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Le gadolinium est un lanthanide utilisé dans certains agents de contraste en IRM sous forme chélatée. Quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Il se situe dans la période 6.",
+        "correct": true,
+        "explanation": "Les lanthanides appartiennent à la période 6."
+      },
+      {
+        "content": "Il appartient au bloc f.",
+        "correct": true,
+        "explanation": "Sa configuration met en jeu les orbitales 4f."
+      },
+      {
+        "content": "C'est un halogène du groupe 17.",
+        "correct": false,
+        "explanation": "Le gadolinium est un métal du bloc f."
+      },
+      {
+        "content": "Le gadolinium libre et un complexe chélaté de gadolinium sont chimiquement équivalents en matière de sécurité biologique.",
+        "correct": false,
+        "explanation": "La chélation modifie fortement la réactivité et la biodisponibilité du métal."
+      },
+      {
+        "content": "Il appartient à la série des lanthanides.",
+        "correct": true,
+        "explanation": "Le gadolinium est un élément de la série 4f."
+      }
+    ],
+    "explanation": "La position périodique du gadolinium explique sa nature métallique ; en clinique, il est administré sous forme de complexes conçus pour limiter la présence d'ion libre."
+  }
 ];
 
 export const UE14_CH1_SYNTHESIS_MASTER_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
-    order: 27,
-    difficulty: 'HARD',
-    format: 'QRM',
-    question: `Concernant le modèle atomique et nucléaire, quelles propositions sont exactes ?`,
-    choices: [
-      { content: `Certains nucléides présents naturellement sont radioactifs.`, correct: true, explanation: `Vrai.` },
-      { content: `La masse d'un noyau lié est légèrement inférieure à la somme des masses de ses nucléons séparés.`, correct: true, explanation: `C'est le défaut de masse.` },
-      { content: `La dimension d'un noyau est de l'ordre de $10^{-10}\\,\\mathrm{m}$.`, correct: false, explanation: `Elle est de l'ordre de $10^{-15}\\,\\mathrm{m}$.` },
-      { content: `Dans un atome neutre, le nombre d'électrons est égal au nombre de protons.`, correct: true, explanation: `C'est la condition de neutralité.` },
+    "order": 27,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Concernant le modèle atomique et nucléaire, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Un noyau lié présente un défaut de masse associé à son énergie de liaison.",
+        "correct": true,
+        "explanation": "La masse du noyau est inférieure à la somme des masses des nucléons séparés."
+      },
+      {
+        "content": "Toute espèce radioactive est artificielle.",
+        "correct": false,
+        "explanation": "De nombreux radionucléides sont naturels."
+      },
+      {
+        "content": "La quasi-totalité de la masse atomique est concentrée dans le noyau.",
+        "correct": true,
+        "explanation": "Les nucléons sont beaucoup plus massifs que les électrons."
+      },
+      {
+        "content": "Deux isotopes ont le même Z mais des nombres de neutrons différents.",
+        "correct": true,
+        "explanation": "C'est la définition de l'isotopie."
+      },
+      {
+        "content": "Un atome neutre possède nécessairement N=Z.",
+        "correct": false,
+        "explanation": "La neutralité impose seulement le même nombre de protons et d'électrons."
+      }
     ],
-    explanation:
-      `La synthèse du modèle atomique associe dimensions, composition, neutralité et défaut de masse.`,
+    "explanation": "Cette synthèse distingue clairement neutralité électronique, isotopie et stabilité nucléaire."
   },
   {
-    order: 48,
-    difficulty: 'HARD',
-    format: 'QROC',
-    question: `Combien d'électrons peut contenir au maximum une sous-couche $\\mathrm{f}$ ?`,
-    answer: { type: 'number', value: 14, tolerance: 0 },
-    explanation:
-      `Pour $\\ell=3$, il existe $2\\ell+1=7$ orbitales. À deux électrons par orbitale, la capacité maximale est 14.`,
-  },
-  {
-    order: 49,
-    difficulty: 'HARD',
-    format: 'QRM',
-    question: `Concernant les orbitales atomiques, quelles propositions sont exactes ?`,
-    choices: [
-      { content: `Une sous-couche $\\mathrm{p}$ comporte trois orbitales.`, correct: true, explanation: `Vrai.` },
-      { content: `Chaque orbitale peut contenir au maximum deux électrons.`, correct: true, explanation: `Vrai.` },
-      { content: `Une orbitale $\\mathrm{s}$ présente une symétrie sphérique dans la représentation qualitative du cours.`, correct: true, explanation: `Vrai.` },
-      { content: `Une orbitale correspond à la trajectoire exacte de l'électron autour du noyau.`, correct: false, explanation: `Faux : elle décrit une probabilité de présence.` },
-    ],
-    explanation:
-      `La notion d'orbitale remplace l'idée de trajectoire classique par une distribution spatiale de probabilité.`,
-  },
-  {
-    order: 50,
-    difficulty: 'HARD',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `Selon la règle $\\mathrm{n}+\\ell$, sélectionnez exactement les deux relations d'ordre énergétique correctes.`,
-    choices: [
-      { content: `$4\\mathrm{s}$ est remplie avant $3\\mathrm{d}$.`, correct: true, explanation: `Pour $4\\mathrm{s}$, $\\mathrm{n}+\\ell=4+0=4$ ; pour $3\\mathrm{d}$, $\\mathrm{n}+\\ell=3+2=5$. La sous-couche $4\\mathrm{s}$ est donc remplie avant $3\\mathrm{d}$.` },
-      { content: `$3\\mathrm{d}$ est remplie avant $4\\mathrm{p}$.`, correct: true, explanation: `Les deux ont $\\mathrm{n}+\\ell=5$ ; le plus petit $\\mathrm{n}$, donc 3d, est plus bas.` },
-      { content: `$3\\mathrm{d}$ est remplie avant $4\\mathrm{s}$.`, correct: false, explanation: `C'est l'inverse dans l'ordre présenté.` },
-      { content: `$4\\mathrm{p}$ est remplie avant $3\\mathrm{d}$.`, correct: false, explanation: `À $\\mathrm{n}+\\ell$ égal, le plus petit $\\mathrm{n}$ est prioritaire.` },
-    ],
-    explanation:
-      `La règle combine la valeur de $\\mathrm{n}+\\ell$ puis, en cas d'égalité, la plus petite valeur de $\\mathrm{n}$.`,
-  },
-  {
-    order: 51,
-    difficulty: 'HARD',
-    format: 'QROC',
-    question:
-      `Un atome neutre a pour configuration $1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6\\,3\\mathrm{s}^2\\,3\\mathrm{p}^5$. Quel est son élément chimique ?`,
-    answer: {
-      type: 'text',
-      acceptedAnswers: ['chlore', 'Cl'],
-      normalization: { trim: true, collapseWhitespace: true, caseSensitive: false, ignoreAccents: true },
+    "order": 48,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Quelle est la capacité électronique maximale d'une sous-couche f ?",
+    "answer": {
+      "type": "number",
+      "value": 14,
+      "tolerance": 0
     },
-    explanation:
-      `La configuration comporte 17 électrons : $\\mathrm{Z}=17$. Il s'agit du chlore, halogène de la troisième période.`,
+    "explanation": "Une sous-couche f contient 7 orbitales ; à deux électrons par orbitale, elle peut accueillir 14 électrons."
   },
   {
-    order: 52,
-    difficulty: 'HARD',
-    format: 'QROC',
-    question: `Pour le nickel de l'énoncé commun, dont la configuration se termine par $4\\mathrm{s}^2\\,3\\mathrm{d}^8$, combien d'électrons occupent la sous-couche $3\\mathrm{d}$ ?`,
-    answer: { type: 'number', value: 8, tolerance: 0 },
-    explanation: `L'exposant de $3\\mathrm{d}^8$ donne directement huit électrons dans la sous-couche d.`,
-  },
-  {
-    order: 53,
-    difficulty: 'HARD',
-    format: 'QRU',
-    question: `Selon la convention de couche de valence du cours, quelle proposition est correcte pour le nickel de l'énoncé commun ?`,
-    choices: [
-      { content: `Sa couche de valence est $\\mathrm{n}=4$ et contient $4\\mathrm{s}^2$.`, correct: true, explanation: `Le plus grand n occupé est 4.` },
-      { content: `Sa couche de valence est $\\mathrm{n}=3$ car la sous-couche $3\\mathrm{d}$ contient davantage d'électrons.`, correct: false, explanation: `Le cours retient la couche de plus grand n.` },
-      { content: `Sa couche de valence est la couche $\\mathrm{L}$.`, correct: false, explanation: `L correspond à n=2.` },
-      { content: `Le nickel ne possède pas de couche de valence car c'est un métal de transition.`, correct: false, explanation: `Tout atome possède une couche externe.` },
+    "order": 49,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Concernant les orbitales atomiques, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Une orbitale s possède un plan nodal angulaire passant par le noyau.",
+        "correct": false,
+        "explanation": "Les orbitales s n'ont pas de nœud angulaire ; elles peuvent avoir des nœuds radiaux selon n."
+      },
+      {
+        "content": "Une orbitale représente une trajectoire géométrique fixe de l'électron.",
+        "correct": false,
+        "explanation": "Elle décrit un état quantique et une distribution de probabilité."
+      },
+      {
+        "content": "Une sous-couche d contient cinq orbitales.",
+        "correct": true,
+        "explanation": "Pour ℓ=2, il existe cinq valeurs de $m_\\ell$."
+      },
+      {
+        "content": "Une orbitale donnée peut contenir au maximum deux électrons de spins opposés.",
+        "correct": true,
+        "explanation": "C'est une conséquence du principe de Pauli."
+      },
+      {
+        "content": "Une sous-couche p contient trois orbitales.",
+        "correct": true,
+        "explanation": "Pour ℓ=1, $2\\ell+1=3$."
+      }
     ],
-    explanation:
-      `Dans la convention explicitement retenue par la fiche, la couche de valence correspond au plus grand nombre quantique principal occupé.`,
+    "explanation": "Nombre d'orbitales, capacité électronique et forme spatiale relèvent de notions différentes qu'il faut éviter de confondre."
   },
   {
-    order: 54,
-    difficulty: 'HARD',
-    format: 'QRM',
-    question:
-      `Un atome neutre possède une configuration se terminant par $5\\mathrm{s}^2$, après remplissage complet des sous-couches jusqu'à $4\\mathrm{p}^6$. Quelles propositions sont exactes ?`,
-    choices: [
-      { content: `Il appartient à la cinquième période.`, correct: true, explanation: `Le plus grand n occupé est 5.` },
-      { content: `Il appartient à la colonne 2.`, correct: true, explanation: `La configuration externe ns2 correspond à la colonne 2.` },
-      { content: `Il appartient au bloc $\\mathrm{s}$.`, correct: true, explanation: `La dernière sous-couche occupée est s.` },
-      { content: `Il appartient à la famille des halogènes.`, correct: false, explanation: `Les halogènes ont une configuration externe ns2np5.` },
+    "order": 50,
+    "difficulty": "HARD",
+    "format": "QRU",
+    "question": "Selon la règle de Madelung $(n+\\ell)$, quelle sous-couche est remplie avant 3d ?",
+    "choices": [
+      {
+        "content": "5p.",
+        "correct": false,
+        "explanation": "5p est encore plus élevée dans l'ordre de remplissage."
+      },
+      {
+        "content": "5s.",
+        "correct": false,
+        "explanation": "5s a n+ℓ=5 et n=5, donc vient après 3d."
+      },
+      {
+        "content": "4p.",
+        "correct": false,
+        "explanation": "4p a n+ℓ=5 mais n=4, donc elle vient après 3d qui a n=3 à égalité de n+ℓ."
+      },
+      {
+        "content": "4s.",
+        "correct": true,
+        "explanation": "4s a n+ℓ=4, tandis que 3d a n+ℓ=5."
+      },
+      {
+        "content": "4d.",
+        "correct": false,
+        "explanation": "4d a n+ℓ=6."
+      }
     ],
-    explanation:
-      `Cette configuration correspond notamment au strontium : période 5, colonne 2, bloc s.`,
+    "explanation": "La règle $n+\\ell$ permet de retrouver l'ordre 4s avant 3d ; à égalité de $n+\\ell$, le plus petit n est rempli d'abord."
   },
   {
-    order: 71,
-    difficulty: 'HARD',
-    format: 'QRU',
-    question: `Quel ordre correspond correctement aux éléments de la deuxième période par numéro atomique croissant ?`,
-    choices: [
-      { content: `$\\ce{Li},\\ce{Be},\\ce{B},\\ce{C},\\ce{N},\\ce{O},\\ce{F},\\ce{Ne}$.`, correct: true, explanation: `Ordre de Z=3 à Z=10.` },
-      { content: `$\\ce{Be},\\ce{Li},\\ce{B},\\ce{C},\\ce{N},\\ce{O},\\ce{F},\\ce{Ne}$.`, correct: false, explanation: `Li précède Be.` },
-      { content: `$\\ce{Li},\\ce{Be},\\ce{C},\\ce{B},\\ce{N},\\ce{O},\\ce{F},\\ce{Ne}$.`, correct: false, explanation: `B précède C.` },
-      { content: `$\\ce{Li},\\ce{Be},\\ce{B},\\ce{C},\\ce{O},\\ce{N},\\ce{F},\\ce{Ne}$.`, correct: false, explanation: `N précède O.` },
+    "order": 51,
+    "difficulty": "HARD",
+    "format": "QRU",
+    "question": "Quelle configuration électronique identifie le chlore neutre ($Z=17$) ?",
+    "choices": [
+      {
+        "content": "$[Ne]3s^1$.",
+        "correct": false,
+        "explanation": "Cette configuration correspond au sodium."
+      },
+      {
+        "content": "$[Ne]3s^2 3p^5$.",
+        "correct": true,
+        "explanation": "Le cœur néon apporte 10 électrons, puis 7 électrons occupent la couche n=3."
+      },
+      {
+        "content": "$[He]2s^2 2p^5$.",
+        "correct": false,
+        "explanation": "Cette configuration correspond au fluor."
+      },
+      {
+        "content": "$[Ar]4s^1$.",
+        "correct": false,
+        "explanation": "Cette configuration correspond au potassium."
+      },
+      {
+        "content": "$[Ne]3s^2 3p^6$.",
+        "correct": false,
+        "explanation": "Cette configuration correspond à l'argon."
+      }
     ],
-    explanation:
-      `La deuxième période s'étend du lithium ($\\mathrm{Z}=3$) au néon ($\\mathrm{Z}=10$).`,
+    "explanation": "Le chlore possède sept électrons de valence, ce qui le place parmi les halogènes."
   },
   {
-    order: 74,
-    difficulty: 'HARD',
-    format: 'QRM',
-    question:
-      `On donne la configuration d'un atome neutre : $1\\mathrm{s}^2\\,2\\mathrm{s}^2\\,2\\mathrm{p}^6\\,3\\mathrm{s}^2\\,3\\mathrm{p}^6\\,4\\mathrm{s}^2\\,3\\mathrm{d}^6$. Quelles propositions sont exactes ?`,
-    choices: [
-      { content: `Son numéro atomique est $\\mathrm{Z}=26$.`, correct: true, explanation: `La somme des électrons vaut 26.` },
-      { content: `Il s'agit du fer.`, correct: true, explanation: `Z=26 correspond au fer.` },
-      { content: `Il appartient à la quatrième période.`, correct: true, explanation: `Le plus grand nombre quantique principal occupé est 4.` },
-      { content: `Il appartient au bloc $\\mathrm{p}$.`, correct: false, explanation: `La sous-couche d est en cours de remplissage : bloc d.` },
+    "order": 52,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Le nickel neutre possède la configuration fondamentale approchée $[Ar]3d^8 4s^2$. Combien d'électrons occupent la sous-couche 3d ?",
+    "answer": {
+      "type": "number",
+      "value": 8,
+      "tolerance": 0
+    },
+    "explanation": "L'exposant 8 de $3d^8$ donne directement le nombre d'électrons de la sous-couche d."
+  },
+  {
+    "order": 53,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "À propos du nickel $[Ar]3d^8 4s^2$, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Il appartient à la période 4.",
+        "correct": true,
+        "explanation": "Le plus grand n occupé est 4."
+      },
+      {
+        "content": "Il appartient au groupe 18 des gaz nobles.",
+        "correct": false,
+        "explanation": "Le nickel est dans le groupe 10."
+      },
+      {
+        "content": "C'est un métal de transition.",
+        "correct": true,
+        "explanation": "Le nickel appartient aux éléments du bloc d."
+      },
+      {
+        "content": "Sa chimie peut impliquer les électrons 3d et 4s.",
+        "correct": true,
+        "explanation": "Les états d'oxydation et les liaisons des métaux de transition mobilisent ces niveaux proches en énergie."
+      },
+      {
+        "content": "Il appartient au bloc d.",
+        "correct": true,
+        "explanation": "La sous-couche d est en cours de remplissage dans cette série."
+      }
     ],
-    explanation:
-      `Le comptage des électrons et la sous-couche en cours de remplissage permettent d'identifier simultanément l'élément et sa position dans le tableau.`,
+    "explanation": "Pour un métal de transition, la notion d'électrons de valence ne doit pas être réduite mécaniquement à la seule couche de plus grand n."
   },
   {
-    order: 7,
-    difficulty: 'HARD',
-    format: 'QROC',
-    question: `Combien d'électrons peut contenir au maximum une couche complète de nombre quantique principal $\\mathrm{n}=4$ ?`,
-    answer: { type: 'number', value: 32, tolerance: 0 },
-    explanation:
-      `La couche $\\mathrm{n}=4$ comprend $4\\mathrm{s}^2$, $4\\mathrm{p}^6$, $4\\mathrm{d}^{10}$ et $4\\mathrm{f}^{14}$, soit $2+6+10+14=32$ électrons.`,
+    "order": 54,
+    "difficulty": "HARD",
+    "format": "QRU",
+    "question": "Un atome neutre a pour configuration $[Ne]3s^2$. Quelle identification est correcte ?",
+    "choices": [
+      {
+        "content": "Néon, groupe 18, période 2.",
+        "correct": false,
+        "explanation": "Le néon est le cœur électronique indiqué entre crochets."
+      },
+      {
+        "content": "Magnésium, groupe 2, période 3.",
+        "correct": true,
+        "explanation": "La configuration contient 12 électrons et se termine par 3s²."
+      },
+      {
+        "content": "Calcium, groupe 2, période 4.",
+        "correct": false,
+        "explanation": "Le calcium se termine par 4s²."
+      },
+      {
+        "content": "Sodium, groupe 1, période 3.",
+        "correct": false,
+        "explanation": "Le sodium se termine par 3s¹."
+      },
+      {
+        "content": "Aluminium, groupe 13, période 3.",
+        "correct": false,
+        "explanation": "L'aluminium se termine par 3p¹."
+      }
+    ],
+    "explanation": "Reconnaître une configuration complète permet d'identifier l'élément sans ambiguïté."
   },
   {
-    order: 63,
-    difficulty: 'HARD',
-    format: 'QROC',
-    question:
-      `Un échantillon théorique de chlore contient 75 % de $\\ce{^{35}Cl}$ de masse $35\\,\\mathrm{u}$ et 25 % de $\\ce{^{37}Cl}$ de masse $37\\,\\mathrm{u}$. Quelle est sa masse atomique moyenne en $\\mathrm{u}$ ? Saisissez uniquement la valeur numérique.`,
-    answer: { type: 'number', value: 35.5, tolerance: 0.01 },
-    explanation:
-      `La moyenne pondérée vaut $0{,}75\\times35+0{,}25\\times37=35{,}5\\,\\mathrm{u}$. Cette question mobilise la notion de mélange isotopique jusqu'au calcul.`,
+    "order": 71,
+    "difficulty": "HARD",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes concernant la deuxième période, sélectionnez exactement les cinq correctes.",
+    "choices": [
+      {
+        "content": "C précède B.",
+        "correct": false,
+        "explanation": "B a Z=5 et C Z=6."
+      },
+      {
+        "content": "F précède Ne.",
+        "correct": true,
+        "explanation": "Z(F)=9 et Z(Ne)=10."
+      },
+      {
+        "content": "O précède N.",
+        "correct": false,
+        "explanation": "N a Z=7 et O Z=8."
+      },
+      {
+        "content": "Ne précède F.",
+        "correct": false,
+        "explanation": "Ne possède Z=10, après F de Z=9."
+      },
+      {
+        "content": "Li précède Be.",
+        "correct": true,
+        "explanation": "Z(Li)=3 et Z(Be)=4."
+      },
+      {
+        "content": "N précède O.",
+        "correct": true,
+        "explanation": "Z(N)=7 et Z(O)=8."
+      },
+      {
+        "content": "B précède C.",
+        "correct": true,
+        "explanation": "Z(B)=5 et Z(C)=6."
+      },
+      {
+        "content": "La deuxième période commence par H.",
+        "correct": false,
+        "explanation": "H appartient à la première période."
+      },
+      {
+        "content": "Be précède Li.",
+        "correct": false,
+        "explanation": "Li a le plus petit Z des deux."
+      },
+      {
+        "content": "L'ordre complet est Li, Be, B, C, N, O, F, Ne.",
+        "correct": true,
+        "explanation": "C'est l'ordre croissant des numéros atomiques 3 à 10."
+      }
+    ],
+    "explanation": "L'ordre des éléments suit strictement le numéro atomique croissant."
   },
+  {
+    "order": 74,
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "Un atome neutre possède $Z=26$ et la configuration $[Ar]3d^6 4s^2$. Quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Il appartient à la période 4.",
+        "correct": true,
+        "explanation": "Le plus grand n occupé est 4."
+      },
+      {
+        "content": "Il appartient au bloc d.",
+        "correct": true,
+        "explanation": "La série correspond au remplissage des orbitales 3d."
+      },
+      {
+        "content": "C'est un métal de transition.",
+        "correct": true,
+        "explanation": "Le fer est un élément du bloc d."
+      },
+      {
+        "content": "Il s'agit du fer.",
+        "correct": true,
+        "explanation": "Le fer possède Z=26."
+      },
+      {
+        "content": "Il appartient au groupe 17 des halogènes.",
+        "correct": false,
+        "explanation": "Le fer est dans le groupe 8."
+      }
+    ],
+    "explanation": "La configuration électronique permet de retrouver simultanément l'identité et la position périodique du fer."
+  },
+  {
+    "order": 7,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Quelle est la capacité électronique maximale de la couche N, correspondant à $n=4$ ?",
+    "answer": {
+      "type": "number",
+      "value": 32,
+      "tolerance": 0
+    },
+    "explanation": "La capacité maximale d'une couche est $2n^2$ : pour n=4, $2\\times16=32$ électrons."
+  },
+  {
+    "order": 63,
+    "difficulty": "HARD",
+    "format": "QROC",
+    "question": "Le chlore naturel est constitué d'environ 75 % de $\\ce{^{35}Cl}$ et 25 % de $\\ce{^{37}Cl}$. En prenant les masses 35 u et 37 u, quelle masse atomique moyenne obtient-on en u ?",
+    "answer": {
+      "type": "number",
+      "value": 35.5,
+      "tolerance": 0.01
+    },
+    "explanation": "La moyenne pondérée vaut $0{,}75\\times35+0{,}25\\times37=35{,}5\\,\\mathrm{u}$."
+  }
 ];

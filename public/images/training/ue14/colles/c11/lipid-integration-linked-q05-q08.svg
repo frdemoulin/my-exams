@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+    <linearGradient id="box1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#eff6ff"/>
+    </linearGradient>
+    <linearGradient id="box2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f0fdf4"/>
+    </linearGradient>
+    <linearGradient id="box3Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#fdf4ff"/>
+    </linearGradient>
+    <linearGradient id="box4Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#fff7ed"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="106%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+
+    <marker id="arrowHead" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="760" fill="url(#bgGrad)" rx="16"/>
+
+  <!-- Title Banner -->
+  <rect x="30" y="18" width="1140" height="44" rx="8" fill="#e2e8f0" opacity="0.8"/>
+  <text x="600" y="46" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#0f172a">
+    Structures lipidiques, clivage enzymatique et stéréols
+  </text>
+
+  <!-- ==================== ZONE 1 : ACIDES GRAS L ET A (HAUT GAUCHE) ==================== -->
+  <g filter="url(#shadow)" transform="translate(30, 80)">
+    <rect width="550" height="310" rx="12" fill="url(#box1Grad)" stroke="#2563eb" stroke-width="2"/>
+    
+    <!-- Badge Zone 1 -->
+    <rect x="25" y="20" width="180" height="30" rx="6" fill="#2563eb"/>
+    <text x="115" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#ffffff">
+      Acides gras L et A
+    </text>
+
+    <!-- Content Fatty Acids -->
+    <g transform="translate(40, 95)" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#0f172a">
+      
+      <!-- Acide gras L -->
+      <g transform="translate(0, 30)">
+        <rect x="0" y="-22" width="470" height="70" rx="8" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+        <text x="20" y="0" fill="#2563eb" font-weight="800">Acide gras L :</text>
+        <text x="160" y="0" font-family="'Courier New', Courier, monospace" font-size="22">18:2 Δ<tspan font-size="16" dy="-6">9,12</tspan></text>
+        
+        <text x="20" y="32" font-size="14" fill="#64748b">Structure : HOOC–[CH<tspan font-size="10" dy="2">2</tspan><tspan font-size="14" dy="-2">]</tspan><tspan font-size="10" dy="2">7</tspan><tspan font-size="14" dy="-2">–CH=CH–CH</tspan><tspan font-size="10" dy="2">2</tspan><tspan font-size="14" dy="-2">–CH=CH–[CH</tspan><tspan font-size="10" dy="2">2</tspan><tspan font-size="14" dy="-2">]</tspan><tspan font-size="10" dy="2">4</tspan><tspan font-size="14" dy="-2">–CH</tspan><tspan font-size="10" dy="2">3</tspan></text>
+      </g>
+
+      <!-- Acide gras A -->
+      <g transform="translate(0, 140)">
+        <rect x="0" y="-22" width="470" height="70" rx="8" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+        <text x="20" y="0" fill="#2563eb" font-weight="800">Acide gras A :</text>
+        <text x="160" y="0" font-family="'Courier New', Courier, monospace" font-size="22">20:4 Δ<tspan font-size="16" dy="-6">5,8,11,14</tspan></text>
+        
+        <text x="20" y="32" font-size="14" fill="#64748b">Structure : HOOC–[CH<tspan font-size="10" dy="2">2</tspan><tspan font-size="14" dy="-2">]</tspan><tspan font-size="10" dy="2">3</tspan><tspan font-size="14" dy="-2">–[CH=CH–CH</tspan><tspan font-size="10" dy="2">2</tspan><tspan font-size="14" dy="-2">]</tspan><tspan font-size="10" dy="2">4</tspan><tspan font-size="14" dy="-2">–[CH</tspan><tspan font-size="10" dy="2">2</tspan><tspan font-size="14" dy="-2">]</tspan><tspan font-size="10" dy="2">3</tspan><tspan font-size="14" dy="-2">–CH</tspan><tspan font-size="10" dy="2">3</tspan></text>
+      </g>
+
+      <!-- Labels COOH and extrémité méthyle -->
+      <g transform="translate(0, 205)" font-size="13" font-weight="600" fill="#475569">
+        <text x="30" y="0">Extrémité carboxylique : COOH</text>
+        <text x="280" y="0">Extrémité méthyle : CH<tspan font-size="10" dy="2">3</tspan></text>
+      </g>
+
+    </g>
+  </g>
+
+  <!-- ==================== ZONE 2 : MOLÉCULE P (HAUT DROITE) ==================== -->
+  <g filter="url(#shadow)" transform="translate(620, 80)">
+    <rect width="550" height="310" rx="12" fill="url(#box2Grad)" stroke="#059669" stroke-width="2"/>
+    
+    <!-- Badge Zone 2 -->
+    <rect x="25" y="20" width="180" height="30" rx="6" fill="#059669"/>
+    <text x="115" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#ffffff">
+      Molécule P
+    </text>
+
+    <!-- Structure of P -->
+    <g transform="translate(40, 80)" font-family="'Courier New', Courier, monospace" font-size="16" font-weight="700" fill="#0f172a">
+      
+      <!-- Glycerol Backbone & Ester Chains -->
+      <!-- sn-1 -->
+      <text x="0" y="40" fill="#047857">sn-1 :</text>
+      <text x="70" y="40">CH<tspan font-size="12" dy="3">2</tspan><tspan font-size="16" dy="-3">–O–CO–[Chaîne acyle saturée]</tspan></text>
+
+      <!-- sn-2 (Target of PLA2) -->
+      <rect x="65" y="65" width="270" height="35" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+      <text x="0" y="88" fill="#047857">sn-2 :</text>
+      <text x="70" y="88">CH–O–CO–[Acide gras A]</text>
+
+      <!-- Arrow PLA2 -->
+      <path d="M 350 82 L 420 82" fill="none" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrowHead)"/>
+      <text x="385" y="68" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#dc2626">PLA<tspan font-size="10" dy="3">2</tspan></text>
+
+      <!-- Released Free Fatty Acid A -->
+      <rect x="425" y="65" width="95" height="35" rx="6" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="472" y="88" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#b91c1c">Acide A libre</text>
+
+      <!-- sn-3 -->
+      <text x="0" y="140" fill="#047857">sn-3 :</text>
+      <text x="70" y="140">CH<tspan font-size="12" dy="3">2</tspan><tspan font-size="16" dy="-3">–O–PO<tspan font-size="12" dy="3">3</tspan><tspan font-size="10" dy="-4">-</tspan><tspan font-size="16" dy="1">–[Tête polaire]</tspan></text>
+
+      <!-- Legend -->
+      <text x="0" y="195" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#475569">Squelette glycérol à 3 carbones (sn-1, sn-2, sn-3)</text>
+    </g>
+  </g>
+
+  <!-- ==================== ZONE 3 : MOLÉCULE C (BAS GAUCHE) ==================== -->
+  <g filter="url(#shadow)" transform="translate(30, 410)">
+    <rect width="550" height="320" rx="12" fill="url(#box3Grad)" stroke="#c026d3" stroke-width="2"/>
+    
+    <!-- Badge Zone 3 -->
+    <rect x="25" y="20" width="180" height="30" rx="6" fill="#c026d3"/>
+    <text x="115" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#ffffff">
+      Molécule C
+    </text>
+
+    <!-- Chemical Structure C (Sphingosine + Fatty Acid via Amide) -->
+    <g transform="translate(40, 85)" font-family="'Courier New', Courier, monospace" font-size="16" font-weight="700" fill="#0f172a">
+      
+      <!-- Sphingosine amino-alcohol backbone -->
+      <text x="0" y="30" fill="#7e22ce" font-family="system-ui, sans-serif" font-size="15" font-weight="800">Squelette amino-alcool :</text>
+      <text x="0" y="65">CH<tspan font-size="12" dy="3">3</tspan><tspan font-size="16" dy="-3">–[CH</tspan><tspan font-size="12" dy="3">2</tspan><tspan font-size="16" dy="-3">]</tspan><tspan font-size="12" dy="3">12</tspan><tspan font-size="16" dy="-3">–CH=CH–CH(OH)–CH–CH<tspan font-size="12" dy="3">2</tspan><tspan font-size="16" dy="-3">OH</tspan></text>
+      
+      <!-- Amide Bond Linkage to Fatty Acid -->
+      <g transform="translate(230, 75)">
+        <line x1="15" y1="12" x2="15" y2="45" stroke="#c026d3" stroke-width="3"/>
+        <!-- Highlighted Amide Group -->
+        <rect x="-10" y="45" width="220" height="40" rx="6" fill="#f5d0fe" stroke="#a21caf" stroke-width="2"/>
+        <text x="100" y="70" text-anchor="middle" fill="#701a75" font-size="18" font-weight="800">NH – CO – [R]</text>
+      </g>
+
+      <text x="0" y="180" fill="#7e22ce" font-family="system-ui, sans-serif" font-size="15" font-weight="800">Chaîne grasse acyle :</text>
+      <text x="0" y="205">R = [Chaîne carbonée d'un acide gras]</text>
+
+    </g>
+  </g>
+
+  <!-- ==================== ZONE 4 : MOLÉCULE S ET S' (BAS DROITE) ==================== -->
+  <g filter="url(#shadow)" transform="translate(620, 410)">
+    <rect width="550" height="320" rx="12" fill="url(#box4Grad)" stroke="#ea580c" stroke-width="2"/>
+    
+    <!-- Badge Zone 4 -->
+    <rect x="25" y="20" width="180" height="30" rx="6" fill="#ea580c"/>
+    <text x="115" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#ffffff">
+      Molécules S et S'
+    </text>
+
+    <!-- Structures S and S' -->
+    <g transform="translate(35, 80)" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#0f172a">
+      
+      <!-- Molécule S (Free Cholesterol Sterol) -->
+      <g transform="translate(0, 20)">
+        <rect x="0" y="-15" width="480" height="85" rx="8" fill="#ffffff" stroke="#fed7aa" stroke-width="1.5"/>
+        <text x="15" y="10" fill="#c2410c" font-size="16" font-weight="800">Molécule S :</text>
+        <text x="120" y="10" font-family="'Courier New', Courier, monospace" font-size="16">Noyau stéroïde (4 cycles A,B,C,D) + OH en C3</text>
+        <text x="15" y="42" font-size="14" fill="#64748b">Forme libre possédant une fonction hydroxyle (alcool en C3)</text>
+      </g>
+
+      <!-- Molécule S' (Esterified Cholesterol) -->
+      <g transform="translate(0, 130)">
+        <rect x="0" y="-15" width="480" height="85" rx="8" fill="#ffffff" stroke="#fed7aa" stroke-width="1.5"/>
+        <text x="15" y="10" fill="#c2410c" font-size="16" font-weight="800">Molécule S' :</text>
+        <text x="120" y="10" font-family="'Courier New', Courier, monospace" font-size="16">Noyau stéroïde + O–CO–[Acide gras] en C3</text>
+        <text x="15" y="42" font-size="14" fill="#64748b">Forme estérifiée où le groupement OH en C3 est lié à un acyle</text>
+      </g>
+
+    </g>
+  </g>
+</svg>
+

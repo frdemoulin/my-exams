@@ -1,456 +1,652 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 – Chimie générale
- * Chapitre 2 – Formation des ions, électronégativité et liaisons chimiques
- * Section A – Formation des ions et électronégativité
- */
-
+/** UE14 – Chimie générale – Chapitre 1.2 – Section A – Ions et électronégativité */
 export const UE14_CH2_IONS_ELECTRONEG_DISCOVER_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
-    order: 1,
-    difficulty: 'EASY',
-    format: 'QRU',
-    question: `Quelle proposition décrit correctement la formation d'un cation ?`,
-    choices: [
+    "order": 1,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Quelle proposition décrit correctement la formation d'un cation ?",
+    "choices": [
       {
-        content: `Un atome gagne un ou plusieurs électrons et devient chargé positivement.`,
-        correct: false,
-        explanation: `Le gain d'électrons conduit à un anion chargé négativement.`,
+        "content": "Un atome perd un ou plusieurs électrons et devient chargé positivement.",
+        "correct": true,
+        "explanation": "La perte d'électrons laisse un excès de charges positives."
       },
       {
-        content: `Un atome perd un ou plusieurs électrons et devient chargé positivement.`,
-        correct: true,
-        explanation: `La perte d'électrons laisse un excès de charges positives : l'espèce formée est un cation.`,
+        "content": "Un cation est nécessairement électriquement neutre.",
+        "correct": false,
+        "explanation": "Un cation porte une charge positive."
       },
       {
-        content: `Un atome gagne des protons sans modifier son cortège électronique.`,
-        correct: false,
-        explanation: `La formation d'un ion chimique met en jeu les électrons et ne modifie pas le nombre de protons du noyau.`,
+        "content": "L'atome perd uniquement des neutrons.",
+        "correct": false,
+        "explanation": "Les neutrons ne sont pas concernés par une ionisation chimique."
       },
       {
-        content: `Un atome perd des neutrons jusqu'à atteindre la configuration d'un gaz rare.`,
-        correct: false,
-        explanation: `La stabilité électronique visée concerne le cortège électronique, pas le nombre de neutrons.`,
+        "content": "Un atome gagne des électrons et devient chargé positivement.",
+        "correct": false,
+        "explanation": "Un gain d'électrons conduit à un anion."
       },
+      {
+        "content": "Le noyau gagne des protons pendant l'ionisation chimique.",
+        "correct": false,
+        "explanation": "L'ionisation chimique modifie le cortège électronique, pas le noyau."
+      }
     ],
-    explanation:
-      `Un cation résulte d'une perte d'électrons ; un anion résulte d'un gain d'électrons. Le noyau n'est pas modifié lors de cette ionisation chimique.`,
+    "explanation": "Un cation résulte d'une perte d'électrons ; un anion résulte d'un gain d'électrons."
   },
   {
-    order: 2,
-    difficulty: 'EASY',
-    format: 'QROC',
-    question: `L'atome de magnésium possède $\\mathrm{Z}=12$. Combien d'électrons possède l'ion $\\ce{Mg^2+}$ ?`,
-    answer: { type: 'number', value: 10, tolerance: 0 },
-    explanation:
-      `Le magnésium neutre possède 12 électrons. La charge $2+$ correspond à la perte de deux électrons : $12-2=10$.`,
+    "order": 2,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "L'atome de magnésium possède $Z=12$. Combien d'électrons possède $\\ce{Mg^2+}$ ?",
+    "answer": {
+      "type": "number",
+      "value": 10,
+      "tolerance": 0
+    },
+    "explanation": "Le magnésium neutre possède 12 électrons ; la charge 2+ correspond à la perte de deux électrons."
   },
   {
-    order: 3,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `Concernant les ions $\\ce{Na+}$, $\\ce{Mg^2+}$ et $\\ce{Al^3+}$, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 3,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "question": "Concernant $\\ce{Na+}$, $\\ce{Mg^2+}$ et $\\ce{Al^3+}$, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Ils possèdent tous dix électrons.`,
-        correct: true,
-        explanation: `Na : $11-1=10$ ; Mg : $12-2=10$ ; Al : $13-3=10$.`,
+        "content": "Ils sont isoélectroniques du néon.",
+        "correct": true,
+        "explanation": "Le néon possède dix électrons."
       },
       {
-        content: `Ils sont isoélectroniques du néon.`,
-        correct: true,
-        explanation: `Le néon possède dix électrons : $1\\mathrm{s}^2\,2\\mathrm{s}^2\,2\\mathrm{p}^6$.`,
+        "content": "Ils ont tous gagné des électrons.",
+        "correct": false,
+        "explanation": "Ce sont des cations formés par perte d'électrons."
       },
       {
-        content: `Ils ont tous gagné des électrons pour se former.`,
-        correct: false,
-        explanation: `Ce sont des cations : ils résultent d'une perte d'électrons.`,
+        "content": "Ils possèdent la même configuration électronique mais pas la même charge nucléaire.",
+        "correct": true,
+        "explanation": "Leur cortège électronique est identique, tandis que Z diffère."
       },
       {
-        content: `Ils possèdent tous le même nombre de protons.`,
-        correct: false,
-        explanation: `Le nombre de protons reste propre à chaque élément : 11, 12 et 13.`,
+        "content": "Ils possèdent tous le même nombre de protons.",
+        "correct": false,
+        "explanation": "Leurs numéros atomiques sont différents."
       },
+      {
+        "content": "Ils possèdent tous dix électrons.",
+        "correct": true,
+        "explanation": "11−1=10, 12−2=10 et 13−3=10."
+      }
     ],
-    explanation:
-      `Ces trois cations atteignent la configuration électronique du gaz rare précédent, le néon, tout en conservant chacun leur numéro atomique.`,
+    "explanation": "Des espèces isoélectroniques possèdent le même nombre d'électrons sans être nécessairement le même élément ni porter la même charge.",
+    "requiredSelectionCount": 3
   },
   {
-    order: 4,
-    difficulty: 'EASY',
-    format: 'QRU',
-    question: `Dans le cadre du cours, quelle situation correspond à l'ionisation positive la plus facile ?`,
-    choices: [
+    "order": 4,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Quelle situation favorise généralement une faible énergie de première ionisation ?",
+    "choices": [
       {
-        content: `Un gros atome dont l'électron de valence est relativement éloigné du noyau.`,
-        correct: true,
-        explanation: `L'attraction noyau–électron est alors plus faible et l'énergie d'ionisation tend à diminuer.`,
+        "content": "Un électron de valence relativement éloigné du noyau et fortement écranté.",
+        "correct": true,
+        "explanation": "L'attraction effective est plus faible, donc l'arrachement de l'électron est facilité."
       },
       {
-        content: `Un petit atome très électronégatif situé en haut à droite de la classification.`,
-        correct: false,
-        explanation: `Ces éléments retiennent fortement leurs électrons et tendent plutôt à capter des électrons.`,
+        "content": "Une couche de valence complète de gaz noble.",
+        "correct": false,
+        "explanation": "Les gaz nobles ont généralement des énergies d'ionisation élevées."
       },
       {
-        content: `Un gaz rare dont la couche de valence est complète.`,
-        correct: false,
-        explanation: `Les gaz rares sont particulièrement peu enclins à perdre ou gagner des électrons.`,
+        "content": "La présence d'un électron supplémentaire déjà arraché.",
+        "correct": false,
+        "explanation": "La première ionisation concerne l'atome neutre."
       },
       {
-        content: `Un atome dont l'énergie d'ionisation est très élevée.`,
-        correct: false,
-        explanation: `Une énergie d'ionisation élevée signifie qu'il faut fournir beaucoup d'énergie pour arracher un électron.`,
+        "content": "Une augmentation systématique de la charge nucléaire sans effet d'écran.",
+        "correct": false,
+        "explanation": "Cela renforcerait l'attraction des électrons."
       },
+      {
+        "content": "Un petit atome dont les électrons de valence sont fortement attirés par le noyau.",
+        "correct": false,
+        "explanation": "Une attraction forte tend à augmenter l'énergie d'ionisation."
+      }
     ],
-    explanation:
-      `Plus l'énergie d'ionisation est faible, plus la formation d'un cation est facile. Dans une colonne, cette ionisation devient globalement plus facile lorsque la taille atomique augmente.`,
+    "explanation": "L'énergie d'ionisation dépend notamment de la distance au noyau, de l'écrantage et de la charge nucléaire effective."
   },
   {
-    order: 5,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `Concernant la tendance à former des anions dans le modèle simplifié du cours, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 5,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Quelle proposition décrit correctement la formation d'un anion monoatomique ?",
+    "choices": [
       {
-        content: `Un atome qui gagne des électrons se rapproche de la configuration du gaz rare suivant.`,
-        correct: true,
-        explanation: `Le gain d'électrons complète la couche de valence vers le gaz rare suivant.`,
+        "content": "Le nombre de neutrons diminue.",
+        "correct": false,
+        "explanation": "L'ionisation ne modifie pas le noyau."
       },
       {
-        content: `Les ions $\\ce{N^3-}$, $\\ce{O^2-}$ et $\\ce{F-}$ sont isoélectroniques du néon.`,
-        correct: true,
-        explanation: `Ces trois ions possèdent chacun dix électrons.`,
+        "content": "L'atome gagne un ou plusieurs électrons.",
+        "correct": true,
+        "explanation": "Un gain d'électrons donne une charge nette négative."
       },
       {
-        content: `Dans la série $\\ce{N}$, $\\ce{O}$, $\\ce{F}$, la fiche retient l'ordre $\\ce{N} > \\ce{O} > \\ce{F}$ pour la facilité de capture électronique.`,
-        correct: false,
-        explanation: `La fiche retient au contraire $\\ce{F} > \\ce{O} > \\ce{N}$.`,
+        "content": "Le noyau devient négatif.",
+        "correct": false,
+        "explanation": "Le noyau reste positivement chargé."
       },
       {
-        content: `Le fluor tend facilement à former un cation $\\ce{F+}$.`,
-        correct: false,
-        explanation: `Le fluor est très électronégatif et tend plutôt à gagner un électron pour former $\\ce{F-}$.`,
+        "content": "L'atome perd nécessairement deux électrons.",
+        "correct": false,
+        "explanation": "La charge dépend de l'espèce considérée."
       },
+      {
+        "content": "L'atome perd des protons.",
+        "correct": false,
+        "explanation": "Une transformation chimique ne modifie pas Z."
+      }
     ],
-    explanation:
-      `Les non-métaux très électronégatifs captent plus volontiers des électrons. Les anions formés tendent alors vers la configuration électronique du gaz rare suivant.`,
+    "explanation": "Un anion se forme par capture d'électrons ; sa charge négative correspond à un excès d'électrons par rapport aux protons."
   },
   {
-    order: 6,
-    difficulty: 'EASY',
-    format: 'QRU',
-    question: `Dans le cadre du cours, que traduit principalement l'électronégativité d'un élément ?`,
-    choices: [
+    "order": 6,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Quelle définition correspond à l'électronégativité d'un atome engagé dans une liaison ?",
+    "choices": [
       {
-        content: `Sa tendance à attirer ou capter des électrons plutôt qu'à les céder.`,
-        correct: true,
-        explanation: `Vrai : l'électronégativité exprime la tendance d'un élément à capter ou attirer les électrons.`,
+        "content": "La charge entière portée par l'atome isolé.",
+        "correct": false,
+        "explanation": "L'électronégativité n'est pas une charge."
       },
       {
-        content: `Le nombre total d'électrons présents dans son noyau.`,
-        correct: false,
-        explanation: `Faux : le noyau contient les protons et les neutrons, et non les électrons.`,
+        "content": "Sa tendance à attirer vers lui les électrons de la liaison.",
+        "correct": true,
+        "explanation": "L'électronégativité décrit l'attraction exercée sur le doublet liant."
       },
       {
-        content: `L'énergie libérée lors de la rupture d'une liaison covalente.`,
-        correct: false,
-        explanation: `Faux : il s'agit de l'énergie de liaison, distincte de l'électronégativité.`,
+        "content": "L'énergie nécessaire pour arracher un neutron.",
+        "correct": false,
+        "explanation": "Cela relève de la physique nucléaire."
       },
       {
-        content: `La masse atomique moyenne exprimée en unités de masse atomique unifiées.`,
-        correct: false,
-        explanation: `Faux : la masse atomique dépend des nucléons et non de l'électronégativité.`,
+        "content": "La capacité maximale de sa couche électronique.",
+        "correct": false,
+        "explanation": "Il s'agit d'une propriété différente."
       },
+      {
+        "content": "Le nombre total d'électrons de l'atome.",
+        "correct": false,
+        "explanation": "Ce nombre dépend de Z et n'est pas une électronégativité."
+      }
     ],
-    explanation:
-      `Dans le cours, l'électronégativité traduit la tendance d'un élément à attirer ou capturer les électrons. Une faible électronégativité est associée à la perte d'électrons (formation de cations), tandis qu'une forte électronégativité est associée au gain d'électrons (formation d'anions).`,
+    "explanation": "L'électronégativité est une grandeur relative utilisée pour prévoir la polarisation des liaisons."
   },
   {
-    order: 7,
-    difficulty: 'EASY',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `Sélectionnez exactement les deux tendances générales correctes de l'électronégativité dans la classification périodique.`,
-    choices: [
+    "order": 7,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant l'évolution générale de l'électronégativité dans la classification périodique, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Elle augmente globalement de la gauche vers la droite d'une période.`,
-        correct: true,
-        explanation: `C'est la tendance horizontale générale.`,
+        "content": "Les métaux alcalins sont parmi les éléments les plus électronégatifs.",
+        "correct": false,
+        "explanation": "Ils sont au contraire peu électronégatifs."
       },
       {
-        content: `Elle diminue globalement du haut vers le bas d'une colonne.`,
-        correct: true,
-        explanation: `C'est la tendance verticale générale.`,
+        "content": "Elle tend à augmenter de gauche à droite au sein d'une période.",
+        "correct": true,
+        "explanation": "La charge nucléaire effective augmente globalement."
       },
       {
-        content: `Elle augmente globalement du haut vers le bas d'une colonne.`,
-        correct: false,
-        explanation: `Elle diminue généralement dans ce sens.`,
+        "content": "Le fluor est l'élément le plus électronégatif sur l'échelle de Pauling.",
+        "correct": true,
+        "explanation": "Sa valeur est voisine de 4,0."
       },
       {
-        content: `Elle est maximale dans le coin inférieur gauche du tableau.`,
-        correct: false,
-        explanation: `Elle augmente globalement vers le coin supérieur droit.`,
+        "content": "L'électronégativité augmente systématiquement en descendant un groupe.",
+        "correct": false,
+        "explanation": "La tendance générale est inverse."
       },
+      {
+        "content": "Elle tend à diminuer du haut vers le bas d'un groupe.",
+        "correct": true,
+        "explanation": "La taille atomique et l'écrantage augmentent."
+      }
     ],
-    explanation:
-      `L'électronégativité augmente globalement du coin inférieur gauche vers le coin supérieur droit de la classification périodique.`,
+    "explanation": "Les tendances périodiques permettent d'anticiper le sens de polarisation d'une liaison."
   },
   {
-    order: 8,
-    difficulty: 'EASY',
-    format: 'QRU',
-    question: `Parmi les éléments suivants, lequel est le plus électronégatif ?`,
-    choices: [
-      { content: `Hydrogène : $\\chi\\approx2{,}1$.`, correct: false, explanation: `Valeur inférieure à celles de C, N et O.` },
-      { content: `Carbone : $\\chi\\approx2{,}5$.`, correct: false, explanation: `Le carbone est moins électronégatif que N et O.` },
-      { content: `Azote : $\\chi\\approx3{,}0$.`, correct: false, explanation: `L'oxygène reste plus électronégatif.` },
-      { content: `Oxygène : $\\chi\\approx3{,}5$.`, correct: true, explanation: `C'est le plus électronégatif de ces quatre éléments essentiels au vivant.` },
+    "order": 8,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Parmi H, C, N et O, quel ordre d'électronégativité croissante est correct ?",
+    "choices": [
+      {
+        "content": "$\\ce{O < N < C < H}$.",
+        "correct": false,
+        "explanation": "L'ordre est inversé."
+      },
+      {
+        "content": "$\\ce{C < H < O < N}$.",
+        "correct": false,
+        "explanation": "N est moins électronégatif que O."
+      },
+      {
+        "content": "$\\ce{H < O < C < N}$.",
+        "correct": false,
+        "explanation": "O est le plus électronégatif de cette liste."
+      },
+      {
+        "content": "$\\ce{N < O < H < C}$.",
+        "correct": false,
+        "explanation": "H et C sont moins électronégatifs que N et O."
+      },
+      {
+        "content": "$\\ce{H < C < N < O}$.",
+        "correct": true,
+        "explanation": "Sur l'échelle de Pauling : H≈2,2 ; C≈2,6 ; N≈3,0 ; O≈3,4."
+      }
     ],
-    explanation:
-      `Dans la fiche : $\\chi(\\ce{H})\\approx2{,}1 < \\chi(\\ce{C})\\approx2{,}5 < \\chi(\\ce{N})\\approx3{,}0 < \\chi(\\ce{O})\\approx3{,}5$.`,
+    "explanation": "Cet ordre est particulièrement utile pour prévoir la polarisation des liaisons en chimie organique et biologique."
   },
   {
-    order: 9,
-    difficulty: 'EASY',
-    format: 'QROC',
-    question: `Quelle valeur approximative de l'électronégativité du fluor est retenue dans la fiche du cours ?`,
-    answer: { type: 'number', value: 4, tolerance: 0.01 },
-    explanation:
-      `Le fluor constitue la référence haute de l'échelle présentée dans la fiche, avec $\\chi(\\ce{F})\\approx4{,}0$.`,
-  },
-  {
-    order: 10,
-    difficulty: 'EASY',
-    format: 'QRM',
-    question: `À propos du lien entre électronégativité et formation des ions dans le modèle simplifié du cours, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 9,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Quel élément possède l'électronégativité la plus élevée sur l'échelle de Pauling ?",
+    "choices": [
       {
-        content: `Une faible électronégativité favorise généralement la perte d'électrons et la formation de cations.`,
-        correct: true,
-        explanation: `Les métaux peu électronégatifs retiennent moins fortement leurs électrons de valence.`,
+        "content": "Le césium.",
+        "correct": false,
+        "explanation": "Le césium est parmi les éléments les moins électronégatifs."
       },
       {
-        content: `Une électronégativité élevée favorise généralement le gain d'électrons et la formation d'anions.`,
-        correct: true,
-        explanation: `Les non-métaux très électronégatifs attirent fortement les électrons.`,
+        "content": "Le magnésium.",
+        "correct": false,
+        "explanation": "Le magnésium est nettement moins électronégatif que le fluor."
       },
       {
-        content: `Le carbone et l'hydrogène ont des électronégativités très éloignées dans la fiche.`,
-        correct: false,
-        explanation: `Leurs valeurs sont proches : environ 2,5 pour C et 2,1 pour H.`,
+        "content": "Le fluor.",
+        "correct": true,
+        "explanation": "Le fluor est la référence la plus électronégative de l'échelle de Pauling."
       },
       {
-        content: `Les gaz rares constituent la famille la plus facile à ioniser positivement et négativement.`,
-        correct: false,
-        explanation: `Leur couche de valence complète les rend au contraire très peu réactifs.`,
+        "content": "L'aluminium.",
+        "correct": false,
+        "explanation": "L'aluminium est moins électronégatif que le fluor."
       },
+      {
+        "content": "Le sodium.",
+        "correct": false,
+        "explanation": "Le sodium est faiblement électronégatif."
+      }
     ],
-    explanation:
-      `La fiche relie l'électronégativité faible à la formation préférentielle de cations et l'électronégativité élevée à la formation préférentielle d'anions.`,
+    "explanation": "La forte électronégativité du fluor explique la polarisation très marquée de nombreuses liaisons F–X."
   },
+  {
+    "order": 10,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Quelles relations entre électronégativité et comportement chimique sont généralement correctes ?",
+    "choices": [
+      {
+        "content": "Une électronégativité élevée signifie que l'atome perd toujours facilement ses électrons.",
+        "correct": false,
+        "explanation": "C'est plutôt l'inverse."
+      },
+      {
+        "content": "Électronégativité et charge ionique sont deux grandeurs identiques.",
+        "correct": false,
+        "explanation": "L'électronégativité est une tendance relative ; la charge ionique est une charge nette."
+      },
+      {
+        "content": "Un élément très électronégatif attire fortement les électrons partagés d'une liaison.",
+        "correct": true,
+        "explanation": "C'est la définition pratique de l'électronégativité."
+      },
+      {
+        "content": "Un métal alcalin a généralement tendance à former un cation plutôt qu'un anion.",
+        "correct": true,
+        "explanation": "La perte d'un électron conduit à une configuration plus stable."
+      },
+      {
+        "content": "Un halogène a souvent tendance à capter un électron pour former un anion monovalent.",
+        "correct": true,
+        "explanation": "Sa configuration externe ns²np⁵ favorise ce gain."
+      }
+    ],
+    "explanation": "Électronégativité, énergie d'ionisation et tendance ionique sont liées mais ne doivent pas être confondues."
+  }
 ];
 
 export const UE14_CH2_IONS_ELECTRONEG_PRACTICE_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
-    order: 11,
-    difficulty: 'MEDIUM',
-    format: 'QROC',
-    question: `Le sodium possède $\\mathrm{Z}=11$. Combien d'électrons possède l'ion $\\ce{Na+}$ présent dans une solution de chlorure de sodium ?`,
-    answer: { type: 'number', value: 10, tolerance: 0 },
-    explanation:
-      `L'atome neutre de sodium possède 11 électrons ; l'ion $\\ce{Na+}$ en a perdu un et en possède donc 10.`,
+    "order": 11,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "On donne $Z(\\ce{Na})=11$. Combien d'électrons possède $\\ce{Na+}$ ?",
+    "answer": {
+      "type": "number",
+      "value": 10,
+      "tolerance": 0
+    },
+    "explanation": "La charge +1 correspond à la perte d'un électron."
   },
   {
-    order: 12,
-    difficulty: 'MEDIUM',
-    format: 'QROC',
-    question: `Le chlore possède $\\mathrm{Z}=17$. Combien d'électrons possède l'ion chlorure $\\ce{Cl-}$ ?`,
-    answer: { type: 'number', value: 18, tolerance: 0 },
-    explanation:
-      `L'ion chlorure résulte du gain d'un électron : $17+1=18$ électrons, soit la configuration électronique de l'argon.`,
+    "order": 12,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "On donne $Z(\\ce{Cl})=17$. Combien d'électrons possède $\\ce{Cl-}$ ?",
+    "answer": {
+      "type": "number",
+      "value": 18,
+      "tolerance": 0
+    },
+    "explanation": "La charge −1 correspond au gain d'un électron."
   },
   {
-    order: 13,
-    difficulty: 'MEDIUM',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `Sélectionnez exactement les deux espèces isoélectroniques du néon parmi les quatre proposées.`,
-    choices: [
-      { content: `$\\ce{Na+}$.`, correct: true, explanation: `11-1=10 électrons.` },
-      { content: `$\\ce{F-}$.`, correct: true, explanation: `9+1=10 électrons.` },
-      { content: `$\\ce{Cl-}$.`, correct: false, explanation: `18 électrons, comme l'argon.` },
-      { content: `$\\ce{K+}$.`, correct: false, explanation: `19-1=18 électrons, comme l'argon.` },
+    "order": 13,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Parmi les espèces suivantes, lesquelles sont isoélectroniques du néon ?",
+    "choices": [
+      {
+        "content": "$\\ce{O^-}$.",
+        "correct": false,
+        "explanation": "8+1=9 électrons."
+      },
+      {
+        "content": "$\\ce{F-}$.",
+        "correct": true,
+        "explanation": "9+1=10 électrons."
+      },
+      {
+        "content": "$\\ce{Al^2+}$.",
+        "correct": false,
+        "explanation": "13−2=11 électrons."
+      },
+      {
+        "content": "$\\ce{Mg^2+}$.",
+        "correct": true,
+        "explanation": "12−2=10 électrons."
+      },
+      {
+        "content": "$\\ce{Na+}$.",
+        "correct": true,
+        "explanation": "11−1=10 électrons."
+      }
     ],
-    explanation:
-      `Une espèce isoélectronique du néon doit posséder dix électrons. Le calcul se fait à partir de $\\mathrm{Z}$ et de la charge de l'ion.`,
+    "explanation": "Le néon possède dix électrons ; il suffit de compter les électrons après ionisation."
   },
   {
-    order: 14,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `Le fer peut former les ions $\\ce{Fe^2+}$ et $\\ce{Fe^3+}$. Quelles propositions sont exactes ?`,
-    choices: [
+    "order": 14,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant $\\ce{Fe^2+}$ et $\\ce{Fe^3+}$, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Pour former $\\ce{Fe^2+}$, les deux électrons $4\\mathrm{s}$ sont retirés avant les électrons $3\\mathrm{d}$.`,
-        correct: true,
-        explanation: `C'est la règle appliquée aux cations du fer dans le cours.`,
+        "content": "Les deux ions possèdent le même nombre de protons.",
+        "correct": true,
+        "explanation": "Ils appartiennent au même élément, Z=26."
       },
       {
-        content: `$\\ce{Fe^2+}$ possède 24 électrons.`,
-        correct: true,
-        explanation: `$26-2=24$.`,
+        "content": "La transformation $\\ce{Fe^2+ -> Fe^3+}$ correspond à une perte d'électron.",
+        "correct": true,
+        "explanation": "L'oxydation augmente la charge positive d'une unité."
       },
       {
-        content: `$\\ce{Fe^3+}$ possède 26 électrons.`,
-        correct: false,
-        explanation: `$\\ce{Fe^3+}$ possède $26-3=23$ électrons.`,
+        "content": "$\\ce{Fe^3+}$ possède un électron de moins que $\\ce{Fe^2+}$.",
+        "correct": true,
+        "explanation": "Les charges diffèrent d'une unité positive."
       },
       {
-        content: `La formation de $\\ce{Fe^3+}$ nécessite le gain de trois électrons.`,
-        correct: false,
-        explanation: `La charge positive résulte d'une perte de trois électrons.`,
+        "content": "$\\ce{Fe^2+}$ est plus oxydé que $\\ce{Fe^3+}$.",
+        "correct": false,
+        "explanation": "Fe(III) est à un degré d'oxydation plus élevé."
       },
+      {
+        "content": "Ces ions sont isotopes l'un de l'autre.",
+        "correct": false,
+        "explanation": "Ils diffèrent par leur nombre d'électrons, pas par leur nombre de neutrons."
+      }
     ],
-    explanation:
-      `Les métaux de transition peuvent former plusieurs cations. Pour le fer, les électrons $4\\mathrm{s}$ sont retirés avant les électrons $3\\mathrm{d}$.`,
+    "explanation": "Deux états ioniques d'un même élément conservent le même noyau et diffèrent par leur cortège électronique."
   },
   {
-    order: 15,
-    difficulty: 'MEDIUM',
-    format: 'QROC',
-    question: `Combien d'électrons possède l'ion ferrique $\\ce{Fe^3+}$ si $\\mathrm{Z}(\\ce{Fe})=26$ ?`,
-    answer: { type: 'number', value: 23, tolerance: 0 },
-    explanation:
-      `L'ion ferrique a perdu trois électrons : $26-3=23$.`,
+    "order": 15,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Le fer possède $Z=26$. Combien d'électrons possède $\\ce{Fe^3+}$ ?",
+    "answer": {
+      "type": "number",
+      "value": 23,
+      "tolerance": 0
+    },
+    "explanation": "La charge 3+ signifie que trois électrons ont été retirés : 26−3=23."
   },
   {
-    order: 16,
-    difficulty: 'MEDIUM',
-    format: 'QRU',
-    question: `Quel ordre d'électronégativité croissante est conforme aux valeurs du cours ?`,
-    choices: [
-      { content: `$\\ce{O}<\\ce{N}<\\ce{C}<\\ce{H}$.`, correct: false, explanation: `Ordre inverse de la tendance donnée.` },
-      { content: `$\\ce{H}<\\ce{C}<\\ce{N}<\\ce{O}$.`, correct: true, explanation: `2,1 < 2,5 < 3,0 < 3,5.` },
-      { content: `$\\ce{C}<\\ce{H}<\\ce{O}<\\ce{N}$.`, correct: false, explanation: `H est moins électronégatif que C et O plus que N.` },
-      { content: `$\\ce{H}<\\ce{N}<\\ce{C}<\\ce{O}$.`, correct: false, explanation: `N est plus électronégatif que C.` },
+    "order": 16,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Quel classement d'électronégativité croissante est correct pour H, C, N et O ?",
+    "choices": [
+      {
+        "content": "$\\ce{O < N < C < H}$.",
+        "correct": false,
+        "explanation": "C'est l'ordre inverse."
+      },
+      {
+        "content": "$\\ce{N < C < H < O}$.",
+        "correct": false,
+        "explanation": "N est plus électronégatif que C et H."
+      },
+      {
+        "content": "$\\ce{H < C < N < O}$.",
+        "correct": true,
+        "explanation": "C'est l'ordre approximatif des valeurs de Pauling."
+      },
+      {
+        "content": "$\\ce{C < H < N < O}$.",
+        "correct": false,
+        "explanation": "H est légèrement moins électronégatif que C."
+      },
+      {
+        "content": "$\\ce{H < N < C < O}$.",
+        "correct": false,
+        "explanation": "C est moins électronégatif que N."
+      }
     ],
-    explanation:
-      `La fiche retient approximativement : H 2,1 ; C 2,5 ; N 3,0 ; O 3,5.`,
+    "explanation": "Ce classement aide à prévoir les charges partielles dans les molécules biologiques."
   },
   {
-    order: 17,
-    difficulty: 'MEDIUM',
-    format: 'QRU',
-    question: `Dans la colonne des métaux alcalins, quel ordre d'électronégativité croissante est correct ?`,
-    choices: [
-      { content: `$\\ce{Li}<\\ce{Na}<\\ce{K}<\\ce{Rb}$.`, correct: false, explanation: `L'électronégativité diminue en descendant la colonne.` },
-      { content: `$\\ce{Rb}<\\ce{K}<\\ce{Na}<\\ce{Li}$.`, correct: true, explanation: `L'ordre remonte la colonne du moins au plus électronégatif.` },
-      { content: `$\\ce{K}<\\ce{Rb}<\\ce{Li}<\\ce{Na}$.`, correct: false, explanation: `Cet ordre ne suit pas la tendance périodique.` },
-      { content: `$\\ce{Na}<\\ce{Li}<\\ce{Rb}<\\ce{K}$.`, correct: false, explanation: `Cet ordre mélange les tendances.` },
+    "order": 17,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Quelle affirmation est la plus juste pour les métaux alcalins ?",
+    "choices": [
+      {
+        "content": "Ils sont tous chimiquement inertes.",
+        "correct": false,
+        "explanation": "Ils sont au contraire très réactifs."
+      },
+      {
+        "content": "Ils appartiennent au groupe 17.",
+        "correct": false,
+        "explanation": "Ils appartiennent au groupe 1."
+      },
+      {
+        "content": "Ils ont tous une électronégativité supérieure à celle du fluor.",
+        "correct": false,
+        "explanation": "Le fluor est le plus électronégatif."
+      },
+      {
+        "content": "Ils ont une faible électronégativité et perdent facilement leur électron de valence.",
+        "correct": true,
+        "explanation": "La configuration ns¹ favorise la formation de cations +1."
+      },
+      {
+        "content": "Ils gagnent typiquement deux électrons.",
+        "correct": false,
+        "explanation": "Ils perdent généralement un électron."
+      }
     ],
-    explanation:
-      `Dans une colonne, l'électronégativité diminue globalement du haut vers le bas : le rubidium est donc moins électronégatif que le lithium.`,
+    "explanation": "La faible énergie d'ionisation et la faible électronégativité caractérisent les métaux alcalins."
   },
   {
-    order: 18,
-    difficulty: 'MEDIUM',
-    format: 'QRM',
-    question: `Concernant l'énergie d'ionisation et l'affinité pour les électrons dans le cadre simplifié du cours, quelles propositions sont exactes ?`,
-    choices: [
+    "order": 18,
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "question": "Quelles propositions décrivent correctement les tendances générales de formation des ions ?",
+    "choices": [
       {
-        content: `Le potassium perd plus facilement son électron de valence que le lithium.`,
-        correct: true,
-        explanation: `Le potassium est plus volumineux et son électron externe est moins fortement retenu.`,
+        "content": "Les éléments du groupe 1 forment souvent des cations +1.",
+        "correct": true,
+        "explanation": "Ils perdent leur électron ns¹."
       },
       {
-        content: `Le fluor capture plus facilement un électron que l'iode dans la tendance présentée par la fiche.`,
-        correct: true,
-        explanation: `La fiche relie la plus petite taille du fluor à une attraction plus forte.`,
+        "content": "Les halogènes forment souvent des anions −1.",
+        "correct": true,
+        "explanation": "Ils gagnent un électron pour compléter np⁶."
       },
       {
-        content: `Le sodium possède une énergie d'ionisation plus élevée que le magnésium dans la comparaison simplifiée du cours.`,
-        correct: false,
-        explanation: `La fiche présente l'ionisation du sodium comme plus facile que celle du magnésium.`,
+        "content": "Les alcalino-terreux forment souvent des cations +2.",
+        "correct": true,
+        "explanation": "Ils perdent leurs deux électrons ns²."
       },
       {
-        content: `Un atome très électronégatif perd généralement plus facilement un électron qu'un métal alcalin.`,
-        correct: false,
-        explanation: `Un atome très électronégatif tend plutôt à attirer ou capter des électrons.`,
+        "content": "Tous les non-métaux forment systématiquement des anions monoatomiques.",
+        "correct": false,
+        "explanation": "Beaucoup forment surtout des liaisons covalentes."
       },
+      {
+        "content": "Les gaz nobles forment facilement des ions monoatomiques stables.",
+        "correct": false,
+        "explanation": "Leur couche externe complète les rend peu enclins à l'ionisation chimique."
+      }
     ],
-    explanation:
-      `Les tendances d'ionisation positive et de capture électronique sont liées à la taille atomique et à l'attraction exercée par le noyau sur les électrons.`,
+    "explanation": "Les tendances de groupe sont utiles mais ne remplacent pas l'analyse chimique du contexte.",
+    "requiredSelectionCount": 3
   },
   {
-    order: 19,
-    difficulty: 'MEDIUM',
-    format: 'QRPL',
-    requiredSelectionCount: 5,
-    question: `Parmi les dix espèces suivantes, sélectionnez exactement les cinq cations.`,
-    choices: [
-      { content: `$\\ce{Na+}$.`, correct: true, explanation: `Charge positive : cation.` },
-      { content: `$\\ce{Mg^2+}$.`, correct: true, explanation: `Charge positive : cation.` },
-      { content: `$\\ce{Al^3+}$.`, correct: true, explanation: `Charge positive : cation.` },
-      { content: `$\\ce{Fe^2+}$.`, correct: true, explanation: `Charge positive : cation.` },
-      { content: `$\\ce{Zn^2+}$.`, correct: true, explanation: `Charge positive : cation.` },
-      { content: `$\\ce{F-}$.`, correct: false, explanation: `Charge négative : anion.` },
-      { content: `$\\ce{O^2-}$.`, correct: false, explanation: `Charge négative : anion.` },
-      { content: `$\\ce{N^3-}$.`, correct: false, explanation: `Charge négative : anion.` },
-      { content: `$\\ce{Cl-}$.`, correct: false, explanation: `Charge négative : anion.` },
-      { content: `$\\ce{O2}$.`, correct: false, explanation: `Molécule neutre dans cette écriture.` },
+    "order": 19,
+    "difficulty": "MEDIUM",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix espèces suivantes, sélectionnez exactement les cinq cations.",
+    "choices": [
+      {
+        "content": "$\\ce{OH-}$.",
+        "correct": false,
+        "explanation": "Anion."
+      },
+      {
+        "content": "$\\ce{Fe^3+}$.",
+        "correct": true,
+        "explanation": "Charge positive."
+      },
+      {
+        "content": "$\\ce{NH4+}$.",
+        "correct": true,
+        "explanation": "Ion polyatomique positif."
+      },
+      {
+        "content": "$\\ce{NO3-}$.",
+        "correct": false,
+        "explanation": "Anion."
+      },
+      {
+        "content": "$\\ce{O^2-}$.",
+        "correct": false,
+        "explanation": "Anion."
+      },
+      {
+        "content": "$\\ce{Na+}$.",
+        "correct": true,
+        "explanation": "Charge positive."
+      },
+      {
+        "content": "$\\ce{SO4^2-}$.",
+        "correct": false,
+        "explanation": "Anion."
+      },
+      {
+        "content": "$\\ce{Ca^2+}$.",
+        "correct": true,
+        "explanation": "Charge positive."
+      },
+      {
+        "content": "$\\ce{Cl-}$.",
+        "correct": false,
+        "explanation": "Anion."
+      },
+      {
+        "content": "$\\ce{H3O+}$.",
+        "correct": true,
+        "explanation": "Ion oxonium positif."
+      }
     ],
-    explanation:
-      `Un cation porte une charge globale positive ; un anion porte une charge négative. Cette sélection longue vérifie la lecture immédiate des charges ioniques.`,
+    "explanation": "Un cation se reconnaît à sa charge nette positive, qu'il soit monoatomique ou polyatomique."
   },
   {
-    order: 20,
-    difficulty: 'MEDIUM',
-    format: 'QROC',
-    question: `Un atome neutre possède 13 électrons et en perd trois. Quelle est la valeur entière de la charge de l'ion obtenu, en unités de charge élémentaire ?`,
-    answer: { type: 'number', value: 3, tolerance: 0 },
-    explanation:
-      `La perte de trois électrons conduit à une charge globale $3+$ : l'ion est $\\ce{Al^3+}$ si l'atome considéré est l'aluminium.`,
+    "order": 20,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Un atome neutre perd trois électrons. Quelle est la valeur numérique de sa charge en unités de charge élémentaire e ?",
+    "answer": {
+      "type": "number",
+      "value": 3,
+      "tolerance": 0
+    },
+    "explanation": "La perte de trois électrons conduit à une charge +3e."
   },
   {
-    order: 61,
-    difficulty: 'MEDIUM',
-    format: 'QROC',
-    question: `Le calcium possède $\\mathrm{Z}=20$. Combien d'électrons possède l'ion $\\ce{Ca^2+}$ ?`,
-    answer: { type: 'number', value: 18, tolerance: 0 },
-    explanation:
-      `L'ion $\\ce{Ca^2+}$ a perdu deux électrons : $20-2=18$. Il est isoélectronique de l'argon.`,
+    "order": 61,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "On donne $Z(\\ce{Ca})=20$. Combien d'électrons possède $\\ce{Ca^2+}$ ?",
+    "answer": {
+      "type": "number",
+      "value": 18,
+      "tolerance": 0
+    },
+    "explanation": "Le calcium perd deux électrons et devient isoélectronique de l'argon."
   },
   {
-    order: 62,
-    difficulty: 'MEDIUM',
-    format: 'QRP',
-    requiredSelectionCount: 2,
-    question: `À propos de l'ion $\\ce{Ca^2+}$, sélectionnez exactement les deux propositions correctes.`,
-    choices: [
+    "order": 62,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant la formation de $\\ce{Ca^2+}$, quelles propositions sont exactes ?",
+    "choices": [
       {
-        content: `Il résulte de la perte de deux électrons par l'atome de calcium.`,
-        correct: true,
-        explanation: `La charge $2+$ correspond à la perte de deux électrons.`,
+        "content": "Le calcium devient un anion.",
+        "correct": false,
+        "explanation": "Il devient un cation."
       },
       {
-        content: `Il possède la configuration électronique du gaz rare précédent, l'argon.`,
-        correct: true,
-        explanation: `Avec 18 électrons, $\\ce{Ca^2+}$ est isoélectronique de l'argon.`,
+        "content": "$\\ce{Ca^2+}$ possède 18 électrons.",
+        "correct": true,
+        "explanation": "20−2=18."
       },
       {
-        content: `Il possède deux protons de moins que l'atome de calcium.`,
-        correct: false,
-        explanation: `Le nombre de protons reste égal à $\\mathrm{Z}=20$.`,
+        "content": "Le calcium neutre perd deux électrons.",
+        "correct": true,
+        "explanation": "La charge 2+ correspond à la perte de deux électrons."
       },
       {
-        content: `Il s'agit d'un anion.`,
-        correct: false,
-        explanation: `La charge est positive : il s'agit d'un cation.`,
+        "content": "$\\ce{Ca^2+}$ est isoélectronique de l'argon.",
+        "correct": true,
+        "explanation": "Ar possède 18 électrons."
       },
+      {
+        "content": "Le noyau de calcium perd deux protons.",
+        "correct": false,
+        "explanation": "Le noyau reste inchangé."
+      }
     ],
-    explanation:
-      `La formation d'un ion chimique modifie le nombre d'électrons mais pas le noyau. Le calcium perd deux électrons et atteint une configuration électronique de gaz rare.`,
-  },
+    "explanation": "La formation de l'ion calcium est un exemple classique d'accès à une configuration électronique de gaz noble."
+  }
 ];

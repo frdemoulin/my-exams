@@ -1,648 +1,705 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie — Chapitre 1.3 — Les osides — Section A
- * Banque éditoriale auteur — à intégrer via le helper partagé du repo.
- */
-
+/** UE14 Biochimie – Chapitre 1.3 – Section A – Liaisons glycosidiques et diholosides */
 export const UE14_BIOCH_CH3_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 1,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos des osides :",
+    "question": "Concernant les osides, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Ils comportent au moins une liaison osidique impliquant le carbone anomérique d’un ose.",
-        "correct": true,
-        "explanation": "Une liaison osidique se forme lorsqu’un groupement porté par le carbone anomérique d’un ose se lie à une autre fonction chimique."
+        "content": "Aucune liaison glycosidique n'implique le carbone anomérique.",
+        "correct": false,
+        "explanation": "C'est précisément le carbone fonctionnel clé."
       },
       {
-        "content": "Un holoside ne comporte que des résidus glucidiques.",
-        "correct": true,
-        "explanation": "L’hydrolyse complète d’un holoside ne libère que des oses ou des dérivés d’oses."
+        "content": "Un hétéroside est dépourvu de tout sucre.",
+        "correct": false,
+        "explanation": "Il possède au moins une partie glucidique."
       },
       {
-        "content": "Un hétéroside associe une partie glucidique à un aglycone non glucidique.",
+        "content": "Un oside comporte au moins une liaison glycosidique impliquant un carbone anomérique.",
         "correct": true,
-        "explanation": "La partie glucidique est liée à une partie non glucidique appelée aglycone."
+        "explanation": "Cette liaison relie un ose à un autre groupe."
       },
       {
         "content": "Un oside contient toujours exactement deux oses.",
         "correct": false,
-        "explanation": "Il peut contenir deux, trois, quatre ou de nombreux résidus."
+        "explanation": "Les polyosides en contiennent beaucoup."
+      },
+      {
+        "content": "Un hétéroside associe une partie glucidique à un aglycone non glucidique.",
+        "correct": true,
+        "explanation": "L'aglycone peut être lipidique, protéique ou autre."
       }
     ],
-    "explanation": "Les osides regroupent des assemblages glucidiques variés, notamment reliés par des liaisons O-glycosidiques."
+    "explanation": "Les osides sont définis par des liaisons glycosidiques ; holosides et hétérosides se distinguent par la nature des produits d'hydrolyse."
   },
   {
     "order": 2,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Un holoside formé de trois résidus d’oses est appelé :",
+    "question": "À propos de la liaison O-glycosidique, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Triholoside.",
+        "content": "Elle implique toujours une liaison peptidique.",
+        "correct": false,
+        "explanation": "Ce sont des liaisons différentes."
+      },
+      {
+        "content": "Le sens (1→4) signifie qu'il y a quatre oses.",
+        "correct": false,
+        "explanation": "Il indique les positions carbonées reliées."
+      },
+      {
+        "content": "La configuration alpha ou bêta du carbone anomérique engagé fait partie de sa description.",
         "correct": true,
-        "explanation": "Le préfixe tri- indique que l’holoside contient trois résidus d’oses."
+        "explanation": "Elle influence la reconnaissance enzymatique."
       },
       {
-        "content": "Diholoside.",
+        "content": "Alpha et bêta n'ont aucune influence sur la digestion enzymatique.",
         "correct": false,
-        "explanation": "Un diholoside ne contient que deux résidus d’oses."
+        "explanation": "La stéréospécificité enzymatique est importante."
       },
       {
-        "content": "Tétraholoside.",
+        "content": "Une liaison O-glycosidique ne contient aucun oxygène.",
         "correct": false,
-        "explanation": "Un tétraholoside contient quatre résidus d’oses."
-      },
-      {
-        "content": "Hétéroside.",
-        "correct": false,
-        "explanation": "Ce terme dépend de la présence d’un aglycone, pas du nombre de résidus."
+        "explanation": "L'oxygène constitue le pont."
       }
     ],
-    "explanation": "Trois résidus d’oses correspondent à un triholoside."
+    "explanation": "Une liaison O-glycosidique est décrite par l'anomérie du carbone donneur et les positions carbonées reliées."
   },
   {
     "order": 3,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Lors de la condensation formant un diholoside :",
-    "choices": [
-      {
-        "content": "Une molécule d’eau est perdue.",
-        "correct": true,
-        "explanation": "Dans l’écriture formelle d’une condensation, la formation de la liaison glycosidique s’accompagne de l’élimination d’une molécule d’eau."
-      },
-      {
-        "content": "Deux fonctions hémiacétaliques peuvent être engagées.",
-        "correct": true,
-        "explanation": "Ce cas conduit à un diholoside non réducteur."
-      },
-      {
-        "content": "Une fonction hémiacétalique et une fonction alcool peuvent être engagées.",
-        "correct": true,
-        "explanation": "Ce cas laisse un centre hémiacétalique libre."
-      },
-      {
-        "content": "Il s’agit nécessairement d’une hydrolyse.",
-        "correct": false,
-        "explanation": "L’hydrolyse consomme de l’eau pour rompre une liaison glycosidique ; elle est l’opération inverse de la condensation formelle."
+    "format": "QROC",
+    "question": "Quel diholoside glucose-fructose est non réducteur car ses deux carbones anomériques sont engagés ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "saccharose",
+        "sucrose",
+        "le saccharose"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Deux modes de condensation sont distingués selon les fonctions engagées."
+    },
+    "explanation": "Le caractère réducteur d'un oside dépend de la présence d'un carbone anomérique libre."
   },
   {
     "order": 4,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Si les deux fonctions hémiacétaliques réductrices participent à la liaison du diholoside, le produit est :",
+    "format": "QRM",
+    "question": "Concernant le lactose, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Non réducteur.",
+        "content": "Le lactose associe galactose et glucose.",
         "correct": true,
-        "explanation": "Aucun centre hémiacétalique libre ne subsiste."
+        "explanation": "Ce sont ses deux résidus."
       },
       {
-        "content": "Toujours β(1→4).",
+        "content": "Le lactose est non réducteur parce que ses deux carbones anomériques sont engagés.",
         "correct": false,
-        "explanation": "Le caractère non réducteur ne fixe pas à lui seul la position/anomérie."
+        "explanation": "Un seul est engagé."
       },
       {
-        "content": "Un acide uronique.",
-        "correct": false,
-        "explanation": "Il ne s’agit pas d’une oxydation."
+        "content": "Le lactose est un diholoside réducteur.",
+        "correct": true,
+        "explanation": "Le carbone anomérique du glucose reste libre."
       },
       {
-        "content": "Un polyol.",
+        "content": "Le lactose associe glucose et fructose.",
         "correct": false,
-        "explanation": "Il ne s’agit pas d’une réduction."
+        "explanation": "Cela décrit le saccharose."
+      },
+      {
+        "content": "La liaison du lactose est alpha(1→4) glucose-glucose.",
+        "correct": false,
+        "explanation": "Cela décrit le maltose."
       }
     ],
-    "explanation": "L’engagement des deux centres anomériques supprime le pouvoir réducteur."
+    "explanation": "Le lactose est galactose-bêta(1→4)-glucose et reste réducteur."
   },
   {
     "order": 5,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos de l’hydrolyse des liaisons glycosidiques :",
+    "format": "QRU",
+    "question": "À propos du maltose, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Les osidases/glycosidases peuvent catalyser une hydrolyse enzymatique.",
-        "correct": true,
-        "explanation": "Les glycosidases catalysent le clivage hydrolytique de liaisons glycosidiques déterminées."
-      },
-      {
-        "content": "L’hydrolyse enzymatique est très spécifique.",
-        "correct": true,
-        "explanation": "Une glycosidase reconnaît notamment la nature des résidus, la position de la liaison et souvent sa configuration anomérique."
-      },
-      {
-        "content": "Certaines enzymes sont spécifiques d’un anomère.",
-        "correct": true,
-        "explanation": "Une α-glycosidase et une β-glycosidase peuvent distinguer des liaisons qui ne diffèrent que par leur configuration anomérique."
-      },
-      {
-        "content": "L’hydrolyse chimique est plus spécifique que l’hydrolyse enzymatique.",
+        "content": "La maltase produit du fructose à partir du maltose.",
         "correct": false,
-        "explanation": "Une hydrolyse acide clive généralement les liaisons glycosidiques avec moins de sélectivité qu’une enzyme."
+        "explanation": "Elle libère du glucose."
+      },
+      {
+        "content": "Le maltose associe galactose et glucose.",
+        "correct": false,
+        "explanation": "Cela décrit le lactose."
+      },
+      {
+        "content": "Le maltose est formé de glucose et fructose.",
+        "correct": false,
+        "explanation": "Cela décrit le saccharose."
+      },
+      {
+        "content": "Sa liaison est alpha(1→4).",
+        "correct": true,
+        "explanation": "Le C1 alpha du premier glucose est lié au C4 du second."
+      },
+      {
+        "content": "Le maltose possède une liaison bêta(1→4).",
+        "correct": false,
+        "explanation": "Cela correspond à la cellobiose."
       }
     ],
-    "explanation": "L’hydrolyse enzymatique est spécifique, contrairement à l’hydrolyse chimique acide peu spécifique."
+    "explanation": "Le maltose est un diholoside réducteur de deux glucoses liés en alpha(1→4)."
   },
   {
     "order": 6,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Le lactose :",
+    "format": "QRP",
+    "question": "Parmi les propositions suivantes sur le saccharose, retenez exactement les deux exactes.",
     "choices": [
       {
-        "content": "Associe un résidu de galactose et un résidu de glucose.",
+        "content": "Son hydrolyse libère glucose et fructose.",
         "correct": true,
-        "explanation": "L’hydrolyse du lactose libère un galactose et un glucose."
+        "explanation": "La sucrase-isomaltase intestinale catalyse cette hydrolyse."
       },
       {
-        "content": "Possède une liaison β(1→4).",
-        "correct": true,
-        "explanation": "Le carbone anomérique C1 du galactose est lié au C4 du glucose dans une configuration β."
-      },
-      {
-        "content": "Conserve un centre hémiacétalique libre.",
-        "correct": true,
-        "explanation": "Le carbone anomérique du résidu de glucose reste libre, ce qui permet l’ouverture du cycle et confère un pouvoir réducteur."
-      },
-      {
-        "content": "Est non réducteur comme le saccharose.",
+        "content": "Il est un polysaccharide de réserve animale.",
         "correct": false,
-        "explanation": "Contrairement au saccharose, le lactose conserve un carbone anomérique libre et est donc réducteur."
+        "explanation": "C'est un diholoside alimentaire."
+      },
+      {
+        "content": "Le saccharose est non réducteur.",
+        "correct": true,
+        "explanation": "Il ne possède pas de carbone anomérique libre."
+      },
+      {
+        "content": "Il possède un carbone anomérique libre facilement ouvrable.",
+        "correct": false,
+        "explanation": "Les deux sont engagés."
+      },
+      {
+        "content": "Son hydrolyse libère deux mannoses.",
+        "correct": false,
+        "explanation": "Elle libère glucose et fructose."
       }
     ],
-    "explanation": "Le lactose est un diholoside réducteur galactose–glucose."
+    "explanation": "Le saccharose relie les deux carbones anomériques du glucose et du fructose, ce qui le rend non réducteur.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 7,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "La digestion du lactose :",
+    "question": "Concernant la condensation et l'hydrolyse des osides, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Fait intervenir la lactase.",
-        "correct": true,
-        "explanation": "La lactase de la bordure en brosse intestinale hydrolyse la liaison β(1→4) du lactose."
-      },
-      {
-        "content": "La lactase possède une activité β-galactosidase.",
-        "correct": true,
-        "explanation": "Elle hydrolyse une liaison dans laquelle le galactose engage son carbone anomérique en configuration β."
-      },
-      {
-        "content": "Libère glucose et galactose.",
-        "correct": true,
-        "explanation": "Le lactose est constitué d’un résidu de galactose lié à un résidu de glucose."
-      },
-      {
-        "content": "Libère glucose et fructose.",
+        "content": "L'eau est inutile à une réaction d'hydrolyse.",
         "correct": false,
-        "explanation": "Ce sont les produits du saccharose."
+        "explanation": "Elle est un réactif."
+      },
+      {
+        "content": "Des glycosidases catalysent les hydrolyses biologiques.",
+        "correct": true,
+        "explanation": "Elles sont spécifiques du substrat et de la liaison."
+      },
+      {
+        "content": "La stéréochimie alpha/bêta influence la reconnaissance enzymatique.",
+        "correct": true,
+        "explanation": "Une enzyme peut hydrolyser alpha mais pas bêta, ou inversement."
+      },
+      {
+        "content": "L'hydrolyse consomme une molécule d'eau pour cliver une liaison glycosidique.",
+        "correct": true,
+        "explanation": "H et OH sont ajoutés aux produits."
+      },
+      {
+        "content": "La formation formelle d'une liaison glycosidique peut être décrite comme une condensation avec perte d'eau.",
+        "correct": true,
+        "explanation": "C'est l'écriture inverse de l'hydrolyse."
       }
     ],
-    "explanation": "La lactase/β-galactosidase hydrolyse le lactose en glucose et galactose."
+    "explanation": "Condensation et hydrolyse sont des transformations inverses de formation et de rupture de liaison glycosidique."
   },
   {
     "order": 8,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Le saccharose :",
-    "choices": [
-      {
-        "content": "Associe glucose et fructose.",
-        "correct": true,
-        "explanation": "L’hydrolyse du saccharose libère un glucose et un fructose."
-      },
-      {
-        "content": "Engage les deux centres anomériques.",
-        "correct": true,
-        "explanation": "La liaison unit le C1 anomérique du glucose au C2 anomérique du fructose."
-      },
-      {
-        "content": "Est non réducteur.",
-        "correct": true,
-        "explanation": "Comme les deux carbones anomériques sont engagés dans la liaison, aucun ne peut ouvrir son cycle pour fournir une fonction carbonyle réductrice."
-      },
-      {
-        "content": "Libère du galactose lors de son hydrolyse.",
-        "correct": false,
-        "explanation": "Il libère glucose et fructose."
-      }
-    ],
-    "explanation": "Le saccharose est un diholoside non réducteur glucose–fructose."
-  },
-  {
-    "order": 9,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Le maltose :",
-    "choices": [
-      {
-        "content": "Associe deux résidus de glucose.",
-        "correct": true,
-        "explanation": "L’hydrolyse complète d’une molécule de maltose libère deux molécules de glucose."
-      },
-      {
-        "content": "Possède une liaison α(1→4).",
-        "correct": true,
-        "explanation": "Le C1 anomérique en configuration α du premier glucose est lié au C4 du second."
-      },
-      {
-        "content": "Peut résulter de l’hydrolyse de l’amidon ou du glycogène.",
-        "correct": true,
-        "explanation": "Le clivage de certaines liaisons α(1→4) de ces glucanes peut libérer du maltose."
-      },
-      {
-        "content": "Est très abondant à l’état libre.",
-        "correct": false,
-        "explanation": "Il est peu présent à l’état libre."
-      }
-    ],
-    "explanation": "Le maltose est un diglucoside réducteur α(1→4)."
-  },
-  {
-    "order": 10,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Parmi lactose, saccharose et maltose, quel diholoside est non réducteur ?",
-    "choices": [
-      {
-        "content": "Saccharose.",
-        "correct": true,
-        "explanation": "Ses deux centres anomériques sont engagés."
-      },
-      {
-        "content": "Lactose.",
-        "correct": false,
-        "explanation": "Le lactose conserve le carbone anomérique libre de son résidu de glucose et est donc réducteur."
-      },
-      {
-        "content": "Maltose.",
-        "correct": false,
-        "explanation": "Le maltose conserve un carbone anomérique libre et possède donc un pouvoir réducteur."
-      },
-      {
-        "content": "Les trois.",
-        "correct": false,
-        "explanation": "Un seul des trois est non réducteur."
-      }
-    ],
-    "explanation": "Le saccharose se distingue par l’absence de centre hémiacétalique libre."
-  },
-  {
-    "order": 11,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Une activité lactasique intestinale insuffisante diminue la digestion du lactose. Quelles conséquences directes sont cohérentes ?",
-    "choices": [
-      {
-        "content": "La liaison β(1→4) du lactose est moins efficacement hydrolysée.",
-        "correct": true,
-        "explanation": "La lactase catalyse normalement l’hydrolyse de la liaison β(1→4) entre galactose et glucose."
-      },
-      {
-        "content": "La libération de glucose et de galactose diminue.",
-        "correct": true,
-        "explanation": "Une hydrolyse moins efficace du lactose produit moins de glucose et de galactose absorbables."
-      },
-      {
-        "content": "Le problème concerne la digestion d’un diholoside.",
-        "correct": true,
-        "explanation": "Le lactose est formé de deux résidus d’oses : c’est un diholoside."
-      },
-      {
-        "content": "Cela correspond nécessairement à une allergie aux protéines du lait.",
-        "correct": false,
-        "explanation": "Le mécanisme glucidique est distinct d’une allergie protéique."
-      }
-    ],
-    "explanation": "Un déficit en lactase laisse davantage de lactose non hydrolysé dans la lumière intestinale ; il ne s’agit pas d’une allergie aux protéines du lait."
-  },
-  {
-    "order": 12,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Lors d’une fermentation lactique utilisée en fromagerie :",
-    "choices": [
-      {
-        "content": "Des lactobacilles utilisent le lactose.",
-        "correct": true,
-        "explanation": "Certaines bactéries lactiques peuvent métaboliser le lactose présent dans le lait."
-      },
-      {
-        "content": "De l’acide lactique est formé.",
-        "correct": true,
-        "explanation": "La fermentation lactique convertit des sucres en lactate, ce qui acidifie le milieu."
-      },
-      {
-        "content": "Le phénomène concerne un sucre du lait.",
-        "correct": true,
-        "explanation": "Le lactose est le principal glucide naturellement présent dans le lait."
-      },
-      {
-        "content": "Le saccharose est nécessairement l’unique substrat glucidique.",
-        "correct": false,
-        "explanation": "Dans le lait, le lactose constitue le substrat glucidique majeur des bactéries capables de l’utiliser."
-      }
-    ],
-    "explanation": "La fermentation illustre une transformation biologique du lactose."
-  },
-  {
-    "order": 13,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "À propos du saccharose alimentaire :",
-    "choices": [
-      {
-        "content": "Il correspond au sucre de table.",
-        "correct": true,
-        "explanation": "Le sucre de table cristallisé est constitué principalement de saccharose."
-      },
-      {
-        "content": "Il est très soluble dans l’eau.",
-        "correct": true,
-        "explanation": "Ses nombreuses fonctions hydroxyle peuvent former des liaisons hydrogène avec l’eau."
-      },
-      {
-        "content": "Il provient notamment de la betterave et de la canne à sucre.",
-        "correct": true,
-        "explanation": "La betterave sucrière et la canne à sucre sont deux sources industrielles majeures de saccharose."
-      },
-      {
-        "content": "Son hydrolyse donne glucose et galactose.",
-        "correct": false,
-        "explanation": "Elle donne glucose et fructose."
-      }
-    ],
-    "explanation": "Le saccharose est un diholoside végétal, très soluble et non réducteur."
-  },
-  {
-    "order": 14,
-    "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Donnez le nom de l’enzyme de la bordure en brosse intestinale qui hydrolyse le lactose.",
+    "question": "Quelle enzyme intestinale hydrolyse le lactose ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
         "lactase",
         "la lactase",
         "beta-galactosidase",
-        "β-galactosidase",
-        "beta galactosidase"
+        "β-galactosidase"
       ],
       "normalization": {
         "trim": true,
-        "caseSensitive": false,
         "collapseWhitespace": true,
+        "caseSensitive": false,
         "ignoreAccents": true
       }
     },
-    "explanation": "La lactase possède une activité β-galactosidase qui hydrolyse le lactose en glucose et galactose."
+    "explanation": "La digestion des osides dépend de glycosidases très spécifiques de la liaison."
+  },
+  {
+    "order": 9,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur les osides, laquelle est exacte ?",
+    "choices": [
+      {
+        "content": "Un oside contient toujours exactement deux oses.",
+        "correct": false,
+        "explanation": "Les polyosides en contiennent beaucoup."
+      },
+      {
+        "content": "Aucune liaison glycosidique n'implique le carbone anomérique.",
+        "correct": false,
+        "explanation": "C'est précisément le carbone fonctionnel clé."
+      },
+      {
+        "content": "Un hétéroside est dépourvu de tout sucre.",
+        "correct": false,
+        "explanation": "Il possède au moins une partie glucidique."
+      },
+      {
+        "content": "Les osides peuvent être constitués de deux à de très nombreux résidus.",
+        "correct": true,
+        "explanation": "Diholosides et polyosides appartiennent à cette famille."
+      },
+      {
+        "content": "Un holoside comporte obligatoirement une protéine.",
+        "correct": false,
+        "explanation": "Il est constitué uniquement de résidus glucidiques."
+      }
+    ],
+    "explanation": "Les osides sont définis par des liaisons glycosidiques ; holosides et hétérosides se distinguent par la nature des produits d'hydrolyse."
+  },
+  {
+    "order": 10,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant la liaison O-glycosidique, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Le sens (1→4) signifie qu'il y a quatre oses.",
+        "correct": false,
+        "explanation": "Il indique les positions carbonées reliées."
+      },
+      {
+        "content": "Les positions des carbones reliés sont indiquées, par exemple (1→4).",
+        "correct": true,
+        "explanation": "Le premier chiffre correspond au carbone anomérique donneur."
+      },
+      {
+        "content": "Elle peut être hydrolysée avec consommation d'eau.",
+        "correct": true,
+        "explanation": "L'hydrolyse est l'inverse formel de la condensation."
+      },
+      {
+        "content": "Alpha et bêta n'ont aucune influence sur la digestion enzymatique.",
+        "correct": false,
+        "explanation": "La stéréospécificité enzymatique est importante."
+      },
+      {
+        "content": "Elle implique l'oxygène d'une fonction alcool comme pont entre résidus.",
+        "correct": true,
+        "explanation": "Le carbone anomérique d'un ose est engagé."
+      }
+    ],
+    "explanation": "Une liaison O-glycosidique est décrite par l'anomérie du carbone donneur et les positions carbonées reliées."
+  },
+  {
+    "order": 11,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quelle enzyme intestinale hydrolyse le lactose ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "lactase",
+        "beta-galactosidase",
+        "β-galactosidase"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "La lactase de la bordure en brosse hydrolyse le lactose en glucose et galactose."
+  },
+  {
+    "order": 12,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Comment note-t-on une liaison entre le C1 anomérique d'un glucose et le C4 du résidu suivant en configuration alpha ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "alpha(1→4)",
+        "α(1→4)",
+        "alpha 1-4",
+        "α1→4",
+        "alpha(1-4)"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Une liaison O-glycosidique est décrite par l'anomérie du carbone donneur et les positions carbonées reliées."
+  },
+  {
+    "order": 13,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur le caractère réducteur des diholosides, laquelle est exacte ?",
+    "choices": [
+      {
+        "content": "Le saccharose est non réducteur.",
+        "correct": true,
+        "explanation": "Les deux carbones anomériques sont engagés dans la liaison."
+      },
+      {
+        "content": "Le saccharose possède un carbone anomérique libre.",
+        "correct": false,
+        "explanation": "Ses deux carbones anomériques sont engagés."
+      },
+      {
+        "content": "Tous les diholosides sont non réducteurs.",
+        "correct": false,
+        "explanation": "Maltose et lactose sont réducteurs."
+      },
+      {
+        "content": "Un diholoside réducteur ne peut jamais s'ouvrir localement.",
+        "correct": false,
+        "explanation": "Le résidu à hémiacétal libre peut s'ouvrir."
+      },
+      {
+        "content": "Le pouvoir réducteur dépend uniquement du nombre total de carbones.",
+        "correct": false,
+        "explanation": "Il dépend de la disponibilité du carbone anomérique."
+      }
+    ],
+    "explanation": "Le caractère réducteur d'un oside dépend de la présence d'un carbone anomérique libre."
+  },
+  {
+    "order": 14,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant le lactose, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Sa liaison est bêta(1→4) du galactose vers le glucose.",
+        "correct": true,
+        "explanation": "Le C1 du galactose est engagé avec C4 du glucose."
+      },
+      {
+        "content": "Le lactose est non réducteur parce que ses deux carbones anomériques sont engagés.",
+        "correct": false,
+        "explanation": "Un seul est engagé."
+      },
+      {
+        "content": "L'intolérance au lactose est nécessairement une allergie aux protéines du lait.",
+        "correct": false,
+        "explanation": "Ce sont des mécanismes distincts."
+      },
+      {
+        "content": "La lactase hydrolyse le lactose dans l'intestin grêle.",
+        "correct": true,
+        "explanation": "Un déficit en lactase favorise l'intolérance au lactose."
+      },
+      {
+        "content": "Le lactose associe glucose et fructose.",
+        "correct": false,
+        "explanation": "Cela décrit le saccharose."
+      }
+    ],
+    "explanation": "Le lactose est galactose-bêta(1→4)-glucose et reste réducteur."
   },
   {
     "order": 15,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Un tétraholoside linéaire contient 4 résidus successifs. Combien de liaisons glycosidiques relient ces 4 résidus ?",
-    "answer": {
-      "type": "number",
-      "value": 3,
-      "tolerance": 0
-    },
-    "explanation": "Quatre résidus successifs nécessitent trois liaisons entre voisins."
+    "format": "QRP",
+    "question": "À propos du maltose, sélectionnez exactement les deux affirmations correctes.",
+    "choices": [
+      {
+        "content": "Le maltose associe galactose et glucose.",
+        "correct": false,
+        "explanation": "Cela décrit le lactose."
+      },
+      {
+        "content": "Le maltose est formé de glucose et fructose.",
+        "correct": false,
+        "explanation": "Cela décrit le saccharose."
+      },
+      {
+        "content": "Sa liaison est alpha(1→4).",
+        "correct": true,
+        "explanation": "Le C1 alpha du premier glucose est lié au C4 du second."
+      },
+      {
+        "content": "Le maltose associe deux résidus de glucose.",
+        "correct": true,
+        "explanation": "C'est un diholoside homogène."
+      },
+      {
+        "content": "La maltase produit du fructose à partir du maltose.",
+        "correct": false,
+        "explanation": "Elle libère du glucose."
+      }
+    ],
+    "explanation": "Le maltose est un diholoside réducteur de deux glucoses liés en alpha(1→4).",
+    "requiredSelectionCount": 2
   },
   {
     "order": 16,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux diholosides réducteurs parmi les trois étudiés en détail.",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur le saccharose, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Lactose.",
+        "content": "La liaison implique C1 anomérique du glucose et C2 anomérique du fructose.",
         "correct": true,
-        "explanation": "Le carbone anomérique du résidu de glucose reste libre, ce qui rend le lactose réducteur."
+        "explanation": "Les deux carbones anomériques sont engagés."
       },
       {
-        "content": "Maltose.",
+        "content": "Son hydrolyse libère deux mannoses.",
+        "correct": false,
+        "explanation": "Elle libère glucose et fructose."
+      },
+      {
+        "content": "Le saccharose est non réducteur.",
         "correct": true,
-        "explanation": "Le second résidu de glucose conserve un carbone anomérique libre, ce qui rend le maltose réducteur."
+        "explanation": "Il ne possède pas de carbone anomérique libre."
       },
       {
-        "content": "Saccharose.",
-        "correct": false,
-        "explanation": "Dans le saccharose, les carbones anomériques du glucose et du fructose sont tous deux engagés dans la liaison."
+        "content": "Son hydrolyse libère glucose et fructose.",
+        "correct": true,
+        "explanation": "La sucrase-isomaltase intestinale catalyse cette hydrolyse."
       },
       {
-        "content": "Aucun.",
-        "correct": false,
-        "explanation": "Deux des trois sont réducteurs."
+        "content": "Le saccharose associe un glucose et un fructose.",
+        "correct": true,
+        "explanation": "Ce sont ses deux résidus."
       }
     ],
-    "explanation": "Lactose et maltose sont réducteurs ; le saccharose ne l’est pas."
+    "explanation": "Le saccharose relie les deux carbones anomériques du glucose et du fructose, ce qui le rend non réducteur."
   },
   {
     "order": 17,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Les produits d’hydrolyse des diholosides :",
-    "choices": [
-      {
-        "content": "Lactose → glucose + galactose.",
-        "correct": true,
-        "explanation": "La liaison β(1→4) du lactose relie un galactose à un glucose."
-      },
-      {
-        "content": "Saccharose → glucose + fructose.",
-        "correct": true,
-        "explanation": "Le saccharose associe le carbone anomérique d’un glucose à celui d’un fructose."
-      },
-      {
-        "content": "Maltose → deux glucoses.",
-        "correct": true,
-        "explanation": "Le maltose est un diglucoside dont les deux résidus sont liés en α(1→4)."
-      },
-      {
-        "content": "Maltose → fructose + galactose.",
-        "correct": false,
-        "explanation": "Ces résidus ne constituent pas le maltose."
+    "format": "QROC",
+    "question": "Quel type de réaction rompt une liaison glycosidique en utilisant de l'eau ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "hydrolyse",
+        "une hydrolyse"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les produits d’hydrolyse reflètent directement la composition du diholoside."
+    },
+    "explanation": "Condensation et hydrolyse sont des transformations inverses de formation et de rupture de liaison glycosidique."
   },
   {
     "order": 18,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Quels sont les deux oses libérés par hydrolyse du saccharose ? Répondez « X et Y ».",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "glucose et fructose",
-        "fructose et glucose"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRU",
+    "question": "À propos de la spécificité digestive des glycosidases, quelle proposition est exacte ?",
+    "choices": [
+      {
+        "content": "La lactase hydrolyse la cellulose.",
+        "correct": false,
+        "explanation": "Elle cible le lactose."
+      },
+      {
+        "content": "La lactase hydrolyse la liaison bêta(1→4) du lactose.",
+        "correct": true,
+        "explanation": "Elle libère glucose et galactose."
+      },
+      {
+        "content": "La maltase hydrolyse le saccharose en glucose et fructose.",
+        "correct": false,
+        "explanation": "La sucrase est responsable de cette hydrolyse."
+      },
+      {
+        "content": "L'alpha-amylase hydrolyse efficacement les liaisons bêta(1→4) de la cellulose.",
+        "correct": false,
+        "explanation": "Elle cible les liaisons alpha de l'amidon."
+      },
+      {
+        "content": "Toutes les liaisons glycosidiques ont la même sensibilité enzymatique.",
+        "correct": false,
+        "explanation": "La stéréochimie et les positions sont déterminantes."
       }
-    },
-    "explanation": "Le saccharose est formé d’un glucose et d’un fructose."
+    ],
+    "explanation": "La digestion des osides dépend de glycosidases très spécifiques de la liaison."
   },
   {
     "order": 19,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Une glycosidase ne reconnaît qu’une configuration anomérique précise. Cela illustre :",
+    "question": "Parmi les affirmations suivantes sur les osides, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "La grande spécificité de l’hydrolyse enzymatique.",
-        "correct": true,
-        "explanation": "Le site actif d’une glycosidase reconnaît précisément la géométrie de son substrat."
-      },
-      {
-        "content": "Une spécificité possible vis-à-vis de l’anomère.",
-        "correct": true,
-        "explanation": "La configuration α ou β du carbone anomérique modifie l’orientation de la liaison reconnue par l’enzyme."
-      },
-      {
-        "content": "Une différence avec l’hydrolyse chimique acide.",
-        "correct": true,
-        "explanation": "Une hydrolyse acide peut cliver plusieurs types de liaisons glycosidiques sans la reconnaissance moléculaire propre à une enzyme."
-      },
-      {
-        "content": "L’absence de rôle des enzymes dans l’hydrolyse.",
+        "content": "Un oside contient toujours exactement deux oses.",
         "correct": false,
-        "explanation": "Les glycosidases catalysent précisément ces réactions."
+        "explanation": "Les polyosides en contiennent beaucoup."
+      },
+      {
+        "content": "Un oside comporte au moins une liaison glycosidique impliquant un carbone anomérique.",
+        "correct": true,
+        "explanation": "Cette liaison relie un ose à un autre groupe."
+      },
+      {
+        "content": "Aucune liaison glycosidique n'implique le carbone anomérique.",
+        "correct": false,
+        "explanation": "C'est précisément le carbone fonctionnel clé."
+      },
+      {
+        "content": "Un holoside ne libère que des oses ou dérivés d'oses après hydrolyse complète.",
+        "correct": true,
+        "explanation": "Il est entièrement glucidique."
+      },
+      {
+        "content": "Un holoside comporte obligatoirement une protéine.",
+        "correct": false,
+        "explanation": "Il est constitué uniquement de résidus glucidiques."
       }
     ],
-    "explanation": "La spécificité enzymatique peut aller jusqu’à la reconnaissance de l’anomérie."
+    "explanation": "Les osides sont définis par des liaisons glycosidiques ; holosides et hétérosides se distinguent par la nature des produits d'hydrolyse."
   },
   {
     "order": 20,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Une expérience d’hydrolyse chimique d’un oside est réalisée en milieu acide à 60 °C pendant environ une heure. Quelles conditions appartiennent à ce protocole ?",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "Un milieu acide.",
+        "content": "Les positions des carbones reliés sont indiquées, par exemple (1→4).",
         "correct": true,
-        "explanation": "L’acide catalyse la rupture hydrolytique des liaisons glycosidiques."
+        "explanation": "Le premier chiffre correspond au carbone anomérique donneur."
       },
       {
-        "content": "Une température de 60 °C.",
-        "correct": true,
-        "explanation": "La température expérimentale est fournie directement dans l’énoncé."
-      },
-      {
-        "content": "Une durée d’environ une heure.",
-        "correct": true,
-        "explanation": "La durée expérimentale est fournie directement dans l’énoncé."
-      },
-      {
-        "content": "Un clivage hautement spécifique d’un anomère.",
+        "content": "Elle implique toujours une liaison peptidique.",
         "correct": false,
-        "explanation": "Le clivage chimique est peu spécifique."
+        "explanation": "Ce sont des liaisons différentes."
+      },
+      {
+        "content": "Elle peut être hydrolysée avec consommation d'eau.",
+        "correct": true,
+        "explanation": "L'hydrolyse est l'inverse formel de la condensation."
+      },
+      {
+        "content": "Il peut être formé lors de l'hydrolyse de l'amidon.",
+        "correct": true,
+        "explanation": "Les amylases produisent notamment maltose et dextrines."
+      },
+      {
+        "content": "La configuration alpha ou bêta du carbone anomérique engagé fait partie de sa description.",
+        "correct": true,
+        "explanation": "Elle influence la reconnaissance enzymatique."
+      },
+      {
+        "content": "Le maltose possède une liaison bêta(1→4).",
+        "correct": false,
+        "explanation": "Cela correspond à la cellobiose."
+      },
+      {
+        "content": "La maltase produit du fructose à partir du maltose.",
+        "correct": false,
+        "explanation": "Elle libère du glucose."
+      },
+      {
+        "content": "Le maltose associe galactose et glucose.",
+        "correct": false,
+        "explanation": "Cela décrit le lactose."
+      },
+      {
+        "content": "Elle implique l'oxygène d'une fonction alcool comme pont entre résidus.",
+        "correct": true,
+        "explanation": "Le carbone anomérique d'un ose est engagé."
+      },
+      {
+        "content": "Le maltose est formé de glucose et fructose.",
+        "correct": false,
+        "explanation": "Cela décrit le saccharose."
       }
     ],
-    "explanation": "Le protocole explicite une hydrolyse chimique acide chauffée ; contrairement à une glycosidase, ce traitement n’est pas spécifique d’un seul anomère."
+    "explanation": "Une liaison O-glycosidique est décrite par l'anomérie du carbone donneur et les positions carbonées reliées. Le maltose est un diholoside réducteur de deux glucoses liés en alpha(1→4)."
   },
   {
     "order": 21,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Composition, pouvoir réducteur et hydrolyse des diholosides : sélectionnez exactement cinq propositions correctes.",
+    "format": "QRM",
+    "question": "À propos du caractère réducteur des diholosides, quelles propositions sont correctes ?",
     "choices": [
       {
-        "content": "Le lactose contient du galactose.",
-        "correct": true,
-        "explanation": "Le lactose associe un résidu de galactose à un résidu de glucose."
+        "content": "Un diholoside réducteur ne peut jamais s'ouvrir localement.",
+        "correct": false,
+        "explanation": "Le résidu à hémiacétal libre peut s'ouvrir."
       },
       {
-        "content": "Le saccharose contient du fructose.",
+        "content": "Un diholoside est réducteur s'il conserve un carbone anomérique libre capable de s'ouvrir.",
         "correct": true,
-        "explanation": "Le saccharose associe un résidu de fructose à un résidu de glucose."
+        "explanation": "Une fonction hémiacétalique reste disponible."
       },
       {
-        "content": "Le maltose contient deux glucoses.",
-        "correct": true,
-        "explanation": "Le maltose est formé de deux résidus de glucose liés en α(1→4)."
+        "content": "Le pouvoir réducteur dépend uniquement du nombre total de carbones.",
+        "correct": false,
+        "explanation": "Il dépend de la disponibilité du carbone anomérique."
       },
       {
         "content": "Le lactose est réducteur.",
         "correct": true,
-        "explanation": "Le carbone anomérique du résidu de glucose reste libre et peut ouvrir son cycle."
+        "explanation": "Le glucose terminal possède un carbone anomérique libre."
       },
       {
-        "content": "Le saccharose est non réducteur.",
+        "content": "Le maltose est réducteur.",
         "correct": true,
-        "explanation": "Les deux carbones anomériques sont engagés dans la liaison glucose–fructose."
-      },
-      {
-        "content": "Le maltose est non réducteur.",
-        "correct": false,
-        "explanation": "Le maltose conserve un carbone anomérique libre et possède donc un pouvoir réducteur."
-      },
-      {
-        "content": "La lactase hydrolyse le saccharose.",
-        "correct": false,
-        "explanation": "La lactase hydrolyse le lactose ; l’hydrolyse du saccharose fait intervenir une sucrase."
-      },
-      {
-        "content": "Le saccharose libère du galactose.",
-        "correct": false,
-        "explanation": "L’hydrolyse du saccharose libère du glucose et du fructose, sans galactose."
-      },
-      {
-        "content": "L’hydrolyse enzymatique est peu spécifique.",
-        "correct": false,
-        "explanation": "Les glycosidases reconnaissent précisément la nature et la géométrie de leurs substrats."
-      },
-      {
-        "content": "La condensation consomme de l’eau.",
-        "correct": false,
-        "explanation": "Dans l’écriture formelle de la condensation, une molécule d’eau est éliminée et non consommée."
+        "explanation": "Le second glucose conserve un carbone anomérique libre."
       }
     ],
-    "explanation": "Cette question consolide composition, pouvoir réducteur et hydrolyse."
+    "explanation": "Le caractère réducteur d'un oside dépend de la présence d'un carbone anomérique libre."
   },
   {
     "order": 22,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "requiredSelectionCount": 2,
-    "question": "Après hydrolyse complète d’une molécule de lactose, sélectionnez exactement les deux résidus obtenus.",
-    "choices": [
-      {
-        "content": "Glucose.",
-        "correct": true,
-        "explanation": "Le résidu situé à l’extrémité réductrice du lactose est un glucose."
-      },
-      {
-        "content": "Galactose.",
-        "correct": true,
-        "explanation": "Le résidu de galactose fournit le carbone anomérique engagé dans la liaison β(1→4)."
-      },
-      {
-        "content": "Fructose.",
-        "correct": false,
-        "explanation": "Le fructose entre dans la composition du saccharose, pas du lactose."
-      },
-      {
-        "content": "Mannose.",
-        "correct": false,
-        "explanation": "Non présent dans le lactose."
+    "format": "QROC",
+    "question": "Quels sont les deux oses constituant le lactose ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "galactose et glucose",
+        "glucose et galactose",
+        "galactose + glucose"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le lactose fournit un glucose et un galactose."
+    },
+    "explanation": "Le lactose est galactose-bêta(1→4)-glucose et reste réducteur."
   }
 ];

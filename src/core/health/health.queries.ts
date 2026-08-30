@@ -5,6 +5,7 @@ import {
     resolveQuizAnswerFormat,
 } from "@/core/quiz/quiz-answer-format";
 import {
+    normalizePersistedPassageQuestion,
     normalizePersistedQuestion,
     normalizePersistedQuestionType,
     type Question,
@@ -19,6 +20,10 @@ import {
     type TrainingQuestionDiagramContent,
 } from "@/core/training/training-choice-content";
 import { simplifyTrainingQuizDescription } from "@/core/training/training.queries";
+import {
+    buildThemeLabelById,
+    getQuestionThemeLabels,
+} from "@/core/theme/theme-label";
 import { fetchHealthMockExamSummaries } from "@/core/health-mock-exam/health-mock-exam.queries";
 import type { HealthMockExamSummary } from "@/core/health-mock-exam/health-mock-exam.types";
 import {
@@ -1311,12 +1316,12 @@ export async function fetchHealthStudentCourseUnitDetail(
     courseUnitId: string,
     options: { userId?: string | null } = {},
 ): Promise<HealthStudentCourseUnitDetail | null> {
-    if (!/^[a-f0-9]{24}$/i.test(courseUnitId)) {
-        return null;
-    }
+    const isObjectId = /^[a-f0-9]{24}$/i.test(courseUnitId);
 
-    const courseUnit = await prisma.healthCourseUnit.findUnique({
-        where: { id: courseUnitId },
+    const courseUnit = await prisma.healthCourseUnit.findFirst({
+        where: isObjectId
+            ? { id: courseUnitId }
+            : { OR: [{ slug: courseUnitId }, { slug: { startsWith: courseUnitId } }] },
         include: {
             block: {
                 select: {
@@ -1702,12 +1707,7 @@ export async function fetchHealthStudentChapterDetail(input: {
               })
             : Promise.resolve([]),
     ]);
-    const questionThemeLabelById = new Map(
-        questionThemes.map((theme) => [
-            theme.id,
-            theme.shortTitle?.trim() || theme.title.trim(),
-        ] as const)
-    );
+    const questionThemeLabelById = buildThemeLabelById(questionThemes);
 
     const progressByQuizId = new Map(
         progressEntries.map((entry) => [
@@ -1800,7 +1800,7 @@ export async function fetchHealthStudentChapterDetail(input: {
                             questionLink.question.questionType,
                         );
                         const answerPayload = questionLink.question.answerPayload ?? null;
-                        const canonicalQuestion = normalizePersistedQuestion({
+                        const canonicalQuestion = normalizePersistedPassageQuestion({
                             id: questionLink.question.id,
                             questionType,
                             answerPayload,
@@ -1822,11 +1822,11 @@ export async function fetchHealthStudentChapterDetail(input: {
                                 questionLink.question.questionDiagram ?? null
                             ),
                             choices: reorderedQuestionChoices.choices,
-                            correctChoiceIndexes: reorderedQuestionChoices.correctChoiceIndexes,
-                            answerPayload,
+                            correctChoiceIndexes: [],
+                            answerPayload: null,
                             canonicalQuestion,
-                            explanation: resolvedCorrectionContent.explanation,
-                            choiceExplanations: resolvedCorrectionContent.choiceExplanations,
+                            explanation: "",
+                            choiceExplanations: [],
                             order: questionLink.order,
                             group: questionLink.group
                                 ? {
@@ -1836,9 +1836,10 @@ export async function fetchHealthStudentChapterDetail(input: {
                                       order: questionLink.group.order,
                                   }
                                 : null,
-                            themeLabels: questionLink.question.themeIds
-                                .map((themeId) => questionThemeLabelById.get(themeId) ?? "")
-                                .filter((label) => label.length > 0),
+                            themeLabels: getQuestionThemeLabels({
+                                themeIds: questionLink.question.themeIds,
+                                themeLabelById: questionThemeLabelById,
+                            }),
                         };
                     })
                     .sort((left, right) => left.order - right.order);

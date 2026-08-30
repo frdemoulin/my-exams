@@ -1,669 +1,721 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie – Chapitre 1.2 – Section D – Oses estérifiés et autres dérivés
- */
-
+/** UE14 Biochimie – Chapitre 1.2 – Section D – Oses estérifiés et autres dérivés */
 export const UE14_BIOCH_CH2_SECTION_D_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 79,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant l'estérification d'une fonction alcool d'un ose :",
+    "question": "Concernant les oses phosphorylés, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La fixation d'un acide sur un alcool.",
-        "correct": true,
-        "explanation": "Une fonction alcool peut réagir avec un acide ou un dérivé activé de celui-ci pour former un ester."
-      },
-      {
-        "content": "Une transformation pouvant concerner les OH des oses.",
-        "correct": true,
-        "explanation": "Les fonctions hydroxyle des oses peuvent former des liaisons ester avec des groupements phosphate ou sulfate."
-      },
-      {
-        "content": "La suppression de tous les oxygènes d'un ose.",
+        "content": "La position du phosphate n'a jamais besoin d'être indiquée.",
         "correct": false,
-        "explanation": "L'estérification modifie une fonction hydroxyle sans supprimer tous les atomes d'oxygène de l'ose."
+        "explanation": "Elle distingue des métabolites différents."
       },
       {
-        "content": "Une réaction conduisant à des esters phosphoriques ou sulfuriques.",
+        "content": "La phosphorylation ajoute une ou plusieurs charges négatives aux conditions physiologiques.",
         "correct": true,
-        "explanation": "Les fonctions alcool des oses peuvent notamment former des esters phosphates ou sulfates."
+        "explanation": "Les phosphates sont ionisés."
+      },
+      {
+        "content": "Un ose phosphorylé est un ester phosphorique d'une fonction alcool.",
+        "correct": true,
+        "explanation": "Le phosphate est lié à un oxygène de l'ose."
+      },
+      {
+        "content": "Une phosphorylation remplace tous les oxygènes par de l'azote.",
+        "correct": false,
+        "explanation": "Elle ajoute un phosphate sur un OH."
+      },
+      {
+        "content": "La position du phosphate est précisée dans le nom.",
+        "correct": true,
+        "explanation": "Glucose-6-phosphate indique C6."
       }
     ],
-    "explanation": "Les fonctions alcool des oses peuvent former différents esters."
+    "explanation": "Les oses phosphorylés sont des esters phosphoriques chargés et centraux dans le métabolisme."
   },
   {
     "order": 80,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Un ose phosphorylé :",
+    "format": "QRU",
+    "question": "À propos du glucose-6-phosphate, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Porte un ester phosphorique.",
-        "correct": true,
-        "explanation": "Le groupement phosphate est lié à l'oxygène d'une fonction alcool de l'ose par une liaison ester."
-      },
-      {
-        "content": "Résulte de la formation d'un ester phosphate sur une fonction alcool.",
-        "correct": true,
-        "explanation": "La phosphorylation d'un ose forme une liaison ester entre un hydroxyle de l'ose et un groupement phosphate."
-      },
-      {
-        "content": "Peut intervenir dans des voies métaboliques.",
-        "correct": true,
-        "explanation": "Le glucose-6-phosphate et le fructose-1,6-bisphosphate sont par exemple des intermédiaires de la glycolyse."
-      },
-      {
-        "content": "Est nécessairement un polyol non chargé.",
+        "content": "Il ne participe jamais au métabolisme énergétique.",
         "correct": false,
-        "explanation": "Un phosphate apporte des charges dans les formes ionisées usuelles."
+        "explanation": "Il est un carrefour métabolique."
+      },
+      {
+        "content": "Le phosphate est fixé sur un atome d'azote du glucose.",
+        "correct": false,
+        "explanation": "Le glucose de base ne possède pas d'azote."
+      },
+      {
+        "content": "Il porte un phosphate en C1.",
+        "correct": false,
+        "explanation": "Cela décrit le glucose-1-phosphate."
+      },
+      {
+        "content": "Il porte un phosphate en C6.",
+        "correct": true,
+        "explanation": "Le nom indique directement la position."
+      },
+      {
+        "content": "C'est un acide gras.",
+        "correct": false,
+        "explanation": "C'est un dérivé du glucose."
       }
     ],
-    "explanation": "La phosphorylation transforme une fonction alcool de l'ose en ester phosphorique."
+    "explanation": "Le glucose-6-phosphate est un carrefour de la glycolyse, de la voie des pentoses et du métabolisme du glycogène."
   },
   {
     "order": 81,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Le glucose peut notamment être phosphorylé :",
-    "choices": [
-      {
-        "content": "En C1.",
-        "correct": true,
-        "explanation": "Le glucose-1-phosphate porte un groupement phosphate sur son carbone anomérique C1."
-      },
-      {
-        "content": "En C6.",
-        "correct": true,
-        "explanation": "Le glucose-6-phosphate est formé par phosphorylation de l'alcool primaire porté par C6."
-      },
-      {
-        "content": "En C6 avec un rôle dans la glycolyse.",
-        "correct": true,
-        "explanation": "L'hexokinase forme le glucose-6-phosphate lors de la première étape de la glycolyse."
-      },
-      {
-        "content": "Uniquement en C3.",
-        "correct": false,
-        "explanation": "Le glucose forme notamment des esters phosphates en C1 ou en C6 ; il n'est donc pas phosphorylé uniquement en C3."
-      }
-    ],
-    "explanation": "Le glucose-1-phosphate intervient notamment dans le métabolisme du glycogène, tandis que le glucose-6-phosphate est un carrefour métabolique et un intermédiaire de la glycolyse."
+    "format": "QROC",
+    "question": "Sur quel carbone se trouve le phosphate du glucose-1-phosphate ?",
+    "answer": {
+      "type": "number",
+      "value": 1,
+      "tolerance": 0
+    },
+    "explanation": "Glucose-1-phosphate et glucose-6-phosphate sont des isomères de position interconvertibles métaboliquement."
   },
   {
     "order": 82,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Sur quel carbone le glucose est-il phosphorylé lors de la première étape de la glycolyse ?",
+    "format": "QRM",
+    "question": "Concernant le fructose-1,6-bisphosphate, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "C6.",
+        "content": "Il est épimère C4 du glucose.",
+        "correct": false,
+        "explanation": "Ils diffèrent d'abord par la fonction carbonyle."
+      },
+      {
+        "content": "Le fructose est un aldopentose.",
+        "correct": false,
+        "explanation": "C'est un cétohexose."
+      },
+      {
+        "content": "Il peut adopter une forme furanose.",
         "correct": true,
-        "explanation": "L'hexokinase transfère un phosphate sur l'alcool primaire du carbone C6 et forme le glucose-6-phosphate."
+        "explanation": "Le fructofuranose est courant dans le saccharose."
       },
       {
-        "content": "C2.",
-        "correct": false,
-        "explanation": "Le produit de l'hexokinase est le glucose-6-phosphate, pas le glucose-2-phosphate."
+        "content": "Le D-fructose est lévogyre malgré sa série D.",
+        "correct": true,
+        "explanation": "Il illustre l'indépendance D/L et +/−."
       },
       {
-        "content": "C4.",
-        "correct": false,
-        "explanation": "La première phosphorylation glycolytique concerne C6, et non C4."
-      },
-      {
-        "content": "C5.",
-        "correct": false,
-        "explanation": "La première phosphorylation glycolytique concerne l'alcool primaire de C6."
+        "content": "Il entre dans la composition du saccharose.",
+        "correct": true,
+        "explanation": "Le saccharose associe glucose et fructose."
       }
     ],
-    "explanation": "La première étape de la glycolyse convertit le glucose en glucose-6-phosphate."
+    "explanation": "Le fructose est le cétohexose majeur, présent notamment dans le saccharose."
   },
   {
     "order": 83,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Le fructose peut notamment être phosphorylé :",
+    "format": "QRU",
+    "question": "À propos du fructose-2,6-bisphosphate, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "En C1.",
-        "correct": true,
-        "explanation": "Le fructose-1-phosphate est notamment formé lors du métabolisme hépatique du fructose."
+        "content": "Il constitue un polymère de fructose.",
+        "correct": false,
+        "explanation": "C'est un monosaccharide dérivé."
       },
       {
-        "content": "En C6.",
-        "correct": true,
-        "explanation": "Le fructose-6-phosphate est un intermédiaire de la glycolyse."
+        "content": "Il porte des phosphates en C1 et C6.",
+        "correct": false,
+        "explanation": "Cela décrit le fructose-1,6-bisphosphate."
       },
       {
-        "content": "Simultanément en C1 et C6.",
-        "correct": true,
-        "explanation": "Le fructose-1,6-bisphosphate porte deux phosphates distincts, en C1 et en C6."
+        "content": "Il est identique au fructose-1,6-bisphosphate.",
+        "correct": false,
+        "explanation": "Ce sont des isomères de position."
       },
       {
-        "content": "Simultanément en C2 et C6.",
+        "content": "Il ne possède aucune fonction phosphate.",
+        "correct": false,
+        "explanation": "Il en possède deux."
+      },
+      {
+        "content": "Il est distinct du fructose-1,6-bisphosphate.",
         "correct": true,
-        "explanation": "Le fructose-2,6-bisphosphate est un régulateur du métabolisme glucidique portant des phosphates en C2 et C6."
+        "explanation": "Les positions et les rôles diffèrent."
       }
     ],
-    "explanation": "Le fructose peut former plusieurs esters phosphates qui se distinguent par le nombre et la position de leurs groupements phosphate."
+    "explanation": "Le fructose-2,6-bisphosphate est un régulateur distinct du fructose-1,6-bisphosphate glycolytique."
   },
   {
     "order": 84,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Un fructose phosphorylé en C1 et C6 est appelé :",
+    "format": "QRP",
+    "question": "Parmi les propositions suivantes sur le ribose-5-phosphate, retenez exactement les deux exactes.",
     "choices": [
       {
-        "content": "Fructose-1,6-bisphosphate.",
+        "content": "Il sert à la biosynthèse des nucléotides.",
         "correct": true,
-        "explanation": "La nomenclature fructose-1,6-bisphosphate précise la présence de deux phosphates distincts en C1 et C6."
+        "explanation": "Le ribose est incorporé au PRPP puis aux nucléotides."
       },
       {
-        "content": "Fructose-6-phosphate uniquement.",
+        "content": "Il est sans lien avec les nucléotides.",
         "correct": false,
-        "explanation": "Le fructose-6-phosphate ne porte qu'un seul phosphate, en C6."
+        "explanation": "Il en est un précurseur central."
       },
       {
-        "content": "Glucose-1,6-bisphosphate.",
+        "content": "Il porte son phosphate en C1.",
         "correct": false,
-        "explanation": "Cette réponse désigne un dérivé du glucose, alors que la molécule demandée dérive du fructose."
+        "explanation": "Le nom indique C5."
       },
       {
-        "content": "Fructose-2-phosphate.",
+        "content": "C'est un acide gras phosphorylé.",
         "correct": false,
-        "explanation": "Cette réponse ne rend compte ni du phosphate en C1 ni de celui en C6."
+        "explanation": "C'est un dérivé d'ose."
+      },
+      {
+        "content": "Il est un pentose phosphorylé en C5.",
+        "correct": true,
+        "explanation": "Le phosphate est sur le carbone terminal."
       }
     ],
-    "explanation": "Deux phosphates distincts en C1 et C6 justifient le préfixe bis-."
+    "explanation": "Le ribose-5-phosphate relie voie des pentoses phosphates et biosynthèse des nucléotides.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 85,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant le ribose-5-phosphate et la biosynthèse des nucléotides :",
+    "question": "Concernant les oses sulfatés, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Le ribose-5-phosphate porte un phosphate en C5.",
+        "content": "L'héparine et plusieurs GAG sont fortement sulfatés.",
         "correct": true,
-        "explanation": "Le nom ribose-5-phosphate indique directement la position du groupement phosphate."
+        "explanation": "Cette propriété participe à leurs fonctions."
       },
       {
-        "content": "Le ribose-5-phosphate contribue, via le PRPP, à la biosynthèse des ribonucléotides de l'ARN.",
+        "content": "Les sulfates contribuent à une forte charge négative.",
         "correct": true,
-        "explanation": "Le ribose-5-phosphate est converti en PRPP, précurseur de la synthèse de nombreux ribonucléotides."
+        "explanation": "Ils sont ionisés aux conditions physiologiques."
       },
       {
-        "content": "Les désoxyribonucléotides de l'ADN sont produits par réduction de ribonucléotides.",
-        "correct": true,
-        "explanation": "Les ribonucléotide réductases convertissent des ribonucléotides en désoxyribonucléotides, précurseurs de l'ADN."
-      },
-      {
-        "content": "Le ribose-5-phosphate est un hexose.",
+        "content": "Les GAG ne peuvent jamais être sulfatés.",
         "correct": false,
-        "explanation": "Le ribose possède cinq carbones : c'est un pentose."
+        "explanation": "Plusieurs le sont abondamment."
+      },
+      {
+        "content": "La sulfatation ajoute des groupes sulfate sur des fonctions hydroxyle ou amine de dérivés glucidiques.",
+        "correct": true,
+        "explanation": "Elle est fréquente dans les GAG."
+      },
+      {
+        "content": "La sulfatation modifie les interactions avec les protéines.",
+        "correct": true,
+        "explanation": "Les motifs sulfatés sont reconnus par de nombreux partenaires."
       }
     ],
-    "explanation": "Le ribose-5-phosphate alimente la synthèse des ribonucléotides ; les précurseurs de l'ADN sont ensuite obtenus par réduction de ribonucléotides."
+    "explanation": "Les sulfates rendent de nombreux GAG fortement anioniques."
   },
   {
     "order": 86,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel pentose phosphorylé alimente la biosynthèse des ribonucléotides ?",
-    "choices": [
-      {
-        "content": "Ribose-5-phosphate.",
-        "correct": true,
-        "explanation": "Le ribose-5-phosphate est converti en PRPP, puis engagé dans la biosynthèse des ribonucléotides."
-      },
-      {
-        "content": "2-désoxyribose-5-phosphate.",
-        "correct": false,
-        "explanation": "Les désoxyribonucléotides sont principalement produits par réduction de ribonucléotides ; ce n'est pas la réponse attendue ici."
-      },
-      {
-        "content": "Mannitol-5-phosphate.",
-        "correct": false,
-        "explanation": "Le mannitol est un polyol et ne fournit pas le squelette ribose du PRPP."
-      },
-      {
-        "content": "Acide glucuronique.",
-        "correct": false,
-        "explanation": "L'acide glucuronique est un acide uronique à six carbones, pas le pentose précurseur du PRPP."
+    "format": "QROC",
+    "question": "Quel nom chimique usuel correspond à la vitamine C ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "acide ascorbique",
+        "ascorbate",
+        "l'acide ascorbique"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le ribose-5-phosphate fournit le squelette ribose utilisé dans la biosynthèse des ribonucléotides."
+    },
+    "explanation": "L'acide ascorbique est une vitamine C hydrosoluble et réductrice, apparentée à la chimie des oses."
   },
   {
     "order": 87,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Les esters sulfuriques des oses :",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur les oses phosphorylés, laquelle est exacte ?",
     "choices": [
       {
-        "content": "Sont présents dans les glycosaminoglycanes sulfatés.",
-        "correct": true,
-        "explanation": "Les chondroïtine sulfates, dermatane sulfate, kératane sulfate et héparanes portent des groupements sulfate."
-      },
-      {
-        "content": "Confèrent une charge négative à la molécule.",
-        "correct": true,
-        "explanation": "Aux pH biologiques usuels, les esters sulfates sont ionisés et contribuent à la charge négative des GAG."
-      },
-      {
-        "content": "Résultent d'une estérification d'une fonction alcool.",
-        "correct": true,
-        "explanation": "Schéma Ose-OH + H2SO4 → ester sulfurique."
-      },
-      {
-        "content": "Sont nécessairement neutres.",
+        "content": "Une phosphorylation remplace tous les oxygènes par de l'azote.",
         "correct": false,
-        "explanation": "Aux pH biologiques usuels, les groupes sulfate estérifiés contribuent à la charge négative des GAG."
+        "explanation": "Elle ajoute un phosphate sur un OH."
+      },
+      {
+        "content": "La position du phosphate n'a jamais besoin d'être indiquée.",
+        "correct": false,
+        "explanation": "Elle distingue des métabolites différents."
+      },
+      {
+        "content": "Le phosphate rend systématiquement la molécule apolaire.",
+        "correct": false,
+        "explanation": "Il augmente généralement sa charge et sa polarité."
+      },
+      {
+        "content": "Un ose phosphorylé est nécessairement un acide aminé.",
+        "correct": false,
+        "explanation": "C'est un dérivé glucidique."
+      },
+      {
+        "content": "La position du phosphate est précisée dans le nom.",
+        "correct": true,
+        "explanation": "Glucose-6-phosphate indique C6."
       }
     ],
-    "explanation": "La sulfatation contribue fortement à la charge des GAG."
+    "explanation": "Les oses phosphorylés sont des esters phosphoriques chargés et centraux dans le métabolisme."
   },
   {
     "order": 88,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de l'acide ascorbique :",
+    "question": "Concernant le glucose-6-phosphate, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Il est mieux connu sous le nom de vitamine C.",
+        "content": "Le glucose est majoritairement cyclique en solution aqueuse.",
         "correct": true,
-        "explanation": "L'acide L-ascorbique est la forme chimique communément appelée vitamine C."
+        "explanation": "Le glucopyranose domine."
       },
       {
-        "content": "Chez les espèces capables de la synthétiser, il dérive du glucose via la L-gulono-1,4-lactone.",
+        "content": "Le glucose est un aldohexose.",
         "correct": true,
-        "explanation": "La voie animale classique convertit des dérivés du glucose en L-gulono-1,4-lactone, ensuite oxydée en L-ascorbate."
+        "explanation": "Sa forme ouverte contient un aldéhyde et six carbones."
       },
       {
-        "content": "La dernière étape de la voie animale implique l'oxydation de la L-gulono-1,4-lactone.",
-        "correct": true,
-        "explanation": "La L-gulonolactone oxydase catalyse cette étape chez les espèces qui possèdent une enzyme fonctionnelle."
-      },
-      {
-        "content": "L'être humain en synthétise suffisamment à partir du glucose.",
+        "content": "Le glucose est exclusivement sous forme ouverte en eau.",
         "correct": false,
-        "explanation": "L'être humain ne possède pas de L-gulonolactone oxydase fonctionnelle ; la vitamine C doit donc être apportée par l'alimentation."
+        "explanation": "Les formes cycliques dominent."
+      },
+      {
+        "content": "La glycémie désigne la concentration de glucose dans le sang.",
+        "correct": true,
+        "explanation": "Son contrôle est central dans le diabète."
+      },
+      {
+        "content": "Le glucose est un pentose.",
+        "correct": false,
+        "explanation": "Il possède six carbones."
       }
     ],
-    "explanation": "L'acide ascorbique est la vitamine C ; l'être humain ne peut pas achever sa biosynthèse à partir du glucose."
+    "explanation": "Le glucose est l'aldohexose énergétique de référence."
   },
   {
     "order": 89,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel dérivé glucidique est aussi appelé vitamine C ?",
+    "format": "QRM",
+    "question": "Concernant les oses phosphorylés, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Acide ascorbique.",
+        "content": "Un ose phosphorylé est un ester phosphorique d'une fonction alcool.",
         "correct": true,
-        "explanation": "L'acide L-ascorbique est la forme chimique communément appelée vitamine C."
+        "explanation": "Le phosphate est lié à un oxygène de l'ose."
       },
       {
-        "content": "Sorbitol.",
+        "content": "Le phosphate rend systématiquement la molécule apolaire.",
         "correct": false,
-        "explanation": "Le sorbitol est un polyol obtenu par réduction du glucose, pas une vitamine."
+        "explanation": "Il augmente généralement sa charge et sa polarité."
       },
       {
-        "content": "NANA.",
-        "correct": false,
-        "explanation": "NANA désigne l'acide N-acétylneuraminique, principal acide sialique humain."
+        "content": "La phosphorylation ajoute une ou plusieurs charges négatives aux conditions physiologiques.",
+        "correct": true,
+        "explanation": "Les phosphates sont ionisés."
       },
       {
-        "content": "Glucuronate.",
+        "content": "Les oses phosphorylés sont des intermédiaires métaboliques fréquents.",
+        "correct": true,
+        "explanation": "Glycolyse et voie des pentoses en contiennent."
+      },
+      {
+        "content": "Un ose phosphorylé est nécessairement un acide aminé.",
         "correct": false,
-        "explanation": "Forme ionisée de l'acide glucuronique."
+        "explanation": "C'est un dérivé glucidique."
       }
     ],
-    "explanation": "Vitamine C = acide ascorbique."
+    "explanation": "Les oses phosphorylés sont des esters phosphoriques chargés et centraux dans le métabolisme."
   },
   {
     "order": 90,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quel composé est un antibiotique de la famille des aminoglycosides ?",
+    "format": "QRM",
+    "question": "Concernant la streptomycine, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Streptomycine.",
+        "content": "Elle agit en hydrolysant l'amidon alimentaire.",
+        "correct": false,
+        "explanation": "Sa cible est ribosomique."
+      },
+      {
+        "content": "Elle montre qu'un dérivé glucidique peut participer à la structure d'un médicament.",
         "correct": true,
-        "explanation": "La streptomycine est un antibiotique aminoglycosidique produit par des bactéries du genre Streptomyces."
+        "explanation": "Les motifs aminoglycosidiques sont pharmacologiquement actifs."
       },
       {
-        "content": "Acide ascorbique.",
-        "correct": false,
-        "explanation": "L'acide ascorbique est la vitamine C, pas un antibiotique aminoglycosidique."
+        "content": "Elle comporte des motifs aminés apparentés à des dérivés glucidiques.",
+        "correct": true,
+        "explanation": "Sa structure est riche en fonctions amines et hydroxyles."
       },
       {
-        "content": "Mannitol.",
-        "correct": false,
-        "explanation": "Le mannitol est un polyol utilisé notamment comme agent osmotique, pas un antibiotique."
+        "content": "La streptomycine est un antibiotique aminoglycoside.",
+        "correct": true,
+        "explanation": "Elle appartient aux aminosides."
       },
       {
-        "content": "Acide glucuronique.",
-        "correct": false,
-        "explanation": "L'acide glucuronique est un dérivé oxydé du glucose, pas un antibiotique."
+        "content": "Elle cible le ribosome bactérien.",
+        "correct": true,
+        "explanation": "Elle perturbe la traduction."
       }
     ],
-    "explanation": "La streptomycine est un antibiotique aminoglycosidique comportant plusieurs unités apparentées à des oses aminés."
+    "explanation": "La streptomycine est un aminoglycoside dont la structure comporte des motifs glucidiques aminés."
   },
   {
     "order": 91,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Comparer glucose-6-phosphate et fructose-1,6-bisphosphate permet d'affirmer que :",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur le glucose-1-phosphate, laquelle est exacte ?",
     "choices": [
       {
-        "content": "Le premier porte un phosphate en C6.",
-        "correct": true,
-        "explanation": "Dans glucose-6-phosphate, le nombre 6 désigne le carbone porteur du groupement phosphate."
-      },
-      {
-        "content": "Le second porte deux phosphates.",
-        "correct": true,
-        "explanation": "Le préfixe bis- et les indices 1,6 indiquent deux groupements phosphate distincts en C1 et C6."
-      },
-      {
-        "content": "Les deux sont des intermédiaires de la glycolyse.",
-        "correct": true,
-        "explanation": "Le glucose-6-phosphate et le fructose-1,6-bisphosphate interviennent tous deux dans la voie glycolytique."
-      },
-      {
-        "content": "Le préfixe bis- signifie qu'il n'y a aucun phosphate.",
+        "content": "Il est identique au glucose-6-phosphate.",
         "correct": false,
-        "explanation": "Il indique deux groupes phosphates distincts."
+        "explanation": "La position du phosphate diffère."
+      },
+      {
+        "content": "C'est un pentose.",
+        "correct": false,
+        "explanation": "Il conserve six carbones."
+      },
+      {
+        "content": "Il peut être interconverti avec le glucose-6-phosphate par une phosphoglucomutase.",
+        "correct": true,
+        "explanation": "Le phosphate est déplacé intramoléculairement."
+      },
+      {
+        "content": "Il porte deux phosphates.",
+        "correct": false,
+        "explanation": "Il n'en porte qu'un."
+      },
+      {
+        "content": "Il est obtenu par réduction complète du glucose.",
+        "correct": false,
+        "explanation": "Il est phosphorylé."
       }
     ],
-    "explanation": "La nomenclature indique directement nombre et position des phosphates."
+    "explanation": "Glucose-1-phosphate et glucose-6-phosphate sont des isomères de position interconvertibles métaboliquement."
   },
   {
     "order": 92,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Un ose est phosphorylé en C6. Quelles conclusions sont exactes ?",
+    "question": "Concernant le fructose-1,6-bisphosphate, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Une fonction alcool de C6 a été estérifiée.",
-        "correct": true,
-        "explanation": "Le groupement phosphate forme une liaison ester avec l'oxygène du OH porté par C6."
-      },
-      {
-        "content": "Un ester phosphorique a été formé.",
-        "correct": true,
-        "explanation": "La phosphorylation d'une fonction alcool produit un ester phosphorique."
-      },
-      {
-        "content": "Le glucose-6-phosphate est un exemple.",
-        "correct": true,
-        "explanation": "Le glucose-6-phosphate porte précisément un groupement phosphate sur C6."
-      },
-      {
-        "content": "L'ose est nécessairement devenu une osamine.",
+        "content": "D-fructose signifie nécessairement dextrogyre.",
         "correct": false,
-        "explanation": "Aucune amine n'est introduite."
+        "explanation": "Il est classiquement lévogyre."
+      },
+      {
+        "content": "Il est épimère C4 du glucose.",
+        "correct": false,
+        "explanation": "Ils diffèrent d'abord par la fonction carbonyle."
+      },
+      {
+        "content": "Le fructose est un cétohexose.",
+        "correct": true,
+        "explanation": "Sa forme ouverte possède une cétone en C2."
+      },
+      {
+        "content": "Le saccharose ne contient aucun fructose.",
+        "correct": false,
+        "explanation": "Il en contient un résidu."
+      },
+      {
+        "content": "Il peut adopter une forme furanose.",
+        "correct": true,
+        "explanation": "Le fructofuranose est courant dans le saccharose."
       }
     ],
-    "explanation": "Phosphorylation et amination sont deux modifications fonctionnelles différentes."
+    "explanation": "Le fructose est le cétohexose majeur, présent notamment dans le saccharose."
   },
   {
     "order": 93,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Un GAG sulfaté possède des groupes sulfate. Quelles propositions sont exactes ?",
+    "format": "QRP",
+    "question": "À propos du fructose-2,6-bisphosphate, sélectionnez exactement les deux affirmations correctes.",
     "choices": [
       {
-        "content": "Ces groupes sont portés par des esters sulfates de fonctions alcool.",
+        "content": "Il est distinct du fructose-1,6-bisphosphate.",
         "correct": true,
-        "explanation": "La sulfatation relie un groupement sulfate à l'oxygène d'une fonction hydroxyle du glucide."
+        "explanation": "Les positions et les rôles diffèrent."
       },
       {
-        "content": "Ils confèrent des charges négatives.",
+        "content": "Il régule fortement la glycolyse et la néoglucogenèse hépatiques.",
         "correct": true,
-        "explanation": "Les esters sulfates sont ionisés aux pH biologiques usuels et contribuent à la charge négative des GAG."
+        "explanation": "Il active PFK-1 et inhibe FBPase-1."
       },
       {
-        "content": "Ils peuvent contribuer à la forte polarité/hydrophilie de la molécule.",
-        "correct": true,
-        "explanation": "Les groupements sulfate ionisés interagissent fortement avec l'eau et les contre-ions."
-      },
-      {
-        "content": "Ils sont équivalents à une réduction en polyol.",
+        "content": "Il constitue un polymère de fructose.",
         "correct": false,
-        "explanation": "La sulfatation est une estérification d'un hydroxyle ; une réduction en polyol transforme une fonction carbonyle en alcool."
+        "explanation": "C'est un monosaccharide dérivé."
+      },
+      {
+        "content": "Il est identique au fructose-1,6-bisphosphate.",
+        "correct": false,
+        "explanation": "Ce sont des isomères de position."
+      },
+      {
+        "content": "Il porte des phosphates en C1 et C6.",
+        "correct": false,
+        "explanation": "Cela décrit le fructose-1,6-bisphosphate."
       }
     ],
-    "explanation": "La sulfatation des GAG est une modification ionique des fonctions alcool."
+    "explanation": "Le fructose-2,6-bisphosphate est un régulateur distinct du fructose-1,6-bisphosphate glycolytique.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 94,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Quelles associations entre un ose et ses positions de phosphorylation sont exactes ?",
+    "question": "Parmi les affirmations suivantes sur le ribose-5-phosphate, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Glucose : C1 ou C6.",
-        "correct": true,
-        "explanation": "Le glucose-1-phosphate et le glucose-6-phosphate sont deux esters phosphates importants du glucose."
+        "content": "Il est sans lien avec les nucléotides.",
+        "correct": false,
+        "explanation": "Il en est un précurseur central."
       },
       {
-        "content": "Fructose : C1, C6, C1+C6 ou C2+C6.",
-        "correct": true,
-        "explanation": "Le fructose peut former notamment les fructose-1-phosphate, fructose-6-phosphate, fructose-1,6-bisphosphate et fructose-2,6-bisphosphate."
+        "content": "Il est un hexose.",
+        "correct": false,
+        "explanation": "Il possède cinq carbones."
       },
       {
-        "content": "Ribose : C5.",
-        "correct": true,
-        "explanation": "Le ribose-5-phosphate porte le groupement phosphate sur l'alcool primaire de C5."
+        "content": "Il porte son phosphate en C1.",
+        "correct": false,
+        "explanation": "Le nom indique C5."
       },
       {
-        "content": "2-désoxyribose : C5.",
+        "content": "Il possède cinq carbones.",
         "correct": true,
-        "explanation": "Dans les désoxyribonucléotides, le ou les phosphates sont liés au groupement hydroxyle 5′ du désoxyribose."
+        "explanation": "C'est un pentose."
+      },
+      {
+        "content": "Il est un pentose phosphorylé en C5.",
+        "correct": true,
+        "explanation": "Le phosphate est sur le carbone terminal."
       }
     ],
-    "explanation": "Les positions doivent être reliées à l'ose concerné."
+    "explanation": "Le ribose-5-phosphate relie voie des pentoses phosphates et biosynthèse des nucléotides."
   },
   {
     "order": 95,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel nom porte le fructose phosphorylé en C1 et C6 ?",
+    "question": "Écrivez le nom du métabolite portant deux phosphates sur le fructose en C1 et C6.",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
         "fructose-1,6-bisphosphate",
         "fructose 1,6 bisphosphate",
-        "fructose-1-6-bisphosphate"
+        "F1,6BP",
+        "F-1,6-BP"
       ],
       "normalization": {
         "trim": true,
-        "caseSensitive": false,
         "collapseWhitespace": true,
+        "caseSensitive": false,
         "ignoreAccents": true
       }
     },
-    "explanation": "Le fructose portant des phosphates en C1 et C6 est le fructose-1,6-bisphosphate."
+    "explanation": "Le nom encode directement les deux positions : fructose-1,6-bisphosphate."
   },
   {
     "order": 96,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Une molécule glucidique porte un sulfate et un phosphate. Quelles conclusions générales sont cohérentes ?",
+    "format": "QRU",
+    "question": "À propos de l'acide ascorbique, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Elle a subi des estérifications de fonctions alcool.",
+        "content": "L'être humain doit obtenir la vitamine C par l'alimentation.",
         "correct": true,
-        "explanation": "Les groupements phosphate et sulfate peuvent former des liaisons ester avec les hydroxyles du glucide."
+        "explanation": "La voie de synthèse endogène n'est pas fonctionnelle chez l'humain."
       },
       {
-        "content": "Elle peut porter plusieurs charges négatives.",
-        "correct": true,
-        "explanation": "Sulfates et phosphates sont ionisables."
-      },
-      {
-        "content": "Les deux modifications sont distinctes d'une N-acétylation.",
-        "correct": true,
-        "explanation": "Elles concernent O plutôt que l'azote."
-      },
-      {
-        "content": "Elle est nécessairement une vitamine.",
+        "content": "L'acide ascorbique est la vitamine D.",
         "correct": false,
-        "explanation": "La présence d'un sulfate et d'un phosphate ne permet pas de classer la molécule comme vitamine."
+        "explanation": "La vitamine C est l'acide ascorbique."
+      },
+      {
+        "content": "La vitamine C est dépourvue de propriétés réductrices.",
+        "correct": false,
+        "explanation": "Son pouvoir réducteur est central à son rôle antioxydant."
+      },
+      {
+        "content": "L'humain synthétise toujours toute la vitamine C nécessaire.",
+        "correct": false,
+        "explanation": "Un apport alimentaire est nécessaire."
+      },
+      {
+        "content": "C'est un acide gras essentiel.",
+        "correct": false,
+        "explanation": "C'est une vitamine hydrosoluble."
       }
     ],
-    "explanation": "Phosphorylation et sulfatation sont deux familles d'estérification des oses."
+    "explanation": "L'acide ascorbique est une vitamine C hydrosoluble et réductrice, apparentée à la chimie des oses."
   },
   {
     "order": 97,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans la biosynthèse des nucléotides :",
+    "question": "Parmi les affirmations suivantes sur les oses phosphorylés, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Le ribose-5-phosphate contribue à la formation des ribonucléotides.",
+        "content": "La position du phosphate est précisée dans le nom.",
         "correct": true,
-        "explanation": "Le ribose-5-phosphate est converti en PRPP, précurseur de la synthèse des nucléotides."
+        "explanation": "Glucose-6-phosphate indique C6."
       },
       {
-        "content": "Les désoxyribonucléotides sont formés par réduction de ribonucléotides.",
+        "content": "Un ose phosphorylé est un ester phosphorique d'une fonction alcool.",
         "correct": true,
-        "explanation": "Les ribonucléotide réductases produisent les précurseurs désoxylés nécessaires à l'ADN."
+        "explanation": "Le phosphate est lié à un oxygène de l'ose."
       },
       {
-        "content": "Les nucléotides libres portent leurs phosphates sur le carbone 5′ du nucléoside.",
+        "content": "La phosphorylation ajoute une ou plusieurs charges négatives aux conditions physiologiques.",
         "correct": true,
-        "explanation": "Les nucléosides mono-, di- ou triphosphates portent leurs phosphates sur le groupement hydroxyle 5′ du pentose."
+        "explanation": "Les phosphates sont ionisés."
       },
       {
-        "content": "Le fructose-1,6-bisphosphate est le pentose de l'ADN.",
+        "content": "Les oses phosphorylés sont des intermédiaires métaboliques fréquents.",
+        "correct": true,
+        "explanation": "Glycolyse et voie des pentoses en contiennent."
+      },
+      {
+        "content": "Un ose phosphorylé est nécessairement un acide aminé.",
         "correct": false,
-        "explanation": "Le fructose-1,6-bisphosphate est un hexose intermédiaire de la glycolyse ; le pentose de l'ADN est le 2-désoxyribose."
+        "explanation": "C'est un dérivé glucidique."
       }
     ],
-    "explanation": "Le ribose-5-phosphate alimente la biosynthèse des ribonucléotides, dont la réduction fournit ensuite les précurseurs de l'ADN."
+    "explanation": "Les oses phosphorylés sont des esters phosphoriques chargés et centraux dans le métabolisme."
   },
   {
     "order": 98,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant l'acide ascorbique et la streptomycine :",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "L'acide ascorbique dérive du métabolisme glucidique, tandis que la streptomycine est un aminoglycoside.",
+        "content": "Il peut alimenter la voie des pentoses phosphates.",
         "correct": true,
-        "explanation": "Ces deux molécules illustrent des liens différents avec la chimie des glucides."
+        "explanation": "Il est oxydé par la glucose-6-phosphate déshydrogénase."
       },
       {
-        "content": "L'acide ascorbique est une vitamine.",
-        "correct": true,
-        "explanation": "L'acide ascorbique est le nom chimique de la vitamine C."
-      },
-      {
-        "content": "La streptomycine est un antibiotique.",
-        "correct": true,
-        "explanation": "La streptomycine appartient à la famille des antibiotiques aminoglycosidiques."
-      },
-      {
-        "content": "La streptomycine est la forme réduite de l'acide ascorbique.",
+        "content": "Il ne participe jamais au métabolisme énergétique.",
         "correct": false,
-        "explanation": "La streptomycine et l'acide ascorbique sont des molécules distinctes, sans relation simple d'oxydoréduction entre elles."
+        "explanation": "Il est un carrefour métabolique."
+      },
+      {
+        "content": "Le phosphate est fixé sur un atome d'azote du glucose.",
+        "correct": false,
+        "explanation": "Le glucose de base ne possède pas d'azote."
+      },
+      {
+        "content": "C'est un acide gras.",
+        "correct": false,
+        "explanation": "C'est un dérivé du glucose."
+      },
+      {
+        "content": "Il peut alimenter la glycolyse.",
+        "correct": true,
+        "explanation": "Il est converti en fructose-6-phosphate."
+      },
+      {
+        "content": "Il régule fortement la glycolyse et la néoglucogenèse hépatiques.",
+        "correct": true,
+        "explanation": "Il active PFK-1 et inhibe FBPase-1."
+      },
+      {
+        "content": "Il est formé rapidement après entrée du glucose dans de nombreuses cellules.",
+        "correct": true,
+        "explanation": "Les hexokinases phosphorylent le glucose."
+      },
+      {
+        "content": "Il constitue un polymère de fructose.",
+        "correct": false,
+        "explanation": "C'est un monosaccharide dérivé."
+      },
+      {
+        "content": "Il porte des phosphates en C2 et C6.",
+        "correct": true,
+        "explanation": "Le nom indique les positions."
+      },
+      {
+        "content": "Il porte des phosphates en C1 et C6.",
+        "correct": false,
+        "explanation": "Cela décrit le fructose-1,6-bisphosphate."
       }
     ],
-    "explanation": "Ces exemples élargissent les applications des dérivés glucidiques."
+    "explanation": "Le glucose-6-phosphate est un carrefour de la glycolyse, de la voie des pentoses et du métabolisme du glycogène. Le fructose-2,6-bisphosphate est un régulateur distinct du fructose-1,6-bisphosphate glycolytique."
   },
   {
     "order": 99,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Un dérivé est nommé glucose-1-phosphate. Que peut-on déduire ?",
+    "question": "À propos du glucose-1-phosphate, quelles propositions sont correctes ?",
     "choices": [
       {
-        "content": "Le phosphate est porté en C1.",
-        "correct": true,
-        "explanation": "L'indice 1 de glucose-1-phosphate désigne le carbone porteur du phosphate."
-      },
-      {
-        "content": "Il s'agit d'un ester phosphorique d'un ose.",
-        "correct": true,
-        "explanation": "Le phosphate est lié à une fonction hydroxyle du glucose par une liaison ester."
-      },
-      {
-        "content": "Le dérivé est issu du glucose.",
-        "correct": true,
-        "explanation": "Le terme glucose identifie directement le squelette glucidique de la molécule."
-      },
-      {
-        "content": "Il porte nécessairement deux phosphates.",
+        "content": "Le glucose est exclusivement sous forme ouverte en eau.",
         "correct": false,
-        "explanation": "Le nom n'en indique qu'un."
+        "explanation": "Les formes cycliques dominent."
+      },
+      {
+        "content": "Le glucose est un aldohexose.",
+        "correct": true,
+        "explanation": "Sa forme ouverte contient un aldéhyde et six carbones."
+      },
+      {
+        "content": "Le glucose est un cétohexose.",
+        "correct": false,
+        "explanation": "Le fructose est le cétohexose de référence."
+      },
+      {
+        "content": "La glycémie mesure le galactose sanguin.",
+        "correct": false,
+        "explanation": "Elle mesure le glucose."
+      },
+      {
+        "content": "Le glucose est un substrat énergétique majeur.",
+        "correct": true,
+        "explanation": "Il alimente notamment la glycolyse."
       }
     ],
-    "explanation": "Le nom encode l'ose et la position de phosphorylation."
+    "explanation": "Le glucose est l'aldohexose énergétique de référence."
   },
   {
     "order": 100,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Parmi les dix affirmations suivantes, sélectionnez exactement les cinq correctes.",
-    "choices": [
-      {
-        "content": "Le glucose peut être phosphorylé en C6.",
-        "correct": true,
-        "explanation": "La phosphorylation de l'alcool primaire de C6 forme le glucose-6-phosphate."
-      },
-      {
-        "content": "Le fructose-1,6-bisphosphate porte deux phosphates.",
-        "correct": true,
-        "explanation": "Le préfixe bis- et les indices 1,6 indiquent deux phosphates distincts en C1 et C6."
-      },
-      {
-        "content": "Le ribose-5-phosphate contribue à la biosynthèse des ribonucléotides.",
-        "correct": true,
-        "explanation": "Le ribose-5-phosphate est converti en PRPP, puis engagé dans la biosynthèse des nucléotides."
-      },
-      {
-        "content": "Les esters sulfates contribuent à la charge négative des GAG.",
-        "correct": true,
-        "explanation": "Les esters sulfates sont ionisés aux pH biologiques usuels et contribuent à la charge négative des GAG."
-      },
-      {
-        "content": "L'acide ascorbique est la vitamine C.",
-        "correct": true,
-        "explanation": "L'acide L-ascorbique est la forme chimique communément appelée vitamine C."
-      },
-      {
-        "content": "La streptomycine est un polyol du glucose.",
-        "correct": false,
-        "explanation": "La streptomycine est un antibiotique aminoglycosidique, pas un polyol du glucose."
-      },
-      {
-        "content": "Les désoxyribonucléotides sont produits par oxydation des ribonucléotides.",
-        "correct": false,
-        "explanation": "Ils sont produits par réduction des ribonucléotides, et non par oxydation."
-      },
-      {
-        "content": "La phosphorylation est une réduction du carbonyle.",
-        "correct": false,
-        "explanation": "La phosphorylation est l'estérification d'une fonction hydroxyle par un groupement phosphate."
-      },
-      {
-        "content": "Le fructose ne peut jamais porter deux phosphates.",
-        "correct": false,
-        "explanation": "Le fructose-1,6-bisphosphate et le fructose-2,6-bisphosphate portent chacun deux groupements phosphate."
-      },
-      {
-        "content": "L'être humain synthétise suffisamment de vitamine C grâce à une L-gulonolactone oxydase fonctionnelle.",
-        "correct": false,
-        "explanation": "Le gène humain correspondant n'assure pas la production d'une enzyme fonctionnelle ; la vitamine C est donc essentielle dans l'alimentation."
+    "format": "QROC",
+    "question": "Quels carbones portent les phosphates du fructose-1,6-bisphosphate ? Répondez « 1 et 6 ».",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "1 et 6",
+        "C1 et C6",
+        "1,6"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Cette sélection consolide esters d'oses et exemples de dérivés."
+    },
+    "explanation": "Le fructose-1,6-bisphosphate est un intermédiaire glycolytique portant deux phosphates distincts en C1 et C6."
   }
 ];

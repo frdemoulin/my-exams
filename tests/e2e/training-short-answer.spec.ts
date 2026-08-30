@@ -115,9 +115,6 @@ test.describe("Entraînement - réponse courte", () => {
     await page.getByTestId("quiz-short-answer-input").fill("3");
     await page.getByTestId("quiz-submit-short-answer").click();
 
-    await expect(page.getByText("Bonne réponse.", { exact: true })).toBeVisible();
-    await expect(page.getByText("Réponse acceptée", { exact: true })).toBeVisible();
-
     await page.getByTestId("quiz-open-summary").click();
     await expect(page.getByTestId("quiz-summary")).toBeVisible();
     await expect(page.getByText("Bilan du quiz", { exact: true })).toBeVisible();

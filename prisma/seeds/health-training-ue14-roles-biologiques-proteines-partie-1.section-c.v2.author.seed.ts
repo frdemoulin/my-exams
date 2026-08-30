@@ -1,657 +1,646 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-export const UE14_BIOCH_CH12_SECTION_C_V2: HealthTrainingAuthorQuestion[] = [
+/** UE14 Biochimie — Rôles biologiques des protéines, partie 1 — Section C — Récepteurs ionotropiques, pompes et transporteurs ABC */
+export const UE14_BIOCH_CH12_SECTION_C_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 45,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Concernant les récepteurs ionotropiques :",
+    "question": "Concernant les récepteurs ionotropiques, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Les fonctions réceptrice et effectrice sont assurées par la même molécule.",
-        "correct": true,
-        "explanation": "Les ionotropiques associent réception du ligand et ouverture d’un canal."
-      },
-      {
-        "content": "Un récepteur ionotropique agit uniquement comme facteur de transcription nucléaire.",
+        "content": "Récepteur et effecteur sont toujours deux protéines complètement séparées.",
         "correct": false,
-        "explanation": "Les ionotropiques associent réception du ligand et ouverture d’un canal."
+        "explanation": "Dans un récepteur ionotrope, le canal est le récepteur."
       },
       {
-        "content": "La fixation d’un messager chimique provoque l’ouverture d’un canal ionique.",
-        "correct": true,
-        "explanation": "Les ionotropiques associent réception du ligand et ouverture d’un canal."
-      },
-      {
-        "content": "La fixation du ligand ferme toujours tous les canaux.",
+        "content": "Ils ne peuvent pas modifier le potentiel de membrane.",
         "correct": false,
-        "explanation": "Les ionotropiques associent réception du ligand et ouverture d’un canal."
+        "explanation": "Le flux ionique le modifie fréquemment."
+      },
+      {
+        "content": "La sélectivité ionique dépend de la structure du pore.",
+        "correct": true,
+        "explanation": "Différents récepteurs laissent passer des ions différents."
+      },
+      {
+        "content": "Le récepteur et le canal ionique font partie du même complexe moléculaire.",
+        "correct": true,
+        "explanation": "La fixation du ligand contrôle directement l'ouverture du pore."
+      },
+      {
+        "content": "Ils permettent un flux passif d'ions selon leur gradient électrochimique.",
+        "correct": true,
+        "explanation": "Ils ne pompent pas les ions contre leur gradient."
       }
     ],
-    "explanation": "Les ionotropiques associent réception du ligand et ouverture d’un canal."
+    "explanation": "Un récepteur ionotrope ouvre directement un canal et permet un flux passif selon le gradient électrochimique."
   },
   {
     "order": 46,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quelle proposition décrit correctement le récepteur 5-HT3 ?",
+    "question": "Parmi les affirmations suivantes concernant le récepteur 5-HT3, laquelle est correcte ?",
     "choices": [
       {
-        "content": "La fixation de sérotonine au 5-HT3 ouvre un canal cationique et favorise la dépolarisation.",
+        "content": "Son activation hyperpolarise obligatoirement par entrée de Cl−.",
+        "correct": false,
+        "explanation": "Elle est généralement dépolarisante."
+      },
+      {
+        "content": "Il hydrolyse l'ATP pour pomper le sodium.",
+        "correct": false,
+        "explanation": "Le flux est passif."
+      },
+      {
+        "content": "Il est sélectif exclusivement du chlorure.",
+        "correct": false,
+        "explanation": "Il est cationique."
+      },
+      {
+        "content": "C'est un récepteur nucléaire de la sérotonine.",
+        "correct": false,
+        "explanation": "C'est un canal ligand-dépendant membranaire."
+      },
+      {
+        "content": "C'est un récepteur ionotrope.",
         "correct": true,
-        "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
-      },
-      {
-        "content": "Le 5-HT3 est un récepteur nucléaire.",
-        "correct": false,
-        "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
-      },
-      {
-        "content": "La sérotonine est une forme d’insuline.",
-        "correct": false,
-        "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
-      },
-      {
-        "content": "Le 5-HT3 provoque une sortie massive de Cl− et une hyperpolarisation.",
-        "correct": false,
-        "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
+        "explanation": "Il se distingue de la plupart des autres récepteurs sérotoninergiques qui sont des RCPG."
       }
     ],
-    "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
+    "explanation": "5-HT3 est un canal cationique activé par la sérotonine et généralement dépolarisant."
   },
   {
     "order": 47,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Repères fondamentaux sur le récepteur GABA-A :",
-    "choices": [
-      {
-        "content": "Chez un neurone mature, l’ouverture favorise généralement une entrée de Cl− et une hyperpolarisation.",
-        "correct": true,
-        "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
-      },
-      {
-        "content": "Le GABA-A est un récepteur nucléaire sans canal.",
-        "correct": false,
-        "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
-      },
-      {
-        "content": "Le GABA est un neurotransmetteur inhibiteur majeur.",
-        "correct": true,
-        "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
-      },
-      {
-        "content": "Le GABA-A provoque principalement une entrée de Na+ et une dépolarisation.",
-        "correct": false,
-        "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
+    "format": "QROC",
+    "question": "Quel neurotransmetteur active le récepteur GABAA ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "GABA",
+        "acide gamma-aminobutyrique",
+        "acide γ-aminobutyrique"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
+    },
+    "explanation": "GABAA est un canal anionique ligand-dépendant ; son effet dépend du gradient de Cl−/HCO3− et est généralement inhibiteur dans les neurones matures."
   },
   {
     "order": 48,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Parmi les propositions suivantes sur le transport par les canaux ioniques, lesquelles sont exactes ?",
-    "choices": [
-      {
-        "content": "Un canal facilite le passage selon le gradient électrochimique.",
-        "correct": true,
-        "explanation": "Les canaux facilitent la diffusion et ne réalisent pas le transport actif contre gradient."
-      },
-      {
-        "content": "Un canal utilise toujours l’ATP pour déplacer un ion contre son gradient.",
-        "correct": false,
-        "explanation": "Les canaux facilitent la diffusion et ne réalisent pas le transport actif contre gradient."
-      },
-      {
-        "content": "Un canal ne transporte pas un ion contre son gradient.",
-        "correct": true,
-        "explanation": "Les canaux facilitent la diffusion et ne réalisent pas le transport actif contre gradient."
-      },
-      {
-        "content": "Un canal impose systématiquement un transport actif primaire.",
-        "correct": false,
-        "explanation": "Les canaux facilitent la diffusion et ne réalisent pas le transport actif contre gradient."
-      }
-    ],
-    "explanation": "Les canaux facilitent la diffusion et ne réalisent pas le transport actif contre gradient."
-  },
-  {
-    "order": 49,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Concernant la Na+/K+ ATPase :",
-    "choices": [
-      {
-        "content": "Elle transporte Na+ et K+ contre leurs gradients de concentration.",
-        "correct": true,
-        "explanation": "La pompe Na+/K+ assure un transport actif ATP-dépendant."
-      },
-      {
-        "content": "Elle transporte uniquement du calcium.",
-        "correct": false,
-        "explanation": "La pompe Na+/K+ assure un transport actif ATP-dépendant."
-      },
-      {
-        "content": "Elle ne joue aucun rôle après un potentiel d’action.",
-        "correct": false,
-        "explanation": "La pompe Na+/K+ assure un transport actif ATP-dépendant."
-      },
-      {
-        "content": "La Na+/K+ ATPase est un canal passif sans consommation d’énergie.",
-        "correct": false,
-        "explanation": "La pompe Na+/K+ assure un transport actif ATP-dépendant."
-      }
-    ],
-    "explanation": "La pompe Na+/K+ assure un transport actif ATP-dépendant."
-  },
-  {
-    "order": 50,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Quelles propositions décrivent correctement la stœchiométrie de la Na+/K+ ATPase ?",
-    "choices": [
-      {
-        "content": "Le K+ est importé depuis le milieu extracellulaire.",
-        "correct": true,
-        "explanation": "Le repère à retenir est 3 Na+ sortants pour 2 K+ entrants."
-      },
-      {
-        "content": "La pompe expulse 2 K+ depuis le cytosol sans faire sortir de Na+.",
-        "correct": false,
-        "explanation": "Le repère à retenir est 3 Na+ sortants pour 2 K+ entrants."
-      },
-      {
-        "content": "La pompe expulse 3 Na+ et importe 2 K+ par cycle.",
-        "correct": true,
-        "explanation": "Le repère à retenir est 3 Na+ sortants pour 2 K+ entrants."
-      },
-      {
-        "content": "La pompe échange 2 Na+ contre 3 K+ dans le sens opposé.",
-        "correct": false,
-        "explanation": "Le repère à retenir est 3 Na+ sortants pour 2 K+ entrants."
-      }
-    ],
-    "explanation": "Le repère à retenir est 3 Na+ sortants pour 2 K+ entrants."
-  },
-  {
-    "order": 51,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Repères fondamentaux sur la structure générale des transporteurs ABC :",
-    "choices": [
-      {
-        "content": "Les transporteurs ABC utilisent l’énergie de l’hydrolyse de l’ATP.",
-        "correct": true,
-        "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
-      },
-      {
-        "content": "ABC signifie « Antibody Binding Channel ».",
-        "correct": false,
-        "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
-      },
-      {
-        "content": "Ils comportent des domaines transmembranaires.",
-        "correct": true,
-        "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
-      },
-      {
-        "content": "Ils sont dépourvus de tout domaine de fixation de nucléotide.",
-        "correct": false,
-        "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
-      }
-    ],
-    "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
-  },
-  {
-    "order": 52,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Parmi les propositions suivantes sur la P-glycoprotéine et la résistance aux médicaments, laquelle est exacte ?",
-    "choices": [
-      {
-        "content": "Elle intervient dans l’absorption intestinale des médicaments.",
-        "correct": true,
-        "explanation": "La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance."
-      },
-      {
-        "content": "Sa surexpression augmente nécessairement la sensibilité des cellules cancéreuses aux cytotoxiques.",
-        "correct": false,
-        "explanation": "La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance."
-      },
-      {
-        "content": "La P-glycoprotéine est un récepteur nucléaire.",
-        "correct": false,
-        "explanation": "La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance."
-      },
-      {
-        "content": "La P-glycoprotéine est une immunoglobuline sécrétée.",
-        "correct": false,
-        "explanation": "La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance."
-      }
-    ],
-    "explanation": "La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance."
-  },
-  {
-    "order": 53,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Concernant le canal CFTR :",
-    "choices": [
-      {
-        "content": "La mutation ΔF508 du gène CFTR est associée à la mucoviscidose.",
-        "correct": true,
-        "explanation": "CFTR est un canal chlorure de la famille ABC associé à la mucoviscidose."
-      },
-      {
-        "content": "La mutation ΔF508 provoque une drépanocytose.",
-        "correct": false,
-        "explanation": "CFTR est un canal chlorure de la famille ABC associé à la mucoviscidose."
-      },
-      {
-        "content": "CFTR est un canal de transport des ions Cl−.",
-        "correct": true,
-        "explanation": "CFTR est un canal chlorure de la famille ABC associé à la mucoviscidose."
-      },
-      {
-        "content": "CFTR est la chaîne lourde d’une immunoglobuline.",
-        "correct": false,
-        "explanation": "CFTR est un canal chlorure de la famille ABC associé à la mucoviscidose."
-      }
-    ],
-    "explanation": "CFTR est un canal chlorure de la famille ABC associé à la mucoviscidose."
-  },
-  {
-    "order": 54,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Quelles propositions décrivent correctement la distinction entre canal et pompe ?",
-    "choices": [
-      {
-        "content": "Un canal suit le gradient électrochimique.",
-        "correct": true,
-        "explanation": "Canal et pompe se distinguent notamment par la possibilité d’un transport actif contre gradient."
-      },
-      {
-        "content": "Canal et pompe déplacent toujours les ions par le même mécanisme.",
-        "correct": false,
-        "explanation": "Canal et pompe se distinguent notamment par la possibilité d’un transport actif contre gradient."
-      },
-      {
-        "content": "Une pompe comme la Na+/K+ ATPase utilise de l’énergie pour transporter contre gradient.",
-        "correct": true,
-        "explanation": "Canal et pompe se distinguent notamment par la possibilité d’un transport actif contre gradient."
-      },
-      {
-        "content": "Une pompe ne peut jamais utiliser d’ATP.",
-        "correct": false,
-        "explanation": "Canal et pompe se distinguent notamment par la possibilité d’un transport actif contre gradient."
-      }
-    ],
-    "explanation": "Canal et pompe se distinguent notamment par la possibilité d’un transport actif contre gradient."
-  },
-  {
-    "order": 55,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Dans un neurone, deux molécules de GABA se fixent sur un récepteur GABA-A. Quelles propositions sur ce récepteur sont exactes ?",
-    "choices": [
-      {
-        "content": "Deux molécules de GABA peuvent occuper les deux sites orthostériques du récepteur.",
-        "correct": true,
-        "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
-      },
-      {
-        "content": "Le GABA est une hormone stéroïdienne.",
-        "correct": false,
-        "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
-      },
-      {
-        "content": "Chez un neurone mature, l’ouverture favorise généralement une entrée de Cl− et une hyperpolarisation.",
-        "correct": true,
-        "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
-      },
-      {
-        "content": "Le GABA-A est un récepteur nucléaire sans canal.",
-        "correct": false,
-        "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
-      }
-    ],
-    "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
-  },
-  {
-    "order": 56,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Dans une situation d’application, quelle affirmation sur le transport par les canaux ioniques faut-il retenir ?",
-    "choices": [
-      {
-        "content": "Les canaux forment un passage pour des ions ou molécules chargées.",
-        "correct": true,
-        "explanation": "Les canaux facilitent la diffusion et ne réalisent pas le transport actif contre gradient."
-      },
-      {
-        "content": "Le sens de passage est indépendant de tout gradient électrochimique.",
-        "correct": false,
-        "explanation": "Les canaux facilitent la diffusion et ne réalisent pas le transport actif contre gradient."
-      },
-      {
-        "content": "Un canal utilise toujours l’ATP pour déplacer un ion contre son gradient.",
-        "correct": false,
-        "explanation": "Les canaux facilitent la diffusion et ne réalisent pas le transport actif contre gradient."
-      },
-      {
-        "content": "Un canal impose systématiquement un transport actif primaire.",
-        "correct": false,
-        "explanation": "Les canaux facilitent la diffusion et ne réalisent pas le transport actif contre gradient."
-      }
-    ],
-    "explanation": "Les canaux facilitent la diffusion et ne réalisent pas le transport actif contre gradient."
-  },
-  {
-    "order": 57,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Quelles affirmations sur la Na+/K+ ATPase sont exactes ?",
-    "choices": [
-      {
-        "content": "La Na+/K+ ATPase utilise de l’ATP.",
-        "correct": true,
-        "explanation": "La pompe Na+/K+ assure un transport actif ATP-dépendant."
-      },
-      {
-        "content": "La Na+/K+ ATPase est un canal passif sans consommation d’énergie.",
-        "correct": false,
-        "explanation": "La pompe Na+/K+ assure un transport actif ATP-dépendant."
-      },
-      {
-        "content": "Elle transporte Na+ et K+ contre leurs gradients de concentration.",
-        "correct": true,
-        "explanation": "La pompe Na+/K+ assure un transport actif ATP-dépendant."
-      },
-      {
-        "content": "Elle transporte uniquement du calcium.",
-        "correct": false,
-        "explanation": "La pompe Na+/K+ assure un transport actif ATP-dépendant."
-      }
-    ],
-    "explanation": "La pompe Na+/K+ assure un transport actif ATP-dépendant."
-  },
-  {
-    "order": 58,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Application : quelles propositions relatives à la stœchiométrie de la Na+/K+ ATPase sont correctes ?",
-    "choices": [
-      {
-        "content": "Le Na+ est expulsé depuis le milieu intracellulaire.",
-        "correct": true,
-        "explanation": "Le repère à retenir est 3 Na+ sortants pour 2 K+ entrants."
-      },
-      {
-        "content": "La pompe fait entrer 3 Na+ dans la cellule.",
-        "correct": false,
-        "explanation": "Le repère à retenir est 3 Na+ sortants pour 2 K+ entrants."
-      },
-      {
-        "content": "La pompe expulse 2 K+ depuis le cytosol sans faire sortir de Na+.",
-        "correct": false,
-        "explanation": "Le repère à retenir est 3 Na+ sortants pour 2 K+ entrants."
-      },
-      {
-        "content": "La pompe échange 2 Na+ contre 3 K+ dans le sens opposé.",
-        "correct": false,
-        "explanation": "Le repère à retenir est 3 Na+ sortants pour 2 K+ entrants."
-      }
-    ],
-    "explanation": "Le repère à retenir est 3 Na+ sortants pour 2 K+ entrants."
-  },
-  {
-    "order": 59,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Dans une situation d’application, quelles affirmations sur la structure générale des transporteurs ABC faut-il retenir ?",
-    "choices": [
-      {
-        "content": "Le transporteur comporte deux domaines intracellulaires de liaison aux nucléotides, ou NBD.",
-        "correct": true,
-        "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
-      },
-      {
-        "content": "Ils ne sont présents que dans un seul tissu humain.",
-        "correct": false,
-        "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
-      },
-      {
-        "content": "Les transporteurs ABC utilisent l’énergie de l’hydrolyse de l’ATP.",
-        "correct": true,
-        "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
-      },
-      {
-        "content": "ABC signifie « Antibody Binding Channel ».",
-        "correct": false,
-        "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
-      }
-    ],
-    "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
-  },
-  {
-    "order": 60,
-    "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Réponse numérique : combien d’ions Na+ sont exportés par cycle par la Na+/K+ ATPase ?",
+    "question": "Combien d'ions Na+ la Na+/K+-ATPase expulse-t-elle par cycle ?",
     "answer": {
       "type": "number",
       "value": 3,
       "tolerance": 0
     },
-    "explanation": "Le repère à retenir est 3 Na+ sortants pour 2 K+ entrants."
+    "explanation": "La Na+/K+-ATPase hydrolyse l'ATP pour expulser 3 Na+ et faire entrer 2 K+ par cycle."
+  },
+  {
+    "order": 49,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant les transporteurs ABC, laquelle est correcte ?",
+    "choices": [
+      {
+        "content": "Les protéines ABC n'ont aucun domaine transmembranaire.",
+        "correct": false,
+        "explanation": "Les transporteurs ABC en possèdent."
+      },
+      {
+        "content": "Les seules sous-familles ABC humaines sont B, C et G.",
+        "correct": false,
+        "explanation": "La superfamille humaine comprend plusieurs sous-familles A à G."
+      },
+      {
+        "content": "ABC signifie Amino Binding Channel.",
+        "correct": false,
+        "explanation": "ABC signifie ATP-Binding Cassette."
+      },
+      {
+        "content": "ABC signifie ATP-Binding Cassette.",
+        "correct": true,
+        "explanation": "Les protéines ABC possèdent des domaines de liaison aux nucléotides."
+      },
+      {
+        "content": "Tous les transporteurs ABC sont des canaux passifs indépendants de l'ATP.",
+        "correct": false,
+        "explanation": "La plupart utilisent directement l'ATP ; CFTR est une exception fonctionnelle comme canal."
+      }
+    ],
+    "explanation": "Les protéines ABC combinent domaines transmembranaires et domaines de liaison aux nucléotides ; plusieurs sous-familles participent au transport de xénobiotiques."
+  },
+  {
+    "order": 50,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "question": "Concernant la P-glycoprotéine ABCB1, sélectionnez exactement les deux affirmations exactes.",
+    "choices": [
+      {
+        "content": "Sa surexpression augmente nécessairement la concentration intracellulaire des cytotoxiques.",
+        "correct": false,
+        "explanation": "Elle tend au contraire à l'abaisser pour ses substrats."
+      },
+      {
+        "content": "Elle est un récepteur nucléaire.",
+        "correct": false,
+        "explanation": "C'est un transporteur ABC membranaire."
+      },
+      {
+        "content": "Sa surexpression dans certaines tumeurs contribue à la multirésistance aux médicaments.",
+        "correct": true,
+        "explanation": "Elle peut diminuer l'accumulation intracellulaire de médicaments cytotoxiques."
+      },
+      {
+        "content": "Elle transporte tous les médicaments sans sélectivité.",
+        "correct": false,
+        "explanation": "Son spectre est large mais non universel."
+      },
+      {
+        "content": "Elle peut limiter l'absorption et la biodisponibilité de certains médicaments.",
+        "correct": true,
+        "explanation": "Son efflux s'oppose au passage net vers le sang."
+      }
+    ],
+    "explanation": "P-gp/ABCB1 est une pompe d'efflux ATP-dépendante pouvant limiter l'absorption intestinale et participer à la multirésistance.",
+    "requiredSelectionCount": 2
+  },
+  {
+    "order": 51,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Concernant CFTR, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Son ouverture est régulée notamment par phosphorylation et liaison/hydrolyse de l'ATP.",
+        "correct": true,
+        "explanation": "Le contrôle du canal implique ses domaines NBD et son domaine régulateur."
+      },
+      {
+        "content": "Des variants pathogènes de CFTR causent la mucoviscidose.",
+        "correct": true,
+        "explanation": "F508del est le variant le plus fréquent dans de nombreuses populations européennes, mais il n'est pas le seul."
+      },
+      {
+        "content": "Contrairement à la plupart des ABC humains, CFTR fonctionne principalement comme un canal anionique.",
+        "correct": true,
+        "explanation": "Il conduit notamment Cl− et HCO3−."
+      },
+      {
+        "content": "CFTR appartient à la famille des protéines ABC.",
+        "correct": true,
+        "explanation": "Son architecture dérive de celle des transporteurs ABC."
+      },
+      {
+        "content": "La mucoviscidose est due exclusivement à F508del chez tous les patients.",
+        "correct": false,
+        "explanation": "De nombreux variants pathogènes existent."
+      }
+    ],
+    "explanation": "CFTR est une protéine ABC atypique fonctionnant comme canal anionique, et de nombreux variants peuvent causer la mucoviscidose."
+  },
+  {
+    "order": 52,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel type de protéine utilise directement l'ATP pour déplacer des ions contre leur gradient : canal ou pompe ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "pompe",
+        "pompe ionique",
+        "transporteur actif"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Canaux et pompes se distinguent par le couplage énergétique : les canaux suivent le gradient, les pompes peuvent le remonter."
+  },
+  {
+    "order": 53,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Combien d'ions K+ la Na+/K+-ATPase fait-elle entrer par cycle ?",
+    "answer": {
+      "type": "number",
+      "value": 2,
+      "tolerance": 0
+    },
+    "explanation": "La Na+/K+-ATPase hydrolyse l'ATP pour expulser 3 Na+ et faire entrer 2 K+ par cycle."
+  },
+  {
+    "order": 54,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Dans une autre application, concernant les récepteurs ionotropiques, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Ils permettent un flux passif d'ions selon leur gradient électrochimique.",
+        "correct": true,
+        "explanation": "Ils ne pompent pas les ions contre leur gradient."
+      },
+      {
+        "content": "Ils utilisent obligatoirement l'ATP pour transporter un ion contre son gradient.",
+        "correct": false,
+        "explanation": "Cela décrit un transport actif."
+      },
+      {
+        "content": "La sélectivité ionique dépend de la structure du pore.",
+        "correct": true,
+        "explanation": "Différents récepteurs laissent passer des ions différents."
+      },
+      {
+        "content": "Ils ne peuvent pas modifier le potentiel de membrane.",
+        "correct": false,
+        "explanation": "Le flux ionique le modifie fréquemment."
+      },
+      {
+        "content": "Le sens du flux ionique est indépendant du gradient électrochimique.",
+        "correct": false,
+        "explanation": "Le gradient détermine le flux net."
+      }
+    ],
+    "explanation": "Un récepteur ionotrope ouvre directement un canal et permet un flux passif selon le gradient électrochimique."
+  },
+  {
+    "order": 55,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant les récepteurs ionotropiques, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "La sélectivité ionique dépend de la structure du pore.",
+        "correct": true,
+        "explanation": "Différents récepteurs laissent passer des ions différents."
+      },
+      {
+        "content": "Ils permettent un flux passif d'ions selon leur gradient électrochimique.",
+        "correct": true,
+        "explanation": "Ils ne pompent pas les ions contre leur gradient."
+      },
+      {
+        "content": "Ils ne peuvent pas modifier le potentiel de membrane.",
+        "correct": false,
+        "explanation": "Le flux ionique le modifie fréquemment."
+      },
+      {
+        "content": "Leur activation peut modifier rapidement le potentiel de membrane.",
+        "correct": true,
+        "explanation": "La réponse est généralement plus rapide que celle d'une cascade métabotropique."
+      },
+      {
+        "content": "Ils utilisent obligatoirement l'ATP pour transporter un ion contre son gradient.",
+        "correct": false,
+        "explanation": "Cela décrit un transport actif."
+      }
+    ],
+    "explanation": "Un récepteur ionotrope ouvre directement un canal et permet un flux passif selon le gradient électrochimique."
+  },
+  {
+    "order": 56,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel neurotransmetteur active le récepteur 5-HT3 ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "sérotonine",
+        "5-hydroxytryptamine",
+        "5-HT"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "5-HT3 est un canal cationique activé par la sérotonine et généralement dépolarisant."
+  },
+  {
+    "order": 57,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant le récepteur GABAA ?",
+    "choices": [
+      {
+        "content": "C'est un récepteur ionotrope activé par le GABA.",
+        "correct": true,
+        "explanation": "Il appartient aux canaux ligand-dépendants."
+      },
+      {
+        "content": "Il s'agit d'un RCPG à sept traversées.",
+        "correct": false,
+        "explanation": "Cela décrit le récepteur GABAB."
+      },
+      {
+        "content": "C'est un canal exclusivement sodique.",
+        "correct": false,
+        "explanation": "C'est principalement un canal anionique."
+      },
+      {
+        "content": "Son activation est toujours dépolarisante quel que soit le gradient ionique.",
+        "correct": false,
+        "explanation": "L'effet dépend du gradient et est généralement inhibiteur dans le neurone mature."
+      },
+      {
+        "content": "Il transporte activement le chlorure grâce à l'hydrolyse d'ATP.",
+        "correct": false,
+        "explanation": "Le flux à travers le canal est passif."
+      }
+    ],
+    "explanation": "GABAA est un canal anionique ligand-dépendant ; son effet dépend du gradient de Cl−/HCO3− et est généralement inhibiteur dans les neurones matures."
+  },
+  {
+    "order": 58,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Concernant la Na+/K+-ATPase, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "Elle fait entrer deux K+ dans le cytosol par cycle.",
+        "correct": true,
+        "explanation": "Le potassium est transporté vers l'intérieur."
+      },
+      {
+        "content": "Son fonctionnement est électrogène.",
+        "correct": true,
+        "explanation": "Trois charges positives sortent pour deux qui entrent."
+      },
+      {
+        "content": "Elle fait entrer trois Na+ et sortir deux K+.",
+        "correct": false,
+        "explanation": "Le sens physiologique est l'inverse."
+      },
+      {
+        "content": "Elle utilise directement l'énergie de l'ATP.",
+        "correct": true,
+        "explanation": "C'est une pompe de transport actif primaire."
+      },
+      {
+        "content": "Elle expulse trois Na+ du cytosol par cycle.",
+        "correct": true,
+        "explanation": "Le transport du sodium est dirigé vers l'extérieur."
+      }
+    ],
+    "explanation": "La Na+/K+-ATPase hydrolyse l'ATP pour expulser 3 Na+ et faire entrer 2 K+ par cycle."
+  },
+  {
+    "order": 59,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel type de transport la P-glycoprotéine ABCB1 réalise-t-elle principalement vis-à-vis de ses substrats ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "efflux",
+        "transport d'efflux",
+        "export"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "P-gp/ABCB1 est une pompe d'efflux ATP-dépendante pouvant limiter l'absorption intestinale et participer à la multirésistance."
+  },
+  {
+    "order": 60,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant la P-glycoprotéine ABCB1 ?",
+    "choices": [
+      {
+        "content": "Elle augmente toujours l'absorption intestinale des médicaments en les faisant entrer dans l'entérocyte.",
+        "correct": false,
+        "explanation": "Elle agit comme pompe d'efflux apicale."
+      },
+      {
+        "content": "C'est un transporteur d'efflux utilisant l'ATP.",
+        "correct": true,
+        "explanation": "ABCB1 exporte de nombreux substrats hors des cellules."
+      },
+      {
+        "content": "Elle est un récepteur nucléaire.",
+        "correct": false,
+        "explanation": "C'est un transporteur ABC membranaire."
+      },
+      {
+        "content": "Dans l'intestin, elle est exprimée sur la membrane apicale des entérocytes.",
+        "correct": true,
+        "explanation": "Elle peut renvoyer des médicaments vers la lumière intestinale."
+      },
+      {
+        "content": "Sa surexpression augmente nécessairement la concentration intracellulaire des cytotoxiques.",
+        "correct": false,
+        "explanation": "Elle tend au contraire à l'abaisser pour ses substrats."
+      }
+    ],
+    "explanation": "P-gp/ABCB1 est une pompe d'efflux ATP-dépendante pouvant limiter l'absorption intestinale et participer à la multirésistance."
   },
   {
     "order": 61,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Chez un patient atteint de mucoviscidose porteur de la mutation ΔF508, quelles propositions sur le canal CFTR sont exactes ?",
-    "choices": [
-      {
-        "content": "Il est présent dans des cellules épithéliales.",
-        "correct": true,
-        "explanation": "CFTR est un canal chlorure de la famille ABC associé à la mucoviscidose."
-      },
-      {
-        "content": "CFTR transporte exclusivement le glucose.",
-        "correct": false,
-        "explanation": "CFTR est un canal chlorure de la famille ABC associé à la mucoviscidose."
-      },
-      {
-        "content": "La mutation ΔF508 du gène CFTR est associée à la mucoviscidose.",
-        "correct": true,
-        "explanation": "CFTR est un canal chlorure de la famille ABC associé à la mucoviscidose."
-      },
-      {
-        "content": "La mutation ΔF508 provoque une drépanocytose.",
-        "correct": false,
-        "explanation": "CFTR est un canal chlorure de la famille ABC associé à la mucoviscidose."
+    "format": "QROC",
+    "question": "Quel ion halogénure traverse classiquement le canal CFTR ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "chlorure",
+        "Cl-",
+        "Cl−"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "CFTR est un canal chlorure de la famille ABC associé à la mucoviscidose."
+    },
+    "explanation": "CFTR est une protéine ABC atypique fonctionnant comme canal anionique, et de nombreux variants peuvent causer la mucoviscidose."
   },
   {
     "order": 62,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Dans une situation d’application, quelle affirmation sur la distinction entre canal et pompe faut-il retenir ?",
+    "question": "Parmi les affirmations suivantes concernant la différence entre canal et pompe, laquelle est correcte ?",
     "choices": [
       {
-        "content": "Les canaux assurent une diffusion facilitée, tandis que les pompes réalisent un transport actif.",
+        "content": "Un canal ionique peut imposer durablement un flux contre le gradient sans source d'énergie.",
+        "correct": false,
+        "explanation": "Un canal suit le gradient électrochimique."
+      },
+      {
+        "content": "CFTR illustre une protéine de famille ABC qui fonctionne comme canal plutôt que comme pompe.",
         "correct": true,
-        "explanation": "Canal et pompe se distinguent notamment par la possibilité d’un transport actif contre gradient."
+        "explanation": "Sa parenté structurale n'impose pas la fonction de pompe."
       },
       {
-        "content": "Un canal force spontanément un ion à remonter son gradient.",
+        "content": "Toute protéine utilisant l'ATP est nécessairement un canal passif.",
         "correct": false,
-        "explanation": "Canal et pompe se distinguent notamment par la possibilité d’un transport actif contre gradient."
+        "explanation": "L'ATP alimente souvent un transport actif."
       },
       {
-        "content": "Canal et pompe déplacent toujours les ions par le même mécanisme.",
+        "content": "CFTR transporte le chlorure contre son gradient comme une pompe ABC classique.",
         "correct": false,
-        "explanation": "Canal et pompe se distinguent notamment par la possibilité d’un transport actif contre gradient."
+        "explanation": "Il fonctionne comme canal."
       },
       {
-        "content": "Une pompe ne peut jamais utiliser d’ATP.",
+        "content": "La Na+/K+-ATPase et 5-HT3 ont exactement le même mécanisme.",
         "correct": false,
-        "explanation": "Canal et pompe se distinguent notamment par la possibilité d’un transport actif contre gradient."
+        "explanation": "L'une est une pompe, l'autre un canal ligand-dépendant."
       }
     ],
-    "explanation": "Canal et pompe se distinguent notamment par la possibilité d’un transport actif contre gradient."
+    "explanation": "Canaux et pompes se distinguent par le couplage énergétique : les canaux suivent le gradient, les pompes peuvent le remonter."
   },
   {
     "order": 63,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Quelles affirmations sur les récepteurs ionotropiques sont exactes ?",
-    "choices": [
-      {
-        "content": "Les fonctions réceptrice et effectrice sont assurées par la même molécule.",
-        "correct": true,
-        "explanation": "Les ionotropiques associent réception du ligand et ouverture d’un canal."
-      },
-      {
-        "content": "Un récepteur ionotropique agit uniquement comme facteur de transcription nucléaire.",
-        "correct": false,
-        "explanation": "Les ionotropiques associent réception du ligand et ouverture d’un canal."
-      },
-      {
-        "content": "La fixation d’un messager chimique provoque l’ouverture d’un canal ionique.",
-        "correct": true,
-        "explanation": "Les ionotropiques associent réception du ligand et ouverture d’un canal."
-      },
-      {
-        "content": "La fixation du ligand ferme toujours tous les canaux.",
-        "correct": false,
-        "explanation": "Les ionotropiques associent réception du ligand et ouverture d’un canal."
+    "format": "QROC",
+    "question": "CFTR est-il principalement une pompe ABC classique ou un canal anionique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "canal anionique",
+        "canal chlorure",
+        "canal Cl-",
+        "canal ionique"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les ionotropiques associent réception du ligand et ouverture d’un canal."
+    },
+    "explanation": "CFTR est une protéine ABC atypique fonctionnant comme canal anionique, et de nombreux variants peuvent causer la mucoviscidose."
   },
   {
     "order": 64,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Après fixation de sérotonine sur un neurone, un canal 5-HT3 s’ouvre. Quelle proposition sur le récepteur 5-HT3 est correcte ?",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "La fixation de sérotonine au 5-HT3 ouvre un canal cationique et favorise la dépolarisation.",
+        "content": "La sélectivité ionique dépend de la structure du pore.",
         "correct": true,
-        "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
+        "explanation": "Différents récepteurs laissent passer des ions différents."
       },
       {
-        "content": "Le 5-HT3 est un récepteur nucléaire.",
+        "content": "Elle fait entrer trois Na+ et sortir deux K+.",
         "correct": false,
-        "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
+        "explanation": "Le sens physiologique est l'inverse."
       },
       {
-        "content": "La sérotonine est une forme d’insuline.",
+        "content": "Ils utilisent obligatoirement l'ATP pour transporter un ion contre son gradient.",
         "correct": false,
-        "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
+        "explanation": "Cela décrit un transport actif."
       },
       {
-        "content": "Le 5-HT3 provoque une sortie massive de Cl− et une hyperpolarisation.",
+        "content": "Ils permettent un flux passif d'ions selon leur gradient électrochimique.",
+        "correct": true,
+        "explanation": "Ils ne pompent pas les ions contre leur gradient."
+      },
+      {
+        "content": "Elle fait entrer deux K+ dans le cytosol par cycle.",
+        "correct": true,
+        "explanation": "Le potassium est transporté vers l'intérieur."
+      },
+      {
+        "content": "Elle utilise directement l'énergie de l'ATP.",
+        "correct": true,
+        "explanation": "C'est une pompe de transport actif primaire."
+      },
+      {
+        "content": "Le sens du flux ionique est indépendant du gradient électrochimique.",
         "correct": false,
-        "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
+        "explanation": "Le gradient détermine le flux net."
+      },
+      {
+        "content": "Ils ne peuvent pas modifier le potentiel de membrane.",
+        "correct": false,
+        "explanation": "Le flux ionique le modifie fréquemment."
+      },
+      {
+        "content": "Elle n'utilise jamais d'ATP.",
+        "correct": false,
+        "explanation": "L'ATP est sa source d'énergie directe."
+      },
+      {
+        "content": "Elle expulse trois Na+ du cytosol par cycle.",
+        "correct": true,
+        "explanation": "Le transport du sodium est dirigé vers l'extérieur."
       }
     ],
-    "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
+    "explanation": "Un récepteur ionotrope ouvre directement un canal et permet un flux passif selon le gradient électrochimique. La Na+/K+-ATPase hydrolyse l'ATP pour expulser 3 Na+ et faire entrer 2 K+ par cycle."
   },
   {
     "order": 65,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Autour des récepteurs ionotropiques : sélectionnez exactement les trois affirmations correctes parmi les propositions suivantes.",
-    "requiredSelectionCount": 3,
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes concernant le récepteur 5-HT3, lesquelles sont correctes ?",
     "choices": [
       {
-        "content": "Les fonctions réceptrice et effectrice sont assurées par la même molécule.",
-        "correct": true,
-        "explanation": "Les ionotropiques associent réception du ligand et ouverture d’un canal."
-      },
-      {
-        "content": "La fixation de sérotonine au 5-HT3 ouvre un canal.",
-        "correct": true,
-        "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
-      },
-      {
-        "content": "Chez un neurone mature, l’ouverture favorise généralement une entrée de Cl− et une hyperpolarisation.",
-        "correct": true,
-        "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
-      },
-      {
-        "content": "Un canal utilise toujours l’ATP pour déplacer un ion contre son gradient.",
+        "content": "Il hydrolyse l'ATP pour pomper le sodium.",
         "correct": false,
-        "explanation": "Les canaux facilitent la diffusion et ne réalisent pas le transport actif contre gradient."
+        "explanation": "Le flux est passif."
+      },
+      {
+        "content": "C'est un récepteur nucléaire de la sérotonine.",
+        "correct": false,
+        "explanation": "C'est un canal ligand-dépendant membranaire."
+      },
+      {
+        "content": "Son canal est perméable aux cations.",
+        "correct": true,
+        "explanation": "Na+ et K+ contribuent notamment au courant."
+      },
+      {
+        "content": "C'est un récepteur ionotrope.",
+        "correct": true,
+        "explanation": "Il se distingue de la plupart des autres récepteurs sérotoninergiques qui sont des RCPG."
+      },
+      {
+        "content": "Son activation est généralement dépolarisante.",
+        "correct": true,
+        "explanation": "L'entrée nette de charges positives favorise une dépolarisation."
       }
     ],
-    "explanation": "Cette question croise plusieurs repères de la section ; chaque proposition doit être évaluée séparément."
+    "explanation": "5-HT3 est un canal cationique activé par la sérotonine et généralement dépolarisant."
   },
   {
     "order": 66,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "question": "Consolidation des récepteurs ionotropiques : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
-    "choices": [
-      {
-        "content": "La sérotonine est aussi appelée 5-hydroxytryptamine.",
-        "correct": true,
-        "explanation": "Le 5-HT3 illustre une réponse ionotrope dépolarisante."
-      },
-      {
-        "content": "Deux molécules de GABA peuvent occuper les deux sites orthostériques du récepteur.",
-        "correct": true,
-        "explanation": "Le GABA-A illustre une réponse ionotrope inhibitrice."
-      },
-      {
-        "content": "Les canaux forment un passage pour des ions ou molécules chargées.",
-        "correct": true,
-        "explanation": "Les canaux facilitent la diffusion et ne réalisent pas le transport actif contre gradient."
-      },
-      {
-        "content": "La Na+/K+ ATPase utilise de l’ATP.",
-        "correct": true,
-        "explanation": "La pompe Na+/K+ assure un transport actif ATP-dépendant."
-      },
-      {
-        "content": "Le Na+ est expulsé depuis le milieu intracellulaire.",
-        "correct": true,
-        "explanation": "Le repère à retenir est 3 Na+ sortants pour 2 K+ entrants."
-      },
-      {
-        "content": "Ils ne sont présents que dans un seul tissu humain.",
-        "correct": false,
-        "explanation": "Les protéines ABC possèdent des domaines NBD utilisant l’ATP ; la plupart sont des transporteurs actifs, tandis que CFTR fonctionne comme un canal."
-      },
-      {
-        "content": "La P-glycoprotéine est une immunoglobuline sécrétée.",
-        "correct": false,
-        "explanation": "La P-glycoprotéine est un exemple clinique de transporteur ABC et de multidrug resistance."
-      },
-      {
-        "content": "CFTR transporte exclusivement le glucose.",
-        "correct": false,
-        "explanation": "CFTR est un canal chlorure de la famille ABC associé à la mucoviscidose."
-      },
-      {
-        "content": "Le récepteur 5-HT3 est un transporteur ABC utilisant l’ATP.",
-        "correct": false,
-        "explanation": "Le 5-HT3 est un récepteur ionotrope : la sérotonine commande directement l’ouverture d’un canal cationique."
-      },
-      {
-        "content": "La Na+/K+ ATPase expulse 2 Na+ et importe 3 K+ par cycle.",
-        "correct": false,
-        "explanation": "Le repère à retenir est 3 Na+ sortants pour 2 K+ entrants."
+    "format": "QROC",
+    "question": "Quel neurotransmetteur active le récepteur GABAA ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "GABA",
+        "acide gamma-aminobutyrique",
+        "acide γ-aminobutyrique"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La sélection longue vérifie la maîtrise simultanée de plusieurs notions du chapitre."
+    },
+    "explanation": "GABAA est un canal anionique ligand-dépendant ; son effet dépend du gradient de Cl−/HCO3− et est généralement inhibiteur dans les neurones matures."
   }
 ];

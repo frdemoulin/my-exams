@@ -15,6 +15,7 @@ export async function fetchHealthMockExamSummaries(input: {
   const exams = await prisma.healthMockExam.findMany({
     where: {
       courseUnitId: input.courseUnitId,
+      type: "MOCK_EXAM",
       isPublished: true,
     },
     select: {

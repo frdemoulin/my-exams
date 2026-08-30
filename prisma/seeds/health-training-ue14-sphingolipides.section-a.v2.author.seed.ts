@@ -1,669 +1,677 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie — Sphingolipides — Section A
- */
-
+/** UE14 Biochimie — Sphingolipides — Section A — Sphingosine et céramides */
 export const UE14_BIOCH_CH7_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 1,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de la sphingosine :",
+    "question": "Concernant la sphingosine, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "C'est un aminodiol à 18 carbones.",
-        "correct": true,
-        "explanation": "La sphingosine est le squelette de base des sphingolipides et comporte 18 carbones."
-      },
-      {
-        "content": "Elle possède des OH en C1 et C3.",
-        "correct": true,
-        "explanation": "La sphingosine est le squelette de base des sphingolipides et comporte 18 carbones."
-      },
-      {
-        "content": "Elle possède une fonction amine NH2 en C2.",
-        "correct": true,
-        "explanation": "La sphingosine est le squelette de base des sphingolipides et comporte 18 carbones."
-      },
-      {
-        "content": "Elle ne contient aucun atome d'azote.",
+        "content": "Elle possède un squelette glycérol à trois carbones.",
         "correct": false,
-        "explanation": "La sphingosine est le squelette de base des sphingolipides et comporte 18 carbones."
+        "explanation": "Elle possède une longue chaîne C18."
+      },
+      {
+        "content": "C1 porte l'acide gras du céramide par liaison amide.",
+        "correct": false,
+        "explanation": "L'acide gras est amidé sur l'amine de C2."
+      },
+      {
+        "content": "Elle est dépourvue d'azote.",
+        "correct": false,
+        "explanation": "Elle contient une fonction amine."
+      },
+      {
+        "content": "Elle porte un alcool primaire en C1.",
+        "correct": true,
+        "explanation": "C1 peut recevoir une tête phosphatée ou glucidique."
+      },
+      {
+        "content": "Elle porte une fonction amine en C2.",
+        "correct": true,
+        "explanation": "Cette amine forme la liaison amide du céramide."
       }
     ],
-    "explanation": "La sphingosine est le squelette de base des sphingolipides et comporte 18 carbones."
+    "explanation": "La sphingosine est une base sphingoïde C18 portant notamment OH en C1/C3 et une amine en C2."
   },
   {
     "order": 2,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Combien de carbones possède la sphingosine ?",
+    "question": "Parmi les affirmations suivantes concernant les fonctions de la sphingosine, laquelle est correcte ?",
     "choices": [
       {
-        "content": "18",
+        "content": "C1 porte la fonction amine.",
+        "correct": false,
+        "explanation": "L'amine est en C2."
+      },
+      {
+        "content": "La double liaison caractéristique est entre C1 et C2.",
+        "correct": false,
+        "explanation": "Elle est classiquement C4-C5."
+      },
+      {
+        "content": "C3 est obligatoirement estérifié par un phosphate dans tous les sphingolipides.",
+        "correct": false,
+        "explanation": "Ce n'est pas une règle des classes étudiées."
+      },
+      {
+        "content": "C3 porte un alcool secondaire.",
         "correct": true,
-        "explanation": "La sphingosine est le squelette de base des sphingolipides et comporte 18 carbones."
+        "explanation": "Il n'est pas la position principale de fixation des têtes étudiées."
       },
       {
-        "content": "16",
+        "content": "C2 porte l'alcool primaire.",
         "correct": false,
-        "explanation": "La sphingosine est le squelette de base des sphingolipides et comporte 18 carbones."
-      },
-      {
-        "content": "20",
-        "correct": false,
-        "explanation": "La sphingosine est le squelette de base des sphingolipides et comporte 18 carbones."
-      },
-      {
-        "content": "24",
-        "correct": false,
-        "explanation": "La sphingosine est le squelette de base des sphingolipides et comporte 18 carbones."
+        "explanation": "L'alcool primaire est en C1."
       }
     ],
-    "explanation": "La sphingosine est le squelette de base des sphingolipides et comporte 18 carbones."
+    "explanation": "Les fonctions de la sphingosine sont positionnelles : C1 tête polaire, C2 N-acylation, C3 alcool secondaire, C4-C5 double liaison trans."
   },
   {
     "order": 3,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos de la fonction du C1 de la sphingosine :",
-    "choices": [
-      {
-        "content": "C1 porte un alcool primaire.",
-        "correct": true,
-        "explanation": "C1 est le site de la tête phosphatée ou glucidique."
-      },
-      {
-        "content": "C1 peut fixer un acide phosphorique estérifié.",
-        "correct": true,
-        "explanation": "C1 est le site de la tête phosphatée ou glucidique."
-      },
-      {
-        "content": "C1 peut fixer un groupement glucidique.",
-        "correct": true,
-        "explanation": "C1 est le site de la tête phosphatée ou glucidique."
-      },
-      {
-        "content": "C1 porte la fonction amine qui fixe l'acide gras.",
-        "correct": false,
-        "explanation": "C1 est le site de la tête phosphatée ou glucidique."
-      }
-    ],
-    "explanation": "C1 est le site de la tête phosphatée ou glucidique."
+    "format": "QROC",
+    "question": "Combien de carbones comporte la sphingosine classique ?",
+    "answer": {
+      "type": "number",
+      "value": 18,
+      "tolerance": 0
+    },
+    "explanation": "La sphingosine de référence est une base sphingoïde C18."
   },
   {
     "order": 4,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel type d'alcool est porté par C1 ?",
+    "format": "QRM",
+    "question": "Concernant la céramidase, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "alcool primaire",
+        "content": "Son action est l'une des étapes du catabolisme des sphingolipides.",
         "correct": true,
-        "explanation": "C1 est le site de la tête phosphatée ou glucidique."
+        "explanation": "Le céramide est un intermédiaire central."
       },
       {
-        "content": "alcool secondaire",
+        "content": "Elle coupe une liaison glycosidique de GM2.",
         "correct": false,
-        "explanation": "C1 est le site de la tête phosphatée ou glucidique."
+        "explanation": "Ce rôle relève d'autres hydrolases lysosomales."
       },
       {
-        "content": "phénol",
+        "content": "Elle transforme directement la sphingomyéline en phosphatidylcholine.",
         "correct": false,
-        "explanation": "C1 est le site de la tête phosphatée ou glucidique."
+        "explanation": "Ce n'est pas sa réaction."
       },
       {
-        "content": "aucun alcool",
-        "correct": false,
-        "explanation": "C1 est le site de la tête phosphatée ou glucidique."
+        "content": "Elle agit sur une liaison N-acyle.",
+        "correct": true,
+        "explanation": "Cette liaison associe acide gras et sphingosine."
+      },
+      {
+        "content": "Elle hydrolyse la liaison amide du céramide.",
+        "correct": true,
+        "explanation": "Elle libère une base sphingoïde et un acide gras."
       }
     ],
-    "explanation": "C1 est le site de la tête phosphatée ou glucidique."
+    "explanation": "La céramidase hydrolyse la liaison amide du céramide."
   },
   {
     "order": 5,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos de la fonction du C2 de la sphingosine :",
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant les rôles des céramides, laquelle est correcte ?",
     "choices": [
       {
-        "content": "C2 porte une fonction amine.",
+        "content": "Ils participent à la barrière lipidique de l'épiderme.",
         "correct": true,
-        "explanation": "Le céramide est formé par amidification de l'amine C2."
+        "explanation": "Les céramides sont importants pour la cohésion et la limitation des pertes en eau."
       },
       {
-        "content": "Cette amine peut fixer un acide gras.",
-        "correct": true,
-        "explanation": "Le céramide est formé par amidification de l'amine C2."
-      },
-      {
-        "content": "La liaison avec l'acide gras est une liaison amide.",
-        "correct": true,
-        "explanation": "Le céramide est formé par amidification de l'amine C2."
-      },
-      {
-        "content": "C2 porte l'alcool primaire qui fixe le phosphate.",
+        "content": "Ils sont chimiquement des polysaccharides.",
         "correct": false,
-        "explanation": "Le céramide est formé par amidification de l'amine C2."
+        "explanation": "Ce sont des sphingolipides."
+      },
+      {
+        "content": "Ils ne peuvent jamais agir comme médiateurs.",
+        "correct": false,
+        "explanation": "Le céramide est bioactif."
+      },
+      {
+        "content": "Ils sont uniquement des molécules de réserve énergétique adipocytaire.",
+        "correct": false,
+        "explanation": "Leur rôle principal n'est pas celui des TAG."
+      },
+      {
+        "content": "Ils sont absents de la peau.",
+        "correct": false,
+        "explanation": "Ils sont importants dans la barrière cutanée."
       }
     ],
-    "explanation": "Le céramide est formé par amidification de l'amine C2."
+    "explanation": "Les céramides ont des rôles structuraux, métaboliques et de signalisation, notamment dans la barrière cutanée."
   },
   {
     "order": 6,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quelle liaison relie l'acide gras au C2 ?",
+    "format": "QRP",
+    "question": "Concernant le céramide comme carrefour, sélectionnez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "amide",
+        "content": "Il est obligatoirement terminé par un ganglioside GM2.",
+        "correct": false,
+        "explanation": "Les têtes sont très diverses."
+      },
+      {
+        "content": "Sa dégradation produit exclusivement du glucose.",
+        "correct": false,
+        "explanation": "Elle libère notamment sphingosine et acide gras."
+      },
+      {
+        "content": "Il ne peut jamais recevoir de tête glucidique.",
+        "correct": false,
+        "explanation": "Les glycosphingolipides en dérivent."
+      },
+      {
+        "content": "Il peut être formé par dégradation de la sphingomyéline.",
         "correct": true,
-        "explanation": "Le céramide est formé par amidification de l'amine C2."
+        "explanation": "Une sphingomyélinase libère du céramide."
       },
       {
-        "content": "ester",
-        "correct": false,
-        "explanation": "Le céramide est formé par amidification de l'amine C2."
-      },
-      {
-        "content": "éther",
-        "correct": false,
-        "explanation": "Le céramide est formé par amidification de l'amine C2."
-      },
-      {
-        "content": "glycosidique",
-        "correct": false,
-        "explanation": "Le céramide est formé par amidification de l'amine C2."
+        "content": "Il peut servir de précurseur à la sphingomyéline.",
+        "correct": true,
+        "explanation": "Une tête phosphocholine peut être transférée sur C1."
       }
     ],
-    "explanation": "Le céramide est formé par amidification de l'amine C2."
+    "explanation": "Le céramide est le noyau commun d'un grand nombre de sphingolipides complexes.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 7,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de la fonction du C3 de la sphingosine :",
+    "question": "Concernant la sphingosine-1-phosphate, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "C3 porte un alcool secondaire.",
-        "correct": true,
-        "explanation": "Le C3 porte un hydroxyle secondaire qui reste libre dans les transformations structurales considérées ; l’acylation concerne l’amine de C2 et les têtes polaires se fixent en C1."
-      },
-      {
-        "content": "Dans les dérivés étudiés, cet hydroxyle reste généralement libre.",
-        "correct": true,
-        "explanation": "Le C3 porte un hydroxyle secondaire qui reste libre dans les transformations structurales considérées ; l’acylation concerne l’amine de C2 et les têtes polaires se fixent en C1."
-      },
-      {
-        "content": "Dans les dérivés étudiés, les têtes phosphatées ou glucidiques se fixent sur l’hydroxyle de C1.",
-        "correct": true,
-        "explanation": "Le C3 porte un hydroxyle secondaire qui reste libre dans les transformations structurales considérées ; l’acylation concerne l’amine de C2 et les têtes polaires se fixent en C1."
-      },
-      {
-        "content": "C3 est le site principal de fixation de l'acide gras par liaison amide.",
+        "content": "Elle est produite par une hexosaminidase.",
         "correct": false,
-        "explanation": "Le C3 porte un hydroxyle secondaire qui reste libre dans les transformations structurales considérées ; l’acylation concerne l’amine de C2 et les têtes polaires se fixent en C1."
+        "explanation": "Elle est produite par une sphingosine kinase."
+      },
+      {
+        "content": "Elle résulte de la phosphorylation de la sphingosine en C1.",
+        "correct": true,
+        "explanation": "Une sphingosine kinase catalyse cette réaction."
+      },
+      {
+        "content": "Elle intervient dans la survie, la migration et d'autres réponses cellulaires.",
+        "correct": true,
+        "explanation": "Ses effets dépendent du contexte."
+      },
+      {
+        "content": "Son équilibre avec céramide et sphingosine participe à la régulation cellulaire.",
+        "correct": true,
+        "explanation": "Le métabolisme sphingolipidique est dynamique."
+      },
+      {
+        "content": "C'est un médiateur lipidique bioactif.",
+        "correct": true,
+        "explanation": "Elle agit notamment via des récepteurs spécifiques."
       }
     ],
-    "explanation": "Le C3 porte un hydroxyle secondaire qui reste libre dans les transformations structurales considérées ; l’acylation concerne l’amine de C2 et les têtes polaires se fixent en C1."
+    "explanation": "La S1P est une sphingosine phosphorylée en C1 et un médiateur bioactif ; sa dérégulation est impliquée dans diverses pathologies sans relation causale simpliste."
   },
   {
     "order": 8,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel type d'alcool est porté par C3 ?",
-    "choices": [
-      {
-        "content": "alcool secondaire",
-        "correct": true,
-        "explanation": "Le C3 porte un hydroxyle secondaire qui reste libre dans les transformations structurales considérées ; l’acylation concerne l’amine de C2 et les têtes polaires se fixent en C1."
-      },
-      {
-        "content": "alcool primaire",
-        "correct": false,
-        "explanation": "Le C3 porte un hydroxyle secondaire qui reste libre dans les transformations structurales considérées ; l’acylation concerne l’amine de C2 et les têtes polaires se fixent en C1."
-      },
-      {
-        "content": "phosphate",
-        "correct": false,
-        "explanation": "Le C3 porte un hydroxyle secondaire qui reste libre dans les transformations structurales considérées ; l’acylation concerne l’amine de C2 et les têtes polaires se fixent en C1."
-      },
-      {
-        "content": "amine",
-        "correct": false,
-        "explanation": "Le C3 porte un hydroxyle secondaire qui reste libre dans les transformations structurales considérées ; l’acylation concerne l’amine de C2 et les têtes polaires se fixent en C1."
-      }
-    ],
-    "explanation": "Le C3 porte un hydroxyle secondaire qui reste libre dans les transformations structurales considérées ; l’acylation concerne l’amine de C2 et les têtes polaires se fixent en C1."
+    "format": "QROC",
+    "question": "Dans une situation d'application, combien de carbones comporte la sphingosine classique ?",
+    "answer": {
+      "type": "number",
+      "value": 18,
+      "tolerance": 0
+    },
+    "explanation": "La sphingosine est une base sphingoïde C18 portant notamment OH en C1/C3 et une amine en C2."
   },
   {
     "order": 9,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos de la double liaison de la sphingosine :",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant les fonctions de la sphingosine ?",
     "choices": [
       {
-        "content": "Elle est située entre C4 et C5.",
-        "correct": true,
-        "explanation": "La sphingosine porte une double liaison trans C4-C5."
-      },
-      {
-        "content": "Elle est en configuration trans.",
-        "correct": true,
-        "explanation": "La sphingosine porte une double liaison trans C4-C5."
-      },
-      {
-        "content": "Elle fait partie des repères structuraux de la sphingosine.",
-        "correct": true,
-        "explanation": "La sphingosine porte une double liaison trans C4-C5."
-      },
-      {
-        "content": "Elle est entre C1 et C2 en configuration cis.",
+        "content": "C1 porte la fonction amine.",
         "correct": false,
-        "explanation": "La sphingosine porte une double liaison trans C4-C5."
+        "explanation": "L'amine est en C2."
+      },
+      {
+        "content": "C3 est obligatoirement estérifié par un phosphate dans tous les sphingolipides.",
+        "correct": false,
+        "explanation": "Ce n'est pas une règle des classes étudiées."
+      },
+      {
+        "content": "La sphingosine comporte classiquement une double liaison trans entre C4 et C5.",
+        "correct": true,
+        "explanation": "C'est un repère structural."
+      },
+      {
+        "content": "C2 porte l'alcool primaire.",
+        "correct": false,
+        "explanation": "L'alcool primaire est en C1."
+      },
+      {
+        "content": "La double liaison caractéristique est entre C1 et C2.",
+        "correct": false,
+        "explanation": "Elle est classiquement C4-C5."
       }
     ],
-    "explanation": "La sphingosine porte une double liaison trans C4-C5."
+    "explanation": "Les fonctions de la sphingosine sont positionnelles : C1 tête polaire, C2 N-acylation, C3 alcool secondaire, C4-C5 double liaison trans."
   },
   {
     "order": 10,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Entre quels carbones se trouve la double liaison ?",
+    "format": "QRM",
+    "question": "Concernant le céramide, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "C4-C5",
+        "content": "Le céramide sert d'intermédiaire métabolique et de molécule bioactive.",
         "correct": true,
-        "explanation": "La sphingosine porte une double liaison trans C4-C5."
+        "explanation": "Il participe aussi à l'organisation membranaire."
       },
       {
-        "content": "C1-C2",
+        "content": "Il est un triester du glycérol.",
         "correct": false,
-        "explanation": "La sphingosine porte une double liaison trans C4-C5."
+        "explanation": "Cela décrit un triacylglycérol."
       },
       {
-        "content": "C2-C3",
+        "content": "Il contient obligatoirement une choline.",
         "correct": false,
-        "explanation": "La sphingosine porte une double liaison trans C4-C5."
+        "explanation": "La choline caractérise notamment la sphingomyéline."
       },
       {
-        "content": "C17-C18",
+        "content": "L'acide gras est lié par une liaison amide à l'amine de C2.",
+        "correct": true,
+        "explanation": "La fonction carboxyle de l'acide gras réagit avec l'amine."
+      },
+      {
+        "content": "L'acide gras est lié au C1 par une liaison O-glycosidique.",
         "correct": false,
-        "explanation": "La sphingosine porte une double liaison trans C4-C5."
+        "explanation": "La liaison de l'acide gras est une amide en C2."
       }
     ],
-    "explanation": "La sphingosine porte une double liaison trans C4-C5."
+    "explanation": "Le céramide est une base sphingoïde N-acylée ; la liaison amide en C2 est fondamentale."
   },
   {
     "order": 11,
-    "difficulty": "EASY",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos du céramide :",
+    "question": "Concernant la sphingosine, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Il associe une sphingosine et un acide gras.",
-        "correct": true,
-        "explanation": "Le céramide est la structure sphingosine-acide gras par liaison amide."
-      },
-      {
-        "content": "L'acide gras est lié à l'amine C2.",
-        "correct": true,
-        "explanation": "Le céramide est la structure sphingosine-acide gras par liaison amide."
-      },
-      {
-        "content": "La liaison formée est une amide.",
-        "correct": true,
-        "explanation": "Le céramide est la structure sphingosine-acide gras par liaison amide."
-      },
-      {
-        "content": "Il associe un glycérol et trois acides gras.",
+        "content": "Elle possède un squelette glycérol à trois carbones.",
         "correct": false,
-        "explanation": "Le céramide est la structure sphingosine-acide gras par liaison amide."
+        "explanation": "Elle possède une longue chaîne C18."
+      },
+      {
+        "content": "Elle porte une fonction amine en C2.",
+        "correct": true,
+        "explanation": "Cette amine forme la liaison amide du céramide."
+      },
+      {
+        "content": "Elle porte un alcool primaire en C1.",
+        "correct": true,
+        "explanation": "C1 peut recevoir une tête phosphatée ou glucidique."
+      },
+      {
+        "content": "Elle est dépourvue d'azote.",
+        "correct": false,
+        "explanation": "Elle contient une fonction amine."
+      },
+      {
+        "content": "C2 porte une fonction carboxylique.",
+        "correct": false,
+        "explanation": "C2 porte une amine."
       }
     ],
-    "explanation": "Le céramide est la structure sphingosine-acide gras par liaison amide."
+    "explanation": "La sphingosine est une base sphingoïde C18 portant notamment OH en C1/C3 et une amine en C2."
   },
   {
     "order": 12,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel est le squelette alcool/amine du céramide ?",
-    "choices": [
-      {
-        "content": "sphingosine",
-        "correct": true,
-        "explanation": "Le céramide est la structure sphingosine-acide gras par liaison amide."
-      },
-      {
-        "content": "glycérol",
-        "correct": false,
-        "explanation": "Le céramide est la structure sphingosine-acide gras par liaison amide."
-      },
-      {
-        "content": "cholestérol",
-        "correct": false,
-        "explanation": "Le céramide est la structure sphingosine-acide gras par liaison amide."
-      },
-      {
-        "content": "ribose",
-        "correct": false,
-        "explanation": "Le céramide est la structure sphingosine-acide gras par liaison amide."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Entre quels carbones se situe la double liaison caractéristique de la sphingosine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "C4 et C5",
+        "4 et 5",
+        "entre C4 et C5",
+        "C4-C5"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le céramide est la structure sphingosine-acide gras par liaison amide."
+    },
+    "explanation": "Les fonctions de la sphingosine sont positionnelles : C1 tête polaire, C2 N-acylation, C3 alcool secondaire, C4-C5 double liaison trans."
   },
   {
     "order": 13,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos des acides gras des céramides :",
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Quelle affirmation est correcte concernant le céramide ?",
     "choices": [
       {
-        "content": "Ils sont à longue chaîne.",
-        "correct": true,
-        "explanation": "Les céramides peuvent porter des acides gras à longue ou très longue chaîne ; l’acide lignocérique est un acide gras saturé 24:0."
-      },
-      {
-        "content": "Les chaînes acyles des céramides comportent fréquemment de 16 à 24 carbones.",
-        "correct": true,
-        "explanation": "Les céramides peuvent porter des acides gras à longue ou très longue chaîne ; l’acide lignocérique est un acide gras saturé 24:0."
-      },
-      {
-        "content": "L’acide lignocérique 24:0 est un exemple d’acide gras à très longue chaîne pouvant entrer dans un céramide.",
-        "correct": true,
-        "explanation": "Les céramides peuvent porter des acides gras à longue ou très longue chaîne ; l’acide lignocérique est un acide gras saturé 24:0."
-      },
-      {
-        "content": "Les céramides ne contiennent jamais d'acide gras.",
+        "content": "Il contient obligatoirement une choline.",
         "correct": false,
-        "explanation": "Les céramides peuvent porter des acides gras à longue ou très longue chaîne ; l’acide lignocérique est un acide gras saturé 24:0."
+        "explanation": "La choline caractérise notamment la sphingomyéline."
+      },
+      {
+        "content": "Il ne peut servir de précurseur à aucun autre sphingolipide.",
+        "correct": false,
+        "explanation": "Il est un carrefour de biosynthèse et de catabolisme."
+      },
+      {
+        "content": "L'acide gras est lié au C1 par une liaison O-glycosidique.",
+        "correct": false,
+        "explanation": "La liaison de l'acide gras est une amide en C2."
+      },
+      {
+        "content": "L'acide gras est lié par une liaison amide à l'amine de C2.",
+        "correct": true,
+        "explanation": "La fonction carboxyle de l'acide gras réagit avec l'amine."
+      },
+      {
+        "content": "Il est un triester du glycérol.",
+        "correct": false,
+        "explanation": "Cela décrit un triacylglycérol."
       }
     ],
-    "explanation": "Les céramides peuvent porter des acides gras à longue ou très longue chaîne ; l’acide lignocérique est un acide gras saturé 24:0."
+    "explanation": "Le céramide est une base sphingoïde N-acylée ; la liaison amide en C2 est fondamentale."
   },
   {
     "order": 14,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel nom porte l’acide gras saturé 24:0 ?",
-    "choices": [
-      {
-        "content": "acide lignocérique",
-        "correct": true,
-        "explanation": "Les céramides peuvent porter des acides gras à longue ou très longue chaîne ; l’acide lignocérique est un acide gras saturé 24:0."
-      },
-      {
-        "content": "acide palmitoléique",
-        "correct": false,
-        "explanation": "Les céramides peuvent porter des acides gras à longue ou très longue chaîne ; l’acide lignocérique est un acide gras saturé 24:0."
-      },
-      {
-        "content": "acide linoléique",
-        "correct": false,
-        "explanation": "Les céramides peuvent porter des acides gras à longue ou très longue chaîne ; l’acide lignocérique est un acide gras saturé 24:0."
-      },
-      {
-        "content": "acide arachidonique",
-        "correct": false,
-        "explanation": "Les céramides peuvent porter des acides gras à longue ou très longue chaîne ; l’acide lignocérique est un acide gras saturé 24:0."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quelle liaison unit l'acide gras à l'amine C2 de la sphingosine dans un céramide ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "liaison amide",
+        "amide"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les céramides peuvent porter des acides gras à longue ou très longue chaîne ; l’acide lignocérique est un acide gras saturé 24:0."
+    },
+    "explanation": "Le carboxyle de l'acide gras et l'amine C2 forment une liaison amide."
   },
   {
     "order": 15,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos de la céramidase :",
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "question": "Parmi les affirmations suivantes concernant les rôles des céramides, retenez exactement les deux correctes.",
     "choices": [
       {
-        "content": "Elle dégrade le céramide.",
+        "content": "Ils participent à la barrière lipidique de l'épiderme.",
         "correct": true,
-        "explanation": "La céramidase hydrolyse le céramide en sphingosine et acide gras."
+        "explanation": "Les céramides sont importants pour la cohésion et la limitation des pertes en eau."
       },
       {
-        "content": "Elle libère de la sphingosine.",
+        "content": "Ils participent à des voies de signalisation cellulaire.",
         "correct": true,
-        "explanation": "La céramidase hydrolyse le céramide en sphingosine et acide gras."
+        "explanation": "Selon le contexte, ils peuvent favoriser différenciation, stress ou apoptose."
       },
       {
-        "content": "Elle libère un acide gras.",
-        "correct": true,
-        "explanation": "La céramidase hydrolyse le céramide en sphingosine et acide gras."
-      },
-      {
-        "content": "Elle transforme directement le céramide en cholestérol.",
+        "content": "Ils ne peuvent jamais agir comme médiateurs.",
         "correct": false,
-        "explanation": "La céramidase hydrolyse le céramide en sphingosine et acide gras."
+        "explanation": "Le céramide est bioactif."
+      },
+      {
+        "content": "Ils sont absents de la peau.",
+        "correct": false,
+        "explanation": "Ils sont importants dans la barrière cutanée."
+      },
+      {
+        "content": "Ils sont uniquement des molécules de réserve énergétique adipocytaire.",
+        "correct": false,
+        "explanation": "Leur rôle principal n'est pas celui des TAG."
       }
     ],
-    "explanation": "La céramidase hydrolyse le céramide en sphingosine et acide gras."
+    "explanation": "Les céramides ont des rôles structuraux, métaboliques et de signalisation, notamment dans la barrière cutanée.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 16,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quelle enzyme dégrade le céramide ?",
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles propositions sont exactes concernant le céramide comme carrefour ?",
     "choices": [
       {
-        "content": "céramidase",
+        "content": "Sa dégradation produit exclusivement du glucose.",
+        "correct": false,
+        "explanation": "Elle libère notamment sphingosine et acide gras."
+      },
+      {
+        "content": "Il peut servir de précurseur à la sphingomyéline.",
         "correct": true,
-        "explanation": "La céramidase hydrolyse le céramide en sphingosine et acide gras."
+        "explanation": "Une tête phosphocholine peut être transférée sur C1."
       },
       {
-        "content": "sphingomyélinase",
-        "correct": false,
-        "explanation": "La céramidase hydrolyse le céramide en sphingosine et acide gras."
+        "content": "Il peut servir de précurseur à des glycosphingolipides.",
+        "correct": true,
+        "explanation": "Une tête glucidique est ajoutée en C1."
       },
       {
-        "content": "PLA2",
-        "correct": false,
-        "explanation": "La céramidase hydrolyse le céramide en sphingosine et acide gras."
+        "content": "Il peut être formé par dégradation de la sphingomyéline.",
+        "correct": true,
+        "explanation": "Une sphingomyélinase libère du céramide."
       },
       {
-        "content": "lactase",
-        "correct": false,
-        "explanation": "La céramidase hydrolyse le céramide en sphingosine et acide gras."
+        "content": "Sa dégradation peut redonner une base sphingoïde.",
+        "correct": true,
+        "explanation": "La céramidase hydrolyse la liaison amide."
       }
     ],
-    "explanation": "La céramidase hydrolyse le céramide en sphingosine et acide gras."
+    "explanation": "Le céramide est le noyau commun d'un grand nombre de sphingolipides complexes."
   },
   {
     "order": 17,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "À propos des rôles structuraux des céramides :",
-    "choices": [
-      {
-        "content": "Ils sont des composants membranaires.",
-        "correct": true,
-        "explanation": "Les céramides ont un rôle majeur dans la barrière cutanée."
-      },
-      {
-        "content": "Ils participent à la barrière de l'épiderme.",
-        "correct": true,
-        "explanation": "Les céramides ont un rôle majeur dans la barrière cutanée."
-      },
-      {
-        "content": "Ils contribuent à la cohésion et au contrôle de l'hydratation cutanée.",
-        "correct": true,
-        "explanation": "Les céramides ont un rôle majeur dans la barrière cutanée."
-      },
-      {
-        "content": "Ils sont uniquement des réserves de glucose.",
-        "correct": false,
-        "explanation": "Les céramides ont un rôle majeur dans la barrière cutanée."
-      }
-    ],
-    "explanation": "Les céramides ont un rôle majeur dans la barrière cutanée."
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel carbone de la sphingosine est phosphorylé dans la sphingosine-1-phosphate ?",
+    "answer": {
+      "type": "number",
+      "value": 1,
+      "tolerance": 0
+    },
+    "explanation": "La S1P est une sphingosine phosphorylée en C1 et un médiateur bioactif ; sa dérégulation est impliquée dans diverses pathologies sans relation causale simpliste."
   },
   {
     "order": 18,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Quelle enzyme hydrolyse le céramide en sphingosine et acide gras ?",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "céramidase",
-        "ceramidase"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRU",
+    "question": "Parmi les affirmations suivantes concernant la sphingosine, laquelle est correcte ?",
+    "choices": [
+      {
+        "content": "Elle possède un squelette glycérol à trois carbones.",
+        "correct": false,
+        "explanation": "Elle possède une longue chaîne C18."
+      },
+      {
+        "content": "C1 porte l'acide gras du céramide par liaison amide.",
+        "correct": false,
+        "explanation": "L'acide gras est amidé sur l'amine de C2."
+      },
+      {
+        "content": "Elle porte une fonction amine en C2.",
+        "correct": true,
+        "explanation": "Cette amine forme la liaison amide du céramide."
+      },
+      {
+        "content": "Elle est dépourvue d'azote.",
+        "correct": false,
+        "explanation": "Elle contient une fonction amine."
+      },
+      {
+        "content": "C2 porte une fonction carboxylique.",
+        "correct": false,
+        "explanation": "C2 porte une amine."
       }
-    },
-    "explanation": "La céramidase dégrade le céramide."
+    ],
+    "explanation": "La sphingosine est une base sphingoïde C18 portant notamment OH en C1/C3 et une amine en C2."
   },
   {
     "order": 19,
-    "difficulty": "EASY",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "À propos des rôles de signalisation des céramides :",
+    "question": "Quelles propositions sont exactes concernant les fonctions de la sphingosine ?",
     "choices": [
       {
-        "content": "Ils peuvent participer à la transduction du signal.",
-        "correct": true,
-        "explanation": "Les céramides sont aussi des médiateurs de signalisation."
-      },
-      {
-        "content": "Ils peuvent participer à l’activation de voies conduisant à l’apoptose.",
-        "correct": true,
-        "explanation": "Les céramides sont aussi des médiateurs de signalisation."
-      },
-      {
-        "content": "Ils peuvent aussi moduler la différenciation et la prolifération cellulaires.",
-        "correct": true,
-        "explanation": "Les céramides sont aussi des médiateurs de signalisation."
-      },
-      {
-        "content": "Ils n'ont aucun rôle fonctionnel en dehors de la structure.",
+        "content": "La double liaison caractéristique est entre C1 et C2.",
         "correct": false,
-        "explanation": "Les céramides sont aussi des médiateurs de signalisation."
-      }
-    ],
-    "explanation": "Les céramides sont aussi des médiateurs de signalisation."
-  },
-  {
-    "order": 20,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel processus de mort cellulaire peut être favorisé par le céramide ?",
-    "choices": [
-      {
-        "content": "apoptose",
-        "correct": true,
-        "explanation": "Les céramides sont aussi des médiateurs de signalisation."
+        "explanation": "Elle est classiquement C4-C5."
       },
       {
-        "content": "mitose uniquement",
+        "content": "C2 porte l'alcool primaire.",
         "correct": false,
-        "explanation": "Les céramides sont aussi des médiateurs de signalisation."
-      },
-      {
-        "content": "méiose uniquement",
-        "correct": false,
-        "explanation": "Les céramides sont aussi des médiateurs de signalisation."
-      },
-      {
-        "content": "traduction",
-        "correct": false,
-        "explanation": "Les céramides sont aussi des médiateurs de signalisation."
-      }
-    ],
-    "explanation": "Les céramides sont aussi des médiateurs de signalisation."
-  },
-  {
-    "order": 21,
-    "difficulty": "MEDIUM",
-    "format": "QRP",
-    "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux fonctions alcool de la sphingosine.",
-    "choices": [
-      {
-        "content": "OH en C1",
-        "correct": true,
-        "explanation": "Alcool primaire."
-      },
-      {
-        "content": "OH en C3",
-        "correct": true,
-        "explanation": "Alcool secondaire."
-      },
-      {
-        "content": "OH en C2",
-        "correct": false,
-        "explanation": "C2 porte NH2."
-      },
-      {
-        "content": "OH en C4",
-        "correct": false,
-        "explanation": "C4 appartient à la double liaison."
-      }
-    ],
-    "explanation": "La sphingosine porte des OH en C1 et C3."
-  },
-  {
-    "order": 22,
-    "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Sélectionnez exactement les cinq affirmations correctes.",
-    "choices": [
-      {
-        "content": "La sphingosine a 18 C.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "C1 porte un alcool primaire.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "C2 porte une amine.",
-        "correct": true,
-        "explanation": "Repère."
+        "explanation": "L'alcool primaire est en C1."
       },
       {
         "content": "C3 porte un alcool secondaire.",
         "correct": true,
-        "explanation": "Repère."
+        "explanation": "Il n'est pas la position principale de fixation des têtes étudiées."
       },
       {
-        "content": "La double liaison C4-C5 est trans.",
+        "content": "La sphingosine comporte classiquement une double liaison trans entre C4 et C5.",
         "correct": true,
-        "explanation": "Repère."
+        "explanation": "C'est un repère structural."
       },
       {
-        "content": "Le céramide contient du glycérol.",
+        "content": "C1 porte la fonction amine.",
         "correct": false,
-        "explanation": "Sphingosine."
-      },
-      {
-        "content": "Le C2 fixe l'acide gras par ester.",
-        "correct": false,
-        "explanation": "Amide."
-      },
-      {
-        "content": "C3 fixe obligatoirement le phosphate.",
-        "correct": false,
-        "explanation": "Dans les dérivés étudiés, les têtes polaires se fixent en C1 et l’acide gras sur l’amine de C2."
-      },
-      {
-        "content": "La sphingosine a 27 C.",
-        "correct": false,
-        "explanation": "18."
-      },
-      {
-        "content": "La céramidase forme la sphingomyéline.",
-        "correct": false,
-        "explanation": "Elle dégrade le céramide."
+        "explanation": "L'amine est en C2."
       }
     ],
-    "explanation": "Synthèse structurale de la sphingosine et du céramide."
+    "explanation": "Les fonctions de la sphingosine sont positionnelles : C1 tête polaire, C2 N-acylation, C3 alcool secondaire, C4-C5 double liaison trans."
+  },
+  {
+    "order": 20,
+    "difficulty": "MEDIUM",
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
+    "choices": [
+      {
+        "content": "Le céramide n'a aucun lien métabolique avec la sphingomyéline.",
+        "correct": false,
+        "explanation": "Les deux sont directement interconvertibles par certaines voies."
+      },
+      {
+        "content": "Sa dégradation produit exclusivement du glucose.",
+        "correct": false,
+        "explanation": "Elle libère notamment sphingosine et acide gras."
+      },
+      {
+        "content": "La longueur de la chaîne N-acyle varie selon l'espèce moléculaire.",
+        "correct": true,
+        "explanation": "Les chaînes longues et très longues sont fréquentes."
+      },
+      {
+        "content": "L'acide gras est lié au C1 par une liaison O-glycosidique.",
+        "correct": false,
+        "explanation": "La liaison de l'acide gras est une amide en C2."
+      },
+      {
+        "content": "Il contient obligatoirement une choline.",
+        "correct": false,
+        "explanation": "La choline caractérise notamment la sphingomyéline."
+      },
+      {
+        "content": "Il ne peut jamais recevoir de tête glucidique.",
+        "correct": false,
+        "explanation": "Les glycosphingolipides en dérivent."
+      },
+      {
+        "content": "L'acide gras est lié par une liaison amide à l'amine de C2.",
+        "correct": true,
+        "explanation": "La fonction carboxyle de l'acide gras réagit avec l'amine."
+      },
+      {
+        "content": "Il peut servir de précurseur à la sphingomyéline.",
+        "correct": true,
+        "explanation": "Une tête phosphocholine peut être transférée sur C1."
+      },
+      {
+        "content": "Il peut être formé par dégradation de la sphingomyéline.",
+        "correct": true,
+        "explanation": "Une sphingomyélinase libère du céramide."
+      },
+      {
+        "content": "Il associe une base sphingoïde et un acide gras.",
+        "correct": true,
+        "explanation": "Le céramide est le noyau de nombreux sphingolipides."
+      }
+    ],
+    "explanation": "Le céramide est une base sphingoïde N-acylée ; la liaison amide en C2 est fondamentale. Le céramide est le noyau commun d'un grand nombre de sphingolipides complexes."
+  },
+  {
+    "order": 21,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes concernant la céramidase, lesquelles sont correctes ?",
+    "choices": [
+      {
+        "content": "Son action est l'une des étapes du catabolisme des sphingolipides.",
+        "correct": true,
+        "explanation": "Le céramide est un intermédiaire central."
+      },
+      {
+        "content": "Elle agit sur une liaison N-acyle.",
+        "correct": true,
+        "explanation": "Cette liaison associe acide gras et sphingosine."
+      },
+      {
+        "content": "Elle ajoute un acide gras au céramide.",
+        "correct": false,
+        "explanation": "Elle hydrolyse le céramide."
+      },
+      {
+        "content": "Elle transforme directement la sphingomyéline en phosphatidylcholine.",
+        "correct": false,
+        "explanation": "Ce n'est pas sa réaction."
+      },
+      {
+        "content": "Elle est distincte de la sphingomyélinase.",
+        "correct": true,
+        "explanation": "La sphingomyélinase produit du céramide à partir de sphingomyéline."
+      }
+    ],
+    "explanation": "La céramidase hydrolyse la liaison amide du céramide."
+  },
+  {
+    "order": 22,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel rôle cutané majeur est associé aux céramides ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "barrière cutanée",
+        "barrière de l'épiderme",
+        "cohésion et hydratation de la peau",
+        "limitation des pertes en eau"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Les céramides ont des rôles structuraux, métaboliques et de signalisation, notamment dans la barrière cutanée."
   }
 ];

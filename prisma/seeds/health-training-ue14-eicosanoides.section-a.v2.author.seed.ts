@@ -1,640 +1,645 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie — Les eicosanoïdes — Section A
- * Banque éditoriale auteur — à intégrer via le helper partagé du repo.
- */
-
+/** UE14 Biochimie — Les eicosanoïdes — Section A — Eicosanoïdes, acide arachidonique et voies COX/LOX */
 export const UE14_BIOCH_CH5_SECTION_A_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 1,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Les eicosanoïdes :",
+    "question": "Concernant les eicosanoïdes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Sont majoritairement des médiateurs lipidiques dérivés d’acides gras à 20 carbones.",
-        "correct": true,
-        "explanation": "Repère."
-      },
-      {
-        "content": "Dérivent de l’acide arachidonique ou d’acides gras voisins.",
-        "correct": true,
-        "explanation": "Origine."
-      },
-      {
-        "content": "Ont d’importantes fonctions biologiques.",
-        "correct": true,
-        "explanation": "Importance."
-      },
-      {
-        "content": "Sont tous des protéines.",
+        "content": "Ils n'ont aucun rôle dans l'inflammation ni l'hémostase.",
         "correct": false,
-        "explanation": "Ce sont des dérivés lipidiques."
+        "explanation": "Plusieurs eicosanoïdes modulent inflammation, tonus vasculaire et fonction plaquettaire."
+      },
+      {
+        "content": "Ils comprennent notamment prostanoïdes, leucotriènes et lipoxines.",
+        "correct": true,
+        "explanation": "Ce sont les grandes familles étudiées."
+      },
+      {
+        "content": "Ce sont tous des protéines enzymatiques.",
+        "correct": false,
+        "explanation": "Ce sont des médiateurs lipidiques."
+      },
+      {
+        "content": "Leurs effets dépendent du médiateur et du tissu cible.",
+        "correct": true,
+        "explanation": "Des médiateurs proches peuvent avoir des effets opposés."
+      },
+      {
+        "content": "Ils possèdent tous exactement la même structure cyclique.",
+        "correct": false,
+        "explanation": "Les leucotriènes, par exemple, ne partagent pas le cycle des prostanoïdes."
       }
     ],
-    "explanation": "Les eicosanoïdes sont des médiateurs lipidiques dérivés d’acides gras à 20 carbones."
+    "explanation": "Les eicosanoïdes sont des médiateurs lipidiques issus de précurseurs C20 ou voisins, à action généralement locale et brève."
   },
   {
     "order": 2,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Les grandes familles d’eicosanoïdes comprennent :",
+    "format": "QRU",
+    "question": "À propos de l'acide arachidonique, quelle affirmation est correcte ?",
     "choices": [
       {
-        "content": "Les prostanoïdes.",
-        "correct": true,
-        "explanation": "Famille."
-      },
-      {
-        "content": "Les leucotriènes.",
-        "correct": true,
-        "explanation": "Famille."
-      },
-      {
-        "content": "Les lipoxines.",
-        "correct": true,
-        "explanation": "Famille."
-      },
-      {
-        "content": "Les triglycérides uniquement.",
+        "content": "Il est un acide gras saturé.",
         "correct": false,
-        "explanation": "Les triglycérides sont une autre famille lipidique."
+        "explanation": "Il possède quatre doubles liaisons."
+      },
+      {
+        "content": "Il ne peut donner aucun médiateur lipidique.",
+        "correct": false,
+        "explanation": "Il est au contraire un précurseur central."
+      },
+      {
+        "content": "Il appartient à la série n-3.",
+        "correct": false,
+        "explanation": "Il appartient à n-6."
+      },
+      {
+        "content": "Il est noté 18:3 n-3.",
+        "correct": false,
+        "explanation": "Cela décrit l'alpha-linolénique."
+      },
+      {
+        "content": "Il comporte 20 carbones et 4 doubles liaisons.",
+        "correct": true,
+        "explanation": "Sa notation est 20:4."
       }
     ],
-    "explanation": "Prostanoïdes, leucotriènes et lipoxines sont les grandes familles étudiées."
+    "explanation": "L'acide arachidonique est un acide gras 20:4 Δ5,8,11,14 de la série n-6."
   },
   {
     "order": 3,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Les prostanoïdes regroupent :",
-    "choices": [
-      {
-        "content": "Les prostaglandines.",
-        "correct": true,
-        "explanation": "Sous-famille."
-      },
-      {
-        "content": "Les thromboxanes.",
-        "correct": true,
-        "explanation": "Sous-famille."
-      },
-      {
-        "content": "Des produits de la voie COX.",
-        "correct": true,
-        "explanation": "Voie principale."
-      },
-      {
-        "content": "Uniquement les leucotriènes.",
-        "correct": false,
-        "explanation": "Les leucotriènes relèvent de la voie lipoxygénase."
+    "format": "QROC",
+    "question": "Quelle enzyme peut libérer l'acide arachidonique à partir de phospholipides membranaires ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "phospholipase A2",
+        "PLA2",
+        "phospholipase A₂"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les prostaglandines et thromboxanes constituent les prostanoïdes."
+    },
+    "explanation": "La phospholipase A2 peut libérer l'acide arachidonique des phospholipides membranaires avant sa transformation en eicosanoïdes."
   },
   {
     "order": 4,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "L’acide arachidonique :",
+    "question": "Concernant la voie cyclo-oxygénase COX, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Possède 20 carbones.",
+        "content": "L'aspirine et l'ibuprofène inhibent la cyclo-oxygénase.",
         "correct": true,
-        "explanation": "20:4."
+        "explanation": "Ils diminuent la synthèse de prostanoïdes."
       },
       {
-        "content": "Possède quatre doubles liaisons.",
-        "correct": true,
-        "explanation": "20:4."
-      },
-      {
-        "content": "Est noté 20:4 Δ5,8,11,14.",
-        "correct": true,
-        "explanation": "Notation."
-      },
-      {
-        "content": "Est un acide gras saturé 20:0.",
+        "content": "Les prostanoïdes ne dérivent jamais de COX.",
         "correct": false,
-        "explanation": "Il possède quatre doubles liaisons."
+        "explanation": "Ils en sont les produits majeurs."
+      },
+      {
+        "content": "La voie COX ne produit pas directement les leucotriènes.",
+        "correct": true,
+        "explanation": "Les leucotriènes relèvent surtout de la voie 5-lipoxygénase."
+      },
+      {
+        "content": "L'aspirine stimule la COX pour augmenter TXA2.",
+        "correct": false,
+        "explanation": "Elle inhibe la COX."
+      },
+      {
+        "content": "La voie COX transforme l'acide arachidonique en précurseurs de prostanoïdes.",
+        "correct": true,
+        "explanation": "Prostaglandines, prostacycline et thromboxanes dérivent de cette voie."
       }
     ],
-    "explanation": "L’acide arachidonique est le précurseur central 20:4 Δ5,8,11,14."
+    "explanation": "La cyclo-oxygénase oriente l'acide arachidonique vers les prostanoïdes."
   },
   {
     "order": 5,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "À quelle série ω appartient l’acide arachidonique 20:4 Δ5,8,11,14 ?",
+    "question": "À propos de la voie des lipoxygénases, quelle affirmation est correcte ?",
     "choices": [
       {
-        "content": "ω6 / n-6.",
+        "content": "Des coopérations entre lipoxygénases peuvent participer à la biosynthèse des lipoxines.",
         "correct": true,
-        "explanation": "La première double liaison rencontrée depuis l’extrémité méthyle se situe en position ω6."
+        "explanation": "Les lipoxines sont des médiateurs de résolution."
       },
       {
-        "content": "ω3 / n-3.",
+        "content": "LTA4 est le produit direct majeur de COX.",
         "correct": false,
-        "explanation": "Autre série."
+        "explanation": "Il relève de la voie 5-LOX."
       },
       {
-        "content": "ω9 / n-9.",
+        "content": "La 5-lipoxygénase est une glycosidase digestive.",
         "correct": false,
-        "explanation": "Autre série."
+        "explanation": "Elle oxygène des acides gras."
       },
       {
-        "content": "Il est saturé, donc ω0.",
+        "content": "Les lipoxines sont des triglycérides de stockage.",
         "correct": false,
-        "explanation": "Il est polyinsaturé."
+        "explanation": "Ce sont des médiateurs lipidiques."
+      },
+      {
+        "content": "Les lipoxygénases ne peuvent agir que sur des protéines.",
+        "correct": false,
+        "explanation": "Leurs substrats sont notamment des acides gras polyinsaturés."
       }
     ],
-    "explanation": "L’acide arachidonique est 20:4 n-6."
+    "explanation": "La 5-lipoxygénase mène à LTA4 ; d'autres réactions lipoxygénases participent notamment à la formation de lipoxines."
   },
   {
     "order": 6,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "L’acide arachidonique disponible pour la synthèse des eicosanoïdes peut provenir :",
+    "format": "QRP",
+    "question": "Parmi les propositions suivantes sur l'orientation du métabolisme de l'acide arachidonique, sélectionnez exactement les deux exactes.",
     "choices": [
       {
-        "content": "L’alimentation.",
+        "content": "Un même précurseur peut donc conduire à des médiateurs aux effets très différents.",
         "correct": true,
-        "explanation": "L'alimentation peut apporter directement de l'acide arachidonique."
+        "explanation": "C'est une caractéristique importante de la signalisation lipidique."
       },
       {
-        "content": "Le clivage de phospholipides membranaires.",
-        "correct": true,
-        "explanation": "La phospholipase A₂ peut libérer l'acide arachidonique membranaire."
-      },
-      {
-        "content": "Une disponibilité permettant la synthèse d’eicosanoïdes.",
-        "correct": true,
-        "explanation": "Rôle de précurseur."
-      },
-      {
-        "content": "La traduction de l’ARNm.",
+        "content": "Toutes les cellules transforment l'acide arachidonique en exactement le même médiateur.",
         "correct": false,
-        "explanation": "Sans rapport avec la libération d’un acide gras."
+        "explanation": "Le profil enzymatique cellulaire est déterminant."
+      },
+      {
+        "content": "COX et 5-LOX sont deux noms pour la même enzyme.",
+        "correct": false,
+        "explanation": "Ce sont des voies enzymatiques distinctes."
+      },
+      {
+        "content": "La voie 5-LOX mène aux leucotriènes.",
+        "correct": true,
+        "explanation": "LTA4 est un intermédiaire central."
+      },
+      {
+        "content": "L'acide arachidonique n'est jamais utilisé comme substrat de COX.",
+        "correct": false,
+        "explanation": "Il est un substrat majeur."
       }
     ],
-    "explanation": "L’acide arachidonique peut provenir de l’alimentation ou être libéré des phospholipides membranaires par une phospholipase A₂."
+    "explanation": "Le devenir de l'acide arachidonique dépend des enzymes disponibles : COX vers prostanoïdes, 5-LOX vers leucotriènes.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 7,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "La voie de la cyclo-oxygénase (COX) :",
+    "question": "Concernant les prostanoïdes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Utilise l’acide arachidonique comme précurseur.",
-        "correct": true,
-        "explanation": "Schéma simplifié."
-      },
-      {
-        "content": "Conduit aux prostanoïdes.",
-        "correct": true,
-        "explanation": "Produit de voie."
-      },
-      {
-        "content": "Conduit donc notamment aux prostaglandines et thromboxanes.",
-        "correct": true,
-        "explanation": "Sous-familles."
-      },
-      {
-        "content": "Est la voie principale de formation des leucotriènes.",
+        "content": "La voie COX ne participe pas à leur biosynthèse.",
         "correct": false,
-        "explanation": "Les leucotriènes relèvent des lipoxygénases."
+        "explanation": "Elle en est la voie centrale."
+      },
+      {
+        "content": "Ils regroupent prostaglandines, prostacycline et thromboxanes.",
+        "correct": true,
+        "explanation": "Ce sont des produits de la voie COX."
+      },
+      {
+        "content": "Le médiateur final dépend des enzymes terminales exprimées par le tissu.",
+        "correct": true,
+        "explanation": "Plaquettes et endothélium ne produisent pas les mêmes profils."
+      },
+      {
+        "content": "TXA2 et PGI2 ont des effets vasculaires et plaquettaires opposés.",
+        "correct": true,
+        "explanation": "Le premier est proagrégant/vasoconstricteur, le second antiagrégant/vasodilatateur."
+      },
+      {
+        "content": "Ils partagent un intermédiaire biosynthétique issu de COX.",
+        "correct": true,
+        "explanation": "PGH2 sert de précurseur à plusieurs synthases terminales."
       }
     ],
-    "explanation": "La voie COX mène aux prostanoïdes."
+    "explanation": "Les prostanoïdes partagent la voie COX puis divergent selon les synthases terminales exprimées."
   },
   {
     "order": 8,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "La voie des lipoxygénases :",
-    "choices": [
-      {
-        "content": "Conduit notamment aux leucotriènes.",
-        "correct": true,
-        "explanation": "Produit."
-      },
-      {
-        "content": "Conduit notamment aux lipoxines.",
-        "correct": true,
-        "explanation": "Produit."
-      },
-      {
-        "content": "Est distincte de la voie COX.",
-        "correct": true,
-        "explanation": "Deux branches du schéma."
-      },
-      {
-        "content": "Produit uniquement des triglycérides.",
-        "correct": false,
-        "explanation": "Sans rapport."
+    "format": "QROC",
+    "question": "Quel terme décrit une action sur des cellules voisines du site de production ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "paracrine",
+        "action paracrine"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les lipoxygénases orientent l’acide arachidonique vers leucotriènes et lipoxines."
+    },
+    "explanation": "Les eicosanoïdes sont souvent des médiateurs locaux à demi-vie courte, adaptés à une signalisation rapide et spatialement limitée."
   },
   {
     "order": 9,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Le schéma simplifié des eicosanoïdes permet d’associer :",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur les eicosanoïdes, laquelle est exacte ?",
     "choices": [
       {
-        "content": "COX → prostanoïdes.",
+        "content": "Leurs effets dépendent du médiateur et du tissu cible.",
         "correct": true,
-        "explanation": "Voie."
+        "explanation": "Des médiateurs proches peuvent avoir des effets opposés."
       },
       {
-        "content": "Lipoxygénases → leucotriènes/lipoxines.",
-        "correct": true,
-        "explanation": "Voie."
-      },
-      {
-        "content": "Acide arachidonique → précurseur commun majeur.",
-        "correct": true,
-        "explanation": "Origine."
-      },
-      {
-        "content": "Glycogène → précurseur direct unique des prostaglandines.",
+        "content": "Ils sont tous stockés durablement dans des vésicules de sécrétion.",
         "correct": false,
-        "explanation": "Le glycogène n’est pas le précurseur lipidique."
+        "explanation": "Ils sont souvent synthétisés à la demande."
+      },
+      {
+        "content": "Ils n'ont aucun rôle dans l'inflammation ni l'hémostase.",
+        "correct": false,
+        "explanation": "Plusieurs eicosanoïdes modulent inflammation, tonus vasculaire et fonction plaquettaire."
+      },
+      {
+        "content": "Ils possèdent tous exactement la même structure cyclique.",
+        "correct": false,
+        "explanation": "Les leucotriènes, par exemple, ne partagent pas le cycle des prostanoïdes."
+      },
+      {
+        "content": "Ce sont tous des protéines enzymatiques.",
+        "correct": false,
+        "explanation": "Ce sont des médiateurs lipidiques."
       }
     ],
-    "explanation": "L'acide arachidonique alimente notamment les voies COX et lipoxygénases."
+    "explanation": "Les eicosanoïdes sont des médiateurs lipidiques issus de précurseurs C20 ou voisins, à action généralement locale et brève."
   },
   {
     "order": 10,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quel est le principal précurseur des prostaglandines de série 2 ?",
+    "format": "QRM",
+    "question": "Concernant l'acide arachidonique, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "L’acide arachidonique.",
+        "content": "Il est noté 18:3 n-3.",
+        "correct": false,
+        "explanation": "Cela décrit l'alpha-linolénique."
+      },
+      {
+        "content": "Il est un acide gras saturé.",
+        "correct": false,
+        "explanation": "Il possède quatre doubles liaisons."
+      },
+      {
+        "content": "Il ne peut donner aucun médiateur lipidique.",
+        "correct": false,
+        "explanation": "Il est au contraire un précurseur central."
+      },
+      {
+        "content": "Il comporte 20 carbones et 4 doubles liaisons.",
         "correct": true,
-        "explanation": "Précurseur central."
+        "explanation": "Sa notation est 20:4."
       },
       {
-        "content": "Le glucose.",
-        "correct": false,
-        "explanation": "Glucide."
-      },
-      {
-        "content": "La glycine.",
-        "correct": false,
-        "explanation": "Acide aminé."
-      },
-      {
-        "content": "Le cholestérol uniquement.",
-        "correct": false,
-        "explanation": "Autre famille de précurseurs lipidiques."
+        "content": "Il est un précurseur majeur des eicosanoïdes de série 2 et de nombreux leucotriènes.",
+        "correct": true,
+        "explanation": "Il alimente les voies COX et 5-lipoxygénase."
       }
     ],
-    "explanation": "L’acide arachidonique alimente la voie COX vers les prostaglandines."
+    "explanation": "L'acide arachidonique est un acide gras 20:4 Δ5,8,11,14 de la série n-6."
   },
   {
     "order": 11,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Un phospholipide membranaire libère un acide gras 20:4 n-6. Quelles conclusions sont cohérentes ?",
+    "question": "Concernant les eicosanoïdes, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Il peut s’agir d’acide arachidonique.",
+        "content": "Ils comprennent notamment prostanoïdes, leucotriènes et lipoxines.",
         "correct": true,
-        "explanation": "Notation concordante."
+        "explanation": "Ce sont les grandes familles étudiées."
       },
       {
-        "content": "Il peut servir de précurseur d’eicosanoïdes.",
+        "content": "Ils agissent souvent localement et ont une durée de vie courte.",
         "correct": true,
-        "explanation": "Rôle."
+        "explanation": "Ils sont produits à la demande plutôt que stockés massivement."
       },
       {
-        "content": "Il peut alimenter la voie COX ou des lipoxygénases.",
-        "correct": true,
-        "explanation": "Branches."
-      },
-      {
-        "content": "Il s’agit nécessairement d’un acide gras saturé.",
+        "content": "Ils sont tous stockés durablement dans des vésicules de sécrétion.",
         "correct": false,
-        "explanation": "20:4 = quatre doubles liaisons."
+        "explanation": "Ils sont souvent synthétisés à la demande."
+      },
+      {
+        "content": "Ils n'ont aucun rôle dans l'inflammation ni l'hémostase.",
+        "correct": false,
+        "explanation": "Plusieurs eicosanoïdes modulent inflammation, tonus vasculaire et fonction plaquettaire."
+      },
+      {
+        "content": "Ce sont tous des protéines enzymatiques.",
+        "correct": false,
+        "explanation": "Ce sont des médiateurs lipidiques."
       }
     ],
-    "explanation": "Le contexte membranaire relie la structure de l’acide arachidonique aux voies d’eicosanoïdes."
+    "explanation": "Les eicosanoïdes sont des médiateurs lipidiques issus de précurseurs C20 ou voisins, à action généralement locale et brève."
   },
   {
     "order": 12,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Un composé dérivé de l’acide arachidonique est produit par COX. Il appartient potentiellement :",
-    "choices": [
-      {
-        "content": "Aux prostaglandines.",
-        "correct": true,
-        "explanation": "Prostanoïdes."
-      },
-      {
-        "content": "Aux thromboxanes.",
-        "correct": true,
-        "explanation": "Prostanoïdes."
-      },
-      {
-        "content": "À la famille des prostanoïdes.",
-        "correct": true,
-        "explanation": "Voie COX."
-      },
-      {
-        "content": "Aux leucotriènes par définition.",
-        "correct": false,
-        "explanation": "Les leucotriènes relèvent des lipoxygénases."
+    "format": "QROC",
+    "question": "Quelle notation abrégée correspond à l'acide arachidonique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "20:4 Δ5,8,11,14",
+        "20:4 n-6",
+        "20:4",
+        "20:4 delta 5,8,11,14"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "L’enzyme de voie permet d’orienter la famille attendue."
+    },
+    "explanation": "L'acide arachidonique est un acide gras 20:4 Δ5,8,11,14 de la série n-6."
   },
   {
     "order": 13,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Un composé est produit par une lipoxygénase à partir de l’acide arachidonique. Il peut appartenir :",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur la libération de l'acide arachidonique membranaire, laquelle est exacte ?",
     "choices": [
       {
-        "content": "Aux leucotriènes.",
-        "correct": true,
-        "explanation": "Voie."
-      },
-      {
-        "content": "Aux lipoxines.",
-        "correct": true,
-        "explanation": "Voie."
-      },
-      {
-        "content": "À une branche distincte des prostanoïdes.",
-        "correct": true,
-        "explanation": "Schéma."
-      },
-      {
-        "content": "Obligatoirement aux thromboxanes.",
+        "content": "L'acide arachidonique est stocké uniquement sous forme de glycogène.",
         "correct": false,
-        "explanation": "Voie COX."
+        "explanation": "Le glycogène est un polymère de glucose."
+      },
+      {
+        "content": "La synthèse d'eicosanoïdes ne dépend jamais de la disponibilité du précurseur.",
+        "correct": false,
+        "explanation": "Elle dépend du substrat accessible."
+      },
+      {
+        "content": "Les membranes ne contiennent jamais d'acide arachidonique estérifié.",
+        "correct": false,
+        "explanation": "Il peut y être abondant dans certains phospholipides."
+      },
+      {
+        "content": "Une phospholipase A2 synthétise directement du TXA2 sans libérer d'acide gras.",
+        "correct": false,
+        "explanation": "Elle libère un acide gras du phospholipide."
+      },
+      {
+        "content": "La libération membranaire précède classiquement les voies COX ou lipoxygénases.",
+        "correct": true,
+        "explanation": "Ces enzymes utilisent l'acide gras libéré."
       }
     ],
-    "explanation": "La voie lipoxygénase conduit aux leucotriènes et lipoxines."
+    "explanation": "La phospholipase A2 peut libérer l'acide arachidonique des phospholipides membranaires avant sa transformation en eicosanoïdes."
   },
   {
     "order": 14,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Combien d’atomes de carbone possède l’acide arachidonique ?",
+    "question": "Un acide arachidonique est noté 20:4 Δ5,8,11,14. Quelle est la valeur n-x de sa série oméga ?",
     "answer": {
       "type": "number",
-      "value": 20,
+      "value": 6,
       "tolerance": 0
     },
-    "explanation": "La notation 20:4 indique 20 carbones."
+    "explanation": "On utilise la double liaison la plus proche de l'extrémité méthyle : $20-14=6$, donc série n-6."
   },
   {
     "order": 15,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Combien de doubles liaisons possède l’acide arachidonique 20:4 ?",
-    "answer": {
-      "type": "number",
-      "value": 4,
-      "tolerance": 0
-    },
-    "explanation": "Le second nombre de 20:4 indique quatre doubles liaisons."
+    "format": "QRP",
+    "question": "À propos de la voie des lipoxygénases, retenez exactement les deux affirmations correctes.",
+    "choices": [
+      {
+        "content": "Des coopérations entre lipoxygénases peuvent participer à la biosynthèse des lipoxines.",
+        "correct": true,
+        "explanation": "Les lipoxines sont des médiateurs de résolution."
+      },
+      {
+        "content": "Les lipoxygénases ne peuvent agir que sur des protéines.",
+        "correct": false,
+        "explanation": "Leurs substrats sont notamment des acides gras polyinsaturés."
+      },
+      {
+        "content": "La 5-lipoxygénase participe à la formation de LTA4 à partir de l'acide arachidonique.",
+        "correct": true,
+        "explanation": "LTA4 est un intermédiaire clé des leucotriènes."
+      },
+      {
+        "content": "Les lipoxines sont des triglycérides de stockage.",
+        "correct": false,
+        "explanation": "Ce sont des médiateurs lipidiques."
+      },
+      {
+        "content": "LTA4 est le produit direct majeur de COX.",
+        "correct": false,
+        "explanation": "Il relève de la voie 5-LOX."
+      }
+    ],
+    "explanation": "La 5-lipoxygénase mène à LTA4 ; d'autres réactions lipoxygénases participent notamment à la formation de lipoxines.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 16,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Quelle enzyme/voie abrégée conduit aux prostanoïdes ?",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "cox",
-        "cyclooxygenase",
-        "cyclo-oxygenase",
-        "cyclo-oxygénase",
-        "la cox"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRM",
+    "question": "Parmi les propositions suivantes sur l'orientation du métabolisme de l'acide arachidonique, lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "La voie COX mène aux prostanoïdes.",
+        "correct": true,
+        "explanation": "Elle inclut prostaglandines, prostacycline et thromboxanes."
+      },
+      {
+        "content": "La voie 5-LOX mène aux leucotriènes.",
+        "correct": true,
+        "explanation": "LTA4 est un intermédiaire central."
+      },
+      {
+        "content": "Un même précurseur peut donc conduire à des médiateurs aux effets très différents.",
+        "correct": true,
+        "explanation": "C'est une caractéristique importante de la signalisation lipidique."
+      },
+      {
+        "content": "COX et 5-LOX sont deux noms pour la même enzyme.",
+        "correct": false,
+        "explanation": "Ce sont des voies enzymatiques distinctes."
+      },
+      {
+        "content": "La nature des enzymes exprimées dans une cellule influence les médiateurs produits.",
+        "correct": true,
+        "explanation": "Toutes les cellules ne synthétisent pas le même profil."
       }
-    },
-    "explanation": "Il s’agit de la cyclo-oxygénase, abrégée COX."
+    ],
+    "explanation": "Le devenir de l'acide arachidonique dépend des enzymes disponibles : COX vers prostanoïdes, 5-LOX vers leucotriènes."
   },
   {
     "order": 17,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux sous-familles regroupées sous le terme « prostanoïdes ».",
-    "choices": [
-      {
-        "content": "Prostaglandines.",
-        "correct": true,
-        "explanation": "Sous-famille."
-      },
-      {
-        "content": "Thromboxanes.",
-        "correct": true,
-        "explanation": "Sous-famille."
-      },
-      {
-        "content": "Leucotriènes.",
-        "correct": false,
-        "explanation": "Autre famille."
-      },
-      {
-        "content": "Lipoxines.",
-        "correct": false,
-        "explanation": "Autre famille."
+    "format": "QROC",
+    "question": "Quel intermédiaire prostanoïde commun est converti par des synthases terminales en différents prostanoïdes ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "PGH2",
+        "PGH₂",
+        "prostaglandine H2",
+        "prostaglandine H₂"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les prostanoïdes regroupent prostaglandines et thromboxanes."
+    },
+    "explanation": "Les prostanoïdes partagent la voie COX puis divergent selon les synthases terminales exprimées."
   },
   {
     "order": 18,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "La notation 20:4 Δ5,8,11,14 de l’acide arachidonique signifie :",
-    "choices": [
-      {
-        "content": "20 carbones.",
-        "correct": true,
-        "explanation": "Premier nombre."
-      },
-      {
-        "content": "4 doubles liaisons.",
-        "correct": true,
-        "explanation": "Second nombre."
-      },
-      {
-        "content": "Des doubles liaisons repérées en Δ5, Δ8, Δ11 et Δ14.",
-        "correct": true,
-        "explanation": "Positions."
-      },
-      {
-        "content": "Une molécule à 4 carbones.",
-        "correct": false,
-        "explanation": "20 carbones."
+    "format": "QROC",
+    "question": "Quelle enzyme libère classiquement l'acide arachidonique à partir de phospholipides membranaires ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "phospholipase A2",
+        "PLA2",
+        "phospholipase A₂"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La notation combine longueur, degré d’insaturation et positions Δ."
+    },
+    "explanation": "La phospholipase A2 hydrolyse un acide gras en position sn-2 de nombreux phospholipides et peut ainsi libérer l'acide arachidonique."
   },
   {
     "order": 19,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "L’acide arachidonique naturel est décrit comme « toutes-cis ». Cela signifie :",
+    "question": "Parmi les propositions suivantes sur les eicosanoïdes, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Que les quatre doubles liaisons sont en configuration cis.",
+        "content": "Ils comprennent notamment prostanoïdes, leucotriènes et lipoxines.",
         "correct": true,
-        "explanation": "Nom systématique."
+        "explanation": "Ce sont les grandes familles étudiées."
       },
       {
-        "content": "Que la configuration des doubles liaisons fait partie de sa description.",
-        "correct": true,
-        "explanation": "Information structurale."
-      },
-      {
-        "content": "Que la molécule reste un acide gras polyinsaturé.",
-        "correct": true,
-        "explanation": "4 doubles liaisons."
-      },
-      {
-        "content": "Qu’il ne possède aucune double liaison.",
+        "content": "Ils n'ont aucun rôle dans l'inflammation ni l'hémostase.",
         "correct": false,
-        "explanation": "Il en possède quatre."
+        "explanation": "Plusieurs eicosanoïdes modulent inflammation, tonus vasculaire et fonction plaquettaire."
+      },
+      {
+        "content": "Ils sont des médiateurs lipidiques dérivés d'acides gras à 20 carbones ou de précurseurs voisins.",
+        "correct": true,
+        "explanation": "Le terme eicosa- renvoie au squelette C20."
+      },
+      {
+        "content": "Ils possèdent tous exactement la même structure cyclique.",
+        "correct": false,
+        "explanation": "Les leucotriènes, par exemple, ne partagent pas le cycle des prostanoïdes."
+      },
+      {
+        "content": "Ce sont tous des protéines enzymatiques.",
+        "correct": false,
+        "explanation": "Ce sont des médiateurs lipidiques."
       }
     ],
-    "explanation": "La configuration cis complète la nomenclature du 20:4."
+    "explanation": "Les eicosanoïdes sont des médiateurs lipidiques issus de précurseurs C20 ou voisins, à action généralement locale et brève."
   },
   {
     "order": 20,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Un anti-inflammatoire qui inhibe COX agira en amont de :",
-    "choices": [
-      {
-        "content": "La synthèse des prostanoïdes.",
-        "correct": true,
-        "explanation": "Voie COX."
-      },
-      {
-        "content": "La synthèse de prostaglandines.",
-        "correct": true,
-        "explanation": "Sous-famille."
-      },
-      {
-        "content": "La synthèse de thromboxanes.",
-        "correct": true,
-        "explanation": "Sous-famille."
-      },
-      {
-        "content": "Toute synthèse de leucotriènes via la 5-lipoxygénase par ce seul mécanisme.",
-        "correct": false,
-        "explanation": "La voie lipoxygénase est distincte."
+    "format": "QROC",
+    "question": "Quel grand groupe de médiateurs est formé par la voie COX à partir de l'acide arachidonique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "prostanoïdes",
+        "prostanoides",
+        "prostaglandines et thromboxanes",
+        "prostanoïdes : prostaglandines et thromboxanes"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "L’inhibition de COX réduit les prostanoïdes sans inhiber directement la 5-lipoxygénase."
+    },
+    "explanation": "La voie cyclo-oxygénase conduit aux prostanoïdes, notamment prostaglandines, prostacycline et thromboxanes."
   },
   {
     "order": 21,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Schéma général des eicosanoïdes et voies métaboliques : sélectionnez exactement cinq propositions correctes.",
+    "format": "QRM",
+    "question": "À propos de la libération de l'acide arachidonique membranaire, quelles affirmations sont correctes ?",
     "choices": [
       {
-        "content": "Les eicosanoïdes sont des dérivés d’acides gras à 20 carbones.",
+        "content": "La disponibilité du précurseur peut limiter la synthèse de médiateurs.",
         "correct": true,
-        "explanation": "Définition."
+        "explanation": "La production se fait à la demande."
       },
       {
-        "content": "L’acide arachidonique est 20:4 n-6.",
+        "content": "L'acide arachidonique est stocké uniquement sous forme de glycogène.",
+        "correct": false,
+        "explanation": "Le glycogène est un polymère de glucose."
+      },
+      {
+        "content": "L'acide arachidonique peut être estérifié dans des phospholipides membranaires.",
         "correct": true,
-        "explanation": "Notation."
+        "explanation": "La membrane constitue un réservoir de précurseur."
       },
       {
-        "content": "COX conduit aux prostanoïdes.",
+        "content": "La libération membranaire précède classiquement les voies COX ou lipoxygénases.",
         "correct": true,
-        "explanation": "Voie."
+        "explanation": "Ces enzymes utilisent l'acide gras libéré."
       },
       {
-        "content": "Les lipoxygénases conduisent aux leucotriènes.",
-        "correct": true,
-        "explanation": "Voie."
-      },
-      {
-        "content": "Les lipoxygénases conduisent aux lipoxines.",
-        "correct": true,
-        "explanation": "Voie."
-      },
-      {
-        "content": "Les prostanoïdes sont uniquement les leucotriènes.",
+        "content": "Les membranes ne contiennent jamais d'acide arachidonique estérifié.",
         "correct": false,
-        "explanation": "PG/TX."
-      },
-      {
-        "content": "L’acide arachidonique est 18:0.",
-        "correct": false,
-        "explanation": "20:4."
-      },
-      {
-        "content": "COX est la voie principale des leucotriènes.",
-        "correct": false,
-        "explanation": "Lipoxygénases."
-      },
-      {
-        "content": "L’acide arachidonique ne peut provenir des membranes.",
-        "correct": false,
-        "explanation": "La phospholipase A₂ peut libérer l'acide arachidonique des phospholipides membranaires."
-      },
-      {
-        "content": "Les eicosanoïdes sont tous des protéines.",
-        "correct": false,
-        "explanation": "Dérivés lipidiques."
+        "explanation": "Il peut y être abondant dans certains phospholipides."
       }
     ],
-    "explanation": "Cette QRPL consolide le schéma général des voies."
+    "explanation": "La phospholipase A2 peut libérer l'acide arachidonique des phospholipides membranaires avant sa transformation en eicosanoïdes."
   },
   {
     "order": 22,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux sources de disponibilité de l’acide arachidonique.",
-    "choices": [
-      {
-        "content": "Alimentation.",
-        "correct": true,
-        "explanation": "Source."
-      },
-      {
-        "content": "Clivage des phospholipides membranaires.",
-        "correct": true,
-        "explanation": "Source."
-      },
-      {
-        "content": "Traduction ribosomale.",
-        "correct": false,
-        "explanation": "Sans rapport."
-      },
-      {
-        "content": "Hydrolyse du glycogène uniquement.",
-        "correct": false,
-        "explanation": "Sans rapport."
+    "format": "QROC",
+    "question": "Quelle voie enzymatique conduit aux prostanoïdes à partir de l'acide arachidonique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "cyclo-oxygénase",
+        "cyclooxygenase",
+        "COX",
+        "voie COX"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "L’acide arachidonique est apporté par l’alimentation ou libéré depuis des phospholipides membranaires."
+    },
+    "explanation": "La cyclo-oxygénase oriente l'acide arachidonique vers les prostanoïdes."
   }
 ];

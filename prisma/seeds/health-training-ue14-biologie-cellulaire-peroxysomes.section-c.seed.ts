@@ -1,646 +1,746 @@
-/**
- * UE14 – Biologie cellulaire – Chapitre 6
- * Contenu pédagogique fondé sur la fiche 2024-2025 du Tutorat Santé de Reims.
- */
 import type { SeedQuestion, SeedQuiz } from './health-training-ue14.shared';
 
+/** UE14 Biologie cellulaire — Ch6 — Peroxysomes — Métabolismes lipidiques et autres fonctions — V2 active */
 export const SECTION_C_QUESTIONS: SeedQuestion[] = [
   {
-    order: 61,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Les oxydases peroxysomales :`,
-    choices: [
-      `Utilisent de l’oxygène.`,
-      `Oxydent des substrats.`,
-      `Produisent du H2O2.`,
-      `Détruisent toujours le H2O2 en H2O et O2.`,
+    "order": 45,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Repérez les propositions scientifiquement correctes sur le thème suivant : les autres fonctions métaboliques et leur régulation.",
+    "choices": [
+      {
+        "content": "Une hyperuricémie peut favoriser des dépôts de cristaux d’urate dans les articulations.",
+        "correct": true,
+        "explanation": "Ces dépôts sont responsables des crises de goutte."
+      },
+      {
+        "content": "La goutte et la lithiase urique sont deux complications distinctes possibles d’un excès d’urate.",
+        "correct": true,
+        "explanation": "La première touche surtout les articulations ; la seconde correspond à des calculs urinaires."
+      },
+      {
+        "content": "PPARα est un récepteur nucléaire impliqué dans la régulation de gènes du métabolisme lipidique.",
+        "correct": true,
+        "explanation": "Son activation modifie la transcription de nombreux gènes d’oxydation des acides gras."
+      },
+      {
+        "content": "Chez l’humain, l’urate oxydase convertit normalement l’acide urique en allantoïne.",
+        "correct": false,
+        "explanation": "L’humain ne possède pas d’urate oxydase fonctionnelle."
+      },
+      {
+        "content": "L’adénine et la guanine sont des bases pyrimidiques.",
+        "correct": false,
+        "explanation": "Ce sont des bases puriques."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les oxydases produisent le peroxyde d’hydrogène ; sa destruction relève notamment de la catalase.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les peroxysomes participent à plusieurs voies métaboliques ; chez l’humain, l’absence d’urate oxydase fait de l’acide urique le produit final majeur du catabolisme des purines, et PPARα régule de nombreux gènes du métabolisme lipidique."
   },
   {
-    order: 62,
-    difficulty: 'EASY',
-    answerFormat: 'SINGLE',
-    question: `Le nom « peroxysome » est lié à la production de :`,
-    choices: [
-      `Peroxyde d’hydrogène H2O2.`,
-      `ADN mitochondrial.`,
-      `Acide lactique uniquement.`,
-      `Mannose-6-phosphate.`,
+    "order": 46,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Identifiez la seule proposition scientifiquement correcte sur le thème suivant : les fonctions lipidiques des peroxysomes.",
+    "choices": [
+      {
+        "content": "Un défaut peroxysomal de β-oxydation entraîne nécessairement une diminution des acides gras à très longue chaîne.",
+        "correct": false,
+        "explanation": "Il peut au contraire provoquer leur accumulation."
+      },
+      {
+        "content": "La β-oxydation peroxysomale est spécialisée exclusivement dans les acides gras à chaîne courte.",
+        "correct": false,
+        "explanation": "Elle intervient particulièrement pour les acides gras à très longue chaîne."
+      },
+      {
+        "content": "Le peroxysome oxyde systématiquement tous les acides gras jusqu’au CO2 sans intervention mitochondriale.",
+        "correct": false,
+        "explanation": "Il raccourcit souvent les chaînes ; l’oxydation complète implique d’autres compartiments, notamment la mitochondrie."
+      },
+      {
+        "content": "La membrane peroxysomale contient une ATP synthase responsable du rendement énergétique de la β-oxydation.",
+        "correct": false,
+        "explanation": "La phosphorylation oxydative est mitochondriale."
+      },
+      {
+        "content": "Les peroxysomes participent au raccourcissement de la chaîne latérale de certains intermédiaires des acides biliaires.",
+        "correct": true,
+        "explanation": "Cette étape peroxysomale contribue à la maturation des acides biliaires."
+      }
     ],
-    correctChoiceIndexes: [0],
-    explanation: `La production de H2O2 par les oxydases explique le nom de l’organite.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les peroxysomes raccourcissent notamment les acides gras à très longue chaîne, participent à la synthèse des plasmalogènes et à certaines étapes du métabolisme des acides biliaires."
   },
   {
-    order: 63,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `La catalase :`,
-    choices: [
-      `Est très abondante dans le peroxysome.`,
-      `Utilise le H2O2 produit par les oxydases.`,
-      `Peut détruire l’excès de H2O2.`,
-      `Produit toujours le H2O2 à la place des oxydases.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La catalase utilise ou élimine le H2O2 ; les oxydases sont responsables de sa production.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "order": 47,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel type d’acides gras est particulièrement pris en charge par la β-oxydation peroxysomale ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "acides gras à très longue chaîne",
+        "AG à très longue chaîne",
+        "VLCFA",
+        "très longues chaînes"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Le peroxysome raccourcit préférentiellement des acides gras à très longue chaîne avant relais métabolique."
   },
   {
-    order: 64,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Observe la figure suivante.
-
-![Oxydases et catalase](/images/training/ue14/biologie-cellulaire/peroxysomes/oxydases-catalase-h2o2.png)
-
-Quelle(s) proposition(s) est(sont) correcte(s) ?`,
-    choices: [
-      `Les oxydases produisent du H2O2.`,
-      `La catalase peut utiliser le H2O2 pour oxyder un substrat.`,
-      `La catalase peut convertir l’excès de H2O2 en H2O et O2.`,
-      `Le H2O2 est produit par la catalase dans toutes les réactions.`,
+    "order": 48,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Parmi les cinq affirmations proposées, lesquelles sont justes sur le thème suivant : les autres fonctions métaboliques et leur régulation ?",
+    "choices": [
+      {
+        "content": "Les fibrates sont des agonistes pharmacologiques de PPARα.",
+        "correct": true,
+        "explanation": "Ils sont utilisés notamment pour réduire les triglycérides plasmatiques."
+      },
+      {
+        "content": "L’activation de PPARα augmente l’expression de plusieurs enzymes du catabolisme des acides gras.",
+        "correct": true,
+        "explanation": "L’effet passe par la régulation transcriptionnelle et ne se réduit pas au nombre d’organites."
+      },
+      {
+        "content": "Les oxydases peroxysomales d’acides aminés n’utilisent jamais d’oxygène.",
+        "correct": false,
+        "explanation": "Par définition, les oxydases transfèrent des électrons à l’oxygène."
+      },
+      {
+        "content": "La prolifération peroxysomale induite par les agonistes PPARα est beaucoup plus marquée chez certains rongeurs que chez l’humain.",
+        "correct": true,
+        "explanation": "Les réponses d’espèce diffèrent fortement."
+      },
+      {
+        "content": "Certaines oxydases d’acides aminés sont localisées dans les peroxysomes.",
+        "correct": true,
+        "explanation": "Elles participent au métabolisme de certains acides aminés en produisant notamment du H2O2."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La figure met en évidence la succession production par les oxydases puis utilisation ou destruction par la catalase.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les peroxysomes participent à plusieurs voies métaboliques ; chez l’humain, l’absence d’urate oxydase fait de l’acide urique le produit final majeur du catabolisme des purines, et PPARα régule de nombreux gènes du métabolisme lipidique."
   },
   {
-    order: 65,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `L’action des oxydases et de la catalase est décrite en deux étapes :`,
-    choices: [
-      `Production de H2O2 lors de l’oxydation initiale.`,
-      `Utilisation du H2O2 par la catalase.`,
-      `Destruction possible de l’excès de H2O2.`,
-      `Synthèse préalable d’un génome peroxysomal.`,
+    "order": 49,
+    "difficulty": "EASY",
+    "format": "QRP",
+    "question": "Sur le thème suivant — les fonctions lipidiques des peroxysomes — choisissez exactement les deux propositions exactes.",
+    "choices": [
+      {
+        "content": "La β-oxydation peroxysomale prend en charge préférentiellement des acides gras à très longue chaîne.",
+        "correct": true,
+        "explanation": "Elle raccourcit des substrats que la mitochondrie oxyde moins efficacement au départ."
+      },
+      {
+        "content": "La β-oxydation peroxysomale raccourcit les chaînes carbonées par cycles successifs.",
+        "correct": true,
+        "explanation": "Elle produit des acyl-CoA plus courts et de l’acétyl-CoA."
+      },
+      {
+        "content": "La β-oxydation peroxysomale ne produit jamais de chaîne acylée raccourcie.",
+        "correct": false,
+        "explanation": "Le raccourcissement des chaînes est précisément l’un de ses résultats."
+      },
+      {
+        "content": "L’acyl-CoA oxydase est une enzyme de la synthèse des protéines ribosomales.",
+        "correct": false,
+        "explanation": "C’est une enzyme de la β-oxydation peroxysomale."
+      },
+      {
+        "content": "Le peroxysome est l’organite principal du cycle de Krebs.",
+        "correct": false,
+        "explanation": "Le cycle de Krebs se déroule dans la matrice mitochondriale."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le système repose sur une succession de réactions enzymatiques, sans intervention d’un génome peroxysomal.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les peroxysomes raccourcissent notamment les acides gras à très longue chaîne, participent à la synthèse des plasmalogènes et à certaines étapes du métabolisme des acides biliaires.",
+    "requiredSelectionCount": 2
   },
   {
-    order: 66,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `La catalase peut :`,
-    choices: [
-      `Oxyder certains substrats en utilisant le H2O2.`,
-      `Détruire l’excès de H2O2.`,
-      `Produire H2O et O2 lors de la décomposition du H2O2.`,
-      `Assurer seule la synthèse des acides nucléiques puriques.`,
+    "order": 50,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Quelles affirmations sont correctes à propos du thème suivant : les fonctions lipidiques des peroxysomes ?",
+    "choices": [
+      {
+        "content": "La β-oxydation peroxysomale ne produit jamais de chaîne acylée raccourcie.",
+        "correct": false,
+        "explanation": "Le raccourcissement des chaînes est précisément l’un de ses résultats."
+      },
+      {
+        "content": "L’acyl-CoA oxydase est une enzyme de la synthèse des protéines ribosomales.",
+        "correct": false,
+        "explanation": "C’est une enzyme de la β-oxydation peroxysomale."
+      },
+      {
+        "content": "La β-oxydation peroxysomale ne fournit pas directement de l’ATP par phosphorylation oxydative.",
+        "correct": true,
+        "explanation": "Le peroxysome ne possède pas de chaîne respiratoire complète couplée à une ATP synthase."
+      },
+      {
+        "content": "Les premières étapes de la synthèse des plasmalogènes se déroulent dans les peroxysomes.",
+        "correct": true,
+        "explanation": "La synthèse est ensuite poursuivie dans le réticulum endoplasmique."
+      },
+      {
+        "content": "Le peroxysome est l’organite principal du cycle de Krebs.",
+        "correct": false,
+        "explanation": "Le cycle de Krebs se déroule dans la matrice mitochondriale."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La catalase joue un rôle de détoxification oxydative ; elle n’assure pas la synthèse des purines.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les peroxysomes raccourcissent notamment les acides gras à très longue chaîne, participent à la synthèse des plasmalogènes et à certaines étapes du métabolisme des acides biliaires."
   },
   {
-    order: 67,
-    difficulty: 'EASY',
-    answerFormat: 'SINGLE',
-    question: `La destruction de l’excès de H2O2 par la catalase produit :`,
-    choices: [
-      `H2O et O2.`,
-      `Uniquement du glucose.`,
-      `Des acides gras à très longue chaîne.`,
-      `De l’ADN peroxysomal.`,
+    "order": 51,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Concernant le thème suivant — les autres fonctions métaboliques et leur régulation — identifiez l’unique proposition exacte.",
+    "choices": [
+      {
+        "content": "Une hyperuricémie protège de la formation de cristaux articulaires.",
+        "correct": false,
+        "explanation": "Elle augmente au contraire le risque de dépôts d’urate et de goutte."
+      },
+      {
+        "content": "La lithiase urique correspond à une démyélinisation du système nerveux central.",
+        "correct": false,
+        "explanation": "Il s’agit de calculs urinaires d’acide urique/urate."
+      },
+      {
+        "content": "Les oxydases peroxysomales d’acides aminés n’utilisent jamais d’oxygène.",
+        "correct": false,
+        "explanation": "Par définition, les oxydases transfèrent des électrons à l’oxygène."
+      },
+      {
+        "content": "PPARα est un enzyme de la matrice peroxysomale qui hydrolyse l’ATP.",
+        "correct": false,
+        "explanation": "C’est un facteur de transcription de la famille des récepteurs nucléaires."
+      },
+      {
+        "content": "Les peroxysomes contribuent à la détoxification de certaines espèces réactives de l’oxygène.",
+        "correct": true,
+        "explanation": "La catalase est centrale dans le contrôle du H2O2."
+      }
     ],
-    correctChoiceIndexes: [0],
-    explanation: `La fiche indique une conversion du H2O2 en eau et oxygène.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les peroxysomes participent à plusieurs voies métaboliques ; chez l’humain, l’absence d’urate oxydase fait de l’acide urique le produit final majeur du catabolisme des purines, et PPARα régule de nombreux gènes du métabolisme lipidique."
   },
   {
-    order: 68,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `La β-oxydation peroxysomale :`,
-    choices: [
-      `Concerne des acides gras à chaînes longues ou très longues.`,
-      `Raccourcit ces acides gras.`,
-      `Produit de l’acétyl-CoA.`,
-      `Concerne exclusivement les acides gras à chaîne très courte.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le peroxysome raccourcit les chaînes longues ou très longues et produit notamment de l’acétyl-CoA.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "order": 52,
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel fragment à deux carbones est libéré au cours de la β-oxydation peroxysomale ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "acétyl-CoA",
+        "acetyl-CoA",
+        "acétyl coenzyme A"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Chaque cycle de β-oxydation libère notamment de l’acétyl-CoA."
   },
   {
-    order: 69,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `Parmi les fonctions métaboliques peroxysomales citées :`,
-    choices: [
-      `La synthèse d’acides biliaires.`,
-      `La dégradation d’acides aminés.`,
-      `La β-oxydation d’acides gras longs ou très longs.`,
-      `La réplication du génome peroxysomal.`,
+    "order": 53,
+    "difficulty": "EASY",
+    "format": "QRPL",
+    "question": "Pour le thème suivant — les fonctions lipidiques des peroxysomes — identifiez exactement les cinq affirmations exactes parmi les dix.",
+    "choices": [
+      {
+        "content": "La synthèse des acides biliaires est entièrement lysosomale.",
+        "correct": false,
+        "explanation": "Certaines étapes se déroulent notamment dans le RE, la mitochondrie et le peroxysome selon les intermédiaires."
+      },
+      {
+        "content": "Les peroxysomes participent au raccourcissement de la chaîne latérale de certains intermédiaires des acides biliaires.",
+        "correct": true,
+        "explanation": "Cette étape peroxysomale contribue à la maturation des acides biliaires."
+      },
+      {
+        "content": "L’acide phytanique entre directement dans une β-oxydation classique sans étape préalable.",
+        "correct": false,
+        "explanation": "Son ramification impose une α-oxydation initiale."
+      },
+      {
+        "content": "La mitochondrie et le peroxysome ont exactement le même spectre de substrats pour la β-oxydation.",
+        "correct": false,
+        "explanation": "Le peroxysome intervient préférentiellement dans certains substrats, dont les très longues chaînes."
+      },
+      {
+        "content": "L’α-oxydation peroxysomale est importante pour le catabolisme de l’acide phytanique.",
+        "correct": true,
+        "explanation": "Le groupement méthyle en position β empêche une β-oxydation classique initiale."
+      },
+      {
+        "content": "L’acide phytanique est un acide gras ramifié.",
+        "correct": true,
+        "explanation": "Sa structure nécessite une voie d’α-oxydation avant d’autres étapes cataboliques."
+      },
+      {
+        "content": "La membrane peroxysomale contient des transporteurs permettant l’entrée de substrats lipidiques.",
+        "correct": true,
+        "explanation": "Les protéines ABCD jouent un rôle majeur pour plusieurs acyl-CoA."
+      },
+      {
+        "content": "La β-oxydation peroxysomale ne produit jamais de chaîne acylée raccourcie.",
+        "correct": false,
+        "explanation": "Le raccourcissement des chaînes est précisément l’un de ses résultats."
+      },
+      {
+        "content": "L’acyl-CoA oxydase est une enzyme de la synthèse des protéines ribosomales.",
+        "correct": false,
+        "explanation": "C’est une enzyme de la β-oxydation peroxysomale."
+      },
+      {
+        "content": "La β-oxydation peroxysomale prend en charge préférentiellement des acides gras à très longue chaîne.",
+        "correct": true,
+        "explanation": "Elle raccourcit des substrats que la mitochondrie oxyde moins efficacement au départ."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les trois premières voies font intervenir des oxydases ; le peroxysome ne possède pas de génome à répliquer.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les peroxysomes raccourcissent notamment les acides gras à très longue chaîne, participent à la synthèse des plasmalogènes et à certaines étapes du métabolisme des acides biliaires.",
+    "requiredSelectionCount": 5
   },
   {
-    order: 70,
-    difficulty: 'EASY',
-    answerFormat: 'MULTIPLE',
-    question: `La dégradation peroxysomale d’acides aminés implique :`,
-    choices: [
-      `Des aminoacides oxydases.`,
-      `Une réaction oxydative.`,
-      `Une production possible de H2O2.`,
-      `Une urate oxydase humaine obligatoire.`,
+    "order": 54,
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "Parmi ces propositions relatives au thème suivant, lesquelles sont correctes : les autres fonctions métaboliques et leur régulation ?",
+    "choices": [
+      {
+        "content": "Chez l’humain, l’urate oxydase fonctionnelle est absente.",
+        "correct": true,
+        "explanation": "L’acide urique constitue donc le produit final majeur du catabolisme des purines."
+      },
+      {
+        "content": "Plusieurs autres mammifères possèdent une uricase permettant de convertir l’urate en allantoïne.",
+        "correct": true,
+        "explanation": "Cette différence d’espèce explique que l’allantoïne ne soit pas le produit final normal chez l’humain."
+      },
+      {
+        "content": "Les fibrates inhibent PPARα.",
+        "correct": false,
+        "explanation": "Ils l’activent comme agonistes."
+      },
+      {
+        "content": "L’effet des fibrates se résume à fabriquer mécaniquement des milliers de peroxysomes chez l’humain.",
+        "correct": false,
+        "explanation": "Leur effet clinique repose surtout sur la régulation transcriptionnelle du métabolisme lipidique ; la prolifération massive est surtout observée chez certains rongeurs."
+      },
+      {
+        "content": "Une hyperuricémie peut favoriser des dépôts de cristaux d’urate dans les articulations.",
+        "correct": true,
+        "explanation": "Ces dépôts sont responsables des crises de goutte."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les aminoacides oxydases font partie des voies produisant du H2O2 ; l’Homme ne possède pas d’urate oxydase selon la fiche.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les peroxysomes participent à plusieurs voies métaboliques ; chez l’humain, l’absence d’urate oxydase fait de l’acide urique le produit final majeur du catabolisme des purines, et PPARα régule de nombreux gènes du métabolisme lipidique."
   },
   {
-    order: 71,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Après la β-oxydation peroxysomale, les produits :`,
-    choices: [
-      `Peuvent sortir par des perméases.`,
-      `Rejoignent le cytosol.`,
-      `Peuvent ensuite rejoindre les mitochondries.`,
-      `Restent tous définitivement dans le peroxysome.`,
+    "order": 55,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Quelles propositions décrivent correctement le thème suivant : les fonctions lipidiques des peroxysomes ?",
+    "choices": [
+      {
+        "content": "Les premières étapes de la synthèse des plasmalogènes se déroulent dans les peroxysomes.",
+        "correct": true,
+        "explanation": "La synthèse est ensuite poursuivie dans le réticulum endoplasmique."
+      },
+      {
+        "content": "Les plasmalogènes sont particulièrement abondants dans certains tissus, notamment le système nerveux et le cœur.",
+        "correct": true,
+        "explanation": "Ce sont des phospholipides éther importants des membranes."
+      },
+      {
+        "content": "Les peroxysomes participent au raccourcissement de la chaîne latérale de certains intermédiaires des acides biliaires.",
+        "correct": true,
+        "explanation": "Cette étape peroxysomale contribue à la maturation des acides biliaires."
+      },
+      {
+        "content": "L’α-oxydation peroxysomale est importante pour le catabolisme de l’acide phytanique.",
+        "correct": true,
+        "explanation": "Le groupement méthyle en position β empêche une β-oxydation classique initiale."
+      },
+      {
+        "content": "Les plasmalogènes sont synthétisés exclusivement dans l’appareil de Golgi.",
+        "correct": false,
+        "explanation": "Leurs premières étapes de synthèse sont peroxysomales puis la voie se poursuit dans le RE."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les acides gras raccourcis et l’acétyl-CoA sortent du peroxysome puis rejoignent les mitochondries.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les peroxysomes raccourcissent notamment les acides gras à très longue chaîne, participent à la synthèse des plasmalogènes et à certaines étapes du métabolisme des acides biliaires."
   },
   {
-    order: 72,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `L’acétyl-CoA produit par le peroxysome :`,
-    choices: [
-      `Peut rejoindre la mitochondrie.`,
-      `Peut contribuer ensuite à la production d’énergie.`,
-      `Est produit lors de la β-oxydation.`,
-      `Est directement transformé en ADN peroxysomal.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `L’acétyl-CoA est transféré vers la mitochondrie pour participer au métabolisme énergétique.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "order": 56,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Dans quel organite débutent les premières étapes de synthèse des plasmalogènes ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "peroxysome",
+        "peroxysomes",
+        "dans le peroxysome"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Les premières étapes sont peroxysomales puis la synthèse se poursuit dans le RE."
   },
   {
-    order: 73,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Dans le foie, la catalase intervient dans :`,
-    choices: [
-      `Le catabolisme d’une fraction de l’alcool consommé.`,
-      `Un ordre de grandeur de 25 à 50 % de la consommation d’alcool selon la fiche.`,
-      `La dégradation de l’acétaldéhyde.`,
-      `La synthèse de l’éthanol à partir d’acétyl-CoA.`,
+    "order": 57,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Sur le thème suivant — les autres fonctions métaboliques et leur régulation — quelle affirmation est juste ?",
+    "choices": [
+      {
+        "content": "La goutte est un synonyme strict de lithiase urique.",
+        "correct": false,
+        "explanation": "Ce sont deux manifestations différentes liées au métabolisme de l’urate."
+      },
+      {
+        "content": "PPARα est un récepteur membranaire couplé aux protéines G.",
+        "correct": false,
+        "explanation": "C’est un récepteur nucléaire régulant la transcription."
+      },
+      {
+        "content": "PPARα est un récepteur nucléaire impliqué dans la régulation de gènes du métabolisme lipidique.",
+        "correct": true,
+        "explanation": "Son activation modifie la transcription de nombreux gènes d’oxydation des acides gras."
+      },
+      {
+        "content": "Les fibrates inhibent PPARα.",
+        "correct": false,
+        "explanation": "Ils l’activent comme agonistes."
+      },
+      {
+        "content": "L’effet des fibrates se résume à fabriquer mécaniquement des milliers de peroxysomes chez l’humain.",
+        "correct": false,
+        "explanation": "Leur effet clinique repose surtout sur la régulation transcriptionnelle du métabolisme lipidique ; la prolifération massive est surtout observée chez certains rongeurs."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La fiche attribue à la catalase une part importante du catabolisme hépatique de l’alcool et de l’acétaldéhyde.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les peroxysomes participent à plusieurs voies métaboliques ; chez l’humain, l’absence d’urate oxydase fait de l’acide urique le produit final majeur du catabolisme des purines, et PPARα régule de nombreux gènes du métabolisme lipidique."
   },
   {
-    order: 74,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Au cours du catabolisme de l’alcool présenté :`,
-    choices: [
-      `L’éthanol est transformé en acétaldéhyde.`,
-      `L’acétaldéhyde est dangereux.`,
-      `La catalase contribue à sa destruction.`,
-      `L’acétaldéhyde est une enzyme peroxysomale protectrice.`,
+    "order": 58,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Pour le thème suivant — les fonctions lipidiques des peroxysomes — quelles affirmations sont exactes ?",
+    "choices": [
+      {
+        "content": "Le peroxysome oxyde systématiquement tous les acides gras jusqu’au CO2 sans intervention mitochondriale.",
+        "correct": false,
+        "explanation": "Il raccourcit souvent les chaînes ; l’oxydation complète implique d’autres compartiments, notamment la mitochondrie."
+      },
+      {
+        "content": "L’acide phytanique est un acide gras ramifié.",
+        "correct": true,
+        "explanation": "Sa structure nécessite une voie d’α-oxydation avant d’autres étapes cataboliques."
+      },
+      {
+        "content": "La membrane peroxysomale contient une ATP synthase responsable du rendement énergétique de la β-oxydation.",
+        "correct": false,
+        "explanation": "La phosphorylation oxydative est mitochondriale."
+      },
+      {
+        "content": "La membrane peroxysomale contient des transporteurs permettant l’entrée de substrats lipidiques.",
+        "correct": true,
+        "explanation": "Les protéines ABCD jouent un rôle majeur pour plusieurs acyl-CoA."
+      },
+      {
+        "content": "Les peroxysomes sont incapables de produire de l’acétyl-CoA.",
+        "correct": false,
+        "explanation": "La β-oxydation peroxysomale en produit."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `L’acétaldéhyde est un intermédiaire toxique, non une enzyme protectrice.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les peroxysomes raccourcissent notamment les acides gras à très longue chaîne, participent à la synthèse des plasmalogènes et à certaines étapes du métabolisme des acides biliaires."
   },
   {
-    order: 75,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Les effets dangereux attribués à l’acétaldéhyde dans la fiche comprennent :`,
-    choices: [
-      `Des atteintes du cytosquelette.`,
-      `Un blocage du transport axonal.`,
-      `Une atteinte possible du système nerveux.`,
-      `Une stimulation directe de l’urate oxydase humaine.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La fiche relie l’acétaldéhyde à des atteintes cytosquelettiques et à un blocage du transport axonal.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "order": 59,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel organite participe au raccourcissement de la chaîne latérale de certains précurseurs des acides biliaires ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "peroxysome",
+        "peroxysomes"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Des étapes de β-oxydation peroxysomale participent à la maturation de certains acides biliaires."
   },
   {
-    order: 76,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Le rôle détoxifiant de la catalase repose sur :`,
-    choices: [
-      `L’utilisation du H2O2.`,
-      `L’oxydation de certains substrats toxiques.`,
-      `La destruction de l’excès de H2O2.`,
-      `La production systématique d’un surplus de H2O2.`,
+    "order": 60,
+    "difficulty": "MEDIUM",
+    "format": "QRP",
+    "question": "Parmi ces cinq propositions, retenez exactement les deux exactes pour le thème suivant : les autres fonctions métaboliques et leur régulation.",
+    "choices": [
+      {
+        "content": "Chez l’humain, l’urate oxydase convertit normalement l’acide urique en allantoïne.",
+        "correct": false,
+        "explanation": "L’humain ne possède pas d’urate oxydase fonctionnelle."
+      },
+      {
+        "content": "La prolifération peroxysomale induite par les agonistes PPARα est beaucoup plus marquée chez certains rongeurs que chez l’humain.",
+        "correct": true,
+        "explanation": "Les réponses d’espèce diffèrent fortement."
+      },
+      {
+        "content": "L’adénine et la guanine sont des bases pyrimidiques.",
+        "correct": false,
+        "explanation": "Ce sont des bases puriques."
+      },
+      {
+        "content": "La goutte est un synonyme strict de lithiase urique.",
+        "correct": false,
+        "explanation": "Ce sont deux manifestations différentes liées au métabolisme de l’urate."
+      },
+      {
+        "content": "Certaines oxydases d’acides aminés sont localisées dans les peroxysomes.",
+        "correct": true,
+        "explanation": "Elles participent au métabolisme de certains acides aminés en produisant notamment du H2O2."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La catalase protège la cellule en utilisant ou en éliminant le H2O2, sans en être la principale source.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les peroxysomes participent à plusieurs voies métaboliques ; chez l’humain, l’absence d’urate oxydase fait de l’acide urique le produit final majeur du catabolisme des purines, et PPARα régule de nombreux gènes du métabolisme lipidique.",
+    "requiredSelectionCount": 2
   },
   {
-    order: 77,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Un excès de H2O2 dans la matrice devrait être limité par :`,
-    choices: [
-      `La catalase.`,
-      `Sa conversion en H2O et O2.`,
-      `La forte abondance de l’enzyme catalase.`,
-      `L’urate oxydase humaine.`,
+    "order": 61,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Parmi les affirmations suivantes sur les fonctions lipidiques des peroxysomes, lesquelles sont exactes ?",
+    "choices": [
+      {
+        "content": "La β-oxydation peroxysomale raccourcit les chaînes carbonées par cycles successifs.",
+        "correct": true,
+        "explanation": "Elle produit des acyl-CoA plus courts et de l’acétyl-CoA."
+      },
+      {
+        "content": "Un défaut peroxysomal de β-oxydation entraîne nécessairement une diminution des acides gras à très longue chaîne.",
+        "correct": false,
+        "explanation": "Il peut au contraire provoquer leur accumulation."
+      },
+      {
+        "content": "La β-oxydation peroxysomale est spécialisée exclusivement dans les acides gras à chaîne courte.",
+        "correct": false,
+        "explanation": "Elle intervient particulièrement pour les acides gras à très longue chaîne."
+      },
+      {
+        "content": "L’acétyl-CoA peut être produit lors de la β-oxydation peroxysomale.",
+        "correct": true,
+        "explanation": "Chaque cycle libère une unité à deux carbones sous forme d’acétyl-CoA."
+      },
+      {
+        "content": "Des produits raccourcis de la β-oxydation peroxysomale peuvent être transférés vers la mitochondrie.",
+        "correct": true,
+        "explanation": "La mitochondrie peut alors poursuivre leur oxydation énergétique."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La catalase décompose le H2O2 ; l’Homme ne dispose pas d’urate oxydase selon la fiche.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les peroxysomes raccourcissent notamment les acides gras à très longue chaîne, participent à la synthèse des plasmalogènes et à certaines étapes du métabolisme des acides biliaires."
   },
   {
-    order: 78,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `À partir de la figure suivante :
-
-![Oxydases et catalase](/images/training/ue14/biologie-cellulaire/peroxysomes/oxydases-catalase-h2o2.png)
-
-Quelle(s) relation(s) est(sont) correcte(s) ?`,
-    choices: [
-      `O2 + substrat réduit — oxydase → substrat oxydé + H2O2.`,
-      `H2O2 + substrat — catalase → produit oxydé.`,
-      `Excès de H2O2 — catalase → H2O + O2.`,
-      `Catalase — réaction principale → production initiale de H2O2.`,
+    "order": 62,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur les fonctions lipidiques des peroxysomes, laquelle est exacte ?",
+    "choices": [
+      {
+        "content": "Le peroxysome est l’organite principal du cycle de Krebs.",
+        "correct": false,
+        "explanation": "Le cycle de Krebs se déroule dans la matrice mitochondriale."
+      },
+      {
+        "content": "Un défaut peroxysomal de β-oxydation entraîne nécessairement une diminution des acides gras à très longue chaîne.",
+        "correct": false,
+        "explanation": "Il peut au contraire provoquer leur accumulation."
+      },
+      {
+        "content": "La β-oxydation peroxysomale est spécialisée exclusivement dans les acides gras à chaîne courte.",
+        "correct": false,
+        "explanation": "Elle intervient particulièrement pour les acides gras à très longue chaîne."
+      },
+      {
+        "content": "Les premières étapes de la synthèse des plasmalogènes se déroulent dans les peroxysomes.",
+        "correct": true,
+        "explanation": "La synthèse est ensuite poursuivie dans le réticulum endoplasmique."
+      },
+      {
+        "content": "Le peroxysome oxyde systématiquement tous les acides gras jusqu’au CO2 sans intervention mitochondriale.",
+        "correct": false,
+        "explanation": "Il raccourcit souvent les chaînes ; l’oxydation complète implique d’autres compartiments, notamment la mitochondrie."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le schéma distingue la production initiale du H2O2 par l’oxydase et ses utilisations par la catalase.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les peroxysomes raccourcissent notamment les acides gras à très longue chaîne, participent à la synthèse des plasmalogènes et à certaines étapes du métabolisme des acides biliaires."
   },
   {
-    order: 79,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Associe correctement fonction et enzyme :`,
-    choices: [
-      `Production de H2O2 — oxydase.`,
-      `Destruction de l’excès de H2O2 — catalase.`,
-      `Dégradation d’acides aminés — aminoacides oxydases.`,
-      `Formation d’ADN — catalase.`,
+    "order": 63,
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Sélectionnez les propositions exactes sur le thème suivant : les autres fonctions métaboliques et leur régulation.",
+    "choices": [
+      {
+        "content": "L’acide urique provient du catabolisme des purines.",
+        "correct": true,
+        "explanation": "Les purines comprennent notamment l’adénine et la guanine."
+      },
+      {
+        "content": "Chez l’humain, l’urate oxydase fonctionnelle est absente.",
+        "correct": true,
+        "explanation": "L’acide urique constitue donc le produit final majeur du catabolisme des purines."
+      },
+      {
+        "content": "Plusieurs autres mammifères possèdent une uricase permettant de convertir l’urate en allantoïne.",
+        "correct": true,
+        "explanation": "Cette différence d’espèce explique que l’allantoïne ne soit pas le produit final normal chez l’humain."
+      },
+      {
+        "content": "Une hyperuricémie peut favoriser des dépôts de cristaux d’urate dans les articulations.",
+        "correct": true,
+        "explanation": "Ces dépôts sont responsables des crises de goutte."
+      },
+      {
+        "content": "Les oxydases peroxysomales d’acides aminés n’utilisent jamais d’oxygène.",
+        "correct": false,
+        "explanation": "Par définition, les oxydases transfèrent des électrons à l’oxygène."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les oxydases et la catalase assurent des fonctions métaboliques et détoxifiantes, non la synthèse d’ADN.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les peroxysomes participent à plusieurs voies métaboliques ; chez l’humain, l’absence d’urate oxydase fait de l’acide urique le produit final majeur du catabolisme des purines, et PPARα régule de nombreux gènes du métabolisme lipidique."
   },
   {
-    order: 80,
-    difficulty: 'MEDIUM',
-    answerFormat: 'MULTIPLE',
-    question: `Le fait que la matrice utilise l’oxygène est cohérent avec :`,
-    choices: [
-      `La présence d’oxydases.`,
-      `La production de H2O2.`,
-      `La production d’O2 lors de la décomposition du H2O2.`,
-      `L’absence complète de réactions d’oxydoréduction.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le peroxysome est un organite d’oxydations utilisant l’oxygène et manipulant le H2O2.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "order": 64,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "Quel acide gras ramifié est classiquement dégradé après une α-oxydation peroxysomale ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "acide phytanique",
+        "phytanate",
+        "phytanic acid"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "La ramification de l’acide phytanique empêche une β-oxydation classique initiale."
   },
   {
-    order: 81,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Les trois voies oxydatives citées avec production de H2O2 comprennent :`,
-    choices: [
-      `La β-oxydation des acides gras longs ou très longs.`,
-      `La synthèse d’acides biliaires.`,
-      `La dégradation d’acides aminés.`,
-      `La réplication de l’ADN nucléaire.`,
+    "order": 65,
+    "difficulty": "MEDIUM",
+    "format": "QRU",
+    "question": "Pour le thème suivant — les fonctions lipidiques des peroxysomes — quelle est l’unique proposition juste ?",
+    "choices": [
+      {
+        "content": "La β-oxydation peroxysomale ne produit jamais de chaîne acylée raccourcie.",
+        "correct": false,
+        "explanation": "Le raccourcissement des chaînes est précisément l’un de ses résultats."
+      },
+      {
+        "content": "L’acide phytanique est un acide gras ramifié.",
+        "correct": true,
+        "explanation": "Sa structure nécessite une voie d’α-oxydation avant d’autres étapes cataboliques."
+      },
+      {
+        "content": "L’acyl-CoA oxydase est une enzyme de la synthèse des protéines ribosomales.",
+        "correct": false,
+        "explanation": "C’est une enzyme de la β-oxydation peroxysomale."
+      },
+      {
+        "content": "Le peroxysome est l’organite principal du cycle de Krebs.",
+        "correct": false,
+        "explanation": "Le cycle de Krebs se déroule dans la matrice mitochondriale."
+      },
+      {
+        "content": "Un défaut peroxysomal de β-oxydation entraîne nécessairement une diminution des acides gras à très longue chaîne.",
+        "correct": false,
+        "explanation": "Il peut au contraire provoquer leur accumulation."
+      }
     ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La fiche regroupe ces trois voies métaboliques parmi les activités des oxydases peroxysomales.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
+    "explanation": "Les peroxysomes raccourcissent notamment les acides gras à très longue chaîne, participent à la synthèse des plasmalogènes et à certaines étapes du métabolisme des acides biliaires."
   },
   {
-    order: 82,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `L’affirmation « la catalase produit le H2O2 » est :`,
-    choices: [
-      `Fausse dans le schéma général du cours.`,
-      `À corriger en indiquant que les oxydases produisent le H2O2.`,
-      `À nuancer car la catalase utilise le H2O2.`,
-      `Exacte pour toutes les réactions peroxysomales.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La catalase consomme ou décompose le H2O2 produit par les oxydases.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 83,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `La coopération entre oxydases et catalase permet :`,
-    choices: [
-      `D’oxyder des substrats.`,
-      `D’exploiter le H2O2 produit.`,
-      `De limiter l’accumulation de H2O2.`,
-      `De rendre inutile toute perméase membranaire.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Cette coopération concerne les réactions de matrice ; les perméases restent nécessaires aux échanges de produits.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 84,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Une oxydase est active mais la catalase est fortement déficiente. On peut prévoir, à partir du cours :`,
-    choices: [
-      `Une production maintenue de H2O2.`,
-      `Une dégradation moins efficace de l’excès de H2O2.`,
-      `Une perturbation de certaines fonctions détoxifiantes.`,
-      `Une disparition immédiate de toutes les oxydases.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La catalase agit en aval des oxydases ; son déficit affecte l’utilisation et la destruction du H2O2.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 85,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Le catabolisme peroxysomal de l’alcool illustre :`,
-    choices: [
-      `Une fonction de détoxification.`,
-      `L’utilisation du H2O2 par la catalase.`,
-      `La destruction d’un intermédiaire dangereux.`,
-      `La production d’acide urique par la catalase.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Cet exemple relie catalase, H2O2 et élimination de l’acétaldéhyde toxique.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 86,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Un blocage du transport axonal après exposition à l’acétaldéhyde est cohérent avec :`,
-    choices: [
-      `L’atteinte du cytosquelette décrite.`,
-      `La toxicité de l’acétaldéhyde.`,
-      `L’intérêt de sa destruction par la catalase.`,
-      `Une protection assurée par l’acétaldéhyde lui-même.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La fiche présente l’acétaldéhyde comme toxique et justifie son élimination par la catalase.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 87,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Les produits de la β-oxydation peroxysomale doivent franchir la membrane grâce notamment à :`,
-    choices: [
-      `Des perméases.`,
-      `Des protéines membranaires de transport.`,
-      `Un passage vers le cytosol.`,
-      `Une fusion obligatoire avec le noyau.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Les produits sortent via des perméases puis rejoignent le cytosol et les mitochondries.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 88,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Le peroxysome associe fonctions lipidiques et autres métabolismes car il intervient dans :`,
-    choices: [
-      `La β-oxydation.`,
-      `La synthèse d’acides biliaires.`,
-      `La dégradation d’acides aminés.`,
-      `La formation des chromosomes.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `La diversité enzymatique peroxysomale dépasse le seul métabolisme lipidique.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 89,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `La présence d’oxygène dans les réactions peroxysomales est directement reliée à :`,
-    choices: [
-      `L’activité des oxydases.`,
-      `La formation de H2O2.`,
-      `La détoxification par la catalase.`,
-      `La duplication du génome peroxysomal.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Le peroxysome est un compartiment d’oxydations et de gestion du H2O2, sans génome propre.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
-  },
-  {
-    order: 90,
-    difficulty: 'HARD',
-    answerFormat: 'MULTIPLE',
-    question: `Quelle synthèse est correcte sur les fonctions enzymatiques du peroxysome ?`,
-    choices: [
-      `Les oxydases produisent du H2O2.`,
-      `La catalase utilise ou détruit le H2O2.`,
-      `Plusieurs voies métaboliques sont concernées.`,
-      `La catalase est absente de la matrice.`,
-    ],
-    correctChoiceIndexes: [0, 1, 2],
-    explanation: `Oxydases et catalase structurent le fonctionnement métabolique et détoxifiant du peroxysome.`,
-    choiceExplanations: [
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Exact : conforme aux éléments de la fiche.`,
-      `Faux : contredit les éléments de la fiche ou attribue au peroxysome une propriété non décrite.`,
-    ],
-  },
+    "order": 66,
+    "difficulty": "MEDIUM",
+    "format": "QROC",
+    "question": "L’humain possède-t-il une urate oxydase fonctionnelle ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "non"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
+    },
+    "explanation": "Chez l’humain, l’acide urique est le produit final majeur du catabolisme des purines."
+  }
 ];
 
 export const SECTION_C_QUIZZES: SeedQuiz[] = [
   {
-    order: 7,
-    slug: `oxydases-catalase-h2o2`,
-    title: `Oxydases, catalase et peroxyde d’hydrogène`,
-    description: `Production, utilisation et détoxification du H2O2.`,
-    stage: 'DISCOVER',
-    sectionOrder: 3,
-    questionOrders: [61, 62, 63, 64, 65, 66, 67, 68, 69, 70],
+    "order": 5,
+    "slug": "peroxysomes-5",
+    "title": "β-oxydation peroxysomale",
+    "description": "Découvrir : β-oxydation peroxysomale.",
+    "stage": "DISCOVER",
+    "sectionOrder": 3,
+    "questionOrders": [
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54
+    ]
   },
   {
-    order: 8,
-    slug: `voies-metaboliques-peroxysomales`,
-    title: `Voies métaboliques peroxysomales`,
-    description: `β-oxydation, acides biliaires, acides aminés et détoxification de l’alcool.`,
-    stage: 'PRACTICE',
-    sectionOrder: 3,
-    questionOrders: [71, 72, 73, 74, 75, 76, 77, 78, 79, 80],
-  },
-  {
-    order: 9,
-    slug: `integration-fonctions-oxydatives`,
-    title: `Intégration des fonctions oxydatives`,
-    description: `Raisonnement sur les enzymes, les produits et les échanges de métabolites.`,
-    stage: 'MASTER',
-    sectionOrder: 3,
-    questionOrders: [81, 82, 83, 84, 85, 86, 87, 88, 89, 90],
-  },
+    "order": 6,
+    "slug": "peroxysomes-6",
+    "title": "Métabolismes et coopération cellulaire",
+    "description": "Approfondir : métabolismes et coopération cellulaire.",
+    "stage": "PRACTICE",
+    "sectionOrder": 3,
+    "questionOrders": [
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66
+    ]
+  }
 ];

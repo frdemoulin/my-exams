@@ -5,9 +5,14 @@ import {
   resolveQuizAnswerFormat,
 } from '@/core/quiz/quiz-answer-format';
 import {
+  normalizePersistedPassageQuestion,
   normalizePersistedQuestion,
   normalizePersistedQuestionType,
 } from '@/core/questions';
+import {
+  buildThemeLabelById,
+  getQuestionThemeLabels,
+} from '@/core/theme/theme-label';
 import { slugifyText } from '@/lib/utils';
 import {
   chapterLevelValues,
@@ -111,22 +116,6 @@ export const simplifyTrainingQuizDescription = (description: string | null) => {
   );
 };
 
-const getQuestionThemeLabels = ({
-  themeIds,
-  themeLabelById,
-}: {
-  themeIds: string[];
-  themeLabelById: Map<string, string>;
-}) => {
-  return Array.from(
-    new Set(
-      themeIds
-        .map((themeId) => themeLabelById.get(themeId) ?? null)
-        .filter((label): label is string => Boolean(label))
-    )
-  );
-};
-
 const toTrainingQuestion = (question: {
   id: string;
   difficulty: QuizDifficulty;
@@ -167,7 +156,7 @@ const toTrainingQuestion = (question: {
   });
   const questionType = normalizePersistedQuestionType(question.questionType);
   const answerPayload = question.answerPayload ?? null;
-  const canonicalQuestion = normalizePersistedQuestion({
+  const canonicalQuestion = normalizePersistedPassageQuestion({
     id: question.id,
     questionType,
     answerPayload,
@@ -189,11 +178,11 @@ const toTrainingQuestion = (question: {
       question.questionDiagram ?? null
     ),
     choices: normalizedQuestionChoices.choices,
-    correctChoiceIndexes: normalizedQuestionChoices.correctChoiceIndexes,
-    answerPayload,
+    correctChoiceIndexes: [],
+    answerPayload: null,
     canonicalQuestion,
-    explanation: resolvedCorrectionContent.explanation,
-    choiceExplanations: resolvedCorrectionContent.choiceExplanations,
+    explanation: '',
+    choiceExplanations: [],
     order: question.order,
     themeLabels: getQuestionThemeLabels({
       themeIds: question.themeIds,
@@ -618,9 +607,7 @@ export async function fetchSciencePhysicsTrainingChapterBySlug(
         },
       })
     : [];
-  const themeLabelById = new Map(
-    questionThemes.map((theme) => [theme.id, theme.shortTitle?.trim() || theme.title] as const)
-  );
+  const themeLabelById = buildThemeLabelById(questionThemes);
 
   const publishedQuestions = chapter.quizQuestions.map((question) =>
     toTrainingQuestion(question, undefined, themeLabelById)

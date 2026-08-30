@@ -1,640 +1,704 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
+/** UE14 Biologie cellulaire — Ch3 — Organisation générale et microtubules */
 export const UE14_CELL_CH3_SECTION_A_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 1,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "À propos de « les trois types de structures du cytosquelette », quelles affirmations sont conformes à la fiche ?",
+    "question": "À propos de « Organisation générale du cytosquelette », sélectionnez les affirmations fausses.",
+    "explanation": "Le cytosquelette est un réseau dynamique de polymères protéiques qui organise la forme, la polarité, les mouvements et le trafic intracellulaire. Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires.",
     "choices": [
       {
-        "content": "La fiche distingue microtubules, microfilaments d’actine et filaments intermédiaires.",
+        "content": "Le cytosquelette est une paroi extracellulaire minérale comparable à l’os.",
         "correct": true,
-        "explanation": "Le cytosquelette comprend trois grands réseaux protéiques."
+        "explanation": "Cette affirmation est incorrecte. Le cytosquelette est un réseau dynamique de polymères protéiques qui organise la forme, la polarité, les mouvements et le trafic intracellulaire. Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires."
       },
       {
-        "content": "La fiche ne distingue que deux réseaux du cytosquelette.",
-        "correct": false,
-        "explanation": "Le cytosquelette comprend trois grands réseaux protéiques."
-      },
-      {
-        "content": "Ces trois structures sont des polymères protéiques.",
+        "content": "Le cytosquelette n’a aucun rôle dans les mouvements cellulaires.",
         "correct": true,
-        "explanation": "Le cytosquelette comprend trois grands réseaux protéiques."
+        "explanation": "Cette affirmation est incorrecte. Le cytosquelette est un réseau dynamique de polymères protéiques qui organise la forme, la polarité, les mouvements et le trafic intracellulaire. Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires."
       },
       {
-        "content": "Les trois structures sont des polymères exclusivement lipidiques.",
+        "content": "Les microtubules, les filaments d’actine et les filaments intermédiaires constituent les trois grandes familles du cytosquelette eucaryote.",
         "correct": false,
-        "explanation": "Le cytosquelette comprend trois grands réseaux protéiques."
+        "explanation": "Cette affirmation est correcte. Le cytosquelette est un réseau dynamique de polymères protéiques qui organise la forme, la polarité, les mouvements et le trafic intracellulaire. Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires."
+      },
+      {
+        "content": "Les trois familles du cytosquelette sont constituées de la même protéine monomérique.",
+        "correct": true,
+        "explanation": "Cette affirmation est incorrecte. Le cytosquelette est un réseau dynamique de polymères protéiques qui organise la forme, la polarité, les mouvements et le trafic intracellulaire. Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires."
+      },
+      {
+        "content": "Le cytosquelette n’existe que dans les cellules musculaires.",
+        "correct": true,
+        "explanation": "Cette affirmation est incorrecte. Le cytosquelette est un réseau dynamique de polymères protéiques qui organise la forme, la polarité, les mouvements et le trafic intracellulaire. Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires."
       }
-    ],
-    "explanation": "Le cytosquelette comprend trois grands réseaux protéiques."
+    ]
   },
   {
     "order": 2,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Parmi ces propositions sur « le diamètre des microtubules », laquelle est correcte ?",
+    "question": "Sur le thème « Dimensions et constituants des polymères du cytosquelette », quelle proposition est exacte ?",
+    "explanation": "Les microtubules ont un diamètre externe d’environ 25 nm, les filaments intermédiaires autour de 10 nm et les filaments d’actine autour de 7 nm. Microtubules et actine sont formés de sous-unités globulaires ; les FI proviennent de protéines fibreuses.",
     "choices": [
       {
-        "content": "Les microtubules sont les plus larges des trois structures comparées.",
+        "content": "Les filaments intermédiaires sont constitués exclusivement de tubuline.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Les microtubules ont un diamètre externe d’environ 25 nm, les filaments intermédiaires autour de 10 nm et les filaments d’actine autour de 7 nm. Microtubules et actine sont formés de sous-unités globulaires ; les FI proviennent de protéines fibreuses."
+      },
+      {
+        "content": "Les microtubules sont les plus fins des trois grandes familles du cytosquelette.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Les microtubules ont un diamètre externe d’environ 25 nm, les filaments intermédiaires autour de 10 nm et les filaments d’actine autour de 7 nm. Microtubules et actine sont formés de sous-unités globulaires ; les FI proviennent de protéines fibreuses."
+      },
+      {
+        "content": "Le diamètre externe d’un microtubule est de l’ordre de 25 nm.",
         "correct": true,
-        "explanation": "Le repère local est environ 24 nm."
+        "explanation": "Cette affirmation est correcte. Les microtubules ont un diamètre externe d’environ 25 nm, les filaments intermédiaires autour de 10 nm et les filaments d’actine autour de 7 nm. Microtubules et actine sont formés de sous-unités globulaires ; les FI proviennent de protéines fibreuses."
       },
       {
-        "content": "Les microtubules sont constitués d’actine.",
+        "content": "Les microtubules sont constitués de monomères d’actine.",
         "correct": false,
-        "explanation": "Le repère local est environ 24 nm."
+        "explanation": "Cette affirmation est incorrecte. Les microtubules ont un diamètre externe d’environ 25 nm, les filaments intermédiaires autour de 10 nm et les filaments d’actine autour de 7 nm. Microtubules et actine sont formés de sous-unités globulaires ; les FI proviennent de protéines fibreuses."
       },
       {
-        "content": "Ils sont les plus fins des trois réseaux.",
+        "content": "Les filaments d’actine ont typiquement un diamètre de 25 nm.",
         "correct": false,
-        "explanation": "Le repère local est environ 24 nm."
-      },
-      {
-        "content": "La fiche donne environ 5 nm pour les microtubules.",
-        "correct": false,
-        "explanation": "Le repère local est environ 24 nm."
+        "explanation": "Cette affirmation est incorrecte. Les microtubules ont un diamètre externe d’environ 25 nm, les filaments intermédiaires autour de 10 nm et les filaments d’actine autour de 7 nm. Microtubules et actine sont formés de sous-unités globulaires ; les FI proviennent de protéines fibreuses."
       }
-    ],
-    "explanation": "Le repère local est environ 24 nm."
+    ]
   },
   {
     "order": 3,
     "difficulty": "EASY",
     "format": "QROC",
-    "question": "Réponse numérique en nm : quel diamètre approximatif est donné pour les microfilaments d’actine ?",
+    "question": "Quelles sont les trois grandes familles de polymères du cytosquelette ?",
     "answer": {
-      "type": "number",
-      "value": 5,
-      "tolerance": 0
+      "type": "text",
+      "acceptedAnswers": [
+        "microtubules, filaments d'actine, filaments intermédiaires",
+        "microtubules, microfilaments d'actine, filaments intermédiaires",
+        "microtubules actine filaments intermédiaires"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
+      }
     },
-    "explanation": "Les microfilaments d’actine sont les structures les plus fines du tableau introductif."
+    "explanation": "Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires."
   },
   {
     "order": 4,
-    "difficulty": "EASY",
+    "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Selon le support, quelle affirmation concernant « les filaments intermédiaires dans le tableau général » est juste ?",
+    "question": "Quelle affirmation décrit correctement « Structure et polarité des microtubules » ?",
+    "explanation": "Un microtubule est un cylindre creux généralement formé de 13 protofilaments. Chaque protofilament aligne des hétérodimères α/β-tubuline dans une même orientation, ce qui crée des extrémités + et − non équivalentes.",
     "choices": [
       {
-        "content": "Le diamètre indiqué est d’environ 8 à 10 nm.",
+        "content": "Un microtubule cytoplasmique canonique comporte généralement 13 protofilaments.",
         "correct": true,
-        "explanation": "Les filaments intermédiaires ont un diamètre intermédiaire et une composition protéique hétérogène."
+        "explanation": "Cette affirmation est correcte. Un microtubule est un cylindre creux généralement formé de 13 protofilaments. Chaque protofilament aligne des hétérodimères α/β-tubuline dans une même orientation, ce qui crée des extrémités + et − non équivalentes."
       },
       {
-        "content": "Le diamètre indiqué est de 80 à 100 nm.",
+        "content": "Les microtubules sont dépourvus de polarité structurale.",
         "correct": false,
-        "explanation": "Les filaments intermédiaires ont un diamètre intermédiaire et une composition protéique hétérogène."
+        "explanation": "Cette affirmation est incorrecte. Un microtubule est un cylindre creux généralement formé de 13 protofilaments. Chaque protofilament aligne des hétérodimères α/β-tubuline dans une même orientation, ce qui crée des extrémités + et − non équivalentes."
       },
       {
-        "content": "Ils sont formés uniquement de tubuline.",
+        "content": "Un microtubule canonique est un câble plein dépourvu de lumière centrale.",
         "correct": false,
-        "explanation": "Les filaments intermédiaires ont un diamètre intermédiaire et une composition protéique hétérogène."
+        "explanation": "Cette affirmation est incorrecte. Un microtubule est un cylindre creux généralement formé de 13 protofilaments. Chaque protofilament aligne des hétérodimères α/β-tubuline dans une même orientation, ce qui crée des extrémités + et − non équivalentes."
       },
       {
-        "content": "Leurs monomères sont tous sphériques.",
+        "content": "Les extrémités plus et moins ont toujours exactement la même dynamique.",
         "correct": false,
-        "explanation": "Les filaments intermédiaires ont un diamètre intermédiaire et une composition protéique hétérogène."
+        "explanation": "Cette affirmation est incorrecte. Un microtubule est un cylindre creux généralement formé de 13 protofilaments. Chaque protofilament aligne des hétérodimères α/β-tubuline dans une même orientation, ce qui crée des extrémités + et − non équivalentes."
+      },
+      {
+        "content": "Les protofilaments sont constitués uniquement de tubuline alpha.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Un microtubule est un cylindre creux généralement formé de 13 protofilaments. Chaque protofilament aligne des hétérodimères α/β-tubuline dans une même orientation, ce qui crée des extrémités + et − non équivalentes."
       }
-    ],
-    "explanation": "Les filaments intermédiaires ont un diamètre intermédiaire et une composition protéique hétérogène."
+    ]
   },
   {
     "order": 5,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Quelles affirmations décrivent correctement « la localisation des microtubules » ?",
+    "format": "QRU",
+    "question": "Parmi les propositions ci-dessous relatives à « Centrosome et nucléation des microtubules », laquelle est correcte ?",
+    "explanation": "Le centrosome est le principal centre organisateur des microtubules de nombreuses cellules animales. Il contient deux centrioles entourés de matériel péricentriolaire riche notamment en complexes à γ-tubuline qui nucléent les microtubules.",
     "choices": [
       {
-        "content": "Ils sont absents du noyau dans la description de la fiche.",
+        "content": "Dans de nombreuses cellules animales, le centrosome constitue un centre organisateur majeur des microtubules.",
         "correct": true,
-        "explanation": "Le réseau de microtubules cytosoliques est organisé autour du centrosome."
+        "explanation": "Cette affirmation est correcte. Le centrosome est le principal centre organisateur des microtubules de nombreuses cellules animales. Il contient deux centrioles entourés de matériel péricentriolaire riche notamment en complexes à γ-tubuline qui nucléent les microtubules."
       },
       {
-        "content": "Ils irradient de la membrane plasmique vers le nucléole.",
+        "content": "Le centrosome est un organite entouré d’une double membrane.",
         "correct": false,
-        "explanation": "Le réseau de microtubules cytosoliques est organisé autour du centrosome."
+        "explanation": "Cette affirmation est incorrecte. Le centrosome est le principal centre organisateur des microtubules de nombreuses cellules animales. Il contient deux centrioles entourés de matériel péricentriolaire riche notamment en complexes à γ-tubuline qui nucléent les microtubules."
       },
       {
-        "content": "Ils irradient du centrosome vers la périphérie cellulaire.",
-        "correct": true,
-        "explanation": "Le réseau de microtubules cytosoliques est organisé autour du centrosome."
-      },
-      {
-        "content": "Ils sont absents du cytosol.",
+        "content": "Les centrioles sont constitués de neuf doublets de microfilaments d’actine.",
         "correct": false,
-        "explanation": "Le réseau de microtubules cytosoliques est organisé autour du centrosome."
+        "explanation": "Cette affirmation est incorrecte. Le centrosome est le principal centre organisateur des microtubules de nombreuses cellules animales. Il contient deux centrioles entourés de matériel péricentriolaire riche notamment en complexes à γ-tubuline qui nucléent les microtubules."
+      },
+      {
+        "content": "La nucléation des microtubules est assurée par l’actine G.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Le centrosome est le principal centre organisateur des microtubules de nombreuses cellules animales. Il contient deux centrioles entourés de matériel péricentriolaire riche notamment en complexes à γ-tubuline qui nucléent les microtubules."
+      },
+      {
+        "content": "Toutes les extrémités plus des microtubules sont obligatoirement fixées au centrosome.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Le centrosome est le principal centre organisateur des microtubules de nombreuses cellules animales. Il contient deux centrioles entourés de matériel péricentriolaire riche notamment en complexes à γ-tubuline qui nucléent les microtubules."
       }
-    ],
-    "explanation": "Le réseau de microtubules cytosoliques est organisé autour du centrosome."
+    ]
   },
   {
     "order": 6,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Quelle donnée est correcte concernant « les microtubules chez les cellules humaines » ?",
+    "difficulty": "MEDIUM",
+    "format": "QRM",
+    "question": "Sélectionnez les affirmations compatibles avec « Instabilité dynamique des microtubules ».",
+    "explanation": "La tubuline β lie un GTP échangeable qui est hydrolysé après incorporation. Une coiffe riche en tubuline-GTP stabilise l’extrémité en croissance ; sa perte favorise une catastrophe. Des sauvetages peuvent reprendre la croissance.",
     "choices": [
       {
-        "content": "L’absence dans l’hématie est reliée dans la fiche à la perte du noyau.",
+        "content": "La perte de la coiffe GTP peut déclencher une catastrophe microtubulaire.",
         "correct": true,
-        "explanation": "Le support fait de l’hématie l’exception humaine pour la présence de microtubules."
+        "explanation": "Cette affirmation est correcte. La tubuline β lie un GTP échangeable qui est hydrolysé après incorporation. Une coiffe riche en tubuline-GTP stabilise l’extrémité en croissance ; sa perte favorise une catastrophe. Des sauvetages peuvent reprendre la croissance."
       },
       {
-        "content": "Les microtubules sont réservés aux cellules bactériennes.",
-        "correct": false,
-        "explanation": "Le support fait de l’hématie l’exception humaine pour la présence de microtubules."
+        "content": "La tubuline bêta porte un GTP échangeable qui peut être hydrolysé après incorporation au microtubule.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. La tubuline β lie un GTP échangeable qui est hydrolysé après incorporation. Une coiffe riche en tubuline-GTP stabilise l’extrémité en croissance ; sa perte favorise une catastrophe. Des sauvetages peuvent reprendre la croissance."
       },
       {
-        "content": "La fiche les décrit uniquement dans les hématies.",
-        "correct": false,
-        "explanation": "Le support fait de l’hématie l’exception humaine pour la présence de microtubules."
+        "content": "Une coiffe de tubuline liée au GTP favorise la stabilité de l’extrémité en croissance.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. La tubuline β lie un GTP échangeable qui est hydrolysé après incorporation. Une coiffe riche en tubuline-GTP stabilise l’extrémité en croissance ; sa perte favorise une catastrophe. Des sauvetages peuvent reprendre la croissance."
       },
       {
-        "content": "Aucune cellule eucaryote ne possède de microtubules.",
+        "content": "L’hydrolyse du GTP par la tubuline bêta se produit uniquement avant toute incorporation au polymère.",
         "correct": false,
-        "explanation": "Le support fait de l’hématie l’exception humaine pour la présence de microtubules."
+        "explanation": "Cette affirmation est incorrecte. La tubuline β lie un GTP échangeable qui est hydrolysé après incorporation. Une coiffe riche en tubuline-GTP stabilise l’extrémité en croissance ; sa perte favorise une catastrophe. Des sauvetages peuvent reprendre la croissance."
+      },
+      {
+        "content": "La tubuline alpha porte un GTP non échangeable dans l’hétérodimère.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. La tubuline β lie un GTP échangeable qui est hydrolysé après incorporation. Une coiffe riche en tubuline-GTP stabilise l’extrémité en croissance ; sa perte favorise une catastrophe. Des sauvetages peuvent reprendre la croissance."
       }
-    ],
-    "explanation": "Le support fait de l’hématie l’exception humaine pour la présence de microtubules."
+    ]
   },
   {
     "order": 7,
-    "difficulty": "EASY",
+    "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Selon la fiche, quelles propositions concernant « la structure des microtubules » sont correctes ?",
+    "question": "Parmi les affirmations suivantes sur « Organisation générale du cytosquelette », lesquelles sont exactes ?",
+    "explanation": "Le cytosquelette est un réseau dynamique de polymères protéiques qui organise la forme, la polarité, les mouvements et le trafic intracellulaire. Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires.",
     "choices": [
       {
-        "content": "Les microtubules sont de longs cylindres creux.",
-        "correct": true,
-        "explanation": "Le microtubule complet est un tube creux de 13 protofilaments."
-      },
-      {
-        "content": "Les microtubules sont des cylindres pleins sans lumière.",
+        "content": "Tous les polymères du cytosquelette sont immobiles et permanents.",
         "correct": false,
-        "explanation": "Le microtubule complet est un tube creux de 13 protofilaments."
+        "explanation": "Cette affirmation est incorrecte. Le cytosquelette est un réseau dynamique de polymères protéiques qui organise la forme, la polarité, les mouvements et le trafic intracellulaire. Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires."
       },
       {
-        "content": "Ils sont formés de 13 protofilaments dans la fiche.",
-        "correct": true,
-        "explanation": "Le microtubule complet est un tube creux de 13 protofilaments."
-      },
-      {
-        "content": "Ils comportent 3 protofilaments.",
+        "content": "Dans ce contexte, le cytosquelette n’existe que dans les cellules musculaires.",
         "correct": false,
-        "explanation": "Le microtubule complet est un tube creux de 13 protofilaments."
+        "explanation": "Cette affirmation est incorrecte. Le cytosquelette est un réseau dynamique de polymères protéiques qui organise la forme, la polarité, les mouvements et le trafic intracellulaire. Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires."
+      },
+      {
+        "content": "Le cytosquelette participe à des mouvements cellulaires et intracellulaires.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Le cytosquelette est un réseau dynamique de polymères protéiques qui organise la forme, la polarité, les mouvements et le trafic intracellulaire. Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires."
+      },
+      {
+        "content": "Dans ce contexte, le cytosquelette n’a aucun rôle dans les mouvements cellulaires.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Le cytosquelette est un réseau dynamique de polymères protéiques qui organise la forme, la polarité, les mouvements et le trafic intracellulaire. Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires."
+      },
+      {
+        "content": "Le cytosquelette contribue à l’organisation spatiale du cytoplasme.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Le cytosquelette est un réseau dynamique de polymères protéiques qui organise la forme, la polarité, les mouvements et le trafic intracellulaire. Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires."
       }
-    ],
-    "explanation": "Le microtubule complet est un tube creux de 13 protofilaments."
+    ]
   },
   {
     "order": 8,
-    "difficulty": "EASY",
-    "format": "QRU",
-    "question": "À propos de « les microtubules instables », quelle proposition est juste ?",
+    "difficulty": "HARD",
+    "format": "QRM",
+    "question": "À propos de « Dimensions et constituants des polymères du cytosquelette », sélectionnez les propositions exactes.",
+    "explanation": "Les microtubules ont un diamètre externe d’environ 25 nm, les filaments intermédiaires autour de 10 nm et les filaments d’actine autour de 7 nm. Microtubules et actine sont formés de sous-unités globulaires ; les FI proviennent de protéines fibreuses.",
     "choices": [
       {
-        "content": "Ils subissent des cycles de polymérisation et dépolymérisation.",
+        "content": "Les microtubules sont construits à partir d’hétérodimères de tubuline alpha/bêta.",
         "correct": true,
-        "explanation": "L’instabilité dynamique rend le réseau cytosolique adaptable."
+        "explanation": "Cette affirmation est correcte. Les microtubules ont un diamètre externe d’environ 25 nm, les filaments intermédiaires autour de 10 nm et les filaments d’actine autour de 7 nm. Microtubules et actine sont formés de sous-unités globulaires ; les FI proviennent de protéines fibreuses."
       },
       {
-        "content": "Ils sont décrits comme des structures extracellulaires.",
-        "correct": false,
-        "explanation": "L’instabilité dynamique rend le réseau cytosolique adaptable."
+        "content": "Un filament d’actine a un diamètre d’environ 7 nm.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les microtubules ont un diamètre externe d’environ 25 nm, les filaments intermédiaires autour de 10 nm et les filaments d’actine autour de 7 nm. Microtubules et actine sont formés de sous-unités globulaires ; les FI proviennent de protéines fibreuses."
       },
       {
-        "content": "Ils ne polymérisent jamais.",
-        "correct": false,
-        "explanation": "L’instabilité dynamique rend le réseau cytosolique adaptable."
+        "content": "Les filaments intermédiaires ont un diamètre proche de 10 nm.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les microtubules ont un diamètre externe d’environ 25 nm, les filaments intermédiaires autour de 10 nm et les filaments d’actine autour de 7 nm. Microtubules et actine sont formés de sous-unités globulaires ; les FI proviennent de protéines fibreuses."
       },
       {
-        "content": "Les microtubules instables ne changent jamais de longueur.",
+        "content": "Dans ce contexte, les microtubules sont constitués de monomères d’actine.",
         "correct": false,
-        "explanation": "L’instabilité dynamique rend le réseau cytosolique adaptable."
+        "explanation": "Cette affirmation est incorrecte. Les microtubules ont un diamètre externe d’environ 25 nm, les filaments intermédiaires autour de 10 nm et les filaments d’actine autour de 7 nm. Microtubules et actine sont formés de sous-unités globulaires ; les FI proviennent de protéines fibreuses."
+      },
+      {
+        "content": "Dans ce contexte, les filaments intermédiaires sont constitués exclusivement de tubuline.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Les microtubules ont un diamètre externe d’environ 25 nm, les filaments intermédiaires autour de 10 nm et les filaments d’actine autour de 7 nm. Microtubules et actine sont formés de sous-unités globulaires ; les FI proviennent de protéines fibreuses."
       }
-    ],
-    "explanation": "L’instabilité dynamique rend le réseau cytosolique adaptable."
+    ]
   },
   {
     "order": 9,
-    "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Au sujet de « les structures à microtubules stabilisés », quelles propositions sont correctes ?",
+    "difficulty": "MEDIUM",
+    "format": "QRPL",
+    "question": "Parmi les dix affirmations suivantes sur « Structure et polarité des microtubules », cinq sont exactes : sélectionnez-les.",
+    "explanation": "Un microtubule est un cylindre creux généralement formé de 13 protofilaments. Chaque protofilament aligne des hétérodimères α/β-tubuline dans une même orientation, ce qui crée des extrémités + et − non équivalentes.",
     "choices": [
       {
-        "content": "La fiche rattache cils, flagelles et cils primaires à des microtubules stabilisés.",
+        "content": "Les protofilaments sont constitués d’hétérodimères alpha/bêta-tubuline alignés tête-bêche de façon répétitive.",
         "correct": true,
-        "explanation": "Le support oppose MT cytosoliques instables à plusieurs structures stabilisées."
+        "explanation": "Cette affirmation est correcte. Un microtubule est un cylindre creux généralement formé de 13 protofilaments. Chaque protofilament aligne des hétérodimères α/β-tubuline dans une même orientation, ce qui crée des extrémités + et − non équivalentes."
       },
       {
-        "content": "Les cils primaires sont construits exclusivement avec de l’actine.",
-        "correct": false,
-        "explanation": "Le support oppose MT cytosoliques instables à plusieurs structures stabilisées."
-      },
-      {
-        "content": "Les centrioles contiennent 9 triplets de microtubules.",
+        "content": "Un microtubule est un cylindre creux.",
         "correct": true,
-        "explanation": "Le support oppose MT cytosoliques instables à plusieurs structures stabilisées."
+        "explanation": "Cette affirmation est correcte. Un microtubule est un cylindre creux généralement formé de 13 protofilaments. Chaque protofilament aligne des hétérodimères α/β-tubuline dans une même orientation, ce qui crée des extrémités + et − non équivalentes."
       },
       {
-        "content": "Les centrioles comportent 13 doublets périphériques.",
+        "content": "Dans ce contexte, les extrémités plus et moins ont toujours exactement la même dynamique.",
         "correct": false,
-        "explanation": "Le support oppose MT cytosoliques instables à plusieurs structures stabilisées."
+        "explanation": "Cette affirmation est incorrecte. Un microtubule est un cylindre creux généralement formé de 13 protofilaments. Chaque protofilament aligne des hétérodimères α/β-tubuline dans une même orientation, ce qui crée des extrémités + et − non équivalentes."
+      },
+      {
+        "content": "Les microtubules cytoplasmiques sont constitués de 9 triplets de tubuline.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Un microtubule est un cylindre creux généralement formé de 13 protofilaments. Chaque protofilament aligne des hétérodimères α/β-tubuline dans une même orientation, ce qui crée des extrémités + et − non équivalentes."
+      },
+      {
+        "content": "Les extrémités plus et moins d’un microtubule ne sont pas équivalentes.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Un microtubule est un cylindre creux généralement formé de 13 protofilaments. Chaque protofilament aligne des hétérodimères α/β-tubuline dans une même orientation, ce qui crée des extrémités + et − non équivalentes."
+      },
+      {
+        "content": "L’extrémité plus d’un microtubule est généralement la plus dynamique dans une cellule interphasique.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Un microtubule est un cylindre creux généralement formé de 13 protofilaments. Chaque protofilament aligne des hétérodimères α/β-tubuline dans une même orientation, ce qui crée des extrémités + et − non équivalentes."
+      },
+      {
+        "content": "Un microtubule est formé d’une seule chaîne continue de 13 tubulines.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Un microtubule est un cylindre creux généralement formé de 13 protofilaments. Chaque protofilament aligne des hétérodimères α/β-tubuline dans une même orientation, ce qui crée des extrémités + et − non équivalentes."
+      },
+      {
+        "content": "L’orientation parallèle des dimères confère une polarité au microtubule.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Un microtubule est un cylindre creux généralement formé de 13 protofilaments. Chaque protofilament aligne des hétérodimères α/β-tubuline dans une même orientation, ce qui crée des extrémités + et − non équivalentes."
+      },
+      {
+        "content": "La polarité d’un microtubule dépend de l’orientation du noyau plutôt que de l’assemblage des dimères.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Un microtubule est un cylindre creux généralement formé de 13 protofilaments. Chaque protofilament aligne des hétérodimères α/β-tubuline dans une même orientation, ce qui crée des extrémités + et − non équivalentes."
+      },
+      {
+        "content": "Dans ce contexte, les protofilaments sont constitués uniquement de tubuline alpha.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Un microtubule est un cylindre creux généralement formé de 13 protofilaments. Chaque protofilament aligne des hétérodimères α/β-tubuline dans une même orientation, ce qui crée des extrémités + et − non équivalentes."
       }
     ],
-    "explanation": "Le support oppose MT cytosoliques instables à plusieurs structures stabilisées."
+    "requiredSelectionCount": 5
   },
   {
     "order": 10,
     "difficulty": "EASY",
-    "format": "QRU",
-    "question": "Parmi les énoncés suivants, lequel est exact pour « l’axonème des cils et flagelles mobiles selon la fiche » ?",
-    "choices": [
-      {
-        "content": "La fiche décrit 9 doublets périphériques.",
-        "correct": true,
-        "explanation": "La banque reprend explicitement le modèle local de la fiche : 9 doublets périphériques et 1 doublet central."
-      },
-      {
-        "content": "La fiche décrit 9 triplets périphériques dans l’axonème mobile.",
-        "correct": false,
-        "explanation": "La banque reprend explicitement le modèle local de la fiche : 9 doublets périphériques et 1 doublet central."
-      },
-      {
-        "content": "Elle indique l’absence de toute structure centrale.",
-        "correct": false,
-        "explanation": "La banque reprend explicitement le modèle local de la fiche : 9 doublets périphériques et 1 doublet central."
-      },
-      {
-        "content": "L’axonème est constitué de filaments intermédiaires.",
-        "correct": false,
-        "explanation": "La banque reprend explicitement le modèle local de la fiche : 9 doublets périphériques et 1 doublet central."
+    "format": "QROC",
+    "question": "Quel est le diamètre approximatif d’un microtubule ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "25 nm",
+        "24 nm",
+        "environ 25 nm",
+        "environ 24 nm"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La banque reprend explicitement le modèle local de la fiche : 9 doublets périphériques et 1 doublet central."
+    },
+    "explanation": "Un microtubule a un diamètre externe voisin de 25 nm."
   },
   {
     "order": 11,
-    "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Dans une situation d’application concernant « le diamètre des microfilaments d’actine », quelles propositions sont exactes ?",
-    "choices": [
-      {
-        "content": "Les microfilaments sont formés d’actine.",
-        "correct": true,
-        "explanation": "Les microfilaments d’actine sont les structures les plus fines du tableau introductif."
-      },
-      {
-        "content": "Ils sont constitués de tubuline.",
-        "correct": false,
-        "explanation": "Les microfilaments d’actine sont les structures les plus fines du tableau introductif."
-      },
-      {
-        "content": "Leurs monomères sont globulaires.",
-        "correct": true,
-        "explanation": "Les microfilaments d’actine sont les structures les plus fines du tableau introductif."
-      },
-      {
-        "content": "Leurs monomères sont exclusivement fibreux.",
-        "correct": false,
-        "explanation": "Les microfilaments d’actine sont les structures les plus fines du tableau introductif."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Combien de protofilaments comporte généralement un microtubule cytoplasmique canonique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "13",
+        "treize",
+        "13 protofilaments"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les microfilaments d’actine sont les structures les plus fines du tableau introductif."
+    },
+    "explanation": "Un microtubule canonique est généralement constitué de 13 protofilaments."
   },
   {
     "order": 12,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle proposition est exacte concernant « les filaments intermédiaires dans le tableau général » ?",
+    "format": "QRM",
+    "question": "Sélectionnez les affirmations compatibles avec « Centrosome et nucléation des microtubules ».",
+    "explanation": "Le centrosome est le principal centre organisateur des microtubules de nombreuses cellules animales. Il contient deux centrioles entourés de matériel péricentriolaire riche notamment en complexes à γ-tubuline qui nucléent les microtubules.",
     "choices": [
       {
-        "content": "De nombreuses protéines différentes peuvent constituer les filaments intermédiaires.",
+        "content": "Les centrioles sont constitués de neuf doublets de microfilaments d’actine.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Le centrosome est le principal centre organisateur des microtubules de nombreuses cellules animales. Il contient deux centrioles entourés de matériel péricentriolaire riche notamment en complexes à γ-tubuline qui nucléent les microtubules."
+      },
+      {
+        "content": "Aucun microtubule ne peut exister en dehors d’un réseau strictement centrosomal.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Le centrosome est le principal centre organisateur des microtubules de nombreuses cellules animales. Il contient deux centrioles entourés de matériel péricentriolaire riche notamment en complexes à γ-tubuline qui nucléent les microtubules."
+      },
+      {
+        "content": "Les centrioles sont généralement disposés approximativement perpendiculairement l’un à l’autre dans un centrosome interphasique.",
         "correct": true,
-        "explanation": "Les filaments intermédiaires ont un diamètre intermédiaire et une composition protéique hétérogène."
+        "explanation": "Cette affirmation est correcte. Le centrosome est le principal centre organisateur des microtubules de nombreuses cellules animales. Il contient deux centrioles entourés de matériel péricentriolaire riche notamment en complexes à γ-tubuline qui nucléent les microtubules."
       },
       {
-        "content": "Leurs monomères sont tous sphériques.",
+        "content": "Toutes les extrémités plus des microtubules sont obligatoirement fixées au centrosome.",
         "correct": false,
-        "explanation": "Les filaments intermédiaires ont un diamètre intermédiaire et une composition protéique hétérogène."
+        "explanation": "Cette affirmation est incorrecte. Le centrosome est le principal centre organisateur des microtubules de nombreuses cellules animales. Il contient deux centrioles entourés de matériel péricentriolaire riche notamment en complexes à γ-tubuline qui nucléent les microtubules."
       },
       {
-        "content": "Le diamètre indiqué est de 80 à 100 nm.",
-        "correct": false,
-        "explanation": "Les filaments intermédiaires ont un diamètre intermédiaire et une composition protéique hétérogène."
-      },
-      {
-        "content": "Ils sont formés uniquement de tubuline.",
-        "correct": false,
-        "explanation": "Les filaments intermédiaires ont un diamètre intermédiaire et une composition protéique hétérogène."
+        "content": "Un centrosome comprend typiquement une paire de centrioles entourée de matériel péricentriolaire.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Le centrosome est le principal centre organisateur des microtubules de nombreuses cellules animales. Il contient deux centrioles entourés de matériel péricentriolaire riche notamment en complexes à γ-tubuline qui nucléent les microtubules."
       }
-    ],
-    "explanation": "Les filaments intermédiaires ont un diamètre intermédiaire et une composition protéique hétérogène."
+    ]
   },
   {
     "order": 13,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Pour appliquer les notions sur « la localisation des microtubules », quelles propositions faut-il retenir ?",
+    "format": "QRP",
+    "question": "Concernant « Instabilité dynamique des microtubules », choisissez exactement 3 affirmations correctes.",
+    "explanation": "La tubuline β lie un GTP échangeable qui est hydrolysé après incorporation. Une coiffe riche en tubuline-GTP stabilise l’extrémité en croissance ; sa perte favorise une catastrophe. Des sauvetages peuvent reprendre la croissance.",
     "choices": [
       {
-        "content": "Les microtubules sont présents dans le cytosol.",
+        "content": "Une coiffe de tubuline liée au GTP favorise la stabilité de l’extrémité en croissance.",
         "correct": true,
-        "explanation": "Le réseau de microtubules cytosoliques est organisé autour du centrosome."
+        "explanation": "Cette affirmation est correcte. La tubuline β lie un GTP échangeable qui est hydrolysé après incorporation. Une coiffe riche en tubuline-GTP stabilise l’extrémité en croissance ; sa perte favorise une catastrophe. Des sauvetages peuvent reprendre la croissance."
       },
       {
-        "content": "Les microtubules sont localisés exclusivement dans le noyau.",
+        "content": "Une catastrophe désigne la fusion de deux microtubules en un seul.",
         "correct": false,
-        "explanation": "Le réseau de microtubules cytosoliques est organisé autour du centrosome."
+        "explanation": "Cette affirmation est incorrecte. La tubuline β lie un GTP échangeable qui est hydrolysé après incorporation. Une coiffe riche en tubuline-GTP stabilise l’extrémité en croissance ; sa perte favorise une catastrophe. Des sauvetages peuvent reprendre la croissance."
       },
       {
-        "content": "Ils sont absents du noyau dans la description de la fiche.",
+        "content": "La tubuline alpha porte un GTP non échangeable dans l’hétérodimère.",
         "correct": true,
-        "explanation": "Le réseau de microtubules cytosoliques est organisé autour du centrosome."
+        "explanation": "Cette affirmation est correcte. La tubuline β lie un GTP échangeable qui est hydrolysé après incorporation. Une coiffe riche en tubuline-GTP stabilise l’extrémité en croissance ; sa perte favorise une catastrophe. Des sauvetages peuvent reprendre la croissance."
       },
       {
-        "content": "Ils irradient de la membrane plasmique vers le nucléole.",
+        "content": "Les microtubules cytosoliques ont une longueur fixe pendant toute la vie cellulaire.",
         "correct": false,
-        "explanation": "Le réseau de microtubules cytosoliques est organisé autour du centrosome."
+        "explanation": "Cette affirmation est incorrecte. La tubuline β lie un GTP échangeable qui est hydrolysé après incorporation. Une coiffe riche en tubuline-GTP stabilise l’extrémité en croissance ; sa perte favorise une catastrophe. Des sauvetages peuvent reprendre la croissance."
+      },
+      {
+        "content": "La perte de la coiffe GTP peut déclencher une catastrophe microtubulaire.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. La tubuline β lie un GTP échangeable qui est hydrolysé après incorporation. Une coiffe riche en tubuline-GTP stabilise l’extrémité en croissance ; sa perte favorise une catastrophe. Des sauvetages peuvent reprendre la croissance."
       }
     ],
-    "explanation": "Le réseau de microtubules cytosoliques est organisé autour du centrosome."
+    "requiredSelectionCount": 3
   },
   {
     "order": 14,
-    "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Parmi ces propositions sur « les microtubules chez les cellules humaines », laquelle est correcte ?",
+    "difficulty": "EASY",
+    "format": "QRM",
+    "question": "À propos de « Organisation générale du cytosquelette », sélectionnez les propositions exactes.",
+    "explanation": "Le cytosquelette est un réseau dynamique de polymères protéiques qui organise la forme, la polarité, les mouvements et le trafic intracellulaire. Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires.",
     "choices": [
       {
-        "content": "Chez l’Homme, elle les décrit dans toutes les cellules sauf les hématies.",
+        "content": "Le cytosquelette participe à des mouvements cellulaires et intracellulaires.",
         "correct": true,
-        "explanation": "Le support fait de l’hématie l’exception humaine pour la présence de microtubules."
+        "explanation": "Cette affirmation est correcte. Le cytosquelette est un réseau dynamique de polymères protéiques qui organise la forme, la polarité, les mouvements et le trafic intracellulaire. Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires."
       },
       {
-        "content": "Aucune cellule eucaryote ne possède de microtubules.",
-        "correct": false,
-        "explanation": "Le support fait de l’hématie l’exception humaine pour la présence de microtubules."
+        "content": "Des protéines associées régulent l’assemblage, l’organisation et les fonctions des polymères du cytosquelette.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Le cytosquelette est un réseau dynamique de polymères protéiques qui organise la forme, la polarité, les mouvements et le trafic intracellulaire. Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires."
       },
       {
-        "content": "Les microtubules sont réservés aux cellules bactériennes.",
+        "content": "Les lysosomes constituent l’une des trois familles du cytosquelette.",
         "correct": false,
-        "explanation": "Le support fait de l’hématie l’exception humaine pour la présence de microtubules."
+        "explanation": "Cette affirmation est incorrecte. Le cytosquelette est un réseau dynamique de polymères protéiques qui organise la forme, la polarité, les mouvements et le trafic intracellulaire. Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires."
       },
       {
-        "content": "La fiche les décrit uniquement dans les hématies.",
+        "content": "Les différents polymères du cytosquelette ont des compositions et des propriétés mécaniques distinctes.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Le cytosquelette est un réseau dynamique de polymères protéiques qui organise la forme, la polarité, les mouvements et le trafic intracellulaire. Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires."
+      },
+      {
+        "content": "Tous les polymères du cytosquelette sont immobiles et permanents.",
         "correct": false,
-        "explanation": "Le support fait de l’hématie l’exception humaine pour la présence de microtubules."
+        "explanation": "Cette affirmation est incorrecte. Le cytosquelette est un réseau dynamique de polymères protéiques qui organise la forme, la polarité, les mouvements et le trafic intracellulaire. Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires."
       }
-    ],
-    "explanation": "Le support fait de l’hématie l’exception humaine pour la présence de microtubules."
+    ]
   },
   {
     "order": 15,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Quels repères sur « la structure des microtubules » sont utiles dans une situation d’application ?",
+    "question": "Concernant « Dimensions et constituants des polymères du cytosquelette », quelles affirmations sont correctes ?",
+    "explanation": "Les microtubules ont un diamètre externe d’environ 25 nm, les filaments intermédiaires autour de 10 nm et les filaments d’actine autour de 7 nm. Microtubules et actine sont formés de sous-unités globulaires ; les FI proviennent de protéines fibreuses.",
     "choices": [
       {
-        "content": "Cette organisation contribue à leur aspect strié en microscopie électronique.",
-        "correct": true,
-        "explanation": "Le microtubule complet est un tube creux de 13 protofilaments."
-      },
-      {
-        "content": "La fiche les décrit comme des bicouches lipidiques.",
+        "content": "Les filaments intermédiaires sont des bicouches lipidiques.",
         "correct": false,
-        "explanation": "Le microtubule complet est un tube creux de 13 protofilaments."
+        "explanation": "Cette affirmation est incorrecte. Les microtubules ont un diamètre externe d’environ 25 nm, les filaments intermédiaires autour de 10 nm et les filaments d’actine autour de 7 nm. Microtubules et actine sont formés de sous-unités globulaires ; les FI proviennent de protéines fibreuses."
       },
       {
-        "content": "Les microtubules sont de longs cylindres creux.",
+        "content": "Les filaments d’actine sont des polymères d’actine globulaire.",
         "correct": true,
-        "explanation": "Le microtubule complet est un tube creux de 13 protofilaments."
+        "explanation": "Cette affirmation est correcte. Les microtubules ont un diamètre externe d’environ 25 nm, les filaments intermédiaires autour de 10 nm et les filaments d’actine autour de 7 nm. Microtubules et actine sont formés de sous-unités globulaires ; les FI proviennent de protéines fibreuses."
       },
       {
-        "content": "Les microtubules sont des cylindres pleins sans lumière.",
+        "content": "Les trois familles ont toutes exactement le même diamètre.",
         "correct": false,
-        "explanation": "Le microtubule complet est un tube creux de 13 protofilaments."
+        "explanation": "Cette affirmation est incorrecte. Les microtubules ont un diamètre externe d’environ 25 nm, les filaments intermédiaires autour de 10 nm et les filaments d’actine autour de 7 nm. Microtubules et actine sont formés de sous-unités globulaires ; les FI proviennent de protéines fibreuses."
+      },
+      {
+        "content": "Les filaments intermédiaires ont un diamètre proche de 10 nm.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les microtubules ont un diamètre externe d’environ 25 nm, les filaments intermédiaires autour de 10 nm et les filaments d’actine autour de 7 nm. Microtubules et actine sont formés de sous-unités globulaires ; les FI proviennent de protéines fibreuses."
+      },
+      {
+        "content": "Les microtubules sont construits à partir d’hétérodimères de tubuline alpha/bêta.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Les microtubules ont un diamètre externe d’environ 25 nm, les filaments intermédiaires autour de 10 nm et les filaments d’actine autour de 7 nm. Microtubules et actine sont formés de sous-unités globulaires ; les FI proviennent de protéines fibreuses."
       }
-    ],
-    "explanation": "Le microtubule complet est un tube creux de 13 protofilaments."
+    ]
   },
   {
     "order": 16,
-    "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Application — Réponse numérique en nm : quel diamètre approximatif la fiche attribue-t-elle aux microtubules ?",
-    "answer": {
-      "type": "number",
-      "value": 24,
-      "tolerance": 0
-    },
-    "explanation": "Le repère local est environ 24 nm."
+    "difficulty": "HARD",
+    "format": "QRU",
+    "question": "Dans ce contexte, quelle affirmation décrit correctement « Structure et polarité des microtubules » ?",
+    "explanation": "Un microtubule est un cylindre creux généralement formé de 13 protofilaments. Chaque protofilament aligne des hétérodimères α/β-tubuline dans une même orientation, ce qui crée des extrémités + et − non équivalentes.",
+    "choices": [
+      {
+        "content": "Un microtubule est formé d’une seule chaîne continue de 13 tubulines.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Un microtubule est un cylindre creux généralement formé de 13 protofilaments. Chaque protofilament aligne des hétérodimères α/β-tubuline dans une même orientation, ce qui crée des extrémités + et − non équivalentes."
+      },
+      {
+        "content": "Les microtubules cytoplasmiques sont constitués de 9 triplets de tubuline.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Un microtubule est un cylindre creux généralement formé de 13 protofilaments. Chaque protofilament aligne des hétérodimères α/β-tubuline dans une même orientation, ce qui crée des extrémités + et − non équivalentes."
+      },
+      {
+        "content": "Un microtubule canonique est un câble plein dépourvu de lumière centrale.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Un microtubule est un cylindre creux généralement formé de 13 protofilaments. Chaque protofilament aligne des hétérodimères α/β-tubuline dans une même orientation, ce qui crée des extrémités + et − non équivalentes."
+      },
+      {
+        "content": "L’orientation parallèle des dimères confère une polarité au microtubule.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Un microtubule est un cylindre creux généralement formé de 13 protofilaments. Chaque protofilament aligne des hétérodimères α/β-tubuline dans une même orientation, ce qui crée des extrémités + et − non équivalentes."
+      },
+      {
+        "content": "La polarité d’un microtubule dépend de l’orientation du noyau plutôt que de l’assemblage des dimères.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Un microtubule est un cylindre creux généralement formé de 13 protofilaments. Chaque protofilament aligne des hétérodimères α/β-tubuline dans une même orientation, ce qui crée des extrémités + et − non équivalentes."
+      }
+    ]
   },
   {
     "order": 17,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Application raisonnée de « les structures à microtubules stabilisés » : quelles propositions sont correctes ?",
+    "question": "Pour le thème « Centrosome et nucléation des microtubules », quelles propositions doivent être retenues ?",
+    "explanation": "Le centrosome est le principal centre organisateur des microtubules de nombreuses cellules animales. Il contient deux centrioles entourés de matériel péricentriolaire riche notamment en complexes à γ-tubuline qui nucléent les microtubules.",
     "choices": [
       {
-        "content": "Les corpuscules basaux contiennent aussi 9 triplets.",
+        "content": "Les extrémités moins de nombreux microtubules sont stabilisées ou ancrées près du centrosome.",
         "correct": true,
-        "explanation": "Le support oppose MT cytosoliques instables à plusieurs structures stabilisées."
+        "explanation": "Cette affirmation est correcte. Le centrosome est le principal centre organisateur des microtubules de nombreuses cellules animales. Il contient deux centrioles entourés de matériel péricentriolaire riche notamment en complexes à γ-tubuline qui nucléent les microtubules."
       },
       {
-        "content": "Les corpuscules basaux ne contiennent aucun microtubule.",
-        "correct": false,
-        "explanation": "Le support oppose MT cytosoliques instables à plusieurs structures stabilisées."
-      },
-      {
-        "content": "La fiche rattache cils, flagelles et cils primaires à des microtubules stabilisés.",
+        "content": "Les extrémités plus de nombreux microtubules s’étendent vers la périphérie cellulaire.",
         "correct": true,
-        "explanation": "Le support oppose MT cytosoliques instables à plusieurs structures stabilisées."
+        "explanation": "Cette affirmation est correcte. Le centrosome est le principal centre organisateur des microtubules de nombreuses cellules animales. Il contient deux centrioles entourés de matériel péricentriolaire riche notamment en complexes à γ-tubuline qui nucléent les microtubules."
       },
       {
-        "content": "Les cils primaires sont construits exclusivement avec de l’actine.",
+        "content": "Les complexes à gamma-tubuline du matériel péricentriolaire participent à la nucléation des microtubules.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Le centrosome est le principal centre organisateur des microtubules de nombreuses cellules animales. Il contient deux centrioles entourés de matériel péricentriolaire riche notamment en complexes à γ-tubuline qui nucléent les microtubules."
+      },
+      {
+        "content": "Dans ce contexte, les centrioles sont généralement disposés approximativement perpendiculairement l’un à l’autre dans un centrosome interphasique.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Le centrosome est le principal centre organisateur des microtubules de nombreuses cellules animales. Il contient deux centrioles entourés de matériel péricentriolaire riche notamment en complexes à γ-tubuline qui nucléent les microtubules."
+      },
+      {
+        "content": "Dans ce contexte, aucun microtubule ne peut exister en dehors d’un réseau strictement centrosomal.",
         "correct": false,
-        "explanation": "Le support oppose MT cytosoliques instables à plusieurs structures stabilisées."
+        "explanation": "Cette affirmation est incorrecte. Le centrosome est le principal centre organisateur des microtubules de nombreuses cellules animales. Il contient deux centrioles entourés de matériel péricentriolaire riche notamment en complexes à γ-tubuline qui nucléent les microtubules."
       }
-    ],
-    "explanation": "Le support oppose MT cytosoliques instables à plusieurs structures stabilisées."
+    ]
   },
   {
     "order": 18,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "Quelle donnée est correcte concernant « l’axonème des cils et flagelles mobiles selon la fiche » ?",
-    "choices": [
-      {
-        "content": "L’ensemble forme l’axonème des cils et flagelles mobiles.",
-        "correct": true,
-        "explanation": "La banque reprend explicitement le modèle local de la fiche : 9 doublets périphériques et 1 doublet central."
-      },
-      {
-        "content": "L’axonème est constitué de filaments intermédiaires.",
-        "correct": false,
-        "explanation": "La banque reprend explicitement le modèle local de la fiche : 9 doublets périphériques et 1 doublet central."
-      },
-      {
-        "content": "La fiche décrit 9 triplets périphériques dans l’axonème mobile.",
-        "correct": false,
-        "explanation": "La banque reprend explicitement le modèle local de la fiche : 9 doublets périphériques et 1 doublet central."
-      },
-      {
-        "content": "Elle indique l’absence de toute structure centrale.",
-        "correct": false,
-        "explanation": "La banque reprend explicitement le modèle local de la fiche : 9 doublets périphériques et 1 doublet central."
+    "format": "QROC",
+    "question": "Quelles deux sous-unités forment l’hétérodimère de tubuline ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "alpha et bêta tubuline",
+        "tubuline alpha et beta",
+        "alpha beta",
+        "α et β tubuline"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La banque reprend explicitement le modèle local de la fiche : 9 doublets périphériques et 1 doublet central."
+    },
+    "explanation": "Le dimère élémentaire associe une tubuline α et une tubuline β."
   },
   {
     "order": 19,
-    "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Application transversale autour de « les trois types de structures du cytosquelette » — sélectionnez exactement les trois affirmations correctes.",
-    "requiredSelectionCount": 3,
-    "choices": [
-      {
-        "content": "Les centrioles contiennent 9 triplets de microtubules.",
-        "correct": true,
-        "explanation": "Le support oppose MT cytosoliques instables à plusieurs structures stabilisées."
-      },
-      {
-        "content": "Elle décrit un doublet central.",
-        "correct": true,
-        "explanation": "La banque reprend explicitement le modèle local de la fiche : 9 doublets périphériques et 1 doublet central."
-      },
-      {
-        "content": "La fiche indique qu’ils sont présents en un seul exemplaire à la surface de nombreuses cellules.",
-        "correct": true,
-        "explanation": "Le cil primaire est distingué du cil mobile par son organisation et son immobilité."
-      },
-      {
-        "content": "Le centrosome est un organite constitué exclusivement d’ADN.",
-        "correct": false,
-        "explanation": "Le centrosome organise le réseau de microtubules."
-      },
-      {
-        "content": "Les deux extrémités sont strictement équivalentes.",
-        "correct": false,
-        "explanation": "La polarité structure le réseau centrosome-périphérie."
-      },
-      {
-        "content": "Elles ont toutes exactement le même diamètre.",
-        "correct": false,
-        "explanation": "Le cytosquelette comprend trois grands réseaux protéiques."
+    "difficulty": "EASY",
+    "format": "QROC",
+    "question": "Quel centre organisateur majeur nucléé les microtubules dans de nombreuses cellules animales ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "centrosome",
+        "le centrosome"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Cette question croise plusieurs repères de la section."
+    },
+    "explanation": "Le centrosome est un MTOC majeur des cellules animales."
   },
   {
     "order": 20,
     "difficulty": "MEDIUM",
-    "format": "QRU",
-    "question": "À propos de « le centrosome », quelle proposition est juste ?",
-    "choices": [
-      {
-        "content": "Il comporte deux centrioles disposés perpendiculairement.",
-        "correct": true,
-        "explanation": "Le centrosome organise le réseau de microtubules."
-      },
-      {
-        "content": "Il ne participe pas à la polymérisation des microtubules.",
-        "correct": false,
-        "explanation": "Le centrosome organise le réseau de microtubules."
-      },
-      {
-        "content": "Ses deux centrioles sont décrits comme toujours parallèles.",
-        "correct": false,
-        "explanation": "Le centrosome organise le réseau de microtubules."
-      },
-      {
-        "content": "Le centrosome est un organite constitué exclusivement d’ADN.",
-        "correct": false,
-        "explanation": "Le centrosome organise le réseau de microtubules."
+    "format": "QROC",
+    "question": "Quelle tubuline participe à la nucléation des microtubules dans le matériel péricentriolaire ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "gamma tubuline",
+        "γ-tubuline",
+        "tubuline gamma"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le centrosome organise le réseau de microtubules."
+    },
+    "explanation": "La γ-tubuline est un composant des complexes de nucléation des microtubules."
   },
   {
     "order": 21,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Mise en application de « la polarité des microtubules » : quelles affirmations sont justes ?",
+    "format": "QRP",
+    "question": "Concernant « Instabilité dynamique des microtubules », choisissez exactement 2 affirmations correctes.",
+    "explanation": "La tubuline β lie un GTP échangeable qui est hydrolysé après incorporation. Une coiffe riche en tubuline-GTP stabilise l’extrémité en croissance ; sa perte favorise une catastrophe. Des sauvetages peuvent reprendre la croissance.",
     "choices": [
       {
-        "content": "Les deux extrémités ne sont pas équivalentes.",
-        "correct": true,
-        "explanation": "La polarité structure le réseau centrosome-périphérie."
-      },
-      {
-        "content": "Les microtubules sont non polarisés.",
+        "content": "Un sauvetage est une transition de croissance vers dépolymérisation rapide.",
         "correct": false,
-        "explanation": "La polarité structure le réseau centrosome-périphérie."
+        "explanation": "Cette affirmation est incorrecte. La tubuline β lie un GTP échangeable qui est hydrolysé après incorporation. Une coiffe riche en tubuline-GTP stabilise l’extrémité en croissance ; sa perte favorise une catastrophe. Des sauvetages peuvent reprendre la croissance."
       },
       {
-        "content": "L’extrémité − est proximale et au contact du centrosome.",
-        "correct": true,
-        "explanation": "La polarité structure le réseau centrosome-périphérie."
-      },
-      {
-        "content": "L’extrémité + est toujours ancrée au centrosome dans la fiche.",
+        "content": "Le GTP n’a aucun rôle dans la dynamique des microtubules.",
         "correct": false,
-        "explanation": "La polarité structure le réseau centrosome-périphérie."
+        "explanation": "Cette affirmation est incorrecte. La tubuline β lie un GTP échangeable qui est hydrolysé après incorporation. Une coiffe riche en tubuline-GTP stabilise l’extrémité en croissance ; sa perte favorise une catastrophe. Des sauvetages peuvent reprendre la croissance."
+      },
+      {
+        "content": "Dans ce contexte, la perte de la coiffe GTP peut déclencher une catastrophe microtubulaire.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. La tubuline β lie un GTP échangeable qui est hydrolysé après incorporation. Une coiffe riche en tubuline-GTP stabilise l’extrémité en croissance ; sa perte favorise une catastrophe. Des sauvetages peuvent reprendre la croissance."
+      },
+      {
+        "content": "Dans ce contexte, une coiffe de tubuline liée au GTP favorise la stabilité de l’extrémité en croissance.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. La tubuline β lie un GTP échangeable qui est hydrolysé après incorporation. Une coiffe riche en tubuline-GTP stabilise l’extrémité en croissance ; sa perte favorise une catastrophe. Des sauvetages peuvent reprendre la croissance."
+      },
+      {
+        "content": "La dynamique des microtubules dépend uniquement de la concentration globale de GTP cellulaire et d’aucune protéine régulatrice.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. La tubuline β lie un GTP échangeable qui est hydrolysé après incorporation. Une coiffe riche en tubuline-GTP stabilise l’extrémité en croissance ; sa perte favorise une catastrophe. Des sauvetages peuvent reprendre la croissance."
       }
     ],
-    "explanation": "La polarité structure le réseau centrosome-périphérie."
+    "requiredSelectionCount": 2
   },
   {
     "order": 22,
-    "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "question": "Consolidation — « les trois types de structures du cytosquelette » : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
+    "difficulty": "EASY",
+    "format": "QRU",
+    "question": "Quelle affirmation décrit correctement « Organisation générale du cytosquelette » ?",
+    "explanation": "Le cytosquelette est un réseau dynamique de polymères protéiques qui organise la forme, la polarité, les mouvements et le trafic intracellulaire. Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires.",
     "choices": [
       {
-        "content": "Le centrosome est le centre organisateur des microtubules.",
-        "correct": true,
-        "explanation": "Le centrosome organise le réseau de microtubules."
-      },
-      {
-        "content": "L’extrémité + est distale.",
-        "correct": true,
-        "explanation": "La polarité structure le réseau centrosome-périphérie."
-      },
-      {
-        "content": "Elles diffèrent par leurs protéines constitutives et leur diamètre.",
-        "correct": true,
-        "explanation": "Le cytosquelette comprend trois grands réseaux protéiques."
-      },
-      {
-        "content": "La fiche donne environ 24 nm pour les microtubules.",
-        "correct": true,
-        "explanation": "Le repère local est environ 24 nm."
-      },
-      {
-        "content": "Les microfilaments sont formés d’actine.",
-        "correct": true,
-        "explanation": "Les microfilaments d’actine sont les structures les plus fines du tableau introductif."
-      },
-      {
-        "content": "Leurs monomères sont tous sphériques.",
+        "content": "Les trois familles du cytosquelette sont constituées de la même protéine monomérique.",
         "correct": false,
-        "explanation": "Les filaments intermédiaires ont un diamètre intermédiaire et une composition protéique hétérogène."
+        "explanation": "Cette affirmation est incorrecte. Le cytosquelette est un réseau dynamique de polymères protéiques qui organise la forme, la polarité, les mouvements et le trafic intracellulaire. Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires."
       },
       {
-        "content": "Les microtubules sont localisés exclusivement dans le noyau.",
+        "content": "Le cytosquelette est limité au noyau et absent du cytoplasme.",
         "correct": false,
-        "explanation": "Le réseau de microtubules cytosoliques est organisé autour du centrosome."
+        "explanation": "Cette affirmation est incorrecte. Le cytosquelette est un réseau dynamique de polymères protéiques qui organise la forme, la polarité, les mouvements et le trafic intracellulaire. Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires."
       },
       {
-        "content": "Aucune cellule eucaryote ne possède de microtubules.",
+        "content": "Le cytosquelette n’a aucun rôle dans les mouvements cellulaires.",
         "correct": false,
-        "explanation": "Le support fait de l’hématie l’exception humaine pour la présence de microtubules."
+        "explanation": "Cette affirmation est incorrecte. Le cytosquelette est un réseau dynamique de polymères protéiques qui organise la forme, la polarité, les mouvements et le trafic intracellulaire. Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires."
+      },
+      {
+        "content": "Dans ce contexte, les différents polymères du cytosquelette ont des compositions et des propriétés mécaniques distinctes.",
+        "correct": true,
+        "explanation": "Cette affirmation est correcte. Le cytosquelette est un réseau dynamique de polymères protéiques qui organise la forme, la polarité, les mouvements et le trafic intracellulaire. Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires."
+      },
+      {
+        "content": "Le cytosquelette est une paroi extracellulaire minérale comparable à l’os.",
+        "correct": false,
+        "explanation": "Cette affirmation est incorrecte. Le cytosquelette est un réseau dynamique de polymères protéiques qui organise la forme, la polarité, les mouvements et le trafic intracellulaire. Les trois grandes familles sont les microtubules, les filaments d’actine et les filaments intermédiaires."
       }
-    ],
-    "explanation": "La sélection longue vérifie plusieurs notions de la section simultanément."
+    ]
   }
 ];

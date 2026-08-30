@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+    <linearGradient id="panelAGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#eff6ff"/>
+    </linearGradient>
+    <linearGradient id="panelBGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f0fdf4"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="106%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+
+    <marker id="axisArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="760" fill="url(#bgGrad)" rx="16"/>
+
+  <!-- Title Banner -->
+  <rect x="30" y="18" width="1140" height="44" rx="8" fill="#e2e8f0" opacity="0.8"/>
+  <text x="600" y="46" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#0f172a">
+    Étude de cinétique enzymatique : spectrophotométrie et représentations de Lineweaver-Burk
+  </text>
+
+  <!-- ==================== PANNEAU A : SPECTROPHOTOMÉTRIE (GAUCHE) ==================== -->
+  <g filter="url(#shadow)" transform="translate(30, 80)">
+    <rect width="530" height="655" rx="12" fill="url(#panelAGrad)" stroke="#2563eb" stroke-width="2"/>
+    
+    <!-- Badge Panneau A -->
+    <rect x="25" y="20" width="160" height="30" rx="6" fill="#2563eb"/>
+    <text x="105" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#ffffff">
+      Panneau A
+    </text>
+
+    <!-- Axes Spectrophotométrie -->
+    <g transform="translate(70, 100)" font-family="system-ui, sans-serif">
+      <!-- Y-Axis: Absorbance A -->
+      <line x1="0" y1="480" x2="0" y2="30" stroke="#334155" stroke-width="2.5" marker-end="url(#axisArrow)"/>
+      <text x="-15" y="15" text-anchor="middle" font-size="16" font-weight="800" fill="#1e293b">Absorbance A</text>
+
+      <!-- X-Axis: Temps -->
+      <line x1="0" y1="480" x2="420" y2="480" stroke="#334155" stroke-width="2.5" marker-end="url(#axisArrow)"/>
+      <text x="430" y="485" text-anchor="start" font-size="16" font-weight="800" fill="#1e293b">Temps</text>
+
+      <!-- Curve: Initial linear section (dashed green box) then plateau -->
+      <!-- Initial linear part from (0,480) to (180,240) -->
+      <line x1="0" y1="480" x2="180" y2="240" stroke="#2563eb" stroke-width="3.5"/>
+      <!-- Curved plateau from (180,240) to (400,120) -->
+      <path d="M 180 240 Q 280 140 400 120" fill="none" stroke="#2563eb" stroke-width="3.5"/>
+
+      <!-- Highlight Initial Linear Zone -->
+      <rect x="10" y="220" width="180" height="270" rx="6" fill="#dbeafe" fill-opacity="0.4" stroke="#3b82f6" stroke-dasharray="6,4" stroke-width="1.5"/>
+      <text x="100" y="380" text-anchor="middle" font-size="14" font-weight="800" fill="#1d4ed8">zone initiale</text>
+    </g>
+  </g>
+
+  <!-- ==================== PANNEAU B : LINEWEAVER-BURK (DROITE) ==================== -->
+  <g filter="url(#shadow)" transform="translate(580, 80)">
+    <rect width="590" height="655" rx="12" fill="url(#panelBGrad)" stroke="#059669" stroke-width="2"/>
+    
+    <!-- Badge Panneau B -->
+    <rect x="25" y="20" width="160" height="30" rx="6" fill="#059669"/>
+    <text x="105" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#ffffff">
+      Panneau B
+    </text>
+
+    <!-- Axes Lineweaver-Burk -->
+    <!-- Origin (0,0) at canvas (930, 520) -> relative to Panneau B: (350, 440) -->
+    <g transform="translate(350, 440)" font-family="system-ui, sans-serif">
+      
+      <!-- Y-Axis: 1/v0 -->
+      <line x1="0" y1="140" x2="0" y2="-360" stroke="#334155" stroke-width="2.5" marker-end="url(#axisArrow)"/>
+      <text x="15" y="-370" text-anchor="start" font-size="17" font-weight="800" fill="#1e293b">1/v<tspan font-size="12" dy="4">0</tspan></text>
+
+      <!-- X-Axis: 1/[S] -->
+      <line x1="-300" y1="0" x2="200" y2="0" stroke="#334155" stroke-width="2.5" marker-end="url(#axisArrow)"/>
+      <text x="210" y="5" text-anchor="start" font-size="17" font-weight="800" fill="#1e293b">1/[S]</text>
+
+      <!-- Origin tick -->
+      <circle cx="0" cy="0" r="4" fill="#334155"/>
+      <text x="10" y="25" font-size="13" font-weight="600" fill="#64748b">0</text>
+
+      <!-- Line 1: Témoin (Blue) -->
+      <!-- Intersects X-axis at (-160, 0) and Y-axis at (0, -60) -->
+      <!-- TARGET Q29: x-intercept Témoin at (-160, 0) -->
+      <line x1="-240" y1="30" x2="160" y2="-120" stroke="#2563eb" stroke-width="3.5"/>
+      <circle cx="-160" cy="0" r="6" fill="#2563eb"/>
+      <text x="165" y="-120" font-size="16" font-weight="800" fill="#2563eb">Témoin</text>
+
+      <!-- Line 2: X (Competitive - Purple) -->
+      <!-- Same Y-intercept (0, -60), x-intercept shifted right to (-90, 0) -->
+      <line x1="-150" y1="40" x2="160" y2="-166" stroke="#9333ea" stroke-width="3.5"/>
+      <circle cx="-90" cy="0" r="6" fill="#9333ea"/>
+      <text x="165" y="-166" font-size="16" font-weight="800" fill="#9333ea">X</text>
+
+      <!-- Line 3: Y (Uncompetitive - Amber) -->
+      <!-- Parallel to Témoin. Y-intercept (0, -170), X-intercept (-220, 0) -->
+      <line x1="-270" y1="-132.5" x2="160" y2="-280" stroke="#d97706" stroke-width="3.5"/>
+      <circle cx="-220" cy="0" r="6" fill="#d97706"/>
+      <text x="165" y="-280" font-size="16" font-weight="800" fill="#d97706">Y</text>
+
+      <!-- Line 4: Z (Non-competitive - Red) -->
+      <!-- Same X-intercept (-160, 0), higher Y-intercept (0, -190) -->
+      <line x1="-220" y1="71" x2="140" y2="-356" stroke="#dc2626" stroke-width="3.5"/>
+      <text x="145" y="-356" font-size="16" font-weight="800" fill="#dc2626">Z</text>
+
+    </g>
+  </g>
+</svg>
+

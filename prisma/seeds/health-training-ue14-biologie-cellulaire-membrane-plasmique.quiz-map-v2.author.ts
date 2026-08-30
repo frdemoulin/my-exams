@@ -1,12 +1,11 @@
-/** Cartographie éditoriale V2 — auteur */
-
+/** Cartographie éditoriale V2 — auteur — Ch2 refonte finale */
 export const UE14_CELL_CH2_V2_QUIZ_MAP = [
   {
     "sectionOrder": 1,
     "order": 1,
-    "slug": "section-a-discovery-structure-membrane",
-    "title": "Structure et composition membranaires",
-    "description": "Bicouche, lipides, protéines transmembranaires et composition globale.",
+    "slug": "section-a-discovery-structure-composition-membrane",
+    "title": "Structure et composition de la membrane",
+    "description": "Bicouche, lipides, cholestérol, protéines et glycocalyx.",
     "stage": "DISCOVER",
     "questionOrders": [
       1,
@@ -24,9 +23,9 @@ export const UE14_CELL_CH2_V2_QUIZ_MAP = [
   {
     "sectionOrder": 1,
     "order": 2,
-    "slug": "section-a-practice-proteines-hematie-glycocalyx",
-    "title": "Protéines membranaires, hématie et glycocalyx",
-    "description": "Applications sur ancrages, hématie, groupes ABO et glycocalyx.",
+    "slug": "section-a-practice-proteines-hematie-abo",
+    "title": "Protéines membranaires, hématie et système ABO",
+    "description": "Topologie, ancrages, membrane érythrocytaire et glucides de surface.",
     "stage": "PRACTICE",
     "questionOrders": [
       11,
@@ -48,7 +47,7 @@ export const UE14_CELL_CH2_V2_QUIZ_MAP = [
     "order": 1,
     "slug": "section-b-discovery-fluidite-asymetrie",
     "title": "Fluidité et asymétrie membranaires",
-    "description": "Fluidité, mouvements des lipides, asymétrie et protéines de translocation.",
+    "description": "Fluidité, diffusion latérale et distribution des phospholipides.",
     "stage": "DISCOVER",
     "questionOrders": [
       23,
@@ -66,9 +65,9 @@ export const UE14_CELL_CH2_V2_QUIZ_MAP = [
   {
     "sectionOrder": 2,
     "order": 2,
-    "slug": "section-b-practice-mouvements-polarite",
-    "title": "Mouvements lipidiques et polarité cellulaire",
-    "description": "Applications sur feuillets membranaires et polarité apicale/basolatérale.",
+    "slug": "section-b-practice-flippases-polarite",
+    "title": "Translocation lipidique et polarité cellulaire",
+    "description": "Flippases, scramblases, domaines membranaires et polarité de l’entérocyte.",
     "stage": "PRACTICE",
     "questionOrders": [
       33,
@@ -88,9 +87,9 @@ export const UE14_CELL_CH2_V2_QUIZ_MAP = [
   {
     "sectionOrder": 3,
     "order": 1,
-    "slug": "section-c-discovery-communication-cellulaire",
-    "title": "Modes de communication cellulaire",
-    "description": "Autocrine, paracrine, endocrine et synaptique.",
+    "slug": "section-c-discovery-signalisation-adhesion",
+    "title": "Signalisation et adhérence",
+    "description": "Principes de signalisation, contact cellule-cellule et matrice extracellulaire.",
     "stage": "DISCOVER",
     "questionOrders": [
       45,
@@ -108,9 +107,9 @@ export const UE14_CELL_CH2_V2_QUIZ_MAP = [
   {
     "sectionOrder": 3,
     "order": 2,
-    "slug": "section-c-practice-recepteurs-signalisation",
-    "title": "Récepteurs et transduction du signal",
-    "description": "Applications sur récepteurs couplés aux protéines G, récepteurs enzymes et cascades.",
+    "slug": "section-c-practice-recepteurs-modes-communication",
+    "title": "Récepteurs et modes de communication",
+    "description": "RCPG, RTK, communications autocrine, paracrine, endocrine et synaptique.",
     "stage": "PRACTICE",
     "questionOrders": [
       55,
@@ -130,9 +129,9 @@ export const UE14_CELL_CH2_V2_QUIZ_MAP = [
   {
     "sectionOrder": 4,
     "order": 1,
-    "slug": "section-d-discovery-transports-membranaires",
-    "title": "Principes des transports membranaires",
-    "description": "Diffusion simple, canaux, perméases, pompes et transport actif.",
+    "slug": "section-d-discovery-transports-passifs-actifs",
+    "title": "Transports passifs et actifs",
+    "description": "Diffusion, canaux, transporteurs, pompes et couplages énergétiques.",
     "stage": "DISCOVER",
     "questionOrders": [
       67,
@@ -150,9 +149,9 @@ export const UE14_CELL_CH2_V2_QUIZ_MAP = [
   {
     "sectionOrder": 4,
     "order": 2,
-    "slug": "section-d-practice-transport-glucose",
-    "title": "Transport actif et transport du glucose",
-    "description": "Applications sur transport secondaire, ABC et modèle rémois du transport du glucose.",
+    "slug": "section-d-practice-transport-glucose-enterocyte",
+    "title": "Transport du glucose par l’entérocyte",
+    "description": "SGLT1, GLUT2, Na+/K+-ATPase et polarité épithéliale.",
     "stage": "PRACTICE",
     "questionOrders": [
       77,
@@ -172,9 +171,9 @@ export const UE14_CELL_CH2_V2_QUIZ_MAP = [
   {
     "sectionOrder": 4,
     "order": 3,
-    "slug": "section-d-master-transport-signalisation",
-    "title": "Maîtriser transports et polarité membranaires",
-    "description": "Maîtrise transversale des transports et de la polarité membranaires.",
+    "slug": "section-d-master-glut4-integration-transports",
+    "title": "GLUT4 et intégration des transports membranaires",
+    "description": "Insuline, GLUT4 et raisonnement transversal sur les gradients.",
     "stage": "MASTER",
     "questionOrders": [
       89,
@@ -195,7 +194,7 @@ export const UE14_CELL_CH2_V2_QUIZ_MAP = [
     "sectionOrder": 5,
     "order": 1,
     "slug": "section-e-synthesis-practice-membrane",
-    "title": "Synthèse : membrane plasmique",
+    "title": "Synthèse : membrane, signalisation et transports",
     "description": "Synthèse transversale du chapitre.",
     "stage": "PRACTICE",
     "questionOrders": [
@@ -215,8 +214,8 @@ export const UE14_CELL_CH2_V2_QUIZ_MAP = [
     "sectionOrder": 5,
     "order": 2,
     "slug": "maitriser-synthese-membrane-plasmique",
-    "title": "Synthèse : membrane plasmique",
-    "description": "Maîtrise du chapitre dans un esprit proche des questions d’examen.",
+    "title": "Maîtriser la membrane plasmique",
+    "description": "Questions transversales de niveau examen sur structure, signalisation et transport.",
     "stage": "MASTER",
     "questionOrders": [
       111,
@@ -236,126 +235,370 @@ export const UE14_CELL_CH2_V2_QUIZ_MAP = [
 ] as const;
 
 export const UE14_CELL_CH2_V2_THEME_LABELS_BY_ORDER: Record<number, string[]> = {
-  1: ["les fonctions générales de la membrane plasmique"],
-  2: ["l’épaisseur de la membrane plasmique selon la fiche"],
-  3: ["la composition globale de la membrane selon la fiche"],
-  4: ["les phospholipides amphiphiles"],
-  5: ["le rôle du cholestérol dans la fiche"],
-  6: ["les protéines transmembranaires"],
-  7: ["l’orientation générale des protéines transmembranaires selon la fiche"],
-  8: ["les modes d’ancrage des protéines membranaires"],
-  9: ["la membrane de l’hématie"],
-  10: ["les groupes sanguins ABO dans la fiche"],
-  11: ["la composition globale de la membrane selon la fiche"],
-  12: ["les phospholipides amphiphiles"],
-  13: ["le rôle du cholestérol dans la fiche"],
-  14: ["les protéines transmembranaires"],
-  15: ["l’orientation générale des protéines transmembranaires selon la fiche"],
-  16: ["l’épaisseur de la membrane plasmique selon la fiche"],
-  17: ["la membrane de l’hématie"],
-  18: ["les groupes sanguins ABO dans la fiche"],
-  19: ["la membrane de l’hématie", "les groupes sanguins ABO dans la fiche", "les fonctions générales de la membrane plasmique"],
-  20: ["l’épaisseur de la membrane plasmique selon la fiche"],
-  21: ["la composition globale de la membrane selon la fiche"],
-  22: ["l’épaisseur de la membrane plasmique selon la fiche", "la composition globale de la membrane selon la fiche", "les phospholipides amphiphiles", "le rôle du cholestérol dans la fiche", "les protéines transmembranaires"],
-  23: ["le glycocalyx"],
-  24: ["la fluidité membranaire"],
-  25: ["l’influence des acides gras sur la fluidité selon la fiche"],
-  26: ["les mouvements des phospholipides"],
-  27: ["la vitesse de diffusion latérale donnée par la fiche"],
-  28: ["l’asymétrie des phospholipides"],
-  29: ["les flippases"],
-  30: ["les scramblases"],
-  31: ["la polarité de l’entérocyte"],
-  32: ["le glycocalyx"],
-  33: ["l’influence des acides gras sur la fluidité selon la fiche"],
-  34: ["les mouvements des phospholipides"],
-  35: ["la vitesse de diffusion latérale donnée par la fiche"],
-  36: ["l’asymétrie des phospholipides"],
-  37: ["les flippases"],
-  38: ["la vitesse de diffusion latérale donnée par la fiche"],
-  39: ["la polarité de l’entérocyte"],
-  40: ["le glycocalyx"],
-  41: ["la polarité de l’entérocyte", "le glycocalyx", "la fluidité membranaire"],
-  42: ["l’influence des acides gras sur la fluidité selon la fiche"],
-  43: ["les mouvements des phospholipides"],
-  44: ["l’influence des acides gras sur la fluidité selon la fiche", "les mouvements des phospholipides", "la vitesse de diffusion latérale donnée par la fiche", "l’asymétrie des phospholipides", "les flippases"],
-  45: ["la nécessité de la communication cellulaire"],
-  46: ["la communication autocrine"],
-  47: ["la communication paracrine"],
-  48: ["la communication endocrine"],
-  49: ["la communication synaptique chimique"],
-  50: ["les récepteurs membranaires aux signaux hydrosolubles"],
-  51: ["les récepteurs couplés aux protéines G"],
-  52: ["les récepteurs enzymes"],
-  53: ["les récepteurs tyrosine kinase cités"],
-  54: ["les conséquences biologiques d’un dysfonctionnement de communication"],
-  55: ["la communication paracrine"],
-  56: ["la communication endocrine"],
-  57: ["la communication synaptique chimique"],
-  58: ["les récepteurs membranaires aux signaux hydrosolubles"],
-  59: ["les récepteurs couplés aux protéines G"],
-  60: ["les récepteurs enzymes"],
-  61: ["les récepteurs tyrosine kinase cités"],
-  62: ["les conséquences biologiques d’un dysfonctionnement de communication"],
-  63: ["les récepteurs tyrosine kinase cités", "les conséquences biologiques d’un dysfonctionnement de communication", "la nécessité de la communication cellulaire"],
-  64: ["la communication autocrine"],
-  65: ["la communication paracrine"],
-  66: ["la communication autocrine", "la communication paracrine", "la communication endocrine", "la communication synaptique chimique", "les récepteurs membranaires aux signaux hydrosolubles"],
-  67: ["les deux grandes modalités de transport membranaire"],
-  68: ["la diffusion simple à travers la bicouche"],
-  69: ["les canaux membranaires"],
-  70: ["les perméases et les pompes"],
-  71: ["le transport actif primaire"],
-  72: ["les transporteurs ABC et la chimiorésistance"],
-  73: ["le transport actif secondaire"],
-  74: ["le transport apical du glucose dans l’entérocyte selon la fiche"],
-  75: ["le transport basolatéral du glucose dans l’entérocyte selon la fiche"],
-  76: ["le gradient de sodium dans le modèle intestinal de la fiche"],
-  77: ["les canaux membranaires"],
-  78: ["les perméases et les pompes"],
-  79: ["le transport actif primaire"],
-  80: ["les transporteurs ABC et la chimiorésistance"],
-  81: ["le transport actif secondaire"],
-  82: ["le transport apical du glucose dans l’entérocyte selon la fiche"],
-  83: ["le transport basolatéral du glucose dans l’entérocyte selon la fiche"],
-  84: ["le gradient de sodium dans le modèle intestinal de la fiche"],
-  85: ["le transport basolatéral du glucose dans l’entérocyte selon la fiche", "le gradient de sodium dans le modèle intestinal de la fiche", "l’effet de l’insuline sur le transport du glucose musculaire selon la fiche"],
-  86: ["les deux grandes modalités de transport membranaire"],
-  87: ["la diffusion simple à travers la bicouche"],
-  88: ["les deux grandes modalités de transport membranaire", "la diffusion simple à travers la bicouche", "les canaux membranaires", "les perméases et les pompes", "le transport actif primaire"],
-  89: ["le transport apical du glucose dans l’entérocyte selon la fiche"],
-  90: ["la diffusion simple à travers la bicouche", "le transport actif primaire"],
-  91: ["les canaux membranaires", "les transporteurs ABC et la chimiorésistance"],
-  92: ["les perméases et les pompes", "le transport actif secondaire"],
-  93: ["le transport actif primaire", "le transport apical du glucose dans l’entérocyte selon la fiche"],
-  94: ["les transporteurs ABC et la chimiorésistance", "le transport basolatéral du glucose dans l’entérocyte selon la fiche"],
-  95: ["le transport actif secondaire", "le gradient de sodium dans le modèle intestinal de la fiche"],
-  96: ["le transport apical du glucose dans l’entérocyte selon la fiche", "l’effet de l’insuline sur le transport du glucose musculaire selon la fiche"],
-  97: ["le transport basolatéral du glucose dans l’entérocyte selon la fiche", "les deux grandes modalités de transport membranaire"],
-  98: ["le gradient de sodium dans le modèle intestinal de la fiche", "l’effet de l’insuline sur le transport du glucose musculaire selon la fiche", "les deux grandes modalités de transport membranaire"],
-  99: ["l’effet de l’insuline sur le transport du glucose musculaire selon la fiche", "les canaux membranaires"],
-  100: ["les deux grandes modalités de transport membranaire", "la diffusion simple à travers la bicouche", "les canaux membranaires", "les perméases et les pompes", "le transport actif primaire"],
-  101: ["les fonctions générales de la membrane plasmique", "les groupes sanguins ABO dans la fiche"],
-  102: ["les protéines transmembranaires", "la vitesse de diffusion latérale donnée par la fiche"],
-  103: ["le glycocalyx", "la nécessité de la communication cellulaire"],
-  104: ["l’asymétrie des phospholipides", "les récepteurs membranaires aux signaux hydrosolubles"],
-  105: ["la communication autocrine", "les deux grandes modalités de transport membranaire"],
-  106: ["les récepteurs couplés aux protéines G", "les transporteurs ABC et la chimiorésistance"],
-  107: ["la diffusion simple à travers la bicouche", "l’effet de l’insuline sur le transport du glucose musculaire selon la fiche"],
-  108: ["le transport actif secondaire", "le rôle du cholestérol dans la fiche"],
-  109: ["les récepteurs membranaires aux signaux hydrosolubles", "les récepteurs couplés aux protéines G", "les récepteurs enzymes"],
-  110: ["les récepteurs tyrosine kinase cités", "les conséquences biologiques d’un dysfonctionnement de communication", "les deux grandes modalités de transport membranaire", "la diffusion simple à travers la bicouche", "les canaux membranaires"],
-  111: ["l’épaisseur de la membrane plasmique selon la fiche", "les protéines transmembranaires", "l’influence des acides gras sur la fluidité selon la fiche"],
-  112: ["la membrane de l’hématie", "les flippases", "les récepteurs couplés aux protéines G"],
-  113: ["l’asymétrie des phospholipides", "les récepteurs tyrosine kinase cités", "le gradient de sodium dans le modèle intestinal de la fiche"],
-  114: ["la communication endocrine", "le gradient de sodium dans le modèle intestinal de la fiche", "la fluidité membranaire"],
-  115: ["les deux grandes modalités de transport membranaire", "les groupes sanguins ABO dans la fiche", "les récepteurs membranaires aux signaux hydrosolubles"],
-  116: ["le transport apical du glucose dans l’entérocyte selon la fiche", "la communication autocrine", "le transport basolatéral du glucose dans l’entérocyte selon la fiche"],
-  117: ["l’épaisseur de la membrane plasmique selon la fiche"],
-  118: ["le glycocalyx", "la composition globale de la membrane selon la fiche", "la communication synaptique chimique"],
-  119: ["les scramblases", "les mouvements des phospholipides", "le transport apical du glucose dans l’entérocyte selon la fiche"],
-  120: ["les récepteurs membranaires aux signaux hydrosolubles", "les groupes sanguins ABO dans la fiche"],
-  121: ["la diffusion simple à travers la bicouche", "les canaux membranaires", "les perméases et les pompes"],
-  122: ["le transport basolatéral du glucose dans l’entérocyte selon la fiche", "le gradient de sodium dans le modèle intestinal de la fiche", "l’effet de l’insuline sur le transport du glucose musculaire selon la fiche", "les fonctions générales de la membrane plasmique", "l’épaisseur de la membrane plasmique selon la fiche"],
+  "1": [
+    "Structure, composition et membrane de l’hématie"
+  ],
+  "2": [
+    "Structure, composition et membrane de l’hématie"
+  ],
+  "3": [
+    "Structure, composition et membrane de l’hématie"
+  ],
+  "4": [
+    "Structure, composition et membrane de l’hématie"
+  ],
+  "5": [
+    "Structure, composition et membrane de l’hématie"
+  ],
+  "6": [
+    "Structure, composition et membrane de l’hématie"
+  ],
+  "7": [
+    "Structure, composition et membrane de l’hématie"
+  ],
+  "8": [
+    "Structure, composition et membrane de l’hématie"
+  ],
+  "9": [
+    "Structure, composition et membrane de l’hématie"
+  ],
+  "10": [
+    "Structure, composition et membrane de l’hématie"
+  ],
+  "11": [
+    "Structure, composition et membrane de l’hématie"
+  ],
+  "12": [
+    "Structure, composition et membrane de l’hématie"
+  ],
+  "13": [
+    "Structure, composition et membrane de l’hématie"
+  ],
+  "14": [
+    "Structure, composition et membrane de l’hématie"
+  ],
+  "15": [
+    "Structure, composition et membrane de l’hématie"
+  ],
+  "16": [
+    "Structure, composition et membrane de l’hématie"
+  ],
+  "17": [
+    "Structure, composition et membrane de l’hématie"
+  ],
+  "18": [
+    "Structure, composition et membrane de l’hématie"
+  ],
+  "19": [
+    "Structure, composition et membrane de l’hématie"
+  ],
+  "20": [
+    "Structure, composition et membrane de l’hématie"
+  ],
+  "21": [
+    "Structure, composition et membrane de l’hématie"
+  ],
+  "22": [
+    "Structure, composition et membrane de l’hématie"
+  ],
+  "23": [
+    "Fluidité, asymétrie et polarité membranaires"
+  ],
+  "24": [
+    "Fluidité, asymétrie et polarité membranaires"
+  ],
+  "25": [
+    "Fluidité, asymétrie et polarité membranaires"
+  ],
+  "26": [
+    "Fluidité, asymétrie et polarité membranaires"
+  ],
+  "27": [
+    "Fluidité, asymétrie et polarité membranaires"
+  ],
+  "28": [
+    "Fluidité, asymétrie et polarité membranaires"
+  ],
+  "29": [
+    "Fluidité, asymétrie et polarité membranaires"
+  ],
+  "30": [
+    "Fluidité, asymétrie et polarité membranaires"
+  ],
+  "31": [
+    "Fluidité, asymétrie et polarité membranaires"
+  ],
+  "32": [
+    "Fluidité, asymétrie et polarité membranaires"
+  ],
+  "33": [
+    "Fluidité, asymétrie et polarité membranaires"
+  ],
+  "34": [
+    "Fluidité, asymétrie et polarité membranaires"
+  ],
+  "35": [
+    "Fluidité, asymétrie et polarité membranaires"
+  ],
+  "36": [
+    "Fluidité, asymétrie et polarité membranaires"
+  ],
+  "37": [
+    "Fluidité, asymétrie et polarité membranaires"
+  ],
+  "38": [
+    "Fluidité, asymétrie et polarité membranaires"
+  ],
+  "39": [
+    "Fluidité, asymétrie et polarité membranaires"
+  ],
+  "40": [
+    "Fluidité, asymétrie et polarité membranaires"
+  ],
+  "41": [
+    "Fluidité, asymétrie et polarité membranaires"
+  ],
+  "42": [
+    "Fluidité, asymétrie et polarité membranaires"
+  ],
+  "43": [
+    "Fluidité, asymétrie et polarité membranaires"
+  ],
+  "44": [
+    "Fluidité, asymétrie et polarité membranaires"
+  ],
+  "45": [
+    "Communication cellulaire et récepteurs"
+  ],
+  "46": [
+    "Communication cellulaire et récepteurs"
+  ],
+  "47": [
+    "Communication cellulaire et récepteurs"
+  ],
+  "48": [
+    "Communication cellulaire et récepteurs"
+  ],
+  "49": [
+    "Communication cellulaire et récepteurs"
+  ],
+  "50": [
+    "Communication cellulaire et récepteurs"
+  ],
+  "51": [
+    "Communication cellulaire et récepteurs"
+  ],
+  "52": [
+    "Communication cellulaire et récepteurs"
+  ],
+  "53": [
+    "Communication cellulaire et récepteurs"
+  ],
+  "54": [
+    "Communication cellulaire et récepteurs"
+  ],
+  "55": [
+    "Communication cellulaire et récepteurs"
+  ],
+  "56": [
+    "Communication cellulaire et récepteurs"
+  ],
+  "57": [
+    "Communication cellulaire et récepteurs"
+  ],
+  "58": [
+    "Communication cellulaire et récepteurs"
+  ],
+  "59": [
+    "Communication cellulaire et récepteurs"
+  ],
+  "60": [
+    "Communication cellulaire et récepteurs"
+  ],
+  "61": [
+    "Communication cellulaire et récepteurs"
+  ],
+  "62": [
+    "Communication cellulaire et récepteurs"
+  ],
+  "63": [
+    "Communication cellulaire et récepteurs"
+  ],
+  "64": [
+    "Communication cellulaire et récepteurs"
+  ],
+  "65": [
+    "Communication cellulaire et récepteurs"
+  ],
+  "66": [
+    "Communication cellulaire et récepteurs"
+  ],
+  "67": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "68": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "69": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "70": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "71": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "72": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "73": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "74": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "75": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "76": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "77": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "78": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "79": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "80": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "81": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "82": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "83": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "84": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "85": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "86": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "87": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "88": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "89": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "90": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "91": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "92": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "93": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "94": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "95": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "96": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "97": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "98": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "99": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "100": [
+    "Transports membranaires et transport du glucose"
+  ],
+  "101": [
+    "Synthèse : membrane plasmique"
+  ],
+  "102": [
+    "Synthèse : membrane plasmique"
+  ],
+  "103": [
+    "Synthèse : membrane plasmique"
+  ],
+  "104": [
+    "Synthèse : membrane plasmique"
+  ],
+  "105": [
+    "Synthèse : membrane plasmique"
+  ],
+  "106": [
+    "Synthèse : membrane plasmique"
+  ],
+  "107": [
+    "Synthèse : membrane plasmique"
+  ],
+  "108": [
+    "Synthèse : membrane plasmique"
+  ],
+  "109": [
+    "Synthèse : membrane plasmique"
+  ],
+  "110": [
+    "Synthèse : membrane plasmique"
+  ],
+  "111": [
+    "Synthèse : membrane plasmique"
+  ],
+  "112": [
+    "Synthèse : membrane plasmique"
+  ],
+  "113": [
+    "Synthèse : membrane plasmique"
+  ],
+  "114": [
+    "Synthèse : membrane plasmique"
+  ],
+  "115": [
+    "Synthèse : membrane plasmique"
+  ],
+  "116": [
+    "Synthèse : membrane plasmique"
+  ],
+  "117": [
+    "Synthèse : membrane plasmique"
+  ],
+  "118": [
+    "Synthèse : membrane plasmique"
+  ],
+  "119": [
+    "Synthèse : membrane plasmique"
+  ],
+  "120": [
+    "Synthèse : membrane plasmique"
+  ],
+  "121": [
+    "Synthèse : membrane plasmique"
+  ],
+  "122": [
+    "Synthèse : membrane plasmique"
+  ]
 };

@@ -1,638 +1,719 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
-/**
- * UE14 Biochimie — Chapitre 1.3 — Les osides — Section B
- * Banque éditoriale auteur — à intégrer via le helper partagé du repo.
- */
-
+/** UE14 Biochimie – Chapitre 1.3 – Section B – Amidon et glycogène */
 export const UE14_BIOCH_CH3_SECTION_B_V2_QUESTIONS: HealthTrainingAuthorQuestion[] = [
   {
     "order": 23,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Les polyosides ou glycanes :",
+    "question": "Concernant les polyosides, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Résultent de la polymérisation d’un grand nombre d’oses ou dérivés.",
+        "content": "Un polyoside est constitué d'un grand nombre de résidus d'oses ou dérivés.",
         "correct": true,
-        "explanation": "Un polyoside est formé par l’enchaînement d’un grand nombre de résidus monosaccharidiques."
+        "explanation": "Il s'agit d'un polymère glucidique."
       },
       {
-        "content": "Peuvent avoir un rôle structural.",
+        "content": "Un homoglycane répète un seul type de monosaccharide.",
         "correct": true,
-        "explanation": "La cellulose contribue par exemple à la résistance mécanique de la paroi végétale."
+        "explanation": "Amidon, glycogène et cellulose sont des glucanes."
       },
       {
-        "content": "Peuvent avoir un rôle de réserve.",
+        "content": "Les polyosides peuvent avoir des rôles de réserve ou de structure.",
         "correct": true,
-        "explanation": "L’amidon stocke du glucose chez les végétaux et le glycogène chez les animaux."
+        "explanation": "Amidon/glycogène versus cellulose."
       },
       {
-        "content": "Sont toujours hétérogènes.",
+        "content": "Les polyosides sont des protéines.",
         "correct": false,
-        "explanation": "L’amidon, le glycogène et la cellulose sont des homoglycanes constitués uniquement de résidus de glucose."
+        "explanation": "Ce sont des glucides."
+      },
+      {
+        "content": "Un homoglycane contient de nombreux types d'oses différents.",
+        "correct": false,
+        "explanation": "Il répète un seul type."
       }
     ],
-    "explanation": "Les polyosides peuvent être structuraux ou de réserve."
+    "explanation": "Les polyosides peuvent être homogènes ou hétérogènes et remplir des fonctions de réserve ou de structure."
   },
   {
     "order": 24,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Dans un modèle simplifié où l’amidon contient environ 20 % d’amylose et 80 % d’amylopectine :",
+    "format": "QRU",
+    "question": "À propos de l'amylose, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Environ 20 % d’amylose.",
-        "correct": true,
-        "explanation": "La proportion d’amylose est fournie directement par le modèle de l’énoncé."
-      },
-      {
-        "content": "Environ 80 % d’amylopectine.",
-        "correct": true,
-        "explanation": "La proportion d’amylopectine est fournie directement par le modèle de l’énoncé."
-      },
-      {
-        "content": "Une fraction linéaire et une fraction ramifiée.",
-        "correct": true,
-        "explanation": "L’amylose est essentiellement linéaire, tandis que l’amylopectine possède des embranchements."
-      },
-      {
-        "content": "Environ 80 % de cellulose.",
+        "content": "L'amylose est un polymère bêta(1→4) de glucose.",
         "correct": false,
-        "explanation": "La cellulose est un autre polyoside."
+        "explanation": "Cela décrit la cellulose."
+      },
+      {
+        "content": "Elle est constituée de fructose uniquement.",
+        "correct": false,
+        "explanation": "Elle est constituée de glucose."
+      },
+      {
+        "content": "L'amylose est une protéine.",
+        "correct": false,
+        "explanation": "C'est un glucane."
+      },
+      {
+        "content": "L'amylose est la composante la plus ramifiée du glycogène.",
+        "correct": false,
+        "explanation": "Elle est essentiellement linéaire."
+      },
+      {
+        "content": "Elle constitue une fraction de l'amidon.",
+        "correct": true,
+        "explanation": "L'amidon associe amylose et amylopectine."
       }
     ],
-    "explanation": "L’amidon associe amylose minoritaire et amylopectine majoritaire."
+    "explanation": "L'amylose est un glucane essentiellement linéaire en alpha(1→4)."
   },
   {
     "order": 25,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "L’amylose :",
-    "choices": [
-      {
-        "content": "Est une chaîne linéaire de glucose.",
-        "correct": true,
-        "explanation": "L’amylose est constituée principalement d’une seule chaîne de résidus de glucose."
-      },
-      {
-        "content": "Utilise des liaisons α(1→4).",
-        "correct": true,
-        "explanation": "Le carbone anomérique C1 d’un glucose est lié au C4 du résidu suivant dans une configuration α."
-      },
-      {
-        "content": "Adopte un enroulement hélicoïdal.",
-        "correct": true,
-        "explanation": "Les liaisons α(1→4) favorisent une conformation hélicoïdale de la chaîne."
-      },
-      {
-        "content": "Présente un embranchement α(1→6) tous les six glucoses.",
-        "correct": false,
-        "explanation": "L’amylose est essentiellement linéaire ; les embranchements α(1→6) caractérisent surtout l’amylopectine."
+    "format": "QROC",
+    "question": "Quelle liaison forme les points de branchement de l'amylopectine ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "alpha(1→6)",
+        "α(1→6)",
+        "alpha 1-6",
+        "α1→6"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "L’amylose est la fraction linéaire α1→4 de l’amidon."
+    },
+    "explanation": "L'amylopectine est la fraction ramifiée de l'amidon, avec chaînes alpha(1→4) et branches alpha(1→6)."
   },
   {
     "order": 26,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "L’amylopectine :",
+    "question": "Concernant l'amidon, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Est ramifiée.",
+        "content": "Les alpha-amylases hydrolysent des liaisons alpha(1→4) de l'amidon.",
         "correct": true,
-        "explanation": "L’amylopectine possède des chaînes reliées entre elles par des points de branchement."
+        "explanation": "Elles produisent notamment des dextrines et du maltose."
       },
       {
-        "content": "Utilise des liaisons α(1→4) dans les chaînes.",
-        "correct": true,
-        "explanation": "Les résidus successifs de chaque segment linéaire sont reliés en α(1→4)."
-      },
-      {
-        "content": "Utilise des liaisons α(1→6) aux embranchements.",
-        "correct": true,
-        "explanation": "Un point de branchement relie le C1 anomérique d’un glucose au C6 d’un autre résidu."
-      },
-      {
-        "content": "Est moins abondante que l’amylose dans l’amidon.",
+        "content": "L'amidon est constitué de cellulose uniquement.",
         "correct": false,
-        "explanation": "Dans le modèle simplifié usuel, l’amylopectine est majoritaire et représente environ 80 % de l’amidon."
+        "explanation": "Il contient amylose et amylopectine."
+      },
+      {
+        "content": "Il associe amylose et amylopectine.",
+        "correct": true,
+        "explanation": "Les proportions varient selon l'origine végétale."
+      },
+      {
+        "content": "L'amidon est uniquement bêta(1→4).",
+        "correct": false,
+        "explanation": "Ses liaisons principales sont alpha."
+      },
+      {
+        "content": "Les amylases humaines hydrolysent directement toutes les branches alpha(1→6).",
+        "correct": false,
+        "explanation": "Des activités débranchantes spécifiques sont nécessaires."
       }
     ],
-    "explanation": "L’amylopectine est la fraction ramifiée majoritaire de l’amidon."
+    "explanation": "L'amidon est une réserve végétale combinant amylose linéaire et amylopectine ramifiée."
   },
   {
     "order": 27,
     "difficulty": "EASY",
     "format": "QRU",
-    "question": "Quel polyoside est la réserve glucidique des végétaux ?",
+    "question": "À propos du glycogène, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Amidon.",
+        "content": "La glycogénine est une enzyme digestive intestinale du lactose.",
+        "correct": false,
+        "explanation": "C'est une protéine amorce du glycogène."
+      },
+      {
+        "content": "Le glycogène est la réserve végétale majeure.",
+        "correct": false,
+        "explanation": "Il est la réserve animale."
+      },
+      {
+        "content": "Le glycogène est la principale réserve glucidique animale.",
         "correct": true,
-        "explanation": "Les végétaux stockent du glucose sous forme de grains d’amidon."
+        "explanation": "Il est particulièrement abondant dans le foie et le muscle."
       },
       {
-        "content": "Glycogène.",
+        "content": "Le glycogène est un polymère bêta(1→4) de glucose.",
         "correct": false,
-        "explanation": "Le glycogène constitue principalement une forme de réserve glucidique chez les animaux et les champignons."
+        "explanation": "Cela décrit la cellulose."
       },
       {
-        "content": "Cellulose.",
+        "content": "Il ne possède aucun branchement.",
         "correct": false,
-        "explanation": "La cellulose est un constituant structural de la paroi végétale, pas un polymère de réserve."
-      },
-      {
-        "content": "Acide hyaluronique.",
-        "correct": false,
-        "explanation": "L’acide hyaluronique est un glycosaminoglycane de la matrice extracellulaire animale."
+        "explanation": "Il est fortement ramifié."
       }
     ],
-    "explanation": "L’amidon constitue la réserve glucidique végétale."
+    "explanation": "Le glycogène est un glucane de réserve animale très ramifié, construit autour de la glycogénine."
   },
   {
     "order": 28,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "L’amidon :",
+    "format": "QRP",
+    "question": "Parmi les propositions suivantes sur la comparaison glycogène-amylopectine, retenez exactement les deux exactes.",
     "choices": [
       {
-        "content": "Est synthétisé dans les amyloplastes.",
+        "content": "Les deux polymères possèdent des chaînes alpha(1→4).",
         "correct": true,
-        "explanation": "L’amidon de réserve s’accumule notamment dans des plastes spécialisés appelés amyloplastes ; un amidon transitoire est aussi synthétisé dans les chloroplastes."
+        "explanation": "Le squelette linéaire est comparable."
       },
       {
-        "content": "Est retrouvé dans les céréales et féculents.",
+        "content": "Une ramification élevée augmente le nombre d'extrémités non réductrices accessibles aux enzymes.",
         "correct": true,
-        "explanation": "Les grains de céréales, les pommes de terre et les légumineuses constituent des sources alimentaires importantes d’amidon."
+        "explanation": "Cela favorise une mobilisation rapide."
       },
       {
-        "content": "Est hydrophile mais insoluble dans l’eau froide.",
-        "correct": true,
-        "explanation": "Ses hydroxyles interagissent avec l’eau, mais l’organisation semi-cristalline des granules limite leur dissolution dans l’eau froide."
-      },
-      {
-        "content": "Est la réserve principale des cellules animales.",
+        "content": "Les deux polymères sont constitués principalement de fructose.",
         "correct": false,
-        "explanation": "Cette fonction revient au glycogène."
+        "explanation": "Ils sont des glucanes."
+      },
+      {
+        "content": "Le glycogène est strictement linéaire.",
+        "correct": false,
+        "explanation": "Il est très ramifié."
+      },
+      {
+        "content": "Une ramification plus forte diminue le nombre d'extrémités.",
+        "correct": false,
+        "explanation": "Elle l'augmente."
       }
     ],
-    "explanation": "L’amidon est un glucane végétal de réserve et un apport alimentaire majeur."
+    "explanation": "Glycogène et amylopectine partagent les liaisons alpha(1→4)/alpha(1→6), mais le glycogène est plus ramifié.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 29,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "Quand l’amidon est chauffé en présence d’eau :",
+    "question": "Concernant la digestion de l'amidon, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Les granules absorbent de l’eau et peuvent gonfler.",
+        "content": "La cuisson dans l'eau peut provoquer une gélatinisation de l'amidon.",
         "correct": true,
-        "explanation": "La chaleur désorganise progressivement les structures des granules et permet une hydratation accrue."
+        "explanation": "Les granules absorbent l'eau et se désorganisent."
       },
       {
-        "content": "Une partie de l’amylose peut diffuser hors des granules.",
+        "content": "Les alpha-amylases hydrolysent des liaisons alpha(1→4) de l'amidon.",
         "correct": true,
-        "explanation": "Pendant la gélatinisation, le gonflement des granules peut s’accompagner d’une libération d’amylose dans la phase aqueuse."
+        "explanation": "Elles produisent notamment des dextrines et du maltose."
       },
       {
-        "content": "La viscosité du milieu peut augmenter.",
-        "correct": true,
-        "explanation": "Le gonflement des granules et la présence de polymères hydratés épaississent la préparation ; un gel peut ensuite se structurer lors du refroidissement."
-      },
-      {
-        "content": "L’amidon devient automatiquement une protéine.",
+        "content": "L'amidon est la réserve glucidique principale du muscle humain.",
         "correct": false,
-        "explanation": "Sa nature glucidique ne change pas."
+        "explanation": "Le muscle stocke du glycogène."
+      },
+      {
+        "content": "Il associe amylose et amylopectine.",
+        "correct": true,
+        "explanation": "Les proportions varient selon l'origine végétale."
+      },
+      {
+        "content": "Les amylases humaines hydrolysent directement toutes les branches alpha(1→6).",
+        "correct": false,
+        "explanation": "Des activités débranchantes spécifiques sont nécessaires."
       }
     ],
-    "explanation": "Le chauffage de l’amidon en présence d’eau provoque sa gélatinisation : les granules gonflent, perdent une partie de leur organisation et augmentent la viscosité du milieu."
+    "explanation": "L'amidon est une réserve végétale combinant amylose linéaire et amylopectine ramifiée."
   },
   {
     "order": 30,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "La digestion de l’amidon fait intervenir :",
-    "choices": [
-      {
-        "content": "Des α-amylases.",
-        "correct": true,
-        "explanation": "Les α-amylases salivaire et pancréatique hydrolysent des liaisons α(1→4) internes de l’amidon."
-      },
-      {
-        "content": "Une activité α(1→6)-glucosidase débranchante.",
-        "correct": true,
-        "explanation": "Les points de branchement α(1→6) des dextrines limites nécessitent une activité débranchante de la bordure en brosse."
-      },
-      {
-        "content": "Du maltose parmi les produits/intermédiaires.",
-        "correct": true,
-        "explanation": "L’action des α-amylases sur les segments α(1→4) produit notamment du maltose, du maltotriose et des dextrines limites."
-      },
-      {
-        "content": "Uniquement une β-glucosidase humaine.",
-        "correct": false,
-        "explanation": "La digestion de l’amidon repose sur des enzymes reconnaissant les liaisons α ; l’être humain ne digère pas la cellulose β(1→4)."
+    "format": "QROC",
+    "question": "Citez les deux principaux tissus de stockage du glycogène chez l'être humain.",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "foie et muscle",
+        "muscle et foie",
+        "foie et muscles",
+        "muscles et foie"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Les liaisons α1→4 et α1→6 imposent des activités enzymatiques complémentaires."
+    },
+    "explanation": "Le foie et le muscle sont les principaux réservoirs de glycogène, avec des finalités métaboliques différentes."
   },
   {
     "order": 31,
     "difficulty": "EASY",
-    "format": "QRM",
-    "question": "Le glycogène :",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur les polyosides, laquelle est exacte ?",
     "choices": [
       {
-        "content": "Est un polyoside de réserve des cellules animales.",
+        "content": "Un polyoside est constitué d'un grand nombre de résidus d'oses ou dérivés.",
         "correct": true,
-        "explanation": "Le glycogène permet de stocker dans le cytosol des résidus de glucose rapidement mobilisables."
+        "explanation": "Il s'agit d'un polymère glucidique."
       },
       {
-        "content": "Est particulièrement abondant dans le muscle et le foie.",
-        "correct": true,
-        "explanation": "Le foie utilise notamment le glycogène pour contribuer au maintien de la glycémie, tandis que le muscle l’utilise pour ses propres besoins énergétiques."
-      },
-      {
-        "content": "Dans le cerveau adulte, est stocké principalement dans les astrocytes plutôt que dans les neurones.",
-        "correct": true,
-        "explanation": "Le glycogène cérébral est surtout localisé dans les astrocytes ; les neurones adultes en contiennent des quantités beaucoup plus faibles."
-      },
-      {
-        "content": "Est la réserve glucidique des végétaux.",
+        "content": "Tous les polyosides sont de réserve.",
         "correct": false,
-        "explanation": "L’amidon, et non le glycogène, constitue la principale réserve glucidique des végétaux."
+        "explanation": "La cellulose est structurale."
+      },
+      {
+        "content": "Les polyosides sont des protéines.",
+        "correct": false,
+        "explanation": "Ce sont des glucides."
+      },
+      {
+        "content": "Un homoglycane contient de nombreux types d'oses différents.",
+        "correct": false,
+        "explanation": "Il répète un seul type."
+      },
+      {
+        "content": "Un polyoside contient toujours exactement deux résidus.",
+        "correct": false,
+        "explanation": "Cela décrit un diholoside."
       }
     ],
-    "explanation": "Le glycogène est la réserve animale, notamment hépatique et musculaire."
+    "explanation": "Les polyosides peuvent être homogènes ou hétérogènes et remplir des fonctions de réserve ou de structure."
   },
   {
     "order": 32,
     "difficulty": "EASY",
     "format": "QRM",
-    "question": "L’organisation du glycogène :",
+    "question": "Concernant l'amylose, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Est fortement ramifiée.",
-        "correct": true,
-        "explanation": "Ses chaînes α(1→4) comportent de nombreux points de branchement α(1→6)."
-      },
-      {
-        "content": "Est proche de celle de l’amylopectine.",
-        "correct": true,
-        "explanation": "Les deux polymères associent des segments α(1→4) à des embranchements α(1→6), mais le glycogène est plus densément ramifié."
-      },
-      {
-        "content": "S’appuie sur une protéine appelée glycogénine.",
-        "correct": true,
-        "explanation": "La glycogénine s’autoglycosyle et fournit l’amorce à partir de laquelle la particule de glycogène est allongée."
-      },
-      {
-        "content": "Est entièrement linéaire comme l’amylose.",
+        "content": "L'amylose est la composante la plus ramifiée du glycogène.",
         "correct": false,
-        "explanation": "Le glycogène est ramifié."
+        "explanation": "Elle est essentiellement linéaire."
+      },
+      {
+        "content": "Les glucoses sont reliés principalement par des liaisons alpha(1→4).",
+        "correct": true,
+        "explanation": "Cette liaison construit la chaîne."
+      },
+      {
+        "content": "Elle est constituée de fructose uniquement.",
+        "correct": false,
+        "explanation": "Elle est constituée de glucose."
+      },
+      {
+        "content": "Elle constitue une fraction de l'amidon.",
+        "correct": true,
+        "explanation": "L'amidon associe amylose et amylopectine."
+      },
+      {
+        "content": "L'amylose est une protéine.",
+        "correct": false,
+        "explanation": "C'est un glucane."
       }
     ],
-    "explanation": "Le glycogène est un glucane ramifié organisé autour de la glycogénine."
+    "explanation": "L'amylose est un glucane essentiellement linéaire en alpha(1→4)."
   },
   {
     "order": 33,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Un aliment riche en amidon apporte un mélange dans lequel :",
+    "question": "Concernant les polyosides, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "L’amylopectine est majoritaire.",
-        "correct": true,
-        "explanation": "Dans le modèle simplifié usuel, l’amylopectine représente environ 80 % de l’amidon."
-      },
-      {
-        "content": "L’amylose représente environ 20 %.",
-        "correct": true,
-        "explanation": "Dans ce même modèle simplifié, l’amylose constitue la fraction minoritaire d’environ 20 %."
-      },
-      {
-        "content": "Les deux fractions sont constituées de glucose.",
-        "correct": true,
-        "explanation": "L’amylose et l’amylopectine sont toutes deux des polymères de résidus de glucose."
-      },
-      {
-        "content": "La cellulose constitue la majorité de l’amidon.",
+        "content": "Tous les polyosides sont de réserve.",
         "correct": false,
-        "explanation": "Elle n’appartient pas à l’amidon."
+        "explanation": "La cellulose est structurale."
+      },
+      {
+        "content": "Un homoglycane contient de nombreux types d'oses différents.",
+        "correct": false,
+        "explanation": "Il répète un seul type."
+      },
+      {
+        "content": "Les polyosides sont des protéines.",
+        "correct": false,
+        "explanation": "Ce sont des glucides."
+      },
+      {
+        "content": "Les polyosides peuvent avoir des rôles de réserve ou de structure.",
+        "correct": true,
+        "explanation": "Amidon/glycogène versus cellulose."
+      },
+      {
+        "content": "Un polyoside est constitué d'un grand nombre de résidus d'oses ou dérivés.",
+        "correct": true,
+        "explanation": "Il s'agit d'un polymère glucidique."
       }
     ],
-    "explanation": "La composition de l’amidon relie alimentation et structure moléculaire."
+    "explanation": "Les polyosides peuvent être homogènes ou hétérogènes et remplir des fonctions de réserve ou de structure."
   },
   {
     "order": 34,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Une sauce riche en amidon épaissit lorsqu’elle est chauffée en présence d’eau. Ce phénomène implique :",
-    "choices": [
-      {
-        "content": "Le gonflement et la désorganisation des granules d’amidon.",
-        "correct": true,
-        "explanation": "La chaleur facilite l’entrée d’eau dans les granules et perturbe leur organisation semi-cristalline."
-      },
-      {
-        "content": "L’hydratation des polymères et une augmentation de la viscosité.",
-        "correct": true,
-        "explanation": "Les granules gonflés et les chaînes libérées immobilisent une partie de l’eau et épaississent le milieu."
-      },
-      {
-        "content": "La formation d’un empois d’amidon.",
-        "correct": true,
-        "explanation": "La dispersion visqueuse obtenue après gélatinisation est appelée empois ; un gel peut ensuite se structurer au refroidissement."
-      },
-      {
-        "content": "La conversion obligatoire en glycogène.",
-        "correct": false,
-        "explanation": "C’est un phénomène physique."
+    "format": "QROC",
+    "question": "Quelle liaison glycosidique principale relie les glucoses de l'amylose ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "alpha(1→4)",
+        "α(1→4)",
+        "alpha 1-4",
+        "α1→4"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "L’épaississement résulte de la gélatinisation de l’amidon : les granules s’hydratent, gonflent et perdent une partie de leur organisation."
+    },
+    "explanation": "L'amylose est un glucane essentiellement linéaire en alpha(1→4)."
   },
   {
     "order": 35,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Une enzyme digestive coupe les embranchements α(1→6) de l’amidon. Elle correspond à :",
+    "format": "QRU",
+    "question": "Parmi les propositions suivantes sur l'amylopectine, laquelle est exacte ?",
     "choices": [
       {
-        "content": "Une activité débranchante.",
+        "content": "Les points de branchement utilisent des liaisons alpha(1→6).",
         "correct": true,
-        "explanation": "Une enzyme débranchante hydrolyse les liaisons situées aux points de branchement."
+        "explanation": "Le C1 d'un glucose se lie au C6 d'un autre."
       },
       {
-        "content": "Une α(1→6)-glucosidase.",
-        "correct": true,
-        "explanation": "Cette activité reconnaît et hydrolyse les liaisons glycosidiques α(1→6)."
-      },
-      {
-        "content": "Une activité utile sur l’amylopectine.",
-        "correct": true,
-        "explanation": "L’amylopectine comporte des points de branchement α(1→6) que les α-amylases seules ne suppriment pas."
-      },
-      {
-        "content": "Une β-galactosidase du lactose.",
+        "content": "L'amylopectine est un polymère strictement linéaire.",
         "correct": false,
-        "explanation": "La β-galactosidase hydrolyse la liaison du lactose et ne constitue pas l’activité débranchante de l’amidon."
+        "explanation": "Elle est ramifiée."
+      },
+      {
+        "content": "Ses branches utilisent des liaisons bêta(1→4).",
+        "correct": false,
+        "explanation": "Elles utilisent alpha(1→6)."
+      },
+      {
+        "content": "Elle est la réserve animale principale.",
+        "correct": false,
+        "explanation": "L'amidon est végétal ; le glycogène est animal."
+      },
+      {
+        "content": "Elle est composée de galactose et fructose alternés.",
+        "correct": false,
+        "explanation": "C'est un homoglycane de glucose."
       }
     ],
-    "explanation": "Les liaisons α1→6 nécessitent une activité débranchante adaptée."
+    "explanation": "L'amylopectine est la fraction ramifiée de l'amidon, avec chaînes alpha(1→4) et branches alpha(1→6)."
   },
   {
     "order": 36,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Dans un modèle simplifié où l’amidon contient 20 % d’amylose et le complément en amylopectine, quel pourcentage correspond à l’amylopectine ?",
-    "answer": {
-      "type": "number",
-      "value": 80,
-      "tolerance": 0
-    },
-    "explanation": "L’amylopectine représente 100 % − 20 % = 80 % dans le modèle fourni. Les proportions réelles varient selon l’origine botanique de l’amidon."
+    "format": "QRM",
+    "question": "Concernant l'amidon, quelles propositions sont exactes ?",
+    "choices": [
+      {
+        "content": "L'amidon est uniquement bêta(1→4).",
+        "correct": false,
+        "explanation": "Ses liaisons principales sont alpha."
+      },
+      {
+        "content": "Les alpha-amylases hydrolysent des liaisons alpha(1→4) de l'amidon.",
+        "correct": true,
+        "explanation": "Elles produisent notamment des dextrines et du maltose."
+      },
+      {
+        "content": "L'amidon est la réserve glucidique principale du muscle humain.",
+        "correct": false,
+        "explanation": "Le muscle stocke du glycogène."
+      },
+      {
+        "content": "Il associe amylose et amylopectine.",
+        "correct": true,
+        "explanation": "Les proportions varient selon l'origine végétale."
+      },
+      {
+        "content": "La cuisson dans l'eau peut provoquer une gélatinisation de l'amidon.",
+        "correct": true,
+        "explanation": "Les granules absorbent l'eau et se désorganisent."
+      }
+    ],
+    "explanation": "L'amidon est une réserve végétale combinant amylose linéaire et amylopectine ramifiée."
   },
   {
     "order": 37,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Dans une liaison de branchement α(1→6) de l’amylopectine, quel numéro porte le carbone du résidu accepteur engagé dans la liaison ?",
-    "answer": {
-      "type": "number",
-      "value": 6,
-      "tolerance": 0
-    },
-    "explanation": "Dans une liaison α(1→6), le carbone anomérique C1 d’un glucose est relié au carbone C6 du résidu accepteur. La valeur 6 décrit une position de liaison, pas une fréquence d’embranchement."
+    "format": "QRP",
+    "question": "À propos du glycogène, sélectionnez exactement les deux affirmations correctes.",
+    "choices": [
+      {
+        "content": "Il ne possède aucun branchement.",
+        "correct": false,
+        "explanation": "Il est fortement ramifié."
+      },
+      {
+        "content": "Le glycogène est un polymère bêta(1→4) de glucose.",
+        "correct": false,
+        "explanation": "Cela décrit la cellulose."
+      },
+      {
+        "content": "La glycogénine sert de protéine amorce au centre d'une particule de glycogène.",
+        "correct": true,
+        "explanation": "Elle initie la synthèse."
+      },
+      {
+        "content": "Le glycogène est la réserve végétale majeure.",
+        "correct": false,
+        "explanation": "Il est la réserve animale."
+      },
+      {
+        "content": "Le glycogène est la principale réserve glucidique animale.",
+        "correct": true,
+        "explanation": "Il est particulièrement abondant dans le foie et le muscle."
+      }
+    ],
+    "explanation": "Le glycogène est un glucane de réserve animale très ramifié, construit autour de la glycogénine.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 38,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Dans une cellule musculaire, une réserve glucidique importante est attendue sous forme de :",
+    "question": "Parmi les affirmations suivantes sur la comparaison glycogène-amylopectine, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Glycogène.",
-        "correct": true,
-        "explanation": "Le muscle stocke du glycogène qu’il peut mobiliser pour répondre à ses propres besoins énergétiques."
-      },
-      {
-        "content": "Glucane ramifié.",
-        "correct": true,
-        "explanation": "Le glycogène possède des chaînes α(1→4) reliées par de nombreux embranchements α(1→6)."
-      },
-      {
-        "content": "Polymère associé à la glycogénine.",
-        "correct": true,
-        "explanation": "La glycogénine fournit l’amorce protéique au centre de la particule de glycogène."
-      },
-      {
-        "content": "Cellulose.",
+        "content": "L'amylopectine utilise uniquement des liaisons bêta.",
         "correct": false,
-        "explanation": "La cellulose est un glucane structural de la paroi végétale et n’est pas une réserve musculaire."
+        "explanation": "Elle utilise des liaisons alpha."
+      },
+      {
+        "content": "Le glycogène est généralement plus ramifié.",
+        "correct": true,
+        "explanation": "Ses branches sont plus rapprochées."
+      },
+      {
+        "content": "Les deux possèdent des branches alpha(1→6).",
+        "correct": true,
+        "explanation": "Les points de branchement ont la même nature."
+      },
+      {
+        "content": "Les deux polymères sont constitués principalement de fructose.",
+        "correct": false,
+        "explanation": "Ils sont des glucanes."
+      },
+      {
+        "content": "Une ramification plus forte diminue le nombre d'extrémités.",
+        "correct": false,
+        "explanation": "Elle l'augmente."
       }
     ],
-    "explanation": "Le contexte musculaire renvoie directement au glycogène."
+    "explanation": "Glycogène et amylopectine partagent les liaisons alpha(1→4)/alpha(1→6), mais le glycogène est plus ramifié."
   },
   {
     "order": 39,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Concernant le glycogène du cerveau adulte :",
-    "choices": [
-      {
-        "content": "Il est globalement peu abondant par rapport aux réserves hépatiques et musculaires.",
-        "correct": true,
-        "explanation": "Le cerveau contient une réserve de glycogène limitée comparativement au foie et au muscle."
-      },
-      {
-        "content": "Il est stocké principalement dans les astrocytes.",
-        "correct": true,
-        "explanation": "Dans le cerveau adulte, le glycogène est majoritairement localisé dans les astrocytes ; les neurones en contiennent beaucoup moins."
-      },
-      {
-        "content": "Il reste un polymère de glucose.",
-        "correct": true,
-        "explanation": "Comme le glycogène des autres tissus, le glycogène cérébral est un glucane ramifié."
-      },
-      {
-        "content": "La réserve végétale dominante.",
-        "correct": false,
-        "explanation": "La réserve glucidique des végétaux est l’amidon ; le glycogène est notamment stocké dans les tissus animaux."
+    "format": "QROC",
+    "question": "Quelle enzyme pancréatique hydrolyse les liaisons alpha(1→4) de l'amidon ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "alpha-amylase",
+        "α-amylase",
+        "amylase pancréatique",
+        "alpha amylase"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le glycogène cérébral constitue une réserve limitée et principalement astrocytaire, très inférieure aux stocks du foie et du muscle."
+    },
+    "explanation": "La digestion de l'amidon associe alpha-amylases et enzymes de bordure en brosse."
   },
   {
     "order": 40,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Comparer amylopectine et glycogène :",
+    "format": "QRU",
+    "question": "À propos de la localisation des réserves de glycogène, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Les deux sont ramifiés.",
-        "correct": true,
-        "explanation": "L’amylopectine et le glycogène comportent tous deux des points de branchement."
-      },
-      {
-        "content": "Les deux utilisent α(1→4) dans les chaînes.",
-        "correct": true,
-        "explanation": "Leurs segments linéaires sont constitués de résidus de glucose liés en α(1→4)."
-      },
-      {
-        "content": "Les embranchements utilisent α(1→6).",
-        "correct": true,
-        "explanation": "Dans les deux polymères, le carbone C6 d’un résidu accepteur participe au point de branchement."
-      },
-      {
-        "content": "Le glycogène est la réserve végétale.",
+        "content": "Le glycogène musculaire libère directement de grandes quantités de glucose libre dans le sang.",
         "correct": false,
-        "explanation": "Le glycogène est une réserve glucidique animale, tandis que l’amidon est la réserve végétale."
+        "explanation": "Le muscle ne possède pas de glucose-6-phosphatase fonctionnelle pour cette fonction systémique."
+      },
+      {
+        "content": "Le glycogène est stocké dans le noyau sous forme de chromosomes.",
+        "correct": false,
+        "explanation": "Il est cytosolique."
+      },
+      {
+        "content": "Le glycogène est stocké uniquement dans le tissu adipeux.",
+        "correct": false,
+        "explanation": "Foie et muscle sont majeurs."
+      },
+      {
+        "content": "Les neurones sont le principal site de stockage massif de glycogène.",
+        "correct": false,
+        "explanation": "Le stockage neuronal est très faible."
+      },
+      {
+        "content": "Les réserves de glycogène sont limitées par rapport aux réserves lipidiques.",
+        "correct": true,
+        "explanation": "Le stockage glucidique est moins dense énergétiquement."
       }
     ],
-    "explanation": "Les deux glucanes partagent un type d’architecture mais diffèrent par leur contexte biologique."
+    "explanation": "Le foie et le muscle sont les principaux réservoirs de glycogène, avec des finalités métaboliques différentes."
   },
   {
     "order": 41,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Les embranchements du glycogène :",
+    "question": "Parmi les affirmations suivantes sur les polyosides, lesquelles sont exactes ?",
     "choices": [
       {
-        "content": "Sont espacés en moyenne d’environ 8 à 12 résidus de glucose.",
+        "content": "Les polyosides peuvent avoir des rôles de réserve ou de structure.",
         "correct": true,
-        "explanation": "Le glycogène possède des chaînes plus courtes et des branchements plus fréquents que l’amylopectine."
+        "explanation": "Amidon/glycogène versus cellulose."
       },
       {
-        "content": "Créent de nombreuses extrémités non réductrices.",
-        "correct": true,
-        "explanation": "Chaque nouvelle branche ajoute une extrémité non réductrice accessible aux enzymes de synthèse ou de dégradation."
-      },
-      {
-        "content": "Contribuent à une architecture très ramifiée.",
-        "correct": true,
-        "explanation": "La répétition des liaisons α(1→6) produit une particule compacte comportant de nombreuses chaînes courtes."
-      },
-      {
-        "content": "Sont exclusivement β(1→4).",
+        "content": "Un polyoside contient toujours exactement deux résidus.",
         "correct": false,
-        "explanation": "Les points de branchement sont des liaisons α(1→6), tandis que les segments linéaires sont en α(1→4)."
+        "explanation": "Cela décrit un diholoside."
+      },
+      {
+        "content": "Un polyoside est constitué d'un grand nombre de résidus d'oses ou dérivés.",
+        "correct": true,
+        "explanation": "Il s'agit d'un polymère glucidique."
+      },
+      {
+        "content": "Un homoglycane répète un seul type de monosaccharide.",
+        "correct": true,
+        "explanation": "Amidon, glycogène et cellulose sont des glucanes."
+      },
+      {
+        "content": "Un hétéroglycane comporte plusieurs types de résidus.",
+        "correct": true,
+        "explanation": "De nombreux GAG sont hétéroglycanes."
       }
     ],
-    "explanation": "Le glycogène est dense et très ramifié."
+    "explanation": "Les polyosides peuvent être homogènes ou hétérogènes et remplir des fonctions de réserve ou de structure."
   },
   {
     "order": 42,
     "difficulty": "MEDIUM",
-    "format": "QROC",
-    "question": "Comment s’appelle la protéine sur laquelle se fixent les chaînes de glycogène ?",
-    "answer": {
-      "type": "text",
-      "acceptedAnswers": [
-        "glycogenine",
-        "glycogénine",
-        "la glycogénine",
-        "la glycogenine"
-      ],
-      "normalization": {
-        "trim": true,
-        "caseSensitive": false,
-        "collapseWhitespace": true,
-        "ignoreAccents": true
+    "format": "QRPL",
+    "requiredSelectionCount": 5,
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
+    "choices": [
+      {
+        "content": "L'amylose est un polymère bêta(1→4) de glucose.",
+        "correct": false,
+        "explanation": "Cela décrit la cellulose."
+      },
+      {
+        "content": "Il est généralement plus densément ramifié que l'amylopectine.",
+        "correct": true,
+        "explanation": "Cette architecture multiplie les extrémités non réductrices."
+      },
+      {
+        "content": "Il ne possède aucun branchement.",
+        "correct": false,
+        "explanation": "Il est fortement ramifié."
+      },
+      {
+        "content": "Le glycogène est un polymère bêta(1→4) de glucose.",
+        "correct": false,
+        "explanation": "Cela décrit la cellulose."
+      },
+      {
+        "content": "Le glycogène est la principale réserve glucidique animale.",
+        "correct": true,
+        "explanation": "Il est particulièrement abondant dans le foie et le muscle."
+      },
+      {
+        "content": "Elle constitue une fraction de l'amidon.",
+        "correct": true,
+        "explanation": "L'amidon associe amylose et amylopectine."
+      },
+      {
+        "content": "Il est constitué de glucose en alpha(1→4) avec branches alpha(1→6).",
+        "correct": true,
+        "explanation": "Son architecture ressemble à une amylopectine plus ramifiée."
+      },
+      {
+        "content": "La glycogénine est une enzyme digestive intestinale du lactose.",
+        "correct": false,
+        "explanation": "C'est une protéine amorce du glycogène."
+      },
+      {
+        "content": "L'amylose est essentiellement une chaîne linéaire de résidus de glucose.",
+        "correct": true,
+        "explanation": "Elle est peu ou pas ramifiée."
+      },
+      {
+        "content": "Elle est constituée de fructose uniquement.",
+        "correct": false,
+        "explanation": "Elle est constituée de glucose."
       }
-    },
-    "explanation": "La glycogénine s’autoglycosyle sur un résidu de tyrosine et forme l’amorce protéique à partir de laquelle le glycogène est synthétisé."
+    ],
+    "explanation": "L'amylose est un glucane essentiellement linéaire en alpha(1→4). Le glycogène est un glucane de réserve animale très ramifié, construit autour de la glycogénine."
   },
   {
     "order": 43,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "requiredSelectionCount": 2,
-    "question": "Sélectionnez exactement les deux polyosides ayant un rôle majeur de réserve glucidique.",
+    "format": "QRM",
+    "question": "À propos de l'amylopectine, quelles propositions sont correctes ?",
     "choices": [
       {
-        "content": "Amidon.",
+        "content": "Ses chaînes utilisent des liaisons alpha(1→4).",
         "correct": true,
-        "explanation": "L’amidon est la principale forme de stockage glucidique des végétaux."
+        "explanation": "Elles forment les segments linéaires."
       },
       {
-        "content": "Glycogène.",
+        "content": "Ses branches utilisent des liaisons bêta(1→4).",
+        "correct": false,
+        "explanation": "Elles utilisent alpha(1→6)."
+      },
+      {
+        "content": "L'amylopectine est un glucane ramifié.",
         "correct": true,
-        "explanation": "Le glycogène est la principale forme de stockage glucidique des animaux."
+        "explanation": "Elle constitue la fraction ramifiée de l'amidon."
       },
       {
-        "content": "Cellulose.",
-        "correct": false,
-        "explanation": "La cellulose est un constituant structural de la paroi végétale."
+        "content": "Elle est moins densément ramifiée que le glycogène.",
+        "correct": true,
+        "explanation": "Le glycogène possède des branches plus fréquentes."
       },
       {
-        "content": "Acide hyaluronique.",
+        "content": "Elle est composée de galactose et fructose alternés.",
         "correct": false,
-        "explanation": "L’acide hyaluronique est un glycosaminoglycane de la matrice extracellulaire."
+        "explanation": "C'est un homoglycane de glucose."
       }
     ],
-    "explanation": "Amidon et glycogène sont les deux glucanes de réserve."
+    "explanation": "L'amylopectine est la fraction ramifiée de l'amidon, avec chaînes alpha(1→4) et branches alpha(1→6)."
   },
   {
     "order": 44,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "requiredSelectionCount": 5,
-    "question": "Amidon et glycogène : sélectionnez exactement cinq propositions correctes.",
-    "choices": [
-      {
-        "content": "L’amylose est linéaire.",
-        "correct": true,
-        "explanation": "L’amylose est constituée principalement d’une chaîne non ramifiée de glucoses liés en α(1→4)."
-      },
-      {
-        "content": "L’amylopectine est ramifiée.",
-        "correct": true,
-        "explanation": "Ses segments α(1→4) sont reliés par des points de branchement α(1→6)."
-      },
-      {
-        "content": "Le glycogène est une réserve animale.",
-        "correct": true,
-        "explanation": "Le foie et le muscle stockent notamment du glucose sous forme de glycogène."
-      },
-      {
-        "content": "La glycogénine sert d’amorce protéique à la synthèse du glycogène.",
-        "correct": true,
-        "explanation": "La glycogénine s’autoglycosyle et initie la formation de la particule de glycogène."
-      },
-      {
-        "content": "L’amidon est hydrophile et insoluble dans l’eau froide.",
-        "correct": true,
-        "explanation": "Les hydroxyles rendent l’amidon hydrophile, mais l’organisation des granules limite sa dissolution à froid."
-      },
-      {
-        "content": "L’amylose porte des embranchements α1→6 tous les six glucoses.",
-        "correct": false,
-        "explanation": "L’amylose est essentiellement linéaire ; l’amylopectine porte les embranchements α(1→6)."
-      },
-      {
-        "content": "Le glycogène est surtout végétal.",
-        "correct": false,
-        "explanation": "Le glycogène est notamment la réserve glucidique animale ; les végétaux stockent principalement l’amidon."
-      },
-      {
-        "content": "La cellulose est une fraction de l’amidon.",
-        "correct": false,
-        "explanation": "La cellulose est un glucane structural β(1→4), distinct de l’amidon."
-      },
-      {
-        "content": "L’amidon ne peut pas former de gel.",
-        "correct": false,
-        "explanation": "Il peut gélifier au chauffage."
-      },
-      {
-        "content": "L’amylopectine représente environ 20 % de l’amidon.",
-        "correct": false,
-        "explanation": "Dans le modèle simplifié usuel, l’amylopectine représente environ 80 % et l’amylose environ 20 %."
+    "format": "QROC",
+    "question": "Quelles sont les deux grandes fractions glucidiques de l'amidon ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "amylose et amylopectine",
+        "amylopectine et amylose"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Cette QRPL consolide structure, réserve et propriétés des glucanes."
+    },
+    "explanation": "L'amidon est une réserve végétale combinant amylose linéaire et amylopectine ramifiée."
   }
 ];

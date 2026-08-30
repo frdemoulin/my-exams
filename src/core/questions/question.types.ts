@@ -62,7 +62,7 @@ export type MultipleChoiceQuestion = BaseQuestion & {
   requiredSelectionCount?: number;
   choices: McqChoice[];
   scoring: {
-    strategy: Extract<QuestionScoringStrategy, "all-or-nothing">;
+    strategy: Extract<QuestionScoringStrategy, "all-or-nothing" | "discordance">;
   };
 };
 

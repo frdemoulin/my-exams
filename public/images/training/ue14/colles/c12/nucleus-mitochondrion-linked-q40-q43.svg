@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+    <linearGradient id="nucleusGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f5d0fe"/>
+    </linearGradient>
+    <linearGradient id="mitoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#ffedd5"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="106%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="760" fill="url(#bgGrad)" rx="16"/>
+
+  <!-- Title Banner -->
+  <rect x="30" y="18" width="1140" height="44" rx="8" fill="#e2e8f0" opacity="0.8"/>
+  <text x="600" y="46" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#0f172a">
+    Noyau eucaryote, organisation de la chromatine et membranes mitochondriales
+  </text>
+
+  <!-- ==================== PANNEAU GAUCHE : NOYAU & CHROMATINE ==================== -->
+  <g filter="url(#shadow)" transform="translate(30, 80)">
+    <rect width="540" height="655" rx="12" fill="url(#nucleusGrad)" stroke="#c026d3" stroke-width="2"/>
+    
+    <!-- Badge Noyau -->
+    <rect x="25" y="20" width="160" height="30" rx="6" fill="#c026d3"/>
+    <text x="105" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#ffffff">
+      Noyau eucaryote
+    </text>
+
+    <!-- Main Nucleus Drawing -->
+    <g transform="translate(40, 80)">
+      
+      <!-- Outer Double Envelope -->
+      <ellipse cx="230" cy="220" rx="190" ry="160" fill="#fdf4ff" stroke="#a21caf" stroke-width="4" stroke-dasharray="25,10"/>
+      <ellipse cx="230" cy="220" rx="178" ry="148" fill="#fae8ff" stroke="#c026d3" stroke-width="2.5"/>
+
+      <!-- Lamina Layer under inner membrane -->
+      <ellipse cx="230" cy="220" rx="168" ry="138" fill="none" stroke="#e879f9" stroke-width="3" stroke-dasharray="4,4"/>
+      <text x="350" y="100" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#a21caf">Lamines</text>
+      <line x1="345" y1="105" x2="310" y2="135" stroke="#a21caf" stroke-width="1.5"/>
+
+      <!-- Nucleolus -->
+      <circle cx="180" cy="220" r="55" fill="#d946ef" opacity="0.65" stroke="#86198f" stroke-width="2"/>
+      <text x="180" y="225" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="800" fill="#ffffff">Nucléole</text>
+
+      <!-- Nuclear Pores -->
+      <circle cx="420" cy="220" r="8" fill="#701a75"/>
+      <circle cx="230" cy="60" r="8" fill="#701a75"/>
+      <circle cx="230" cy="380" r="8" fill="#701a75"/>
+      <text x="435" y="225" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#701a75">Pore</text>
+
+      <!-- Chromatin threads -->
+      <path d="M 120 150 Q 150 180 200 140 T 280 180 T 320 250" fill="none" stroke="#701a75" stroke-width="2" opacity="0.7"/>
+      <path d="M 100 250 Q 130 290 190 280 T 260 320" fill="none" stroke="#701a75" stroke-width="2" opacity="0.7"/>
+
+      <!-- Inset: Chromatin & DNA beads -->
+      <g transform="translate(10, 410)">
+        <rect x="0" y="0" width="440" height="135" rx="8" fill="#ffffff" stroke="#c026d3" stroke-width="1.5"/>
+        <text x="15" y="25" font-family="system-ui, sans-serif" font-size="15" font-weight="800" fill="#86198f">Agrandissement : Chromatine</text>
+        
+        <!-- DNA double line wound around beads -->
+        <path d="M 30 75 Q 70 45 110 75 T 190 75 T 270 75 T 350 75" fill="none" stroke="#9333ea" stroke-width="4"/>
+        <path d="M 30 81 Q 70 51 110 81 T 190 81 T 270 81 T 350 81" fill="none" stroke="#c026d3" stroke-width="2"/>
+
+        <!-- Protein Beads -->
+        <circle cx="70" cy="75" r="16" fill="#f472b6" stroke="#db2777" stroke-width="2"/>
+        <circle cx="150" cy="75" r="16" fill="#f472b6" stroke="#db2777" stroke-width="2"/>
+        <circle cx="230" cy="75" r="16" fill="#f472b6" stroke="#db2777" stroke-width="2"/>
+        <circle cx="310" cy="75" r="16" fill="#f472b6" stroke="#db2777" stroke-width="2"/>
+
+        <text x="360" y="60" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#9333ea">ADN</text>
+        <text x="360" y="95" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#db2777">Chromatine</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ==================== PANNEAU DROITE : MITOCHONDRIE ==================== -->
+  <g filter="url(#shadow)" transform="translate(590, 80)">
+    <rect width="580" height="655" rx="12" fill="url(#mitoGrad)" stroke="#ea580c" stroke-width="2"/>
+    
+    <!-- Badge Mitochondrie -->
+    <rect x="25" y="20" width="160" height="30" rx="6" fill="#ea580c"/>
+    <text x="105" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#ffffff">
+      Mitochondrie
+    </text>
+
+    <!-- Main Mitochondria Drawing -->
+    <g transform="translate(40, 80)">
+      
+      <!-- Outer Membrane -->
+      <rect x="30" y="20" width="460" height="260" rx="130" fill="#fff7ed" stroke="#ea580c" stroke-width="4"/>
+
+      <!-- TOM Complex in Outer Membrane -->
+      <rect x="120" y="10" width="35" height="20" rx="4" fill="#ef4444" stroke="#b91c1c" stroke-width="1.5"/>
+      <text x="137" y="-2" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#b91c1c">TOM</text>
+
+      <!-- Inner Membrane & Cristae -->
+      <!-- Smooth inner perimeter + folded cristae loops -->
+      <path d="M 60 150 
+               C 60 70, 460 70, 460 150 
+               C 460 230, 60 230, 60 150 Z" 
+            fill="#ffedd5" stroke="#f97316" stroke-width="3"/>
+
+      <!-- Cristae folds extending into matrix -->
+      <path d="M 120 75 L 120 180 L 145 180 L 145 75" fill="#ffedd5" stroke="#f97316" stroke-width="3"/>
+      <path d="M 220 225 L 220 120 L 245 120 L 245 225" fill="#ffedd5" stroke="#f97316" stroke-width="3"/>
+      <path d="M 320 75 L 320 180 L 345 180 L 345 75" fill="#ffedd5" stroke="#f97316" stroke-width="3"/>
+      <path d="M 400 225 L 400 130 L 420 130 L 420 225" fill="#ffedd5" stroke="#f97316" stroke-width="3"/>
+
+      <!-- Circular Mitochondrial DNA -->
+      <circle cx="280" cy="170" r="18" fill="none" stroke="#0284c7" stroke-width="3" stroke-dasharray="5,3"/>
+      <text x="360" y="175" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#0369a1">ADN mitochondrial</text>
+      <line x1="300" y1="170" x2="298" y2="170" stroke="#0369a1" stroke-width="1.5"/>
+
+      <!-- Inset: Detailed Membrane Section for Q43 Target -->
+      <g transform="translate(10, 310)">
+        <rect x="0" y="0" width="480" height="235" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+        <text x="20" y="30" font-family="system-ui, sans-serif" font-size="15" font-weight="800" fill="#c2410c">Agrandissement des membranes mitochondriales</text>
+        
+        <!-- Smooth Outer Membrane line (Y = 80 in inset -> Canvas Y = 80 + 80 + 310 + 80 = 550? Wait:
+             Panneau B: Y=80. Inside Panneau B: Y=80. Inside inset: Y=310. Line Y=70 -> Canvas absolute Y = 80+80+310+70 = 540!
+             Let's calculate exact absolute coordinates:
+             Panneau B top-left: X=590, Y=80
+             Main Mito group: X=40, Y=80 -> origin is (630, 160)
+             Inset group: X=10, Y=310 -> origin is (640, 470)
+        -->
+
+        <!-- Outer Membrane Line (Top smooth bar at y=70 relative to inset) -->
+        <rect x="30" y="60" width="420" height="20" rx="6" fill="#fed7aa" stroke="#ea580c" stroke-width="2"/>
+        <text x="40" y="50" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#c2410c">Membrane externe</text>
+
+        <!-- Intermembrane Space (y=80 to y=140) -->
+        
+        <!-- TARGET Q43: Inner Membrane Crista Loop (y=140 to y=170 relative to inset)
+             Origin of inset: X=640, Y=470.
+             Inner membrane crista loop peak at inset relative (240, 150) -> Canvas absolute X = 640+240 = 880, Y = 470+150 = 620!
+             Wait, let's set crista loop peak at inset relative (240, 140) -> Canvas absolute X = 880, Y = 610.
+        -->
+
+        <!-- Inner Membrane (Orange folded line forming a crista) -->
+        <path d="M 30 130 H 150 V 200 H 330 V 130 H 450" fill="none" stroke="#f97316" stroke-width="5"/>
+
+        <!-- Target Circle on Crista segment for Q43 -->
+        <!-- Inset relative (240, 150) -> Absolute Canvas X = 880, Y = 620 -->
+        <circle cx="240" cy="150" r="22" fill="#ffedd5" stroke="#f97316" stroke-width="2.5"/>
+
+        <text x="40" y="225" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#9a3412">Espace matriciel</text>
+      </g>
+    </g>
+  </g>
+</svg>

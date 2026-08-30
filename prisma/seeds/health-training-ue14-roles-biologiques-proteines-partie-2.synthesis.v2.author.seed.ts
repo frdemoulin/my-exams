@@ -1,698 +1,680 @@
 import type { HealthTrainingAuthorQuestion } from './health-training-ue14.shared';
 
+/** UE14 Biochimie — Rôles biologiques des protéines, partie 2 — Synthèse — Rôles biologiques des protéines, partie 2 */
 export const UE14_BIOCH_CH13_SYNTHESIS_V2: HealthTrainingAuthorQuestion[] = [
   {
     "order": 101,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse du chapitre — les myosines comme moteurs moléculaires / l’organisation d’une lipoprotéine : quelles propositions sont exactes ?",
+    "format": "QRU",
+    "question": "À propos des myosines comme moteurs moléculaires, quelle proposition doit être retenue ?",
     "choices": [
       {
-        "content": "Les myosines constituent une famille de moteurs moléculaires.",
+        "content": "La myosine II participe à la contraction musculaire et à d'autres processus contractiles.",
         "correct": true,
-        "explanation": "Les myosines convertissent l’énergie de l’ATP en travail mécanique."
+        "explanation": "La myosine II forme des assemblages bipolaires capables de générer des forces."
       },
       {
-        "content": "Le cœur est uniquement aqueux et hydrophile.",
+        "content": "La myosine II est dépourvue de domaine moteur.",
         "correct": false,
-        "explanation": "Les lipoprotéines rendent possible le transport de molécules hydrophobes dans le milieu sanguin."
+        "explanation": "Les têtes de myosine II portent les domaines moteurs."
       },
       {
-        "content": "L’enveloppe est hydrophile et comprend des apolipoprotéines et des lipides à partie hydrophile.",
-        "correct": true,
-        "explanation": "Les lipoprotéines rendent possible le transport de molécules hydrophobes dans le milieu sanguin."
-      },
-      {
-        "content": "Leur fonctionnement est indépendant de tout nucléotide.",
+        "content": "Les myosines fonctionnent indépendamment de tout nucléotide.",
         "correct": false,
-        "explanation": "Les myosines convertissent l’énergie de l’ATP en travail mécanique."
+        "explanation": "Le cycle mécanique des myosines est couplé à l'ATP."
+      },
+      {
+        "content": "Toutes les myosines ont pour seule fonction le transport d'oxygène.",
+        "correct": false,
+        "explanation": "Le transport d'oxygène relève principalement de l'hémoglobine."
+      },
+      {
+        "content": "Les myosines sont des moteurs se déplaçant sur les microtubules.",
+        "correct": false,
+        "explanation": "Les myosines utilisent l'actine ; kinésines et dynéines utilisent les microtubules."
       }
     ],
-    "explanation": "Les myosines convertissent l’énergie de l’ATP en travail mécanique. Les lipoprotéines rendent possible le transport de molécules hydrophobes dans le milieu sanguin."
+    "explanation": "Les myosines sont des moteurs moléculaires de l'actine qui couplent hydrolyse de l'ATP et production de force ou de mouvement."
   },
   {
     "order": 102,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse du chapitre — la composition de l’hémoglobine A / l’abondance des collagènes : quelles propositions sont exactes ?",
-    "choices": [
-      {
-        "content": "HbA est formée de deux chaînes α et deux chaînes β.",
-        "correct": true,
-        "explanation": "HbA est un tétramère α2β2 contenant quatre hèmes."
-      },
-      {
-        "content": "La famille ne comporte que deux types.",
-        "correct": false,
-        "explanation": "Le repère de la fiche est environ un tiers des protéines et 28 types."
-      },
-      {
-        "content": "La fiche cite 28 membres de type I à XXVIII.",
-        "correct": true,
-        "explanation": "Le repère de la fiche est environ un tiers des protéines et 28 types."
-      },
-      {
-        "content": "La formule sous-unitaire de HbA est α4.",
-        "correct": false,
-        "explanation": "HbA est un tétramère α2β2 contenant quatre hèmes."
-      }
-    ],
-    "explanation": "HbA est un tétramère α2β2 contenant quatre hèmes. Le repère de la fiche est environ un tiers des protéines et 28 types."
+    "format": "QROC",
+    "question": "Combien de molécules d'O2 une HbA totalement saturée peut-elle fixer ?",
+    "answer": {
+      "type": "number",
+      "value": 4,
+      "tolerance": 0
+    },
+    "explanation": "L'HbA adulte est un tétramère α2β2 à quatre hèmes, capable de fixer coopérativement jusqu'à quatre O2."
   },
   {
     "order": 103,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse du chapitre — l’albumine sérique / les assemblages supramoléculaires du collagène : quelles propositions sont exactes ?",
+    "format": "QRU",
+    "question": "Concernant l'albumine sérique, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Elle est synthétisée par les hépatocytes.",
-        "correct": true,
-        "explanation": "La fiche présente l’albumine comme la protéine sérique majeure synthétisée par le foie."
-      },
-      {
-        "content": "La polymérisation ne joue aucun rôle dans la classification.",
+        "content": "L'albumine est synthétisée majoritairement par les érythrocytes.",
         "correct": false,
-        "explanation": "La diversité des assemblages permet notamment de distinguer collagènes fibrillaires et collagènes en réseau."
+        "explanation": "Elle est synthétisée par les hépatocytes."
       },
       {
-        "content": "Les modes de polymérisation participent à la classification des collagènes.",
+        "content": "L'albumine est synthétisée principalement par les hépatocytes.",
         "correct": true,
-        "explanation": "La diversité des assemblages permet notamment de distinguer collagènes fibrillaires et collagènes en réseau."
+        "explanation": "Le foie est le principal site de synthèse de l'albumine circulante."
       },
       {
-        "content": "L’albumine est une immunoglobuline pentamérique.",
+        "content": "Sa masse moléculaire est d'environ 500 kDa.",
         "correct": false,
-        "explanation": "La fiche présente l’albumine comme la protéine sérique majeure synthétisée par le foie."
+        "explanation": "Elle est d'environ 66,5 kDa."
+      },
+      {
+        "content": "L'albumine est absente du plasma normal.",
+        "correct": false,
+        "explanation": "Elle en est la protéine la plus abondante."
+      },
+      {
+        "content": "L'albumine est un collagène fibrillaire.",
+        "correct": false,
+        "explanation": "C'est une protéine globulaire soluble."
       }
     ],
-    "explanation": "La fiche présente l’albumine comme la protéine sérique majeure synthétisée par le foie. La diversité des assemblages permet notamment de distinguer collagènes fibrillaires et collagènes en réseau."
+    "explanation": "L'albumine est une protéine hépatique soluble d'environ 66,5 kDa et constitue la protéine plasmatique la plus abondante."
   },
   {
     "order": 104,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Synthèse du chapitre — l’utilisation énergétique des protéines / les liaisons croisées du collagène I : quelles propositions sont exactes ?",
+    "question": "Quelles propositions décrivent correctement l'utilisation énergétique des protéines ?",
     "choices": [
       {
-        "content": "Les protéines représentent des réserves d’acides aminés.",
+        "content": "En situation de jeûne ou de dénutrition, la protéolyse peut fournir des acides aminés utilisables comme substrats.",
         "correct": true,
-        "explanation": "Le rôle énergétique devient notable dans certaines situations comme la dénutrition."
+        "explanation": "Les squelettes carbonés peuvent alimenter néoglucogenèse ou oxydation."
       },
       {
-        "content": "Les liaisons croisées sont uniquement des liaisons glycosidiques entre glucose.",
-        "correct": false,
-        "explanation": "La lysyl-oxydase participe à la formation des liaisons croisées covalentes."
-      },
-      {
-        "content": "Ces liaisons sont formées à partir de résidus de lysine transformés.",
+        "content": "L'organisme ne dispose pas d'un stock protéique dédié exclusivement au stockage énergétique.",
         "correct": true,
-        "explanation": "La lysyl-oxydase participe à la formation des liaisons croisées covalentes."
+        "explanation": "Les protéines corporelles ont d'abord des fonctions structurales ou fonctionnelles."
       },
       {
-        "content": "La fiche présente les protéines comme l’unique réserve énergétique physiologique.",
+        "content": "Le jeûne prolongé augmente indéfiniment la protéolyse sans adaptation.",
         "correct": false,
-        "explanation": "Le rôle énergétique devient notable dans certaines situations comme la dénutrition."
+        "explanation": "L'utilisation accrue des corps cétoniques contribue à l'épargne protéique."
+      },
+      {
+        "content": "Les acides aminés en excès ne sont pas stockés dans un compartiment spécialisé comparable au glycogène ou aux triacylglycérols.",
+        "correct": true,
+        "explanation": "Ils sont incorporés aux protéines ou catabolisés."
+      },
+      {
+        "content": "Lors d'un jeûne prolongé, l'organisme tend à épargner les protéines en augmentant l'utilisation des lipides et corps cétoniques.",
+        "correct": true,
+        "explanation": "La préservation des protéines limite la perte de tissus fonctionnels."
       }
     ],
-    "explanation": "Le rôle énergétique devient notable dans certaines situations comme la dénutrition. La lysyl-oxydase participe à la formation des liaisons croisées covalentes."
+    "explanation": "Les protéines ne constituent pas une réserve énergétique spécialisée, mais leur catabolisme peut fournir des acides aminés lors de déficit énergétique."
   },
   {
     "order": 105,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse du chapitre — les critères définissant un collagène / les domaines 7S et NC1 du collagène IV : quelles propositions sont exactes ?",
-    "choices": [
-      {
-        "content": "Il possède des domaines en triple hélice.",
-        "correct": true,
-        "explanation": "La fiche retient trois critères : localisation matricielle, triple hélice et assemblages supramoléculaires."
-      },
-      {
-        "content": "Le collagène IV ne comporte aucune chaîne α.",
-        "correct": false,
-        "explanation": "Le support cite 7S et NC1 comme domaines structuraux importants du réseau."
-      },
-      {
-        "content": "La fiche mentionne six chaînes α possibles pour le collagène IV.",
-        "correct": true,
-        "explanation": "Le support cite 7S et NC1 comme domaines structuraux importants du réseau."
-      },
-      {
-        "content": "Il ne peut former aucune structure supramoléculaire.",
-        "correct": false,
-        "explanation": "La fiche retient trois critères : localisation matricielle, triple hélice et assemblages supramoléculaires."
+    "format": "QROC",
+    "question": "Quel motif tripeptidique répétitif caractérise les domaines collagéniques ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "Gly-X-Y",
+        "Gly-Xaa-Yaa",
+        "glycine-X-Y"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La fiche retient trois critères : localisation matricielle, triple hélice et assemblages supramoléculaires. Le support cite 7S et NC1 comme domaines structuraux importants du réseau."
+    },
+    "explanation": "Les domaines collagéniques sont fondés sur des répétitions Gly-X-Y assemblées en triple hélice de trois chaînes."
   },
   {
     "order": 106,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse du chapitre — la triple hélice droite / la glycosylation des protéines matricielles : quelles propositions sont exactes ?",
+    "format": "QRP",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant la triple hélice du collagène.",
     "choices": [
       {
-        "content": "La 4-hydroxyproline participe à cette stabilisation dans la fiche.",
+        "content": "Chaque chaîne adopte une hélice gauche de type polyproline II-like.",
         "correct": true,
-        "explanation": "La fiche associe trois chaînes α à une superhélice droite."
+        "explanation": "Cette conformation n'est pas une hélice alpha classique."
       },
       {
-        "content": "La partie glucidique est toujours absente.",
+        "content": "La triple hélice est stabilisée uniquement par des liaisons H directes des OH d'hydroxyproline.",
         "correct": false,
-        "explanation": "La fiche cite N- et O-glycosylation pour les glycoprotéines matricielles."
+        "explanation": "Les liaisons interchaînes du squelette et d'autres effets sont essentiels."
       },
       {
-        "content": "La partie glucidique peut être fixée par N-glycosylation.",
+        "content": "La glycine se situe à la périphérie la plus encombrée de la triple hélice.",
+        "correct": false,
+        "explanation": "Elle est enfouie vers l'axe central."
+      },
+      {
+        "content": "Les trois chaînes individuelles sont des hélices alpha droites classiques.",
+        "correct": false,
+        "explanation": "Elles sont de type polyproline II-like gauche."
+      },
+      {
+        "content": "Les trois chaînes s'enroulent ensemble en une superhélice droite.",
         "correct": true,
-        "explanation": "La fiche cite N- et O-glycosylation pour les glycoprotéines matricielles."
-      },
-      {
-        "content": "La triple hélice est décrite comme une superhélice gauche composée de deux chaînes.",
-        "correct": false,
-        "explanation": "La fiche associe trois chaînes α à une superhélice droite."
+        "explanation": "La triple hélice a une chiralité opposée à celle des chaînes individuelles."
       }
     ],
-    "explanation": "La fiche associe trois chaînes α à une superhélice droite. La fiche cite N- et O-glycosylation pour les glycoprotéines matricielles."
+    "explanation": "Chaque chaîne collagénique est une hélice gauche polyproline-II-like ; trois chaînes forment une superhélice droite stabilisée par des liaisons H du squelette et par la 4-hydroxyproline.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 107,
     "difficulty": "MEDIUM",
     "format": "QRM",
-    "question": "Synthèse du chapitre — l’organisation fibrilles-fibres-faisceaux / les fonctions du cytosquelette : quelles propositions sont exactes ?",
+    "question": "Quelles propositions décrivent correctement l'organisation fibrilles–fibres–faisceaux du collagène I ?",
     "choices": [
       {
-        "content": "Les fibrilles s’associent en fibres.",
-        "correct": true,
-        "explanation": "L’assemblage hiérarchique augmente progressivement l’échelle structurale."
-      },
-      {
-        "content": "Le cytosquelette n’a aucun rôle mécanique.",
+        "content": "Les fibres de collagène I ne contiennent aucune fibrille.",
         "correct": false,
-        "explanation": "Le cytosquelette combine architecture, mécanique et transport."
+        "explanation": "Elles sont formées d'assemblages de fibrilles."
       },
       {
-        "content": "Il transmet des forces mécaniques et contribue à la motilité.",
+        "content": "La hiérarchie d'assemblage contribue à la résistance mécanique du tissu.",
         "correct": true,
-        "explanation": "Le cytosquelette combine architecture, mécanique et transport."
+        "explanation": "La propriété finale dépend de l'organisation à plusieurs échelles."
       },
       {
-        "content": "Les fibrilles ne s’associent jamais.",
+        "content": "Les fibrilles se forment par polymérisation de phospholipides.",
         "correct": false,
-        "explanation": "L’assemblage hiérarchique augmente progressivement l’échelle structurale."
+        "explanation": "Elles résultent de l'assemblage de collagènes."
+      },
+      {
+        "content": "Les protomères de collagène I s'assemblent en fibrilles.",
+        "correct": true,
+        "explanation": "La fibrille est le premier grand niveau supramoléculaire fibrillaire."
+      },
+      {
+        "content": "La hiérarchie supramoléculaire n'influence jamais les propriétés mécaniques.",
+        "correct": false,
+        "explanation": "Elle est déterminante."
       }
     ],
-    "explanation": "L’assemblage hiérarchique augmente progressivement l’échelle structurale. Le cytosquelette combine architecture, mécanique et transport."
+    "explanation": "Le collagène I s'organise hiérarchiquement : protomères → fibrilles → fibres, puis parfois faisceaux."
   },
   {
     "order": 108,
     "difficulty": "MEDIUM",
-    "format": "QRM",
-    "question": "Synthèse du chapitre — la comparaison collagènes I et IV / les microtubules et la tubuline : quelles propositions sont exactes ?",
+    "format": "QRU",
+    "question": "À propos de la comparaison des collagènes I et IV, quelle proposition doit être retenue ?",
     "choices": [
       {
-        "content": "Le collagène IV illustre un assemblage en réseau.",
-        "correct": true,
-        "explanation": "Les types I et IV illustrent deux modes d’assemblage matriciel distincts."
-      },
-      {
-        "content": "Les microtubules sont composés uniquement de collagène.",
+        "content": "Les collagènes I et IV ont exactement le même assemblage supramoléculaire.",
         "correct": false,
-        "explanation": "La tubuline α/β et le GTP sont au cœur de la dynamique microtubulaire."
+        "explanation": "L'un forme surtout des fibrilles, l'autre des réseaux."
       },
       {
-        "content": "Chaque sous-unité possède un site de liaison au GTP/GDP dans la fiche.",
-        "correct": true,
-        "explanation": "La tubuline α/β et le GTP sont au cœur de la dynamique microtubulaire."
-      },
-      {
-        "content": "Le collagène I est exclusivement nucléaire.",
+        "content": "Le collagène I est dépourvu de triple hélice.",
         "correct": false,
-        "explanation": "Les types I et IV illustrent deux modes d’assemblage matriciel distincts."
+        "explanation": "La triple hélice est une caractéristique majeure."
+      },
+      {
+        "content": "Le collagène IV est le principal collagène fibrillaire des tendons.",
+        "correct": false,
+        "explanation": "Cette fonction revient au type I."
+      },
+      {
+        "content": "Le collagène I est fibrillaire tandis que le collagène IV forme un réseau.",
+        "correct": true,
+        "explanation": "Leurs architectures supramoléculaires répondent à des fonctions distinctes."
+      },
+      {
+        "content": "Le collagène IV est absent des membranes basales.",
+        "correct": false,
+        "explanation": "Il en est un constituant essentiel."
       }
     ],
-    "explanation": "Les types I et IV illustrent deux modes d’assemblage matriciel distincts. La tubuline α/β et le GTP sont au cœur de la dynamique microtubulaire."
+    "explanation": "Collagène I et IV partagent la triple hélice mais divergent fortement : fibrilles striées pour I, réseau des membranes basales pour IV."
   },
   {
     "order": 109,
     "difficulty": "MEDIUM",
-    "format": "QRP",
-    "question": "Synthèse du chapitre : sélectionnez exactement les trois affirmations correctes.",
-    "requiredSelectionCount": 3,
+    "format": "QRM",
+    "question": "Concernant le collagène de type I, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Les fibrilles s’associent en fibres.",
+        "content": "Son protomère habituel est [α1(I)]2α2(I).",
         "correct": true,
-        "explanation": "L’assemblage hiérarchique augmente progressivement l’échelle structurale."
+        "explanation": "Il s'agit d'un hétérotrimère."
       },
       {
-        "content": "Il forme des fibrilles puis des fibres.",
+        "content": "Il est constitué exclusivement de six chaînes alpha différentes.",
+        "correct": false,
+        "explanation": "Un protomère contient trois chaînes."
+      },
+      {
+        "content": "Ses fibrilles présentent une périodicité D proche de 67 nm.",
         "correct": true,
-        "explanation": "Le collagène I est l’exemple majeur de collagène fibrillaire dans la fiche."
+        "explanation": "Le décalage axial ordonné produit cette striation."
       },
       {
-        "content": "La fiche le cite dans les reins et les poumons.",
+        "content": "Il est absent des tendons.",
+        "correct": false,
+        "explanation": "Les tendons en sont très riches."
+      },
+      {
+        "content": "Le collagène I est un collagène fibrillaire.",
         "correct": true,
-        "explanation": "Le collagène IV est un collagène en réseau des membranes basales."
-      },
-      {
-        "content": "Les domaines 7S et NC1 appartiennent à l’albumine.",
-        "correct": false,
-        "explanation": "Le support cite 7S et NC1 comme domaines structuraux importants du réseau."
-      },
-      {
-        "content": "Le collagène IV est la forme adulte de l’hémoglobine.",
-        "correct": false,
-        "explanation": "Les types I et IV illustrent deux modes d’assemblage matriciel distincts."
-      },
-      {
-        "content": "La fiche ne leur attribue aucun rôle structural.",
-        "correct": false,
-        "explanation": "Les collagènes sont des constituants structuraux extracellulaires."
+        "explanation": "Il forme de longues fibrilles striées."
       }
     ],
-    "explanation": "Cette question croise plusieurs repères de la section ; chaque proposition doit être évaluée séparément."
+    "explanation": "Le collagène I est le collagène fibrillaire majeur de nombreux tissus conjonctifs comme os, peau et tendons."
   },
   {
     "order": 110,
     "difficulty": "MEDIUM",
-    "format": "QRPL",
-    "question": "Synthèse du chapitre : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
-    "choices": [
-      {
-        "content": "Les domaines 7S et NC1 sont cités comme importants pour le réseau du collagène IV.",
-        "correct": true,
-        "explanation": "Le support cite 7S et NC1 comme domaines structuraux importants du réseau."
-      },
-      {
-        "content": "Le collagène IV illustre un assemblage en réseau.",
-        "correct": true,
-        "explanation": "Les types I et IV illustrent deux modes d’assemblage matriciel distincts."
-      },
-      {
-        "content": "Leur organisation contribue à la structure des tissus.",
-        "correct": true,
-        "explanation": "Les collagènes sont des constituants structuraux extracellulaires."
-      },
-      {
-        "content": "Elles participent aux interactions cellule-matrice.",
-        "correct": true,
-        "explanation": "Les glycoprotéines matricielles forment une famille fonctionnellement diverse."
-      },
-      {
-        "content": "La partie glucidique peut être fixée par O-glycosylation.",
-        "correct": true,
-        "explanation": "La fiche cite N- et O-glycosylation pour les glycoprotéines matricielles."
-      },
-      {
-        "content": "Les domaines communs empêchent toute interaction avec la matrice.",
-        "correct": false,
-        "explanation": "Des modules structuraux communs sous-tendent les interactions des glycoprotéines."
-      },
-      {
-        "content": "L’hémoglobine et l’albumine sont les seules glycoprotéines matricielles citées.",
-        "correct": false,
-        "explanation": "Plusieurs familles de glycoprotéines matricielles sont citées."
-      },
-      {
-        "content": "Les microtubules sont absents.",
-        "correct": false,
-        "explanation": "Actine, filaments intermédiaires et microtubules sont les trois constituants essentiels."
+    "format": "QROC",
+    "question": "Quel domaine C-terminal du collagène IV participe à l'assemblage du réseau ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "NC1",
+        "domaine NC1"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La sélection longue vérifie la maîtrise simultanée de plusieurs notions du chapitre."
+    },
+    "explanation": "Le collagène IV assemble son réseau notamment par ses domaines terminaux 7S (N-terminal) et NC1 (C-terminal)."
   },
   {
     "order": 111,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez les rôles des myosines, la matrice extracellulaire et les liaisons croisées du collagène I.",
+    "question": "Quelles propositions décrivent correctement les rôles des myosines ?",
     "choices": [
       {
-        "content": "Les myosines participent à la migration et à l’adhésion cellulaires.",
-        "correct": true,
-        "explanation": "Le support relie les myosines à plusieurs formes de motilité et de transport."
-      },
-      {
-        "content": "Elle sert de support à leur organisation en tissus.",
-        "correct": true,
-        "explanation": "La matrice extracellulaire est un réseau macromoléculaire de support tissulaire."
-      },
-      {
-        "content": "Les liaisons croisées sont uniquement des liaisons glycosidiques entre glucose.",
+        "content": "Les myosines n'interviennent jamais dans la motilité cellulaire.",
         "correct": false,
-        "explanation": "La lysyl-oxydase participe à la formation des liaisons croisées covalentes."
+        "explanation": "La motilité est une fonction importante de plusieurs classes de myosines."
       },
       {
-        "content": "Les myosines assurent uniquement le transport de l’oxygène sanguin.",
-        "correct": false,
-        "explanation": "Le support relie les myosines à plusieurs formes de motilité et de transport."
+        "content": "Des myosines contribuent à la migration cellulaire.",
+        "correct": true,
+        "explanation": "La contractilité actomyosine participe aux forces de traction."
+      },
+      {
+        "content": "Certaines myosines participent au transport intracellulaire de cargos.",
+        "correct": true,
+        "explanation": "Elles peuvent déplacer des vésicules ou organites le long de l'actine."
+      },
+      {
+        "content": "La myosine II participe à la contraction musculaire.",
+        "correct": true,
+        "explanation": "Le glissement actine-myosine est à la base de la contraction."
+      },
+      {
+        "content": "Des myosines interviennent dans l'organisation et la tension des structures d'adhérence.",
+        "correct": true,
+        "explanation": "La contractilité peut être transmise aux adhérences cellulaires."
       }
     ],
-    "explanation": "Le support relie les myosines à plusieurs formes de motilité et de transport. La matrice extracellulaire est un réseau macromoléculaire de support tissulaire. La lysyl-oxydase participe à la formation des liaisons croisées covalentes."
+    "explanation": "Les myosines participent à la contraction, à la migration, à l'adhérence et à certains transports intracellulaires."
   },
   {
     "order": 112,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez la méthémoglobine, la triple hélice droite et les trois grands constituants du cytosquelette.",
-    "choices": [
-      {
-        "content": "La méthémoglobine contenant Fe3+ est incapable de fixer O2 dans la fiche.",
-        "correct": true,
-        "explanation": "L’oxydation Fe2+ vers Fe3+ produit une forme incapable de fixer l’O2."
-      },
-      {
-        "content": "La 4-hydroxyproline participe à cette stabilisation dans la fiche.",
-        "correct": true,
-        "explanation": "La fiche associe trois chaînes α à une superhélice droite."
-      },
-      {
-        "content": "Les microtubules sont absents.",
-        "correct": false,
-        "explanation": "Actine, filaments intermédiaires et microtubules sont les trois constituants essentiels."
-      },
-      {
-        "content": "La méthémoglobine est la forme normale majoritaire de l’HbA.",
-        "correct": false,
-        "explanation": "L’oxydation Fe2+ vers Fe3+ produit une forme incapable de fixer l’O2."
+    "format": "QROC",
+    "question": "La méthémoglobine peut-elle fixer directement l'O2 sur son fer ferrique ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "non",
+        "non, le Fe3+ ne fixe pas l'O2",
+        "non, le fer ferrique ne fixe pas l'O2"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "L’oxydation Fe2+ vers Fe3+ produit une forme incapable de fixer l’O2. La fiche associe trois chaînes α à une superhélice droite. Actine, filaments intermédiaires et microtubules sont les trois constituants essentiels."
+    },
+    "explanation": "La méthémoglobine contient Fe3+ et ne fixe pas l'O2 sur les hèmes oxydés ; elle est normalement maintenue à un faible niveau."
   },
   {
     "order": 113,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez l’organisation d’une lipoprotéine, les domaines 7S et NC1 du collagène IV et la composition de l’hémoglobine A.",
+    "format": "QRP",
+    "question": "Sélectionnez exactement les deux propositions exactes concernant l'organisation d'une lipoprotéine plasmatique.",
     "choices": [
       {
-        "content": "Cette organisation permet le transport sanguin de lipides.",
-        "correct": true,
-        "explanation": "Les lipoprotéines rendent possible le transport de molécules hydrophobes dans le milieu sanguin."
-      },
-      {
-        "content": "Les domaines 7S et NC1 sont cités comme importants pour le réseau du collagène IV.",
-        "correct": true,
-        "explanation": "Le support cite 7S et NC1 comme domaines structuraux importants du réseau."
-      },
-      {
-        "content": "La formule sous-unitaire de HbA est α4.",
+        "content": "Les lipoprotéines sont dépourvues de toute protéine.",
         "correct": false,
-        "explanation": "HbA est un tétramère α2β2 contenant quatre hèmes."
+        "explanation": "Elles contiennent des apolipoprotéines."
       },
       {
-        "content": "L’enveloppe est formée exclusivement d’ADN.",
+        "content": "Les esters de cholestérol sont majoritairement exposés au milieu aqueux en surface.",
         "correct": false,
-        "explanation": "Les lipoprotéines rendent possible le transport de molécules hydrophobes dans le milieu sanguin."
+        "explanation": "Ils sont hydrophobes et se trouvent surtout dans le cœur."
+      },
+      {
+        "content": "Le cœur d'une lipoprotéine est principalement constitué de phospholipides chargés exposés à l'eau.",
+        "correct": false,
+        "explanation": "Les phospholipides sont surtout en surface."
+      },
+      {
+        "content": "La composition varie selon la classe de lipoprotéine.",
+        "correct": true,
+        "explanation": "Chylomicrons, VLDL, LDL et HDL ont des proportions différentes de lipides et protéines."
+      },
+      {
+        "content": "Le cœur contient surtout des triacylglycérols et des esters de cholestérol.",
+        "correct": true,
+        "explanation": "Ces lipides neutres et hydrophobes sont enfouis au centre."
       }
     ],
-    "explanation": "Les lipoprotéines rendent possible le transport de molécules hydrophobes dans le milieu sanguin. Le support cite 7S et NC1 comme domaines structuraux importants du réseau. HbA est un tétramère α2β2 contenant quatre hèmes."
+    "explanation": "Une lipoprotéine possède un cœur de lipides neutres hydrophobes entouré d'une monocouche de lipides amphiphiles et d'apolipoprotéines.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 114,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez les critères définissant un collagène, les trois grands constituants du cytosquelette et l’abondance des collagènes.",
+    "question": "Quelles propositions décrivent correctement les caractères structuraux des collagènes ?",
     "choices": [
       {
-        "content": "Un collagène est présent dans la matrice extracellulaire.",
+        "content": "Les domaines collagéniques reposent sur la répétition Gly-X-Y.",
         "correct": true,
-        "explanation": "La fiche retient trois critères : localisation matricielle, triple hélice et assemblages supramoléculaires."
+        "explanation": "La glycine tous les trois résidus permet le compactage au centre de la triple hélice."
       },
       {
-        "content": "Elle cite les filaments intermédiaires.",
+        "content": "Un domaine en triple hélice isolé suffit à classer toute protéine comme collagène.",
+        "correct": false,
+        "explanation": "Certaines protéines non collagéniques possèdent des domaines collagen-like."
+      },
+      {
+        "content": "La triple hélice collagénique contient quatre chaînes.",
+        "correct": false,
+        "explanation": "Elle en contient trois."
+      },
+      {
+        "content": "La glycine est exclue du centre de la triple hélice.",
+        "correct": false,
+        "explanation": "Sa petite taille permet précisément le compactage central."
+      },
+      {
+        "content": "Proline et 4-hydroxyproline sont fréquentes dans les positions X et Y.",
         "correct": true,
-        "explanation": "Actine, filaments intermédiaires et microtubules sont les trois constituants essentiels."
-      },
-      {
-        "content": "Les collagènes représentent moins de 0,1 % des protéines.",
-        "correct": false,
-        "explanation": "Le repère de la fiche est environ un tiers des protéines et 28 types."
-      },
-      {
-        "content": "Il ne peut former aucune structure supramoléculaire.",
-        "correct": false,
-        "explanation": "La fiche retient trois critères : localisation matricielle, triple hélice et assemblages supramoléculaires."
+        "explanation": "Elles favorisent la conformation appropriée des chaînes."
       }
     ],
-    "explanation": "La fiche retient trois critères : localisation matricielle, triple hélice et assemblages supramoléculaires. Actine, filaments intermédiaires et microtubules sont les trois constituants essentiels. Le repère de la fiche est environ un tiers des protéines et 28 types."
+    "explanation": "Les domaines collagéniques sont fondés sur des répétitions Gly-X-Y assemblées en triple hélice de trois chaînes."
   },
   {
     "order": 115,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez le tropocollagène, les myosines comme moteurs moléculaires et le collagène IV.",
+    "format": "QRU",
+    "question": "Concernant le tropocollagène de type I, quelle proposition est exacte ?",
     "choices": [
       {
-        "content": "Les molécules s’agencent avec un décalage régulier.",
+        "content": "Les extrémités des procollagènes sont maturées avant l'assemblage fibrillaire normal.",
         "correct": true,
-        "explanation": "Les monomères de tropocollagène s’assemblent de façon ordonnée dans les fibrilles."
+        "explanation": "Le clivage des propeptides facilite la fibrillogenèse extracellulaire."
       },
       {
-        "content": "Leur fonctionnement dépend de l’hydrolyse de l’ATP.",
-        "correct": true,
-        "explanation": "Les myosines convertissent l’énergie de l’ATP en travail mécanique."
-      },
-      {
-        "content": "Il est absent des membranes basales.",
+        "content": "Le tropocollagène est plus court qu'un seul acide aminé.",
         "correct": false,
-        "explanation": "Le collagène IV est un collagène en réseau des membranes basales."
+        "explanation": "Il mesure environ 300 nm."
       },
       {
-        "content": "Le tropocollagène est une sous-unité de l’hémoglobine.",
+        "content": "Une seule chaîne alpha constitue un tropocollagène complet.",
         "correct": false,
-        "explanation": "Les monomères de tropocollagène s’assemblent de façon ordonnée dans les fibrilles."
+        "explanation": "Il en faut trois."
+      },
+      {
+        "content": "Le collagène I normal est toujours un homotrimère α2(I)3.",
+        "correct": false,
+        "explanation": "La forme la plus courante est [α1(I)]2α2(I)."
+      },
+      {
+        "content": "Le tropocollagène est un lipide neutre.",
+        "correct": false,
+        "explanation": "C'est un protomère protéique triple hélicoïdal."
       }
     ],
-    "explanation": "Les monomères de tropocollagène s’assemblent de façon ordonnée dans les fibrilles. Les myosines convertissent l’énergie de l’ATP en travail mécanique. Le collagène IV est un collagène en réseau des membranes basales."
+    "explanation": "Le protomère du collagène I est habituellement [α1(I)]2α2(I), une triple hélice d'environ 300 nm qui s'assemble en fibrilles."
   },
   {
     "order": 116,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez le collagène IV, la drépanocytose dans la fiche et l’actine.",
+    "question": "Concernant la drépanocytose et l'HbS, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "La fiche le cite dans les reins et les poumons.",
-        "correct": true,
-        "explanation": "Le collagène IV est un collagène en réseau des membranes basales."
-      },
-      {
-        "content": "La mutation citée est une substitution Glu vers Val en position 6 de la chaîne β.",
-        "correct": true,
-        "explanation": "La fiche présente la mutation β6 Glu→Val comme origine de l’HbS."
-      },
-      {
-        "content": "Elle est décrite comme une chaîne lourde d’immunoglobuline.",
+        "content": "L'HbS polymérise surtout lorsqu'elle est fortement oxygénée.",
         "correct": false,
-        "explanation": "La fiche donne plusieurs repères structuraux sur l’actine."
+        "explanation": "La polymérisation est favorisée par la désoxygénation."
       },
       {
-        "content": "Il est absent des membranes basales.",
+        "content": "L'HbS résulte du remplacement de Glu par Val en position 6 de la bêta-globine.",
+        "correct": true,
+        "explanation": "La substitution p.Glu6Val crée une surface hydrophobe anormale."
+      },
+      {
+        "content": "La désoxy-HbS peut polymériser.",
+        "correct": true,
+        "explanation": "La désoxygénation favorise les interactions entre molécules d'HbS."
+      },
+      {
+        "content": "La mutation augmente la solubilité de la désoxy-HbS.",
         "correct": false,
-        "explanation": "Le collagène IV est un collagène en réseau des membranes basales."
+        "explanation": "Elle favorise au contraire la polymérisation."
+      },
+      {
+        "content": "Les polymères d'HbS rigidifient et déforment les hématies.",
+        "correct": true,
+        "explanation": "La falciformation altère la déformabilité des globules rouges."
       }
     ],
-    "explanation": "Le collagène IV est un collagène en réseau des membranes basales. La fiche présente la mutation β6 Glu→Val comme origine de l’HbS. La fiche donne plusieurs repères structuraux sur l’actine."
+    "explanation": "L'HbS porte la substitution β6 Glu→Val ; sa forme désoxygénée polymérise, ce qui favorise falciformation, hémolyse et vaso-occlusion."
   },
   {
     "order": 117,
     "difficulty": "HARD",
     "format": "QROC",
-    "question": "Maîtrise de synthèse — Quel acide aminé remplace le glutamate en position 6 de la chaîne β dans l’HbS selon la fiche ?",
+    "question": "Quelle substitution d'acide aminé caractérise l'HbS de la drépanocytose ?",
     "answer": {
       "type": "text",
       "acceptedAnswers": [
-        "valine",
-        "Val",
-        "V"
+        "Glu6Val",
+        "Glu → Val en position 6",
+        "glutamate vers valine en position 6",
+        "E6V"
       ],
       "normalization": {
         "trim": true,
-        "caseSensitive": false,
         "collapseWhitespace": true,
+        "caseSensitive": false,
         "ignoreAccents": true
       }
     },
-    "explanation": "La fiche présente la mutation β6 Glu→Val comme origine de l’HbS."
+    "explanation": "L'HbS porte la substitution β6 Glu→Val ; sa forme désoxygénée polymérise, ce qui favorise falciformation, hémolyse et vaso-occlusion."
   },
   {
     "order": 118,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez les pathologies liées au cytosquelette, le tropocollagène et la triple hélice du collagène.",
+    "format": "QRPL",
+    "question": "Parmi les dix propositions suivantes, sélectionnez exactement les cinq correctes.",
     "choices": [
       {
-        "content": "La fiche cite aussi des cardiomyopathies.",
-        "correct": true,
-        "explanation": "La fiche relie des mutations du cytosquelette à des maladies musculaires et cardiaques."
-      },
-      {
-        "content": "Cet agencement contribue à l’aspect strié observé en microscopie électronique.",
-        "correct": true,
-        "explanation": "Les monomères de tropocollagène s’assemblent de façon ordonnée dans les fibrilles."
-      },
-      {
-        "content": "Elle est décrite comme une structure uniquement lipidique.",
+        "content": "Le collagène IV est absent des membranes basales.",
         "correct": false,
-        "explanation": "Trois chaînes α forment une superhélice droite stabilisée notamment par des liaisons hydrogène."
+        "explanation": "Il en est un constituant essentiel."
       },
       {
-        "content": "Toute mutation du cytosquelette provoque uniquement une allergie alimentaire.",
+        "content": "Les phénotypes dépendent du gène et du tissu où la protéine est exprimée.",
+        "correct": true,
+        "explanation": "Il n'existe pas une maladie unique du cytosquelette."
+      },
+      {
+        "content": "Le collagène I est abondant dans les tendons ; le collagène IV dans les membranes basales.",
+        "correct": true,
+        "explanation": "La localisation reflète leur organisation."
+      },
+      {
+        "content": "Toute mutation d'une protéine cytosquelettique entraîne exactement la même maladie.",
         "correct": false,
-        "explanation": "La fiche relie des mutations du cytosquelette à des maladies musculaires et cardiaques."
+        "explanation": "Les effets dépendent de la protéine et du tissu."
+      },
+      {
+        "content": "Certaines cardiomyopathies résultent de défauts de protéines liées au cytosquelette ou à son ancrage.",
+        "correct": true,
+        "explanation": "Le cœur dépend fortement de l'intégrité mécanique cellulaire."
+      },
+      {
+        "content": "Le collagène IV est le principal collagène fibrillaire des tendons.",
+        "correct": false,
+        "explanation": "Cette fonction revient au type I."
+      },
+      {
+        "content": "Le collagène I est dépourvu de triple hélice.",
+        "correct": false,
+        "explanation": "La triple hélice est une caractéristique majeure."
+      },
+      {
+        "content": "Les défauts du cytosquelette peuvent perturber forme, migration, division ou transport intracellulaire.",
+        "correct": true,
+        "explanation": "La diversité des fonctions explique la diversité clinique."
+      },
+      {
+        "content": "Les collagènes I et IV ont exactement le même assemblage supramoléculaire.",
+        "correct": false,
+        "explanation": "L'un forme surtout des fibrilles, l'autre des réseaux."
+      },
+      {
+        "content": "Le collagène I possède un long domaine collagénique très régulier.",
+        "correct": true,
+        "explanation": "Le type IV contient davantage d'interruptions du motif Gly-X-Y."
       }
     ],
-    "explanation": "La fiche relie des mutations du cytosquelette à des maladies musculaires et cardiaques. Les monomères de tropocollagène s’assemblent de façon ordonnée dans les fibrilles. Trois chaînes α forment une superhélice droite stabilisée notamment par des liaisons hydrogène."
+    "requiredSelectionCount": 5,
+    "explanation": "Les anomalies du cytosquelette peuvent produire des maladies variées, notamment dystrophies musculaires et cardiomyopathies, selon la protéine et le tissu. Collagène I et IV partagent la triple hélice mais divergent fortement : fibrilles striées pour I, réseau des membranes basales pour IV."
   },
   {
     "order": 119,
     "difficulty": "HARD",
     "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez les myosines comme moteurs moléculaires, la comparaison collagènes I et IV et la localisation des collagènes.",
+    "question": "Concernant la comparaison des collagènes I et IV, quelles propositions sont exactes ?",
     "choices": [
       {
-        "content": "Leur fonctionnement dépend de l’hydrolyse de l’ATP.",
+        "content": "Le collagène I possède un long domaine collagénique très régulier.",
         "correct": true,
-        "explanation": "Les myosines convertissent l’énergie de l’ATP en travail mécanique."
+        "explanation": "Le type IV contient davantage d'interruptions du motif Gly-X-Y."
       },
       {
-        "content": "Le collagène I illustre un assemblage fibrillaire.",
+        "content": "Le collagène I est abondant dans les tendons ; le collagène IV dans les membranes basales.",
         "correct": true,
-        "explanation": "Les types I et IV illustrent deux modes d’assemblage matriciel distincts."
+        "explanation": "La localisation reflète leur organisation."
       },
       {
-        "content": "La fiche ne leur attribue aucun rôle structural.",
-        "correct": false,
-        "explanation": "Les collagènes sont des constituants structuraux extracellulaires."
+        "content": "Les deux types partagent le principe d'une triple hélice collagénique.",
+        "correct": true,
+        "explanation": "Ils appartiennent à la même superfamille malgré leurs différences."
       },
       {
-        "content": "Leur fonctionnement est indépendant de tout nucléotide.",
+        "content": "Le collagène I est fibrillaire tandis que le collagène IV forme un réseau.",
+        "correct": true,
+        "explanation": "Leurs architectures supramoléculaires répondent à des fonctions distinctes."
+      },
+      {
+        "content": "Les collagènes I et IV ont exactement le même assemblage supramoléculaire.",
         "correct": false,
-        "explanation": "Les myosines convertissent l’énergie de l’ATP en travail mécanique."
+        "explanation": "L'un forme surtout des fibrilles, l'autre des réseaux."
       }
     ],
-    "explanation": "Les myosines convertissent l’énergie de l’ATP en travail mécanique. Les types I et IV illustrent deux modes d’assemblage matriciel distincts. Les collagènes sont des constituants structuraux extracellulaires."
+    "explanation": "Collagène I et IV partagent la triple hélice mais divergent fortement : fibrilles striées pour I, réseau des membranes basales pour IV."
   },
   {
     "order": 120,
     "difficulty": "HARD",
-    "format": "QRM",
-    "question": "Maîtrise de synthèse — croisez l’intoxication au monoxyde de carbone, les fonctions du cytosquelette et la dynamique des microtubules.",
-    "choices": [
-      {
-        "content": "L’affinité de l’hème pour le CO est supérieure à celle pour O2 selon la fiche.",
-        "correct": true,
-        "explanation": "Le CO concurrence l’O2 sur l’hème et peut provoquer une intoxication."
-      },
-      {
-        "content": "Il transmet des forces mécaniques et contribue à la motilité.",
-        "correct": true,
-        "explanation": "Le cytosquelette combine architecture, mécanique et transport."
-      },
-      {
-        "content": "Les deux extrémités ont toujours une dynamique strictement identique.",
-        "correct": false,
-        "explanation": "La fiche décrit un assemblage microtubulaire très dynamique."
-      },
-      {
-        "content": "La carboxyhémoglobine est décrite comme la forme physiologique majoritaire.",
-        "correct": false,
-        "explanation": "Le CO concurrence l’O2 sur l’hème et peut provoquer une intoxication."
+    "format": "QROC",
+    "question": "Quel nucléotide stabilise la coiffe d'un microtubule en croissance ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "GTP",
+        "guanosine triphosphate"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "Le CO concurrence l’O2 sur l’hème et peut provoquer une intoxication. Le cytosquelette combine architecture, mécanique et transport. La fiche décrit un assemblage microtubulaire très dynamique."
+    },
+    "explanation": "L'instabilité dynamique des microtubules dépend de la bêta-tubuline-GTP : coiffe GTP, catastrophe et rescue."
   },
   {
     "order": 121,
     "difficulty": "HARD",
     "format": "QRP",
-    "question": "Maîtrise de synthèse : sélectionnez exactement les trois affirmations correctes.",
-    "requiredSelectionCount": 3,
+    "question": "Concernant les fonctions de l'albumine, choisissez exactement les deux affirmations exactes.",
     "choices": [
       {
-        "content": "L’albumine contribue à la pression oncotique.",
+        "content": "L'albumine contribue fortement à la pression oncotique plasmatique.",
         "correct": true,
-        "explanation": "L’albumine contribue au transport plasmatique et à la pression oncotique."
+        "explanation": "Sa concentration élevée en fait un déterminant majeur des forces colloïdo-osmotiques."
       },
       {
-        "content": "La fiche cite ApoAI, ApoAII, ApoB100 et ApoE.",
+        "content": "Elle lie de nombreux médicaments et hormones.",
         "correct": true,
-        "explanation": "Les apolipoprotéines participent à l’architecture et aux fonctions des lipoprotéines."
+        "explanation": "La liaison à l'albumine influence leur distribution plasmatique."
       },
       {
-        "content": "Cette organisation permet le transport sanguin de lipides.",
-        "correct": true,
-        "explanation": "Les lipoprotéines rendent possible le transport de molécules hydrophobes dans le milieu sanguin."
-      },
-      {
-        "content": "Les protéines ne peuvent jamais être catabolisées dans une situation de dénutrition.",
+        "content": "L'albumine est le principal moteur moléculaire de l'actine.",
         "correct": false,
-        "explanation": "Le rôle énergétique devient notable dans certaines situations comme la dénutrition."
+        "explanation": "Cette fonction appartient aux myosines."
       },
       {
-        "content": "Elle ne contient jamais de protéines.",
+        "content": "L'albumine ne lie aucun médicament.",
         "correct": false,
-        "explanation": "La matrice extracellulaire est un réseau macromoléculaire de support tissulaire."
+        "explanation": "De nombreux médicaments circulent partiellement liés à l'albumine."
       },
       {
-        "content": "Toutes les protéines matricielles sont renouvelées instantanément.",
+        "content": "L'albumine n'a aucune influence sur la pression oncotique.",
         "correct": false,
-        "explanation": "La fiche insiste sur la longévité de plusieurs protéines matricielles."
+        "explanation": "Elle en est un déterminant majeur."
       }
     ],
-    "explanation": "Cette question croise plusieurs repères de la section ; chaque proposition doit être évaluée séparément."
+    "explanation": "L'albumine maintient une part importante de la pression oncotique et transporte de nombreux ligands endogènes ou exogènes.",
+    "requiredSelectionCount": 2
   },
   {
     "order": 122,
     "difficulty": "HARD",
-    "format": "QRPL",
-    "question": "Maîtrise de synthèse : sélectionnez exactement les cinq affirmations correctes.",
-    "requiredSelectionCount": 5,
-    "choices": [
-      {
-        "content": "Les protéines de la matrice sont présentées comme très abondantes.",
-        "correct": true,
-        "explanation": "La fiche insiste sur la longévité de plusieurs protéines matricielles."
-      },
-      {
-        "content": "Ils représentent environ un tiers des protéines totales.",
-        "correct": true,
-        "explanation": "Le repère de la fiche est environ un tiers des protéines et 28 types."
-      },
-      {
-        "content": "Il forme des assemblages supramoléculaires.",
-        "correct": true,
-        "explanation": "La fiche retient trois critères : localisation matricielle, triple hélice et assemblages supramoléculaires."
-      },
-      {
-        "content": "Le motif Gly-X-X’ est répété dans la structure primaire.",
-        "correct": true,
-        "explanation": "Le motif Gly-X-X’ est central dans la structure des domaines collagéniques."
-      },
-      {
-        "content": "La fiche décrit une superhélice droite.",
-        "correct": true,
-        "explanation": "Trois chaînes α forment une superhélice droite stabilisée notamment par des liaisons hydrogène."
-      },
-      {
-        "content": "La polymérisation ne joue aucun rôle dans la classification.",
-        "correct": false,
-        "explanation": "La diversité des assemblages permet notamment de distinguer collagènes fibrillaires et collagènes en réseau."
-      },
-      {
-        "content": "La triple hélice est décrite comme une superhélice gauche composée de deux chaînes.",
-        "correct": false,
-        "explanation": "La fiche associe trois chaînes α à une superhélice droite."
-      },
-      {
-        "content": "Il n’entre pas dans les fibrilles de collagène I.",
-        "correct": false,
-        "explanation": "Les monomères de tropocollagène s’assemblent de façon ordonnée dans les fibrilles."
+    "format": "QROC",
+    "question": "La superhélice de collagène formée par trois chaînes est-elle droite ou gauche ?",
+    "answer": {
+      "type": "text",
+      "acceptedAnswers": [
+        "droite",
+        "superhélice droite"
+      ],
+      "normalization": {
+        "trim": true,
+        "collapseWhitespace": true,
+        "caseSensitive": false,
+        "ignoreAccents": true
       }
-    ],
-    "explanation": "La sélection longue vérifie la maîtrise simultanée de plusieurs notions du chapitre."
+    },
+    "explanation": "Chaque chaîne collagénique est une hélice gauche polyproline-II-like ; trois chaînes forment une superhélice droite stabilisée par des liaisons H du squelette et par la 4-hydroxyproline."
   }
 ];
