@@ -90,9 +90,9 @@ export const UE14_COLLE_C06_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Le manteau de clathrine est retiré rapidement après la scission de la vésicule.",
       },
       {
-        content: "Le LDL est importé dans un peroxysome par PEX5.",
+        content: "Le LDL est importé dans un peroxysome par $\\text{PEX5}$.",
         correct: false,
-        explanation: "PEX5 importe des protéines matricielles peroxysomales portant un signal PTS1 ; il n’intervient pas dans l’endocytose des LDL.",
+        explanation: "$\\text{PEX5}$ importe des protéines matricielles peroxysomales portant un signal $\\text{PTS1}$ ; il n’intervient pas dans l’endocytose des LDL.",
       },
     ],
   },
@@ -102,31 +102,31 @@ export const UE14_COLLE_C06_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     format: 'QRP',
     requiredSelectionCount: 2,
     question: "Sélectionnez exactement les deux associations correctes entre un manteau vésiculaire et une direction de trafic.",
-    explanation: "COPII assure classiquement le trafic antérograde du RE vers le Golgi, tandis que COPI participe notamment au trafic rétrograde du Golgi vers le RE.",
+    explanation: "$\\text{COPII}$ assure classiquement le trafic antérograde du RE vers le Golgi, tandis que $\\text{COPI}$ participe notamment au trafic rétrograde du Golgi vers le RE.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C06', 'ec:BIOLOGIE_CELLULAIRE', 'theme:copi-copii'],
     choices: [
       {
-        content: "COPII — réticulum endoplasmique vers Golgi.",
+        content: "$\\text{COPII}$ — réticulum endoplasmique vers Golgi.",
         correct: true,
-        explanation: "Le recrutement de COPII, notamment sous le contrôle de Sar1, permet le bourgeonnement de transporteurs quittant le RE.",
+        explanation: "Le recrutement de $\\text{COPII}$, notamment sous le contrôle de $\\text{Sar1}$, permet le bourgeonnement de transporteurs quittant le RE.",
       },
       {
-        content: "COPI — Golgi vers réticulum endoplasmique.",
+        content: "$\\text{COPI}$ — Golgi vers réticulum endoplasmique.",
         correct: true,
-        explanation: "COPI intervient dans des voies rétrogrades, notamment pour récupérer des constituants résidents du RE.",
+        explanation: "$\\text{COPI}$ intervient dans des voies rétrogrades, notamment pour récupérer des constituants résidents du RE.",
       },
       {
-        content: "Clathrine — import direct des protéines PTS1 dans la matrice peroxysomale.",
+        content: "Clathrine — import direct des protéines $\\text{PTS1}$ dans la matrice peroxysomale.",
         correct: false,
-        explanation: "L’import PTS1 repose sur la machinerie PEX, pas sur un manteau de clathrine.",
+        explanation: "L’import $\\text{PTS1}$ repose sur la machinerie $\\text{PEX}$, pas sur un manteau de clathrine.",
       },
       {
-        content: "COPII — membrane plasmique vers endosome précoce.",
+        content: "$\\text{COPII}$ — membrane plasmique vers endosome précoce.",
         correct: false,
         explanation: "L’endocytose depuis la membrane plasmique utilise d’autres machineries, notamment des puits de clathrine selon le cargo.",
       },
       {
-        content: "COPI — formation du phagosome autour d’une bactérie.",
+        content: "$\\text{COPI}$ — formation du phagosome autour d’une bactérie.",
         correct: false,
         explanation: "La phagocytose dépend de récepteurs, de l’actine et de machineries membranaires distinctes.",
       },
@@ -137,7 +137,7 @@ export const UE14_COLLE_C06_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     difficulty: 'HARD',
     format: 'QRM',
     question: "La protéine A est une protéine soluble destinée à être sécrétée. Quelles propositions décrivent correctement son entrée et sa maturation initiale dans la voie représentée ?",
-    explanation: "Une protéine soluble destinée à la voie sécrétoire peut être reconnue pendant sa synthèse par la SRP, puis transloquée dans le réticulum endoplasmique via Sec61. Dans la lumière du RE débutent notamment la maturation des N-glycanes et la formation de nombreux ponts disulfure avec l’aide de la PDI. Le motif KDEL sert au contraire à récupérer certaines protéines solubles résidentes du RE qui ont gagné le Golgi.",
+    explanation: "Une protéine soluble destinée à la voie sécrétoire peut être reconnue pendant sa synthèse par la SRP, puis transloquée dans le réticulum endoplasmique via $\\text{Sec61}$. Dans la lumière du RE débutent notamment la maturation des $\\mathrm{N}$-glycanes et la formation de nombreux ponts disulfure avec l’aide de la $\\text{PDI}$. Le motif $\\text{KDEL}$ sert au contraire à récupérer certaines protéines solubles résidentes du RE qui ont gagné le Golgi.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C06', 'ec:BIOLOGIE_CELLULAIRE', 'theme:adressage-re'],
     choices: [
       {
@@ -146,24 +146,24 @@ export const UE14_COLLE_C06_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "La Signal Recognition Particle cible alors le complexe ribosome–chaîne naissante vers le RE.",
       },
       {
-        content: "Le translocon Sec61 permet le passage de la chaîne polypeptidique à travers la membrane du RE.",
+        content: "Le translocon $\\text{Sec61}$ permet le passage de la chaîne polypeptidique à travers la membrane du RE.",
         correct: true,
-        explanation: "Sec61 forme le canal central de translocation de nombreuses protéines de la voie sécrétoire.",
+        explanation: "$\\text{Sec61}$ forme le canal central de translocation de nombreuses protéines de la voie sécrétoire.",
       },
       {
-        content: "La N-glycosylation de nombreuses protéines débute dans la lumière du RE.",
+        content: "La $\\mathrm{N}$-glycosylation de nombreuses protéines débute dans la lumière du RE.",
         correct: true,
         explanation: "Un précurseur oligosaccharidique porté par le dolichol est transféré sur une asparagine de la protéine.",
       },
       {
-        content: "La PDI participe à la formation et au réarrangement des ponts disulfure.",
+        content: "La $\\text{PDI}$ participe à la formation et au réarrangement des ponts disulfure.",
         correct: true,
         explanation: "La protein disulfide isomerase contribue au repliement correct des protéines dans le milieu oxydant du RE.",
       },
       {
-        content: "Le signal KDEL est ajouté à toute protéine sécrétée afin de favoriser son export vers la membrane plasmique.",
+        content: "Le signal $\\text{KDEL}$ est ajouté à toute protéine sécrétée afin de favoriser son export vers la membrane plasmique.",
         correct: false,
-        explanation: "KDEL sert au contraire à récupérer vers le RE certaines protéines solubles résidentes qui se sont échappées vers le Golgi.",
+        explanation: "$\\text{KDEL}$ sert au contraire à récupérer vers le RE certaines protéines solubles résidentes qui se sont échappées vers le Golgi.",
       },
     ],
   },
@@ -171,8 +171,8 @@ export const UE14_COLLE_C06_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     order: 6,
     difficulty: 'MEDIUM',
     format: 'QROC',
-    question: "Le transport de la protéine A du réticulum endoplasmique vers le Golgi utilise classiquement des vésicules COPII. Quelle petite GTPase initie l’assemblage de ce manteau sur la membrane du RE ?",
-    explanation: "Sar1 est une petite GTPase recrutée sur la membrane du réticulum endoplasmique sous sa forme liée au GTP. Elle initie l’assemblage du manteau COPII impliqué dans le trafic antérograde du RE vers le Golgi.",
+    question: "Le transport de la protéine A du réticulum endoplasmique vers le Golgi utilise classiquement des vésicules $\\text{COPII}$. Quelle petite GTPase initie l’assemblage de ce manteau sur la membrane du RE ?",
+    explanation: "$\\text{Sar1}$ est une petite GTPase recrutée sur la membrane du réticulum endoplasmique sous sa forme liée au $\\text{GTP}$. Elle initie l’assemblage du manteau $\\text{COPII}$ impliqué dans le trafic antérograde du RE vers le Golgi.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C06', 'ec:BIOLOGIE_CELLULAIRE', 'theme:sar1-copii'],
     answer: {
       type: 'text',
@@ -190,24 +190,24 @@ export const UE14_COLLE_C06_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     order: 7,
     difficulty: 'MEDIUM',
     format: 'QRU',
-    question: "La protéine B est une hydrolase lysosomale. À quel niveau de la voie représentée le récepteur du mannose-6-phosphate assure-t-il principalement son tri vers les endosomes ?",
-    explanation: "De nombreuses hydrolases lysosomales reçoivent dans l’appareil de Golgi un marquage mannose-6-phosphate. Au niveau du réseau trans-golgien, le récepteur M6P permet leur concentration et leur adressage vers la voie endosomale ; le récepteur peut ensuite être recyclé vers le TGN.",
+    question: "La protéine B est une hydrolase lysosomale. À quel niveau de la voie représentée le récepteur du mannose-$6$-phosphate assure-t-il principalement son tri vers les endosomes ?",
+    explanation: "De nombreuses hydrolases lysosomales reçoivent dans l’appareil de Golgi un marquage mannose-$6$-phosphate. Au niveau du réseau trans-golgien, le récepteur $\\text{M6P}$ permet leur concentration et leur adressage vers la voie endosomale ; le récepteur peut ensuite être recyclé vers le $\\text{TGN}$.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C06', 'ec:BIOLOGIE_CELLULAIRE', 'theme:m6p'],
     choices: [
       {
         content: "Au réseau trans-golgien (TGN).",
         correct: true,
-        explanation: "Le TGN est une plateforme majeure de tri vers la voie endosomale.",
+        explanation: "Le $\\text{TGN}$ est une plateforme majeure de tri vers la voie endosomale.",
       },
       {
         content: "Dans la matrice peroxysomale.",
         correct: false,
-        explanation: "L’import peroxysomal utilise des signaux PTS et la machinerie PEX.",
+        explanation: "L’import peroxysomal utilise des signaux $\\text{PTS}$ et la machinerie $\\text{PEX}$.",
       },
       {
         content: "Dans le nucléole.",
         correct: false,
-        explanation: "Le nucléole participe à la biogenèse ribosomique et n’assure pas le tri M6P.",
+        explanation: "Le nucléole participe à la biogenèse ribosomique et n’assure pas le tri $\\text{M6P}$.",
       },
       {
         content: "Sur la membrane interne mitochondriale.",
@@ -226,18 +226,18 @@ export const UE14_COLLE_C06_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     difficulty: 'MEDIUM',
     format: 'QRM',
     question: "Quelles propositions décrivent correctement le fonctionnement d’un lysosome ?",
-    explanation: "Le lysosome est un compartiment acide, enrichi en hydrolases, dont le pH est maintenu par une V-ATPase. Il reçoit des cargos endocytés, phagocytés ou issus de l’autophagie.",
+    explanation: "Le lysosome est un compartiment acide, enrichi en hydrolases, dont le $\\text{pH}$ est maintenu par une $\\text{V-ATPase}$. Il reçoit des cargos endocytés, phagocytés ou issus de l’autophagie.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C06', 'ec:BIOLOGIE_CELLULAIRE', 'theme:lysosome'],
     choices: [
       {
-        content: "Son pH luminal est typiquement voisin de 4,5 à 5.",
+        content: "Son $\\text{pH}$ luminal est typiquement voisin de $4{,}5$ à $5$.",
         correct: true,
         explanation: "Cette acidité favorise l’activité des hydrolases lysosomales.",
       },
       {
-        content: "Une V-ATPase membranaire contribue à acidifier sa lumière.",
+        content: "Une $\\text{V-ATPase}$ membranaire contribue à acidifier sa lumière.",
         correct: true,
-        explanation: "La pompe utilise l’ATP pour accumuler des protons dans le lysosome.",
+        explanation: "La pompe utilise l’$\\text{ATP}$ pour accumuler des protons dans le lysosome.",
       },
       {
         content: "La macroautophagie peut lui apporter des constituants cytoplasmiques et des organites à dégrader.",
@@ -250,9 +250,9 @@ export const UE14_COLLE_C06_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Les LAMP sont principalement des glycoprotéines de membrane lysosomale.",
       },
       {
-        content: "Le protéasome constitue la pompe à protons qui maintient le pH lysosomal.",
+        content: "Le protéasome constitue la pompe à protons qui maintient le $\\text{pH}$ lysosomal.",
         correct: false,
-        explanation: "Le protéasome dégrade surtout des protéines cytosoliques ou nucléaires ; l’acidification lysosomale dépend de la V-ATPase.",
+        explanation: "Le protéasome dégrade surtout des protéines cytosoliques ou nucléaires ; l’acidification lysosomale dépend de la $\\text{V-ATPase}$.",
       },
     ],
   },
@@ -262,21 +262,21 @@ export const UE14_COLLE_C06_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     format: 'QRP',
     requiredSelectionCount: 2,
     question: "Sélectionnez exactement les deux associations pathologie–mécanisme correctement appariées.",
-    explanation: "La mucolipidose II résulte d’un défaut de marquage M6P des hydrolases lysosomales. La cystinose est liée à un défaut du transporteur lysosomal de la cystine, codé par CTNS.",
+    explanation: "La mucolipidose II résulte d’un défaut de marquage $\\text{M6P}$ des hydrolases lysosomales. La cystinose est liée à un défaut du transporteur lysosomal de la cystine, codé par $\\text{CTNS}$.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C06', 'ec:BIOLOGIE_CELLULAIRE', 'theme:pathologies-lysosomales'],
     choices: [
       {
-        content: "Mucolipidose II — défaut de GlcNAc-1-phosphotransférase et de marquage M6P.",
+        content: "Mucolipidose II — défaut de $\\text{GlcNAc}-1$-phosphotransférase et de marquage $\\text{M6P}$.",
         correct: true,
         explanation: "Le défaut de phosphorylation des mannoses perturbe l’adressage de nombreuses hydrolases vers les lysosomes.",
       },
       {
         content: "Cystinose — défaut de cystinosine entraînant une accumulation lysosomale de cystine.",
         correct: true,
-        explanation: "La cystinosine, codée par CTNS, permet normalement la sortie de cystine du lysosome.",
+        explanation: "La cystinosine, codée par $\\text{CTNS}$, permet normalement la sortie de cystine du lysosome.",
       },
       {
-        content: "Maladie de Gaucher — déficit en hexosaminidase A avec accumulation de GM2.",
+        content: "Maladie de Gaucher — déficit en hexosaminidase A avec accumulation de $\\mathrm{GM_2}$.",
         correct: false,
         explanation: "Cette association correspond à la maladie de Tay-Sachs ; Gaucher implique surtout un déficit en glucocérébrosidase.",
       },
@@ -286,9 +286,9 @@ export const UE14_COLLE_C06_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Cette association correspond à la maladie de Gaucher.",
       },
       {
-        content: "Cystinose — absence de V-ATPase provoquant exclusivement une alcalinisation du Golgi.",
+        content: "Cystinose — absence de $\\text{V-ATPase}$ provoquant exclusivement une alcalinisation du Golgi.",
         correct: false,
-        explanation: "La cystinose est une maladie de transport lysosomal de la cystine, pas une maladie définie par l’absence de V-ATPase.",
+        explanation: "La cystinose est une maladie de transport lysosomal de la cystine, pas une maladie définie par l’absence de $\\text{V-ATPase}$.",
       },
     ],
   },
@@ -312,14 +312,14 @@ export const UE14_COLLE_C06_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Son acidification participe au tri des complexes ligand–récepteur.",
       },
       {
-        content: "COPII assure classiquement le trafic rétrograde du Golgi vers le RE.",
+        content: "$\\text{COPII}$ assure classiquement le trafic rétrograde du Golgi vers le RE.",
         correct: false,
-        explanation: "COPII est surtout associé au trafic antérograde RE vers Golgi ; COPI participe au retour Golgi vers RE.",
+        explanation: "$\\text{COPII}$ est surtout associé au trafic antérograde RE vers Golgi ; $\\text{COPI}$ participe au retour Golgi vers RE.",
       },
       {
-        content: "Le motif KDEL favorise la récupération de certaines protéines solubles résidentes du RE.",
+        content: "Le motif $\\text{KDEL}$ favorise la récupération de certaines protéines solubles résidentes du RE.",
         correct: true,
-        explanation: "Le récepteur KDEL les récupère dans le Golgi et permet leur retour au RE.",
+        explanation: "Le récepteur $\\text{KDEL}$ les récupère dans le Golgi et permet leur retour au RE.",
       },
       {
         content: "Les hydrolases lysosomales sont actives de façon optimale dans un milieu fortement alcalin.",
@@ -332,14 +332,14 @@ export const UE14_COLLE_C06_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Ses protéines sont codées par le noyau puis importées depuis le cytosol.",
       },
       {
-        content: "Le signal PTS1 prototype est situé à l’extrémité C-terminale d’une protéine matricielle peroxysomale.",
+        content: "Le signal $\\text{PTS1}$ prototype est situé à l’extrémité $\\text{C}$-terminale d’une protéine matricielle peroxysomale.",
         correct: true,
-        explanation: "Le prototype PTS1 est le tripeptide C-terminal SKL, reconnu par PEX5.",
+        explanation: "Le prototype $\\text{PTS1}$ est le tripeptide $\\text{C}$-terminal $\\text{SKL}$, reconnu par $\\text{PEX5}$.",
       },
       {
-        content: "La catalase est la principale source de H2O2 du peroxysome et n’est jamais capable de le dégrader.",
+        content: "La catalase est la principale source de $\\ce{H2O2}$ du peroxysome et n’est jamais capable de le dégrader.",
         correct: false,
-        explanation: "Les oxydases peuvent produire du H2O2 ; la catalase contribue au contraire à sa détoxification.",
+        explanation: "Les oxydases peuvent produire du $\\ce{H2O2}$ ; la catalase contribue au contraire à sa détoxification.",
       },
       {
         content: "Le peroxysome appartient au même continuum luminal que le réticulum endoplasmique.",
@@ -357,7 +357,7 @@ export const UE14_COLLE_C06_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     order: 11,
     difficulty: 'MEDIUM',
     format: 'QROC',
-    question: "Quel nom générique porte la famille de protéines membranaires dont l’appariement v-SNARE/t-SNARE participe à la fusion d’une vésicule avec sa membrane cible ?",
+    question: "Quel nom générique porte la famille de protéines membranaires dont l’appariement $\\text{v-SNARE}/\\text{t-SNARE}$ participe à la fusion d’une vésicule avec sa membrane cible ?",
     explanation: "L’appariement de SNARE complémentaires portées par la vésicule et la membrane cible rapproche les deux membranes et contribue directement à leur fusion.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C06', 'ec:BIOLOGIE_CELLULAIRE', 'theme:snare-fusion'],
     answer: {
@@ -412,23 +412,23 @@ export const UE14_COLLE_C06_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     difficulty: 'HARD',
     format: 'QRM',
     question: "Quelles fonctions sont correctement associées au peroxysome ?",
-    explanation: "Le peroxysome réalise plusieurs oxydations, notamment la β-oxydation préférentielle des acides gras à très longue chaîne. Ces réactions peuvent produire du H2O2, détoxifié par la catalase. Il participe aussi aux premières étapes de synthèse des plasmalogènes.",
+    explanation: "Le peroxysome réalise plusieurs oxydations, notamment la $\\beta$-oxydation préférentielle des acides gras à très longue chaîne. Ces réactions peuvent produire du $\\ce{H2O2}$, détoxifié par la catalase. Il participe aussi aux premières étapes de synthèse des plasmalogènes.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C06', 'ec:BIOLOGIE_CELLULAIRE', 'theme:metabolisme-peroxysomal'],
     choices: [
       {
-        content: "Raccourcissement par β-oxydation de nombreux acides gras à très longue chaîne.",
+        content: "Raccourcissement par $\\beta$-oxydation de nombreux acides gras à très longue chaîne.",
         correct: true,
         explanation: "Le peroxysome prend en charge préférentiellement des VLCFA avant un éventuel relais métabolique par d’autres compartiments.",
       },
       {
-        content: "Production de H2O2 par certaines oxydases.",
+        content: "Production de $\\ce{H2O2}$ par certaines oxydases.",
         correct: true,
         explanation: "Le transfert direct d’électrons vers l’oxygène lors de certaines oxydations produit du peroxyde d’hydrogène.",
       },
       {
-        content: "Détoxification du H2O2 par la catalase.",
+        content: "Détoxification du $\\ce{H2O2}$ par la catalase.",
         correct: true,
-        explanation: "La catalase peut convertir le H2O2 en eau et oxygène.",
+        explanation: "La catalase peut convertir le $\\ce{H2O2}$ en eau et oxygène.",
       },
       {
         content: "Participation aux premières étapes de biosynthèse des plasmalogènes.",
@@ -436,9 +436,9 @@ export const UE14_COLLE_C06_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "La synthèse de ces éther-phospholipides débute dans le peroxysome puis se poursuit notamment dans le RE.",
       },
       {
-        content: "Production d’ATP par une chaîne respiratoire couplée à une ATP synthase peroxysomale.",
+        content: "Production d’$\\text{ATP}$ par une chaîne respiratoire couplée à une $\\text{ATP}$ synthase peroxysomale.",
         correct: false,
-        explanation: "Le peroxysome ne possède pas de chaîne respiratoire couplée à une ATP synthase.",
+        explanation: "Le peroxysome ne possède pas de chaîne respiratoire couplée à une $\\text{ATP}$ synthase.",
       },
     ],
   },
@@ -448,28 +448,28 @@ export const UE14_COLLE_C06_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     format: 'QRP',
     requiredSelectionCount: 2,
     question: "Sélectionnez exactement les deux associations correctes concernant des maladies peroxysomales.",
-    explanation: "L’adrénoleucodystrophie liée à l’X est associée au transporteur ABCD1 et à l’accumulation de VLCFA. Le spectre de Zellweger correspond à des défauts de biogenèse peroxysomale liés à des gènes PEX.",
+    explanation: "L’adrénoleucodystrophie liée à l’X est associée au transporteur $\\text{ABCD1}$ et à l’accumulation de VLCFA. Le spectre de Zellweger correspond à des défauts de biogenèse peroxysomale liés à des gènes $\\text{PEX}$.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C06', 'ec:BIOLOGIE_CELLULAIRE', 'theme:pathologies-peroxysomales'],
     choices: [
       {
-        content: "Adrénoleucodystrophie liée à l’X — altération d’ABCD1 et accumulation d’acides gras à très longue chaîne.",
+        content: "Adrénoleucodystrophie liée à l’X — altération d’$\\text{ABCD1}$ et accumulation d’acides gras à très longue chaîne.",
         correct: true,
-        explanation: "ABCD1 code un transporteur peroxysomal ; son déficit perturbe l’entrée de substrats lipidiques nécessaires à leur dégradation.",
+        explanation: "$\\text{ABCD1}$ code un transporteur peroxysomal ; son déficit perturbe l’entrée de substrats lipidiques nécessaires à leur dégradation.",
       },
       {
-        content: "Syndrome de Zellweger — anomalie de biogenèse peroxysomale liée à des gènes PEX.",
+        content: "Syndrome de Zellweger — anomalie de biogenèse peroxysomale liée à des gènes $\\text{PEX}$.",
         correct: true,
         explanation: "Les troubles du spectre de Zellweger affectent l’assemblage ou le fonctionnement global des peroxysomes.",
       },
       {
-        content: "Maladie de Tay-Sachs — mutation d’ABCD1 provoquant une accumulation de VLCFA.",
+        content: "Maladie de Tay-Sachs — mutation d’$\\text{ABCD1}$ provoquant une accumulation de VLCFA.",
         correct: false,
         explanation: "Tay-Sachs est une sphingolipidose lysosomale liée à l’hexosaminidase A.",
       },
       {
-        content: "Mucolipidose II — défaut de PEX5 empêchant l’import des protéines PTS1.",
+        content: "Mucolipidose II — défaut de $\\text{PEX5}$ empêchant l’import des protéines $\\text{PTS1}$.",
         correct: false,
-        explanation: "La mucolipidose II est principalement liée au défaut de marquage M6P des hydrolases lysosomales.",
+        explanation: "La mucolipidose II est principalement liée au défaut de marquage $\\text{M6P}$ des hydrolases lysosomales.",
       },
       {
         content: "Cystinose — défaut global de biogenèse des peroxysomes.",
@@ -501,8 +501,8 @@ export const UE14_COLLE_C06_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     order: 16,
     difficulty: 'HARD',
     format: 'QRU',
-    question: "Dans une cellule endocrine, un potentiel d’action ouvre des canaux calciques et provoque une hausse rapide de Ca2+ cytosolique. Quel événement est le plus directement favorisé pour des granules de sécrétion déjà prêts à fusionner ?",
-    explanation: "Dans de nombreuses cellules sécrétrices, l’élévation du Ca2+ cytosolique sert de signal déclencheur à la fusion des granules avec la membrane plasmique : c’est une exocytose régulée.",
+    question: "Dans une cellule endocrine, un potentiel d’action ouvre des canaux calciques et provoque une hausse rapide de $\\ce{Ca^2+}$ cytosolique. Quel événement est le plus directement favorisé pour des granules de sécrétion déjà prêts à fusionner ?",
+    explanation: "Dans de nombreuses cellules sécrétrices, l’élévation du $\\ce{Ca^2+}$ cytosolique sert de signal déclencheur à la fusion des granules avec la membrane plasmique : c’est une exocytose régulée.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C06', 'ec:BIOLOGIE_CELLULAIRE', 'theme:exocytose-regulee'],
     choices: [
       {
@@ -516,9 +516,9 @@ export const UE14_COLLE_C06_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Le signal calcique déclenche la fusion de granules préformés dans de nombreux systèmes sécrétoires.",
       },
       {
-        content: "Le retour de toutes les protéines sécrétées vers le RE par le récepteur KDEL.",
+        content: "Le retour de toutes les protéines sécrétées vers le RE par le récepteur $\\text{KDEL}$.",
         correct: false,
-        explanation: "KDEL sert à récupérer certaines protéines résidentes du RE, pas les cargos destinés à être sécrétés.",
+        explanation: "$\\text{KDEL}$ sert à récupérer certaines protéines résidentes du RE, pas les cargos destinés à être sécrétés.",
       },
       {
         content: "La neutralisation obligatoire du lysosome avant toute fusion membranaire.",
@@ -556,14 +556,14 @@ export const UE14_COLLE_C06_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Kinésines et dynéines transportent de nombreux cargos le long des microtubules.",
       },
       {
-        content: "La clathrine est le moteur qui hydrolyse l’ATP pour faire progresser la vésicule sur les microtubules.",
+        content: "La clathrine est le moteur qui hydrolyse l’$\\text{ATP}$ pour faire progresser la vésicule sur les microtubules.",
         correct: false,
         explanation: "La clathrine est une protéine de manteau ; elle n’est pas un moteur microtubulaire.",
       },
       {
-        content: "Toute fusion membranaire du système endomembranaire exige un marquage du cargo par mannose-6-phosphate.",
+        content: "Toute fusion membranaire du système endomembranaire exige un marquage du cargo par mannose-$6$-phosphate.",
         correct: false,
-        explanation: "Le M6P concerne surtout le tri de nombreuses hydrolases lysosomales et n’est pas un signal universel de fusion.",
+        explanation: "Le $\\text{M6P}$ concerne surtout le tri de nombreuses hydrolases lysosomales et n’est pas un signal universel de fusion.",
       },
     ],
   },
@@ -583,7 +583,7 @@ export const UE14_COLLE_C06_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         content: "De nombreuses protéines matricielles y sont importées depuis le cytosol après leur synthèse.",
         correct: true,
-        explanation: "Les signaux PTS et les peroxines assurent cet import principalement post-traductionnel.",
+        explanation: "Les signaux $\\text{PTS}$ et les peroxines assurent cet import principalement post-traductionnel.",
       },
       {
         content: "Ils possèdent obligatoirement leur propre ADN et des ribosomes internes.",
@@ -591,7 +591,7 @@ export const UE14_COLLE_C06_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Ils ne possèdent ni génome propre ni ribosomes.",
       },
       {
-        content: "Leur matrice est acidifiée à pH 4,5 par une V-ATPase afin d’activer des hydrolases acides.",
+        content: "Leur matrice est acidifiée à $\\text{pH}\\ 4{,}5$ par une $\\text{V-ATPase}$ afin d’activer des hydrolases acides.",
         correct: false,
         explanation: "Cette description correspond au lysosome, pas au peroxysome.",
       },
@@ -607,7 +607,7 @@ export const UE14_COLLE_C06_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     difficulty: 'MEDIUM',
     format: 'QZONE',
     question: "Sur le schéma, sélectionnez le compartiment terminal acide qui reçoit des cargos issus des endosomes tardifs et dans lequel agissent de nombreuses hydrolases.",
-    explanation: "Le lysosome est le compartiment terminal dégradatif de la voie endolysosomale. Sa lumière est acidifiée notamment par une V-ATPase, ce qui favorise l’activité de nombreuses hydrolases acides. Il reçoit du matériel provenant notamment de la voie endocytaire et de la macroautophagie.",
+    explanation: "Le lysosome est le compartiment terminal dégradatif de la voie endolysosomale. Sa lumière est acidifiée notamment par une $\\text{V-ATPase}$, ce qui favorise l’activité de nombreuses hydrolases acides. Il reçoit du matériel provenant notamment de la voie endocytaire et de la macroautophagie.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C06', 'ec:BIOLOGIE_CELLULAIRE', 'theme:qzone-lysosome'],
     image: {
       src: '/images/training/ue14/colles/c06/endolysosomal-pathway-linked-q19-q20.svg',
@@ -631,7 +631,7 @@ export const UE14_COLLE_C06_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     difficulty: 'MEDIUM',
     format: 'QRM',
     question: "Une hydrolase lysosomale soluble nouvellement synthétisée doit rejoindre le compartiment terminal représenté sur le schéma. Quelles étapes appartiennent à son trajet normal ?",
-    explanation: "Une hydrolase lysosomale soluble emprunte d’abord la voie sécrétoire : elle entre dans le RE, transite par le Golgi puis reçoit pour beaucoup d’entre elles un signal mannose-6-phosphate. Le récepteur M6P les trie au TGN vers les endosomes, qui alimentent ensuite le compartiment lysosomal. KDEL concerne la récupération de protéines résidentes du RE, tandis que PEX5/PTS1 appartient à l’adressage peroxysomal.",
+    explanation: "Une hydrolase lysosomale soluble emprunte d’abord la voie sécrétoire : elle entre dans le RE, transite par le Golgi puis reçoit pour beaucoup d’entre elles un signal mannose-$6$-phosphate. Le récepteur $\\text{M6P}$ les trie au $\\text{TGN}$ vers les endosomes, qui alimentent ensuite le compartiment lysosomal. $\\text{KDEL}$ concerne la récupération de protéines résidentes du RE, tandis que $\\text{PEX5}/\\text{PTS1}$ appartient à l’adressage peroxysomal.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C06', 'ec:BIOLOGIE_CELLULAIRE', 'theme:hydrolase-lysosomale-trajet'],
     choices: [
       {
@@ -640,24 +640,24 @@ export const UE14_COLLE_C06_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Comme de nombreuses protéines de la voie sécrétoire, l’hydrolase est adressée au RE puis transloquée.",
       },
       {
-        content: "Marquage par mannose-6-phosphate puis reconnaissance par le récepteur M6P au niveau du TGN.",
+        content: "Marquage par mannose-$6$-phosphate puis reconnaissance par le récepteur $\\text{M6P}$ au niveau du $\\text{TGN}$.",
         correct: true,
         explanation: "Ce système permet son tri vers les endosomes et finalement les lysosomes.",
       },
       {
-        content: "Maintien permanent dans le RE grâce à un motif KDEL destiné aux hydrolases lysosomales.",
+        content: "Maintien permanent dans le RE grâce à un motif $\\text{KDEL}$ destiné aux hydrolases lysosomales.",
         correct: false,
-        explanation: "KDEL concerne la récupération de protéines résidentes du RE, pas l’adressage des hydrolases vers les lysosomes.",
+        explanation: "$\\text{KDEL}$ concerne la récupération de protéines résidentes du RE, pas l’adressage des hydrolases vers les lysosomes.",
       },
       {
-        content: "Import direct depuis le cytosol par PEX5 grâce à un signal PTS1.",
+        content: "Import direct depuis le cytosol par $\\text{PEX5}$ grâce à un signal $\\text{PTS1}$.",
         correct: false,
-        explanation: "PEX5 cible la matrice peroxysomale, pas les lysosomes.",
+        explanation: "$\\text{PEX5}$ cible la matrice peroxysomale, pas les lysosomes.",
       },
       {
         content: "Endocytose préalable depuis la membrane plasmique comme étape obligatoire pour toutes les hydrolases nouvellement synthétisées.",
         correct: false,
-        explanation: "La voie principale les conduit du RE au Golgi puis au TGN et aux endosomes sans passage obligatoire par la surface.",
+        explanation: "La voie principale les conduit du RE au Golgi puis au $\\text{TGN}$ et aux endosomes sans passage obligatoire par la surface.",
       },
     ],
   },
