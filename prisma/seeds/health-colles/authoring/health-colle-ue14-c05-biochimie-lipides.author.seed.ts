@@ -11,7 +11,7 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRM",
     "question": "À propos de la structure et de la nomenclature des acides gras, quelles propositions sont exactes ?",
-    "explanation": "Un acide gras associe une fonction carboxylique et une chaîne hydrocarbonée. La notation Δ repère les doubles liaisons depuis le carbone carboxylique, alors que la série n/ω se lit depuis l’extrémité méthyle.",
+    "explanation": "Un acide gras associe une fonction carboxylique et une chaîne hydrocarbonée. La notation $\\Delta$ repère les doubles liaisons depuis le carbone carboxylique, alors que la série $\\text{n}/\\omega$ se lit depuis l’extrémité méthyle.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -23,27 +23,27 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Le carbone de la fonction carboxylique est le carbone 1 dans la nomenclature usuelle des acides gras.",
         "correct": true,
-        "explanation": "La numérotation Δ commence au carbone carboxylique, qui porte le numéro 1."
+        "explanation": "La numérotation $\\Delta$ commence au carbone carboxylique, qui porte le numéro 1."
       },
       {
-        "content": "Dans la nomenclature oméga, on compte depuis l’extrémité méthyle de la chaîne.",
+        "content": "Dans la nomenclature $\\omega$, on compte depuis l’extrémité méthyle de la chaîne.",
         "correct": true,
-        "explanation": "Le carbone terminal méthyle est le carbone ω."
+        "explanation": "Le carbone terminal méthyle est le carbone $\\omega$."
       },
       {
-        "content": "La notation 18:1 indique un acide gras à 18 carbones comportant une double liaison.",
+        "content": "La notation $18:1$ indique un acide gras à 18 carbones comportant une double liaison.",
         "correct": true,
         "explanation": "Le premier nombre indique le nombre de carbones, le second le nombre de doubles liaisons."
       },
       {
-        "content": "Un acide gras noté 16:0 appartient nécessairement à la série n-6.",
+        "content": "Un acide gras noté $16:0$ appartient nécessairement à la série $\\text{n}-6$.",
         "correct": false,
-        "explanation": "Sans double liaison, la notion de série oméga définie par la première insaturation n’est pas applicable de cette manière."
+        "explanation": "Sans double liaison, la notion de série $\\omega$ définie par la première insaturation n’est pas applicable de cette manière."
       },
       {
-        "content": "Le carbone α correspond au carbone terminal méthyle de la chaîne.",
+        "content": "Le carbone $\\alpha$ correspond au carbone terminal méthyle de la chaîne.",
         "correct": false,
-        "explanation": "Le carbone α est le carbone adjacent au carbone carboxylique ; le carbone terminal est le carbone ω."
+        "explanation": "Le carbone $\\alpha$ est le carbone adjacent au carbone carboxylique ; le carbone terminal est le carbone $\\omega$."
       }
     ]
   },
@@ -70,8 +70,8 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 3,
     "difficulty": "MEDIUM",
     "format": "QRU",
-    "question": "Un acide gras est noté 18:2 Δ9,12. À quelle série oméga appartient-il ?",
-    "explanation": "En comptant depuis l’extrémité méthyle, la première double liaison se situe à six carbones : il s’agit de l’acide linoléique, de série n-6.",
+    "question": "Un acide gras est noté $18:2\\ \\Delta^{9,12}$. À quelle série $\\omega$ appartient-il ?",
+    "explanation": "En comptant depuis l’extrémité méthyle, la première double liaison se situe à six carbones : il s’agit de l’acide linoléique, de série $\\text{n}-6$.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -81,29 +81,29 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     ],
     "choices": [
       {
-        "content": "n-6",
+        "content": "$\\text{n}-6$",
         "correct": true,
-        "explanation": "Pour 18:2 Δ9,12, la double liaison la plus proche de l’extrémité méthyle correspond à 18 − 12 = 6."
+        "explanation": "Pour $18:2\\ \\Delta^{9,12}$, la double liaison la plus proche de l’extrémité méthyle correspond à $18 - 12 = 6$."
       },
       {
-        "content": "n-3",
+        "content": "$\\text{n}-3$",
         "correct": false,
-        "explanation": "Une série n-3 correspondrait à une première double liaison située à trois carbones de l’extrémité méthyle."
+        "explanation": "Une série $\\text{n}-3$ correspondrait à une première double liaison située à trois carbones de l’extrémité méthyle."
       },
       {
-        "content": "n-9",
+        "content": "$\\text{n}-9$",
         "correct": false,
-        "explanation": "n-9 correspond notamment à l’acide oléique 18:1 Δ9."
+        "explanation": "$\\text{n}-9$ correspond notamment à l’acide oléique $18:1\\ \\Delta^9$."
       },
       {
-        "content": "n-12",
+        "content": "$\\text{n}-12$",
         "correct": false,
-        "explanation": "La valeur 12 est une position Δ comptée depuis le carbone carboxylique, pas le numéro de série oméga."
+        "explanation": "La valeur 12 est une position $\\Delta$ comptée depuis le carbone carboxylique, pas le numéro de série $\\omega$."
       },
       {
         "content": "Il est impossible de déterminer la série à partir de cette notation.",
         "correct": false,
-        "explanation": "La longueur de chaîne et la position de la double liaison la plus proche de l’extrémité méthyle suffisent à déterminer la série."
+        "explanation": "La longueur de chaîne et la position de la double liaison la plus proche de l’extrémité méthyle suffisent à déterminer la série $\\omega$."
       }
     ]
   },
@@ -138,7 +138,7 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Une double liaison cis introduit un coude qui gêne l’empilement et tend à abaisser le point de fusion."
       },
       {
-        "content": "Le raccourcissement de la chaîne de 18 à 8 carbones.",
+        "content": "Le raccourcissement de la chaîne de $18$ à $8$ carbones.",
         "correct": false,
         "explanation": "Une chaîne plus courte présente moins d’interactions entre chaînes et fond généralement à plus basse température."
       },
@@ -154,7 +154,7 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRM",
     "question": "Concernant les acides gras essentiels et leurs séries, quelles propositions sont exactes ?",
-    "explanation": "L’être humain ne peut pas introduire certaines doubles liaisons au-delà de positions déterminées ; l’acide linoléique et l’acide α-linolénique doivent donc être apportés par l’alimentation et initient respectivement les séries n-6 et n-3.",
+    "explanation": "L’être humain ne peut pas introduire certaines doubles liaisons au-delà de positions déterminées ; l’acide linoléique et l’acide $\\alpha$-linolénique doivent donc être apportés par l’alimentation et initient respectivement les séries $\\text{n}-6$ et $\\text{n}-3$.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -164,14 +164,14 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     ],
     "choices": [
       {
-        "content": "L’acide linoléique 18:2 appartient à la série n-6.",
+        "content": "L’acide linoléique $18:2$ appartient à la série $\\text{n}-6$.",
         "correct": true,
-        "explanation": "Sa double liaison la plus proche de l’extrémité méthyle définit la série n-6."
+        "explanation": "Sa double liaison la plus proche de l’extrémité méthyle définit la série $\\text{n}-6$."
       },
       {
-        "content": "L’acide α-linolénique 18:3 appartient à la série n-3.",
+        "content": "L’acide $\\alpha$-linolénique $18:3$ appartient à la série $\\text{n}-3$.",
         "correct": true,
-        "explanation": "Il constitue le précurseur nutritionnel majeur de la famille n-3."
+        "explanation": "Il constitue le précurseur nutritionnel majeur de la famille $\\text{n}-3$."
       },
       {
         "content": "Ces deux acides gras peuvent être synthétisés de novo en quantité suffisante par l’être humain, ce qui les rend non essentiels.",
@@ -184,9 +184,9 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Il dépend principalement des capacités enzymatiques de désaturation, pas de la parité de la chaîne."
       },
       {
-        "content": "L’acide stéarique 18:0 est un acide gras essentiel de la série n-3.",
+        "content": "L’acide stéarique $18:0$ est un acide gras essentiel de la série $\\text{n}-3$.",
         "correct": false,
-        "explanation": "L’acide stéarique est saturé et n’appartient pas à une série oméga définie par une insaturation."
+        "explanation": "L’acide stéarique est saturé et n’appartient pas à une série $\\omega$ définie par une insaturation."
       }
     ]
   },
@@ -194,8 +194,8 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 6,
     "difficulty": "MEDIUM",
     "format": "QROC",
-    "question": "Quel est le nom commun de l’acide gras 20:4 Δ5,8,11,14, précurseur majeur de nombreux eicosanoïdes ?",
-    "explanation": "Le 20:4 Δ5,8,11,14 est l’acide arachidonique, acide gras de la série n-6 et précurseur de nombreux prostanoïdes, leucotriènes et lipoxines.",
+    "question": "Quel est le nom commun de l’acide gras $20:4\\ \\Delta^{5,8,11,14}$, précurseur majeur de nombreux eicosanoïdes ?",
+    "explanation": "Le $20:4\\ \\Delta^{5,8,11,14}$ est l’acide arachidonique, acide gras de la série $\\text{n}-6$ et précurseur de nombreux prostanoïdes, leucotriènes et lipoxines.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -243,9 +243,9 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Prostaglandines et thromboxanes sont des prostanoïdes produits par la voie COX."
       },
       {
-        "content": "La libération de l’acide arachidonique par la phospholipase A2 est nécessairement empêchée.",
+        "content": "La libération de l’acide arachidonique par la phospholipase $\\mathrm{A_2}$ est nécessairement empêchée.",
         "correct": false,
-        "explanation": "La phospholipase A2 agit en amont de la COX ; son activité n’est pas directement supprimée par un inhibiteur spécifique de COX."
+        "explanation": "La phospholipase $\\mathrm{A_2}$ agit en amont de la COX ; son activité n’est pas directement supprimée par un inhibiteur spécifique de COX."
       },
       {
         "content": "La synthèse de tous les lipides membranaires est interrompue.",
@@ -264,7 +264,7 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRP",
     "question": "Sélectionnez exactement les deux associations médiateur–effet correctement appariées.",
-    "explanation": "TXA₂ et PGI₂ exercent localement des effets opposés sur le tonus vasculaire et l’agrégation plaquettaire.",
+    "explanation": "$\\mathrm{TXA_2}$ et $\\mathrm{PGI_2}$ exercent localement des effets opposés sur le tonus vasculaire et l’agrégation plaquettaire.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -275,29 +275,29 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "requiredSelectionCount": 2,
     "choices": [
       {
-        "content": "TXA₂ — vasoconstriction et stimulation de l’agrégation plaquettaire.",
+        "content": "$\\mathrm{TXA_2}$ — vasoconstriction et stimulation de l’agrégation plaquettaire.",
         "correct": true,
-        "explanation": "Le thromboxane A₂ produit notamment par les plaquettes favorise vasoconstriction et agrégation."
+        "explanation": "Le thromboxane $\\mathrm{A_2}$ produit notamment par les plaquettes favorise vasoconstriction et agrégation."
       },
       {
-        "content": "PGI₂ — vasodilatation et inhibition de l’agrégation plaquettaire.",
+        "content": "$\\mathrm{PGI_2}$ — vasodilatation et inhibition de l’agrégation plaquettaire.",
         "correct": true,
-        "explanation": "La prostacycline endothéliale exerce des effets antagonistes de ceux du TXA₂."
+        "explanation": "La prostacycline endothéliale exerce des effets antagonistes de ceux du $\\mathrm{TXA_2}$."
       },
       {
-        "content": "TXA₂ — puissant inhibiteur de l’agrégation plaquettaire.",
+        "content": "$\\mathrm{TXA_2}$ — puissant inhibiteur de l’agrégation plaquettaire.",
         "correct": false,
-        "explanation": "TXA₂ favorise au contraire l’agrégation plaquettaire."
+        "explanation": "$\\mathrm{TXA_2}$ favorise au contraire l’agrégation plaquettaire."
       },
       {
-        "content": "PGI₂ — bronchoconstriction comme fonction principale dans ce couple vasculaire.",
+        "content": "$\\mathrm{PGI_2}$ — bronchoconstriction comme fonction principale dans ce couple vasculaire.",
         "correct": false,
-        "explanation": "Dans ce couple, PGI₂ est surtout décrite comme vasodilatatrice et antiagrégante."
+        "explanation": "Dans ce couple, $\\mathrm{PGI_2}$ est surtout décrite comme vasodilatatrice et antiagrégante."
       },
       {
-        "content": "PGE₂ — enzyme qui hydrolyse l’acide arachidonique en position sn-2.",
+        "content": "$\\mathrm{PGE_2}$ — enzyme qui hydrolyse l’acide arachidonique en position $\\mathrm{sn}$-2.",
         "correct": false,
-        "explanation": "PGE₂ est une prostaglandine ; l’enzyme qui libère un acide gras en sn-2 est une phospholipase A₂."
+        "explanation": "$\\mathrm{PGE_2}$ est une prostaglandine ; l’enzyme qui libère un acide gras en $\\mathrm{sn}$-2 est une phospholipase $\\mathrm{A_2}$."
       }
     ]
   },
@@ -321,9 +321,9 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Ces deux familles sont produites dans la branche cyclo-oxygénase."
       },
       {
-        "content": "La 5-lipoxygénase participe à la formation du leucotriène A4 à partir de l’acide arachidonique.",
+        "content": "La $5$-lipoxygénase participe à la formation du leucotriène $\\mathrm{A_4}$ à partir de l’acide arachidonique.",
         "correct": true,
-        "explanation": "LTA4 est un intermédiaire majeur de la voie des leucotriènes."
+        "explanation": "$\\mathrm{LTA_4}$ est un intermédiaire majeur de la voie des leucotriènes."
       },
       {
         "content": "Les eicosanoïdes exercent souvent une action locale avec une demi-vie courte.",
@@ -346,8 +346,8 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "order": 10,
     "difficulty": "EASY",
     "format": "QROC",
-    "question": "L’acide palmitique est noté 16:0. Combien d’atomes de carbone comporte sa chaîne ? Donnez uniquement la valeur numérique.",
-    "explanation": "Dans la notation abrégée des acides gras n:m, n indique le nombre total d’atomes de carbone et m le nombre de doubles liaisons C=C. L’acide palmitique 16:0 possède donc 16 carbones et aucune double liaison.",
+    "question": "L’acide palmitique est noté $16:0$. Combien d’atomes de carbone comporte sa chaîne ? Donnez uniquement la valeur numérique.",
+    "explanation": "Dans la notation abrégée des acides gras $n:m$, $n$ indique le nombre total d’atomes de carbone et $m$ le nombre de doubles liaisons $\\ce{C=C}$. L’acide palmitique $16:0$ possède donc 16 carbones et aucune double liaison.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -407,7 +407,7 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRM",
     "question": "En comparant les molécules A et B, quelles propositions sont exactes ?",
-    "explanation": "Un triacylglycérol est un glycérol dont les trois fonctions alcool sont estérifiées par des acides gras. Un acide phosphatidique possède deux chaînes acyles en sn-1 et sn-2 et un phosphate en sn-3 ; l’ajout d’un alcool sur ce phosphate conduit à différentes classes de glycérophospholipides. Un lysophospholipide résulte de la perte d’une chaîne acyle d’un phospholipide diacylé.",
+    "explanation": "Un triacylglycérol est un glycérol dont les trois fonctions alcool sont estérifiées par des acides gras. Un acide phosphatidique possède deux chaînes acyles en $\\mathrm{sn}$-1 et $\\mathrm{sn}$-2 et un phosphate en $\\mathrm{sn}$-3 ; l’ajout d’un alcool sur ce phosphate conduit à différentes classes de glycérophospholipides. Un lysophospholipide résulte de la perte d’une chaîne acyle d’un phospholipide diacylé.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -422,7 +422,7 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "C’est la structure fondamentale d’un triglycéride."
       },
       {
-        "content": "Dans la molécule A, deux acides gras estérifient les positions sn-1 et sn-2 du glycérol tandis qu’un phosphate est lié au sn-3.",
+        "content": "Dans la molécule A, deux acides gras estérifient les positions $\\mathrm{sn}$-1 et $\\mathrm{sn}$-2 du glycérol tandis qu’un phosphate est lié au $\\mathrm{sn}$-3.",
         "correct": true,
         "explanation": "Il constitue un précurseur structural de nombreux glycérophospholipides."
       },
@@ -439,7 +439,7 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un lysophospholipide possède nécessairement trois chaînes acyles.",
         "correct": false,
-        "explanation": "Il résulte typiquement de la perte d’un acide gras d’un phospholipide, par exemple en sn-2."
+        "explanation": "Il résulte typiquement de la perte d’un acide gras d’un phospholipide, par exemple en $\\mathrm{sn}$-2."
       }
     ]
   },
@@ -448,7 +448,7 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRP",
     "question": "En vous appuyant sur l’organisation de la molécule A, sélectionnez exactement les deux associations enzyme–site de coupure correctes.",
-    "explanation": "La phospholipase A1 hydrolyse l’ester portant l’acide gras en sn-1. La phospholipase A2 agit sur l’ester en sn-2. La phospholipase C coupe du côté glycérol du phosphodiester, alors que la phospholipase D hydrolyse la liaison entre le phosphate et l’alcool de la tête polaire.",
+    "explanation": "La phospholipase $\\mathrm{A_1}$ hydrolyse l’ester portant l’acide gras en $\\mathrm{sn}$-1. La phospholipase $\\mathrm{A_2}$ agit sur l’ester en $\\mathrm{sn}$-2. La phospholipase $\\mathrm{C}$ coupe du côté glycérol du phosphodiester, alors que la phospholipase $\\mathrm{D}$ hydrolyse la liaison entre le phosphate et l’alcool de la tête polaire.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -459,29 +459,29 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "requiredSelectionCount": 2,
     "choices": [
       {
-        "content": "Phospholipase A1 — liaison ester de l’acide gras porté par le carbone sn-1.",
+        "content": "Phospholipase $\\mathrm{A_1}$ — liaison ester de l’acide gras porté par le carbone $\\mathrm{sn}$-1.",
         "correct": true,
-        "explanation": "PLA1 hydrolyse l’ester acyle en position sn-1."
+        "explanation": "$\\mathrm{PLA_1}$ hydrolyse l’ester acyle en position $\\mathrm{sn}$-1."
       },
       {
-        "content": "Phospholipase D — liaison entre le phosphate et l’alcool constituant la tête polaire.",
+        "content": "Phospholipase $\\mathrm{D}$ — liaison entre le phosphate et l’alcool constituant la tête polaire.",
         "correct": true,
-        "explanation": "PLD libère la tête alcool en hydrolysant cette liaison phosphodiester."
+        "explanation": "$\\mathrm{PLD}$ libère la tête alcool en hydrolysant cette liaison phosphodiester."
       },
       {
-        "content": "Phospholipase A2 — liaison entre le glycérol et le phosphate.",
+        "content": "Phospholipase $\\mathrm{A_2}$ — liaison entre le glycérol et le phosphate.",
         "correct": false,
-        "explanation": "PLA2 hydrolyse l’ester acyle en sn-2 ; la liaison glycérol–phosphate est la cible de PLC."
+        "explanation": "$\\mathrm{PLA_2}$ hydrolyse l’ester acyle en $\\mathrm{sn}$-2 ; la liaison glycérol–phosphate est la cible de $\\mathrm{PLC}$."
       },
       {
-        "content": "Phospholipase C — liaison ester de l’acide gras en sn-1.",
+        "content": "Phospholipase $\\mathrm{C}$ — liaison ester de l’acide gras en $\\mathrm{sn}$-1.",
         "correct": false,
-        "explanation": "PLC coupe du côté glycérol–phosphate, pas une liaison acyle en sn-1."
+        "explanation": "$\\mathrm{PLC}$ coupe du côté glycérol–phosphate, pas une liaison acyle en $\\mathrm{sn}$-1."
       },
       {
-        "content": "Phospholipase D — liaison amide du céramide.",
+        "content": "Phospholipase $\\mathrm{D}$ — liaison amide du céramide.",
         "correct": false,
-        "explanation": "La liaison amide du céramide appartient au métabolisme des sphingolipides et n’est pas la cible définissant PLD."
+        "explanation": "La liaison amide du céramide appartient au métabolisme des sphingolipides et n’est pas la cible définissant $\\mathrm{PLD}$."
       }
     ]
   },
@@ -531,7 +531,7 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "EASY",
     "format": "QROC",
     "question": "Quel amino-diol à 18 carbones constitue le squelette de base des sphingolipides ?",
-    "explanation": "La sphingosine est le squelette caractéristique des sphingolipides. Son amine en C2 peut former une liaison amide avec un acide gras pour donner un céramide.",
+    "explanation": "La sphingosine est le squelette caractéristique des sphingolipides. Son amine en $\\mathrm{C}2$ peut former une liaison amide avec un acide gras pour donner un céramide.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -559,7 +559,7 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRU",
     "question": "Quelle description correspond à un céramide ?",
-    "explanation": "Un céramide associe une sphingosine et un acide gras par une liaison amide impliquant l’amine en C2 de la sphingosine.",
+    "explanation": "Un céramide associe une sphingosine et un acide gras par une liaison amide impliquant l’amine en $\\mathrm{C}2$ de la sphingosine.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -574,7 +574,7 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Cette structure correspond à un triacylglycérol."
       },
       {
-        "content": "Un cholestérol dont l’hydroxyle en C3 est estérifié par un acide gras.",
+        "content": "Un cholestérol dont l’hydroxyle en $\\mathrm{C}3$ est estérifié par un acide gras.",
         "correct": false,
         "explanation": "Cette structure correspond à un stéride, ou ester de cholestérol."
       },
@@ -600,7 +600,7 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "HARD",
     "format": "QRM",
     "question": "Concernant les sphingolipides et certaines sphingolipidoses, quelles propositions sont exactes ?",
-    "explanation": "Les glycosphingolipides dérivent du céramide et portent un ou plusieurs oses en C1. Leur dégradation est lysosomale et des déficits enzymatiques peuvent provoquer des maladies d’accumulation caractéristiques.",
+    "explanation": "Les glycosphingolipides dérivent du céramide et portent un ou plusieurs oses en $\\mathrm{C}1$. Leur dégradation est lysosomale et des déficits enzymatiques peuvent provoquer des maladies d’accumulation caractéristiques.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -620,14 +620,14 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Un glucosylcéramide ou un galactosylcéramide est un cérébroside."
       },
       {
-        "content": "La maladie de Tay-Sachs est associée à un déficit en hexosaminidase et à une accumulation de ganglioside GM2.",
+        "content": "La maladie de Tay-Sachs est associée à un déficit en hexosaminidase et à une accumulation de ganglioside $\\mathrm{GM_2}$.",
         "correct": true,
-        "explanation": "Le défaut de dégradation du GM2 entraîne son accumulation."
+        "explanation": "Le défaut de dégradation du $\\mathrm{GM_2}$ entraîne son accumulation."
       },
       {
-        "content": "La maladie de Gaucher correspond à une accumulation de phosphatidylcholine due à un déficit en phospholipase A2.",
+        "content": "La maladie de Gaucher correspond à une accumulation de phosphatidylcholine due à un déficit en phospholipase $\\mathrm{A_2}$.",
         "correct": false,
-        "explanation": "Elle concerne la dégradation du glucosylcéramide, classiquement par déficit en glucocérébrosidase/β-glucosidase."
+        "explanation": "Elle concerne la dégradation du glucosylcéramide, classiquement par déficit en glucocérébrosidase/$\\beta$-glucosidase."
       },
       {
         "content": "Les gangliosides sont dépourvus de tout résidu glucidique.",
@@ -652,29 +652,29 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "requiredSelectionCount": 2,
     "choices": [
       {
-        "content": "Tay-Sachs — déficit en β-hexosaminidase avec accumulation de GM2.",
+        "content": "Tay-Sachs — déficit en $\\beta$-hexosaminidase avec accumulation de $\\mathrm{GM_2}$.",
         "correct": true,
-        "explanation": "Le ganglioside GM2 s’accumule lorsque l’hexosaminidase nécessaire à sa dégradation est déficiente."
+        "explanation": "Le ganglioside $\\mathrm{GM_2}$ s’accumule lorsque l’hexosaminidase nécessaire à sa dégradation est déficiente."
       },
       {
-        "content": "Gaucher — déficit en glucocérébrosidase/β-glucosidase avec accumulation de glucosylcéramide.",
+        "content": "Gaucher — déficit en glucocérébrosidase/$\\beta$-glucosidase avec accumulation de glucosylcéramide.",
         "correct": true,
         "explanation": "Le glucosylcéramide n’est plus correctement dégradé et s’accumule."
       },
       {
-        "content": "Fabry — déficit en cyclo-oxygénase avec accumulation de thromboxane A2.",
+        "content": "Fabry — déficit en cyclo-oxygénase avec accumulation de thromboxane $\\mathrm{A_2}$.",
         "correct": false,
-        "explanation": "Fabry est une sphingolipidose liée à un déficit en α-galactosidase A, pas à la voie COX."
+        "explanation": "Fabry est une sphingolipidose liée à un déficit en $\\alpha$-galactosidase $\\mathrm{A}$, pas à la voie COX."
       },
       {
-        "content": "Krabbe — déficit en phospholipase D avec accumulation de phosphatidylcholine.",
+        "content": "Krabbe — déficit en phospholipase $\\mathrm{D}$ avec accumulation de phosphatidylcholine.",
         "correct": false,
-        "explanation": "Krabbe concerne la dégradation de galactosylcéramides, pas celle des glycérophospholipides par PLD."
+        "explanation": "Krabbe concerne la dégradation de galactosylcéramides, pas celle des glycérophospholipides par $\\mathrm{PLD}$."
       },
       {
         "content": "Tay-Sachs — déficit en sphingomyélinase avec accumulation exclusive de cholestérol estérifié.",
         "correct": false,
-        "explanation": "Le couple classique à retenir est déficit en hexosaminidase et accumulation de GM2."
+        "explanation": "Le couple classique à retenir est déficit en hexosaminidase et accumulation de $\\mathrm{GM_2}$."
       }
     ]
   },
@@ -683,7 +683,7 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "difficulty": "MEDIUM",
     "format": "QRM",
     "question": "À propos des stérols, stérides et stéroïdes, quelles propositions sont exactes ?",
-    "explanation": "Le noyau stérane comporte quatre cycles fusionnés. Un stérol porte notamment un hydroxyle en C3 ; son estérification par un acide gras forme un stéride plus hydrophobe.",
+    "explanation": "Le noyau stérane comporte quatre cycles fusionnés. Un stérol porte notamment un hydroxyle en $\\mathrm{C}3$ ; son estérification par un acide gras forme un stéride plus hydrophobe.",
     "tags": [
       "usage:COLLE",
       "ue:UE14",
@@ -698,14 +698,14 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Cette architecture tétracyclique est commune aux stéroïdes."
       },
       {
-        "content": "Le cholestérol libre possède un groupement hydroxyle en C3 qui lui confère une petite région polaire.",
+        "content": "Le cholestérol libre possède un groupement hydroxyle en $\\mathrm{C}3$ qui lui confère une petite région polaire.",
         "correct": true,
-        "explanation": "Cet OH explique le caractère amphipathique du cholestérol libre."
+        "explanation": "Cet $\\mathrm{OH}$ explique le caractère amphipathique du cholestérol libre."
       },
       {
         "content": "L’estérification de l’hydroxyle du cholestérol par un acide gras augmente son caractère hydrophobe.",
         "correct": true,
-        "explanation": "Le groupement OH libre est masqué et la molécule devient plus apolaire."
+        "explanation": "Le groupement $\\mathrm{OH}$ libre est masqué et la molécule devient plus apolaire."
       },
       {
         "content": "Un stéride est un glycérol portant trois acides gras.",
@@ -809,9 +809,9 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Ils facilitent notamment la dispersion des lipides dans le tube digestif."
       },
       {
-        "content": "Le cholestérol estérifié est plus amphiphile que le cholestérol libre parce qu’il expose davantage son groupement OH.",
+        "content": "Le cholestérol estérifié est plus amphiphile que le cholestérol libre parce qu’il expose davantage son groupement $\\mathrm{OH}$.",
         "correct": false,
-        "explanation": "L’estérification masque l’OH et rend la molécule plus hydrophobe."
+        "explanation": "L’estérification masque l’$\\mathrm{OH}$ et rend la molécule plus hydrophobe."
       },
       {
         "content": "La vitamine D est un triacylglycérol de réserve du tissu adipeux.",
@@ -847,7 +847,7 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un céramide contient une liaison amide entre un acide gras et la sphingosine.",
         "correct": true,
-        "explanation": "Cette liaison implique l’amine en C2 de la sphingosine."
+        "explanation": "Cette liaison implique l’amine en $\\mathrm{C}2$ de la sphingosine."
       },
       {
         "content": "Le cholestérol possède un noyau stérane et non un squelette glycérol triestérifié.",
@@ -907,9 +907,9 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     "requiredSelectionCount": 5,
     "choices": [
       {
-        "content": "Un acide gras 18:3 n-3 appartient à une famille oméga-3.",
+        "content": "Un acide gras $18:3\\ \\text{n}-3$ appartient à une famille oméga-3.",
         "correct": true,
-        "explanation": "La notation n-3 indique que la première double liaison est située à trois carbones de l’extrémité méthyle."
+        "explanation": "La notation $\\text{n}-3$ indique que la première double liaison est située à trois carbones de l’extrémité méthyle."
       },
       {
         "content": "La voie des cyclo-oxygénases participe à la formation des prostanoïdes.",
@@ -924,12 +924,12 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "Un céramide est formé d’une sphingosine et d’un acide gras unis par une liaison amide.",
         "correct": true,
-        "explanation": "Le groupement amine en C2 de la sphingosine est acylé par l’acide gras."
+        "explanation": "Le groupement amine en $\\mathrm{C}2$ de la sphingosine est acylé par l’acide gras."
       },
       {
         "content": "Le cholestérol libre est amphipathique grâce notamment à son groupement hydroxyle.",
         "correct": true,
-        "explanation": "Le reste de la molécule est largement hydrophobe, mais l’OH constitue une petite région polaire."
+        "explanation": "Le reste de la molécule est largement hydrophobe, mais l’$\\mathrm{OH}$ constitue une petite région polaire."
       },
       {
         "content": "Un triacylglycérol contient obligatoirement un groupement phosphate.",
@@ -942,9 +942,9 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         "explanation": "Ils sont issus de la voie des lipoxygénases."
       },
       {
-        "content": "La phospholipase A2 hydrolyse spécifiquement l’ester acyle en sn-1.",
+        "content": "La phospholipase $\\mathrm{A_2}$ hydrolyse spécifiquement l’ester acyle en $\\mathrm{sn}$-1.",
         "correct": false,
-        "explanation": "PLA2 agit en sn-2 ; PLA1 agit en sn-1."
+        "explanation": "$\\mathrm{PLA_2}$ agit en $\\mathrm{sn}$-2 ; $\\mathrm{PLA_1}$ agit en $\\mathrm{sn}$-1."
       },
       {
         "content": "La sphingomyéline est un triacylglycérol de réserve dépourvu d’azote et de phosphate.",
@@ -954,7 +954,7 @@ export const UE14_COLLE_C05_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         "content": "L’estérification du cholestérol augmente l’exposition de son hydroxyle et renforce son hydrophilie.",
         "correct": false,
-        "explanation": "L’estérification masque l’OH et augmente l’hydrophobicité."
+        "explanation": "L’estérification masque l’$\\mathrm{OH}$ et augmente l’hydrophobicité."
       }
     ]
   }

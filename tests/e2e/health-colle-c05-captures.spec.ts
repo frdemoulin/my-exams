@@ -58,6 +58,7 @@ test.describe.serial("Santé — Colle C05 Captures & Recette Visuelle", () => {
     
     // Capture 1: Q11 desktop
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c05-q11-desktop.png") });
+    await page.screenshot({ path: path.join(process.cwd(), "tmp", "c05-katex-after.png") });
 
     // Q11 answer: Choice C (Choline)
     await page.getByTestId("health-mock-exam-choice-2").click();
