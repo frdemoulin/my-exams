@@ -25,6 +25,10 @@ import { cn } from "@/lib/utils";
 
 import { HealthEvaluationColorLegend } from "@/components/health/HealthEvaluationColorLegend";
 
+import { formatCountMetric, formatDurationMetric } from "@/lib/format-metrics";
+import { getHealthColleBySlug } from "@/core/health-colle";
+import { getHealthMockExamBlueprint } from "@/core/health-mock-exam/health-mock-exam.config";
+
 type HealthMockExamResultsProps = {
   result: HealthMockExamResults;
   restartHref: string;
@@ -32,20 +36,6 @@ type HealthMockExamResultsProps = {
   headingLabel?: string;
   restartLabel?: string;
 };
-
-function formatElapsedTime(elapsedSeconds: number) {
-  const hours = Math.floor(elapsedSeconds / 3600);
-  const minutes = Math.floor((elapsedSeconds % 3600) / 60);
-  const seconds = elapsedSeconds % 60;
-
-  if (hours > 0) {
-    return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(
-      seconds,
-    ).padStart(2, "0")}`;
-  }
-
-  return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
-}
 
 function formatScore(score: number, forceTwoDecimalsForFractions = true): string {
   if (Number.isInteger(score)) {
@@ -72,6 +62,21 @@ export function HealthMockExamResults({
   restartLabel = "Recommencer la colle",
 }: HealthMockExamResultsProps) {
   const progressBarColor = useMemo(() => getProgressBarColor(result.percentage), [result.percentage]);
+
+  const canonicalLimitSeconds = useMemo(() => {
+    if (typeof result.durationSeconds === "number" && result.durationSeconds > 0) {
+      return result.durationSeconds;
+    }
+    const colle = getHealthColleBySlug(result.slug);
+    if (colle?.durationMinutes) {
+      return Math.round(colle.durationMinutes * 60);
+    }
+    const blueprint = getHealthMockExamBlueprint(result.slug);
+    if (blueprint?.durationMinutes) {
+      return Math.round(blueprint.durationMinutes * 60);
+    }
+    return null;
+  }, [result.durationSeconds, result.slug]);
 
   const fullCreditCount = useMemo(
     () =>
@@ -157,9 +162,14 @@ export function HealthMockExamResults({
                   label="Information sur le plein crédit"
                 />
               </div>
-              <p className="mt-2 text-2xl font-bold text-emerald-700 dark:text-emerald-300">
-                {fullCreditCount}
-              </p>
+              <div className="mt-2 flex items-baseline gap-1">
+                <span className="text-2xl font-bold text-emerald-700 dark:text-emerald-300">
+                  {fullCreditCount}
+                </span>
+                <span className="text-sm font-medium text-muted-foreground">
+                  / {result.questions.length}
+                </span>
+              </div>
               <p className="text-xs text-muted-foreground">
                 {result.questions.length > 0 ? `${Math.round((fullCreditCount / result.questions.length) * 100)} % des questions` : ""}
               </p>
@@ -170,11 +180,16 @@ export function HealthMockExamResults({
               <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                 À revoir
               </p>
-              <p className="mt-2 text-2xl font-bold text-rose-700 dark:text-rose-300">
-                {reviewCount}
-              </p>
+              <div className="mt-2 flex items-baseline gap-1">
+                <span className="text-2xl font-bold text-rose-700 dark:text-rose-300">
+                  {reviewCount}
+                </span>
+                <span className="text-sm font-medium text-muted-foreground">
+                  / {result.questions.length}
+                </span>
+              </div>
               <p className="text-xs text-muted-foreground">
-                {reviewCount === 0 ? "Aucune erreur" : `${reviewCount} question${reviewCount > 1 ? "s" : ""}`}
+                question{result.questions.length > 1 ? "s" : ""}
               </p>
             </div>
 
@@ -184,9 +199,11 @@ export function HealthMockExamResults({
                 Durée
               </p>
               <p className="mt-2 text-2xl font-bold text-heading">
-                {formatElapsedTime(result.elapsedSeconds)}
+                {formatDurationMetric(result.elapsedSeconds, canonicalLimitSeconds)}
               </p>
-              <p className="text-xs text-muted-foreground">temps effectif</p>
+              <p className="text-xs text-muted-foreground">
+                {canonicalLimitSeconds ? "temps effectif / temps alloué" : "temps effectif"}
+              </p>
             </div>
           </div>
         </CardHeader>

@@ -167,6 +167,7 @@ export type HealthMockExamResults = {
   status: "SUBMITTED" | "EXPIRED" | "ABANDONED";
   submittedAt: string | null;
   elapsedSeconds: number;
+  durationSeconds?: number | null;
   score: number;
   maxScore: number;
   percentage: number;

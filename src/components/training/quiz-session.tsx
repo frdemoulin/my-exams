@@ -16,6 +16,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
+import { formatCountMetric, formatDurationMetric } from '@/lib/format-metrics';
 import {
   Table,
   TableBody,
@@ -1245,15 +1246,19 @@ export function QuizSession({
                 <p className="text-xs font-semibold uppercase tracking-wide opacity-70">
                   Bonnes réponses
                 </p>
-                <p className="mt-2 text-2xl font-semibold">{correctQuestionsCount}</p>
+                <div className="mt-2 flex items-baseline gap-1">
+                  <span className="text-2xl font-semibold">{correctQuestionsCount}</span>
+                  <span className="text-sm opacity-70">/ {sessionQuestions.length}</span>
+                </div>
               </div>
               <div className="rounded-xl border border-current/15 bg-background/60 p-4">
                 <p className="text-xs font-semibold uppercase tracking-wide opacity-70">
                   Questions à retravailler
                 </p>
-                <p className="mt-2 text-2xl font-semibold">
-                  {incorrectQuestions.length}
-                </p>
+                <div className="mt-2 flex items-baseline gap-1">
+                  <span className="text-2xl font-semibold">{incorrectQuestions.length}</span>
+                  <span className="text-sm opacity-70">/ {sessionQuestions.length}</span>
+                </div>
               </div>
               <div className="rounded-xl border border-current/15 bg-background/60 p-4">
                 <p className="text-xs font-semibold uppercase tracking-wide opacity-70">

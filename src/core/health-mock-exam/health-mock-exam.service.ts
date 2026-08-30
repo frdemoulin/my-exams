@@ -774,6 +774,8 @@ export async function fetchHealthMockExamResults(input: {
         select: {
           title: true,
           slug: true,
+          durationMinutes: true,
+          durationSeconds: true,
           courseUnit: { select: { id: true, title: true } },
         },
       },
@@ -948,6 +950,7 @@ export async function fetchHealthMockExamResults(input: {
     status: attempt.status as "SUBMITTED" | "EXPIRED" | "ABANDONED",
     submittedAt: attempt.submittedAt?.toISOString() ?? null,
     elapsedSeconds: attempt.elapsedSeconds ?? 0,
+    durationSeconds: attempt.mockExam.durationSeconds ?? (attempt.mockExam.durationMinutes ? Math.round(attempt.mockExam.durationMinutes * 60) : null),
     score: attempt.score,
     maxScore: attempt.maxScore,
     percentage: attempt.percentage,
