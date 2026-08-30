@@ -126,12 +126,20 @@ export function HealthMockExamResults({
               <span>{headingLabel}</span>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               {result.autoSubmitted ? (
                 <Badge variant="outline" className="border-amber-400 bg-amber-50 text-amber-900 dark:border-amber-800 dark:bg-amber-950/40 dark:text-amber-200">
                   <Clock3 className="mr-1 h-3 w-3" aria-hidden="true" />
                   Temps limite atteint
                 </Badge>
+              ) : null}
+              {correctionHref ? (
+                <Button asChild size="sm" className="gap-1.5 text-xs font-semibold">
+                  <Link href={correctionHref}>
+                    Voir la correction détaillée
+                    <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                  </Link>
+                </Button>
               ) : null}
               <Button asChild variant="outline" size="sm" className="gap-1.5 text-xs">
                 <Link href={restartHref}>
@@ -366,24 +374,6 @@ export function HealthMockExamResults({
         </CardContent>
       </Card>
 
-      {/* 4. Actions principales */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 rounded-2xl border border-border bg-card/80 p-4 shadow-xs">
-        {correctionHref ? (
-          <Button asChild size="lg" className="w-full sm:w-auto gap-2 font-semibold">
-            <Link href={correctionHref}>
-              Voir la correction détaillée
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Button>
-        ) : null}
-
-        <Button asChild variant="outline" size="lg" className="w-full sm:w-auto gap-2">
-          <Link href={restartHref}>
-            <RotateCcw className="h-4 w-4" />
-            {restartLabel}
-          </Link>
-        </Button>
-      </div>
     </div>
   );
 }

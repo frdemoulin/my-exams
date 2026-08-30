@@ -212,8 +212,10 @@ test.describe.serial("Santé — Colle C12 Captures & Recette Visuelle", () => {
 
     await expect(page).toHaveURL(/\/sante\/ue\/.*\/colles\/c12\/resultats\//, { timeout: 15000 });
 
+    // Capture Bilan C12 desktop
+    await page.screenshot({ path: path.join(screenshotsTmpDir, "c12-bilan-desktop.png") });
+
     // Go to detailed correction
-    // Arrivée sur la correction détaillée
     await page.getByRole("link", { name: "Voir la correction détaillée" }).click();
     await expect(page).toHaveURL(/\/sante\/ue\/.*\/colles\/c12\/resultats\/.*\/correction/, { timeout: 15000 });
 
@@ -256,6 +258,7 @@ test.describe.serial("Santé — Colle C12 Captures & Recette Visuelle", () => {
     const screenshotFiles = [
       "c12-intro-desktop.png",
       "c12-passation-desktop.png",
+      "c12-bilan-desktop.png",
       "c12-correction-desktop.png",
       "c12-q13-desktop.png",
       "c12-q14-desktop.png",

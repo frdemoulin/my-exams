@@ -136,9 +136,20 @@ test.describe.serial("Santé — Colle C01 Captures & Recette Visuelle", () => {
 
     await expect(page).toHaveURL(/\/sante\/ue\/.*\/colles\/c01\/resultats\//, { timeout: 15000 });
 
-    // Go to detailed correction
+    // Capture Bilan desktop
+    await page.screenshot({ path: path.join(screenshotsTmpDir, "c01-bilan-desktop.png") });
+
+    // Capture Bilan mobile 375 px
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.screenshot({ path: path.join(screenshotsTmpDir, "c01-bilan-mobile-375.png") });
+    await page.setViewportSize({ width: 1280, height: 800 });
+
+    // Vérifier l'unicité de l'action Voir la correction détaillée dans l'en-tête
     const seeCorrectionBtn = page.getByRole("link", { name: "Voir la correction détaillée" });
+    await expect(seeCorrectionBtn).toHaveCount(1);
     await expect(seeCorrectionBtn).toBeVisible();
+
+    // Go to detailed correction
     await seeCorrectionBtn.click();
     await expect(page).toHaveURL(/\/sante\/ue\/.*\/colles\/c01\/resultats\/.*\/correction/, { timeout: 15000 });
 
@@ -177,6 +188,8 @@ test.describe.serial("Santé — Colle C01 Captures & Recette Visuelle", () => {
       "c01-q19-desktop.png",
       "c01-q19-mobile-375.png",
       "c01-passation-desktop.png",
+      "c01-bilan-desktop.png",
+      "c01-bilan-mobile-375.png",
       "c01-correction-desktop.png",
       "c01-correction-mobile-375.png",
     ];
