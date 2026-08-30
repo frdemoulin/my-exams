@@ -143,6 +143,7 @@ test.describe.serial("Santé — Colle C03 Captures & Recette Visuelle", () => {
     // Capture 8: Q19 correction
     await expect(page.getByText("Question 19", { exact: true })).toBeVisible();
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c03-q19-correction.png") });
+    await page.screenshot({ path: path.join(process.cwd(), "tmp", "c03-katex-after.png") });
 
     // Copy screenshots to artifacts directory
     const screenshotFiles = [
