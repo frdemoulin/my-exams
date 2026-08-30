@@ -10,8 +10,7 @@ const skipWebServer = process.env.E2E_SKIP_SERVER === "true";
 export default defineConfig({
   testDir: "./tests/e2e",
   timeout: 60 * 1000,
-  fullyParallel: false,
-  workers: 1,
+  fullyParallel: true,
   retries: process.env.CI ? 2 : 0,
   use: {
     baseURL,
