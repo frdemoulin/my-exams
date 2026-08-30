@@ -742,6 +742,17 @@ export async function submitTrainingQuizSession(
   }> = [];
 
   for (const attemptQuestion of attempt.attemptQuestions) {
+    // Refuser la soumission si la question a muté depuis le démarrage de la session
+    if (
+      attemptQuestion.questionUpdatedAt &&
+      attemptQuestion.question.updatedAt &&
+      attemptQuestion.questionUpdatedAt.getTime() !== attemptQuestion.question.updatedAt.getTime()
+    ) {
+      throw new Error(
+        'Une ou plusieurs questions ont été modifiées depuis le début de votre session. Veuillez recommencer le quiz.'
+      );
+    }
+
     const canonicalQuestion = buildCanonicalQuestionFromDb(
       attemptQuestion.question,
     );

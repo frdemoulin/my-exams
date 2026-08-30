@@ -77,6 +77,16 @@ function simulateSubmitQuizSession({
 
   // Strictly evaluate ONLY questions belonging to the registered attempt
   for (const aq of attempt.attemptQuestions) {
+    if (
+      aq.questionUpdatedAt &&
+      aq.question.updatedAt &&
+      aq.questionUpdatedAt.getTime() !== aq.question.updatedAt.getTime()
+    ) {
+      throw new Error(
+        'Une ou plusieurs questions ont été modifiées depuis le début de votre session. Veuillez recommencer le quiz.'
+      );
+    }
+
     const canonicalQuestion = normalizePersistedQuestion({
       id: aq.question.id,
       question: aq.question.question,
@@ -275,4 +285,48 @@ test('Session Security: questionUpdatedAt capture la version de question lors du
   // L'horodatage capturé au démarrage de la tentative permet de détecter les mutations post-démarrage
   assert.ok(attemptQuestion.question.updatedAt > attemptQuestion.questionUpdatedAt);
   assert.equal(attemptQuestion.questionUpdatedAt.toISOString(), '2026-01-15T10:00:00.000Z');
+});
+
+test('Session Security: soumission refusée proprement si questionUpdatedAt diffère de la version courante', () => {
+  const initialDate = new Date('2026-01-15T10:00:00Z');
+  const laterEditDate = new Date('2026-02-01T14:30:00Z');
+
+  const attempt: SimulatedAttempt = {
+    id: 'attempt_mutated_q',
+    userId: 'user_1',
+    chapterId: 'chapter_1',
+    quizId: 'quiz_1',
+    status: 'IN_PROGRESS',
+    attemptQuestions: [
+      {
+        id: 'aq_mutated',
+        questionId: 'q_chem_1',
+        order: 1,
+        questionUpdatedAt: initialDate,
+        question: {
+          id: 'q_chem_1',
+          question: 'Question modifiée dans le CMS entre le début et la fin',
+          choices: [{ id: 'c1', text: 'Option A modifiée' }],
+          correctChoiceIndexes: [0],
+          explanation: 'Nouvelle explication',
+          updatedAt: laterEditDate,
+        },
+        responsePayload: null,
+      },
+    ],
+  };
+
+  assert.throws(
+    () => {
+      simulateSubmitQuizSession({
+        attempt,
+        userId: 'user_1',
+        answers: [{ questionId: 'q_chem_1', selectedChoiceIndexes: [0] }],
+      });
+    },
+    {
+      message:
+        'Une ou plusieurs questions ont été modifiées depuis le début de votre session. Veuillez recommencer le quiz.',
+    }
+  );
 });
