@@ -21,21 +21,15 @@ export async function seedHealthColleUE14C09(prisma: PrismaClient) {
 
   const existingColle = await prisma.healthMockExam.findFirst({
     where: { courseUnitId: courseUnit.id, slug: "c09" },
+    include: {
+      sections: {
+        include: {
+          questionGroups: true,
+          questions: true,
+        },
+      },
+    },
   });
-
-  if (existingColle) {
-    const attemptCount = await prisma.userHealthMockExamAttempt.count({
-      where: { mockExamId: existingColle.id },
-    });
-    if (attemptCount === 0) {
-      await prisma.healthMockExam.delete({ where: { id: existingColle.id } });
-    } else {
-      console.warn(`[SEED C09] ${attemptCount} tentative(s) conservée(s). Mise à jour du contenu.`);
-      await prisma.healthMockExamSection.deleteMany({
-        where: { mockExamId: existingColle.id },
-      });
-    }
-  }
 
   const compiledQuestions = UE14_COLLE_C09_QUESTIONS.map((q) =>
     compileHealthTrainingAuthorQuestion(q)
@@ -48,11 +42,11 @@ export async function seedHealthColleUE14C09(prisma: PrismaClient) {
       order: 1,
       title: "Données communes — Mitochondrie et chaîne respiratoire",
       sharedStatement:
-        "Le schéma représente une mitochondrie et localise plusieurs éléments impliqués dans l’import des protéines et la chaîne respiratoire. Les complexes I à IV sont représentés dans la membrane interne ; l’accepteur terminal des électrons n’est volontairement pas indiqué.",
+        "Le schéma représente une mitochondrie et localise plusieurs éléments impliqués dans l'import des protéines et la chaîne respiratoire. Les complexes I à IV sont représentés dans la membrane interne ; l'accepteur terminal des électrons n'est volontairement pas indiqué.",
       sharedMedia: {
         type: "image",
         src: "/images/training/ue14/colles/c09/mitochondrial-chain-linked-q01-q03.svg",
-        alt: "Schéma d’une mitochondrie montrant les membranes externe et interne, le complexe TOM, les complexes respiratoires I à IV, l’ubiquinone, le cytochrome c et l’ATP synthase.",
+        alt: "Schéma d'une mitochondrie montrant les membranes externe et interne, le complexe TOM, les complexes respiratoires I à IV, l'ubiquinone, le cytochrome c et l'ATP synthase.",
       },
       questionOrders: [1, 2, 3],
     },
@@ -71,29 +65,81 @@ export async function seedHealthColleUE14C09(prisma: PrismaClient) {
     },
   ];
 
-  // Création de l'examen s'il n'existe plus ou mise à jour
-  const mockExam =
-    existingColle &&
-    (await prisma.userHealthMockExamAttempt.count({ where: { mockExamId: existingColle.id } })) > 0
-      ? existingColle
-      : await prisma.healthMockExam.create({
-          data: {
-            courseUnitId: courseUnit.id,
-            type: "COLLE",
-            title: "Biologie cellulaire — Cellule intégrée",
-            slug: "c09",
-            description: "Biologie cellulaire · Ch. 7 à 9 + rappels Ch. 1 à 6",
-            instructions: "Colle UE14 Reims — 25 questions — 37 min 30 s — Notation UNESS",
-            durationMinutes: 37.5,
-            durationSeconds: 2250,
-            questionCount: 25,
-            version: 1,
-            order: 9,
-            isPublished: true,
-          },
-        });
+  if (existingColle) {
+    const attemptCount = await prisma.userHealthMockExamAttempt.count({
+      where: { mockExamId: existingColle.id },
+    });
 
-  // Création de la section
+    if (attemptCount > 0) {
+      console.warn(`[SEED C09] ${attemptCount} tentative(s) conservée(s). Mise à jour du contenu des questions en place.`);
+      const section = existingColle.sections[0];
+      if (!section) throw new Error("Section introuvable pour C09.");
+
+      for (const groupSeed of groupsData) {
+        const existingGroup = section.questionGroups.find((g) => g.order === groupSeed.order);
+        if (existingGroup) {
+          await prisma.healthMockExamQuestionGroup.update({
+            where: { id: existingGroup.id },
+            data: {
+              title: groupSeed.title,
+              sharedStatement: groupSeed.sharedStatement,
+              sharedMedia: groupSeed.sharedMedia as any,
+            },
+          });
+        }
+      }
+
+      for (let index = 0; index < compiledQuestions.length; index++) {
+        const q = compiledQuestions[index];
+        const questionOrder = index + 1;
+        const stableId = `c09-q${String(questionOrder).padStart(2, "0")}`;
+        const existingQ = section.questions.find((sq) => sq.slug === stableId || sq.order === questionOrder);
+        const themeIds = [
+          ...((UE14_COLLE_THEME_IDS_BY_QUESTION_STABLE_ID as Record<string, readonly string[]>)[stableId] ?? []),
+        ];
+
+        if (existingQ) {
+          await prisma.healthMockExamQuestion.update({
+            where: { id: existingQ.id },
+            data: {
+              questionType: q.questionType ?? "mcq",
+              question: q.question,
+              questionDiagram: (q.questionDiagram as any) ?? undefined,
+              choices: (q.choices as any) ?? [],
+              answerFormat: q.answerFormat ?? "SINGLE",
+              correctChoiceIndexes: q.correctChoiceIndexes ?? [],
+              correctChoiceIndex: q.correctChoiceIndexes?.[0] ?? 0,
+              answerPayload: (q.answerPayload as any) ?? undefined,
+              explanation: q.explanation ?? "",
+              choiceExplanations: (q.choiceExplanations as any) ?? [],
+              themeIds,
+            },
+          });
+        }
+      }
+      return existingColle;
+    } else {
+      await prisma.healthMockExam.delete({ where: { id: existingColle.id } });
+    }
+  }
+
+  const mockExam = await prisma.healthMockExam.create({
+    data: {
+      courseUnitId: courseUnit.id,
+      type: "COLLE",
+      title: "Biologie cellulaire — Cellule intégrée",
+      slug: "c09",
+      description: "Biologie cellulaire · Ch. 7 à 9 + rappels Ch. 1 à 6",
+      instructions: "Colle UE14 Reims — 25 questions — 37 min 30 s — Notation UNESS",
+      durationMinutes: 37.5,
+      durationSeconds: 2250,
+      questionCount: 25,
+      version: 1,
+      order: 9,
+      isPublished: true,
+    },
+  });
+
   const section = await prisma.healthMockExamSection.create({
     data: {
       mockExamId: mockExam.id,
@@ -106,7 +152,6 @@ export async function seedHealthColleUE14C09(prisma: PrismaClient) {
     },
   });
 
-  // Création des groupes
   const groupIdsByOrder = new Map<number, string>();
   for (const groupSeed of groupsData) {
     const group = await prisma.healthMockExamQuestionGroup.create({
@@ -123,7 +168,6 @@ export async function seedHealthColleUE14C09(prisma: PrismaClient) {
     }
   }
 
-  // Création des questions avec groupe et themeIds
   for (let index = 0; index < compiledQuestions.length; index++) {
     const q = compiledQuestions[index];
     const questionOrder = index + 1;

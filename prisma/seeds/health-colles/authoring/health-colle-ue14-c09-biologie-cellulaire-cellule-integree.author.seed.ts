@@ -112,7 +112,7 @@ export const UE14_COLLE_C09_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         content: "Le peroxysome participe au raccourcissement des acides gras à très longue chaîne avant un relais possible vers la mitochondrie.",
         correct: true,
-        explanation: "La β-oxydation peroxysomale raccourcit notamment des VLCFA et peut fournir des produits ensuite pris en charge par la mitochondrie.",
+        explanation: "La $\\beta$-oxydation peroxysomale raccourcit notamment des VLCFA et peut fournir des produits ensuite pris en charge par la mitochondrie.",
       },
       {
         content: "Le peroxysome possède deux membranes alors que la mitochondrie n’en possède qu’une.",
@@ -136,11 +136,11 @@ export const UE14_COLLE_C09_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     difficulty: 'EASY',
     format: 'QRM',
     question: "À propos du génome mitochondrial humain et de l’expression des protéines mitochondriales, quelles propositions sont exactes ?",
-    explanation: "L’ADN mitochondrial humain est une petite molécule circulaire d’environ 16,6 kb. Il code une fraction très limitée des protéines de la phosphorylation oxydative, tandis que l’immense majorité des protéines mitochondriales est codée par le noyau.",
+    explanation: "L’ADN mitochondrial humain est une petite molécule circulaire d’environ $16{,}6\\,\\mathrm{kb}$. Il code une fraction très limitée des protéines de la phosphorylation oxydative, tandis que l’immense majorité des protéines mitochondriales est codée par le noyau.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C09', 'ec:BIOLOGIE_CELLULAIRE', 'theme:genome-mitochondrial'],
     choices: [
       {
-        content: "L’ADN mitochondrial humain est circulaire et mesure environ 16,6 kb.",
+        content: "L’ADN mitochondrial humain est circulaire et mesure environ $16{,}6\\,\\mathrm{kb}$.",
         correct: true,
         explanation: "Le génome mitochondrial humain est compact et très petit par rapport au génome nucléaire.",
       },
@@ -426,7 +426,7 @@ export const UE14_COLLE_C09_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Cette valeur correspond à l’ADN directement associé au cœur nucléosomique canonique.",
       },
       {
-        content: "Il est construit autour d’un tétramère unique de tubuline α/β.",
+        content: "Il est construit autour d’un tétramère unique de tubuline $\\alpha/\\beta$.",
         correct: false,
         explanation: "La tubuline appartient aux microtubules, pas à la chromatine.",
       },
@@ -795,7 +795,7 @@ export const UE14_COLLE_C09_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         content: "Au complexe IV, le dioxygène reçoit les électrons terminaux et contribue à la formation d’eau.",
         correct: true,
-        explanation: "Le complexe IV est la cytochrome c oxydase et utilise O₂ comme accepteur final.",
+        explanation: "Le complexe IV est la cytochrome c oxydase et utilise $\\ce{O2}$ comme accepteur final.",
       },
       {
         content: "La transcription du précurseur 45S des ARNr majeurs est assurée par l’ARN polymérase I.",

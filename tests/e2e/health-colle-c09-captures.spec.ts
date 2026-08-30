@@ -12,7 +12,7 @@ const appBaseUrl =
   process.env.E2E_BASE_URL ?? `http://localhost:${process.env.E2E_PORT ?? "3000"}`;
 
 const screenshotsTmpDir = path.join(process.cwd(), "tmp", "screenshots");
-const artifactsDir = "/Users/frdemoulin/.gemini/antigravity/brain/0fd9632c-605e-45de-a4db-cdd05f613f7a";
+const artifactsDir = process.cwd();
 
 test.describe.serial("Santé — Colle C09 Captures & Recette Visuelle", () => {
   test.use({ storageState: authFile });
@@ -165,6 +165,14 @@ test.describe.serial("Santé — Colle C09 Captures & Recette Visuelle", () => {
       "c09-q24-correction.png",
       "c09-q24-mobile-375.png",
     ];
+
+    // Save main closure screenshot for the TeX pass report
+    const closureSrc = path.join(screenshotsTmpDir, "c09-q02-desktop.png");
+    const closureDest = path.join(process.cwd(), "tmp", "c09-katex-after.png");
+    if (fs.existsSync(closureSrc)) {
+      fs.copyFileSync(closureSrc, closureDest);
+    }
+
 
     for (const file of screenshotFiles) {
       const src = path.join(screenshotsTmpDir, file);
