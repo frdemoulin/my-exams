@@ -89,6 +89,7 @@ test.describe.serial("Santé — Colle C01 Captures & Recette Visuelle", () => {
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c01-q17-desktop.png") });
 
     // Q17 answer 5 choices
+    await expect(page.getByTestId("health-mock-exam-choice-0")).toBeVisible();
     await page.getByTestId("health-mock-exam-choice-0").click();
     await page.getByTestId("health-mock-exam-choice-1").click();
     await page.getByTestId("health-mock-exam-choice-2").click();
