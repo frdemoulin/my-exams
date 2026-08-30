@@ -46,6 +46,7 @@ test.describe.serial("Santé — Colle C08 Captures & Recette Visuelle", () => {
 
     // Capture 1: Q1 desktop
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c08-q01-desktop.png") });
+    await page.screenshot({ path: path.join(process.cwd(), "tmp", "c08-katex-after.png") });
 
     // Q1 answer: A, C, D
     await page.getByTestId("health-mock-exam-choice-0").click();
@@ -54,7 +55,7 @@ test.describe.serial("Santé — Colle C08 Captures & Recette Visuelle", () => {
     await page.getByRole("button", { name: "Suivante" }).click();
 
     // Capture 2: Q2 desktop
-    await expect(page.getByText("Quel est l’acide aminé A, dont la chaîne latérale est –CH2–SH ?")).toBeVisible();
+    await expect(page.getByText(/Quel est l’acide aminé A, dont la chaîne latérale est/)).toBeVisible();
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c08-q02-desktop.png") });
 
     // Q2 answer: cystéine
@@ -62,7 +63,7 @@ test.describe.serial("Santé — Colle C08 Captures & Recette Visuelle", () => {
     await page.getByRole("button", { name: "Suivante" }).click();
 
     // Capture 3: Q3 desktop
-    await expect(page.getByText("Dans le dipeptide A–B, quelle propriété explique directement la faible liberté de rotation autour de la liaison C–N du motif C(=O)–NH ?")).toBeVisible();
+    await expect(page.getByText(/Dans le dipeptide A–B, quelle propriété explique directement la faible liberté de rotation/)).toBeVisible();
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c08-q03-desktop.png") });
 
     // Q3 answer: Choice A

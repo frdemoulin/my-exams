@@ -14,13 +14,13 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     difficulty: 'MEDIUM',
     format: 'QRM',
     question: "À propos des formes représentées pour A et B et de l’ionisation des acides aminés, quelles propositions sont exactes ?",
-    explanation: "Les acides aminés possèdent au minimum les fonctions α-carboxyle et α-amine, dont l’état de protonation dépend du pH. Une forme zwitterionique comporte simultanément des charges formelles opposées ; sa charge nette peut être nulle sans que les fonctions soient toutes non chargées. Le point isoélectrique correspond à un pH pour lequel la charge nette moyenne de l’espèce est nulle.",
+    explanation: "Les acides aminés possèdent au minimum les fonctions $\\alpha$-carboxyle et $\\alpha$-amine, dont l’état de protonation dépend du pH. Une forme zwitterionique comporte simultanément des charges formelles opposées ; sa charge nette peut être nulle sans que les fonctions soient toutes non chargées. Le point isoélectrique correspond à un pH pour lequel la charge nette moyenne de l’espèce est nulle.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C08', 'ec:BIOCHIMIE', 'theme:aa-ionisation'],
     choices: [
       {
         content: "Un acide aminé possède au minimum une fonction carboxylique et une fonction amine susceptibles de participer à son ionisation.",
         correct: true,
-        explanation: "Vrai. Les fonctions α-carboxyle et α-amine constituent au minimum deux fonctions ionisables.",
+        explanation: "Vrai. Les fonctions $\\alpha$-carboxyle et $\\alpha$-amine constituent au minimum deux fonctions ionisables.",
       },
       {
         content: "Au point isoélectrique, toutes les fonctions ionisables d’un acide aminé sont nécessairement sous forme non chargée.",
@@ -48,8 +48,8 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     order: 2,
     difficulty: 'EASY',
     format: 'QROC',
-    question: "Quel est l’acide aminé A, dont la chaîne latérale est –CH2–SH ?",
-    explanation: "La cystéine possède une chaîne latérale –CH2–SH contenant une fonction thiol. Elle se distingue notamment de la méthionine, qui contient un thioéther.",
+    question: "Quel est l’acide aminé A, dont la chaîne latérale est $-\\mathrm{CH_2-SH}$ ?",
+    explanation: "La cystéine possède une chaîne latérale $-\\mathrm{CH_2-SH}$ contenant une fonction thiol. Elle se distingue notamment de la méthionine, qui contient un thioéther.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C08', 'ec:BIOCHIMIE', 'theme:aa-soufres'],
     answer: {
       type: 'text',
@@ -67,24 +67,24 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     order: 3,
     difficulty: 'MEDIUM',
     format: 'QRU',
-    question: "Dans le dipeptide A–B, quelle propriété explique directement la faible liberté de rotation autour de la liaison C–N du motif C(=O)–NH ?",
-    explanation: "La liaison peptidique présente une délocalisation électronique entre le carbonyle et l’azote. La liaison C–N acquiert ainsi un caractère partiel de double liaison, ce qui rend le motif peptidique plan et limite fortement la rotation autour de cette liaison.",
+    question: "Dans le dipeptide A–B, quelle propriété explique directement la faible liberté de rotation autour de la liaison $\\ce{C-N}$ du motif $\\ce{C(=O)-NH}$ ?",
+    explanation: "La liaison peptidique présente une délocalisation électronique entre le carbonyle et l’azote. La liaison $\\ce{C-N}$ acquiert ainsi un caractère partiel de double liaison, ce qui rend le motif peptidique plan et limite fortement la rotation autour de cette liaison.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C08', 'ec:BIOCHIMIE', 'theme:liaison-peptidique'],
     choices: [
       {
-        content: "La délocalisation électronique confère à la liaison C–N un caractère partiel de double liaison.",
+        content: "La délocalisation électronique confère à la liaison $\\ce{C-N}$ un caractère partiel de double liaison.",
         correct: true,
-        explanation: "La délocalisation électronique confère à la liaison C–N un caractère partiel de double liaison.",
+        explanation: "La délocalisation électronique confère à la liaison $\\ce{C-N}$ un caractère partiel de double liaison.",
       },
       {
-        content: "La liaison C–N est une liaison ionique entre les deux résidus.",
+        content: "La liaison $\\ce{C-N}$ est une liaison ionique entre les deux résidus.",
         correct: false,
-        explanation: "La liaison C–N est une liaison ionique entre les deux résidus.",
+        explanation: "La liaison $\\ce{C-N}$ est une liaison ionique entre les deux résidus.",
       },
       {
-        content: "Le motif C–N est rigidifié par l’hydrolyse permanente d’ATP.",
+        content: "Le motif $\\ce{C-N}$ est rigidifié par l’hydrolyse permanente d’ATP.",
         correct: false,
-        explanation: "Le motif C–N est rigidifié par l’hydrolyse permanente d’ATP.",
+        explanation: "Le motif $\\ce{C-N}$ est rigidifié par l’hydrolyse permanente d’ATP.",
       },
       {
         content: "La rigidité provient obligatoirement d’un pont disulfure entre A et B.",
@@ -110,7 +110,7 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         content: "Sérine — groupement alcool primaire.",
         correct: true,
-        explanation: "La chaîne latérale de la sérine est –CH2OH.",
+        explanation: "La chaîne latérale de la sérine est $-\\mathrm{CH_2OH}$.",
       },
       {
         content: "Méthionine — groupement thioéther.",
@@ -139,11 +139,11 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     difficulty: 'EASY',
     format: 'QRM',
     question: "À propos des niveaux d’organisation structurale des protéines, quelles propositions sont exactes ?",
-    explanation: "La structure secondaire comprend notamment hélices α et feuillets β, tandis que la structure quaternaire correspond à l’association de plusieurs sous-unités polypeptidiques.",
+    explanation: "La structure secondaire comprend notamment hélices $\\alpha$ et feuillets $\\beta$, tandis que la structure quaternaire correspond à l’association de plusieurs sous-unités polypeptidiques.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C08', 'ec:BIOCHIMIE', 'theme:niveaux-structure'],
     choices: [
       {
-        content: "Une hélice α et un feuillet β sont des éléments de structure secondaire.",
+        content: "Une hélice $\\alpha$ et un feuillet $\\beta$ sont des éléments de structure secondaire.",
         correct: true,
         explanation: "Ces organisations locales régulières sont stabilisées principalement par des liaisons hydrogène du squelette peptidique.",
       },
@@ -173,8 +173,8 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     order: 6,
     difficulty: 'MEDIUM',
     format: 'QROC',
-    question: "Combien d’acides aminés trouve-t-on en moyenne par tour d’une hélice α ? Donnez uniquement la valeur numérique.",
-    explanation: "Une hélice α comporte en moyenne environ 3,6 résidus par tour.",
+    question: "Combien d’acides aminés trouve-t-on en moyenne par tour d’une hélice $\\alpha$ ? Donnez uniquement la valeur numérique.",
+    explanation: "Une hélice $\\alpha$ comporte en moyenne environ 3,6 résidus par tour.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C08', 'ec:BIOCHIMIE', 'theme:helice-alpha'],
     answer: {
       type: 'number',
@@ -201,9 +201,9 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Cette étape convertit la pro-insuline en insuline mature formée des chaînes A et B.",
       },
       {
-        content: "La polymérisation de la pro-insuline en un tétramère α2β2.",
+        content: "La polymérisation de la pro-insuline en un tétramère $\\alpha_2\\beta_2$.",
         correct: false,
-        explanation: "La notation α2β2 correspond à l’hémoglobine A, pas à l’insuline.",
+        explanation: "La notation $\\alpha_2\\beta_2$ correspond à l’hémoglobine A, pas à l’insuline.",
       },
       {
         content: "La réduction complète de tous les ponts disulfure.",
@@ -247,7 +247,7 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Les catécholamines dérivent de la tyrosine et non de la glycine.",
       },
       {
-        content: "Méthionine → GABA par perte directe de CO2.",
+        content: "Méthionine → GABA par perte directe de $\\ce{CO2}$.",
         correct: false,
         explanation: "Le GABA est formé par décarboxylation du glutamate.",
       },
@@ -270,7 +270,7 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         content: "Une chaîne peptidique est conventionnellement écrite de l’extrémité C-terminale vers l’extrémité N-terminale.",
         correct: false,
-        explanation: "La convention d’écriture va de l’extrémité N-terminale vers l’extrémité C-terminale.",
+        explanation: "La convention d’écriture va de l’extrémité $\\mathrm{N}$-terminale vers l’extrémité $\\mathrm{C}$-terminale.",
       },
       {
         content: "La proline peut introduire une angulation dans une chaîne polypeptidique.",
@@ -280,12 +280,12 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         content: "Le glutathion est un tripeptide comportant glutamate, cystéine et glycine.",
         correct: true,
-        explanation: "Il s’agit du tripeptide γGlu-Cys-Gly, important dans la défense antioxydante.",
+        explanation: "Il s’agit du tripeptide $\\gamma\\text{Glu-Cys-Gly}$, important dans la défense antioxydante.",
       },
       {
-        content: "L’hémoglobine A adulte comporte deux chaînes α et deux chaînes β.",
+        content: "L’hémoglobine A adulte comporte deux chaînes $\\alpha$ et deux chaînes $\\beta$.",
         correct: true,
-        explanation: "HbA est un hétérotétramère α2β2.",
+        explanation: "HbA est un hétérotétramère $\\alpha_2\\beta_2$.",
       },
       {
         content: "Une immunoglobuline G est constituée d’une seule chaîne polypeptidique continue.",
@@ -298,9 +298,9 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Ce collagène forme des réseaux caractéristiques des membranes basales.",
       },
       {
-        content: "La méthémoglobine fixe normalement l’oxygène grâce à un fer Fe3+ plus performant que Fe2+.",
+        content: "La méthémoglobine fixe normalement l’oxygène grâce à un fer $\\ce{Fe^3+}$ plus performant que $\\ce{Fe^2+}$.",
         correct: false,
-        explanation: "L’oxydation du fer en Fe3+ produit une méthémoglobine incapable de fixer normalement O2.",
+        explanation: "L’oxydation du fer en $\\ce{Fe^3+}$ produit une méthémoglobine incapable de fixer normalement $\\ce{O2}$.",
       },
       {
         content: "Les microtubules sont constitués de myosine II polymérisée.",
@@ -323,7 +323,7 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C08', 'ec:BIOCHIMIE', 'theme:immunoglobulines'],
     choices: [
       {
-        content: "La structure générale d’une immunoglobuline est H2L2.",
+        content: "La structure générale d’une immunoglobuline est $\\mathrm{H_2L_2}$.",
         correct: true,
         explanation: "Elle comporte deux chaînes lourdes identiques et deux chaînes légères identiques.",
       },
@@ -333,7 +333,7 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Fab signifie antigen binding et comprend les domaines participant à la reconnaissance de l’épitope.",
       },
       {
-        content: "Le fragment Fc dérive des portions C-terminales des chaînes lourdes.",
+        content: "Le fragment Fc dérive des portions $\\mathrm{C}$-terminales des chaînes lourdes.",
         correct: true,
         explanation: "Il porte notamment des fonctions d’interaction avec des récepteurs cellulaires et le complément.",
       },
@@ -343,7 +343,7 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Ils relient notamment chaînes lourdes entre elles et chaînes lourdes aux chaînes légères.",
       },
       {
-        content: "Les cinq classes d’immunoglobulines sont définies par la nature de leur chaîne légère κ ou λ.",
+        content: "Les cinq classes d’immunoglobulines sont définies par la nature de leur chaîne légère $\\kappa$ ou $\\lambda$.",
         correct: false,
         explanation: "Les classes IgA, IgD, IgE, IgG et IgM sont définies par la nature de la chaîne lourde.",
       },
@@ -367,7 +367,7 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     difficulty: 'MEDIUM',
     format: 'QRU',
     question: "Quelle proposition décrit correctement le récepteur de l’insuline ?",
-    explanation: "Le récepteur de l’insuline est un récepteur membranaire à activité tyrosine kinase intrinsèque, formé de sous-unités α et β.",
+    explanation: "Le récepteur de l’insuline est un récepteur membranaire à activité tyrosine kinase intrinsèque, formé de sous-unités $\\alpha$ et $\\beta$.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C08', 'ec:BIOCHIMIE', 'theme:recepteur-insuline'],
     choices: [
       {
@@ -381,9 +381,9 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Le récepteur de l’insuline est une glycoprotéine membranaire oligomérique.",
       },
       {
-        content: "Il possède une activité tyrosine kinase portée par ses sous-unités β.",
+        content: "Il possède une activité tyrosine kinase portée par ses sous-unités $\\beta$.",
         correct: true,
-        explanation: "Les sous-unités β comportent le domaine transmembranaire et le domaine tyrosine kinase cytoplasmique.",
+        explanation: "Les sous-unités $\\beta$ comportent le domaine transmembranaire et le domaine tyrosine kinase cytoplasmique.",
       },
       {
         content: "Son activation consiste uniquement à ouvrir un pore passif pour l’insuline.",
@@ -403,11 +403,11 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     format: 'QRP',
     requiredSelectionCount: 2,
     question: "Sélectionnez exactement les deux propositions correctes sur des protéines membranaires assurant un transport.",
-    explanation: "La Na+/K+-ATPase utilise directement l’ATP pour déplacer 3 Na+ vers l’extérieur et 2 K+ vers l’intérieur. Les transporteurs ABC utilisent eux aussi l’énergie de l’hydrolyse de l’ATP.",
+    explanation: "La $\\ce{Na+/K+}$-ATPase utilise directement l’ATP pour déplacer 3 $\\ce{Na+}$ vers l’extérieur et 2 $\\ce{K+}$ vers l’intérieur. Les transporteurs ABC utilisent eux aussi l’énergie de l’hydrolyse de l’ATP.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C08', 'ec:BIOCHIMIE', 'theme:transporteurs-membranaires'],
     choices: [
       {
-        content: "La Na+/K+-ATPase expulse trois ions Na+ et fait entrer deux ions K+ par cycle de fonctionnement.",
+        content: "La $\\ce{Na+/K+}$-ATPase expulse trois ions $\\ce{Na+}$ et fait entrer deux ions $\\ce{K+}$ par cycle de fonctionnement.",
         correct: true,
         explanation: "Cette stœchiométrie participe au maintien des gradients électrochimiques transmembranaires.",
       },
@@ -438,28 +438,28 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     difficulty: 'HARD',
     format: 'QRM',
     question: "Un patient présente une drépanocytose et l’on compare HbA, HbS et la méthémoglobine. Quelles propositions sont exactes ?",
-    explanation: "HbA est α2β2 et contient du fer ferreux Fe2+ dans l’hème. HbS résulte classiquement d’une substitution Glu→Val en position 6 de la chaîne β. L’oxydation de Fe2+ en Fe3+ produit la méthémoglobine, qui ne fixe pas normalement l’oxygène.",
+    explanation: "HbA est $\\alpha_2\\beta_2$ et contient du fer ferreux $\\ce{Fe^2+}$ dans l’hème. HbS résulte classiquement d’une substitution $\\text{Glu}\\rightarrow\\text{Val}$ en position $6$ de la chaîne $\\beta$. L’oxydation de $\\ce{Fe^2+}$ en $\\ce{Fe^3+}$ produit la méthémoglobine, qui ne fixe pas normalement l’oxygène.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C08', 'ec:BIOCHIMIE', 'theme:hemoglobine-pathologie'],
     choices: [
       {
-        content: "Dans HbA fonctionnelle, le fer de l’hème est à l’état Fe2+.",
+        content: "Dans HbA fonctionnelle, le fer de l’hème est à l’état $\\ce{Fe^2+}$.",
         correct: true,
         explanation: "Le fer ferreux permet la fixation réversible de l’oxygène.",
       },
       {
-        content: "La mutation classique d’HbS remplace un glutamate par une valine en position 6 de la chaîne β.",
+        content: "La mutation classique d’HbS remplace un glutamate par une valine en position $6$ de la chaîne $\\beta$.",
         correct: true,
         explanation: "Cette substitution modifie les propriétés de l’hémoglobine et favorise l’agrégation de la forme désoxygénée.",
       },
       {
-        content: "Le passage du fer de Fe2+ à Fe3+ conduit à une méthémoglobine qui fixe moins efficacement, voire pas normalement, O2.",
+        content: "Le passage du fer de $\\ce{Fe^2+}$ à $\\ce{Fe^3+}$ conduit à une méthémoglobine qui fixe moins efficacement, voire pas normalement, $\\ce{O2}$.",
         correct: true,
         explanation: "Le fer ferrique n’assure pas la fixation physiologique de l’oxygène.",
       },
       {
-        content: "HbS résulte d’un remplacement de la valine β6 par un glutamate.",
+        content: "HbS résulte d’un remplacement de la valine $\\beta 6$ par un glutamate.",
         correct: false,
-        explanation: "Le sens de la substitution est inverse : Glu→Val.",
+        explanation: "Le sens de la substitution est inverse : $\\text{Glu}\\rightarrow\\text{Val}$.",
       },
       {
         content: "L’hémoglobine A adulte ne possède qu’un seul site de fixation de l’oxygène par tétramère.",
@@ -472,8 +472,8 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     order: 15,
     difficulty: 'HARD',
     format: 'QROC',
-    question: "Quel précurseur protéique peut donner, après clivages protéolytiques différenciés selon les tissus, notamment l’ACTH et la β-endorphine ?",
-    explanation: "La pro-opiomélanocortine (POMC) est un précurseur protéique pouvant être clivé en plusieurs peptides biologiquement actifs, dont l’ACTH et la β-endorphine.",
+    question: "Quel précurseur protéique peut donner, après clivages protéolytiques différenciés selon les tissus, notamment l’ACTH et la $\\beta$-endorphine ?",
+    explanation: "La pro-opiomélanocortine (POMC) est un précurseur protéique pouvant être clivé en plusieurs peptides biologiquement actifs, dont l’ACTH et la $\\beta$-endorphine.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C08', 'ec:BIOCHIMIE', 'theme:pomc'],
     answer: {
       type: 'text',
@@ -506,7 +506,7 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Les microtubules sont des polymères de tubuline.",
       },
       {
-        content: "Il est une hormone peptidique produite par les cellules β du pancréas.",
+        content: "Il est une hormone peptidique produite par les cellules $\\beta$ du pancréas.",
         correct: false,
         explanation: "Cette description correspond à l’insuline, pas au collagène IV.",
       },
@@ -528,7 +528,7 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     format: 'QRP',
     requiredSelectionCount: 2,
     question: "Sélectionnez exactement les deux associations correctes concernant la matrice extracellulaire.",
-    explanation: "La fibronectine peut interagir avec les intégrines et les laminines sont des hétérotrimères α-β-γ particulièrement importants dans les membranes basales.",
+    explanation: "La fibronectine peut interagir avec les intégrines et les laminines sont des hétérotrimères $\\alpha-\\beta-\\gamma$ particulièrement importants dans les membranes basales.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C08', 'ec:BIOCHIMIE', 'theme:matrice-extracellulaire'],
     choices: [
       {
@@ -537,7 +537,7 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "La fibronectine participe aux interactions cellule–matrice via des intégrines.",
       },
       {
-        content: "Laminine — hétérotrimère comportant des chaînes α, β et γ.",
+        content: "Laminine — hétérotrimère comportant des chaînes $\\alpha$, $\\beta$ et $\\gamma$.",
         correct: true,
         explanation: "Les laminines sont des glycoprotéines de la matrice extracellulaire très importantes dans les membranes basales.",
       },
@@ -584,7 +584,7 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         content: "La myosine constitue le monomère de base des microtubules.",
         correct: false,
-        explanation: "Les microtubules sont formés de tubuline α/β.",
+        explanation: "Les microtubules sont formés de tubuline $\\alpha/\\beta$.",
       },
       {
         content: "La contraction musculaire nécessite la conversion irréversible de l’actine F en collagène.",
@@ -613,7 +613,7 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     difficulty: 'HARD',
     format: 'QRU',
     question: "Quelle proposition décrit correctement CFTR ?",
-    explanation: "CFTR appartient à la famille ABC mais fonctionne comme un canal chlorure régulé ; de nombreuses mutations du gène CFTR, dont ΔF508, sont responsables de mucoviscidose.",
+    explanation: "CFTR appartient à la famille ABC mais fonctionne comme un canal chlorure régulé ; de nombreuses mutations du gène CFTR, dont $\\Delta\\text{F508}$, sont responsables de mucoviscidose.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C08', 'ec:BIOCHIMIE', 'theme:cftr'],
     choices: [
       {
@@ -632,12 +632,12 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Le récepteur de la vitamine D est VDR, un récepteur nucléaire distinct.",
       },
       {
-        content: "CFTR pompe trois Na+ vers l’extérieur pour deux K+ vers l’intérieur.",
+        content: "CFTR pompe trois $\\ce{Na+}$ vers l’extérieur pour deux $\\ce{K+}$ vers l’intérieur.",
         correct: false,
-        explanation: "Cette stœchiométrie correspond à la Na+/K+-ATPase.",
+        explanation: "Cette stœchiométrie correspond à la $\\ce{Na+/K+}$-ATPase.",
       },
       {
-        content: "CFTR est un canal chlorure de la famille ABC et la mutation ΔF508 est classiquement associée à la mucoviscidose.",
+        content: "CFTR est un canal chlorure de la famille ABC et la mutation $\\Delta\\text{F508}$ est classiquement associée à la mucoviscidose.",
         correct: true,
         explanation: "CFTR possède des domaines caractéristiques des protéines ABC et régule un flux de chlorure à travers la membrane.",
       },
@@ -667,7 +667,7 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Ces familles participent à la communication et à la régulation des réponses immunitaires et inflammatoires.",
       },
       {
-        content: "La β-endorphine peut dériver du clivage de la POMC.",
+        content: "La $\\beta$-endorphine peut dériver du clivage de la POMC.",
         correct: true,
         explanation: "La POMC est un précurseur commun de plusieurs peptides actifs selon le tissu et les clivages.",
       },
@@ -709,7 +709,7 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
       {
         content: "La chaîne latérale de la tyrosine est dépourvue de tout atome d’oxygène.",
         correct: false,
-        explanation: "Le phénol de la tyrosine comporte un atome d’oxygène (OH).",
+        explanation: "Le phénol de la tyrosine comporte un atome d’oxygène ($\\mathrm{OH}$).",
       },
     ],
   },
@@ -753,7 +753,7 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     difficulty: 'HARD',
     format: 'QZONE',
     question: "Sur le segment Tyr–His–Asp, sélectionnez le groupement carboxylate porté par la chaîne latérale de l’aspartate, et non le carboxylate de l’extrémité C-terminale.",
-    explanation: "L’aspartate possède dans sa chaîne latérale un second groupement carboxylique. À pH 7,4, ce groupement est majoritairement déprotoné sous forme carboxylate –COO−. Il faut le distinguer ici du carboxylate porté par l’extrémité C-terminale du peptide.",
+    explanation: "L’aspartate possède dans sa chaîne latérale un second groupement carboxylique. À pH 7,4, ce groupement est majoritairement déprotoné sous forme carboxylate $-\\mathrm{COO^-}$. Il faut le distinguer ici du carboxylate porté par l’extrémité $\\mathrm{C}$-terminale du peptide.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C08', 'ec:BIOCHIMIE', 'theme:qzone-aa-carboxylate'],
     image: {
       src: '/images/training/ue14/colles/c08/peptide-ionization-linked-q22-q24.svg',
@@ -781,7 +781,7 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C08', 'ec:BIOCHIMIE', 'theme:synthese-structure-fonction'],
     choices: [
       {
-        content: "L’organisation quaternaire α2β2 de l’hémoglobine A est compatible avec quatre groupes hème.",
+        content: "L’organisation quaternaire $\\alpha_2\\beta_2$ de l’hémoglobine A est compatible avec quatre groupes hème.",
         correct: true,
         explanation: "Chaque chaîne de globine porte un hème, soit quatre hèmes par tétramère HbA.",
       },
@@ -791,7 +791,7 @@ export const UE14_COLLE_C08_QUESTIONS: HealthTrainingAuthorQuestion[] = [
         explanation: "Le motif Gly-X-X’ et les triples hélices participent à l’architecture des collagènes.",
       },
       {
-        content: "Les intégrines sont des hétérodimères α/β pouvant relier la matrice extracellulaire au cytosquelette et transmettre un signal.",
+        content: "Les intégrines sont des hétérodimères $\\alpha/\\beta$ pouvant relier la matrice extracellulaire au cytosquelette et transmettre un signal.",
         correct: true,
         explanation: "Les intégrines participent à l’adhérence cellule–matrice et aux plaques d’adhésion focale.",
       },
