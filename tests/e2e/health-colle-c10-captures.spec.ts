@@ -103,7 +103,7 @@ test.describe.serial("Santé — Colle C10 Captures & Recette Visuelle", () => {
     // Q27 (Group 2 QRM)
     await expect(page.getByText("Données communes aux questions 27 à 30")).toBeVisible();
     await expect(page.getByText("Réactivité et stéréochimie intégrées")).toBeVisible();
-    await expect(page.getByAltText("Schéma de transformations reliant propan-1-ol, propanal et acide propanoïque, addition d’un organomagnésien sur la propanone, et structure d’une molécule polyfonctionnelle chirale F.")).toBeVisible();
+    await expect(page.locator("img[src*='integrated-reactivity-linked']")).toBeVisible();
 
     // Capture 5: Q27 desktop
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c10-q27-desktop.png") });

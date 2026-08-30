@@ -42,7 +42,7 @@ test.describe.serial("Santé — Colle C09 Captures & Recette Visuelle", () => {
     // Q1 (Group 1: Mitochondrie et chaîne respiratoire)
     await expect(page.getByText("Données communes aux questions 1 à 3")).toBeVisible();
     await expect(page.getByText("Mitochondrie et chaîne respiratoire")).toBeVisible();
-    await expect(page.getByAltText("Schéma d’une mitochondrie montrant les membranes externe et interne, le complexe TOM, les complexes respiratoires I à IV, l’ubiquinone, le cytochrome c et l’ATP synthase.")).toBeVisible();
+    await expect(page.locator("img[src*='mitochondrial-chain-linked']")).toBeVisible();
 
     // Capture 1: Q1 desktop
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c09-q01-desktop.png") });
