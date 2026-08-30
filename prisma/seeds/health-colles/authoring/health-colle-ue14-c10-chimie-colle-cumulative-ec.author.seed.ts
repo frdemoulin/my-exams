@@ -97,34 +97,34 @@ export const UE14_COLLE_C10_QUESTIONS: HealthTrainingAuthorQuestion[] = [
     difficulty: 'MEDIUM',
     format: 'QRP',
     requiredSelectionCount: 2,
-    question: "Sélectionnez exactement les deux propositions correctes à propos des liaisons σ et π.",
-    explanation: "Une liaison simple est une liaison σ. Dans une double liaison, une liaison σ est accompagnée d’une liaison π ; dans une triple liaison, une σ est accompagnée de deux π.",
+    question: "Sélectionnez exactement les deux propositions correctes à propos des liaisons $\\sigma$ et $\\pi$.",
+    explanation: "Une liaison simple est une liaison $\\sigma$. Dans une double liaison, une liaison $\\sigma$ est accompagnée d'une liaison $\\pi$ ; dans une triple liaison, une $\\sigma$ est accompagnée de deux $\\pi$.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C10', 'ec:CHIMIE', 'theme:liaisons-sigma-pi'],
     choices: [
       {
-        content: "Une liaison simple carbone-carbone est de type σ.",
+        content: "Une liaison simple carbone-carbone est de type $\\sigma$.",
         correct: true,
         explanation: "Elle résulte d’un recouvrement selon l’axe internucléaire.",
       },
       {
-        content: "Une double liaison C=C comporte une liaison σ et une liaison π.",
+        content: "Une double liaison C=C comporte une liaison $\\sigma$ et une liaison $\\pi$.",
         correct: true,
-        explanation: "Le premier recouvrement forme σ et le second, latéral, forme π.",
+        explanation: "Le premier recouvrement forme $\\sigma$ et le second, latéral, forme $\\pi$.",
       },
       {
-        content: "Une triple liaison C≡C comporte trois liaisons π et aucune liaison σ.",
+        content: "Une triple liaison $\\ce{C#C}$ comporte trois liaisons $\\pi$ et aucune liaison $\\sigma$.",
         correct: false,
-        explanation: "Elle comporte une liaison σ et deux liaisons π.",
+        explanation: "Elle comporte une liaison $\\sigma$ et deux liaisons $\\pi$.",
       },
       {
-        content: "Une liaison π possède une symétrie axiale qui autorise une rotation libre sans perte de recouvrement.",
+        content: "Une liaison $\\pi$ possède une symétrie axiale qui autorise une rotation libre sans perte de recouvrement.",
         correct: false,
-        explanation: "La rotation autour d’une liaison π rompt le recouvrement latéral ; elle est donc fortement contrainte.",
+        explanation: "La rotation autour d'une liaison $\\pi$ rompt le recouvrement latéral ; elle est donc fortement contrainte.",
       },
       {
-        content: "Une liaison σ résulte toujours du recouvrement de deux orbitales p non hybridées.",
+        content: "Une liaison $\\sigma$ résulte toujours du recouvrement de deux orbitales p non hybridées.",
         correct: false,
-        explanation: "Une liaison σ peut résulter de nombreux recouvrements axiaux, notamment s–s, s–p ou entre orbitales hybrides.",
+        explanation: "Une liaison $\\sigma$ peut résulter de nombreux recouvrements axiaux, notamment s–s, s–p ou entre orbitales hybrides.",
       },
     ],
   },
@@ -196,12 +196,12 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
       {
         content: "Amide.",
         correct: true,
-        explanation: "Le motif CH3–C(=O)–NH2 correspond à un amide.",
+        explanation: "Le motif $\\ce{CH3-C(=O)-NH2}$ correspond à un amide.",
       },
       {
         content: "Nitrile.",
         correct: false,
-        explanation: "Un nitrile contient le motif C≡N.",
+        explanation: "Un nitrile contient le motif $\\ce{C#N}$.",
       },
       {
         content: "Ester.",
@@ -278,7 +278,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
       {
         content: "Le carbone du groupe carbonyle porte un caractère électrophile.",
         correct: true,
-        explanation: "La polarisation Cδ+–Oδ− rend le carbone sensible à l’attaque des nucléophiles.",
+        explanation: "La polarisation $\\mathrm{C}^{\\delta+}$–$\\mathrm{O}^{\\delta-}$ rend le carbone sensible à l’attaque des nucléophiles.",
       },
       {
         content: "Un carboxylate est stabilisé par délocalisation de la charge négative sur les deux oxygènes.",
@@ -293,7 +293,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
       {
         content: "La rotation autour d’une double liaison C=C est aussi libre qu’autour d’une liaison simple C–C.",
         correct: false,
-        explanation: "La composante π s’oppose à une rotation libre.",
+        explanation: "La composante $\\pi$ s’oppose à une rotation libre.",
       },
       {
         content: "Un ester possède nécessairement un groupe hydroxyle libre O–H.",
@@ -317,13 +317,13 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     difficulty: 'EASY',
     format: 'QRM',
     question: "En comparant les molécules A et B, quelles propositions sont exactes ?",
-    explanation: "Les deux molécules ont la même formule brute et la même connectivité : elles ne sont donc pas des isomères de constitution. Elles diffèrent par la disposition des substituants autour de C=C. La composante π de la double liaison empêche une rotation libre permettant de passer de l’une à l’autre sans rupture du recouvrement. Les formes E/Z sont des stéréoisomères géométriques et non une paire d’énantiomères.",
+    explanation: "Les deux molécules ont la même formule brute et la même connectivité : elles ne sont donc pas des isomères de constitution. Elles diffèrent par la disposition des substituants autour de C=C. La composante $\\pi$ de la double liaison empêche une rotation libre permettant de passer de l’une à l’autre sans rupture du recouvrement. Les formes E/Z sont des stéréoisomères géométriques et non une paire d’énantiomères.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C10', 'ec:CHIMIE', 'theme:isomerie'],
     choices: [
       {
         content: "A et B possèdent la même formule brute.",
         correct: true,
-        explanation: "Vrai. Les deux représentations correspondent au but-2-ène C4H8.",
+        explanation: "Vrai. Les deux représentations correspondent au but-2-ène $\\ce{C4H8}$.",
       },
       {
         content: "A et B possèdent la même connectivité atomique et diffèrent par leur arrangement spatial.",
@@ -333,7 +333,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
       {
         content: "La double liaison empêche leur interconversion par une simple rotation libre autour de C=C.",
         correct: true,
-        explanation: "Vrai. Le recouvrement π s’oppose à la rotation libre à température ordinaire.",
+        explanation: "Vrai. Le recouvrement $\\pi$ s’oppose à la rotation libre à température ordinaire.",
       },
       {
         content: "A et B sont des isomères de constitution car l’ordre de liaison des atomes diffère.",
@@ -352,7 +352,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     difficulty: 'EASY',
     format: 'QROC',
     question: "Quel est l’état d’hybridation classique de chacun des deux carbones engagés dans la double liaison C=C des molécules A et B ?",
-    explanation: "Chacun des deux carbones d’une double liaison C=C est classiquement hybridé sp². Les trois orbitales hybrides forment une géométrie trigonale plane et l’orbitale p non hybridée participe à la liaison π.",
+    explanation: "Chacun des deux carbones d’une double liaison C=C est classiquement hybridé $\\mathrm{sp}^2$. Les trois orbitales hybrides forment une géométrie trigonale plane et l’orbitale p non hybridée participe à la liaison $\\pi$.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C10', 'ec:CHIMIE', 'theme:hybridation'],
     answer: {
       type: 'text',
@@ -407,18 +407,18 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     format: 'QRP',
     requiredSelectionCount: 2,
     question: "À propos des transformations possibles de la double liaison de la molécule A, sélectionnez exactement les deux propositions correctes.",
-    explanation: "L’hydrogénation catalytique ajoute H2 sur la double liaison et forme l’alcane correspondant. Une hydrohalogénation ajoute H et Br sur les deux carbones de C=C en consommant la liaison π. Une double liaison C=C définit ici un alcène et non un alcyne.",
+    explanation: "L’hydrogénation catalytique ajoute $\\ce{H2}$ sur la double liaison et forme l’alcane correspondant. Une hydrohalogénation ajoute H et Br sur les deux carbones de C=C en consommant la liaison $\\pi$. Une double liaison C=C définit ici un alcène et non un alcyne.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C10', 'ec:CHIMIE', 'theme:reactivite-hydrocarbures'],
     choices: [
       {
-        content: "Une hydrogénation catalytique par H2 peut transformer A en butane.",
+        content: "Une hydrogénation catalytique par $\\ce{H2}$ peut transformer A en butane.",
         correct: true,
-        explanation: "L’addition de H2 sur C=C donne le butane C4H10.",
+        explanation: "L’addition de $\\ce{H2}$ sur C=C donne le butane $\\ce{C4H10}$.",
       },
       {
-        content: "L’addition de HBr sur A consomme la liaison π et conduit à un bromoalcane.",
+        content: "L’addition de $\\ce{HBr}$ sur A consomme la liaison $\\pi$ et conduit à un bromoalcane.",
         correct: true,
-        explanation: "L’addition électrophile de HBr produit le 2-bromobutane.",
+        explanation: "L’addition électrophile de $\\ce{HBr}$ produit le 2-bromobutane.",
       },
       {
         content: "Une hydrogénation catalytique transforme directement A en alcool sans autre réactif.",
@@ -426,14 +426,14 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "L’hydrogénation catalytique d’un alcène donne un alcane.",
       },
       {
-        content: "L’addition de HBr conserve obligatoirement la double liaison C=C intacte.",
+        content: "L’addition de $\\ce{HBr}$ conserve obligatoirement la double liaison C=C intacte.",
         correct: false,
-        explanation: "L’addition sur un alcène consomme la liaison π.",
+        explanation: "L’addition sur un alcène consomme la liaison $\\pi$.",
       },
       {
         content: "La molécule A est un alcyne parce qu’elle contient une insaturation.",
         correct: false,
-        explanation: "Une double liaison C=C définit un alcène ; un alcyne comporte une triple liaison C≡C.",
+        explanation: "Une double liaison C=C définit un alcène ; un alcyne comporte une triple liaison $\\ce{C#C}$.",
       },
     ],
   },
@@ -495,19 +495,19 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     order: 16,
     difficulty: 'HARD',
     format: 'QRU',
-    question: "Quelle proposition caractérise correctement une substitution nucléophile SN2 sur un centre stéréogène ?",
-    explanation: "Une SN2 est concertée : le nucléophile attaque par la face opposée au groupe partant, ce qui conduit à une inversion géométrique au centre réactionnel.",
+    question: "Quelle proposition caractérise correctement une substitution nucléophile $\\text{S}_\\text{N}2$ sur un centre stéréogène ?",
+    explanation: "Une $\\text{S}_\\text{N}2$ est concertée : le nucléophile attaque par la face opposée au groupe partant, ce qui conduit à une inversion géométrique au centre réactionnel.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C10', 'ec:CHIMIE', 'theme:sn2'],
     choices: [
       {
         content: "Elle passe obligatoirement par un carbocation plan isolable.",
         correct: false,
-        explanation: "Le carbocation est caractéristique du schéma SN1 ; la SN2 est concertée.",
+        explanation: "Le carbocation est caractéristique du schéma $\\text{S}_\\text{N}1$ ; la $\\text{S}_\\text{N}2$ est concertée.",
       },
       {
         content: "Elle conduit nécessairement à un mélange racémique 50/50.",
         correct: false,
-        explanation: "Une SN2 stéréospécifique produit une inversion au centre attaqué, pas une racémisation.",
+        explanation: "Une $\\text{S}_\\text{N}2$ stéréospécifique produit une inversion au centre attaqué, pas une racémisation.",
       },
       {
         content: "Le nucléophile attaque préférentiellement du même côté que le groupe partant.",
@@ -517,12 +517,12 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
       {
         content: "Elle s’effectue en une étape concertée avec inversion de la géométrie au centre attaqué.",
         correct: true,
-        explanation: "C’est l’inversion de Walden caractéristique d’une SN2 sur un centre tétraédrique stéréogène.",
+        explanation: "C’est l’inversion de Walden caractéristique d’une $\\text{S}_\\text{N}2$ sur un centre tétraédrique stéréogène.",
       },
       {
         content: "Elle nécessite toujours un dérivé halogéné tertiaire pour être rapide.",
         correct: false,
-        explanation: "L’encombrement stérique d’un centre tertiaire défavorise fortement la SN2.",
+        explanation: "L’encombrement stérique d’un centre tertiaire défavorise fortement la $\\text{S}_\\text{N}2$.",
       },
     ],
   },
@@ -577,9 +577,9 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "Ils possèdent le même nombre de protons et diffèrent par leur nombre de neutrons.",
       },
       {
-        content: "Une triple liaison C≡C comporte une liaison σ et deux liaisons π.",
+        content: "Une triple liaison $\\ce{C#C}$ comporte une liaison $\\sigma$ et deux liaisons $\\pi$.",
         correct: true,
-        explanation: "Le recouvrement axial forme une liaison σ et deux recouvrements latéraux orthogonaux forment les deux liaisons π.",
+        explanation: "Le recouvrement axial forme une liaison $\\sigma$ et deux recouvrements latéraux orthogonaux forment les deux liaisons $\\pi$.",
       },
       {
         content: "Un carbone hybridé sp présente classiquement une géométrie linéaire, également dite digonale.",
@@ -587,7 +587,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "Les deux orbitales hybrides sp sont orientées à 180°.",
       },
       {
-        content: "Une substitution nucléophile SN2 concertée sur un centre stéréogène s’accompagne d’une inversion de géométrie au centre attaqué.",
+        content: "Une substitution nucléophile $\\text{S}_\\text{N}2$ concertée sur un centre stéréogène s’accompagne d’une inversion de géométrie au centre attaqué.",
         correct: true,
         explanation: "L’attaque arrière du nucléophile conduit à l’inversion dite de Walden.",
       },
@@ -597,9 +597,9 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "La délocalisation électronique par mésomérie limite la rotation autour de cette liaison.",
       },
       {
-        content: "Un carbone hybridé sp³ possède une géométrie trigonale plane.",
+        content: "Un carbone hybridé $\\mathrm{sp}^3$ possède une géométrie trigonale plane.",
         correct: false,
-        explanation: "Un carbone sp³ adopte classiquement une géométrie tétraédrique.",
+        explanation: "Un carbone $\\mathrm{sp}^3$ adopte classiquement une géométrie tétraédrique.",
       },
       {
         content: "Deux énantiomères se distinguent par une connectivité atomique différente.",
@@ -609,7 +609,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
       {
         content: "Un alcène est un hydrocarbure saturé qui ne subit pas de réaction d’addition sur sa double liaison.",
         correct: false,
-        explanation: "Un alcène est insaturé et sa liaison π peut participer à des réactions d’addition.",
+        explanation: "Un alcène est insaturé et sa liaison $\\pi$ peut participer à des réactions d’addition.",
       },
       {
         content: "Un ammonium quaternaire est électriquement neutre.",
@@ -639,10 +639,10 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
       {
         content: "La réduction d’un aldéhyde par un hydrure doux peut produire un alcool primaire.",
         correct: true,
-        explanation: "R–CHO devient R–CH2OH.",
+        explanation: "$\\mathrm{R{-}CHO}$ devient $\\mathrm{R{-}CH_2OH}$.",
       },
       {
-        content: "La réduction d’une cétone par NaBH4 peut produire un alcool secondaire.",
+        content: "La réduction d’une cétone par $\\ce{NaBH4}$ peut produire un alcool secondaire.",
         correct: true,
         explanation: "R–CO–R′ devient R–CHOH–R′.",
       },
@@ -682,7 +682,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     difficulty: 'MEDIUM',
     format: 'QRU',
     question: "Quelle proposition décrit correctement une voie de préparation d’un acide carboxylique ?",
-    explanation: "La carboxylation d’un organomagnésien par CO2 ajoute le carbone du dioxyde de carbone au squelette carboné. Après hydrolyse acide, on obtient un acide carboxylique.",
+    explanation: "La carboxylation d’un organomagnésien par $\\ce{CO2}$ ajoute le carbone du dioxyde de carbone au squelette carboné. Après hydrolyse acide, on obtient un acide carboxylique.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C10', 'ec:CHIMIE', 'theme:preparation-acides'],
     choices: [
       {
@@ -706,9 +706,9 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "La déshydratation conduit plutôt à une élimination donnant un alcène.",
       },
       {
-        content: "Un organomagnésien réagissant avec CO2 puis hydrolysé fournit un acide carboxylique possédant un carbone de plus que le groupe carboné initial.",
+        content: "Un organomagnésien réagissant avec $\\ce{CO2}$ puis hydrolysé fournit un acide carboxylique possédant un carbone de plus que le groupe carboné initial.",
         correct: true,
-        explanation: "Le carbone de CO2 devient le carbone carboxylique du produit.",
+        explanation: "Le carbone de $\\ce{CO2}$ devient le carbone carboxylique du produit.",
       },
     ],
   },
@@ -877,7 +877,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     order: 27,
     difficulty: 'MEDIUM',
     format: 'QRM',
-    question: "En vous appuyant sur les composés carbonylés B et D et sur la réaction de D avec CH3MgBr, quelles propositions sont exactes ?",
+    question: "En vous appuyant sur les composés carbonylés B et D et sur la réaction de D avec $\\mathrm{CH_3MgBr}$, quelles propositions sont exactes ?",
     explanation: "La liaison C=O est polarisée vers l’oxygène : le carbone carbonylé est appauvri en densité électronique et constitue un centre électrophile. Dans un organomagnésien, le fragment carboné présente au contraire un fort caractère nucléophile et peut attaquer ce carbone. La conjugaison d’une amide diminue la disponibilité du doublet de l’azote et un éther ne possède pas de liaison O–H lui permettant d’être donneur classique de liaison hydrogène.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C10', 'ec:CHIMIE', 'theme:polarite-reactivite'],
     choices: [
@@ -887,7 +887,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "Le carbone porte une charge partielle positive en raison de l’électronégativité supérieure de l’oxygène.",
       },
       {
-        content: "Dans CH3MgBr, le fragment carboné se comporte comme un nucléophile vis-à-vis du carbone carbonylé de D.",
+        content: "Dans $\\mathrm{CH_3MgBr}$, le fragment carboné se comporte comme un nucléophile vis-à-vis du carbone carbonylé de D.",
         correct: true,
         explanation: "Le fragment carboné de l’organomagnésien est fortement nucléophile.",
       },
@@ -913,7 +913,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     difficulty: 'HARD',
     format: 'QRM',
     question: "À partir des transformations représentées, quelles propositions sont exactes ?",
-    explanation: "A est un alcool primaire qui peut être oxydé en aldéhyde B puis en acide C. La réduction de B par un hydrure peut reformer A. L’addition de CH3MgBr sur la propanone D suivie d’une hydrolyse donne le 2-méthylpropan-2-ol, un alcool tertiaire. Un organomagnésien est détruit par l’eau et doit être utilisé en milieu anhydre avant l’étape d’hydrolyse.",
+    explanation: "A est un alcool primaire qui peut être oxydé en aldéhyde B puis en acide C. La réduction de B par un hydrure peut reformer A. L’addition de $\\mathrm{CH_3MgBr}$ sur la propanone D suivie d’une hydrolyse donne le 2-méthylpropan-2-ol, un alcool tertiaire. Un organomagnésien est détruit par l’eau et doit être utilisé en milieu anhydre avant l’étape d’hydrolyse.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C10', 'ec:CHIMIE', 'theme:enchaînements-reactionnels'],
     choices: [
       {
@@ -927,12 +927,12 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "L’aldéhyde B s’oxyde en acide carboxylique C.",
       },
       {
-        content: "La réduction de B par NaBH4 peut régénérer A.",
+        content: "La réduction de B par $\\ce{NaBH4}$ peut régénérer A.",
         correct: true,
         explanation: "La réduction de l’aldéhyde B par un hydrure régénère l’alcool primaire A.",
       },
       {
-        content: "L’addition de CH3MgBr sur D puis hydrolyse peut former le 2-méthylpropan-2-ol.",
+        content: "L’addition de $\\mathrm{CH_3MgBr}$ sur D puis hydrolyse peut former le 2-méthylpropan-2-ol.",
         correct: true,
         explanation: "L’addition d’un méthyle sur la propanone D suivie d’hydrolyse produit le 2-méthylpropan-2-ol.",
       },
@@ -948,7 +948,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     difficulty: 'MEDIUM',
     format: 'QZONE',
     question: "Sur la molécule F, sélectionnez le carbone stéréogène.",
-    explanation: "Le carbone portant le groupe OH dans F est lié à quatre substituants différents : H, OH, COOH et CH2CH3. Il constitue donc un centre stéréogène. Le carbone du carboxyle est sp² et le carbone CH2 porte deux hydrogènes identiques : aucun des deux n’est un centre stéréogène.",
+    explanation: "Le carbone portant le groupe OH dans F est lié à quatre substituants différents : H, OH, COOH et CH2CH3. Il constitue donc un centre stéréogène. Le carbone du carboxyle est $\\mathrm{sp}^2$ et le carbone CH2 porte deux hydrogènes identiques : aucun des deux n’est un centre stéréogène.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C10', 'ec:CHIMIE', 'theme:qzone-stereochimie'],
     image: {
       src: '/images/training/ue14/colles/c10/integrated-reactivity-linked-q27-q30.svg',
@@ -972,7 +972,7 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
     difficulty: 'HARD',
     format: 'QRM',
     question: "En analysant la molécule F et les règles de stéréochimie et de nomenclature utilisées dans cette EC, quelles propositions sont exactes ?",
-    explanation: "Le carbone portant OH est tétraédrique et lié à quatre substituants différents : il peut donc définir un centre stéréogène. La fonction acide carboxylique est prioritaire sur l’alcool et détermine le suffixe principal ; l’alcool est alors exprimé par hydroxy-. Un centre stéréogène tétraédrique carboné est classiquement sp³. Deux images miroir non superposables gardent la même connectivité : ce sont des énantiomères.",
+    explanation: "Le carbone portant OH est tétraédrique et lié à quatre substituants différents : il peut donc définir un centre stéréogène. La fonction acide carboxylique est prioritaire sur l’alcool et détermine le suffixe principal ; l’alcool est alors exprimé par hydroxy-. Un centre stéréogène tétraédrique carboné est classiquement $\\mathrm{sp}^3$. Deux images miroir non superposables gardent la même connectivité : ce sont des énantiomères.",
     tags: ['usage:COLLE', 'ue:UE14', 'colle:C10', 'ec:CHIMIE', 'theme:synthese-finale'],
     choices: [
       {
@@ -991,9 +991,9 @@ Données : $M(\mathrm C)=${texQuantity(12, U.G_PER_MOL)}$, $M(\mathrm H)=${texQu
         explanation: "L’alcool secondaire est désigné par le préfixe hydroxy-.",
       },
       {
-        content: "Le carbone stéréogène de F est hybridé sp² et possède une géométrie trigonale plane.",
+        content: "Le carbone stéréogène de F est hybridé $\\mathrm{sp}^2$ et possède une géométrie trigonale plane.",
         correct: false,
-        explanation: "Le carbone stéréogène de F est hybridé sp³ et tétraédrique.",
+        explanation: "Le carbone stéréogène de F est hybridé $\\mathrm{sp}^3$ et tétraédrique.",
       },
       {
         content: "L’image miroir non superposable de F aurait nécessairement une connectivité atomique différente et serait donc un isomère de constitution.",

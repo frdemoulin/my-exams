@@ -21,21 +21,15 @@ export async function seedHealthColleUE14C10(prisma: PrismaClient) {
 
   const existingColle = await prisma.healthMockExam.findFirst({
     where: { courseUnitId: courseUnit.id, slug: "c10" },
+    include: {
+      sections: {
+        include: {
+          questionGroups: true,
+          questions: true,
+        },
+      },
+    },
   });
-
-  if (existingColle) {
-    const attemptCount = await prisma.userHealthMockExamAttempt.count({
-      where: { mockExamId: existingColle.id },
-    });
-    if (attemptCount === 0) {
-      await prisma.healthMockExam.delete({ where: { id: existingColle.id } });
-    } else {
-      console.warn(`[SEED C10] ${attemptCount} tentative(s) conservée(s). Mise à jour du contenu.`);
-      await prisma.healthMockExamSection.deleteMany({
-        where: { mockExamId: existingColle.id },
-      });
-    }
-  }
 
   const compiledQuestions = UE14_COLLE_C10_QUESTIONS.map((q) =>
     compileHealthTrainingAuthorQuestion(q)
@@ -61,39 +55,91 @@ export async function seedHealthColleUE14C10(prisma: PrismaClient) {
       order: 2,
       title: "Données communes — Réactivité et stéréochimie intégrées",
       sharedStatement:
-        "Le schéma rassemble plusieurs situations de synthèse et de structure. Les composés A, B et C appartiennent à une même séquence d’oxydation ; la cétone D réagit avec CH3MgBr puis est hydrolysée pour donner le produit E ; la molécule F est un composé polyfonctionnel possédant un unique centre stéréogène.",
+        "Le schéma rassemble plusieurs situations de synthèse et de structure. Les composés A, B et C appartiennent à une même séquence d'oxydation ; la cétone D réagit avec CH3MgBr puis est hydrolysée pour donner le produit E ; la molécule F est un composé polyfonctionnel possédant un unique centre stéréogène.",
       sharedMedia: {
         type: "image",
         src: "/images/training/ue14/colles/c10/integrated-reactivity-linked-q27-q30.svg",
-        alt: "Schéma de transformations reliant propan-1-ol, propanal et acide propanoïque, addition d’un organomagnésien sur la propanone, et structure d’une molécule polyfonctionnelle chirale F.",
+        alt: "Schéma de transformations reliant propan-1-ol, propanal et acide propanoïque, addition d'un organomagnésien sur la propanone, et structure d'une molécule polyfonctionnelle chirale F.",
       },
       questionOrders: [27, 28, 29, 30],
     },
   ];
 
-  // Création de l'examen s'il n'existe plus ou mise à jour
-  const mockExam =
-    existingColle &&
-    (await prisma.userHealthMockExamAttempt.count({ where: { mockExamId: existingColle.id } })) > 0
-      ? existingColle
-      : await prisma.healthMockExam.create({
-          data: {
-            courseUnitId: courseUnit.id,
-            type: "COLLE",
-            title: "Chimie — Colle cumulative EC",
-            slug: "c10",
-            description: "Toute la Chimie · cumulative",
-            instructions: "Colle UE14 Reims — 30 questions — 45 min — Notation UNESS",
-            durationMinutes: 45,
-            durationSeconds: 2700,
-            questionCount: 30,
-            version: 1,
-            order: 10,
-            isPublished: true,
-          },
-        });
+  if (existingColle) {
+    const attemptCount = await prisma.userHealthMockExamAttempt.count({
+      where: { mockExamId: existingColle.id },
+    });
 
-  // Création de la section
+    if (attemptCount > 0) {
+      console.warn(`[SEED C10] ${attemptCount} tentative(s) conservée(s). Mise à jour du contenu des questions en place.`);
+      const section = existingColle.sections[0];
+      if (!section) throw new Error("Section introuvable pour C10.");
+
+      for (const groupSeed of groupsData) {
+        const existingGroup = section.questionGroups.find((g) => g.order === groupSeed.order);
+        if (existingGroup) {
+          await prisma.healthMockExamQuestionGroup.update({
+            where: { id: existingGroup.id },
+            data: {
+              title: groupSeed.title,
+              sharedStatement: groupSeed.sharedStatement,
+              sharedMedia: groupSeed.sharedMedia as any,
+            },
+          });
+        }
+      }
+
+      for (let index = 0; index < compiledQuestions.length; index++) {
+        const q = compiledQuestions[index];
+        const questionOrder = index + 1;
+        const stableId = `c10-q${String(questionOrder).padStart(2, "0")}`;
+        const existingQ = section.questions.find((sq) => sq.slug === stableId || sq.order === questionOrder);
+        const themeIds = [
+          ...((UE14_COLLE_THEME_IDS_BY_QUESTION_STABLE_ID as Record<string, readonly string[]>)[stableId] ?? []),
+        ];
+
+        if (existingQ) {
+          await prisma.healthMockExamQuestion.update({
+            where: { id: existingQ.id },
+            data: {
+              questionType: q.questionType ?? "mcq",
+              question: q.question,
+              questionDiagram: (q.questionDiagram as any) ?? undefined,
+              choices: (q.choices as any) ?? [],
+              answerFormat: q.answerFormat ?? "SINGLE",
+              correctChoiceIndexes: q.correctChoiceIndexes ?? [],
+              correctChoiceIndex: q.correctChoiceIndexes?.[0] ?? 0,
+              answerPayload: (q.answerPayload as any) ?? undefined,
+              explanation: q.explanation ?? "",
+              choiceExplanations: (q.choiceExplanations as any) ?? [],
+              themeIds,
+            },
+          });
+        }
+      }
+      return existingColle;
+    } else {
+      await prisma.healthMockExam.delete({ where: { id: existingColle.id } });
+    }
+  }
+
+  const mockExam = await prisma.healthMockExam.create({
+    data: {
+      courseUnitId: courseUnit.id,
+      type: "COLLE",
+      title: "Chimie — Colle cumulative EC",
+      slug: "c10",
+      description: "Chimie générale + Chimie organique · Colle cumulative EC",
+      instructions: "Colle UE14 Reims — 30 questions — 45 min — Notation UNESS",
+      durationMinutes: 45,
+      durationSeconds: 2700,
+      questionCount: 30,
+      version: 1,
+      order: 10,
+      isPublished: true,
+    },
+  });
+
   const section = await prisma.healthMockExamSection.create({
     data: {
       mockExamId: mockExam.id,
@@ -106,7 +152,6 @@ export async function seedHealthColleUE14C10(prisma: PrismaClient) {
     },
   });
 
-  // Création des groupes
   const groupIdsByOrder = new Map<number, string>();
   for (const groupSeed of groupsData) {
     const group = await prisma.healthMockExamQuestionGroup.create({
@@ -123,7 +168,6 @@ export async function seedHealthColleUE14C10(prisma: PrismaClient) {
     }
   }
 
-  // Création des questions avec groupe et themeIds
   for (let index = 0; index < compiledQuestions.length; index++) {
     const q = compiledQuestions[index];
     const questionOrder = index + 1;
