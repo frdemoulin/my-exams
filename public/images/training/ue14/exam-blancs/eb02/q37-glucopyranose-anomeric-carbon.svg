@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="650" viewBox="0 0 900 650">
+<rect width="900" height="650" fill="white"/>
+<g stroke="#111" stroke-width="6" fill="none" stroke-linejoin="round">
+  <polyline points="260,220 440,150 650,240 610,430 400,500 240,390 260,220"/>
+</g>
+<g font-family="Arial, Helvetica, sans-serif" fill="#111" font-size="42">
+  <text x="435" y="135">O</text>
+  <text x="665" y="255">C</text>
+  <text x="205" y="210">CH₂OH</text>
+  <text x="690" y="325">OH</text>
+  <text x="585" y="495">OH</text>
+  <text x="315" y="560">OH</text>
+  <text x="155" y="445">OH</text>
+</g>
+<g stroke="#111" stroke-width="5" stroke-linecap="round">
+  <line x1="650" y1="260" x2="715" y2="305"/>
+  <line x1="610" y1="430" x2="610" y2="475"/>
+  <line x1="400" y1="500" x2="380" y2="545"/>
+  <line x1="240" y1="390" x2="185" y2="425"/>
+  <line x1="260" y1="220" x2="230" y2="170"/>
+</g>
+</svg>

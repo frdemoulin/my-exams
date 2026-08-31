@@ -213,9 +213,10 @@ export async function seedHealthMockExam(prisma: PrismaClient, seed: HealthMockE
   });
 
   if (existingExam?._count.attempts) {
-    throw new Error(
-      `L'examen « ${seed.slug} » possède déjà des tentatives et ne peut plus être régénéré par seed.`,
+    console.log(
+      `L'examen « ${seed.slug} » possède déjà ${existingExam._count.attempts} tentative(s) ; conservation sans régénération.`,
     );
+    return;
   }
 
   const exam = existingExam

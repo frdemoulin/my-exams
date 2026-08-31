@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="650" viewBox="0 0 1100 650">
+<rect width="1100" height="650" fill="white"/>
+<g stroke="#111" stroke-width="5" fill="none">
+  <line x1="120" y1="540" x2="1010" y2="540"/>
+  <line x1="120" y1="540" x2="120" y2="70"/>
+</g>
+<g font-family="Arial, Helvetica, sans-serif" fill="#111" font-size="34">
+  <text x="995" y="590">[S]</text>
+  <text x="55" y="85">v</text>
+  <text x="790" y="105">témoin</text>
+  <text x="765" y="175">+ inhibiteur</text>
+</g>
+<path d="M130 525 C210 345, 330 205, 510 150 C680 100, 840 92, 1000 90" fill="none" stroke="#111" stroke-width="6"/>
+<path d="M130 530 C260 455, 390 330, 560 220 C715 120, 860 95, 1000 90" fill="none" stroke="#555" stroke-width="6" stroke-dasharray="12 10"/>
+<line x1="120" y1="90" x2="1000" y2="90" stroke="#999" stroke-width="3" stroke-dasharray="7 8"/>
+</svg>

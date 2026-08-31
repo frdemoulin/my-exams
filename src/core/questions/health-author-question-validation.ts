@@ -222,29 +222,35 @@ export function validateHealthTrainingAuthorQuestion(
           );
         }
       } else if (question.answer.type === "number") {
-        const val = question.answer.value;
+        const numAns = (question.answer as any).numericAnswer;
+        const val = question.answer.value !== undefined ? question.answer.value : numAns?.value;
+        const tol = question.answer.tolerance !== undefined ? question.answer.tolerance : numAns?.tolerance;
+        const unit = question.answer.unit !== undefined ? question.answer.unit : numAns?.unit;
+        const displayUnit =
+          question.answer.displayUnit !== undefined ? question.answer.displayUnit : numAns?.displayUnit;
+
         if (typeof val !== "number" || !Number.isFinite(val)) {
           issues.push(
             `${prefix} Format QROC numérique : 'value' doit être un nombre valide.`,
           );
         }
         if (
-          question.answer.tolerance !== undefined &&
-          (typeof question.answer.tolerance !== "number" || question.answer.tolerance < 0)
+          tol !== undefined &&
+          (typeof tol !== "number" || tol < 0)
         ) {
           issues.push(
             `${prefix} Format QROC numérique : 'tolerance' doit être un nombre positif ou nul.`,
           );
         }
-        if (question.answer.unit !== undefined) {
-          if (typeof question.answer.unit !== "string" || !question.answer.unit.trim()) {
+        if (unit !== undefined) {
+          if (typeof unit !== "string" || !unit.trim()) {
             issues.push(
               `${prefix} Format QROC numérique : 'unit' doit être une chaîne non vide.`,
             );
           }
         }
-        if (question.answer.displayUnit !== undefined) {
-          if (typeof question.answer.displayUnit !== "string" || !question.answer.displayUnit.trim()) {
+        if (displayUnit !== undefined) {
+          if (typeof displayUnit !== "string" || !displayUnit.trim()) {
             issues.push(
               `${prefix} Format QROC numérique : 'displayUnit' doit être une chaîne non vide.`,
             );

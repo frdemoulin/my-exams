@@ -87,11 +87,26 @@ export function compileHealthTrainingAuthorQuestion(
           : {
               answerType: "number" as const,
               numericAnswer: {
-                value: question.answer.value,
-                tolerance: question.answer.tolerance,
-                unit: question.answer.unit,
-                displayUnit: question.answer.displayUnit,
-                acceptedUnits: question.answer.acceptedUnits,
+                value:
+                  question.answer.value !== undefined
+                    ? question.answer.value
+                    : (question.answer as any).numericAnswer?.value,
+                tolerance:
+                  question.answer.tolerance !== undefined
+                    ? question.answer.tolerance
+                    : (question.answer as any).numericAnswer?.tolerance,
+                unit:
+                  question.answer.unit !== undefined
+                    ? question.answer.unit
+                    : (question.answer as any).numericAnswer?.unit,
+                displayUnit:
+                  question.answer.displayUnit !== undefined
+                    ? question.answer.displayUnit
+                    : (question.answer as any).numericAnswer?.displayUnit,
+                acceptedUnits:
+                  question.answer.acceptedUnits !== undefined
+                    ? question.answer.acceptedUnits
+                    : (question.answer as any).numericAnswer?.acceptedUnits,
               },
             };
 
