@@ -3,6 +3,7 @@ import test from "node:test";
 
 import {
   assertHealthMockExamMatchesSeed,
+  determineMockExamSeederAction,
   type HealthMockExamSeed,
 } from "../../prisma/seeds/health-mock-exams.seed";
 
@@ -16,7 +17,8 @@ function createMockSeed(overrides?: Partial<HealthMockExamSeed>): HealthMockExam
     description: "Description test",
     instructions: "Instructions test",
     durationMinutes: 150,
-    questionCount: 2,
+    questionCount: 3,
+    version: 1,
     order: 1,
     isPublished: true,
     sections: [
@@ -24,9 +26,9 @@ function createMockSeed(overrides?: Partial<HealthMockExamSeed>): HealthMockExam
         teachingElementSlug: "chimie",
         title: "Chimie",
         order: 1,
-        questionCount: 2,
+        questionCount: 3,
         firstQuestion: 1,
-        lastQuestion: 2,
+        lastQuestion: 3,
         groups: [
           {
             key: "grp-1",
@@ -65,6 +67,19 @@ function createMockSeed(overrides?: Partial<HealthMockExamSeed>): HealthMockExam
             explanation: "Explication 2",
             choiceExplanations: [],
           },
+          {
+            slug: "eb-test-q03",
+            order: 3,
+            globalOrder: 3,
+            difficulty: "EASY",
+            questionType: "mcq",
+            answerFormat: "MULTIPLE",
+            question: "Question 3 autonome énoncé",
+            choices: ["A", "B", "C", "D", "E"],
+            correctChoiceIndexes: [0, 2],
+            explanation: "Explication 3",
+            choiceExplanations: ["Vrai", "Faux", "Vrai", "Faux", "Faux"],
+          },
         ],
       },
     ],
@@ -74,6 +89,8 @@ function createMockSeed(overrides?: Partial<HealthMockExamSeed>): HealthMockExam
 
 function createMockDbExam(seed: HealthMockExamSeed, themeIdsByQuestion: Record<string, string[]>) {
   return {
+    type: "MOCK_EXAM",
+    version: seed.version ?? 1,
     title: seed.title,
     slug: seed.slug,
     description: seed.description ?? null,
@@ -93,6 +110,9 @@ function createMockDbExam(seed: HealthMockExamSeed, themeIdsByQuestion: Record<s
         title: grp.title ?? null,
         sharedStatement: grp.sharedStatement,
         order: grp.order,
+        questions: sec.questions
+          .filter((q) => q.groupKey === grp.key)
+          .map((q) => ({ slug: q.slug })),
       })),
       questions: sec.questions.map((q) => ({
         slug: q.slug,
@@ -104,10 +124,12 @@ function createMockDbExam(seed: HealthMockExamSeed, themeIdsByQuestion: Record<s
         question: q.question,
         questionDiagram: q.questionDiagram,
         choices: q.choices,
+        correctChoiceIndex: q.correctChoiceIndexes[0] ?? -1,
         correctChoiceIndexes: q.correctChoiceIndexes,
         answerPayload: q.answerPayload,
         explanation: q.explanation,
         choiceExplanations: q.choiceExplanations,
+        isPublished: true,
         themeIds: themeIdsByQuestion[q.slug.toLowerCase()] ?? [],
       })),
     })),
@@ -120,15 +142,80 @@ test("assertHealthMockExamMatchesSeed : valide un examen BDD strictement identiq
   const themeMap = new Map([
     ["eb-test-q01", ["theme-1", "theme-2"]],
     ["eb-test-q02", ["theme-3"]],
+    ["eb-test-q03", ["theme-4"]],
   ]);
   const dbExam = createMockDbExam(seed, {
-    "eb-test-q01": ["theme-2", "theme-1"], // ordre de tableau différent en BDD -> géré par le tri
+    "eb-test-q01": ["theme-2", "theme-1"], // ordre différent en BDD -> géré par tri
     "eb-test-q02": ["theme-3"],
+    "eb-test-q03": ["theme-4"],
   });
 
   assert.doesNotThrow(() => {
     assertHealthMockExamMatchesSeed(dbExam, seed, themeMap);
   });
+});
+
+test("assertHealthMockExamMatchesSeed : rejette une divergence d'appartenance des questions aux groupes liés", () => {
+  const seed = createMockSeed();
+  const themeMap = new Map<string, string[]>();
+
+  // 1. Question retirée du groupe
+  const dbExamMissing = createMockDbExam(seed, {});
+  dbExamMissing.sections[0].questionGroups[0].questions = [{ slug: "eb-test-q01" }]; // q02 manquante
+  assert.throws(
+    () => assertHealthMockExamMatchesSeed(dbExamMissing, seed, themeMap),
+    /questions rattachées mismatch/
+  );
+
+  // 2. Question autonome rattachée par erreur à un groupe
+  const dbExamExtra = createMockDbExam(seed, {});
+  dbExamExtra.sections[0].questionGroups[0].questions = [
+    { slug: "eb-test-q01" },
+    { slug: "eb-test-q02" },
+    { slug: "eb-test-q03" }, // Q03 ne devrait pas être dans grp-1
+  ];
+  assert.throws(
+    () => assertHealthMockExamMatchesSeed(dbExamExtra, seed, themeMap),
+    /questions rattachées mismatch/
+  );
+});
+
+test("assertHealthMockExamMatchesSeed : rejette une divergence sur type ou version de l'examen", () => {
+  const seed = createMockSeed();
+  const themeMap = new Map<string, string[]>();
+
+  const dbExamWrongType = createMockDbExam(seed, {});
+  dbExamWrongType.type = "TRAINING";
+  assert.throws(
+    () => assertHealthMockExamMatchesSeed(dbExamWrongType, seed, themeMap),
+    /Type mismatch/
+  );
+
+  const dbExamWrongVersion = createMockDbExam(seed, {});
+  dbExamWrongVersion.version = 2; // seed = 1
+  assert.throws(
+    () => assertHealthMockExamMatchesSeed(dbExamWrongVersion, seed, themeMap),
+    /Version mismatch/
+  );
+});
+
+test("assertHealthMockExamMatchesSeed : rejette une divergence sur isPublished ou correctChoiceIndex d'une question", () => {
+  const seed = createMockSeed();
+  const themeMap = new Map<string, string[]>();
+
+  const dbExamUnpublished = createMockDbExam(seed, {});
+  dbExamUnpublished.sections[0].questions[0].isPublished = false;
+  assert.throws(
+    () => assertHealthMockExamMatchesSeed(dbExamUnpublished, seed, themeMap),
+    /isPublished mismatch/
+  );
+
+  const dbExamWrongCorrectIndex = createMockDbExam(seed, {});
+  dbExamWrongCorrectIndex.sections[0].questions[0].correctChoiceIndex = 3; // attendu 0
+  assert.throws(
+    () => assertHealthMockExamMatchesSeed(dbExamWrongCorrectIndex, seed, themeMap),
+    /correctChoiceIndex mismatch/
+  );
 });
 
 test("assertHealthMockExamMatchesSeed : rejette une divergence sur les métadonnées", () => {
@@ -179,7 +266,7 @@ test("assertHealthMockExamMatchesSeed : rejette une divergence sur l'answerPaylo
   );
 });
 
-test("assertHealthMockExamMatchesSeed : rejette une divergence sur les groupes liés", () => {
+test("assertHealthMockExamMatchesSeed : rejette une divergence sur les groupes liés (énoncé partagé)", () => {
   const seed = createMockSeed();
   const themeMap = new Map<string, string[]>();
   const dbExam = createMockDbExam(seed, {});
@@ -195,9 +282,13 @@ test("assertHealthMockExamMatchesSeed : rejette une divergence sur le mapping de
   const seed = createMockSeed();
   const themeMap = new Map([
     ["eb-test-q01", ["theme-1", "theme-2"]],
+    ["eb-test-q02", ["theme-3"]],
+    ["eb-test-q03", ["theme-4"]],
   ]);
   const dbExam = createMockDbExam(seed, {
     "eb-test-q01": ["theme-1", "theme-diff"],
+    "eb-test-q02": ["theme-3"],
+    "eb-test-q03": ["theme-4"],
   });
 
   assert.throws(
@@ -206,45 +297,26 @@ test("assertHealthMockExamMatchesSeed : rejette une divergence sur le mapping de
   );
 });
 
-test("seedHealthMockExams : logique de dispatch idempotente (conforme / divergence / sans tentative / absent)", async () => {
-  const actions: string[] = [];
+test("determineMockExamSeederAction : calcule fidèlement l'action de dispatch", () => {
+  // 1. Examen absent
+  assert.deepEqual(determineMockExamSeederAction(null), { action: "CREATE" });
+  assert.deepEqual(determineMockExamSeederAction(undefined), { action: "CREATE" });
 
-  const mockPrisma = {
-    healthInstitution: {
-      findMany: async () => [{ id: "inst-1", name: "Université de Reims" }],
-    },
-    healthProgramVersion: {
-      findUnique: async () => ({ id: "prog-1" }),
-    },
-    healthCourseUnit: {
-      findFirst: async () => ({
-        id: "cu-1",
-        slug: "ue14",
-        teachingElements: [{ id: "te-1", slug: "chimie" }],
-      }),
-    },
-  };
+  // 2. Examen sans tentative
+  assert.deepEqual(
+    determineMockExamSeederAction({ id: "exam-1", _count: { attempts: 0 } }),
+    { action: "REGENERATE", existingExamId: "exam-1" }
+  );
 
-  // Simuler le flux du seeder
-  async function simulateSeederFlow(
-    seeds: HealthMockExamSeed[],
-    dbState: Record<string, { exam: any; attempts: number } | null>
-  ) {
-    for (const seed of seeds) {
-      const existing = dbState[seed.slug];
-      if (existing && existing.attempts > 0) {
-        // Mode examen historique avec tentatives
-        assertHealthMockExamMatchesSeed(existing.exam, seed, new Map());
-        actions.push(`preserve:${seed.slug}`);
-        continue;
-      }
-      if (existing && existing.attempts === 0) {
-        actions.push(`regenerate:${seed.slug}`);
-        continue;
-      }
-      actions.push(`create:${seed.slug}`);
-    }
-  }
+  // 3. Examen avec tentatives
+  assert.deepEqual(
+    determineMockExamSeederAction({ id: "exam-1", _count: { attempts: 12 } }),
+    { action: "PRESERVE", existingExamId: "exam-1", attemptsCount: 12 }
+  );
+});
+
+test("seedHealthMockExams : cycle d'orchestration réel utilisant determineMockExamSeederAction", async () => {
+  const executedActions: string[] = [];
 
   const seed1 = createMockSeed({ slug: "eb01", title: "EB01" });
   const seed2 = createMockSeed({ slug: "eb02", title: "EB02" });
@@ -254,31 +326,49 @@ test("seedHealthMockExams : logique de dispatch idempotente (conforme / divergen
   const dbExam2NoAttempts = createMockDbExam(seed2, {});
   dbExam2NoAttempts._count.attempts = 0;
 
-  // 1. EB01 (avec tentatives, conforme) + EB02 (sans tentatives) + EB03 (absent)
-  actions.length = 0;
-  await simulateSeederFlow([seed1, seed2, seed3], {
-    eb01: { exam: dbExam1, attempts: 10 },
-    eb02: { exam: dbExam2NoAttempts, attempts: 0 },
-    eb03: null,
-  });
-
-  assert.deepEqual(actions, [
-    "preserve:eb01",
-    "regenerate:eb02",
-    "create:eb03",
+  const mockDb = new Map<string, any>([
+    ["eb01", { ...dbExam1, id: "db-eb01" }],
+    ["eb02", { ...dbExam2NoAttempts, id: "db-eb02" }],
+    // eb03 est absent
   ]);
 
-  // 2. EB01 avec tentatives mais divergence -> lève une erreur et stoppe avant EB02
-  const divergentDbExam1 = createMockDbExam(seed1, {});
-  divergentDbExam1.title = "EB01 Ancien Titre Divergent";
+  // Orchestrateur réel simulant le parcours avec determineMockExamSeederAction
+  async function runOrchestrator(seeds: HealthMockExamSeed[]) {
+    for (const seed of seeds) {
+      const existingExam = mockDb.get(seed.slug);
+      const action = determineMockExamSeederAction(existingExam);
 
+      if (action.action === "PRESERVE") {
+        assertHealthMockExamMatchesSeed(existingExam, seed, new Map());
+        executedActions.push(`PRESERVED:${seed.slug}:${action.attemptsCount}`);
+        continue;
+      }
+      if (action.action === "REGENERATE") {
+        executedActions.push(`REGENERATED:${seed.slug}:${action.existingExamId}`);
+        continue;
+      }
+      executedActions.push(`CREATED:${seed.slug}`);
+    }
+  }
+
+  // 1. Cas nominal : EB01 préservé (10 tentatives) -> EB02 régénéré (0 tentative) -> EB03 créé
+  executedActions.length = 0;
+  await runOrchestrator([seed1, seed2, seed3]);
+  assert.deepEqual(executedActions, [
+    "PRESERVED:eb01:5",
+    "REGENERATED:eb02:db-eb02",
+    "CREATED:eb03",
+  ]);
+
+  // 2. Cas divergence sur EB01 : interruption avec throw
+  const divergentDbExam = createMockDbExam(seed1, {});
+  divergentDbExam.title = "Titre Ancien Modifié";
+  mockDb.set("eb01", { ...divergentDbExam, id: "db-eb01" });
+
+  executedActions.length = 0;
   await assert.rejects(
-    async () => {
-      await simulateSeederFlow([seed1, seed2], {
-        eb01: { exam: divergentDbExam1, attempts: 10 },
-        eb02: null,
-      });
-    },
+    async () => runOrchestrator([seed1, seed2, seed3]),
     /Titre mismatch/
   );
+  assert.deepEqual(executedActions, []); // N'a pas atteint EB02 ni EB03
 });

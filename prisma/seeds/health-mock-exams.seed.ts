@@ -334,14 +334,40 @@ export async function seedHealthMockExam(prisma: PrismaClient, seed: HealthMockE
   }
 }
 
+export type HealthMockExamSeederAction =
+  | { action: "CREATE" }
+  | { action: "REGENERATE"; existingExamId: string }
+  | { action: "PRESERVE"; existingExamId: string; attemptsCount: number };
+
+export function determineMockExamSeederAction(
+  existingExam: {
+    id: string;
+    _count?: { attempts: number };
+  } | null | undefined,
+): HealthMockExamSeederAction {
+  if (!existingExam) {
+    return { action: "CREATE" };
+  }
+  if (existingExam._count && existingExam._count.attempts > 0) {
+    return {
+      action: "PRESERVE",
+      existingExamId: existingExam.id,
+      attemptsCount: existingExam._count.attempts,
+    };
+  }
+  return { action: "REGENERATE", existingExamId: existingExam.id };
+}
+
 export function assertHealthMockExamMatchesSeed(
   dbExam: {
+    type?: string;
     title: string;
     slug: string;
     description: string | null;
     instructions: string | null;
     durationMinutes: number;
     questionCount: number;
+    version?: number;
     order: number;
     isPublished: boolean;
     sections: Array<{
@@ -367,10 +393,12 @@ export function assertHealthMockExamMatchesSeed(
         question: string;
         questionDiagram?: unknown;
         choices: unknown;
+        correctChoiceIndex?: number;
         correctChoiceIndexes: number[];
         answerPayload?: unknown;
         explanation: string;
         choiceExplanations: unknown;
+        isPublished?: boolean;
         themeIds: string[];
       }>;
     }>;
@@ -381,6 +409,12 @@ export function assertHealthMockExamMatchesSeed(
 ) {
   const reasons: string[] = [];
 
+  if (dbExam.type !== undefined && dbExam.type !== "MOCK_EXAM") {
+    reasons.push(`Type mismatch : attendu « MOCK_EXAM », reçu « ${dbExam.type} »`);
+  }
+  if (dbExam.version !== undefined && dbExam.version !== (seed.version ?? 1)) {
+    reasons.push(`Version mismatch : attendu ${seed.version ?? 1}, reçu ${dbExam.version}`);
+  }
   if (dbExam.title !== seed.title) reasons.push(`Titre mismatch : attendu « ${seed.title} », reçu « ${dbExam.title} »`);
   if (dbExam.slug !== seed.slug) reasons.push(`Slug mismatch : attendu « ${seed.slug} », reçu « ${dbExam.slug} »`);
   if (dbExam.durationMinutes !== seed.durationMinutes) reasons.push(`durationMinutes mismatch : attendu ${seed.durationMinutes}, reçu ${dbExam.durationMinutes}`);
@@ -426,6 +460,21 @@ export function assertHealthMockExamMatchesSeed(
         if ((dbG.title ?? null) !== (seedG.title ?? null)) reasons.push(`${secPrefix} Groupe ${seedG.key} titre mismatch`);
         if (dbG.sharedStatement !== seedG.sharedStatement) reasons.push(`${secPrefix} Groupe ${seedG.key} énoncé partagé mismatch`);
         if (dbG.order !== seedG.order) reasons.push(`${secPrefix} Groupe ${seedG.key} order mismatch`);
+
+        // Check group question membership (sorted slugs)
+        const expectedQuestionSlugs = seedSec.questions
+          .filter((q) => q.groupKey === seedG.key)
+          .map((q) => q.slug.toLowerCase())
+          .sort();
+        const dbQuestionSlugs = (dbG.questions ?? [])
+          .map((q) => q.slug.toLowerCase())
+          .sort();
+
+        if (JSON.stringify(dbQuestionSlugs) !== JSON.stringify(expectedQuestionSlugs)) {
+          reasons.push(
+            `${secPrefix} Groupe ${seedG.key} questions rattachées mismatch : attendu [${expectedQuestionSlugs.join(",")}], reçu [${dbQuestionSlugs.join(",")}]`,
+          );
+        }
       }
     }
 
@@ -449,6 +498,14 @@ export function assertHealthMockExamMatchesSeed(
       if (dbQ.answerFormat !== seedQ.answerFormat) reasons.push(`${qPrefix} answerFormat mismatch : attendu ${seedQ.answerFormat}, reçu ${dbQ.answerFormat}`);
       if (dbQ.question !== seedQ.question) reasons.push(`${qPrefix} énoncé mismatch`);
       if ((dbQ.explanation ?? "") !== (seedQ.explanation ?? "")) reasons.push(`${qPrefix} explanation mismatch`);
+
+      if (dbQ.isPublished !== undefined && dbQ.isPublished !== true) {
+        reasons.push(`${qPrefix} isPublished mismatch : attendu true, reçu ${dbQ.isPublished}`);
+      }
+      const expectedCorrectIndex = seedQ.correctChoiceIndexes[0] ?? -1;
+      if (dbQ.correctChoiceIndex !== undefined && dbQ.correctChoiceIndex !== expectedCorrectIndex) {
+        reasons.push(`${qPrefix} correctChoiceIndex mismatch : attendu ${expectedCorrectIndex}, reçu ${dbQ.correctChoiceIndex}`);
+      }
 
       if (JSON.stringify(dbQ.choices) !== JSON.stringify(seedQ.choices)) {
         reasons.push(`${qPrefix} choices mismatch`);
@@ -501,7 +558,9 @@ export async function seedHealthMockExams(prisma: PrismaClient) {
       },
     });
 
-    if (existingExam && existingExam._count.attempts > 0) {
+    const action = determineMockExamSeederAction(existingExam);
+
+    if (action.action === "PRESERVE") {
       const themeIdsByQuestionStableId = await resolveThemeIdsByQuestionStableId({
         prisma,
         themeIdsByQuestionStableId: seed.themeIdsByQuestionStableId,
@@ -512,13 +571,13 @@ export async function seedHealthMockExams(prisma: PrismaClient) {
       });
 
       assertHealthMockExamMatchesSeed(
-        existingExam,
+        existingExam!,
         seed,
         themeIdsByQuestionStableId,
       );
 
       console.log(
-        `L'examen « ${seed.slug} » possède ${existingExam._count.attempts} tentative(s) et est strictement conforme au seed canonique ; conservation sans régénération.`,
+        `L'examen « ${seed.slug} » possède ${action.attemptsCount} tentative(s) et est strictement conforme au seed canonique ; conservation sans régénération.`,
       );
       continue;
     }
