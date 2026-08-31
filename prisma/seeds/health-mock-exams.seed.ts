@@ -334,8 +334,195 @@ export async function seedHealthMockExam(prisma: PrismaClient, seed: HealthMockE
   }
 }
 
+export function assertHealthMockExamMatchesSeed(
+  dbExam: {
+    title: string;
+    slug: string;
+    description: string | null;
+    instructions: string | null;
+    durationMinutes: number;
+    questionCount: number;
+    order: number;
+    isPublished: boolean;
+    sections: Array<{
+      title: string;
+      order: number;
+      questionCount: number;
+      firstQuestion: number;
+      lastQuestion: number;
+      teachingElement: { slug: string };
+      questionGroups: Array<{
+        title: string | null;
+        sharedStatement: string;
+        order: number;
+        questions?: Array<{ slug: string }>;
+      }>;
+      questions: Array<{
+        slug: string;
+        order: number;
+        globalOrder: number;
+        difficulty: QuizDifficulty;
+        questionType?: string | null;
+        answerFormat?: QuizAnswerFormat | null;
+        question: string;
+        questionDiagram?: unknown;
+        choices: unknown;
+        correctChoiceIndexes: number[];
+        answerPayload?: unknown;
+        explanation: string;
+        choiceExplanations: unknown;
+        themeIds: string[];
+      }>;
+    }>;
+    _count?: { attempts: number };
+  },
+  seed: HealthMockExamSeed,
+  themeIdsByQuestionStableId: Map<string, string[]>,
+) {
+  const reasons: string[] = [];
+
+  if (dbExam.title !== seed.title) reasons.push(`Titre mismatch : attendu « ${seed.title} », reçu « ${dbExam.title} »`);
+  if (dbExam.slug !== seed.slug) reasons.push(`Slug mismatch : attendu « ${seed.slug} », reçu « ${dbExam.slug} »`);
+  if (dbExam.durationMinutes !== seed.durationMinutes) reasons.push(`durationMinutes mismatch : attendu ${seed.durationMinutes}, reçu ${dbExam.durationMinutes}`);
+  if (dbExam.questionCount !== seed.questionCount) reasons.push(`questionCount mismatch : attendu ${seed.questionCount}, reçu ${dbExam.questionCount}`);
+  if (dbExam.order !== seed.order) reasons.push(`order mismatch : attendu ${seed.order}, reçu ${dbExam.order}`);
+  if (dbExam.isPublished !== seed.isPublished) reasons.push(`isPublished mismatch : attendu ${seed.isPublished}, reçu ${dbExam.isPublished}`);
+  if ((dbExam.description ?? null) !== (seed.description ?? null)) reasons.push(`description mismatch`);
+  if ((dbExam.instructions ?? null) !== (seed.instructions ?? null)) reasons.push(`instructions mismatch`);
+
+  if (dbExam.sections.length !== seed.sections.length) {
+    reasons.push(`Nombre de sections mismatch : attendu ${seed.sections.length}, reçu ${dbExam.sections.length}`);
+    throw new Error(
+      `L'examen « ${seed.slug} » possède ${dbExam._count?.attempts ?? "des"} tentative(s) mais diverge du seed canonique :\n- ${reasons.join("\n- ")}`,
+    );
+  }
+
+  const sortedDbSections = [...dbExam.sections].sort((a, b) => a.order - b.order);
+  const sortedSeedSections = [...seed.sections].sort((a, b) => a.order - b.order);
+
+  for (let i = 0; i < sortedSeedSections.length; i++) {
+    const dbSec = sortedDbSections[i];
+    const seedSec = sortedSeedSections[i];
+    const secPrefix = `Section ${i + 1} (${seedSec.teachingElementSlug})`;
+
+    if (dbSec.title !== seedSec.title) reasons.push(`${secPrefix} titre mismatch : attendu « ${seedSec.title} », reçu « ${dbSec.title} »`);
+    if (dbSec.order !== seedSec.order) reasons.push(`${secPrefix} order mismatch : attendu ${seedSec.order}, reçu ${dbSec.order}`);
+    if (dbSec.teachingElement.slug !== seedSec.teachingElementSlug) reasons.push(`${secPrefix} EC mismatch : attendu « ${seedSec.teachingElementSlug} », reçu « ${dbSec.teachingElement.slug} »`);
+    if (dbSec.questionCount !== seedSec.questionCount) reasons.push(`${secPrefix} questionCount mismatch : attendu ${seedSec.questionCount}, reçu ${dbSec.questionCount}`);
+    if (dbSec.firstQuestion !== seedSec.firstQuestion) reasons.push(`${secPrefix} firstQuestion mismatch : attendu ${seedSec.firstQuestion}, reçu ${dbSec.firstQuestion}`);
+    if (dbSec.lastQuestion !== seedSec.lastQuestion) reasons.push(`${secPrefix} lastQuestion mismatch : attendu ${seedSec.lastQuestion}, reçu ${dbSec.lastQuestion}`);
+    if (dbSec.questions.length !== seedSec.questions.length) reasons.push(`${secPrefix} nombre de questions mismatch : attendu ${seedSec.questions.length}, reçu ${dbSec.questions.length}`);
+
+    const seedGroups = seedSec.groups ?? [];
+    const sortedDbGroups = [...dbSec.questionGroups].sort((a, b) => a.order - b.order);
+    const sortedSeedGroups = [...seedGroups].sort((a, b) => a.order - b.order);
+
+    if (sortedDbGroups.length !== sortedSeedGroups.length) {
+      reasons.push(`${secPrefix} nombre de groupes mismatch : attendu ${sortedSeedGroups.length}, reçu ${sortedDbGroups.length}`);
+    } else {
+      for (let g = 0; g < sortedSeedGroups.length; g++) {
+        const dbG = sortedDbGroups[g];
+        const seedG = sortedSeedGroups[g];
+        if ((dbG.title ?? null) !== (seedG.title ?? null)) reasons.push(`${secPrefix} Groupe ${seedG.key} titre mismatch`);
+        if (dbG.sharedStatement !== seedG.sharedStatement) reasons.push(`${secPrefix} Groupe ${seedG.key} énoncé partagé mismatch`);
+        if (dbG.order !== seedG.order) reasons.push(`${secPrefix} Groupe ${seedG.key} order mismatch`);
+      }
+    }
+
+    const sortedDbQ = [...dbSec.questions].sort((a, b) => a.order - b.order);
+    const sortedSeedQ = [...seedSec.questions].sort((a, b) => a.order - b.order);
+
+    for (let k = 0; k < sortedSeedQ.length; k++) {
+      const dbQ = sortedDbQ[k];
+      const seedQ = sortedSeedQ[k];
+      if (!dbQ) {
+        reasons.push(`${secPrefix} Question ${seedQ.slug} absente en BDD`);
+        continue;
+      }
+      const qPrefix = `Question ${seedQ.slug} (globalOrder ${seedQ.globalOrder})`;
+
+      if (dbQ.slug !== seedQ.slug) reasons.push(`${qPrefix} slug mismatch : attendu ${seedQ.slug}, reçu ${dbQ.slug}`);
+      if (dbQ.order !== seedQ.order) reasons.push(`${qPrefix} order mismatch : attendu ${seedQ.order}, reçu ${dbQ.order}`);
+      if (dbQ.globalOrder !== seedQ.globalOrder) reasons.push(`${qPrefix} globalOrder mismatch : attendu ${seedQ.globalOrder}, reçu ${dbQ.globalOrder}`);
+      if (dbQ.difficulty !== seedQ.difficulty) reasons.push(`${qPrefix} difficulty mismatch : attendu ${seedQ.difficulty}, reçu ${dbQ.difficulty}`);
+      if (dbQ.questionType !== (seedQ.questionType ?? "mcq")) reasons.push(`${qPrefix} questionType mismatch : attendu ${seedQ.questionType ?? "mcq"}, reçu ${dbQ.questionType}`);
+      if (dbQ.answerFormat !== seedQ.answerFormat) reasons.push(`${qPrefix} answerFormat mismatch : attendu ${seedQ.answerFormat}, reçu ${dbQ.answerFormat}`);
+      if (dbQ.question !== seedQ.question) reasons.push(`${qPrefix} énoncé mismatch`);
+      if ((dbQ.explanation ?? "") !== (seedQ.explanation ?? "")) reasons.push(`${qPrefix} explanation mismatch`);
+
+      if (JSON.stringify(dbQ.choices) !== JSON.stringify(seedQ.choices)) {
+        reasons.push(`${qPrefix} choices mismatch`);
+      }
+      if (JSON.stringify(dbQ.correctChoiceIndexes) !== JSON.stringify(seedQ.correctChoiceIndexes)) {
+        reasons.push(`${qPrefix} correctChoiceIndexes mismatch`);
+      }
+      if (JSON.stringify(dbQ.choiceExplanations) !== JSON.stringify(seedQ.choiceExplanations)) {
+        reasons.push(`${qPrefix} choiceExplanations mismatch`);
+      }
+      if (JSON.stringify(dbQ.questionDiagram ?? null) !== JSON.stringify(seedQ.questionDiagram ?? null)) {
+        reasons.push(`${qPrefix} questionDiagram mismatch`);
+      }
+      if (JSON.stringify(dbQ.answerPayload ?? null) !== JSON.stringify(seedQ.answerPayload ?? null)) {
+        reasons.push(`${qPrefix} answerPayload mismatch`);
+      }
+
+      const expectedThemeIds = themeIdsByQuestionStableId.get(seedQ.slug.toLowerCase()) ?? [];
+      const dbThemesSorted = [...dbQ.themeIds].sort();
+      const expectedThemesSorted = [...expectedThemeIds].sort();
+      if (JSON.stringify(dbThemesSorted) !== JSON.stringify(expectedThemesSorted)) {
+        reasons.push(`${qPrefix} themeIds mismatch : attendu [${expectedThemesSorted.join(",")}], reçu [${dbThemesSorted.join(",")}]`);
+      }
+    }
+  }
+
+  if (reasons.length > 0) {
+    throw new Error(
+      `L'examen « ${seed.slug} » en base de données possède ${dbExam._count?.attempts ?? "des"} tentative(s) mais diverge du seed canonique :\n- ${reasons.join("\n- ")}`,
+    );
+  }
+}
+
 export async function seedHealthMockExams(prisma: PrismaClient) {
   for (const seed of reimsUe14MockExams) {
+    const courseUnit = await resolveCourseUnit(prisma, seed);
+    const existingExam = await prisma.healthMockExam.findFirst({
+      where: { courseUnitId: courseUnit.id, slug: seed.slug },
+      include: {
+        sections: {
+          include: {
+            teachingElement: { select: { slug: true } },
+            questionGroups: {
+              include: { questions: { select: { slug: true } } },
+            },
+            questions: true,
+          },
+        },
+        _count: { select: { attempts: true } },
+      },
+    });
+
+    if (existingExam && existingExam._count.attempts > 0) {
+      const themeIdsByQuestionStableId = await resolveThemeIdsByQuestionStableId({
+        prisma,
+        themeIdsByQuestionStableId: seed.themeIdsByQuestionStableId,
+        stableIds: seed.sections.flatMap((section) =>
+          section.questions.map((question) => question.slug)
+        ),
+        contextLabel: `examen blanc ${seed.slug}`,
+      });
+
+      assertHealthMockExamMatchesSeed(
+        existingExam,
+        seed,
+        themeIdsByQuestionStableId,
+      );
+
+      console.log(
+        `L'examen « ${seed.slug} » possède ${existingExam._count.attempts} tentative(s) et est strictement conforme au seed canonique ; conservation sans régénération.`,
+      );
+      continue;
+    }
+
     await seedHealthMockExam(prisma, seed);
   }
 }
