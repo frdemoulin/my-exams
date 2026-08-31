@@ -51,7 +51,7 @@ export type AuthorQrocTextAnswer = {
 
 export type AuthorQrocNumberAnswer = {
   type: "number";
-  value?: number;
+  value: number;
   tolerance?: number;
 
   /**
@@ -73,17 +73,6 @@ export type AuthorQrocNumberAnswer = {
    * À considérer comme déprécié pour les nouveaux contenus.
    */
   acceptedUnits?: string[];
-
-  /**
-   * Format imbriqué utilisé par certains seeds auteurs (ex : EB02).
-   */
-  numericAnswer?: {
-    value: number;
-    tolerance?: number;
-    unit?: string;
-    displayUnit?: string;
-    acceptedUnits?: string[];
-  };
 };
 
 export type HealthTrainingAuthorQrocQuestion = BaseHealthAuthorQuestion & {

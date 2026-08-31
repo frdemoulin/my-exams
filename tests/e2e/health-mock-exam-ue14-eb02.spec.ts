@@ -82,7 +82,7 @@ test.describe.serial("Santé — Examen blanc UE14 EB02 E2E & Recette Visuelle",
     // Répondre à Q1
     await page.getByTestId("health-mock-exam-choice-0").click();
 
-    // 3. Navigation vers Q9 — QZONE (Capture 5: tmp/eb02-qzone.png)
+    // 3. Navigation vers Q9 — QZONE (Capture: tmp/eb02-qzone.png)
     await goToQuestionNumber(page, 9);
     await expect(page.getByText("Sur la formule du propanenitrile")).toBeVisible();
     await expect(page.getByText("QZONE — Question à zone à pointer")).toBeVisible();
@@ -101,20 +101,27 @@ test.describe.serial("Santé — Examen blanc UE14 EB02 E2E & Recette Visuelle",
     }
     await page.screenshot({ path: path.join(tmpDir, "eb02-qzone.png") });
 
-    // 4. Navigation vers Q54..Q56 — G2 Biochimie Groupe Lié (Capture 3: tmp/eb02-biochimie-linked-group.png)
+    // 4. Navigation vers Q18..Q20 — G1 Chimie Groupe Lié (Capture: tmp/eb02-chimie-linked-group.png)
+    await goToQuestionNumber(page, 18);
+    await expect(page.getByText("Chimie", { exact: false }).first()).toBeVisible();
+    await expect(page.getByText("Données communes", { exact: false }).first()).toBeVisible();
+    await expect(page.getByText("Substitution SN2 du 2-bromobutane", { exact: false })).toBeVisible();
+    await page.screenshot({ path: path.join(tmpDir, "eb02-chimie-linked-group.png") });
+
+    // 5. Navigation vers Q54..Q56 — G2 Biochimie Groupe Lié (Capture: tmp/eb02-biochimie-linked-group.png)
     await goToQuestionNumber(page, 54);
     await expect(page.getByText("Biochimie", { exact: false }).first()).toBeVisible();
     await expect(page.getByText("Données communes", { exact: false }).first()).toBeVisible();
     await expect(page.getByText("Michaelis–Menten", { exact: false })).toBeVisible();
     await page.screenshot({ path: path.join(tmpDir, "eb02-biochimie-linked-group.png") });
 
-    // 5. Navigation vers Q72..Q74 — G3 Biocell Question (Capture 4: tmp/eb02-biocell-question.png)
+    // 6. Navigation vers Q72..Q74 — G3 Biocell Groupe Lié (Capture: tmp/eb02-biocell-linked-group.png)
     await goToQuestionNumber(page, 72);
     await expect(page.getByText("Biologie cellulaire", { exact: false }).first()).toBeVisible();
     await expect(page.getByText("Endocytose du LDL", { exact: false }).first()).toBeVisible();
-    await page.screenshot({ path: path.join(tmpDir, "eb02-biocell-question.png") });
+    await page.screenshot({ path: path.join(tmpDir, "eb02-biocell-linked-group.png") });
 
-    // 6. Navigation vers Q100 (dernière question)
+    // 7. Navigation vers Q100 (dernière question)
     await goToQuestionNumber(page, 100);
     await expect(page.getByText("Question 100 / 100", { exact: false })).toBeVisible();
 

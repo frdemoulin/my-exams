@@ -11,6 +11,24 @@ const teachingElementSlugs: Record<string, string> = {
   BIOLOGIE_CELLULAIRE: "biologie-cellulaire",
 };
 
+function normalizeAuthorQuestionForCompilation(q: any): any {
+  if (q.format === "QROC" && q.answer?.type === "number" && q.answer?.numericAnswer) {
+    const numAns = q.answer.numericAnswer;
+    return {
+      ...q,
+      answer: {
+        type: "number",
+        value: numAns.value,
+        ...(numAns.tolerance !== undefined ? { tolerance: numAns.tolerance } : {}),
+        ...(numAns.unit !== undefined ? { unit: numAns.unit } : {}),
+        ...(numAns.displayUnit !== undefined ? { displayUnit: numAns.displayUnit } : {}),
+        ...(numAns.acceptedUnits !== undefined ? { acceptedUnits: numAns.acceptedUnits } : {}),
+      },
+    };
+  }
+  return q;
+}
+
 function buildExamSeed(
   editorialSeed: any,
   themeMapping: ReadonlyArray<{ stableId: string; themeIds: readonly string[] }>,
@@ -48,7 +66,8 @@ function buildExamSeed(
     const sectionQuestions = sec.questionStableIds.map((stableId: string, idx: number) => {
       const q: any = questionsByStableId.get(stableId);
       if (!q) throw new Error(`Question ${stableId} introuvable dans seed.questions`);
-      const compiled = compileHealthTrainingAuthorQuestion(q as any);
+      const normalizedQ = normalizeAuthorQuestionForCompilation(q);
+      const compiled = compileHealthTrainingAuthorQuestion(normalizedQ as any);
       return {
         slug: q.stableId,
         order: idx + 1,
