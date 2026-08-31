@@ -5,6 +5,7 @@ import {
 } from "@/core/quiz/quiz-answer-format";
 import {
   normalizePersistedQuestion,
+  normalizePersistedQuestionFormat,
   normalizePersistedQuestionType,
 } from "@/core/questions";
 import { normalizeTrainingChoiceContents } from "@/core/training/training-choice-content";
@@ -216,9 +217,38 @@ export function validateHealthMockExamForPublication(
 
       const questionType = normalizePersistedQuestionType(question.questionType);
       if (questionType === "mcq") {
+        const format = normalizePersistedQuestionFormat(question);
         const choices = normalizeTrainingChoiceContents(question.choices);
-        if (choices.length < 4 || choices.length > 5) {
-          issues.push(`La question ${question.globalOrder} doit comporter entre quatre et cinq items.`);
+        const answerPayload =
+          typeof question.answerPayload === "object" && question.answerPayload !== null
+            ? (question.answerPayload as Record<string, unknown>)
+            : {};
+        const requiredSelectionCount =
+          typeof answerPayload.requiredSelectionCount === "number"
+            ? answerPayload.requiredSelectionCount
+            : undefined;
+
+        if (format === "QRPL") {
+          if (choices.length !== 10) {
+            issues.push(`La question ${question.globalOrder} au format QRPL doit comporter exactement dix items.`);
+          }
+          if (requiredSelectionCount !== 5) {
+            issues.push(`La question ${question.globalOrder} au format QRPL doit exiger exactement 5 réponses (requiredSelectionCount = 5).`);
+          }
+        } else if (format === "QRP") {
+          if (choices.length < 4 || choices.length > 5) {
+            issues.push(`La question ${question.globalOrder} doit comporter entre quatre et cinq items.`);
+          }
+          if (requiredSelectionCount !== 2) {
+            issues.push(`La question ${question.globalOrder} au format QRP doit exiger exactement 2 réponses (requiredSelectionCount = 2).`);
+          }
+        } else {
+          if (choices.length < 4 || choices.length > 5) {
+            issues.push(`La question ${question.globalOrder} doit comporter entre quatre et cinq items.`);
+          }
+          if (requiredSelectionCount !== undefined) {
+            issues.push(`La question ${question.globalOrder} ne doit pas définir requiredSelectionCount en format ${format}.`);
+          }
         }
 
         const choiceExplanations = normalizeChoiceExplanations(question.choiceExplanations);
@@ -236,8 +266,17 @@ export function validateHealthMockExamForPublication(
         if (correctChoiceIndexes.length === 0) {
           issues.push(`La question ${question.globalOrder} ne possède pas de réponse attendue valide.`);
         }
-        if (answerFormat === "SINGLE" && correctChoiceIndexes.length !== 1) {
-          issues.push(`La question ${question.globalOrder} est au format réponse unique mais comporte plusieurs réponses attendues.`);
+        if (format === "QRU" && (answerFormat !== "SINGLE" || correctChoiceIndexes.length !== 1)) {
+          issues.push(`La question ${question.globalOrder} est au format réponse unique mais ne comporte pas exactement une réponse attendue.`);
+        }
+        if (format === "QRM" && (answerFormat !== "MULTIPLE" || correctChoiceIndexes.length < 2)) {
+          issues.push(`La question ${question.globalOrder} est au format QRM mais ne comporte pas au moins deux réponses attendues.`);
+        }
+        if (format === "QRP" && (answerFormat !== "MULTIPLE" || correctChoiceIndexes.length !== 2)) {
+          issues.push(`La question ${question.globalOrder} est au format QRP mais ne comporte pas exactement deux réponses attendues.`);
+        }
+        if (format === "QRPL" && (answerFormat !== "MULTIPLE" || correctChoiceIndexes.length !== 5)) {
+          issues.push(`La question ${question.globalOrder} est au format QRPL mais ne comporte pas exactement cinq réponses attendues.`);
         }
       } else if (questionType === "short-answer") {
         const canonicalQuestion = normalizePersistedQuestion({

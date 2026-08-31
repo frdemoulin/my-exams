@@ -235,40 +235,57 @@ Le candidat doit régulièrement devoir :
 
 ---
 
-## 7. Transversalité
+## 7. Transversalité — uniquement à l’intérieur d’un même EC
 
-La transversalité est une caractéristique attendue d’un EB UE14.
+Les examens de référence séparent nettement les EC. Les examens blancs My Exams respectent cette logique : **aucune question ne doit exiger de croiser des connaissances appartenant à deux EC différents**.
 
-### 7.1. Transversalité intra-EC
+La transversalité recherchée est exclusivement **intra-EC**, c’est-à-dire entre plusieurs chapitres d’un même EC.
 
-Elle doit être fréquente.
+### 7.1. Chimie
 
 Exemples de croisements naturels :
 
-- atomistique + liaison + réactivité ;
-- stéréochimie + fonctions organiques ;
-- glucides + bioénergétique ;
-- lipides + membranes ;
-- protéines + cinétique enzymatique ;
-- mitochondrie + métabolisme ;
-- trafic + compartiments + modifications post-traductionnelles ;
-- cytosquelette + transport intracellulaire.
+- atomistique + liaisons ;
+- orbitales + hybridation + géométrie ;
+- stéréochimie + nomenclature ;
+- fonctions organiques + réactivité ;
+- nomenclature + molécules polyfonctionnelles.
 
-### 7.2. Transversalité inter-EC
+### 7.2. Biochimie
 
-Elle est souhaitée lorsqu’elle est scientifiquement naturelle.
+Exemples de croisements naturels :
 
-Exemples :
+- glucides : structure + anomérie + liaisons osidiques ;
+- lipides : structure + nomenclature + phospholipases ;
+- protéines : structure + rôle biologique ;
+- enzymologie : mécanisme + cinétique + régulation.
 
-- structure chimique d’une molécule puis conséquence biochimique ;
-- propriétés acido-basiques d’un acide aminé puis effet sur une protéine ;
-- gradient ionique + membrane + fonctionnement cellulaire ;
-- oxydoréduction + chaîne respiratoire ;
-- lipide + organisation membranaire + trafic.
+### 7.3. Biologie cellulaire
 
-Une question inter-EC doit cependant conserver un **EC principal** pour le blueprint et le Theme mapping.
+Exemples de croisements naturels :
 
-La transversalité ne doit jamais devenir une excuse pour demander une connaissance extérieure au programme.
+- membrane + transport ;
+- cytosquelette + moteurs moléculaires ;
+- RER + Golgi + lysosome + trafic ;
+- peroxysome + adressage + fonctions ;
+- mitochondrie + chaîne respiratoire + phosphorylation oxydative ;
+- noyau + cycle cellulaire.
+
+Une question peut mobiliser plusieurs chapitres **du même EC**, mais elle doit rester entièrement résoluble à partir des contenus de cet EC.
+
+Même lorsqu’une notion existe également dans un autre EC — par exemple actine, lipides membranaires ou β-oxydation — la question doit être rédigée uniquement selon l’angle et les connaissances explicitement rattachés à l’EC concerné.
+
+Le Theme mapping suit la même logique : Theme principal obligatoire et, si nécessaire, second Theme appartenant **au même EC**.
+
+### 7.4. Interdiction des questions inter-EC
+
+Ne pas construire une question nécessitant simultanément :
+
+- une connaissance propre à la Chimie et une connaissance propre à la Biochimie ;
+- une connaissance propre à la Biochimie et une connaissance propre à la Biologie cellulaire ;
+- ou des connaissances propres aux trois EC.
+
+Une mise en situation peut évoquer un objet biologique commun à plusieurs disciplines, mais les informations nécessaires à la réponse doivent rester strictement dans le périmètre de l’EC auquel la question est rattachée.
 
 ---
 
@@ -477,7 +494,7 @@ Une faute ou un terme voisin peut constituer un distracteur si :
 1. la forme correcte est explicitement enseignée ;
 2. la forme fausse correspond à une confusion plausible ;
 3. la différence a un sens scientifique réel ;
-4. la correction explains précisément le piège.
+4. la correction explique précisément le piège.
 
 Ne pas multiplier ces distracteurs au point de transformer l’EB en dictée scientifique.
 

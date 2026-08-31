@@ -143,7 +143,7 @@ test.describe.serial("Santé - QCM publics", () => {
     await expect(page.getByRole("link", { name: /^Voir$/i }).first()).toBeVisible();
   });
 
-  test("l'onglet Évaluations expose les colles, le popover d'aide compact et l'état vide des examens blancs", async ({ page }) => {
+  test("l'onglet Évaluations expose les colles, le popover d'aide compact et la section examens blancs", async ({ page }) => {
     const fixture = await getFixture();
 
     await page.goto(`${appBaseUrl}/sante/ue/${fixture.courseUnitId}?ec=evaluations`);
@@ -159,9 +159,8 @@ test.describe.serial("Santé - QCM publics", () => {
     await expect(page.getByRole("link", { name: /Formats et notation/i })).toBeVisible();
 
     await expect(page.getByRole("heading", { name: "Examens blancs" })).toBeVisible();
-    await expect(
-      page.getByText("Les examens blancs seront disponibles prochainement."),
-    ).toBeVisible();
+    const mockExamsSection = page.locator('section[aria-labelledby="health-mock-exams-heading"]');
+    await expect(mockExamsSection).toBeVisible();
   });
 
   test("la page chapitre expose les sections, le retour à l'EC et les QCM", async ({
