@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { TabItem, Tabs } from 'flowbite-react';
-import { ArrowRight, FileCheck2, Info, Loader2, MoreHorizontal } from 'lucide-react';
+import { ArrowRight, BarChart3, FileCheck2, Info, Loader2, MoreHorizontal } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -19,9 +19,11 @@ import {
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { HealthColleStartDialog } from '@/components/health/HealthColleStartDialog';
 import { HealthColleHistoryModal } from '@/components/health/HealthColleHistoryModal';
+import { HealthCourseUnitProgressTab } from '@/components/health/HealthCourseUnitProgressTab';
 import { actionMenuContent, actionMenuItem, actionMenuTrigger } from '@/components/shared/table-action-menu';
 import { HEALTH_COLLES_UE14_V1, type HealthColleV1 } from '@/core/health-colle';
 import type { HealthStudentCourseUnitDetail } from '@/core/health';
+import type { HealthCourseUnitProgressSummary } from '@/core/health/health-progress.types';
 import type {
   HealthCourseUnitEvaluationsProgress,
   HealthColleProgressItem,
@@ -63,6 +65,7 @@ type HealthCourseUnitTabsProps = {
   courseUnit: HealthStudentCourseUnitDetail;
   activeTeachingElementId?: string | null;
   evaluationsProgress?: HealthCourseUnitEvaluationsProgress | null;
+  progressSummary?: HealthCourseUnitProgressSummary | null;
 };
 
 const getChapterHref = (courseUnitId: string, chapterSlug: string) =>
@@ -109,6 +112,7 @@ export function HealthCourseUnitTabs({
   courseUnit,
   activeTeachingElementId,
   evaluationsProgress,
+  progressSummary,
 }: HealthCourseUnitTabsProps) {
   const router = useRouter();
   const [startingExamSlug, setStartingExamSlug] = useState<string | null>(null);
@@ -230,7 +234,11 @@ export function HealthCourseUnitTabs({
   };
 
   const evaluationsTabIndex = courseUnit.teachingElements.length;
+  const progressionTabIndex = courseUnit.teachingElements.length + 1;
   const initialTabIndex = (() => {
+    if (activeTeachingElementId === 'progression') {
+      return progressionTabIndex;
+    }
     if (activeTeachingElementId === 'evaluations' || activeTeachingElementId === 'synthese') {
       return evaluationsTabIndex;
     }
@@ -822,6 +830,33 @@ export function HealthCourseUnitTabs({
               </Card>
             </section>
         </div>
+        </TabItem>
+
+        <TabItem
+          active={activeTabIndex === progressionTabIndex}
+          title={
+            <span className="inline-flex items-center gap-2">
+              <span className="hidden sm:inline-block h-3.5 w-px bg-border mr-0.5" aria-hidden="true" />
+              <span className="inline-flex items-center gap-1.5 font-medium">
+                <BarChart3
+                  className={cn(
+                    "h-3.5 w-3.5",
+                    activeTabIndex === progressionTabIndex ? "text-fg-brand" : "text-muted-foreground"
+                  )}
+                  aria-hidden="true"
+                />
+                <span>Progression</span>
+              </span>
+            </span>
+          }
+        >
+          {progressSummary ? (
+            <HealthCourseUnitProgressTab progress={progressSummary} />
+          ) : (
+            <p className="text-sm text-muted-foreground p-4">
+              Chargement des données de progression...
+            </p>
+          )}
         </TabItem>
       </Tabs>
     </div>

@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { HealthCourseUnitTabs } from '@/components/health/HealthCourseUnitTabs';
 import { fetchHealthStudentCourseUnitDetail } from '@/core/health';
 import { fetchHealthCourseUnitEvaluationsProgress } from '@/core/health-mock-exam/health-mock-exam.service';
+import { fetchHealthCourseUnitProgressSummary } from '@/core/health/health-progress.service';
 import { fetchUserPedagogicalProfileSummary } from '@/core/user';
 import { auth } from '@/lib/auth/auth';
 import { getSessionEffectiveUserId } from '@/lib/auth/session';
@@ -83,6 +84,12 @@ export default async function HealthCourseUnitDetailPage({
     notFound();
   }
 
+  const progressSummary = await fetchHealthCourseUnitProgressSummary({
+    courseUnit,
+    evaluationsProgress,
+    userId: effectiveUserId,
+  });
+
   const subtitle = buildCourseUnitSubtitle(
     courseUnit.institutionName,
     courseUnit.programVersionLabel,
@@ -111,27 +118,25 @@ export default async function HealthCourseUnitDetailPage({
         <PublicBreadcrumb
           items={[
             { label: 'Accueil', href: '/' },
-            { label: 'Santé', href: '/sante' },
-            { label: courseUnit.code ? `${courseUnit.code} · ${courseUnit.title}` : courseUnit.title },
+            { label: 'Pass PASS / L.AS', href: '/sante' },
+            { label: courseUnit.title },
           ]}
         />
 
-        <section className="space-y-3">
-          <div className="flex flex-wrap gap-2">
+        <section className="flex flex-col gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <Badge variant="outline">{courseUnit.blockTitle}</Badge>
-            {courseUnit.semester ? <Badge variant="secondary">S{courseUnit.semester}</Badge> : null}
-            {courseUnit.ects ? <Badge variant="secondary">{courseUnit.ects} ECTS</Badge> : null}
-            {courseUnit.pathwayName ? <Badge variant="secondary">{courseUnit.pathwayName}</Badge> : null}
-            <Badge variant="secondary">
-              {teachingElementCount} EC
-            </Badge>
-            <Badge variant="secondary">{quizCount} quiz</Badge>
-            <Badge variant="secondary">
-              {questionCount} question
-              {questionCount > 1 ? 's' : ''}
-            </Badge>
+            {courseUnit.semester != null ? (
+              <Badge variant="outline">Semestre {courseUnit.semester}</Badge>
+            ) : null}
+            {courseUnit.ects != null ? (
+              <Badge variant="outline">{courseUnit.ects} ECTS</Badge>
+            ) : null}
+            <Badge variant="outline">{teachingElementCount} EC</Badge>
+            <Badge variant="outline">{quizCount} quiz</Badge>
+            <Badge variant="outline">{questionCount} questions</Badge>
           </div>
-          <h1 className="text-3xl font-semibold tracking-tight text-heading">
+          <h1 className="text-3xl font-bold text-heading">
             {courseUnit.code ? `${courseUnit.code} · ${courseUnit.title}` : courseUnit.title}
           </h1>
           <div className="flex flex-col gap-3 text-sm text-muted-foreground md:flex-row md:items-center md:gap-2">
@@ -151,6 +156,7 @@ export default async function HealthCourseUnitDetailPage({
           courseUnit={courseUnit}
           activeTeachingElementId={resolvedSearchParams?.ec ?? null}
           evaluationsProgress={evaluationsProgress}
+          progressSummary={progressSummary}
         />
       </main>
       <SiteFooter />
