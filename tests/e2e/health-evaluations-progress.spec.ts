@@ -232,5 +232,36 @@ test.describe("Santé — Bilan pédagogique, Correction détaillée et Suivi de
         fullPage: true,
       });
     }
+
+    // --- Assertions responsive spécifiques Examens blancs à 375 px ---
+    const mockExamsScroll = page.getByTestId("health-mock-exams-table-scroll");
+    await expect(mockExamsScroll).toBeVisible();
+    await expectNoHorizontalOverflow(mockExamsScroll);
+
+    const mobileEb01Row = page.getByTestId("health-mock-exam-row-eb01");
+    await expect(mobileEb01Row).toBeVisible();
+
+    const mobileExamCell = mobileEb01Row.locator("td").nth(1);
+    const mobileExamCellWidths = await mobileExamCell.evaluate((cell) => {
+      const row = cell.closest("tr");
+      return {
+        cellWidth: cell.getBoundingClientRect().width,
+        rowWidth: row?.getBoundingClientRect().width ?? 0,
+      };
+    });
+    expect(mobileExamCellWidths.cellWidth).toBeGreaterThanOrEqual(mobileExamCellWidths.rowWidth - 1);
+
+    const mobileExamActions = mobileEb01Row.getByTestId("health-mock-exam-actions-eb01-mobile");
+    await expect(mobileEb01Row.getByTestId("health-mock-exam-actions-eb01-desktop")).toBeHidden();
+    await expect(mobileExamActions).toBeVisible();
+
+    const ebLatestBadge = mobileEb01Row.getByText(/^Dernière :/);
+    if (await ebLatestBadge.isVisible().catch(() => false)) {
+      await expectNoHorizontalOverflow(ebLatestBadge);
+    }
+    const ebBestBadge = mobileEb01Row.getByText(/^Meilleur :/);
+    if (await ebBestBadge.isVisible().catch(() => false)) {
+      await expectNoHorizontalOverflow(ebBestBadge);
+    }
   });
 });

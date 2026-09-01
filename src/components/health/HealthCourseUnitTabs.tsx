@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { TabItem, Tabs } from 'flowbite-react';
-import { ArrowRight, BarChart3, Clock3, FileCheck2, Info, MoreHorizontal } from 'lucide-react';
+import { ArrowRight, FileCheck2, Info, Loader2, MoreHorizontal } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -782,12 +782,15 @@ export function HealthCourseUnitTabs({
                                       {exam.questionCount} questions · {formatDurationMinutes(exam.durationMinutes)}
                                     </p>
 
-                                    {/* Stats attempt badges if performed */}
+                                    {/* In-progress attempt indication */}
                                     {hasInProgress ? (
                                       <p className="text-xs text-muted-foreground pt-1">
                                         Une tentative est en cours.
                                       </p>
-                                    ) : hasCompleted && latestScore !== null && latestScore !== undefined ? (
+                                    ) : null}
+
+                                    {/* Historical completed attempt badges */}
+                                    {hasCompleted && latestScore !== null && latestScore !== undefined ? (
                                       <div className="flex flex-wrap items-center gap-2 pt-1">
                                         <Badge
                                           variant="outline"
@@ -816,11 +819,11 @@ export function HealthCourseUnitTabs({
                                           {attemptCountLabel}
                                         </span>
                                       </div>
-                                    ) : (
+                                    ) : !hasInProgress ? (
                                       <p className="text-xs text-muted-foreground pt-1">
                                         Aucune tentative pour le moment.
                                       </p>
-                                    )}
+                                    ) : null}
 
                                     <div
                                       className="flex items-center gap-1.5 pt-2 sm:hidden"
