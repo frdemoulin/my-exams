@@ -144,7 +144,7 @@ test.describe("Santé — Bilan pédagogique, Correction détaillée et Suivi de
     await page.getByRole("button", { name: "Fermer" }).click();
 
     const desktopActionCell = historyC01Row.getByTestId("health-colle-actions-c01-desktop");
-    await expect(page.getByRole("columnheader", { name: "ACTION" })).toBeVisible();
+    await expect(page.getByTestId("health-colles-table-scroll").getByRole("columnheader", { name: "ACTION" })).toBeVisible();
     await expect(desktopActionCell.getByRole("link", { name: "Bilan" })).toBeVisible();
     await expect(
       desktopActionCell.getByRole("button", { name: "Autres actions pour cette colle C01" }),
@@ -155,7 +155,7 @@ test.describe("Santé — Bilan pédagogique, Correction détaillée et Suivi de
     await page.goto(`/sante/ue/${courseUnitId}?ec=evaluations`);
     await page.waitForLoadState("networkidle");
     await expectNoHorizontalOverflow(page.getByTestId("health-colles-table-scroll"));
-    await expect(page.getByRole("columnheader", { name: "ACTION" })).toBeVisible();
+    await expect(page.getByTestId("health-colles-table-scroll").getByRole("columnheader", { name: "ACTION" })).toBeVisible();
     const tabletC01Row = page.locator("tr").filter({ hasText: "Chimie — Fondamentaux" });
     await expect(
       tabletC01Row.getByTestId("health-colle-actions-c01-desktop").getByRole("link", {

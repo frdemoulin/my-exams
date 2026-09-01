@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { TabItem, Tabs } from 'flowbite-react';
 import { ArrowRight, BarChart3, Clock3, FileCheck2, Info, MoreHorizontal } from 'lucide-react';
 
@@ -16,7 +17,6 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { HealthMockExamActionButton } from '@/components/health/HealthMockExamActionButton';
 import { HealthColleStartDialog } from '@/components/health/HealthColleStartDialog';
 import { HealthColleHistoryModal } from '@/components/health/HealthColleHistoryModal';
 import { actionMenuContent, actionMenuItem, actionMenuTrigger } from '@/components/shared/table-action-menu';
@@ -25,6 +25,7 @@ import type { HealthStudentCourseUnitDetail } from '@/core/health';
 import type {
   HealthCourseUnitEvaluationsProgress,
   HealthColleProgressItem,
+  HealthMockExamSummary,
 } from '@/core/health-mock-exam/health-mock-exam.types';
 import { cn } from '@/lib/utils';
 
@@ -70,6 +71,9 @@ const getChapterHref = (courseUnitId: string, chapterSlug: string) =>
 const getMockExamResultsHref = (courseUnitId: string, examSlug: string, attemptId: string) =>
   `/sante/ue/${courseUnitId}/examens-blancs/${examSlug}/resultats/${attemptId}`;
 
+const getMockExamCorrectionHref = (courseUnitId: string, examSlug: string, attemptId: string) =>
+  `/sante/ue/${courseUnitId}/examens-blancs/${examSlug}/resultats/${attemptId}/correction`;
+
 const getColleResultsHref = (courseUnitId: string, colleId: string, attemptId: string) =>
   `/sante/ue/${courseUnitId}/colles/${colleId}/resultats/${attemptId}`;
 
@@ -83,6 +87,18 @@ function formatScore(score: number): string {
   return score.toFixed(2).replace('.', ',');
 }
 
+function formatDurationMinutes(minutes: number): string {
+  if (minutes < 60) {
+    return `${minutes} min`;
+  }
+  const hours = Math.floor(minutes / 60);
+  const remainingMinutes = minutes % 60;
+  if (remainingMinutes === 0) {
+    return `${hours} h`;
+  }
+  return `${hours} h ${String(remainingMinutes).padStart(2, '0')}`;
+}
+
 function formatElapsedTime(elapsedSeconds: number) {
   const minutes = Math.floor(elapsedSeconds / 60);
   const seconds = elapsedSeconds % 60;
@@ -94,11 +110,124 @@ export function HealthCourseUnitTabs({
   activeTeachingElementId,
   evaluationsProgress,
 }: HealthCourseUnitTabsProps) {
+  const router = useRouter();
+  const [startingExamSlug, setStartingExamSlug] = useState<string | null>(null);
   const [selectedColleForStart, setSelectedColleForStart] = useState<HealthColleV1 | null>(null);
   const [historyModalData, setHistoryModalData] = useState<{
     colle: HealthColleV1;
     progress: HealthColleProgressItem;
   } | null>(null);
+
+  const handleStartExam = async (examSlug: string) => {
+    setStartingExamSlug(examSlug);
+    const callbackUrl = `/sante/ue/${courseUnit.id}/examens-blancs/${examSlug}`;
+
+    try {
+      const response = await fetch(
+        `/api/health/mock-exams/${courseUnit.id}/${encodeURIComponent(examSlug)}/attempt`,
+        { method: 'POST' },
+      );
+
+      if (response.status === 401) {
+        router.push(`/log-in?callbackUrl=${encodeURIComponent(callbackUrl)}`);
+        return;
+      }
+
+      if (!response.ok) {
+        throw new Error("Impossible de démarrer l'examen blanc.");
+      }
+
+      router.push(callbackUrl);
+    } catch {
+      setStartingExamSlug(null);
+    }
+  };
+
+  const renderExamActions = (exam: HealthMockExamSummary) => {
+    const isStarting = startingExamSlug === exam.slug;
+    const hasInProgress = Boolean(exam.currentAttemptId);
+    const hasCompleted = exam.attemptCount > 0 && Boolean(exam.latestSubmittedAttemptId);
+
+    if (hasInProgress) {
+      return (
+        <Button
+          size="sm"
+          className="gap-2"
+          disabled={isStarting}
+          onClick={() => void handleStartExam(exam.slug)}
+        >
+          {isStarting ? "Ouverture..." : "Reprendre"}
+          <ArrowRight className="h-4 w-4" />
+        </Button>
+      );
+    }
+
+    if (hasCompleted && exam.latestSubmittedAttemptId) {
+      const resultsHref = getMockExamResultsHref(
+        courseUnit.id,
+        exam.slug,
+        exam.latestSubmittedAttemptId,
+      );
+      const correctionHref = getMockExamCorrectionHref(
+        courseUnit.id,
+        exam.slug,
+        exam.latestSubmittedAttemptId,
+      );
+
+      return (
+        <div className="inline-flex items-center justify-center gap-1.5">
+          <Button asChild size="sm" variant="default" className="h-8 px-3 text-xs">
+            <Link href={resultsHref}>Bilan</Link>
+          </Button>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                type="button"
+                className={cn(
+                  actionMenuTrigger,
+                  "h-8 w-8 border border-default bg-card text-muted-foreground hover:bg-neutral-secondary-soft hover:text-heading",
+                )}
+                aria-label={`Autres actions pour ${exam.title}`}
+              >
+                <MoreHorizontal className="h-4 w-4" aria-hidden="true" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              align="end"
+              collisionPadding={12}
+              className={cn(actionMenuContent, "min-w-48")}
+            >
+              <DropdownMenuItem className={actionMenuItem}>
+                <Link href={correctionHref}>Voir la correction</Link>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator className="-mx-2 my-1 bg-border" />
+              <DropdownMenuItem
+                className={actionMenuItem}
+                onSelect={() => {
+                  window.setTimeout(() => void handleStartExam(exam.slug), 0);
+                }}
+              >
+                Recommencer l&apos;examen
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+      );
+    }
+
+    return (
+      <Button
+        size="sm"
+        className="gap-2"
+        disabled={isStarting}
+        onClick={() => void handleStartExam(exam.slug)}
+      >
+        {isStarting ? "Ouverture..." : "Démarrer"}
+        <ArrowRight className="h-4 w-4" />
+      </Button>
+    );
+  };
 
   const evaluationsTabIndex = courseUnit.teachingElements.length;
   const initialTabIndex = (() => {
@@ -581,101 +710,149 @@ export function HealthCourseUnitTabs({
               <Card className="rounded-3xl border-border bg-card hover:bg-card">
                 <CardHeader>
                   <div className="flex flex-wrap items-center justify-between gap-3">
-                    <div className="space-y-1">
+                    <div className="flex flex-wrap items-center gap-2">
                       <CardTitle id="health-mock-exams-heading" className="text-lg text-heading">
                         Examens blancs
                       </CardTitle>
-                      <p className="text-sm text-muted-foreground">
-                        Simulez l&apos;épreuve complète dans les conditions du semestre.
-                      </p>
-                    </div>
-                    <div className="flex flex-wrap items-center gap-2 sm:justify-end">
+                      <Badge variant="outline">
+                        {courseUnit.mockExams.length} examen{courseUnit.mockExams.length > 1 ? 's' : ''}
+                      </Badge>
                       <Badge variant="outline">Conditions réelles</Badge>
                     </div>
                   </div>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Simulez l&apos;épreuve complète dans les conditions du semestre.
+                  </p>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent>
                   {courseUnit.mockExams.length > 0 ? (
-                    <div className="space-y-3">
-                    {courseUnit.mockExams.map((exam) => (
-                      <div key={exam.id} className="rounded-xl border border-default bg-card p-4 space-y-4">
-                        <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
-                          <div className="space-y-1">
-                            <h3 className="font-medium text-heading text-base">{exam.title}</h3>
-                            {exam.description ? (
-                              <p className="text-sm text-muted-foreground">{exam.description}</p>
-                            ) : null}
-                          </div>
-                          <div className="flex flex-wrap gap-2">
-                            <Badge variant="outline" className="gap-1.5">
-                              <Clock3 className="h-3.5 w-3.5" aria-hidden="true" />
-                              {exam.durationMinutes === 150 ? '2 h 30' : `${exam.durationMinutes} min`}
-                            </Badge>
-                            <Badge variant="outline" className="gap-1.5">
-                              <FileCheck2 className="h-3.5 w-3.5" aria-hidden="true" />
-                              {exam.questionCount} questions
-                            </Badge>
-                          </div>
-                        </div>
+                    <div
+                      className="relative overflow-x-auto rounded-lg border border-default"
+                      data-testid="health-mock-exams-table-scroll"
+                    >
+                      <table className="w-full text-left text-sm text-body rtl:text-right">
+                        <thead className="bg-neutral-secondary-soft text-sm uppercase tracking-wide text-muted-foreground">
+                          <tr>
+                            <th className="w-16 px-4 py-4 font-medium max-sm:hidden">#</th>
+                            <th className="w-full px-3 py-4 font-medium sm:w-auto sm:px-4">EXAMEN BLANC</th>
+                            <th className="px-4 py-4 font-medium max-sm:hidden">CONTENU</th>
+                            <th className="w-40 px-4 py-4 text-center font-medium max-sm:hidden">ACTION</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {courseUnit.mockExams.map((exam) => {
+                            const hasCompleted = exam.attemptCount > 0 && Boolean(exam.latestSubmittedAttemptId);
+                            const hasInProgress = Boolean(exam.currentAttemptId);
+                            const latestScore = exam.latestScore;
+                            const latestMaxScore = exam.latestMaxScore ?? exam.questionCount;
+                            const latestPercentage = exam.latestPercentage ?? 0;
+                            const bestScore = exam.bestScore;
+                            const bestMaxScore = exam.bestMaxScore ?? exam.questionCount;
+                            const bestPercentage = exam.bestPercentage ?? 0;
+                            const attemptCountLabel = `${exam.attemptCount} tentative${exam.attemptCount > 1 ? 's' : ''}`;
 
-                        <ul className="grid gap-2 text-sm text-body sm:grid-cols-3">
-                          {exam.sections.map((section) => (
-                            <li key={section.teachingElementId} className="border-l-2 border-brand/30 pl-3">
-                              <span className="font-medium text-heading">{section.title}</span>
-                              <span className="block text-muted-foreground">
-                                Questions {section.firstQuestion} à {section.lastQuestion}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
+                            return (
+                              <tr
+                                key={exam.id}
+                                data-testid={`health-mock-exam-row-${exam.slug}`}
+                                className="border-b border-default bg-card transition-colors last:border-b-0 hover:bg-neutral-secondary-soft"
+                              >
+                                <td className="px-4 py-4 align-middle font-medium text-heading max-sm:hidden">
+                                  {exam.order}
+                                </td>
+                                <td className="w-full px-3 py-4 align-middle sm:w-auto sm:px-4">
+                                  <div className="space-y-1.5">
+                                    <div className="flex flex-wrap items-center gap-2">
+                                      <span className="font-medium text-heading">
+                                        {exam.title}
+                                      </span>
+                                      <Badge variant="secondary" className="text-xs">
+                                        {courseUnit.code || "UE14"}
+                                      </Badge>
+                                    </div>
+                                    <p className="text-xs italic text-body">
+                                      {courseUnit.code || "UE14"} · Épreuve complète
+                                    </p>
+                                    <p className="text-xs text-muted-foreground">
+                                      {exam.sections
+                                        .map((section) => `${section.title} Q${section.firstQuestion}–${section.lastQuestion}`)
+                                        .join(' · ')}
+                                    </p>
+                                    <p className="text-xs text-muted-foreground sm:hidden">
+                                      {exam.questionCount} questions · {formatDurationMinutes(exam.durationMinutes)}
+                                    </p>
 
-                        <div className="flex flex-col gap-3 border-t border-default pt-3 sm:flex-row sm:items-center sm:justify-between">
-                          <div className="text-sm text-muted-foreground">
-                            {exam.currentAttemptId ? (
-                              <span>Une tentative est en cours.</span>
-                            ) : exam.attemptCount > 0 ? (
-                              <span className="inline-flex items-center gap-1.5">
-                                <BarChart3 className="h-4 w-4" aria-hidden="true" />
-                                {exam.attemptCount} tentative{exam.attemptCount > 1 ? 's' : ''} · meilleur résultat{' '}
-                                {exam.bestPercentage}%
-                              </span>
-                            ) : (
-                              <span>Aucune tentative pour le moment.</span>
-                            )}
-                          </div>
-                          <div className="flex flex-wrap items-center gap-2">
-                            {exam.latestSubmittedAttemptId ? (
-                              <Button asChild variant="outline" size="sm">
-                                <Link
-                                  href={getMockExamResultsHref(
-                                    courseUnit.id,
-                                    exam.slug,
-                                    exam.latestSubmittedAttemptId,
-                                  )}
+                                    {/* Stats attempt badges if performed */}
+                                    {hasInProgress ? (
+                                      <p className="text-xs text-muted-foreground pt-1">
+                                        Une tentative est en cours.
+                                      </p>
+                                    ) : hasCompleted && latestScore !== null && latestScore !== undefined ? (
+                                      <div className="flex flex-wrap items-center gap-2 pt-1">
+                                        <Badge
+                                          variant="outline"
+                                          className={cn(
+                                            "text-xs font-semibold",
+                                            latestPercentage >= 80
+                                              ? "border-emerald-400 bg-emerald-50 text-emerald-900 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-200"
+                                              : latestPercentage < 60
+                                                ? "border-rose-400 bg-rose-50 text-rose-900 dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-200"
+                                                : "border-brand/40 bg-brand-soft/20 text-heading"
+                                          )}
+                                        >
+                                          Dernière : {formatScore(latestScore)} / {latestMaxScore} ({latestPercentage} %)
+                                        </Badge>
+
+                                        {exam.attemptCount > 1 && bestScore !== null && bestScore !== undefined ? (
+                                          <Badge
+                                            variant="outline"
+                                            className="text-xs font-medium text-muted-foreground"
+                                          >
+                                            Meilleur : {formatScore(bestScore)} / {bestMaxScore} ({bestPercentage} %)
+                                          </Badge>
+                                        ) : null}
+
+                                        <span className="text-[11px] text-muted-foreground">
+                                          {attemptCountLabel}
+                                        </span>
+                                      </div>
+                                    ) : (
+                                      <p className="text-xs text-muted-foreground pt-1">
+                                        Aucune tentative pour le moment.
+                                      </p>
+                                    )}
+
+                                    <div
+                                      className="flex items-center gap-1.5 pt-2 sm:hidden"
+                                      data-testid={`health-mock-exam-actions-${exam.slug}-mobile`}
+                                    >
+                                      {renderExamActions(exam)}
+                                    </div>
+                                  </div>
+                                </td>
+                                <td className="px-4 py-4 align-middle text-muted-foreground whitespace-nowrap max-sm:hidden">
+                                  {exam.questionCount} questions · {formatDurationMinutes(exam.durationMinutes)}
+                                </td>
+                                <td
+                                  className="px-4 py-4 text-center align-middle max-sm:hidden"
+                                  data-testid={`health-mock-exam-actions-${exam.slug}-desktop`}
                                 >
-                                  Voir les résultats
-                                </Link>
-                              </Button>
-                            ) : null}
-                            <HealthMockExamActionButton
-                              courseUnitId={courseUnit.id}
-                              examSlug={exam.slug}
-                              hasCurrentAttempt={Boolean(exam.currentAttemptId)}
-                              hasPreviousAttempt={exam.attemptCount > 0}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="rounded-xl border border-dashed border-default p-6 text-center text-sm text-muted-foreground">
-                    Les examens blancs seront disponibles prochainement.
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-          </section>
+                                  {renderExamActions(exam)}
+                                </td>
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
+                    </div>
+                  ) : (
+                    <div className="rounded-xl border border-dashed border-default p-6 text-center text-sm text-muted-foreground">
+                      Les examens blancs seront disponibles prochainement.
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            </section>
         </div>
         </TabItem>
       </Tabs>

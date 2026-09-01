@@ -97,7 +97,12 @@ export type HealthMockExamSummary = {
   }>;
   attemptCount: number;
   bestPercentage: number | null;
+  bestScore?: number | null;
+  bestMaxScore?: number | null;
   latestSubmittedAttemptId: string | null;
+  latestScore?: number | null;
+  latestMaxScore?: number | null;
+  latestPercentage?: number | null;
   currentAttemptId: string | null;
 };
 

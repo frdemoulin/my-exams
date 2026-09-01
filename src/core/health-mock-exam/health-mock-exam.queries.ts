@@ -52,6 +52,8 @@ export async function fetchHealthMockExamSummaries(input: {
             mockExamId: true,
             status: true,
             deadlineAt: true,
+            score: true,
+            maxScore: true,
             percentage: true,
             startedAt: true,
           },
@@ -68,16 +70,23 @@ export async function fetchHealthMockExamSummaries(input: {
     const activeAttempt = examAttempts.find(
       (attempt) => attempt.status === "IN_PROGRESS" && attempt.deadlineAt.getTime() > now,
     );
-    const bestPercentage = completedAttempts.reduce<number | null>((best, attempt) => {
+    const latestAttempt = completedAttempts[0] ?? null;
+    const bestAttempt = completedAttempts.reduce<typeof completedAttempts[0] | null>((best, attempt) => {
       if (attempt.percentage === null) return best;
-      return best === null ? attempt.percentage : Math.max(best, attempt.percentage);
+      if (!best || (best.percentage ?? -1) < (attempt.percentage ?? -1)) return attempt;
+      return best;
     }, null);
 
     return {
       ...exam,
       attemptCount: completedAttempts.length,
-      bestPercentage,
-      latestSubmittedAttemptId: completedAttempts[0]?.id ?? null,
+      bestPercentage: bestAttempt?.percentage ?? null,
+      bestScore: bestAttempt?.score ?? null,
+      bestMaxScore: bestAttempt?.maxScore ?? null,
+      latestSubmittedAttemptId: latestAttempt?.id ?? null,
+      latestScore: latestAttempt?.score ?? null,
+      latestMaxScore: latestAttempt?.maxScore ?? null,
+      latestPercentage: latestAttempt?.percentage ?? null,
       currentAttemptId: activeAttempt?.id ?? null,
     };
   });

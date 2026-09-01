@@ -28,10 +28,11 @@ test.describe.serial("Santé - fixture examen blanc UNESS", () => {
     await page.goto(`${appBaseUrl}/sante/ue/${fixture.courseUnitId}?ec=synthese`);
 
     await expect(page.getByRole("heading", { name: "Examens blancs" })).toBeVisible();
-    await expect(page.getByRole("heading", { name: fixture.examTitle })).toBeVisible();
+    const fixtureRow = page.getByTestId(`health-mock-exam-row-${fixture.examSlug}`);
+    await expect(fixtureRow).toBeVisible();
+    await expect(fixtureRow.getByText(fixture.examTitle)).toBeVisible();
 
-    await page
-      .locator('section[aria-labelledby="health-mock-exams-heading"]')
+    await fixtureRow
       .getByRole("button", { name: /Démarrer|Reprendre|Recommencer/ })
       .click();
     await expect(page).toHaveURL(new RegExp(`/sante/ue/${fixture.courseUnitId}/examens-blancs/${fixture.examSlug}`), { timeout: 15000 });

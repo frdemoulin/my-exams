@@ -48,18 +48,22 @@ test.describe.serial("Santé — Examen blanc UE14 EB02 E2E & Recette Visuelle",
     await page.goto(`${appBaseUrl}/sante/ue/${ue14CourseUnitSlug}?ec=synthese`);
     await page.setViewportSize({ width: 1280, height: 800 });
 
-    const examCard = page.locator("div.rounded-xl").filter({ hasText: "Examen blanc UE14 — EB02" }).first();
-    await expect(examCard).toBeVisible({ timeout: 15000 });
-    await expect(examCard.getByText("100 questions")).toBeVisible();
-    await expect(examCard.getByText(/2 h 30|150 min/)).toBeVisible();
+    const examRow = page.getByTestId("health-mock-exam-row-eb02");
+    await expect(examRow).toBeVisible({ timeout: 15000 });
+    await expect(examRow.getByRole("cell", { name: /100 questions/ })).toBeVisible();
+    await expect(examRow.getByRole("cell", { name: /2 h 30|150 min/ })).toBeVisible();
 
     // Capture 1: tmp/eb02-intro.png
     await page.screenshot({ path: path.join(tmpDir, "eb02-intro.png") });
 
-    // Démarrer l'examen
-    const startButton = examCard.getByRole("button", { name: /Démarrer|Reprendre|Recommencer/i });
-    await expect(startButton).toBeVisible();
-    await startButton.click();
+    // Démarrer l'examen (direct ou via menu d'actions si déjà tenté)
+    const directStart = examRow.getByRole("button", { name: /Démarrer|Reprendre/i }).first();
+    if (await directStart.isVisible().catch(() => false)) {
+      await directStart.click();
+    } else {
+      await examRow.getByRole("button", { name: /Autres actions pour/i }).first().click();
+      await page.getByRole("menuitem", { name: /Recommencer/i }).click();
+    }
 
     // Si dialog de confirmation apparaît
     const dialog = page.getByRole("dialog");
