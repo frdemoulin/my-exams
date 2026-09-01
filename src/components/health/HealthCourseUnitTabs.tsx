@@ -241,6 +241,8 @@ export function HealthCourseUnitTabs({
     return 0;
   })();
 
+  const totalEvaluationsCount = HEALTH_COLLES_UE14_V1.length + courseUnit.mockExams.length;
+
   const [activeTabIndex, setActiveTabIndex] = useState<number>(initialTabIndex);
 
   return (
@@ -460,7 +462,7 @@ export function HealthCourseUnitTabs({
                       : "bg-neutral-200 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200"
                   )}
                 >
-                  {HEALTH_COLLES_UE14_V1.length}
+                  {totalEvaluationsCount}
                 </span>
               </span>
             </span>
@@ -469,43 +471,6 @@ export function HealthCourseUnitTabs({
           <div className="space-y-4">
             {/* Section 1: Colles */}
             <section aria-labelledby="health-colles-heading" className="space-y-4">
-              {/* Global Evaluations Summary Banner */}
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-                <Card className="rounded-2xl border-border bg-card p-4 shadow-xs">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    Colles réalisées
-                  </p>
-                  <p className="mt-1 text-2xl font-bold text-heading">
-                    {evaluationsProgress?.completedCollesCount ?? 0} / {evaluationsProgress?.totalCollesCount ?? HEALTH_COLLES_UE14_V1.length}
-                  </p>
-                  <p className="text-xs text-muted-foreground">au moins 1 tentative terminée</p>
-                </Card>
-
-                <Card className="rounded-2xl border-border bg-card p-4 shadow-xs">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    Score moyen
-                  </p>
-                  <p className="mt-1 text-2xl font-bold text-heading">
-                    {evaluationsProgress?.averageScorePercentage !== null && evaluationsProgress?.averageScorePercentage !== undefined
-                      ? `${evaluationsProgress.averageScorePercentage} %`
-                      : "—"}
-                  </p>
-                  <p className="text-xs text-muted-foreground">sur vos meilleures tentatives</p>
-                </Card>
-
-                <Card className="rounded-2xl border-border bg-card p-4 shadow-xs">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    Meilleur résultat
-                  </p>
-                  <p className="mt-1 text-2xl font-bold text-emerald-700 dark:text-emerald-400">
-                    {evaluationsProgress?.bestScorePercentage !== null && evaluationsProgress?.bestScorePercentage !== undefined
-                      ? `${evaluationsProgress.bestScorePercentage} %`
-                      : "—"}
-                  </p>
-                  <p className="text-xs text-muted-foreground">toutes colles confondues</p>
-                </Card>
-              </div>
-
               <Card className="rounded-3xl border-border bg-card hover:bg-card">
                 <CardHeader>
                   <div className="flex flex-wrap items-center justify-between gap-3">

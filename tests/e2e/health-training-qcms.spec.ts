@@ -148,7 +148,9 @@ test.describe.serial("Santé - QCM publics", () => {
 
     await page.goto(`${appBaseUrl}/sante/ue/${fixture.courseUnitId}?ec=evaluations`);
 
-    await expect(page.getByRole("tab", { name: /Évaluations/i })).toBeVisible();
+    await expect(page.getByRole("tab", { name: /Évaluations\s*14/i })).toBeVisible();
+    await expect(page.getByText("Colles réalisées")).toHaveCount(0);
+    await expect(page.getByText("Score moyen")).toHaveCount(0);
     await expect(page.getByRole("heading", { name: "Colles" })).toBeVisible();
 
     const helpButton = page.getByRole("button", { name: "Aide aux évaluations" });
