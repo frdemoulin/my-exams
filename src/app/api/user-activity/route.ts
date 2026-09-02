@@ -4,6 +4,7 @@ import prisma from '@/lib/db/prisma';
 import { auth } from '@/lib/auth/auth';
 import { getSessionEffectiveUserId } from '@/lib/auth/session';
 import { upsertUserActivity } from '@/core/user-activity';
+import { getCurrentUserAcademicEnrollment } from '@/core/academic-enrollment';
 import { RESUME_ACTIVITY_TTL_DAYS } from '@/config/app';
 import { normalizeExamPaperLabel } from '@/lib/utils';
 
@@ -31,41 +32,51 @@ export async function POST(request: Request) {
     payload = (await request.json()) as UserActivityPayload;
   } catch {
     return NextResponse.json(
-      { success: false, message: 'Requête invalide.' },
+      { success: false, message: 'Payload JSON invalide.' },
       { status: 400 }
     );
   }
 
-  const sessionYearRaw = payload?.sessionYear;
-  const parsedSessionYear =
-    typeof sessionYearRaw === 'number'
-      ? sessionYearRaw
-      : typeof sessionYearRaw === 'string' && sessionYearRaw.trim() !== ''
-        ? Number(sessionYearRaw)
-        : null;
-  const sessionYear = Number.isNaN(parsedSessionYear) ? null : parsedSessionYear;
+  if (
+    !payload.examPaperId &&
+    !payload.exerciseId &&
+    !payload.subjectId &&
+    !payload.sessionYear &&
+    !payload.currentGoalLabel
+  ) {
+    return NextResponse.json(
+      { success: false, message: 'Au moins un identifiant ou objectif est requis.' },
+      { status: 400 }
+    );
+  }
 
   try {
-    const exerciseId =
-      typeof payload?.exerciseId === 'string' ? payload.exerciseId : null;
-    await upsertUserActivity({
+    const rawSessionYear = payload.sessionYear;
+    let sessionYear: number | null = null;
+    if (typeof rawSessionYear === 'number' && Number.isInteger(rawSessionYear)) {
+      sessionYear = rawSessionYear;
+    } else if (typeof rawSessionYear === 'string') {
+      const parsedYear = Number.parseInt(rawSessionYear, 10);
+      if (!Number.isNaN(parsedYear)) {
+        sessionYear = parsedYear;
+      }
+    }
+
+    const activity = await upsertUserActivity({
       userId,
-      examPaperId: typeof payload?.examPaperId === 'string' ? payload.examPaperId : null,
-      exerciseId,
-      subjectId: typeof payload?.subjectId === 'string' ? payload.subjectId : null,
+      examPaperId: payload.examPaperId ?? null,
+      exerciseId: payload.exerciseId ?? null,
+      subjectId: payload.subjectId ?? null,
       sessionYear,
-      currentGoalLabel:
-        typeof payload?.currentGoalLabel === 'string'
-          ? payload.currentGoalLabel
-          : null,
+      currentGoalLabel: payload.currentGoalLabel ?? null,
     });
 
-    if (exerciseId) {
+    if (payload.exerciseId) {
       await prisma.userExerciseHistory.upsert({
         where: {
           userId_exerciseId: {
             userId,
-            exerciseId,
+            exerciseId: payload.exerciseId,
           },
         },
         update: {
@@ -73,20 +84,28 @@ export async function POST(request: Request) {
         },
         create: {
           userId,
-          exerciseId,
+          exerciseId: payload.exerciseId,
           lastViewedAt: new Date(),
         },
       });
     }
+
+    return NextResponse.json({
+      success: true,
+      activity: activity
+        ? {
+            id: activity.id,
+            updatedAt: activity.updatedAt,
+          }
+        : null,
+    });
   } catch (error) {
-    console.error('Erreur de suivi activité utilisateur:', error);
+    console.error('Erreur lors de l’enregistrement de l’activité utilisateur:', error);
     return NextResponse.json(
-      { success: false, message: 'Erreur de suivi activité utilisateur.' },
+      { success: false, message: 'Erreur interne du serveur.' },
       { status: 500 }
     );
   }
-
-  return NextResponse.json({ success: true });
 }
 
 export async function GET() {
@@ -99,6 +118,8 @@ export async function GET() {
       { status: 401 }
     );
   }
+
+  const enrollment = await getCurrentUserAcademicEnrollment(userId);
 
   const activity = await prisma.userActivity.findUnique({
     where: { userId },
@@ -127,6 +148,7 @@ export async function GET() {
             label: true,
             sessionYear: true,
             diplomaId: true,
+            gradeId: true,
             teaching: {
               select: {
                 subject: {
@@ -143,7 +165,12 @@ export async function GET() {
       },
     });
 
-    if (exercise) {
+    if (
+      exercise &&
+      (!enrollment ||
+        (enrollment.audience === 'SECONDARY' &&
+          enrollment.secondaryGradeId === exercise.examPaper.gradeId))
+    ) {
       const subject = exercise.examPaper?.teaching?.subject;
       const subjectLabel = subject?.longDescription || subject?.shortDescription || '';
       const paperLabel =
@@ -180,6 +207,7 @@ export async function GET() {
         label: true,
         sessionYear: true,
         diplomaId: true,
+        gradeId: true,
         teaching: {
           select: {
             subject: {
@@ -194,7 +222,12 @@ export async function GET() {
       },
     });
 
-    if (examPaper) {
+    if (
+      examPaper &&
+      (!enrollment ||
+        (enrollment.audience === 'SECONDARY' &&
+          enrollment.secondaryGradeId === examPaper.gradeId))
+    ) {
       const subject = examPaper.teaching?.subject;
       const subjectLabel = subject?.longDescription || subject?.shortDescription || '';
       const paperLabel = normalizeExamPaperLabel(examPaper.label) || examPaper.label;

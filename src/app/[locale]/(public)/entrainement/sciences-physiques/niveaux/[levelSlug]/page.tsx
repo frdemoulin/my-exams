@@ -1,8 +1,12 @@
 import type { Metadata } from 'next';
 import { unstable_noStore as noStore } from 'next/cache';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import { ArrowRight, ChevronLeft } from 'lucide-react';
+import prisma from '@/lib/db/prisma';
+import { auth } from '@/lib/auth/auth';
+import { getSessionEffectiveUserId } from '@/lib/auth/session';
+import { assertUserCanAccessSecondaryContent } from '@/lib/auth/assert-pedagogical-access';
 import {
   fetchSciencePhysicsTrainingLevelBySlug,
   getSciencePhysicsTrainingLevelPath,
@@ -57,6 +61,30 @@ export default async function SciencePhysicsTrainingLevelPage({ params }: PagePr
 
   if (!level) {
     notFound();
+  }
+
+  const session = await auth();
+  const effectiveUserId = getSessionEffectiveUserId(session);
+  if (effectiveUserId) {
+    const grade = await prisma.grade.findFirst({
+      where: {
+        OR: [
+          { shortDescription: { equals: level.value, mode: 'insensitive' } },
+          { longDescription: { equals: level.value, mode: 'insensitive' } },
+        ],
+      },
+      select: { id: true },
+    });
+    if (grade) {
+      try {
+        await assertUserCanAccessSecondaryContent({
+          userId: effectiveUserId,
+          gradeId: grade.id,
+        });
+      } catch {
+        redirect('/dashboard');
+      }
+    }
   }
 
   return (

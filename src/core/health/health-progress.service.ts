@@ -1,4 +1,5 @@
 import prisma from "@/lib/db/prisma";
+import { getCurrentUserAcademicEnrollment } from "@/core/academic-enrollment";
 import { fetchHealthCourseUnitThemeProgress } from "./health-theme-progress.service";
 import type {
   FetchHealthCourseUnitProgressInput,
@@ -260,30 +261,35 @@ export async function fetchHealthCourseUnitProgressSummary(
   let masteredQuizSet = new Set<string>();
 
   if (userId && uniqueAllQuizIds.length > 0) {
-    const [rawAttempts, rawProgress] = await Promise.all([
-      prisma.userTrainingQuizAttempt.findMany({
-        where: {
-          userId,
-          quizId: { in: uniqueAllQuizIds },
-          status: "COMPLETED",
-        },
-        select: {
-          quizId: true,
-          status: true,
-        },
-      }),
-      prisma.userTrainingQuizProgress.findMany({
-        where: {
-          userId,
-          quizId: { in: uniqueAllQuizIds },
-          masteredAt: { not: null },
-        },
-        select: {
-          quizId: true,
-          masteredAt: true,
-        },
-      }),
-    ]);
+    const enrollment = await getCurrentUserAcademicEnrollment(userId);
+    const [rawAttempts, rawProgress] = enrollment
+      ? await Promise.all([
+          prisma.userTrainingQuizAttempt.findMany({
+            where: {
+              userId,
+              academicEnrollmentId: enrollment.id,
+              quizId: { in: uniqueAllQuizIds },
+              status: "COMPLETED",
+            },
+            select: {
+              quizId: true,
+              status: true,
+            },
+          }),
+          prisma.userTrainingQuizProgress.findMany({
+            where: {
+              userId,
+              academicEnrollmentId: enrollment.id,
+              quizId: { in: uniqueAllQuizIds },
+              masteredAt: { not: null },
+            },
+            select: {
+              quizId: true,
+              masteredAt: true,
+            },
+          }),
+        ])
+      : [[], []];
 
     completedQuizSet = filterCompletedQuizIds(rawAttempts);
     masteredQuizSet = filterMasteredQuizIds(rawProgress);
@@ -344,20 +350,24 @@ export async function fetchHealthCourseUnitProgressSummary(
   >();
 
   if (userId && mockExamIds.length > 0) {
-    const attempts = await prisma.userHealthMockExamAttempt.findMany({
-      where: {
-        userId,
-        mockExamId: { in: mockExamIds },
-        status: { in: ["SUBMITTED", "EXPIRED"] },
-      },
-      select: {
-        id: true,
-        mockExamId: true,
-        percentage: true,
-        submittedAt: true,
-        createdAt: true,
-      },
-    });
+    const enrollment = await getCurrentUserAcademicEnrollment(userId);
+    const attempts = enrollment
+      ? await prisma.userHealthMockExamAttempt.findMany({
+          where: {
+            userId,
+            academicEnrollmentId: enrollment.id,
+            mockExamId: { in: mockExamIds },
+            status: { in: ["SUBMITTED", "EXPIRED"] },
+          },
+          select: {
+            id: true,
+            mockExamId: true,
+            percentage: true,
+            submittedAt: true,
+            createdAt: true,
+          },
+        })
+      : [];
 
     const attemptsByExamId = new Map<string, typeof attempts>();
     for (const att of attempts) {

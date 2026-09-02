@@ -33,6 +33,8 @@ async function main() {
         { seedHealthMockExams },
         { seedHealthColles },
         { seedChapterAssignments },
+        { seedAcademicYears },
+        { seedAcademicEnrollments },
     ] = await Promise.all([
         import("@prisma/client"),
         import("./seeds/diploma.seed"),
@@ -61,6 +63,8 @@ async function main() {
         import("./seeds/health-mock-exams.seed"),
         import("./seeds/health-colles/health-colles.seed"),
         import("./seeds/chapter-assignments.seed"),
+        import("./seeds/academic-year.seed"),
+        import("./seeds/academic-enrollment.seed"),
     ]);
 
     const prisma = new PrismaClient();
@@ -117,8 +121,10 @@ async function main() {
         // 12. Corrections (dépend de ExamPapers)
         await seedCorrections(prisma);
 
-        // 13. Utilisateurs (indépendants)
+        // 13. Années scolaires et Utilisateurs
+        await seedAcademicYears(prisma);
         await seedUsers(prisma);
+        await seedAcademicEnrollments(prisma);
 
         console.log('✅ Seeding terminé avec succès !');
     } catch (error) {

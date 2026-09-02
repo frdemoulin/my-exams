@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import { unstable_noStore as noStore } from 'next/cache';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import { ChevronLeft } from 'lucide-react';
 import getSession from '@/lib/auth/get-session';
+import { getSessionEffectiveUserId } from '@/lib/auth/session';
+import { assertUserCanAccessChapter } from '@/lib/auth/assert-pedagogical-access';
 import {
   fetchSciencePhysicsTrainingChapterBySlug,
   fetchSciencePhysicsTrainingPathProgressForChapter,
@@ -122,8 +124,16 @@ export default async function SciencePhysicsTrainingChapterPage({
     notFound();
   }
 
-  const userId = session?.user?.id ?? null;
+  const userId = getSessionEffectiveUserId(session);
   const isAuthenticated = Boolean(userId);
+
+  if (userId) {
+    try {
+      await assertUserCanAccessChapter({ userId, chapterId: chapter.id });
+    } catch {
+      redirect('/dashboard');
+    }
+  }
 
   const availableQuizzes: QuizWithSection[] = chapter.sections.flatMap((section) =>
     section.quizzes.map((quiz) => ({ quiz, section }))

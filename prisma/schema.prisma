@@ -717,6 +717,12 @@ enum UserPedagogicalAudience {
   HEALTH
 }
 
+enum AcademicEnrollmentSource {
+  SELF_ONBOARDING
+  ADMIN
+  IMPORT
+}
+
 enum AuthLogAction {
   SIGN_IN
   SIGN_OUT
@@ -1124,6 +1130,9 @@ model UserHealthMockExamAttempt {
   percentage     Int?
   autoSubmitted  Boolean                      @default(false)
 
+  academicEnrollmentId String                 @db.ObjectId
+  academicEnrollment   UserAcademicEnrollment @relation(fields: [academicEnrollmentId], references: [id], onDelete: Cascade)
+
   user             User                                  @relation(fields: [userId], references: [id], onDelete: Cascade)
   mockExam         HealthMockExam                        @relation(fields: [mockExamId], references: [id], onDelete: Cascade)
   attemptQuestions UserHealthMockExamAttemptQuestion[]
@@ -1133,6 +1142,7 @@ model UserHealthMockExamAttempt {
   updatedAt DateTime @updatedAt
 
   @@index([userId, mockExamId, startedAt])
+  @@index([academicEnrollmentId])
   @@index([mockExamId, status])
   @@index([userId, status])
 }
@@ -1200,6 +1210,7 @@ model User {
   trainingQuizProgressEntries UserTrainingQuizProgress[]
   trainingQuizAttempts        UserTrainingQuizAttempt[]
   healthMockExamAttempts      UserHealthMockExamAttempt[]
+  academicEnrollments         UserAcademicEnrollment[]
   createdAt                   DateTime                   @default(now())
   updatedAt                   DateTime                   @updatedAt
 }
@@ -1230,26 +1241,29 @@ model UserPedagogicalProfile {
 }
 
 model UserTrainingQuizProgress {
-  id             String    @id @default(auto()) @map("_id") @db.ObjectId
-  userId         String    @db.ObjectId
-  chapterId      String    @db.ObjectId
-  quizId         String    @db.ObjectId
-  bestScore      Int       @default(0)
-  totalQuestions Int       @default(0)
-  successRate    Int       @default(0)
-  minSuccessRate Int       @default(0)
-  cumulativeSuccessRate Int @default(0)
-  attemptsCount  Int       @default(0)
-  lastAttemptAt  DateTime  @default(now())
-  masteredAt     DateTime?
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
+  id                   String                 @id @default(auto()) @map("_id") @db.ObjectId
+  userId               String                 @db.ObjectId
+  academicEnrollmentId String                 @db.ObjectId
+  academicEnrollment   UserAcademicEnrollment @relation(fields: [academicEnrollmentId], references: [id], onDelete: Cascade)
+  chapterId            String                 @db.ObjectId
+  quizId               String                 @db.ObjectId
+  bestScore            Int                    @default(0)
+  totalQuestions       Int                    @default(0)
+  successRate          Int                    @default(0)
+  minSuccessRate       Int                    @default(0)
+  cumulativeSuccessRate Int                   @default(0)
+  attemptsCount        Int                    @default(0)
+  lastAttemptAt        DateTime               @default(now())
+  masteredAt           DateTime?
+  createdAt            DateTime               @default(now())
+  updatedAt            DateTime               @updatedAt
 
   user    User         @relation(fields: [userId], references: [id], onDelete: Cascade)
   chapter Chapter      @relation(fields: [chapterId], references: [id], onDelete: Cascade)
   quiz    TrainingQuiz @relation(fields: [quizId], references: [id], onDelete: Cascade)
 
-  @@unique([userId, quizId])
+  @@unique([userId, academicEnrollmentId, quizId])
+  @@index([academicEnrollmentId])
   @@index([userId, chapterId])
   @@index([quizId])
 }
@@ -1261,17 +1275,19 @@ enum TrainingQuizAttemptStatus {
 }
 
 model UserTrainingQuizAttempt {
-  id             String                    @id @default(auto()) @map("_id") @db.ObjectId
-  userId         String                    @db.ObjectId
-  chapterId      String                    @db.ObjectId
-  quizId         String                    @db.ObjectId
-  status         TrainingQuizAttemptStatus @default(IN_PROGRESS)
-  startedAt      DateTime                  @default(now())
-  submittedAt    DateTime?
-  score          Float?
-  maxScore       Float?
-  successRate    Int?
-  totalQuestions Int                       @default(0)
+  id                   String                    @id @default(auto()) @map("_id") @db.ObjectId
+  userId               String                    @db.ObjectId
+  academicEnrollmentId String                    @db.ObjectId
+  academicEnrollment   UserAcademicEnrollment    @relation(fields: [academicEnrollmentId], references: [id], onDelete: Cascade)
+  chapterId            String                    @db.ObjectId
+  quizId               String                    @db.ObjectId
+  status               TrainingQuizAttemptStatus @default(IN_PROGRESS)
+  startedAt            DateTime                  @default(now())
+  submittedAt          DateTime?
+  score                Float?
+  maxScore             Float?
+  successRate          Int?
+  totalQuestions       Int                       @default(0)
 
   user             User                              @relation(fields: [userId], references: [id], onDelete: Cascade)
   chapter          Chapter                           @relation(fields: [chapterId], references: [id], onDelete: Cascade)
@@ -1282,6 +1298,7 @@ model UserTrainingQuizAttempt {
   updatedAt DateTime @updatedAt
 
   @@index([userId, quizId, status])
+  @@index([academicEnrollmentId])
   @@index([userId, chapterId])
   @@index([quizId, status])
 }
@@ -1520,3 +1537,71 @@ model DbMigration {
 
   @@map("migrations")
 }
+
+model AcademicYear {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  code      String   @unique
+  label     String
+  startsAt  DateTime
+  endsAt    DateTime
+
+  enrollments UserAcademicEnrollment[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([startsAt, endsAt])
+}
+
+model UserAcademicEnrollment {
+  id             String                   @id @default(auto()) @map("_id") @db.ObjectId
+  userId         String                   @db.ObjectId
+  academicYearId String                   @db.ObjectId
+  audience       UserPedagogicalAudience
+
+  // Secondaire : le GradeId constitue l'ACL
+  secondaryGradeId     String?  @db.ObjectId
+  secondaryTeachingIds String[] @default([]) @db.ObjectId
+
+  // Santé : Version de programme + parcours optionnel
+  healthProgramVersionId String? @db.ObjectId
+  healthPathwayId        String? @db.ObjectId
+
+  lockedAt  DateTime?
+  createdBy AcademicEnrollmentSource @default(SELF_ONBOARDING)
+
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  academicYear AcademicYear @relation(fields: [academicYearId], references: [id], onDelete: Cascade)
+
+  trainingQuizAttempts   UserTrainingQuizAttempt[]
+  trainingQuizProgresses UserTrainingQuizProgress[]
+  healthMockExamAttempts UserHealthMockExamAttempt[]
+  corrections            UserAcademicEnrollmentCorrection[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, academicYearId])
+  @@index([userId])
+  @@index([academicYearId])
+  @@index([audience])
+  @@index([secondaryGradeId])
+  @@index([healthProgramVersionId])
+  @@index([healthPathwayId])
+}
+
+model UserAcademicEnrollmentCorrection {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  enrollmentId String   @db.ObjectId
+  actorAdminId String   @db.ObjectId
+  reason       String
+  beforePayload Json
+  afterPayload  Json
+  createdAt    DateTime @default(now())
+
+  enrollment UserAcademicEnrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+
+  @@index([enrollmentId])
+  @@index([actorAdminId])
+}
+

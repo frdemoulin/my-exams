@@ -9,7 +9,7 @@ import { HealthCourseUnitTabs } from '@/components/health/HealthCourseUnitTabs';
 import { fetchHealthStudentCourseUnitDetail } from '@/core/health';
 import { fetchHealthCourseUnitEvaluationsProgress } from '@/core/health-mock-exam/health-mock-exam.service';
 import { fetchHealthCourseUnitProgressSummary } from '@/core/health/health-progress.service';
-import { fetchUserPedagogicalProfileSummary } from '@/core/user';
+import { assertUserCanAccessHealthCourseUnit } from '@/lib/auth/assert-pedagogical-access';
 import { auth } from '@/lib/auth/auth';
 import { getSessionEffectiveUserId } from '@/lib/auth/session';
 
@@ -63,9 +63,12 @@ export default async function HealthCourseUnitDetailPage({
   const effectiveUserId = getSessionEffectiveUserId(session);
 
   if (effectiveUserId) {
-    const viewerProfile = await fetchUserPedagogicalProfileSummary(effectiveUserId);
-
-    if (viewerProfile?.audience === 'SECONDARY') {
+    try {
+      await assertUserCanAccessHealthCourseUnit({
+        userId: effectiveUserId,
+        courseUnitId,
+      });
+    } catch {
       redirect('/dashboard');
     }
   }

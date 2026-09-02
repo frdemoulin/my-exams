@@ -24,7 +24,7 @@ import {
   getTrainingQuizStageLabel,
   getTrainingQuizStageStarsCount,
 } from '@/core/training/training-stage';
-import { fetchUserPedagogicalProfileSummary } from '@/core/user';
+import { assertUserCanAccessHealthCourseUnit } from '@/lib/auth/assert-pedagogical-access';
 import { auth } from '@/lib/auth/auth';
 import { isAdminRole } from '@/lib/auth/roles';
 import { getSessionActorRole, getSessionEffectiveUserId } from '@/lib/auth/session';
@@ -87,9 +87,12 @@ export default async function HealthChapterDetailPage({
   const canEditQuestions = isAdminRole(getSessionActorRole(session));
 
   if (effectiveUserId) {
-    const viewerProfile = await fetchUserPedagogicalProfileSummary(effectiveUserId);
-
-    if (viewerProfile?.audience === 'SECONDARY') {
+    try {
+      await assertUserCanAccessHealthCourseUnit({
+        userId: effectiveUserId,
+        courseUnitId,
+      });
+    } catch {
       redirect('/dashboard');
     }
   }

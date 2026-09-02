@@ -4,6 +4,7 @@ if (typeof window !== 'undefined') {
   throw new Error('This module cannot be imported in the browser.');
 }
 import prisma from '@/lib/db/prisma';
+import { assertUserCanAccessChapter } from '@/lib/auth/assert-pedagogical-access';
 import { generateWatermarkCode } from '@/lib/watermark.server';
 import {
   createMcqStudentAnswerFromIndexes,
@@ -309,9 +310,12 @@ export async function startOrResumeTrainingQuizSession(
 
   // Authenticated user session persistence
   if (userId) {
+    const enrollment = await assertUserCanAccessChapter({ userId, chapterId });
+
     let attempt = await prisma.userTrainingQuizAttempt.findFirst({
       where: {
         userId,
+        academicEnrollmentId: enrollment.id,
         quizId,
         status: 'IN_PROGRESS',
       },
@@ -347,6 +351,7 @@ export async function startOrResumeTrainingQuizSession(
       attempt = await prisma.userTrainingQuizAttempt.create({
         data: {
           userId,
+          academicEnrollmentId: enrollment.id,
           chapterId,
           quizId,
           status: 'IN_PROGRESS',
@@ -858,8 +863,9 @@ export async function submitTrainingQuizSession(
   // Update UserTrainingQuizProgress aggregate
   const existingProgress = await prisma.userTrainingQuizProgress.findUnique({
     where: {
-      userId_quizId: {
+      userId_academicEnrollmentId_quizId: {
         userId: attempt.userId,
+        academicEnrollmentId: attempt.academicEnrollmentId,
         quizId: attempt.quizId,
       },
     },
@@ -878,8 +884,9 @@ export async function submitTrainingQuizSession(
 
   await prisma.userTrainingQuizProgress.upsert({
     where: {
-      userId_quizId: {
+      userId_academicEnrollmentId_quizId: {
         userId: attempt.userId,
+        academicEnrollmentId: attempt.academicEnrollmentId,
         quizId: attempt.quizId,
       },
     },
@@ -896,15 +903,16 @@ export async function submitTrainingQuizSession(
     },
     create: {
       userId: attempt.userId,
-      quizId: attempt.quizId,
+      academicEnrollmentId: attempt.academicEnrollmentId,
       chapterId: attempt.chapterId,
+      quizId: attempt.quizId,
       attemptsCount: 1,
-      bestScore,
+      bestScore: Math.round(totalScore),
       cumulativeSuccessRate: percentage,
       lastAttemptAt: now,
       masteredAt,
       minSuccessRate: percentage,
-      successRate: bestSuccessRate,
+      successRate: percentage,
       totalQuestions: evaluatedQuestions.length,
     },
   });

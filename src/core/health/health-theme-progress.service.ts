@@ -1,4 +1,5 @@
 import prisma from '@/lib/db/prisma';
+import { getCurrentUserAcademicEnrollment } from '@/core/academic-enrollment';
 import { evaluateQuestion } from '@/core/questions/question-evaluation';
 import type { Question, StudentAnswer } from '@/core/questions';
 import {
@@ -221,11 +222,14 @@ export async function fetchHealthCourseUnitThemeProgress(
   const uniqueAllQuizIds = Array.from(uniqueAllQuizIdsSet);
 
   // 2. Récupération des dernières tentatives utiles
+  const enrollment = userId ? await getCurrentUserAcademicEnrollment(userId) : null;
+
   const [rawQuizAttempts, rawMockAttempts] = await Promise.all([
-    uniqueAllQuizIds.length > 0
+    uniqueAllQuizIds.length > 0 && enrollment
       ? prisma.userTrainingQuizAttempt.findMany({
           where: {
             userId,
+            academicEnrollmentId: enrollment.id,
             quizId: { in: uniqueAllQuizIds },
             status: 'COMPLETED',
           },
@@ -237,10 +241,11 @@ export async function fetchHealthCourseUnitThemeProgress(
           },
         })
       : [],
-    assessmentIds.length > 0
+    assessmentIds.length > 0 && enrollment
       ? prisma.userHealthMockExamAttempt.findMany({
           where: {
             userId,
+            academicEnrollmentId: enrollment.id,
             mockExamId: { in: assessmentIds },
             status: { in: ['SUBMITTED', 'EXPIRED'] },
           },

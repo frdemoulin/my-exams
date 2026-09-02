@@ -1,4 +1,5 @@
 import prisma from '@/lib/db/prisma';
+import { getCurrentUserAcademicEnrollment } from '@/core/academic-enrollment';
 import {
   userPedagogicalAudienceLabels,
   type UserPedagogicalAudienceValue,
@@ -286,33 +287,30 @@ export async function fetchUserPedagogicalProfileOptions(): Promise<UserPedagogi
 export async function fetchUserPedagogicalProfileSummary(
   userId: string
 ): Promise<UserPedagogicalProfileSummary> {
-  const profile = await fetchUserPedagogicalProfileRecord(userId);
+  const enrollment = await getCurrentUserAcademicEnrollment(userId);
 
-  if (!profile?.audience) {
+  if (!enrollment?.audience) {
     return buildEmptySummary();
   }
 
   const [
     secondaryGrade,
     secondaryTeachings,
-    healthInstitution,
     healthProgramVersion,
     healthPathway,
-    healthCourseUnit,
-    healthTeachingElement,
   ] = await Promise.all([
-    profile.secondaryGradeId
+    enrollment.secondaryGradeId
       ? prisma.grade.findUnique({
-          where: { id: profile.secondaryGradeId },
+          where: { id: enrollment.secondaryGradeId },
           select: {
             shortDescription: true,
             longDescription: true,
           },
         })
       : null,
-    profile.secondaryTeachingIds.length > 0
+    enrollment.secondaryTeachingIds.length > 0
       ? prisma.teaching.findMany({
-          where: { id: { in: profile.secondaryTeachingIds } },
+          where: { id: { in: enrollment.secondaryTeachingIds } },
           select: {
             id: true,
             longDescription: true,
@@ -320,22 +318,19 @@ export async function fetchUserPedagogicalProfileSummary(
           },
         })
       : [],
-    profile.healthInstitutionId
-      ? prisma.healthInstitution.findUnique({
-          where: { id: profile.healthInstitutionId },
-          select: {
-            name: true,
-            shortName: true,
-          },
-        })
-      : null,
-    profile.healthProgramVersionId
+    enrollment.healthProgramVersionId
       ? prisma.healthProgramVersion.findUnique({
-          where: { id: profile.healthProgramVersionId },
+          where: { id: enrollment.healthProgramVersionId },
           select: {
             academicYear: true,
             studyLevel: true,
             label: true,
+            institution: {
+              select: {
+                name: true,
+                shortName: true,
+              },
+            },
             program: {
               select: {
                 code: true,
@@ -344,38 +339,22 @@ export async function fetchUserPedagogicalProfileSummary(
           },
         })
       : null,
-    profile.healthPathwayId
+    enrollment.healthPathwayId
       ? prisma.healthPathway.findUnique({
-          where: { id: profile.healthPathwayId },
+          where: { id: enrollment.healthPathwayId },
           select: {
             name: true,
             campus: true,
           },
         })
       : null,
-    profile.healthCourseUnitId
-      ? prisma.healthCourseUnit.findUnique({
-          where: { id: profile.healthCourseUnitId },
-          select: {
-            code: true,
-            title: true,
-            shortTitle: true,
-          },
-        })
-      : null,
-    profile.healthTeachingElementId
-      ? prisma.healthTeachingElement.findUnique({
-          where: { id: profile.healthTeachingElementId },
-          select: {
-            code: true,
-            title: true,
-            shortTitle: true,
-          },
-        })
-      : null,
   ]);
 
-  if (profile.audience === 'SECONDARY') {
+  const healthInstitution = healthProgramVersion?.institution ?? null;
+  const healthCourseUnit = null;
+  const healthTeachingElement = null;
+
+  if (enrollment.audience === 'SECONDARY') {
     const secondaryGradeLabel = secondaryGrade
       ? `${secondaryGrade.shortDescription} · ${secondaryGrade.longDescription}`
       : null;
@@ -420,18 +399,8 @@ export async function fetchUserPedagogicalProfileSummary(
       ? `${healthPathway.name} · ${healthPathway.campus}`
       : healthPathway.name
     : null;
-  const healthCourseUnitLabel = healthCourseUnit
-    ? formatCodeTitle(
-        healthCourseUnit.code,
-        healthCourseUnit.shortTitle?.trim() || healthCourseUnit.title
-      )
-    : null;
-  const healthTeachingElementLabel = healthTeachingElement
-    ? formatCodeTitle(
-        healthTeachingElement.code,
-        healthTeachingElement.shortTitle?.trim() || healthTeachingElement.title
-      )
-    : null;
+  const healthCourseUnitLabel = null;
+  const healthTeachingElementLabel = null;
   const focusBadges = [
     healthInstitutionLabel,
     healthProgramVersionLabel,

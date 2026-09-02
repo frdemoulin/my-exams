@@ -13,6 +13,7 @@ import { getHealthColleBySlug } from "@/core/health-colle";
 import { fetchHealthMockExamTakingState } from "@/core/health-mock-exam/health-mock-exam.service";
 import { auth } from "@/lib/auth/auth";
 import { getSessionEffectiveUserId } from "@/lib/auth/session";
+import { assertUserCanAccessHealthCourseUnit } from "@/lib/auth/assert-pedagogical-access";
 
 type PageProps = {
   params: Promise<{ courseUnitId: string; colleSlug: string }>;
@@ -35,6 +36,15 @@ export default async function HealthCollePage({ params }: PageProps) {
 
   if (!userId) {
     redirect(`/log-in?callbackUrl=${encodeURIComponent(href)}`);
+  }
+
+  try {
+    await assertUserCanAccessHealthCourseUnit({
+      userId,
+      courseUnitId,
+    });
+  } catch {
+    redirect('/dashboard');
   }
 
   const state = await fetchHealthMockExamTakingState({

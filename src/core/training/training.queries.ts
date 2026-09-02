@@ -1,5 +1,6 @@
 import type { Prisma, QuizDifficulty, TrainingQuizStage } from '@prisma/client';
 import prisma from '@/lib/db/prisma';
+import { getCurrentUserAcademicEnrollment } from '@/core/academic-enrollment';
 import {
   resolveCorrectChoiceIndexes,
   resolveQuizAnswerFormat,
@@ -673,10 +674,22 @@ export async function fetchSciencePhysicsTrainingPathProgressForChapter({
   chapterSlug: string;
   userId: string;
 }): Promise<TrainingPathProgress> {
+  const enrollment = await getCurrentUserAcademicEnrollment(userId);
+  if (!enrollment) {
+    return {
+      version: 1,
+      chapterSlug,
+      quizProgressBySlug: {},
+      validatedQuizSlugs: [],
+      updatedAt: new Date(0).toISOString(),
+    };
+  }
+
   const progressEntries = await prisma.userTrainingQuizProgress.findMany({
     where: {
       chapterId,
       userId,
+      academicEnrollmentId: enrollment.id,
     },
     select: {
       attemptsCount: true,

@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import prisma from '@/lib/db/prisma';
 import { auth } from '@/lib/auth/auth';
 import { getSessionEffectiveUserId } from '@/lib/auth/session';
+import { getCurrentUserAcademicEnrollment } from '@/core/academic-enrollment';
 import { fetchSciencePhysicsTrainingPathProgressForChapter } from '@/core/training';
 
 type TrainingPathProgressPayload = {
@@ -32,6 +33,14 @@ export async function POST(request: Request) {
     return NextResponse.json(
       { success: false, message: 'Non authentifié.' },
       { status: 401 }
+    );
+  }
+
+  const enrollment = await getCurrentUserAcademicEnrollment(userId);
+  if (!enrollment) {
+    return NextResponse.json(
+      { success: false, message: 'Affectation scolaire requise.' },
+      { status: 403 }
     );
   }
 
@@ -98,8 +107,9 @@ export async function POST(request: Request) {
 
   const existingProgress = await prisma.userTrainingQuizProgress.findUnique({
     where: {
-      userId_quizId: {
+      userId_academicEnrollmentId_quizId: {
         userId,
+        academicEnrollmentId: enrollment.id,
         quizId,
       },
     },
@@ -144,8 +154,9 @@ export async function POST(request: Request) {
 
   await prisma.userTrainingQuizProgress.upsert({
     where: {
-      userId_quizId: {
+      userId_academicEnrollmentId_quizId: {
         userId,
+        academicEnrollmentId: enrollment.id,
         quizId,
       },
     },
@@ -163,6 +174,7 @@ export async function POST(request: Request) {
       totalQuestions,
     },
     create: {
+      academicEnrollmentId: enrollment.id,
       attemptsCount,
       bestScore,
       chapterId,
@@ -220,12 +232,17 @@ export async function DELETE(request: Request) {
     );
   }
 
-  await prisma.userTrainingQuizProgress.deleteMany({
-    where: {
-      chapterId,
-      userId,
-    },
-  });
+  const enrollment = await getCurrentUserAcademicEnrollment(userId);
+
+  if (enrollment) {
+    await prisma.userTrainingQuizProgress.deleteMany({
+      where: {
+        chapterId,
+        userId,
+        academicEnrollmentId: enrollment.id,
+      },
+    });
+  }
 
   const progress = await fetchSciencePhysicsTrainingPathProgressForChapter({
     chapterId,

@@ -87,10 +87,38 @@ test.describe("Sécurité et ownership des sessions Training & Server Actions", 
     test.skip(!quiz, "Aucun quiz d'entraînement publié disponible pour le test.");
     if (!quiz) return;
 
+    const academicYear = await prisma.academicYear.findFirst({
+      where: {
+        startsAt: { lte: new Date() },
+        endsAt: { gte: new Date() },
+      },
+    });
+
+    const version = await prisma.healthProgramVersion.findFirst({
+      select: { id: true },
+    });
+
+    const grade = await prisma.grade.findFirst({
+      where: { shortDescription: "Tle" },
+      select: { id: true },
+    });
+
+    const enrollmentA = await prisma.userAcademicEnrollment.create({
+      data: {
+        userId: userA.id,
+        academicYearId: academicYear!.id,
+        audience: quiz.chapter.vertical === "HEALTH" ? "HEALTH" : "SECONDARY",
+        healthProgramVersionId: quiz.chapter.vertical === "HEALTH" ? version?.id : null,
+        secondaryGradeId: quiz.chapter.vertical === "SECONDARY" ? grade?.id : null,
+        lockedAt: new Date(),
+      },
+    });
+
     // Création de la tentative persistante légitime de User A
     const attemptA = await prisma.userTrainingQuizAttempt.create({
       data: {
         userId: userA.id,
+        academicEnrollmentId: enrollmentA.id,
         chapterId: quiz.chapterId,
         quizId: quiz.id,
         status: "IN_PROGRESS",
@@ -186,12 +214,10 @@ test.describe("Sécurité et ownership des sessions Training & Server Actions", 
       }
 
       // Vérifier qu'aucune progression n'a été créée ou modifiée pour User A
-      const progressA = await prisma.userTrainingQuizProgress.findUnique({
+      const progressA = await prisma.userTrainingQuizProgress.findFirst({
         where: {
-          userId_quizId: {
-            userId: userA.id,
-            quizId: quiz.id,
-          },
+          userId: userA.id,
+          quizId: quiz.id,
         },
       });
       expect(progressA).toBeNull();
@@ -199,6 +225,9 @@ test.describe("Sécurité et ownership des sessions Training & Server Actions", 
       // Nettoyage après le test
       await prisma.userTrainingQuizAttempt.deleteMany({
         where: { id: attemptA.id },
+      });
+      await prisma.userAcademicEnrollment.deleteMany({
+        where: { userId: userA.id },
       });
       await prisma.user.deleteMany({
         where: { id: { in: [userA.id, userB.id] } },

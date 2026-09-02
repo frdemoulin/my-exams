@@ -16,6 +16,7 @@ import {
   getQuestionThemes,
 } from "@/core/theme/theme-label";
 import prisma from "@/lib/db/prisma";
+import { assertUserCanAccessHealthContent } from "@/lib/auth/assert-pedagogical-access";
 
 import {
   createHealthMockExamStudentAnswer,
@@ -156,6 +157,9 @@ async function loadMockExamForStart(courseUnitId: string, examSlug: string) {
           id: true,
           slug: true,
           title: true,
+          programVersionId: true,
+          pathwayId: true,
+          isCommonToAllPathways: true,
           teachingElements: {
             select: { id: true, slug: true },
           },
@@ -399,10 +403,18 @@ export async function startOrResumeHealthMockExamAttempt(input: {
 
   await assertPublishedMockExamIsValid(exam);
 
+  const enrollment = await assertUserCanAccessHealthContent({
+    userId: input.userId,
+    programVersionId: exam.courseUnit.programVersionId,
+    pathwayId: exam.courseUnit.pathwayId,
+    isCommonToAllPathways: exam.courseUnit.isCommonToAllPathways,
+  });
+
   const now = new Date();
   const existingAttempt = await prisma.userHealthMockExamAttempt.findFirst({
     where: {
       userId: input.userId,
+      academicEnrollmentId: enrollment.id,
       mockExamId: exam.id,
       mockExamVersion: exam.version,
       status: "IN_PROGRESS",
@@ -424,6 +436,7 @@ export async function startOrResumeHealthMockExamAttempt(input: {
   const attempt = await prisma.userHealthMockExamAttempt.create({
     data: {
       userId: input.userId,
+      academicEnrollmentId: enrollment.id,
       mockExamId: exam.id,
       status: "IN_PROGRESS",
       startedAt: now,
