@@ -2,7 +2,9 @@ import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 
 import {
+  buildAllowedAssessmentIds,
   computeThemeMasteryStatus,
+  filterEligibleAssessmentAttempts,
   selectLatestAttempt,
 } from '../../src/core/health/health-theme-progress.service';
 import type { HealthThemeSourceMetrics } from '../../src/core/health/health-theme-progress.types';
@@ -144,6 +146,77 @@ describe('HealthThemeProgressService — Business Rules & Qualification Logic', 
       // Le statut est TO_REVIEW car Colles (>= 3 questions) < 60 %
       const status = computeThemeMasteryStatus(quiz, colles, mockExams);
       assert.equal(status, 'TO_REVIEW');
+    });
+  });
+
+  describe('Allowed Assessment Scope & Attempt Filtering', () => {
+    it('UE avec Colles mais 0 EB => les Colles sont bien incluses dans les évaluations autorisées', () => {
+      const colleIds = ['colle-01', 'colle-02', 'colle-03'];
+      const mockExamIds: string[] = [];
+
+      const allowed = buildAllowedAssessmentIds(colleIds, mockExamIds);
+      assert.deepEqual(allowed, ['colle-01', 'colle-02', 'colle-03']);
+      assert.equal(allowed.length, 3);
+    });
+
+    it('tentative d’un ancien examen non présent dans assessmentIds => strictement ignorée', () => {
+      const allowedAssessmentIds = ['colle-ue14-01', 'eb-ue14-01'];
+      const attempts = [
+        { mockExamId: 'colle-ue14-01', status: 'SUBMITTED', id: 'att-ok-1' },
+        { mockExamId: 'ancient-exam-unlisted', status: 'SUBMITTED', id: 'att-ancient' },
+        { mockExamId: 'eb-ue14-01', status: 'EXPIRED', id: 'att-ok-2' },
+      ];
+
+      const eligible = filterEligibleAssessmentAttempts(attempts, allowedAssessmentIds);
+      assert.equal(eligible.length, 2);
+      assert.ok(eligible.some((a) => a.id === 'att-ok-1'));
+      assert.ok(eligible.some((a) => a.id === 'att-ok-2'));
+      assert.ok(!eligible.some((a) => a.id === 'att-ancient'));
+    });
+
+    it('Colle + EB autorisés => chacun alimente sa catégorie selon le type d’évaluation', () => {
+      const colleIds = ['colle-1'];
+      const mockExamIds = ['eb-1'];
+      const allowed = buildAllowedAssessmentIds(colleIds, mockExamIds);
+      assert.deepEqual(allowed.sort(), ['colle-1', 'eb-1'].sort());
+
+      const attempts = [
+        { mockExamId: 'colle-1', status: 'SUBMITTED', mockExam: { type: 'COLLE' } },
+        { mockExamId: 'eb-1', status: 'SUBMITTED', mockExam: { type: 'MOCK_EXAM' } },
+      ];
+      const eligible = filterEligibleAssessmentAttempts(attempts, allowed);
+
+      const collesAttempts = eligible.filter((a) => a.mockExam.type === 'COLLE');
+      const ebAttempts = eligible.filter((a) => a.mockExam.type === 'MOCK_EXAM');
+
+      assert.equal(collesAttempts.length, 1);
+      assert.equal(collesAttempts[0].mockExamId, 'colle-1');
+      assert.equal(ebAttempts.length, 1);
+      assert.equal(ebAttempts[0].mockExamId, 'eb-1');
+    });
+
+    it('aucune évaluation autorisée => aucune tentative éligible / aucune requête sommatif inutile', () => {
+      const colleIds: string[] = [];
+      const mockExamIds: string[] = [];
+      const allowed = buildAllowedAssessmentIds(colleIds, mockExamIds);
+      assert.equal(allowed.length, 0);
+
+      const attempts = [
+        { mockExamId: 'old-1', status: 'SUBMITTED' },
+      ];
+      const eligible = filterEligibleAssessmentAttempts(attempts, allowed);
+      assert.equal(eligible.length, 0);
+    });
+
+    it('ignore les tentatives en cours (non terminales)', () => {
+      const allowed = ['colle-1'];
+      const attempts = [
+        { mockExamId: 'colle-1', status: 'IN_PROGRESS' },
+        { mockExamId: 'colle-1', status: 'SUBMITTED' },
+      ];
+      const eligible = filterEligibleAssessmentAttempts(attempts, allowed);
+      assert.equal(eligible.length, 1);
+      assert.equal(eligible[0].status, 'SUBMITTED');
     });
   });
 });

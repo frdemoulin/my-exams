@@ -46,6 +46,7 @@ export type FetchHealthThemeProgressInput = {
     shortTitle?: string | null;
     title: string;
   }>;
+  colleIds: string[];
   mockExamIds: string[];
   userId?: string | null;
 };

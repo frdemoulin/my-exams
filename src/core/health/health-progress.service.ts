@@ -477,6 +477,7 @@ export async function fetchHealthCourseUnitProgressSummary(
     themeProgress: await fetchHealthCourseUnitThemeProgress({
       courseUnitId: courseUnit.id,
       teachingElements: activeTeachingElements,
+      colleIds: collesList.map((c) => c.colleId),
       mockExamIds,
       userId,
     }),

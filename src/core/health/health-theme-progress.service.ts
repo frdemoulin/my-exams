@@ -107,6 +107,38 @@ export function computeThemeMasteryStatus(
   return 'TO_CONSOLIDATE';
 }
 
+/**
+ * Construit la liste dédupliquée des identifiants d'évaluations sommatives autorisées (Colles + EB).
+ */
+export function buildAllowedAssessmentIds(
+  colleIds: string[],
+  mockExamIds: string[],
+): string[] {
+  return Array.from(new Set([...colleIds, ...mockExamIds]));
+}
+
+/**
+ * Filtre strictement les tentatives éligibles appartenant aux évaluations autorisées
+ * avec un statut terminal (SUBMITTED ou EXPIRED).
+ */
+export function filterEligibleAssessmentAttempts<
+  T extends {
+    mockExamId: string;
+    status: string;
+  },
+>(attempts: T[], allowedAssessmentIds: Set<string> | string[]): T[] {
+  const allowedSet =
+    allowedAssessmentIds instanceof Set
+      ? allowedAssessmentIds
+      : new Set(allowedAssessmentIds);
+
+  return attempts.filter(
+    (a) =>
+      allowedSet.has(a.mockExamId) &&
+      (a.status === 'SUBMITTED' || a.status === 'EXPIRED'),
+  );
+}
+
 // ============================================================================
 // MAIN SERVICE FUNCTION
 // ============================================================================
@@ -122,7 +154,7 @@ type ThemeAccumulator = {
 export async function fetchHealthCourseUnitThemeProgress(
   input: FetchHealthThemeProgressInput,
 ): Promise<HealthCourseUnitThemeProgressSummary> {
-  const { courseUnitId, teachingElements, mockExamIds, userId } = input;
+  const { courseUnitId, teachingElements, colleIds, mockExamIds, userId } = input;
 
   const formattedTeachingElements = teachingElements.map((te) => ({
     id: te.id,
@@ -141,6 +173,7 @@ export async function fetchHealthCourseUnitThemeProgress(
   }
 
   const activeTeIds = teachingElements.map((te) => te.id);
+  const assessmentIds = buildAllowedAssessmentIds(colleIds, mockExamIds);
 
   // 1. Identification des quiz publiés de l'UE
   const assignments = activeTeIds.length > 0
@@ -204,11 +237,11 @@ export async function fetchHealthCourseUnitThemeProgress(
           },
         })
       : [],
-    mockExamIds.length > 0
+    assessmentIds.length > 0
       ? prisma.userHealthMockExamAttempt.findMany({
           where: {
             userId,
-            mockExam: { courseUnitId },
+            mockExamId: { in: assessmentIds },
             status: { in: ['SUBMITTED', 'EXPIRED'] },
           },
           select: {
