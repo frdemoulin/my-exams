@@ -1,4 +1,5 @@
 import prisma from "@/lib/db/prisma";
+import { fetchHealthCourseUnitThemeProgress } from "./health-theme-progress.service";
 import type {
   FetchHealthCourseUnitProgressInput,
   HealthCourseUnitProgressSummary,
@@ -473,5 +474,11 @@ export async function fetchHealthCourseUnitProgressSummary(
       bestScorePercentage: mockExamsOverview.bestScorePercentage,
       examResults: mockExamResults,
     },
+    themeProgress: await fetchHealthCourseUnitThemeProgress({
+      courseUnitId: courseUnit.id,
+      teachingElements: activeTeachingElements,
+      mockExamIds,
+      userId,
+    }),
   };
 }

@@ -1,4 +1,5 @@
 import type { HealthCourseUnitEvaluationsProgress } from "@/core/health-mock-exam/health-mock-exam.types";
+import type { HealthCourseUnitThemeProgressSummary } from "./health-theme-progress.types";
 import type { HealthStudentCourseUnitDetail } from "./health.queries";
 
 export interface HealthCourseUnitProgressSummary {
@@ -74,6 +75,9 @@ export interface HealthCourseUnitProgressSummary {
       }>;
     }>;
   };
+
+  // 5. Section Maîtrise par thème
+  themeProgress: HealthCourseUnitThemeProgressSummary;
 }
 
 export type FetchHealthCourseUnitProgressInput = {

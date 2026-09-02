@@ -48,7 +48,17 @@ test.describe("Santé — Onglet Progression UE14", () => {
     await expect(page.getByRole("heading", { name: /Vue d’ensemble — Progression UE/i })).toBeVisible();
     await expect(page.getByRole("button", { name: "Aide aux évaluations" })).toHaveCount(0);
 
-    // 5. Accès direct via URL ?ec=progression
+    // 5. Authentification test et accès direct via URL ?ec=progression
+    if (process.env.E2E_TEST_LOGIN_SECRET) {
+      await page.request.post(`${appBaseUrl}/api/test-login`, {
+        headers: {
+          "x-e2e-test-login": process.env.E2E_TEST_LOGIN_SECRET,
+          "Content-Type": "application/json",
+        },
+        data: { email: "admin-e2e@example.com" },
+      });
+    }
+
     await page.goto(`${appBaseUrl}/sante/ue/${courseUnitId}?ec=progression`);
     await expect(page.getByRole("heading", { name: /Vue d’ensemble — Progression UE/i })).toBeVisible();
 
@@ -60,11 +70,24 @@ test.describe("Santé — Onglet Progression UE14", () => {
     await expect(page.getByTestId("kpi-colles-count")).toBeVisible();
     await expect(page.getByTestId("kpi-mock-exams-count")).toBeVisible();
 
-    // Section Entraînement avec les 3 EC
-    await expect(page.getByRole("heading", { name: "Entraînement" })).toBeVisible();
+    // Section Progression des quiz avec les 3 EC
+    await expect(page.getByRole("heading", { name: "Progression des quiz" })).toBeVisible();
     await expect(page.getByTestId("progress-ec-chimie")).toBeVisible();
     await expect(page.getByTestId("progress-ec-biochimie")).toBeVisible();
     await expect(page.getByTestId("progress-ec-biologie cellulaire")).toBeVisible();
+
+    // Section Maîtrise par thème
+    await expect(page.getByRole("heading", { name: "Maîtrise par thème" })).toBeVisible();
+    await expect(page.getByTestId("health-theme-progress-section")).toBeVisible();
+    await expect(page.getByTestId("theme-filter-all")).toBeVisible();
+
+    // Tester les filtres EC de maîtrise par thème
+    const chimieThemeFilter = page.getByRole("button", { name: /^Chimie$/i });
+    if (await chimieThemeFilter.count() > 0) {
+      await chimieThemeFilter.first().click();
+    }
+    const allThemeFilter = page.getByTestId("theme-filter-all");
+    await allThemeFilter.click();
 
     // Section Colles & Section EB
     await expect(page.getByRole("heading", { name: "Colles", exact: true })).toBeVisible();
@@ -83,6 +106,7 @@ test.describe("Santé — Onglet Progression UE14", () => {
     await expect(page.locator("html")).toHaveClass(/dark/);
     await expect(page.getByRole("heading", { name: /Vue d’ensemble — Progression UE/i })).toBeVisible();
     await expect(page.getByTestId("progress-ec-chimie")).toBeVisible();
+    await expect(page.getByTestId("health-theme-progress-section")).toBeVisible();
 
     // Capture d'écran Desktop (Dark Mode)
     await page.screenshot({
@@ -99,6 +123,7 @@ test.describe("Santé — Onglet Progression UE14", () => {
     await page.setViewportSize({ width: 375, height: 812 });
     await expectNoHorizontalOverflow(page);
     await expect(page.getByTestId("progress-ec-chimie")).toBeVisible();
+    await expect(page.getByTestId("health-theme-progress-section")).toBeVisible();
 
     // Capture d'écran Mobile
     await page.screenshot({

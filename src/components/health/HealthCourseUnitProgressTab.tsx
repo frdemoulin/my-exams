@@ -4,6 +4,7 @@ import { BarChart3, CheckCircle2, FileCheck2, GraduationCap, Target, Trophy } fr
 
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { HealthThemeProgressSection } from './HealthThemeProgressSection';
 import type { HealthCourseUnitProgressSummary } from '@/core/health/health-progress.types';
 
 type HealthCourseUnitProgressTabProps = {
@@ -27,10 +28,10 @@ export function HealthCourseUnitProgressTab({ progress }: HealthCourseUnitProgre
         </div>
 
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-          {/* KPI Entraînement */}
+          {/* KPI Progression des quiz */}
           <Card className="rounded-2xl border-border bg-card p-4 shadow-xs">
             <div className="flex items-center justify-between text-muted-foreground">
-              <span className="text-xs font-semibold uppercase tracking-wider">Entraînement</span>
+              <span className="text-xs font-semibold uppercase tracking-wider">Progression des quiz</span>
               <GraduationCap className="h-4 w-4 text-fg-brand" aria-hidden="true" />
             </div>
             <p className="mt-2 text-2xl font-bold text-heading" data-testid="kpi-training-count">
@@ -90,7 +91,7 @@ export function HealthCourseUnitProgressTab({ progress }: HealthCourseUnitProgre
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div className="flex flex-wrap items-center gap-2">
                 <CardTitle id="health-progress-training-heading" className="text-lg text-heading">
-                  Entraînement
+                  Progression des quiz
                 </CardTitle>
                 <Badge variant="outline">{training.byTeachingElement.length} matières</Badge>
               </div>
@@ -145,7 +146,10 @@ export function HealthCourseUnitProgressTab({ progress }: HealthCourseUnitProgre
         </Card>
       </section>
 
-      {/* 3. Section Colles */}
+      {/* 3. Section Maîtrise par thème */}
+      <HealthThemeProgressSection themeProgress={progress.themeProgress} />
+
+      {/* 4. Section Colles */}
       <section aria-labelledby="health-progress-colles-heading">
         <Card className="rounded-3xl border-border bg-card">
           <CardHeader>
@@ -210,7 +214,7 @@ export function HealthCourseUnitProgressTab({ progress }: HealthCourseUnitProgre
         </Card>
       </section>
 
-      {/* 4. Section Examens blancs */}
+      {/* 5. Section Examens blancs */}
       <section aria-labelledby="health-progress-mock-exams-heading">
         <Card className="rounded-3xl border-border bg-card">
           <CardHeader>

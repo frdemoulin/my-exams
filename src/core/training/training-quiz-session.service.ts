@@ -87,7 +87,7 @@ export type SubmitTrainingQuizSessionResult = {
   questions: TrainingQuizEvaluatedQuestionResult[];
 };
 
-type DbQuizQuestion = {
+export type DbQuizQuestion = {
   id: string;
   difficulty: any;
   questionType: string | null;
@@ -114,7 +114,7 @@ function getUnansweredEval(canonicalQuestion: Question): EvaluationResult {
   };
 }
 
-function buildCanonicalQuestionFromDb(question: DbQuizQuestion): Question {
+export function buildCanonicalQuestionFromDb(question: DbQuizQuestion): Question {
   const normalizedChoices = normalizeTrainingChoiceContents(question.choices);
   const resolvedCorrectChoiceIndexes = resolveCorrectChoiceIndexes({
     answerFormat: question.answerFormat,
