@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
+import { assertAdmin } from "@/lib/auth/assert-admin";
 import prisma from "@/lib/db/prisma";
 import { createSubdomainSchema } from "@/lib/validation";
 import { setCrudSuccessToast } from "@/lib/toast";
@@ -58,6 +59,7 @@ const ensureCoherence = async (subjectId: string, domainId: string) => {
 };
 
 export const createSubdomain = async (formData: FormData) => {
+    await assertAdmin();
     const parsedValues = parseFormValues(formData);
     const result = createSubdomainSchema.safeParse(parsedValues);
 
@@ -98,6 +100,7 @@ export const createSubdomain = async (formData: FormData) => {
 };
 
 export const updateSubdomain = async (id: string | undefined, formData: FormData) => {
+    await assertAdmin();
     if (!id) throw new Error("Identifiant manquant");
 
     const parsedValues = parseFormValues(formData);
@@ -143,6 +146,7 @@ export const updateSubdomain = async (id: string | undefined, formData: FormData
 };
 
 export const deleteSubdomain = async (id: string, options?: DeleteSubdomainOptions) => {
+    await assertAdmin();
     try {
         const themesCount = await prisma.theme.count({
             where: { subdomainIds: { has: id } },

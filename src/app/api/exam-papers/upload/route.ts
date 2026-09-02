@@ -9,6 +9,7 @@ import { promisify } from "util";
 import { createHash } from "crypto";
 
 import { getExamPaperPublicUrl, getExamPapersUploadDir } from "@/lib/uploads";
+import { assertAdmin, UnauthorizedAdminError } from "@/lib/auth/assert-admin";
 
 const MAX_SIZE_BYTES = 2 * 1024 * 1024; // 2MB
 const HARD_MAX_BYTES = 10 * 1024 * 1024; // 10MB
@@ -57,6 +58,7 @@ const compressPdfBuffer = async (buffer: Buffer): Promise<CompressionResult> => 
 
 export async function POST(request: Request) {
   try {
+    await assertAdmin();
     const formData = await request.formData();
     const file = formData.get("file");
 
@@ -134,6 +136,12 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ url, compressed });
   } catch (error) {
+    if (error instanceof UnauthorizedAdminError) {
+      return NextResponse.json(
+        { error: "Accès administrateur requis." },
+        { status: 403 }
+      );
+    }
     console.error("Error uploading exam paper PDF:", error);
     return NextResponse.json(
       { error: "Échec du téléversement du PDF" },

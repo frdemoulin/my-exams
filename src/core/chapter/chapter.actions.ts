@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
+import { assertAdmin } from "@/lib/auth/assert-admin";
 import prisma from "@/lib/db/prisma";
 import {
   getPrimaryCorrectChoiceIndex,
@@ -474,6 +475,7 @@ export async function createChapter(
   formData: FormData,
   options?: ChapterActionOptions
 ) {
+  await assertAdmin();
   const vertical = String(formData.get("vertical") ?? "SECONDARY").trim() as
     | "SECONDARY"
     | "BTS"
@@ -576,6 +578,7 @@ export async function updateChapter(
   formData: FormData,
   options?: ChapterActionOptions
 ) {
+  await assertAdmin();
   const currentChapter = await prisma.chapter.findUnique({
     where: { id },
     select: {
@@ -693,6 +696,7 @@ export async function updateChapter(
 }
 
 export async function deleteChapter(id: string, options?: ChapterActionOptions) {
+  await assertAdmin();
   const publicPaths = await resolveChapterPublicPaths(id);
 
   await prisma.chapter.delete({
@@ -719,6 +723,7 @@ export async function createChapterAssignment(
   formData: FormData,
   options?: ChapterActionOptions
 ) {
+  await assertAdmin();
   const chapter = await prisma.chapter.findUnique({
     where: { id: chapterId },
     select: { id: true, subjectId: true },
@@ -818,6 +823,7 @@ export async function updateChapterAssignment(
   formData: FormData,
   options?: ChapterActionOptions
 ) {
+  await assertAdmin();
   const currentAssignment = await prisma.chapterAssignment.findUnique({
     where: { id },
     select: {
@@ -919,6 +925,7 @@ export async function deleteChapterAssignment(
   id: string,
   options?: ChapterActionOptions
 ) {
+  await assertAdmin();
   const currentAssignment = await prisma.chapterAssignment.findUnique({
     where: { id },
     select: {
@@ -954,6 +961,7 @@ export async function createQuizQuestion(
   formData: FormData,
   options?: QuizQuestionActionOptions
 ) {
+  await assertAdmin();
   const difficulty = String(formData.get("difficulty") ?? "").trim();
   const rawAnswerFormat = String(formData.get("answerFormat") ?? "SINGLE").trim();
   const questionFormat = resolveQuestionFormatFromForm({
@@ -1052,6 +1060,7 @@ export async function updateQuizQuestion(
   formData: FormData,
   options?: QuizQuestionActionOptions
 ) {
+  await assertAdmin();
   const currentQuestion = await prisma.quizQuestion.findUnique({
     where: { id },
     select: { chapterId: true },
@@ -1163,6 +1172,7 @@ export async function deleteQuizQuestion(
   id: string,
   options?: QuizQuestionActionOptions
 ) {
+  await assertAdmin();
   const currentQuestion = await prisma.quizQuestion.findUnique({
     where: { id },
     select: { chapterId: true },
@@ -1196,6 +1206,7 @@ export async function updateTrainingStructure(
   formData: FormData,
   options?: ChapterActionOptions
 ) {
+  await assertAdmin();
   const currentChapter = await prisma.chapter.findUnique({
     where: { id: chapterId },
     select: { id: true },

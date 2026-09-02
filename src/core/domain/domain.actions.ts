@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
+import { assertAdmin } from "@/lib/auth/assert-admin";
 import prisma from "@/lib/db/prisma";
 import { createDomainSchema } from "@/lib/validation";
 import { setCrudSuccessToast } from "@/lib/toast";
@@ -85,6 +86,7 @@ const parseScopes = (raw: FormDataEntryValue | null): DomainScopeInput[] => {
 };
 
 export const createDomain = async (formData: FormData) => {
+    await assertAdmin();
     const values = Object.fromEntries(formData.entries());
     const isActiveValue = values.isActive;
     const isActive =
@@ -151,6 +153,7 @@ export const createDomain = async (formData: FormData) => {
 }
 
 export const updateDomain = async (id: string | undefined, formData: FormData) => {
+    await assertAdmin();
     const values = Object.fromEntries(formData.entries());
     const isActiveValue = values.isActive;
     const isActive =
@@ -221,6 +224,7 @@ export const updateDomain = async (id: string | undefined, formData: FormData) =
 }
 
 export const updateDomainScopes = async (domainId: string, formData: FormData) => {
+    await assertAdmin();
     const scopes = parseScopes(formData.get("scopes"));
 
     await prisma.domainScope.deleteMany({
@@ -248,6 +252,7 @@ export const updateDomainScopes = async (domainId: string, formData: FormData) =
 }
 
 export const deleteDomain = async (id: string, options?: DeleteDomainOptions) => {
+    await assertAdmin();
     try {
         await prisma.domainScope.deleteMany({
             where: { domainId: id },

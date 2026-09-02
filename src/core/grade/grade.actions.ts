@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
+import { assertAdmin } from "@/lib/auth/assert-admin";
 import prisma from "@/lib/db/prisma";
 import { createGradeSchema } from "@/lib/validation";
 import { setCrudSuccessToast } from "@/lib/toast";
@@ -15,6 +16,7 @@ type DeleteGradeOptions = {
 };
 
 export const createGrade = async (formData: FormData) => {
+    await assertAdmin();
     const values = Object.fromEntries(formData.entries());
 
     const result = createGradeSchema.safeParse(values);
@@ -51,6 +53,7 @@ export const createGrade = async (formData: FormData) => {
 }
 
 export const updateGrade = async (id: string | undefined, formData: FormData) => {
+    await assertAdmin();
     const values = Object.fromEntries(formData.entries());
 
     const result = createGradeSchema.safeParse(values);
@@ -86,6 +89,7 @@ export const updateGrade = async (id: string | undefined, formData: FormData) =>
 }
 
 export const deleteGrade = async (id: string, options?: DeleteGradeOptions) => {
+    await assertAdmin();
     try {
         await prisma.grade.delete({
             where: {

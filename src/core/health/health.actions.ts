@@ -4,9 +4,7 @@ import { Prisma } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-import { auth } from "@/lib/auth/auth";
-import { isAdminRole } from "@/lib/auth/roles";
-import { getSessionEffectiveRole } from "@/lib/auth/session";
+import { assertAdmin } from "@/lib/auth/assert-admin";
 import prisma from "@/lib/db/prisma";
 import { setToastCookie } from "@/lib/toast";
 import {
@@ -37,13 +35,6 @@ const parseDate = (formData: FormData, key: string) => {
 };
 const strings = (formData: FormData, key: string) =>
     Array.from(new Set(formData.getAll(key).map(String).map((value) => value.trim()).filter(Boolean)));
-
-const assertAdmin = async () => {
-    const session = await auth();
-    if (!isAdminRole(getSessionEffectiveRole(session))) {
-        throw new Error("Accès administrateur requis.");
-    }
-};
 
 const parseInput = (entity: HealthEntity, formData: FormData) => {
     switch (entity) {

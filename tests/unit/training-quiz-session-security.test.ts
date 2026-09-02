@@ -48,11 +48,16 @@ function simulateSubmitQuizSession({
   userId?: string | null;
   answers: Array<{ questionId: string; responsePayload?: any; selectedChoiceIndexes?: number[] }>;
 }) {
+  // Pour toute session persistante, refuser immédiatement si anonyme
+  if (!userId) {
+    throw new Error('Accès non autorisé à cette session de quiz.');
+  }
+
   if (!attempt) {
     throw new Error('Session de quiz introuvable.');
   }
 
-  if (userId && attempt.userId !== userId) {
+  if (attempt.userId !== userId) {
     throw new Error('Accès non autorisé à cette session de quiz.');
   }
 
@@ -146,6 +151,50 @@ test('Session Security: rejette une session inexistante', () => {
   );
 });
 
+test('Session Security: rejette une tentative persistante pour un utilisateur anonyme (userId null)', () => {
+  const attempt: SimulatedAttempt = {
+    id: 'attempt_abc',
+    userId: 'user_legitimate_owner',
+    chapterId: 'chapter_1',
+    quizId: 'quiz_1',
+    status: 'IN_PROGRESS',
+    attemptQuestions: [],
+  };
+
+  assert.throws(
+    () => {
+      simulateSubmitQuizSession({
+        attempt,
+        userId: null,
+        answers: [],
+      });
+    },
+    { message: 'Accès non autorisé à cette session de quiz.' }
+  );
+});
+
+test('Session Security: rejette une tentative persistante pour un utilisateur anonyme (userId undefined)', () => {
+  const attempt: SimulatedAttempt = {
+    id: 'attempt_abc',
+    userId: 'user_legitimate_owner',
+    chapterId: 'chapter_1',
+    quizId: 'quiz_1',
+    status: 'IN_PROGRESS',
+    attemptQuestions: [],
+  };
+
+  assert.throws(
+    () => {
+      simulateSubmitQuizSession({
+        attempt,
+        userId: undefined,
+        answers: [],
+      });
+    },
+    { message: 'Accès non autorisé à cette session de quiz.' }
+  );
+});
+
 test('Session Security: rejette une session appartenant à un autre utilisateur', () => {
   const attempt: SimulatedAttempt = {
     id: 'attempt_abc',
@@ -161,6 +210,54 @@ test('Session Security: rejette une session appartenant à un autre utilisateur'
       simulateSubmitQuizSession({
         attempt,
         userId: 'user_malicious_attacker',
+        answers: [],
+      });
+    },
+    { message: 'Accès non autorisé à cette session de quiz.' }
+  );
+});
+
+test('Session Security: rejette une tentative terminée si consultée par un tiers (AVANT restitution)', () => {
+  const attempt: SimulatedAttempt = {
+    id: 'attempt_completed',
+    userId: 'user_owner',
+    chapterId: 'chapter_1',
+    quizId: 'quiz_1',
+    status: 'COMPLETED',
+    score: 10,
+    maxScore: 10,
+    attemptQuestions: [],
+  };
+
+  assert.throws(
+    () => {
+      simulateSubmitQuizSession({
+        attempt,
+        userId: 'user_intruder',
+        answers: [],
+      });
+    },
+    { message: 'Accès non autorisé à cette session de quiz.' }
+  );
+});
+
+test('Session Security: rejette une tentative terminée si consultée par un anonyme (AVANT restitution)', () => {
+  const attempt: SimulatedAttempt = {
+    id: 'attempt_completed',
+    userId: 'user_owner',
+    chapterId: 'chapter_1',
+    quizId: 'quiz_1',
+    status: 'COMPLETED',
+    score: 10,
+    maxScore: 10,
+    attemptQuestions: [],
+  };
+
+  assert.throws(
+    () => {
+      simulateSubmitQuizSession({
+        attempt,
+        userId: null,
         answers: [],
       });
     },

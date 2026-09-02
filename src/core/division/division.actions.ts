@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
+import { assertAdmin } from "@/lib/auth/assert-admin";
 import prisma from "@/lib/db/prisma";
 import { createDivisionSchema } from "@/lib/validation";
 import { setCrudSuccessToast } from "@/lib/toast";
@@ -15,6 +16,7 @@ type DeleteDivisionOptions = {
 };
 
 export const createDivision = async (formData: FormData) => {
+    await assertAdmin();
     const values = Object.fromEntries(formData.entries());
     const isActiveValue = values.isActive;
     const isActive =
@@ -62,6 +64,7 @@ export const createDivision = async (formData: FormData) => {
 }
 
 export const updateDivision = async (id: string | undefined, formData: FormData) => {
+    await assertAdmin();
     const values = Object.fromEntries(formData.entries());
     const isActiveValue = values.isActive;
     const isActive =
@@ -108,6 +111,7 @@ export const updateDivision = async (id: string | undefined, formData: FormData)
 }
 
 export const deleteDivision = async (id: string, options?: DeleteDivisionOptions) => {
+    await assertAdmin();
     try {
         await prisma.division.delete({
             where: {

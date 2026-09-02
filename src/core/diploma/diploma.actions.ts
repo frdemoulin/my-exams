@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
+import { assertAdmin } from "@/lib/auth/assert-admin";
 import prisma from "@/lib/db/prisma";
 import { createDiplomaSchema } from "@/lib/validation";
 import { setCrudSuccessToast } from "@/lib/toast";
@@ -15,6 +16,7 @@ type DeleteDiplomaOptions = {
 };
 
 export const createDiploma = async (formData: FormData) => {
+    await assertAdmin();
     const longDescription = formData.get("longDescription") as string;
     const shortDescription = formData.get("shortDescription") as string;
     const isActiveValue = formData.get("isActive");
@@ -59,6 +61,7 @@ export const createDiploma = async (formData: FormData) => {
 }
 
 export const updateDiploma = async (id: string | undefined, formData: FormData) => {
+    await assertAdmin();
     const longDescription = formData.get("longDescription") as string;
     const shortDescription = formData.get("shortDescription") as string;
     const isActiveValue = formData.get("isActive");
@@ -102,6 +105,7 @@ export const updateDiploma = async (id: string | undefined, formData: FormData) 
 }
 
 export const deleteDiploma = async (id: string, options?: DeleteDiplomaOptions) => {
+    await assertAdmin();
     try {
         await prisma.diploma.delete({
             where: {

@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
+import { assertAdmin } from "@/lib/auth/assert-admin";
 import prisma from "@/lib/db/prisma";
 import { createExamPaperSchema } from "@/lib/validation";
 import { setCrudSuccessToast } from "@/lib/toast";
@@ -52,6 +53,7 @@ const normalizeExamPaperValues = (values: CreateExamPaperValues) => ({
 export const createExamPaper = async (
     values: CreateExamPaperValues
 ): Promise<ExamPaperActionResult | void> => {
+    await assertAdmin();
     const parsedValues = normalizeExamPaperValues(values);
 
     const result = createExamPaperSchema.safeParse(parsedValues);
@@ -105,6 +107,7 @@ export const updateExamPaper = async (
     id: string | undefined,
     values: CreateExamPaperValues
 ): Promise<ExamPaperActionResult | void> => {
+    await assertAdmin();
     const parsedValues = normalizeExamPaperValues(values);
 
     const result = createExamPaperSchema.safeParse(parsedValues);
@@ -157,6 +160,7 @@ export const updateExamPaper = async (
 }
 
 export const deleteExamPaper = async (id: string, options?: DeleteExamPaperOptions) => {
+    await assertAdmin();
     try {
         await prisma.examPaper.delete({
             where: { id }

@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
+import { assertAdmin } from "@/lib/auth/assert-admin";
 import prisma from "@/lib/db/prisma";
 import { createCorrectionSourceSchema } from "@/lib/validation";
 import { setCrudSuccessToast } from "@/lib/toast";
@@ -15,6 +16,7 @@ type DeleteCorrectionSourceOptions = {
 };
 
 export const createCorrectionSource = async (formData: FormData) => {
+    await assertAdmin();
     const values = Object.fromEntries(formData.entries());
     const isActiveValue = values.isActive;
     const isActive =
@@ -57,6 +59,7 @@ export const createCorrectionSource = async (formData: FormData) => {
 };
 
 export const updateCorrectionSource = async (id: string | undefined, formData: FormData) => {
+    await assertAdmin();
     const values = Object.fromEntries(formData.entries());
     const isActiveValue = values.isActive;
     const isActive =
@@ -104,6 +107,7 @@ export const deleteCorrectionSource = async (
     id: string,
     options?: DeleteCorrectionSourceOptions
 ) => {
+    await assertAdmin();
     try {
         await prisma.correctionSource.delete({
             where: {

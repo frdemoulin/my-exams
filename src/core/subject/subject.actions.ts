@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
+import { assertAdmin } from "@/lib/auth/assert-admin";
 import prisma from "@/lib/db/prisma";
 import { createSubjectSchema } from "@/lib/validation";
 import { setCrudSuccessToast } from "@/lib/toast";
@@ -15,6 +16,7 @@ type SubjectActionOptions = {
 };
 
 export const createSubject = async (formData: FormData, options?: SubjectActionOptions) => {
+    await assertAdmin();
     const longDescription = formData.get("longDescription") as string;
     const shortDescription = formData.get("shortDescription") as string;
     const isActiveValue = formData.get("isActive");
@@ -65,6 +67,7 @@ export const updateSubject = async (
     formData: FormData,
     options?: SubjectActionOptions
 ) => {
+    await assertAdmin();
     const longDescription = formData.get("longDescription") as string;
     const shortDescription = formData.get("shortDescription") as string;
     const isActiveValue = formData.get("isActive");
@@ -111,6 +114,7 @@ export const updateSubject = async (
 }
 
 export const deleteSubject = async (id: string, options?: SubjectActionOptions) => {
+    await assertAdmin();
     try {
         await prisma.subject.delete({
             where: {

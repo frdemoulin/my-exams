@@ -1,6 +1,7 @@
 'use server';
 
 import { revalidatePath } from 'next/cache';
+import { assertAdmin } from '@/lib/auth/assert-admin';
 import prisma from '@/lib/db/prisma';
 import { ExerciseType } from '@prisma/client';
 import {
@@ -973,6 +974,7 @@ const applySplitSanityChecks = (
  * Créer un nouvel exercice
  */
 export async function createExercise(data: CreateExerciseInput) {
+  await assertAdmin();
   try {
     // Validation
     const validated = createExerciseSchema.parse(data);
@@ -1049,6 +1051,7 @@ export async function createExercise(data: CreateExerciseInput) {
  * Mettre à jour un exercice existant
  */
 export async function updateExercise(data: UpdateExerciseInput) {
+  await assertAdmin();
   try {
     // Validation
     const validated = updateExerciseSchema.parse(data);
@@ -1116,6 +1119,7 @@ export async function updateExercise(data: UpdateExerciseInput) {
  * Supprimer un exercice
  */
 export async function deleteExercise(id: string) {
+  await assertAdmin();
   try {
     const exercise = await prisma.exercise.findUnique({
       where: { id },
@@ -1152,6 +1156,7 @@ export async function deleteExercise(id: string) {
  * Créer plusieurs exercices d'un coup (pour découpage d'un sujet)
  */
 export async function createMultipleExercises(exercises: CreateExerciseInput[]) {
+  await assertAdmin();
   try {
     const results = [];
     const errors = [];
@@ -1186,6 +1191,7 @@ export async function replaceExercisesByExamPaper(
   examPaperId: string,
   exercises: CreateExerciseInput[]
 ) {
+  await assertAdmin();
   try {
     if (!examPaperId) {
       return { success: false, error: "L'identifiant du sujet est requis" };
@@ -1272,6 +1278,7 @@ export async function previewExerciseStatements(input: {
     pageEnd: number;
   }>;
 }) {
+  await assertAdmin();
   try {
     if (!input.examPaperId) {
       return { success: false, error: "L'identifiant du sujet est requis" };
@@ -1325,6 +1332,7 @@ export async function suggestExerciseSplitByExamPaper(
   examPaperId: string,
   options?: { maxPages?: number; expectedExerciseCount?: number }
 ) {
+  await assertAdmin();
   try {
     if (!examPaperId) {
       return { success: false, error: "L'identifiant du sujet est requis" };
@@ -1483,6 +1491,7 @@ export async function suggestExerciseSplitByExamPaper(
  * Enrichir un exercice spécifique (même déjà enrichi).
  */
 export async function enrichExerciseById(exerciseId: string) {
+  await assertAdmin();
   try {
     if (!exerciseId) {
       return { success: false, error: "L'identifiant de l'exercice est requis" };
@@ -1589,6 +1598,7 @@ export async function enrichExercisesByExamPaper(
   examPaperId: string,
   options?: { limit?: number; includeCompleted?: boolean }
 ) {
+  await assertAdmin();
   try {
     if (!examPaperId) {
       return { success: false, error: "L'identifiant du sujet est requis" };
@@ -1723,6 +1733,7 @@ export async function enrichExercisesByExamPaper(
  * Supprimer tous les exercices d'un ExamPaper
  */
 export async function deleteExercisesByExamPaper(examPaperId: string) {
+  await assertAdmin();
   try {
     await prisma.exercise.deleteMany({
       where: { examPaperId },

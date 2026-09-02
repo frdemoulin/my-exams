@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
+import { assertAdmin } from "@/lib/auth/assert-admin";
 import prisma from "@/lib/db/prisma";
 import { createExaminationCenterSchema } from "@/lib/validation";
 import { setCrudSuccessToast } from "@/lib/toast";
@@ -15,6 +16,7 @@ type DeleteExaminationCenterOptions = {
 };
 
 export const createExaminationCenter = async (formData: FormData) => {
+    await assertAdmin();
     const values = Object.fromEntries(formData.entries());
     const isActiveValue = values.isActive;
     const isActive =
@@ -61,6 +63,7 @@ export const createExaminationCenter = async (formData: FormData) => {
 }
 
 export const updateExaminationCenter = async (id: string | undefined, formData: FormData) => {
+    await assertAdmin();
     const values = Object.fromEntries(formData.entries());
     const isActiveValue = values.isActive;
     const isActive =
@@ -109,6 +112,7 @@ export const deleteExaminationCenter = async (
     id: string,
     options?: DeleteExaminationCenterOptions
 ) => {
+    await assertAdmin();
     try {
         await prisma.examinationCenter.delete({
             where: {

@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 
+import { assertAdmin } from "@/lib/auth/assert-admin";
 import prisma from "@/lib/db/prisma";
 import { createCorrectionSchema } from "./correction.types";
 import { CreateCorrectionErrors } from "./correction.types";
@@ -12,6 +13,7 @@ type DeleteCorrectionOptions = {
 };
 
 export const createCorrection = async (formData: FormData) => {
+    await assertAdmin();
     const values = Object.fromEntries(formData.entries());
 
     const result = createCorrectionSchema.safeParse({
@@ -46,6 +48,7 @@ export const createCorrection = async (formData: FormData) => {
 };
 
 export const deleteCorrection = async (id: string, options: DeleteCorrectionOptions = {}) => {
+    await assertAdmin();
     await prisma.correction.delete({
         where: {
             id,

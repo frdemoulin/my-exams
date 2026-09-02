@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
+import { assertAdmin } from "@/lib/auth/assert-admin";
 import prisma from "@/lib/db/prisma";
 import { setCrudSuccessToast } from "@/lib/toast";
 import { createTeachingSchema, CreateTeachingErrors } from "./teaching.types";
@@ -14,6 +15,7 @@ type DeleteTeachingOptions = {
 };
 
 export const createTeaching = async (formData: FormData) => {
+    await assertAdmin();
     const values = Object.fromEntries(formData.entries());
     const isActiveValue = values.isActive;
     const isActive =
@@ -59,6 +61,7 @@ export const createTeaching = async (formData: FormData) => {
 }
 
 export const updateTeaching = async (id: string | undefined, formData: FormData) => {
+    await assertAdmin();
     const values = Object.fromEntries(formData.entries());
     const isActiveValue = values.isActive;
     const isActive =
@@ -104,6 +107,7 @@ export const updateTeaching = async (id: string | undefined, formData: FormData)
 }
 
 export const deleteTeaching = async (id: string, options?: DeleteTeachingOptions) => {
+    await assertAdmin();
     try {
         await prisma.teaching.delete({
             where: { id }

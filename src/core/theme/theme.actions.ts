@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import OpenAI from "openai";
 
+import { assertAdmin } from "@/lib/auth/assert-admin";
 import prisma from "@/lib/db/prisma";
 import { createThemeSchema } from "@/lib/validation";
 import { setCrudSuccessToast } from "@/lib/toast";
@@ -201,6 +202,7 @@ export const suggestThemeDraftFromTitle = async (input: {
     title: string;
     domainIds?: string[];
 }): Promise<SuggestThemeDraftResult> => {
+    await assertAdmin();
     const title = normalizeText(input.title);
 
     if (!title) {
@@ -382,6 +384,7 @@ const ensureSubdomainsCoherence = async (subdomainIds: string[], domainIds: stri
 };
 
 export const createTheme = async (formData: FormData, options?: CreateThemeOptions) => {
+    await assertAdmin();
     const values = {
         title: String(formData.get("title") ?? ""),
         shortTitle: String(formData.get("shortTitle") ?? ""),
@@ -450,6 +453,7 @@ export const updateTheme = async (
     formData: FormData,
     options?: UpdateThemeOptions
 ) => {
+    await assertAdmin();
     const values = {
         title: String(formData.get("title") ?? ""),
         shortTitle: String(formData.get("shortTitle") ?? ""),
@@ -527,6 +531,7 @@ type DeleteThemeOptions = {
 };
 
 export const deleteTheme = async (id: string, options?: DeleteThemeOptions) => {
+    await assertAdmin();
     const theme = await prisma.theme.findUnique({
         where: { id },
         select: {

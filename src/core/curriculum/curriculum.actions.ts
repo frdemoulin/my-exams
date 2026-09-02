@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { ObjectId } from "mongodb";
 
 import prisma from "@/lib/db/prisma";
+import { assertAdmin } from "@/lib/auth/assert-admin";
 import { setCrudSuccessToast } from "@/lib/toast";
 import { createCurriculumSchema, CreateCurriculumErrors } from "./curriculum.types";
 
@@ -12,6 +13,7 @@ export async function createCurriculum(
     _prevState: CreateCurriculumErrors,
     formData: FormData
 ): Promise<CreateCurriculumErrors> {
+    await assertAdmin();
     try {
         // Parse form data
         const longDescription = formData.get("longDescription") as string;
@@ -92,6 +94,7 @@ export async function updateCurriculum(
     _prevState: CreateCurriculumErrors,
     formData: FormData
 ): Promise<CreateCurriculumErrors> {
+    await assertAdmin();
     try {
         const id = formData.get("id") as string;
         const longDescription = formData.get("longDescription") as string;
@@ -179,6 +182,7 @@ export async function deleteCurriculum(
     id: string,
     options?: DeleteCurriculumOptions
 ): Promise<void> {
+    await assertAdmin();
     try {
         // Check if curriculum is used by exam papers
         const examPaperCount = await prisma.examPaper.count({
