@@ -1,14 +1,18 @@
 import { NextResponse } from "next/server";
 
 import prisma from "@/lib/db/prisma";
-import getSession from "@/lib/auth/get-session";
-import { isAdminRole } from "@/lib/auth/roles";
-import { getSessionEffectiveRole } from "@/lib/auth/session";
+import { assertAdmin, UnauthorizedAdminError } from "@/lib/auth/assert-admin";
 
 export async function POST(request: Request) {
-    const session = await getSession();
-    const role = getSessionEffectiveRole(session);
-    if (!session?.user || !isAdminRole(role)) {
+    try {
+        await assertAdmin();
+    } catch (error) {
+        if (error instanceof UnauthorizedAdminError) {
+            return NextResponse.json(
+                { success: false, message: error.message },
+                { status: error.statusCode }
+            );
+        }
         return NextResponse.json({ success: false }, { status: 403 });
     }
 

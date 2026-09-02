@@ -138,8 +138,8 @@ export async function POST(request: Request) {
   } catch (error) {
     if (error instanceof UnauthorizedAdminError) {
       return NextResponse.json(
-        { error: "Accès administrateur requis." },
-        { status: 403 }
+        { error: error.message },
+        { status: error.statusCode }
       );
     }
     console.error("Error uploading exam paper PDF:", error);

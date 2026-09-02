@@ -50,15 +50,11 @@ function simulateSubmitQuizSession({
 }) {
   // Pour toute session persistante, refuser immédiatement si anonyme
   if (!userId) {
-    throw new Error('Accès non autorisé à cette session de quiz.');
+    throw new Error('Session introuvable ou accès non autorisé.');
   }
 
-  if (!attempt) {
-    throw new Error('Session de quiz introuvable.');
-  }
-
-  if (attempt.userId !== userId) {
-    throw new Error('Accès non autorisé à cette session de quiz.');
+  if (!attempt || attempt.userId !== userId) {
+    throw new Error('Session introuvable ou accès non autorisé.');
   }
 
   if (attempt.status === 'COMPLETED') {
@@ -147,7 +143,7 @@ test('Session Security: rejette une session inexistante', () => {
         answers: [],
       });
     },
-    { message: 'Session de quiz introuvable.' }
+    { message: 'Session introuvable ou accès non autorisé.' }
   );
 });
 
@@ -169,7 +165,7 @@ test('Session Security: rejette une tentative persistante pour un utilisateur an
         answers: [],
       });
     },
-    { message: 'Accès non autorisé à cette session de quiz.' }
+    { message: 'Session introuvable ou accès non autorisé.' }
   );
 });
 
@@ -191,7 +187,7 @@ test('Session Security: rejette une tentative persistante pour un utilisateur an
         answers: [],
       });
     },
-    { message: 'Accès non autorisé à cette session de quiz.' }
+    { message: 'Session introuvable ou accès non autorisé.' }
   );
 });
 
@@ -213,7 +209,7 @@ test('Session Security: rejette une session appartenant à un autre utilisateur'
         answers: [],
       });
     },
-    { message: 'Accès non autorisé à cette session de quiz.' }
+    { message: 'Session introuvable ou accès non autorisé.' }
   );
 });
 
@@ -237,7 +233,7 @@ test('Session Security: rejette une tentative terminée si consultée par un tie
         answers: [],
       });
     },
-    { message: 'Accès non autorisé à cette session de quiz.' }
+    { message: 'Session introuvable ou accès non autorisé.' }
   );
 });
 
@@ -261,7 +257,7 @@ test('Session Security: rejette une tentative terminée si consultée par un ano
         answers: [],
       });
     },
-    { message: 'Accès non autorisé à cette session de quiz.' }
+    { message: 'Session introuvable ou accès non autorisé.' }
   );
 });
 

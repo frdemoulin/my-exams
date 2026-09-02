@@ -591,7 +591,7 @@ export async function submitTrainingQuizSession(
 
   // Authenticated Persistent Session Submission
   if (!userId) {
-    throw new Error('Accès non autorisé à cette session de quiz.');
+    throw new Error('Session introuvable ou accès non autorisé.');
   }
 
   const attempt = await prisma.userTrainingQuizAttempt.findFirst({
@@ -642,14 +642,7 @@ export async function submitTrainingQuizSession(
   });
 
   if (!attempt) {
-    const existsOtherUser = await prisma.userTrainingQuizAttempt.findUnique({
-      where: { id: sessionId },
-      select: { id: true },
-    });
-    if (existsOtherUser) {
-      throw new Error('Accès non autorisé à cette session de quiz.');
-    }
-    throw new Error('Session de quiz introuvable.');
+    throw new Error('Session introuvable ou accès non autorisé.');
   }
 
   const themeIds = Array.from(
