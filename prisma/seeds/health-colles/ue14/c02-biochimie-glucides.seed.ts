@@ -75,29 +75,32 @@ export async function seedHealthColleUE14C02(prisma: PrismaClient) {
       const section = existingColle.sections[0];
       if (!section) throw new Error("Section introuvable pour C02.");
 
-      // Update groups
+      // Upsert groups
+      const groupIdsByOrder = new Map<number, string>();
       for (const groupSeed of groupsData) {
-        const existingGroup = section.questionGroups.find((g) => g.order === groupSeed.order);
-        if (existingGroup) {
-          await prisma.healthMockExamQuestionGroup.update({
-            where: { id: existingGroup.id },
+        let targetGroup = section.questionGroups.find((g) => g.order === groupSeed.order);
+        if (targetGroup) {
+          targetGroup = await prisma.healthMockExamQuestionGroup.update({
+            where: { id: targetGroup.id },
             data: {
               title: groupSeed.title,
               sharedStatement: groupSeed.sharedStatement,
               sharedMedia: groupSeed.sharedMedia as any,
             },
           });
+        } else {
+          targetGroup = await prisma.healthMockExamQuestionGroup.create({
+            data: {
+              examSectionId: section.id,
+              title: groupSeed.title,
+              sharedStatement: groupSeed.sharedStatement,
+              sharedMedia: groupSeed.sharedMedia as any,
+              order: groupSeed.order,
+            },
+          });
         }
-      }
-
-      // Map group IDs for questions
-      const groupIdsByOrder = new Map<number, string>();
-      for (const groupSeed of groupsData) {
-        const existingGroup = section.questionGroups.find((g) => g.order === groupSeed.order);
-        if (existingGroup) {
-          for (const qOrder of groupSeed.questionOrders) {
-            groupIdsByOrder.set(qOrder, existingGroup.id);
-          }
+        for (const qOrder of groupSeed.questionOrders) {
+          groupIdsByOrder.set(qOrder, targetGroup.id);
         }
       }
 
@@ -115,6 +118,7 @@ export async function seedHealthColleUE14C02(prisma: PrismaClient) {
           await prisma.healthMockExamQuestion.update({
             where: { id: existingQ.id },
             data: {
+              groupId: groupIdsByOrder.get(questionOrder) ?? null,
               questionType: q.questionType ?? "mcq",
               question: q.question,
               questionDiagram: (q.questionDiagram as any) ?? undefined,
