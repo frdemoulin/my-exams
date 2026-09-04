@@ -34,8 +34,8 @@ export async function ensureNoAcademicYearOverlap(
     where: {
       ...(excludeId ? { id: { not: excludeId } } : {}),
       AND: [
-        { startsAt: { lte: endsAt } },
-        { endsAt: { gte: startsAt } },
+        { startsAt: { lt: endsAt } },
+        { endsAt: { gt: startsAt } },
       ],
     },
     select: { id: true, code: true, label: true },
@@ -53,7 +53,7 @@ export async function ensureNoAcademicYearOverlap(
  * Résout l'année scolaire active à un instant donné (par défaut `new Date()`).
  *
  * Invariant :
- * - Recherche l'année satisfaisant `startsAt <= date <= endsAt`.
+ * - Recherche l'année satisfaisant `startsAt <= date < endsAt` (intervalle semi-ouvert).
  * - Lève une erreur si aucune année n'est active pour la date donnée.
  * - Lève une erreur si plusieurs années couvrent la même date (incohérence temporelle).
  */
@@ -63,7 +63,7 @@ export async function getActiveAcademicYear(
   const matchingYears = await prisma.academicYear.findMany({
     where: {
       startsAt: { lte: date },
-      endsAt: { gte: date },
+      endsAt: { gt: date },
     },
   });
 

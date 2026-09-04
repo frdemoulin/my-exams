@@ -107,8 +107,7 @@ export async function POST(request: Request) {
 
   const existingProgress = await prisma.userTrainingQuizProgress.findUnique({
     where: {
-      userId_academicEnrollmentId_quizId: {
-        userId,
+      academicEnrollmentId_quizId: {
         academicEnrollmentId: enrollment.id,
         quizId,
       },
@@ -154,8 +153,7 @@ export async function POST(request: Request) {
 
   await prisma.userTrainingQuizProgress.upsert({
     where: {
-      userId_academicEnrollmentId_quizId: {
-        userId,
+      academicEnrollmentId_quizId: {
         academicEnrollmentId: enrollment.id,
         quizId,
       },

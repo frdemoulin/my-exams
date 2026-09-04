@@ -5,7 +5,6 @@
 
 'use client';
 
-import { ExternalLink } from 'lucide-react';
 import {
   Card,
   CardHeader,
@@ -22,13 +21,55 @@ import {
 } from '@/components/ui/tooltip';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
-import type { ExerciseWithRelations } from '@/core/exercise';
-import { getInternalOrigin, isExternalUrl, normalizeExamPaperLabel } from '@/lib/utils';
+import { normalizeExamPaperLabel } from '@/lib/utils';
 import { ExerciseMetaLine } from '@/components/exercises/ExerciseMetaLine';
 import { ClickThroughHint } from '@/components/shared/click-through-hint';
 
+export interface ExerciseCardData {
+  id: string;
+  title: string | null;
+  exerciseNumber: number;
+  label: string | null;
+  points: number | null;
+  estimatedDuration: number | null;
+  estimatedDifficulty: number | null;
+  summary: string | null;
+  themes: Array<{
+    id: string;
+    title: string;
+    shortTitle: string | null;
+    chapters?: Array<{
+      id: string;
+      title: string;
+      order: number;
+    }>;
+  }>;
+  examPaper: {
+    id: string;
+    label: string;
+    sessionYear: number;
+    source: string;
+    diploma: {
+      shortDescription: string;
+      longDescription?: string;
+    };
+    teaching: {
+      longDescription?: string;
+      shortDescription?: string | null;
+      subject: {
+        shortDescription: string;
+        longDescription?: string;
+      };
+    };
+    grade?: {
+      shortDescription: string;
+      longDescription?: string;
+    } | null;
+  };
+}
+
 interface ExerciseCardProps {
-  exercise: ExerciseWithRelations;
+  exercise: ExerciseCardData;
   isFavorite?: boolean;
   onToggleFavorite?: (id: string) => void;
 }
@@ -71,14 +112,10 @@ export function ExerciseCard({
     label: paperLabel,
     sessionYear,
     source,
-    sourceUrl,
     diploma,
     teaching,
     grade,
   } = examPaper;
-
-  const internalOrigin = getInternalOrigin();
-  const sourceUrlIsExternal = isExternalUrl(sourceUrl, internalOrigin);
 
   const baseTitle = `Exercice ${exerciseNumber}`;
   const explicitTitle = title?.trim() || null;
@@ -92,7 +129,7 @@ export function ExerciseCard({
   const chapters = Array.from(
     new Map(
       themes
-        .flatMap((theme) => theme.chapters)
+        .flatMap((theme) => theme.chapters ?? [])
         .map((chapter) => [
           chapter.id,
           {
@@ -186,18 +223,9 @@ export function ExerciseCard({
               difficulty={estimatedDifficulty}
               points={points ?? null}
             />
-            {sourceUrl ? (
-              <Button asChild variant="secondary" size="xs" className="rounded-lg">
-                <a href={sourceUrl} target="_blank" rel="noopener noreferrer">
-                  {sourceLabelNode}
-                  {sourceUrlIsExternal && <ExternalLink className="ml-1.5 h-3 w-3" />}
-                </a>
-              </Button>
-            ) : (
-              <Button variant="secondary" size="xs" className="rounded-lg">
-                {sourceLabelNode}
-              </Button>
-            )}
+            <Button variant="secondary" size="xs" className="rounded-lg">
+              {sourceLabelNode}
+            </Button>
           </div>
         </div>
         <div className="flex items-center gap-2">

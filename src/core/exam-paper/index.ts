@@ -4,6 +4,7 @@ export type { CreateExamPaperValues, CreateExamPaperErrors } from './exam-paper.
 // Queries
 export {
   fetchExamPapers,
+  fetchExamPapersPublicSearch,
   fetchExamPaperById,
   fetchActiveDiplomasWithExamPapers,
   fetchActiveSubjectsByDiplomaId,
@@ -12,6 +13,7 @@ export {
 } from './exam-paper.queries';
 export type {
   ExamPaperWithRelations,
+  ExamPaperPublicDto,
   DiplomaNavigationItem,
   SubjectNavigationItem,
   ExamPaperNavigationItem,

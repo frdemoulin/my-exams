@@ -1131,7 +1131,7 @@ model UserHealthMockExamAttempt {
   autoSubmitted  Boolean                      @default(false)
 
   academicEnrollmentId String                 @db.ObjectId
-  academicEnrollment   UserAcademicEnrollment @relation(fields: [academicEnrollmentId], references: [id], onDelete: Cascade)
+  academicEnrollment   UserAcademicEnrollment @relation(fields: [academicEnrollmentId], references: [id], onDelete: Restrict)
 
   user             User                                  @relation(fields: [userId], references: [id], onDelete: Cascade)
   mockExam         HealthMockExam                        @relation(fields: [mockExamId], references: [id], onDelete: Cascade)
@@ -1244,7 +1244,7 @@ model UserTrainingQuizProgress {
   id                   String                 @id @default(auto()) @map("_id") @db.ObjectId
   userId               String                 @db.ObjectId
   academicEnrollmentId String                 @db.ObjectId
-  academicEnrollment   UserAcademicEnrollment @relation(fields: [academicEnrollmentId], references: [id], onDelete: Cascade)
+  academicEnrollment   UserAcademicEnrollment @relation(fields: [academicEnrollmentId], references: [id], onDelete: Restrict)
   chapterId            String                 @db.ObjectId
   quizId               String                 @db.ObjectId
   bestScore            Int                    @default(0)
@@ -1262,7 +1262,7 @@ model UserTrainingQuizProgress {
   chapter Chapter      @relation(fields: [chapterId], references: [id], onDelete: Cascade)
   quiz    TrainingQuiz @relation(fields: [quizId], references: [id], onDelete: Cascade)
 
-  @@unique([userId, academicEnrollmentId, quizId])
+  @@unique([academicEnrollmentId, quizId])
   @@index([academicEnrollmentId])
   @@index([userId, chapterId])
   @@index([quizId])
@@ -1278,7 +1278,7 @@ model UserTrainingQuizAttempt {
   id                   String                    @id @default(auto()) @map("_id") @db.ObjectId
   userId               String                    @db.ObjectId
   academicEnrollmentId String                    @db.ObjectId
-  academicEnrollment   UserAcademicEnrollment    @relation(fields: [academicEnrollmentId], references: [id], onDelete: Cascade)
+  academicEnrollment   UserAcademicEnrollment    @relation(fields: [academicEnrollmentId], references: [id], onDelete: Restrict)
   chapterId            String                    @db.ObjectId
   quizId               String                    @db.ObjectId
   status               TrainingQuizAttemptStatus @default(IN_PROGRESS)
@@ -1568,7 +1568,7 @@ model UserAcademicEnrollment {
   healthPathwayId        String? @db.ObjectId
 
   lockedAt  DateTime?
-  createdBy AcademicEnrollmentSource @default(SELF_ONBOARDING)
+  createdBy AcademicEnrollmentSource
 
   user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
   academicYear AcademicYear @relation(fields: [academicYearId], references: [id], onDelete: Cascade)
@@ -1599,7 +1599,7 @@ model UserAcademicEnrollmentCorrection {
   afterPayload  Json
   createdAt    DateTime @default(now())
 
-  enrollment UserAcademicEnrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  enrollment UserAcademicEnrollment @relation(fields: [enrollmentId], references: [id], onDelete: Restrict)
 
   @@index([enrollmentId])
   @@index([actorAdminId])

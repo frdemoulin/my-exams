@@ -17,6 +17,7 @@ import { ExamPaperComposition } from '@/components/exam-papers/ExamPaperComposit
 import { ExamPaperPdfPreview } from '@/components/exam-papers/ExamPaperPdfPreview';
 import getSession from '@/lib/auth/get-session';
 import { getSessionEffectiveUserId } from '@/lib/auth/session';
+import { assertUserCanAccessExamPaper } from '@/lib/auth/assert-pedagogical-access';
 import { buildCanonicalUrl } from '@/lib/seo';
 import { normalizeExamPaperLabel } from '@/lib/utils';
 import { ExternalLink } from 'lucide-react';
@@ -118,9 +119,22 @@ export default async function ExamPaperPage({ params, searchParams }: PageProps)
     return <>Retour</>;
   })();
 
-  const officialStatementUrl = examPaper.subjectUrl ?? null;
-  const previewPdfUrl = examPaper.subjectUrl ?? null;
-  const corrections = examPaper.corrections ?? [];
+  let canAccessFullPaper = false;
+  if (effectiveUserId) {
+    try {
+      await assertUserCanAccessExamPaper({
+        userId: effectiveUserId,
+        examPaperId: examPaper.id,
+      });
+      canAccessFullPaper = true;
+    } catch {
+      canAccessFullPaper = false;
+    }
+  }
+
+  const officialStatementUrl = canAccessFullPaper ? (examPaper.subjectUrl ?? null) : null;
+  const previewPdfUrl = canAccessFullPaper ? (examPaper.subjectUrl ?? null) : null;
+  const corrections = canAccessFullPaper ? (examPaper.corrections ?? []) : [];
   const actionLinks = [
     officialStatementUrl
       ? {
@@ -210,7 +224,12 @@ export default async function ExamPaperPage({ params, searchParams }: PageProps)
           <div className="space-y-6">
             <ExamPaperPdfPreview
               pdfUrl={previewPdfUrl}
-              fallbackUrl={examPaper.sourceUrl ?? null}
+              fallbackUrl={canAccessFullPaper ? (examPaper.sourceUrl ?? null) : null}
+              emptyLabel={
+                canAccessFullPaper
+                  ? "PDF non disponible pour le moment."
+                  : "Connectez-vous avec une affectation pédagogique compatible pour consulter le sujet complet."
+              }
               frameTitle={`Sujet ${subjectLabel}`}
             />
           </div>

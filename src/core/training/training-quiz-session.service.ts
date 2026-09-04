@@ -1,10 +1,11 @@
-import { randomUUID } from 'crypto';
-
 if (typeof window !== 'undefined') {
   throw new Error('This module cannot be imported in the browser.');
 }
 import prisma from '@/lib/db/prisma';
-import { assertUserCanAccessChapter } from '@/lib/auth/assert-pedagogical-access';
+import {
+  assertUserCanAccessChapter,
+  PedagogicalAccessError,
+} from '@/lib/auth/assert-pedagogical-access';
 import { generateWatermarkCode } from '@/lib/watermark.server';
 import {
   createMcqStudentAnswerFromIndexes,
@@ -308,16 +309,67 @@ export async function startOrResumeTrainingQuizSession(
     : [];
   const themeLabelsById = buildThemeLabelById(themes);
 
-  // Authenticated user session persistence
-  if (userId) {
-    const enrollment = await assertUserCanAccessChapter({ userId, chapterId });
+  if (!userId) {
+    throw new PedagogicalAccessError(
+      'Authentification requise pour accéder aux questions d’un quiz.',
+      'UNAUTHENTICATED',
+      401
+    );
+  }
 
-    let attempt = await prisma.userTrainingQuizAttempt.findFirst({
-      where: {
+  const enrollment = await assertUserCanAccessChapter({ userId, chapterId });
+
+  let attempt = await prisma.userTrainingQuizAttempt.findFirst({
+    where: {
+      userId,
+      academicEnrollmentId: enrollment.id,
+      quizId,
+      status: 'IN_PROGRESS',
+    },
+    include: {
+      attemptQuestions: {
+        orderBy: { order: 'asc' },
+        include: {
+          question: {
+            select: {
+              id: true,
+              difficulty: true,
+              questionType: true,
+              answerFormat: true,
+              question: true,
+              questionDiagram: true,
+              choices: true,
+              correctChoiceIndexes: true,
+              correctChoiceIndex: true,
+              answerPayload: true,
+              explanation: true,
+              choiceExplanations: true,
+              order: true,
+              themeIds: true,
+              updatedAt: true,
+            },
+          },
+        },
+      },
+    },
+  });
+
+  if (!attempt) {
+    attempt = await prisma.userTrainingQuizAttempt.create({
+      data: {
         userId,
         academicEnrollmentId: enrollment.id,
+        chapterId,
         quizId,
         status: 'IN_PROGRESS',
+        maxScore: quiz.questionLinks.length,
+        attemptQuestions: {
+          create: quiz.questionLinks.map((link) => ({
+            questionId: link.question.id,
+            order: link.order,
+            questionUpdatedAt: link.question.updatedAt,
+          })),
+        },
       },
       include: {
         attemptQuestions: {
@@ -346,107 +398,30 @@ export async function startOrResumeTrainingQuizSession(
         },
       },
     });
-
-    if (!attempt) {
-      attempt = await prisma.userTrainingQuizAttempt.create({
-        data: {
-          userId,
-          academicEnrollmentId: enrollment.id,
-          chapterId,
-          quizId,
-          status: 'IN_PROGRESS',
-          maxScore: quiz.questionLinks.length,
-          attemptQuestions: {
-            create: quiz.questionLinks.map((link) => ({
-              questionId: link.question.id,
-              order: link.order,
-              questionUpdatedAt: link.question.updatedAt,
-            })),
-          },
-        },
-        include: {
-          attemptQuestions: {
-            orderBy: { order: 'asc' },
-            include: {
-              question: {
-                select: {
-                  id: true,
-                  difficulty: true,
-                  questionType: true,
-                  answerFormat: true,
-                  question: true,
-                  questionDiagram: true,
-                  choices: true,
-                  correctChoiceIndexes: true,
-                  correctChoiceIndex: true,
-                  answerPayload: true,
-                  explanation: true,
-                  choiceExplanations: true,
-                  order: true,
-                  themeIds: true,
-                  updatedAt: true,
-                },
-              },
-            },
-          },
-        },
-      });
-    }
-
-    const groupById = new Map(
-      quiz.questionLinks.map((link) => [link.question.id, link.group]),
-    );
-
-    const watermarkCode = generateWatermarkCode({
-      userId,
-      sessionId: attempt.id,
-    });
-
-    const questions: TrainingQuestion[] = attempt.attemptQuestions.map((attemptQuestion) => {
-      const group = groupById.get(attemptQuestion.question.id) ?? null;
-      return buildTrainingQuestionFromDb(
-        attemptQuestion.question,
-        attemptQuestion.order,
-        group,
-        themeLabelsById,
-        true, // sanitizeForPassage
-      );
-    });
-
-    return {
-      sessionId: attempt.id,
-      watermarkCode,
-      quiz: {
-        id: quiz.id,
-        title: quiz.title,
-        description: quiz.description,
-        slug: quiz.slug,
-        stage: quiz.stage,
-        questionCount: questions.length,
-      },
-      questions,
-    };
   }
 
-  // Guest / Anonymous ephemeral session
-  const guestSessionId = `guest_${randomUUID()}`;
-  const watermarkCode = generateWatermarkCode({
-    userId: 'guest',
-    sessionId: guestSessionId,
-  });
-
-  const questions: TrainingQuestion[] = quiz.questionLinks.map((link) =>
-    buildTrainingQuestionFromDb(
-      link.question,
-      link.order,
-      link.group,
-      themeLabelsById,
-      true, // sanitizeForPassage
-    ),
+  const groupById = new Map(
+    quiz.questionLinks.map((link) => [link.question.id, link.group]),
   );
 
+  const watermarkCode = generateWatermarkCode({
+    userId,
+    sessionId: attempt.id,
+  });
+
+  const questions: TrainingQuestion[] = attempt.attemptQuestions.map((attemptQuestion) => {
+    const group = groupById.get(attemptQuestion.question.id) ?? null;
+    return buildTrainingQuestionFromDb(
+      attemptQuestion.question,
+      attemptQuestion.order,
+      group,
+      themeLabelsById,
+      true, // sanitizeForPassage
+    );
+  });
+
   return {
-    sessionId: guestSessionId,
+    sessionId: attempt.id,
     watermarkCode,
     quiz: {
       id: quiz.id,
@@ -465,137 +440,7 @@ export async function submitTrainingQuizSession(
 ): Promise<SubmitTrainingQuizSessionResult> {
   const { sessionId, userId, targetScore = 70, answers } = input;
 
-  // Handle Guest / Ephemeral session submission
-  if (sessionId.startsWith('guest_')) {
-    const answersByQuestionId = new Map(
-      answers.map((ans) => [ans.questionId, ans]),
-    );
-    const questionIds = Array.from(answersByQuestionId.keys());
-
-    const dbQuestions = await prisma.quizQuestion.findMany({
-      where: {
-        id: { in: questionIds },
-        isPublished: true,
-      },
-      select: {
-        id: true,
-        difficulty: true,
-        questionType: true,
-        answerFormat: true,
-        question: true,
-        questionDiagram: true,
-        choices: true,
-        correctChoiceIndexes: true,
-        correctChoiceIndex: true,
-        answerPayload: true,
-        explanation: true,
-        choiceExplanations: true,
-        order: true,
-        themeIds: true,
-        updatedAt: true,
-      },
-    });
-
-    const themeIds = Array.from(
-      new Set(dbQuestions.flatMap((q) => q.themeIds ?? [])),
-    );
-    const themes = themeIds.length > 0
-      ? await prisma.theme.findMany({
-          where: { id: { in: themeIds } },
-          select: { id: true, title: true, shortTitle: true },
-        })
-      : [];
-    const themeLabelsById = buildThemeLabelById(themes);
-
-    let totalScore = 0;
-    let totalMaxScore = 0;
-
-    const evaluatedQuestions: TrainingQuizEvaluatedQuestionResult[] = dbQuestions.map(
-      (dbQuestion, idx) => {
-        const canonicalQuestion = buildCanonicalQuestionFromDb(dbQuestion);
-        const submitted = answersByQuestionId.get(dbQuestion.id);
-
-        let studentAnswer: StudentAnswer | null = null;
-        let selectedChoiceIndexes: number[] = [];
-
-        if (submitted?.responsePayload) {
-          studentAnswer = submitted.responsePayload;
-          if (
-            studentAnswer &&
-            studentAnswer.type === 'mcq' &&
-            Array.isArray((studentAnswer as any).choiceIds) &&
-            canonicalQuestion.type === 'mcq'
-          ) {
-            selectedChoiceIndexes = (studentAnswer as any).choiceIds
-              .map((id: string) =>
-                canonicalQuestion.choices.findIndex((c) => c.id === id),
-              )
-              .filter((i: number) => i !== undefined && i >= 0);
-          }
-        } else if (submitted?.selectedChoiceIndexes) {
-          selectedChoiceIndexes = submitted.selectedChoiceIndexes;
-          if (canonicalQuestion.type === 'mcq') {
-            studentAnswer = createMcqStudentAnswerFromIndexes({
-              question: canonicalQuestion,
-              selectedChoiceIndexes,
-            });
-          }
-        } else if (submitted?.shortAnswerRawValue) {
-          studentAnswer = {
-            questionId: canonicalQuestion.id,
-            type: 'short-answer',
-            rawValue: submitted.shortAnswerRawValue,
-          };
-        } else if (submitted?.hotspotPoints) {
-          studentAnswer = {
-            questionId: canonicalQuestion.id,
-            type: 'hotspot',
-            points: submitted.hotspotPoints,
-          };
-        }
-
-        const evaluation: EvaluationResult = studentAnswer
-          ? evaluateQuestion(canonicalQuestion, studentAnswer)
-          : getUnansweredEval(canonicalQuestion);
-
-        totalScore += evaluation.score;
-        totalMaxScore += evaluation.maxScore;
-
-        const trainingQuestion = buildTrainingQuestionFromDb(
-          dbQuestion,
-          idx + 1,
-          null,
-          themeLabelsById,
-          false, // return with full solution/explanations
-        );
-
-        return {
-          ...trainingQuestion,
-          evaluation,
-          selectedChoiceIndexes,
-          responsePayload: studentAnswer,
-        };
-      },
-    );
-
-    const percentage = totalMaxScore > 0
-      ? Math.round((totalScore / totalMaxScore) * 100)
-      : 0;
-
-    return {
-      sessionId,
-      score: totalScore,
-      maxScore: totalMaxScore,
-      totalQuestions: evaluatedQuestions.length,
-      percentage,
-      isSuccess: percentage >= targetScore,
-      watermarkCode: generateWatermarkCode({ userId: 'guest', sessionId }),
-      questions: evaluatedQuestions,
-    };
-  }
-
-  // Authenticated Persistent Session Submission
-  if (!userId) {
+  if (!userId || sessionId.startsWith('guest_')) {
     throw new Error('Session introuvable ou accès non autorisé.');
   }
 
@@ -863,8 +708,7 @@ export async function submitTrainingQuizSession(
   // Update UserTrainingQuizProgress aggregate
   const existingProgress = await prisma.userTrainingQuizProgress.findUnique({
     where: {
-      userId_academicEnrollmentId_quizId: {
-        userId: attempt.userId,
+      academicEnrollmentId_quizId: {
         academicEnrollmentId: attempt.academicEnrollmentId,
         quizId: attempt.quizId,
       },
@@ -884,8 +728,7 @@ export async function submitTrainingQuizSession(
 
   await prisma.userTrainingQuizProgress.upsert({
     where: {
-      userId_academicEnrollmentId_quizId: {
-        userId: attempt.userId,
+      academicEnrollmentId_quizId: {
         academicEnrollmentId: attempt.academicEnrollmentId,
         quizId: attempt.quizId,
       },

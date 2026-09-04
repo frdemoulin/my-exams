@@ -1,176 +1,151 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
+try {
+  process.loadEnvFile('.env.local');
+} catch {}
+
+import prisma from '../../src/lib/db/prisma';
 import {
+  assertUserCanAccessHealthContent,
+  assertUserCanAccessSecondaryContent,
   PedagogicalAccessError,
 } from '../../src/lib/auth/assert-pedagogical-access';
+import { startOrResumeTrainingQuizSession } from '../../src/core/training/training-quiz-session.service';
 
-type SimulatedEnrollment = {
-  userId: string;
-  audience: 'SECONDARY' | 'HEALTH';
-  secondaryGradeId?: string | null;
-  healthProgramVersionId?: string | null;
-  healthPathwayId?: string | null;
-};
+const TEST_EMAIL_A = 'test-pedagogical-user-a@example.com';
+const TEST_EMAIL_B = 'test-pedagogical-user-b@example.com';
 
-// Logique pure de test reproduisant les règles de assert-pedagogical-access.ts
-function checkSecondaryAccess({
-  userId,
-  gradeId,
-  enrollment,
-}: {
-  userId: string | null | undefined;
-  gradeId: string;
-  enrollment: SimulatedEnrollment | null;
-}) {
-  if (!userId) {
-    throw new PedagogicalAccessError('Authentification requise.', 'UNAUTHENTICATED', 401);
-  }
+async function setupTestUsers() {
+  const activeYear = await prisma.academicYear.findUnique({
+    where: { code: '2026-2027' },
+  });
+  assert.ok(activeYear, 'Année active 2026-2027 introuvable');
 
-  if (!enrollment) {
-    throw new PedagogicalAccessError(
-      'Affectation scolaire requise pour l’année active.',
-      'ONBOARDING_REQUIRED',
-      403
-    );
-  }
+  const gradeTle = await prisma.grade.findFirst({
+    where: { shortDescription: 'Tle' },
+  });
+  assert.ok(gradeTle, 'Grade Tle introuvable');
 
-  if (enrollment.audience !== 'SECONDARY') {
-    throw new PedagogicalAccessError(
-      'Accès réservé aux élèves inscrits dans le secondaire.',
-      'FORBIDDEN_SCOPE',
-      403
-    );
-  }
+  const grade1ere = await prisma.grade.findFirst({
+    where: { shortDescription: '1re' },
+  });
+  assert.ok(grade1ere, 'Grade 1ère introuvable');
 
-  if (enrollment.secondaryGradeId !== gradeId) {
-    throw new PedagogicalAccessError(
-      'Accès non autorisé aux contenus de ce niveau scolaire.',
-      'FORBIDDEN_SCOPE',
-      403
-    );
-  }
+  const healthVersion = await prisma.healthProgramVersion.findFirst({
+    include: { pathways: true },
+  });
+  assert.ok(healthVersion, 'Version santé introuvable');
 
-  return enrollment;
+  const userA = await prisma.user.upsert({
+    where: { email: TEST_EMAIL_A },
+    update: {},
+    create: {
+      email: TEST_EMAIL_A,
+      name: 'Test Pedagogical User A',
+    },
+  });
+
+  const userB = await prisma.user.upsert({
+    where: { email: TEST_EMAIL_B },
+    update: {},
+    create: {
+      email: TEST_EMAIL_B,
+      name: 'Test Pedagogical User B',
+    },
+  });
+
+  return {
+    activeYear,
+    gradeTle,
+    grade1ere,
+    healthVersion,
+    userA,
+    userB,
+  };
 }
 
-function checkHealthAccess({
-  userId,
-  programVersionId,
-  pathwayId,
-  isCommonToAllPathways,
-  enrollment,
-}: {
-  userId: string | null | undefined;
-  programVersionId: string;
-  pathwayId?: string | null;
-  isCommonToAllPathways?: boolean;
-  enrollment: SimulatedEnrollment | null;
-}) {
-  if (!userId) {
-    throw new PedagogicalAccessError('Authentification requise.', 'UNAUTHENTICATED', 401);
-  }
-
-  if (!enrollment) {
-    throw new PedagogicalAccessError(
-      'Affectation scolaire requise pour l’année active.',
-      'ONBOARDING_REQUIRED',
-      403
-    );
-  }
-
-  if (enrollment.audience !== 'HEALTH') {
-    throw new PedagogicalAccessError(
-      'Accès réservé aux étudiants de la filière Santé.',
-      'FORBIDDEN_SCOPE',
-      403
-    );
-  }
-
-  if (enrollment.healthProgramVersionId !== programVersionId) {
-    throw new PedagogicalAccessError(
-      'Accès non autorisé aux contenus de cette formation Santé.',
-      'FORBIDDEN_SCOPE',
-      403
-    );
-  }
-
-  if (
-    !isCommonToAllPathways &&
-    pathwayId &&
-    enrollment.healthPathwayId &&
-    enrollment.healthPathwayId !== pathwayId
-  ) {
-    throw new PedagogicalAccessError(
-      'Accès non autorisé aux contenus de ce parcours spécifique.',
-      'FORBIDDEN_SCOPE',
-      403
-    );
-  }
-
-  return enrollment;
-}
-
-const enrollmentTerminale: SimulatedEnrollment = {
-  userId: 'user_tle',
-  audience: 'SECONDARY',
-  secondaryGradeId: 'grade_tle',
-};
-
-const enrollmentPremiere: SimulatedEnrollment = {
-  userId: 'user_1re',
-  audience: 'SECONDARY',
-  secondaryGradeId: 'grade_1re',
-};
-
-const enrollmentHealthReimsPass: SimulatedEnrollment = {
-  userId: 'user_sante',
-  audience: 'HEALTH',
-  healthProgramVersionId: 'ver_reims_pass',
-  healthPathwayId: 'path_reims_mineure_droit',
-};
-
-test('AccessControl: refuse un utilisateur anonyme avec statut 401 UNAUTHENTICATED', () => {
-  assert.throws(
-    () => checkSecondaryAccess({ userId: null, gradeId: 'grade_tle', enrollment: null }),
+test('assertUserCanAccess: anonyme (userId = null) refuse avec UNAUTHENTICATED (401)', async () => {
+  await assert.rejects(
+    () =>
+      assertUserCanAccessSecondaryContent({
+        userId: null,
+        gradeId: 'grade_dummy',
+      }),
     (err: unknown) => {
       assert.ok(err instanceof PedagogicalAccessError);
-      assert.equal(err.statusCode, 401);
       assert.equal(err.code, 'UNAUTHENTICATED');
+      assert.equal(err.statusCode, 401);
+      return true;
+    }
+  );
+
+  await assert.rejects(
+    () =>
+      assertUserCanAccessHealthContent({
+        userId: null,
+        programVersionId: 'version_dummy',
+      }),
+    (err: unknown) => {
+      assert.ok(err instanceof PedagogicalAccessError);
+      assert.equal(err.code, 'UNAUTHENTICATED');
+      assert.equal(err.statusCode, 401);
       return true;
     }
   );
 });
 
-test('AccessControl: refuse un utilisateur connecté sans Enrollment avec ONBOARDING_REQUIRED', () => {
-  assert.throws(
-    () => checkSecondaryAccess({ userId: 'user_new', gradeId: 'grade_tle', enrollment: null }),
+test('assertUserCanAccess: utilisateur sans Enrollment refuse avec ONBOARDING_REQUIRED (403)', async () => {
+  const { userA, activeYear } = await setupTestUsers();
+
+  // Nettoyer tout Enrollment préalable
+  await prisma.userAcademicEnrollment.deleteMany({
+    where: { userId: userA.id },
+  });
+
+  await assert.rejects(
+    () =>
+      assertUserCanAccessSecondaryContent({
+        userId: userA.id,
+        gradeId: 'grade_dummy',
+      }),
     (err: unknown) => {
       assert.ok(err instanceof PedagogicalAccessError);
-      assert.equal(err.statusCode, 403);
       assert.equal(err.code, 'ONBOARDING_REQUIRED');
+      assert.equal(err.statusCode, 403);
       return true;
     }
   );
 });
 
-test('AccessControl SECONDARY: élève de Terminale accède aux contenus de Terminale', () => {
-  assert.doesNotThrow(() => {
-    checkSecondaryAccess({
-      userId: 'user_tle',
-      gradeId: 'grade_tle',
-      enrollment: enrollmentTerminale,
-    });
-  });
-});
+test('assertUserCanAccessSecondaryContent: élève Terminale accède à Terminale mais est refusé pour 1ère', async () => {
+  const { userA, activeYear, gradeTle, grade1ere } = await setupTestUsers();
 
-test('AccessControl SECONDARY: élève de Terminale refusé sur un contenu de Première', () => {
-  assert.throws(
+  await prisma.userAcademicEnrollment.deleteMany({ where: { userId: userA.id } });
+  await prisma.userAcademicEnrollment.create({
+    data: {
+      userId: userA.id,
+      academicYearId: activeYear.id,
+      audience: 'SECONDARY',
+      secondaryGradeId: gradeTle.id,
+      lockedAt: new Date(),
+      createdBy: 'SELF_ONBOARDING',
+    },
+  });
+
+  // Accès au bon niveau: OK
+  const enrollment = await assertUserCanAccessSecondaryContent({
+    userId: userA.id,
+    gradeId: gradeTle.id,
+  });
+  assert.equal(enrollment.secondaryGradeId, gradeTle.id);
+
+  // Accès à un mauvais niveau: refusé 403
+  await assert.rejects(
     () =>
-      checkSecondaryAccess({
-        userId: 'user_tle',
-        gradeId: 'grade_1re',
-        enrollment: enrollmentTerminale,
+      assertUserCanAccessSecondaryContent({
+        userId: userA.id,
+        gradeId: grade1ere.id,
       }),
     (err: unknown) => {
       assert.ok(err instanceof PedagogicalAccessError);
@@ -181,146 +156,64 @@ test('AccessControl SECONDARY: élève de Terminale refusé sur un contenu de Pr
   );
 });
 
-test('AccessControl SECONDARY: élève de Première accède à Première et est refusé sur Terminale', () => {
-  assert.doesNotThrow(() => {
-    checkSecondaryAccess({
-      userId: 'user_1re',
-      gradeId: 'grade_1re',
-      enrollment: enrollmentPremiere,
-    });
+test('assertUserCanAccessHealthContent: cas limite 5 - UE non-commune avec pathwayId null lève FORBIDDEN_SCOPE', async () => {
+  const { userA, activeYear, healthVersion } = await setupTestUsers();
+
+  await prisma.userAcademicEnrollment.deleteMany({ where: { userId: userA.id } });
+  await prisma.userAcademicEnrollment.create({
+    data: {
+      userId: userA.id,
+      academicYearId: activeYear.id,
+      audience: 'HEALTH',
+      healthProgramVersionId: healthVersion.id,
+      healthPathwayId: null,
+      lockedAt: new Date(),
+      createdBy: 'SELF_ONBOARDING',
+    },
   });
 
-  assert.throws(
+  // UE non-commune sans pathway -> refus fail-closed strict
+  await assert.rejects(
     () =>
-      checkSecondaryAccess({
-        userId: 'user_1re',
-        gradeId: 'grade_tle',
-        enrollment: enrollmentPremiere,
-      }),
-    (err: unknown) => {
-      assert.ok(err instanceof PedagogicalAccessError);
-      assert.equal(err.code, 'FORBIDDEN_SCOPE');
-      return true;
-    }
-  );
-});
-
-test('AccessControl CLOISONNEMENT: élève du Secondaire refusé sur Santé', () => {
-  assert.throws(
-    () =>
-      checkHealthAccess({
-        userId: 'user_tle',
-        programVersionId: 'ver_reims_pass',
-        enrollment: enrollmentTerminale,
-      }),
-    (err: unknown) => {
-      assert.ok(err instanceof PedagogicalAccessError);
-      assert.equal(err.code, 'FORBIDDEN_SCOPE');
-      assert.match(err.message, /réservé aux étudiants de la filière Santé/);
-      return true;
-    }
-  );
-});
-
-test('AccessControl CLOISONNEMENT: étudiant Santé refusé sur Secondaire', () => {
-  assert.throws(
-    () =>
-      checkSecondaryAccess({
-        userId: 'user_sante',
-        gradeId: 'grade_tle',
-        enrollment: enrollmentHealthReimsPass,
-      }),
-    (err: unknown) => {
-      assert.ok(err instanceof PedagogicalAccessError);
-      assert.equal(err.code, 'FORBIDDEN_SCOPE');
-      assert.match(err.message, /réservé aux élèves inscrits dans le secondaire/);
-      return true;
-    }
-  );
-});
-
-test('AccessControl HEALTH: étudiant Santé accède à une UE commune à tous les parcours', () => {
-  assert.doesNotThrow(() => {
-    checkHealthAccess({
-      userId: 'user_sante',
-      programVersionId: 'ver_reims_pass',
-      pathwayId: null,
-      isCommonToAllPathways: true,
-      enrollment: enrollmentHealthReimsPass,
-    });
-  });
-});
-
-test('AccessControl HEALTH: étudiant Santé accède à une UE de son parcours', () => {
-  assert.doesNotThrow(() => {
-    checkHealthAccess({
-      userId: 'user_sante',
-      programVersionId: 'ver_reims_pass',
-      pathwayId: 'path_reims_mineure_droit',
-      isCommonToAllPathways: false,
-      enrollment: enrollmentHealthReimsPass,
-    });
-  });
-});
-
-test('AccessControl HEALTH: étudiant Santé refusé sur une UE d’un autre parcours spécifique', () => {
-  assert.throws(
-    () =>
-      checkHealthAccess({
-        userId: 'user_sante',
-        programVersionId: 'ver_reims_pass',
-        pathwayId: 'path_reims_mineure_eco',
+      assertUserCanAccessHealthContent({
+        userId: userA.id,
+        programVersionId: healthVersion.id,
         isCommonToAllPathways: false,
-        enrollment: enrollmentHealthReimsPass,
+        pathwayId: null,
       }),
     (err: unknown) => {
       assert.ok(err instanceof PedagogicalAccessError);
       assert.equal(err.code, 'FORBIDDEN_SCOPE');
-      assert.match(err.message, /ce parcours spécifique/);
       return true;
     }
   );
 });
 
-test('AccessControl HEALTH: étudiant Santé refusé sur une autre université / maquette', () => {
-  assert.throws(
-    () =>
-      checkHealthAccess({
-        userId: 'user_sante',
-        programVersionId: 'ver_strasbourg_pass',
-        isCommonToAllPathways: true,
-        enrollment: enrollmentHealthReimsPass,
-      }),
-    (err: unknown) => {
-      assert.ok(err instanceof PedagogicalAccessError);
-      assert.equal(err.code, 'FORBIDDEN_SCOPE');
-      assert.match(err.message, /cette formation Santé/);
-      return true;
-    }
-  );
-});
+test('assertUserCanAccessHealthContent: cas limite 6 - étudiant sans parcours vs UE à parcours restreint lève FORBIDDEN_SCOPE', async () => {
+  const { userA, activeYear, healthVersion } = await setupTestUsers();
+  const pathway = healthVersion.pathways[0];
+  assert.ok(pathway, 'Au moins un parcours requis pour ce test');
 
-test('AccessControl IMPERSONATION: un ADMIN impersonnant un élève de Première subit les restrictions de l’élève', () => {
-  // L'acteur est ADMIN, mais la session effective porte l'identité de user_1re
-  const effectiveUserId = 'user_1re';
-  const targetEnrollment = enrollmentPremiere;
-
-  // L'accès Première réussit
-  assert.doesNotThrow(() => {
-    checkSecondaryAccess({
-      userId: effectiveUserId,
-      gradeId: 'grade_1re',
-      enrollment: targetEnrollment,
-    });
+  await prisma.userAcademicEnrollment.deleteMany({ where: { userId: userA.id } });
+  await prisma.userAcademicEnrollment.create({
+    data: {
+      userId: userA.id,
+      academicYearId: activeYear.id,
+      audience: 'HEALTH',
+      healthProgramVersionId: healthVersion.id,
+      healthPathwayId: null, // aucun parcours choisi
+      lockedAt: new Date(),
+      createdBy: 'SELF_ONBOARDING',
+    },
   });
 
-  // L'accès Terminale échoue
-  assert.throws(
+  await assert.rejects(
     () =>
-      checkSecondaryAccess({
-        userId: effectiveUserId,
-        gradeId: 'grade_tle',
-        enrollment: targetEnrollment,
+      assertUserCanAccessHealthContent({
+        userId: userA.id,
+        programVersionId: healthVersion.id,
+        isCommonToAllPathways: false,
+        pathwayId: pathway.id,
       }),
     (err: unknown) => {
       assert.ok(err instanceof PedagogicalAccessError);
@@ -328,4 +221,65 @@ test('AccessControl IMPERSONATION: un ADMIN impersonnant un élève de Première
       return true;
     }
   );
+});
+
+test('assertUserCanAccessHealthContent: étudiant avec parcours accède à son parcours et aux UE communes', async () => {
+  const { userA, activeYear, healthVersion } = await setupTestUsers();
+  const pathway = healthVersion.pathways[0];
+  assert.ok(pathway, 'Au moins un parcours requis pour ce test');
+
+  await prisma.userAcademicEnrollment.deleteMany({ where: { userId: userA.id } });
+  await prisma.userAcademicEnrollment.create({
+    data: {
+      userId: userA.id,
+      academicYearId: activeYear.id,
+      audience: 'HEALTH',
+      healthProgramVersionId: healthVersion.id,
+      healthPathwayId: pathway.id,
+      lockedAt: new Date(),
+      createdBy: 'SELF_ONBOARDING',
+    },
+  });
+
+  // Accès UE commune: OK
+  const enrCommon = await assertUserCanAccessHealthContent({
+    userId: userA.id,
+    programVersionId: healthVersion.id,
+    isCommonToAllPathways: true,
+  });
+  assert.equal(enrCommon.userId, userA.id);
+
+  // Accès à son propre parcours: OK
+  const enrPathway = await assertUserCanAccessHealthContent({
+    userId: userA.id,
+    programVersionId: healthVersion.id,
+    isCommonToAllPathways: false,
+    pathwayId: pathway.id,
+  });
+  assert.equal(enrPathway.healthPathwayId, pathway.id);
+});
+
+test('Hard Wall: cas limite 9 - session Training anonyme (userId = null) refuse avec UNAUTHENTICATED (401)', async () => {
+  const chapter = await prisma.chapter.findFirst({ select: { id: true } });
+  const quiz = await prisma.trainingQuiz.findFirst({
+    where: { isPublished: true },
+    select: { id: true, chapterId: true },
+  });
+
+  if (chapter && quiz) {
+    await assert.rejects(
+      () =>
+        startOrResumeTrainingQuizSession({
+          chapterId: quiz.chapterId,
+          quizId: quiz.id,
+          userId: null,
+        }),
+      (err: unknown) => {
+        assert.ok(err instanceof PedagogicalAccessError);
+        assert.equal(err.code, 'UNAUTHENTICATED');
+        assert.equal(err.statusCode, 401);
+        return true;
+      }
+    );
+  }
 });

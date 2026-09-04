@@ -70,6 +70,15 @@ function applySecurityHeaders(response: NextResponse, pathname: string): NextRes
 export default function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Intercepter formellement les téléchargements d'annales pour empêcher Next.js
+  // de servir statiquement depuis public/ et garantir le contrôle Hard Wall.
+  if (pathname.startsWith('/uploads/exam-papers/')) {
+    const file = pathname.replace(/^\/uploads\/exam-papers\//, '');
+    const url = request.nextUrl.clone();
+    url.pathname = `/api/exam-papers/file/${file}`;
+    return NextResponse.rewrite(url);
+  }
+
   // Ne pas appliquer le middleware i18n aux assets Next.js ni aux fichiers statiques,
   // sinon ils sont réécrits vers /{locale}/_next/... et finissent en 404 en prod.
   if (

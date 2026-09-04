@@ -7,19 +7,84 @@ loadProjectEnv();
 
 const prisma = require("../../src/lib/db/prisma").default;
 
-const authFile = process.env.E2E_AUTH_STATE ?? "playwright/.auth/admin.json";
+import {
+  buildAppSessionTokenPayload,
+  encodeAppSessionToken,
+} from "../../src/lib/auth/session-cookie";
+
 const appBaseUrl =
   process.env.E2E_BASE_URL ?? `http://localhost:${process.env.E2E_PORT ?? "3000"}`;
 
 type HealthMockExamFixture = Awaited<ReturnType<typeof seedHealthMockExamFixture>>;
 
 let fixture: HealthMockExamFixture;
+let fixtureUserId: string;
+let fixtureUserEmail = "fixture-test-student@example.com";
 
 test.describe.serial("Santé - fixture examen blanc UNESS", () => {
-  test.use({ storageState: authFile });
-
   test.beforeAll(async () => {
     fixture = await seedHealthMockExamFixture(prisma);
+    const activeYear = await prisma.academicYear.findFirst({
+      where: {
+        startsAt: { lte: new Date() },
+        endsAt: { gt: new Date() },
+      },
+    });
+
+    const fixtureUser = await prisma.user.upsert({
+      where: { email: fixtureUserEmail },
+      update: {},
+      create: {
+        email: fixtureUserEmail,
+        name: "Fixture Test Student",
+      },
+    });
+    fixtureUserId = fixtureUser.id;
+
+    if (activeYear) {
+      await prisma.userAcademicEnrollment.upsert({
+        where: {
+          userId_academicYearId: {
+            userId: fixtureUser.id,
+            academicYearId: activeYear.id,
+          },
+        },
+        update: {
+          audience: "HEALTH",
+          healthProgramVersionId: fixture.programVersionId,
+          healthPathwayId: null,
+        },
+        create: {
+          userId: fixtureUser.id,
+          academicYearId: activeYear.id,
+          audience: "HEALTH",
+          healthProgramVersionId: fixture.programVersionId,
+          healthPathwayId: null,
+          createdBy: "ADMIN",
+        },
+      });
+    }
+  });
+
+  test.beforeEach(async ({ context }) => {
+    const sessionPayload = buildAppSessionTokenPayload({
+      actor: {
+        id: fixtureUserId,
+        role: "USER",
+        email: fixtureUserEmail,
+        name: "Fixture Test Student",
+      },
+    });
+    const sessionToken = await encodeAppSessionToken(sessionPayload, { secure: false });
+    const url = new URL(appBaseUrl);
+    await context.addCookies([
+      {
+        name: "authjs.session-token",
+        value: sessionToken,
+        domain: url.hostname,
+        path: "/",
+      },
+    ]);
   });
 
   test("un étudiant peut terminer un examen blanc mixte QRU/QRM/QRP/QROC", async ({

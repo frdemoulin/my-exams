@@ -472,6 +472,7 @@ export async function seedHealthMockExamFixture(prisma: PrismaClient) {
   return {
     courseUnitId: courseUnit.id,
     courseUnitSlug: courseUnit.slug,
+    programVersionId: programVersion.id,
     mockExamId: exam.id,
     examSlug: exam.slug,
     examTitle: exam.title,

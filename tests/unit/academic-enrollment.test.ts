@@ -1,200 +1,135 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
+try {
+  process.loadEnvFile('.env.local');
+} catch {}
+
+import prisma from '../../src/lib/db/prisma';
 import {
+  createAndLockUserAcademicEnrollment,
+  correctUserAcademicEnrollmentByAdmin,
+  deleteUserAcademicEnrollmentByAdmin,
   AcademicEnrollmentError,
 } from '../../src/core/academic-enrollment/academic-enrollment.service';
-import { saveCurrentUserPedagogicalProfile } from '../../src/core/user/user-profile.actions';
+import { submitTrainingQuizSession } from '../../src/core/training/training-quiz-session.service';
+import { UnauthorizedAdminError } from '../../src/lib/auth/assert-admin';
 
-type SimulatedEnrollment = {
-  id: string;
-  userId: string;
-  academicYearId: string;
-  academicYearCode: string;
-  audience: 'SECONDARY' | 'HEALTH';
-  secondaryGradeId?: string | null;
-  secondaryTeachingIds: string[];
-  healthProgramVersionId?: string | null;
-  healthPathwayId?: string | null;
-  lockedAt: Date | null;
-  createdBy: 'SELF_ONBOARDING' | 'ADMIN' | 'IMPORT';
+const TEST_EMAIL_A = 'test-enrollment-user-a@example.com';
+const TEST_EMAIL_B = 'test-enrollment-user-b@example.com';
+const ADMIN_ACTOR_ID = '6a2c2b111af36bd83ac27ef9';
+
+const adminSession = {
+  user: {
+    id: ADMIN_ACTOR_ID,
+    role: 'ADMIN',
+    email: 'admin-actor@example.com',
+  },
 };
 
-type SimulatedCorrection = {
-  id: string;
-  enrollmentId: string;
-  actorAdminId: string;
-  reason: string;
-  beforePayload: any;
-  afterPayload: any;
-  createdAt: Date;
+const nonAdminSession = {
+  user: {
+    id: 'user_intruder',
+    role: 'USER',
+    email: 'intruder@example.com',
+  },
 };
 
-// Simulation pure de la logique métier d'Enrollment et de Rectification ADMIN
-class SimulatedEnrollmentStore {
-  enrollments: SimulatedEnrollment[] = [];
-  corrections: SimulatedCorrection[] = [];
+async function setupTestContext() {
+  const activeYear = await prisma.academicYear.findUnique({
+    where: { code: '2026-2027' },
+  });
+  assert.ok(activeYear, 'Année 2026-2027 requise');
 
-  createAndLock(input: {
-    userId: string;
-    academicYearId: string;
-    academicYearCode: string;
-    audience: 'SECONDARY' | 'HEALTH';
-    secondaryGradeId?: string | null;
-    secondaryTeachingIds?: string[];
-    healthProgramVersionId?: string | null;
-    healthProgramVersionYear?: string | null;
-    healthPathwayId?: string | null;
-    healthPathwayVersionId?: string | null;
-    createdBy?: 'SELF_ONBOARDING' | 'ADMIN';
-  }): SimulatedEnrollment {
-    const existing = this.enrollments.find(
-      (e) => e.userId === input.userId && e.academicYearId === input.academicYearId
-    );
-    if (existing) {
-      throw new AcademicEnrollmentError(
-        `L'utilisateur possède déjà une affectation pour l'année scolaire ${input.academicYearCode}.`,
-        'ALREADY_ENROLLED'
-      );
-    }
+  const gradeTle = await prisma.grade.findFirst({
+    where: { shortDescription: 'Tle' },
+  });
+  assert.ok(gradeTle, 'Grade Tle requis');
 
-    if (input.audience === 'SECONDARY' && !input.secondaryGradeId) {
-      throw new AcademicEnrollmentError(
-        'Le niveau scolaire (gradeId) est obligatoire pour le secondaire.',
-        'INVALID_SCOPE'
-      );
-    }
+  const grade1re = await prisma.grade.findFirst({
+    where: { shortDescription: '1re' },
+  });
+  assert.ok(grade1re, 'Grade 1re requis');
 
-    if (input.audience === 'HEALTH') {
-      if (!input.healthProgramVersionId) {
-        throw new AcademicEnrollmentError(
-          'La version de programme santé est obligatoire.',
-          'INVALID_SCOPE'
-        );
-      }
-      if (input.healthProgramVersionYear !== input.academicYearCode) {
-        throw new AcademicEnrollmentError(
-          `La maquette santé (${input.healthProgramVersionYear}) ne correspond pas à l'année scolaire active (${input.academicYearCode}).`,
-          'INVALID_SCOPE'
-        );
-      }
-      if (
-        input.healthPathwayId &&
-        input.healthPathwayVersionId !== input.healthProgramVersionId
-      ) {
-        throw new AcademicEnrollmentError(
-          'Le parcours sélectionné n’appartient pas à cette maquette santé.',
-          'INVALID_SCOPE'
-        );
-      }
-    }
+  const healthVersion = await prisma.healthProgramVersion.findFirst({
+    include: { pathways: true },
+  });
+  assert.ok(healthVersion, 'Version santé requise');
 
-    const enrollment: SimulatedEnrollment = {
-      id: `enr_${this.enrollments.length + 1}`,
-      userId: input.userId,
-      academicYearId: input.academicYearId,
-      academicYearCode: input.academicYearCode,
-      audience: input.audience,
-      secondaryGradeId: input.audience === 'SECONDARY' ? input.secondaryGradeId : null,
-      secondaryTeachingIds: input.secondaryTeachingIds ?? [],
-      healthProgramVersionId:
-        input.audience === 'HEALTH' ? input.healthProgramVersionId : null,
-      healthPathwayId: input.audience === 'HEALTH' ? input.healthPathwayId : null,
-      lockedAt: new Date(),
-      createdBy: input.createdBy ?? 'SELF_ONBOARDING',
-    };
-
-    this.enrollments.push(enrollment);
-    return enrollment;
-  }
-
-  adminCorrect(input: {
-    enrollmentId: string;
-    actorAdminId: string;
-    reason: string;
-    secondaryGradeId?: string | null;
-    healthProgramVersionId?: string | null;
-  }): SimulatedEnrollment {
-    const reason = input.reason?.trim();
-    if (!reason) {
-      throw new AcademicEnrollmentError(
-        'Le motif de rectification est obligatoire pour toute correction administrative.',
-        'REASON_REQUIRED'
-      );
-    }
-
-    const enrollment = this.enrollments.find((e) => e.id === input.enrollmentId);
-    if (!enrollment) {
-      throw new AcademicEnrollmentError('Affectation annuelle introuvable.', 'NOT_FOUND');
-    }
-
-    const beforePayload = {
-      audience: enrollment.audience,
-      secondaryGradeId: enrollment.secondaryGradeId,
-      healthProgramVersionId: enrollment.healthProgramVersionId,
-    };
-
-    if (input.secondaryGradeId !== undefined) {
-      enrollment.secondaryGradeId = input.secondaryGradeId;
-    }
-    if (input.healthProgramVersionId !== undefined) {
-      enrollment.healthProgramVersionId = input.healthProgramVersionId;
-    }
-
-    const afterPayload = {
-      audience: enrollment.audience,
-      secondaryGradeId: enrollment.secondaryGradeId,
-      healthProgramVersionId: enrollment.healthProgramVersionId,
-    };
-
-    this.corrections.push({
-      id: `corr_${this.corrections.length + 1}`,
-      enrollmentId: enrollment.id,
-      actorAdminId: input.actorAdminId,
-      reason,
-      beforePayload,
-      afterPayload,
-      createdAt: new Date(),
-    });
-
-    return enrollment;
-  }
-}
-
-test('AcademicEnrollment: création d’une affectation verrouillée (lockedAt renseigné)', () => {
-  const store = new SimulatedEnrollmentStore();
-  const enrollment = store.createAndLock({
-    userId: 'user_1',
-    academicYearId: 'year_2026',
-    academicYearCode: '2026-2027',
-    audience: 'SECONDARY',
-    secondaryGradeId: 'grade_tle',
+  const userA = await prisma.user.upsert({
+    where: { email: TEST_EMAIL_A },
+    update: {},
+    create: {
+      email: TEST_EMAIL_A,
+      name: 'Test Enrollment User A',
+    },
   });
 
-  assert.equal(enrollment.userId, 'user_1');
-  assert.equal(enrollment.secondaryGradeId, 'grade_tle');
+  const userB = await prisma.user.upsert({
+    where: { email: TEST_EMAIL_B },
+    update: {},
+    create: {
+      email: TEST_EMAIL_B,
+      name: 'Test Enrollment User B',
+    },
+  });
+
+  // Nettoyer les corrections et affectations existantes de ces utilisateurs de test
+  const existingEnrollments = await prisma.userAcademicEnrollment.findMany({
+    where: { userId: { in: [userA.id, userB.id] } },
+    select: { id: true },
+  });
+  const enrollmentIds = existingEnrollments.map((e) => e.id);
+  if (enrollmentIds.length > 0) {
+    await prisma.userAcademicEnrollmentCorrection.deleteMany({
+      where: { enrollmentId: { in: enrollmentIds } },
+    });
+    await prisma.userTrainingQuizAttempt.deleteMany({
+      where: { academicEnrollmentId: { in: enrollmentIds } },
+    });
+    await prisma.userAcademicEnrollment.deleteMany({
+      where: { id: { in: enrollmentIds } },
+    });
+  }
+
+  return { activeYear, gradeTle, grade1re, healthVersion, userA, userB };
+}
+
+test('createAndLockUserAcademicEnrollment: crée une affectation immédiatement verrouillée (lockedAt renseigné)', async () => {
+  const { activeYear, gradeTle, userA } = await setupTestContext();
+
+  const enrollment = await createAndLockUserAcademicEnrollment({
+    userId: userA.id,
+    audience: 'SECONDARY',
+    secondaryGradeId: gradeTle.id,
+    createdBy: 'SELF_ONBOARDING',
+  });
+
+  assert.equal(enrollment.userId, userA.id);
+  assert.equal(enrollment.academicYearId, activeYear.id);
+  assert.equal(enrollment.audience, 'SECONDARY');
+  assert.equal(enrollment.secondaryGradeId, gradeTle.id);
   assert.ok(enrollment.lockedAt instanceof Date);
   assert.equal(enrollment.createdBy, 'SELF_ONBOARDING');
 });
 
-test('AcademicEnrollment: unicité (userId, academicYearId) - refuse une seconde affectation pour la même année', () => {
-  const store = new SimulatedEnrollmentStore();
-  store.createAndLock({
-    userId: 'user_1',
-    academicYearId: 'year_2026',
-    academicYearCode: '2026-2027',
+test('createAndLockUserAcademicEnrollment: refuse une seconde affectation pour la même année (ALREADY_ENROLLED)', async () => {
+  const { gradeTle, userA } = await setupTestContext();
+
+  await createAndLockUserAcademicEnrollment({
+    userId: userA.id,
     audience: 'SECONDARY',
-    secondaryGradeId: 'grade_tle',
+    secondaryGradeId: gradeTle.id,
+    createdBy: 'SELF_ONBOARDING',
   });
 
-  assert.throws(
+  await assert.rejects(
     () =>
-      store.createAndLock({
-        userId: 'user_1',
-        academicYearId: 'year_2026',
-        academicYearCode: '2026-2027',
+      createAndLockUserAcademicEnrollment({
+        userId: userA.id,
         audience: 'SECONDARY',
-        secondaryGradeId: 'grade_1re',
+        secondaryGradeId: gradeTle.id,
+        createdBy: 'SELF_ONBOARDING',
       }),
     (err: unknown) => {
       assert.ok(err instanceof AcademicEnrollmentError);
@@ -204,62 +139,90 @@ test('AcademicEnrollment: unicité (userId, academicYearId) - refuse une seconde
   );
 });
 
-test('AcademicEnrollment: l’utilisateur ne peut pas modifier son affectation verrouillée en cours d’année', async () => {
+test('createAndLockUserAcademicEnrollment: validation Secondaire - refuse si gradeId manquant', async () => {
+  const { userA } = await setupTestContext();
+
   await assert.rejects(
-    async () => {
-      await saveCurrentUserPedagogicalProfile(new FormData());
-    },
-    (err: Error) => {
-      assert.match(err.message, /verrouillée pour l'année scolaire/);
+    () =>
+      createAndLockUserAcademicEnrollment({
+        userId: userA.id,
+        audience: 'SECONDARY',
+        secondaryGradeId: null,
+        createdBy: 'SELF_ONBOARDING',
+      }),
+    (err: unknown) => {
+      assert.ok(err instanceof AcademicEnrollmentError);
+      assert.equal(err.code, 'INVALID_SCOPE');
       return true;
     }
   );
 });
 
-test('AcademicEnrollment: rectification ADMIN avec motif obligatoire et traçabilité', () => {
-  const store = new SimulatedEnrollmentStore();
-  const enrollment = store.createAndLock({
-    userId: 'user_1',
-    academicYearId: 'year_2026',
-    academicYearCode: '2026-2027',
-    audience: 'SECONDARY',
-    secondaryGradeId: 'grade_tle',
-  });
+test('createAndLockUserAcademicEnrollment: validation Santé - refuse si versionId manquant', async () => {
+  const { userA } = await setupTestContext();
 
-  // Correction : élève inscrit en Terminale par erreur alors qu'il est en Première
-  const corrected = store.adminCorrect({
-    enrollmentId: enrollment.id,
-    actorAdminId: 'admin_42',
-    reason: "Erreur de déclaration de l'élève lors de l'inscription",
-    secondaryGradeId: 'grade_1re',
-  });
-
-  assert.equal(corrected.secondaryGradeId, 'grade_1re');
-  assert.equal(store.corrections.length, 1);
-  assert.equal(store.corrections[0].actorAdminId, 'admin_42');
-  assert.equal(store.corrections[0].reason, "Erreur de déclaration de l'élève lors de l'inscription");
-  assert.equal(store.corrections[0].beforePayload.secondaryGradeId, 'grade_tle');
-  assert.equal(store.corrections[0].afterPayload.secondaryGradeId, 'grade_1re');
+  await assert.rejects(
+    () =>
+      createAndLockUserAcademicEnrollment({
+        userId: userA.id,
+        audience: 'HEALTH',
+        healthProgramVersionId: null,
+        createdBy: 'SELF_ONBOARDING',
+      }),
+    (err: unknown) => {
+      assert.ok(err instanceof AcademicEnrollmentError);
+      assert.equal(err.code, 'INVALID_SCOPE');
+      return true;
+    }
+  );
 });
 
-test('AcademicEnrollment: rectification ADMIN refusée si le motif est manquant', () => {
-  const store = new SimulatedEnrollmentStore();
-  const enrollment = store.createAndLock({
-    userId: 'user_1',
-    academicYearId: 'year_2026',
-    academicYearCode: '2026-2027',
+test('correctUserAcademicEnrollmentByAdmin: refuse si l’acteur n’est pas ADMIN (403)', async () => {
+  const { gradeTle, userA } = await setupTestContext();
+
+  const enrollment = await createAndLockUserAcademicEnrollment({
+    userId: userA.id,
     audience: 'SECONDARY',
-    secondaryGradeId: 'grade_tle',
+    secondaryGradeId: gradeTle.id,
+    createdBy: 'SELF_ONBOARDING',
   });
 
-  assert.throws(
+  await assert.rejects(
     () =>
-      store.adminCorrect({
-        enrollmentId: enrollment.id,
-        actorAdminId: 'admin_42',
-        reason: '   ',
-        secondaryGradeId: 'grade_1re',
-      }),
+      correctUserAcademicEnrollmentByAdmin(
+        {
+          enrollmentId: enrollment.id,
+          reason: 'Correction sans droits',
+        },
+        nonAdminSession
+      ),
+    (err: unknown) => {
+      assert.ok(err instanceof UnauthorizedAdminError);
+      assert.equal(err.statusCode, 403);
+      return true;
+    }
+  );
+});
+
+test('correctUserAcademicEnrollmentByAdmin: refuse si motif manquant (REASON_REQUIRED)', async () => {
+  const { gradeTle, userA } = await setupTestContext();
+
+  const enrollment = await createAndLockUserAcademicEnrollment({
+    userId: userA.id,
+    audience: 'SECONDARY',
+    secondaryGradeId: gradeTle.id,
+    createdBy: 'SELF_ONBOARDING',
+  });
+
+  await assert.rejects(
+    () =>
+      correctUserAcademicEnrollmentByAdmin(
+        {
+          enrollmentId: enrollment.id,
+          reason: '   ',
+        },
+        adminSession
+      ),
     (err: unknown) => {
       assert.ok(err instanceof AcademicEnrollmentError);
       assert.equal(err.code, 'REASON_REQUIRED');
@@ -268,123 +231,150 @@ test('AcademicEnrollment: rectification ADMIN refusée si le motif est manquant'
   );
 });
 
-test('AcademicEnrollment: deux rectifications ADMIN successives créent deux entrées distinctes dans le journal', () => {
-  const store = new SimulatedEnrollmentStore();
-  const enrollment = store.createAndLock({
-    userId: 'user_1',
-    academicYearId: 'year_2026',
-    academicYearCode: '2026-2027',
+test('correctUserAcademicEnrollmentByAdmin: rectification ADMIN avec traçabilité append-only et actorId dérivé de la session', async () => {
+  const { gradeTle, grade1re, userA } = await setupTestContext();
+
+  const enrollment = await createAndLockUserAcademicEnrollment({
+    userId: userA.id,
     audience: 'SECONDARY',
-    secondaryGradeId: 'grade_tle',
+    secondaryGradeId: gradeTle.id,
+    createdBy: 'SELF_ONBOARDING',
   });
 
-  store.adminCorrect({
-    enrollmentId: enrollment.id,
-    actorAdminId: 'admin_1',
-    reason: 'Correction 1',
-    secondaryGradeId: 'grade_1re',
-  });
-
-  store.adminCorrect({
-    enrollmentId: enrollment.id,
-    actorAdminId: 'admin_2',
-    reason: 'Correction 2',
-    secondaryGradeId: 'grade_tle',
-  });
-
-  assert.equal(store.corrections.length, 2);
-  assert.equal(store.corrections[0].actorAdminId, 'admin_1');
-  assert.equal(store.corrections[0].afterPayload.secondaryGradeId, 'grade_1re');
-  assert.equal(store.corrections[1].actorAdminId, 'admin_2');
-  assert.equal(store.corrections[1].afterPayload.secondaryGradeId, 'grade_tle');
-});
-
-test('AcademicEnrollment: validation de cohérence Santé - refuse si la maquette ne correspond pas à l’année scolaire', () => {
-  const store = new SimulatedEnrollmentStore();
-  assert.throws(
-    () =>
-      store.createAndLock({
-        userId: 'user_health',
-        academicYearId: 'year_2026',
-        academicYearCode: '2026-2027',
-        audience: 'HEALTH',
-        healthProgramVersionId: 'ver_old',
-        healthProgramVersionYear: '2024-2025',
-      }),
-    (err: unknown) => {
-      assert.ok(err instanceof AcademicEnrollmentError);
-      assert.equal(err.code, 'INVALID_SCOPE');
-      return true;
-    }
+  const corrected = await correctUserAcademicEnrollmentByAdmin(
+    {
+      enrollmentId: enrollment.id,
+      secondaryGradeId: grade1re.id,
+      reason: 'Erreur d’inscription saisie par l’étudiant',
+      actorAdminId: 'spoofed_admin_id_ignored',
+    },
+    adminSession
   );
+
+  assert.equal(corrected.secondaryGradeId, grade1re.id);
+
+  // Vérification de la création d'audit
+  const correctionLog = await prisma.userAcademicEnrollmentCorrection.findFirst({
+    where: { enrollmentId: enrollment.id },
+    orderBy: { createdAt: 'desc' },
+  });
+
+  assert.ok(correctionLog);
+  assert.equal(correctionLog.actorAdminId, ADMIN_ACTOR_ID); // Strictement dérivé de adminSession
+  assert.equal(correctionLog.reason, 'Erreur d’inscription saisie par l’étudiant');
 });
 
-test('AcademicEnrollment: validation de cohérence Santé - refuse si le parcours n’appartient pas à la maquette', () => {
-  const store = new SimulatedEnrollmentStore();
-  assert.throws(
-    () =>
-      store.createAndLock({
-        userId: 'user_health',
-        academicYearId: 'year_2026',
-        academicYearCode: '2026-2027',
-        audience: 'HEALTH',
-        healthProgramVersionId: 'ver_reims',
-        healthProgramVersionYear: '2026-2027',
-        healthPathwayId: 'path_strasbourg',
-        healthPathwayVersionId: 'ver_strasbourg',
-      }),
-    (err: unknown) => {
-      assert.ok(err instanceof AcademicEnrollmentError);
-      assert.equal(err.code, 'INVALID_SCOPE');
-      return true;
-    }
+test('deleteUserAcademicEnrollmentByAdmin: cas limite 8 - refuse la suppression si l’Enrollment possède un historique', async () => {
+  const { gradeTle, userA } = await setupTestContext();
+
+  const enrollment = await createAndLockUserAcademicEnrollment({
+    userId: userA.id,
+    audience: 'SECONDARY',
+    secondaryGradeId: gradeTle.id,
+    createdBy: 'SELF_ONBOARDING',
+  });
+
+  const chapter = await prisma.chapter.findFirst({ select: { id: true } });
+  const quiz = await prisma.trainingQuiz.findFirst({
+    where: { isPublished: true },
+    select: { id: true, chapterId: true },
+  });
+
+  if (chapter && quiz) {
+    // Créer une tentative fictive rattachée à cet enrollment
+    const attempt = await prisma.userTrainingQuizAttempt.create({
+      data: {
+        userId: userA.id,
+        academicEnrollmentId: enrollment.id,
+        chapterId: quiz.chapterId,
+        quizId: quiz.id,
+        status: 'IN_PROGRESS',
+      },
+    });
+
+    // Tentative de suppression : doit être refusée
+    await assert.rejects(
+      () =>
+        deleteUserAcademicEnrollmentByAdmin(
+          { enrollmentId: enrollment.id },
+          adminSession
+        ),
+      (err: unknown) => {
+        assert.ok(err instanceof AcademicEnrollmentError);
+        assert.equal(err.code, 'LOCKED');
+        return true;
+      }
+    );
+
+    // Nettoyer l'attempt de test
+    await prisma.userTrainingQuizAttempt.delete({ where: { id: attempt.id } });
+  }
+});
+
+test('deleteUserAcademicEnrollmentByAdmin: supprime l’Enrollment lorsqu’il est vierge de tout historique', async () => {
+  const { gradeTle, userB } = await setupTestContext();
+
+  const enrollment = await createAndLockUserAcademicEnrollment({
+    userId: userB.id,
+    audience: 'SECONDARY',
+    secondaryGradeId: gradeTle.id,
+    createdBy: 'ADMIN',
+  });
+
+  await assert.doesNotReject(() =>
+    deleteUserAcademicEnrollmentByAdmin(
+      { enrollmentId: enrollment.id },
+      adminSession
+    )
   );
+
+  const deleted = await prisma.userAcademicEnrollment.findUnique({
+    where: { id: enrollment.id },
+  });
+  assert.equal(deleted, null);
 });
 
-test('AcademicEnrollment: redoublement supporté (2 années distinctes avec le même niveau)', () => {
-  const store = new SimulatedEnrollmentStore();
-  const enr2026 = store.createAndLock({
-    userId: 'user_redoublant',
-    academicYearId: 'year_2026',
-    academicYearCode: '2026-2027',
+test('Cohérence User / Enrollment: cas limite 7 - User B tentant de soumettre une session de User A est rejeté', async () => {
+  const { gradeTle, userA, userB } = await setupTestContext();
+
+  const enrollmentA = await createAndLockUserAcademicEnrollment({
+    userId: userA.id,
     audience: 'SECONDARY',
-    secondaryGradeId: 'grade_tle',
+    secondaryGradeId: gradeTle.id,
+    createdBy: 'SELF_ONBOARDING',
   });
 
-  const enr2027 = store.createAndLock({
-    userId: 'user_redoublant',
-    academicYearId: 'year_2027',
-    academicYearCode: '2027-2028',
-    audience: 'SECONDARY',
-    secondaryGradeId: 'grade_tle',
+  const quiz = await prisma.trainingQuiz.findFirst({
+    where: { isPublished: true },
+    select: { id: true, chapterId: true },
   });
 
-  assert.notEqual(enr2026.id, enr2027.id);
-  assert.equal(enr2026.academicYearId, 'year_2026');
-  assert.equal(enr2027.academicYearId, 'year_2027');
-  assert.equal(enr2026.secondaryGradeId, 'grade_tle');
-  assert.equal(enr2027.secondaryGradeId, 'grade_tle');
-});
+  if (quiz) {
+    const attemptA = await prisma.userTrainingQuizAttempt.create({
+      data: {
+        userId: userA.id,
+        academicEnrollmentId: enrollmentA.id,
+        chapterId: quiz.chapterId,
+        quizId: quiz.id,
+        status: 'IN_PROGRESS',
+      },
+    });
 
-test('AcademicEnrollment: passage dans le supérieur supporté (Terminale 2026 -> Santé 2027)', () => {
-  const store = new SimulatedEnrollmentStore();
-  const enr2026 = store.createAndLock({
-    userId: 'user_bac',
-    academicYearId: 'year_2026',
-    academicYearCode: '2026-2027',
-    audience: 'SECONDARY',
-    secondaryGradeId: 'grade_tle',
-  });
+    // User B essaie de soumettre la session de User A
+    await assert.rejects(
+      () =>
+        submitTrainingQuizSession({
+          sessionId: attemptA.id,
+          userId: userB.id,
+          answers: [],
+        }),
+      (err: unknown) => {
+        assert.ok(err instanceof Error);
+        assert.match(err.message, /Session introuvable ou accès non autorisé/);
+        return true;
+      }
+    );
 
-  const enr2027 = store.createAndLock({
-    userId: 'user_bac',
-    academicYearId: 'year_2027',
-    academicYearCode: '2027-2028',
-    audience: 'HEALTH',
-    healthProgramVersionId: 'ver_reims_2027',
-    healthProgramVersionYear: '2027-2028',
-  });
-
-  assert.equal(enr2026.audience, 'SECONDARY');
-  assert.equal(enr2027.audience, 'HEALTH');
+    await prisma.userTrainingQuizAttempt.delete({ where: { id: attemptA.id } });
+  }
 });

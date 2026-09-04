@@ -51,7 +51,7 @@
     "usage:stats:rollup": "tsx scripts/usage-stats-rollup.ts",
     "user:role": "tsx scripts/set-user-role.ts",
     "test:e2e": "playwright test",
-    "test:unit": "tsx --test tests/unit/*.test.ts",
+    "test:unit": "node --env-file=.env.local node_modules/.bin/tsx --test tests/unit/*.test.ts",
     "prepare": "node -e \"process.env.CI ? process.exit(0) : require('child_process').execSync('husky', {stdio:'inherit'})\"",
     "semantic-release": "semantic-release"
   },

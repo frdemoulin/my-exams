@@ -7,6 +7,7 @@ const prisma = require("../../src/lib/db/prisma").default;
 
 const appBaseUrl =
   process.env.E2E_BASE_URL ?? `http://localhost:${process.env.E2E_PORT ?? "3000"}`;
+const authFile = process.env.E2E_AUTH_STATE ?? "playwright/.auth/admin.json";
 
 const chapterSlug = "glucides-generalites-structure";
 
@@ -168,7 +169,9 @@ async function answerAllQuizQuestions(
   }
 }
 
-test.describe("Player Santé V2 — QZONE en entraînement", () => {
+test.describe.serial("Player Santé V2 — QZONE en entraînement", () => {
+  test.use({ storageState: authFile });
+
   test("Passation : sélection, affichage du marqueur, réinitialisation et validation", async ({
     page,
   }) => {

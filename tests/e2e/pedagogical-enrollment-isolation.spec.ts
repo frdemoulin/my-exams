@@ -94,6 +94,7 @@ test.describe("Cloisonnement pédagogique et affectation annuelle", () => {
         audience: "SECONDARY",
         secondaryGradeId: gradeTle.id,
         lockedAt: new Date(),
+        createdBy: "SELF_ONBOARDING",
       },
     });
 
@@ -175,6 +176,7 @@ test.describe("Cloisonnement pédagogique et affectation annuelle", () => {
         audience: "SECONDARY",
         secondaryGradeId: gradeTle.id,
         lockedAt: new Date(),
+        createdBy: "SELF_ONBOARDING",
       },
     });
 

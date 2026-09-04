@@ -5,6 +5,9 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { fetchExerciseById, fetchExercisesByExamPaperId } from '@/core/exercise';
+import { auth } from '@/lib/auth/auth';
+import { getSessionEffectiveUserId } from '@/lib/auth/session';
+import { assertUserCanAccessExercise, PedagogicalAccessError } from '@/lib/auth/assert-pedagogical-access';
 
 export async function GET(
   request: NextRequest,
@@ -12,6 +15,20 @@ export async function GET(
 ) {
   try {
     const { id } = await context.params;
+
+    const session = await auth();
+    const userId = getSessionEffectiveUserId(session);
+    if (!userId) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Authentification requise pour accéder à cet exercice.',
+        },
+        { status: 401 }
+      );
+    }
+
+    await assertUserCanAccessExercise({ userId, exerciseId: id });
 
     // Récupérer l'exercice
     const exercise = await fetchExerciseById(id);
@@ -40,6 +57,16 @@ export async function GET(
       otherExercises,
     });
   } catch (error) {
+    if (error instanceof PedagogicalAccessError) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: error.message,
+          code: error.code,
+        },
+        { status: error.statusCode }
+      );
+    }
     console.error('Error fetching exercise:', error);
     return NextResponse.json(
       {

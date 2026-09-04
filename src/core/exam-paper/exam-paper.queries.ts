@@ -49,6 +49,57 @@ export type ExamPaperWithRelations = ExamPaper & {
     };
 };
 
+export interface ExamPaperPublicDto {
+    id: string;
+    label: string;
+    sessionYear: number;
+    sessionDay: string | null;
+    source: string;
+    diploma: {
+        id: string;
+        longDescription: string;
+        shortDescription: string;
+    };
+    division: {
+        id: string;
+        longDescription: string;
+        shortDescription: string;
+    } | null;
+    grade: {
+        id: string;
+        longDescription: string;
+        shortDescription: string;
+    };
+    teaching: {
+        id: string;
+        longDescription: string;
+        shortDescription: string | null;
+        subject: {
+            id: string;
+            longDescription: string;
+            shortDescription: string;
+        };
+    };
+    curriculum: {
+        id: string;
+        longDescription: string;
+        shortDescription: string | null;
+    } | null;
+    examinationCenters: Array<{
+        id: string;
+        description: string;
+    }>;
+    themes: Array<{
+        id: string;
+        title: string;
+        shortTitle: string | null;
+    }>;
+    hasSubjectPdf: boolean;
+    hasCorrection: boolean;
+    correctionCount: number;
+    exerciseCount: number;
+}
+
 export async function fetchExamPapers(): Promise<ExamPaperWithRelations[]> {
     const examPapers = await prisma.examPaper.findMany({
         include: {
@@ -184,6 +235,157 @@ export async function fetchExamPapersForSearch(): Promise<ExamPaperWithRelations
             .map(id => themesById.get(id))
             .filter((t): t is NonNullable<typeof t> => t !== undefined)
             .sort((a, b) => a.title.localeCompare(b.title, "fr", { sensitivity: "base" }))
+    }));
+}
+
+/**
+ * Projection publique pour la recherche d'annales (Hard Wall).
+ * Exclut formellement subjectUrl, les URLs de corrections et tout modèle Prisma brut.
+ * Le champ subjectUrl est lu côté serveur uniquement pour dériver un booléen et n'est jamais sérialisé.
+ */
+export async function fetchExamPapersPublicSearch(): Promise<ExamPaperPublicDto[]> {
+    const examPapers = await prisma.examPaper.findMany({
+        where: {
+            enrichmentStatus: "completed",
+        },
+        select: {
+            id: true,
+            label: true,
+            sessionYear: true,
+            sessionDay: true,
+            source: true,
+            subjectUrl: true, // Lu côté serveur uniquement pour dériver hasSubjectPdf, non sérialisé
+            themeIds: true,
+            examinationCenterIds: true,
+            diploma: {
+                select: {
+                    id: true,
+                    longDescription: true,
+                    shortDescription: true,
+                },
+            },
+            division: {
+                select: {
+                    id: true,
+                    longDescription: true,
+                    shortDescription: true,
+                },
+            },
+            grade: {
+                select: {
+                    id: true,
+                    longDescription: true,
+                    shortDescription: true,
+                },
+            },
+            teaching: {
+                select: {
+                    id: true,
+                    longDescription: true,
+                    shortDescription: true,
+                    subject: {
+                        select: {
+                            id: true,
+                            longDescription: true,
+                            shortDescription: true,
+                        },
+                    },
+                },
+            },
+            curriculum: {
+                select: {
+                    id: true,
+                    longDescription: true,
+                    shortDescription: true,
+                },
+            },
+            _count: {
+                select: {
+                    corrections: true,
+                    exercises: true,
+                },
+            },
+        },
+        orderBy: [
+            { sessionYear: "desc" },
+            { createdAt: "desc" },
+        ],
+    });
+
+    const allThemeIds = examPapers.flatMap((p) => p.themeIds);
+    const uniqueThemeIds = [...new Set(allThemeIds)];
+    const allCenterIds = examPapers.flatMap((p) => p.examinationCenterIds || []);
+    const uniqueCenterIds = [...new Set(allCenterIds)];
+
+    const [themes, centers] = await Promise.all([
+        prisma.theme.findMany({
+            where: { id: { in: uniqueThemeIds } },
+            select: {
+                id: true,
+                title: true,
+                shortTitle: true,
+            },
+        }),
+        prisma.examinationCenter.findMany({
+            where: { id: { in: uniqueCenterIds } },
+            select: { id: true, description: true },
+        }),
+    ]);
+
+    const themesById = new Map(themes.map((t) => [t.id, t]));
+    const centersById = new Map(centers.map((c) => [c.id, c]));
+
+    return examPapers.map((paper) => ({
+        id: paper.id,
+        label: paper.label,
+        sessionYear: paper.sessionYear,
+        sessionDay: paper.sessionDay,
+        source: paper.source,
+        diploma: {
+            id: paper.diploma.id,
+            longDescription: paper.diploma.longDescription,
+            shortDescription: paper.diploma.shortDescription,
+        },
+        division: paper.division
+            ? {
+                  id: paper.division.id,
+                  longDescription: paper.division.longDescription,
+                  shortDescription: paper.division.shortDescription,
+              }
+            : null,
+        grade: {
+            id: paper.grade.id,
+            longDescription: paper.grade.longDescription,
+            shortDescription: paper.grade.shortDescription,
+        },
+        teaching: {
+            id: paper.teaching.id,
+            longDescription: paper.teaching.longDescription,
+            shortDescription: paper.teaching.shortDescription,
+            subject: {
+                id: paper.teaching.subject.id,
+                longDescription: paper.teaching.subject.longDescription,
+                shortDescription: paper.teaching.subject.shortDescription,
+            },
+        },
+        curriculum: paper.curriculum
+            ? {
+                  id: paper.curriculum.id,
+                  longDescription: paper.curriculum.longDescription,
+                  shortDescription: paper.curriculum.shortDescription,
+              }
+            : null,
+        examinationCenters: (paper.examinationCenterIds || [])
+            .map((id) => centersById.get(id))
+            .filter((c): c is NonNullable<typeof c> => c !== undefined),
+        themes: paper.themeIds
+            .map((id) => themesById.get(id))
+            .filter((t): t is NonNullable<typeof t> => t !== undefined)
+            .sort((a, b) => a.title.localeCompare(b.title, "fr", { sensitivity: "base" })),
+        hasSubjectPdf: Boolean(paper.subjectUrl),
+        hasCorrection: (paper._count?.corrections ?? 0) > 0,
+        correctionCount: paper._count?.corrections ?? 0,
+        exerciseCount: paper._count?.exercises ?? 0,
     }));
 }
 

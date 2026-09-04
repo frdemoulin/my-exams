@@ -2,13 +2,25 @@ import { NextResponse } from 'next/server';
 import { auth } from '@/lib/auth/auth';
 import { getSessionEffectiveUserId } from '@/lib/auth/session';
 import { startOrResumeTrainingQuizSession } from '@/core/training/training-quiz-session.service';
+import { PedagogicalAccessError } from '@/lib/auth/assert-pedagogical-access';
 
 export async function POST(request: Request) {
   try {
     const session = await auth();
     const userId = getSessionEffectiveUserId(session);
-    const body = await request.json();
 
+    if (!userId) {
+      return NextResponse.json(
+        {
+          success: false,
+          code: 'UNAUTHENTICATED',
+          message: 'Authentification requise pour démarrer un quiz.',
+        },
+        { status: 401 },
+      );
+    }
+
+    const body = await request.json();
     const { chapterId, quizId } = body ?? {};
 
     if (!chapterId || !quizId) {
@@ -26,6 +38,12 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true, ...result });
   } catch (error) {
+    if (error instanceof PedagogicalAccessError) {
+      return NextResponse.json(
+        { success: false, code: error.code, message: error.message },
+        { status: error.statusCode },
+      );
+    }
     const message = error instanceof Error ? error.message : 'Erreur lors du démarrage du quiz.';
     return NextResponse.json(
       { success: false, message },

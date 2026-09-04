@@ -1,5 +1,6 @@
 import prisma from '@/lib/db/prisma';
 import { getActiveAcademicYear } from '@/core/academic-year';
+import { assertAdminFromSession } from '@/lib/auth/assert-admin-session';
 import type {
   AcademicEnrollmentSource,
   Prisma,
@@ -14,7 +15,8 @@ export class AcademicEnrollmentError extends Error {
     | 'LOCKED'
     | 'INVALID_SCOPE'
     | 'NOT_FOUND'
-    | 'REASON_REQUIRED';
+    | 'REASON_REQUIRED'
+    | 'UNAUTHENTICATED';
 
   constructor(
     message: string,
@@ -25,6 +27,7 @@ export class AcademicEnrollmentError extends Error {
       | 'INVALID_SCOPE'
       | 'NOT_FOUND'
       | 'REASON_REQUIRED'
+      | 'UNAUTHENTICATED'
   ) {
     super(message);
     this.name = 'AcademicEnrollmentError';
@@ -39,19 +42,28 @@ export type CreateEnrollmentInput = {
   secondaryTeachingIds?: string[];
   healthProgramVersionId?: string | null;
   healthPathwayId?: string | null;
-  createdBy?: AcademicEnrollmentSource;
+  createdBy: AcademicEnrollmentSource;
+  date?: Date;
+};
+
+export type OnboardingEnrollmentChoicesInput = {
+  audience: UserPedagogicalAudience;
+  secondaryGradeId?: string | null;
+  secondaryTeachingIds?: string[];
+  healthProgramVersionId?: string | null;
+  healthPathwayId?: string | null;
   date?: Date;
 };
 
 export type AdminCorrectEnrollmentInput = {
   enrollmentId: string;
-  actorAdminId: string;
   reason: string;
   audience?: UserPedagogicalAudience;
   secondaryGradeId?: string | null;
   secondaryTeachingIds?: string[];
   healthProgramVersionId?: string | null;
   healthPathwayId?: string | null;
+  actorAdminId?: string;
 };
 
 /**
@@ -62,12 +74,7 @@ export async function getCurrentUserAcademicEnrollment(
   userId: string,
   date: Date = new Date()
 ): Promise<UserAcademicEnrollment | null> {
-  let activeYear;
-  try {
-    activeYear = await getActiveAcademicYear(date);
-  } catch {
-    return null;
-  }
+  const activeYear = await getActiveAcademicYear(date);
 
   return prisma.userAcademicEnrollment.findUnique({
     where: {
@@ -81,6 +88,7 @@ export async function getCurrentUserAcademicEnrollment(
     },
   });
 }
+
 
 /**
  * Valide et crée une affectation pédagogique annuelle verrouillée pour l'utilisateur.
@@ -199,7 +207,8 @@ export async function createAndLockUserAcademicEnrollment(
  * Met à jour l'affectation et crée une entrée immuable dans le journal d'audit append-only.
  */
 export async function correctUserAcademicEnrollmentByAdmin(
-  input: AdminCorrectEnrollmentInput
+  input: AdminCorrectEnrollmentInput,
+  session?: any
 ): Promise<UserAcademicEnrollment> {
   const reason = input.reason?.trim();
   if (!reason) {
@@ -208,6 +217,9 @@ export async function correctUserAcademicEnrollmentByAdmin(
       'REASON_REQUIRED'
     );
   }
+
+  const { actorId } = assertAdminFromSession(session);
+  const actorAdminId = actorId;
 
   const enrollment = await prisma.userAcademicEnrollment.findUnique({
     where: { id: input.enrollmentId },
@@ -300,26 +312,26 @@ export async function correctUserAcademicEnrollmentByAdmin(
     secondaryGradeId:
       targetAudience === 'SECONDARY'
         ? input.secondaryGradeId !== undefined
-          ? input.secondaryGradeId
-          : enrollment.secondaryGradeId
+        ? input.secondaryGradeId
+        : enrollment.secondaryGradeId
         : null,
     secondaryTeachingIds:
       targetAudience === 'SECONDARY'
         ? input.secondaryTeachingIds !== undefined
-          ? input.secondaryTeachingIds
-          : enrollment.secondaryTeachingIds
+        ? input.secondaryTeachingIds
+        : enrollment.secondaryTeachingIds
         : [],
     healthProgramVersionId:
       targetAudience === 'HEALTH'
         ? input.healthProgramVersionId !== undefined
-          ? input.healthProgramVersionId
-          : enrollment.healthProgramVersionId
+        ? input.healthProgramVersionId
+        : enrollment.healthProgramVersionId
         : null,
     healthPathwayId:
       targetAudience === 'HEALTH'
         ? input.healthPathwayId !== undefined
-          ? input.healthPathwayId
-          : enrollment.healthPathwayId
+        ? input.healthPathwayId
+        : enrollment.healthPathwayId
         : null,
   };
 
@@ -340,7 +352,7 @@ export async function correctUserAcademicEnrollmentByAdmin(
     prisma.userAcademicEnrollmentCorrection.create({
       data: {
         enrollmentId: enrollment.id,
-        actorAdminId: input.actorAdminId,
+        actorAdminId,
         reason,
         beforePayload,
         afterPayload,
@@ -349,4 +361,41 @@ export async function correctUserAcademicEnrollmentByAdmin(
   ]);
 
   return updatedEnrollment;
+}
+
+/**
+ * Suppression administrative d'une affectation annuelle (ADMIN uniquement).
+ * Bloquée si l'affectation possède un historique pédagogique ou des corrections.
+ */
+export async function deleteUserAcademicEnrollmentByAdmin(
+  input: { enrollmentId: string },
+  session?: any
+): Promise<void> {
+  assertAdminFromSession(session);
+
+  const enrollment = await prisma.userAcademicEnrollment.findUnique({
+    where: { id: input.enrollmentId },
+  });
+
+  if (!enrollment) {
+    throw new AcademicEnrollmentError('Affectation annuelle introuvable.', 'NOT_FOUND');
+  }
+
+  const [trainingAttempts, trainingProgress, mockExamAttempts, corrections] = await Promise.all([
+    prisma.userTrainingQuizAttempt.count({ where: { academicEnrollmentId: input.enrollmentId } }),
+    prisma.userTrainingQuizProgress.count({ where: { academicEnrollmentId: input.enrollmentId } }),
+    prisma.userHealthMockExamAttempt.count({ where: { academicEnrollmentId: input.enrollmentId } }),
+    prisma.userAcademicEnrollmentCorrection.count({ where: { enrollmentId: input.enrollmentId } }),
+  ]);
+
+  if (trainingAttempts > 0 || trainingProgress > 0 || mockExamAttempts > 0 || corrections > 0) {
+    throw new AcademicEnrollmentError(
+      'Impossible de supprimer une affectation possédant un historique pédagogique ou des corrections.',
+      'LOCKED'
+    );
+  }
+
+  await prisma.userAcademicEnrollment.delete({
+    where: { id: input.enrollmentId },
+  });
 }

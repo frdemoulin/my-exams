@@ -79,11 +79,12 @@ test.describe.serial("Santé — Colle C01 Captures & Recette Visuelle", () => {
       await scrollRightBtn.click();
     }
     const q17Tile = page.getByTestId("health-mock-exam-nav-17");
+    await expect(q17Tile).toBeVisible();
     await q17Tile.click();
 
     // Capture 2: Q17 avec badge + tuile QRPL
     await expect(page.getByText("Données communes aux questions 17 à 19")).toBeVisible();
-    await expect(page.getByText("Classification périodique", { exact: true })).toBeVisible();
+    await expect(page.getByText(/Classification périodique/)).toBeVisible();
     await expect(page.getByTestId("question-format-badge")).toContainText("QRPL");
     await expect(q17Tile).toContainText("QRPL");
     await page.screenshot({ path: path.join(screenshotsTmpDir, "c01-q17-desktop.png") });

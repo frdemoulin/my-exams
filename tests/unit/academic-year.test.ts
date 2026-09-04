@@ -1,96 +1,46 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
+try {
+  process.loadEnvFile('.env.local');
+} catch {}
+
+import prisma from '../../src/lib/db/prisma';
 import {
+  ensureNoAcademicYearOverlap,
+  getActiveAcademicYear,
   AcademicYearError,
 } from '../../src/core/academic-year/academic-year.service';
 
-// Simuler la logique de résolution temporelle d'année scolaire
-type MockAcademicYear = {
-  id: string;
-  code: string;
-  label: string;
-  startsAt: Date;
-  endsAt: Date;
-};
-
-function resolveActiveYearFromList(years: MockAcademicYear[], date: Date): MockAcademicYear {
-  const matching = years.filter(
-    (y) => y.startsAt.getTime() <= date.getTime() && y.endsAt.getTime() >= date.getTime()
-  );
-
-  if (matching.length === 0) {
-    throw new AcademicYearError(
-      `Aucune année scolaire active pour la date : ${date.toISOString()}`,
-      'NOT_FOUND'
-    );
-  }
-
-  if (matching.length > 1) {
-    throw new AcademicYearError(
-      `Plusieurs années scolaires actives détectées pour la date : ${date.toISOString()}`,
-      'MULTIPLE_ACTIVE'
-    );
-  }
-
-  return matching[0];
-}
-
-function checkDateOverlap(startsAt: Date, endsAt: Date, existingYears: MockAcademicYear[]): void {
-  if (startsAt >= endsAt) {
-    throw new AcademicYearError(
-      'La date de début doit être strictement antérieure à la date de fin.',
-      'INVALID_DATES'
-    );
-  }
-
-  const overlapping = existingYears.find(
-    (y) => startsAt <= y.endsAt && endsAt >= y.startsAt
-  );
-
-  if (overlapping) {
-    throw new AcademicYearError(
-      `Chevauchement détecté avec l'année scolaire ${overlapping.code} (${overlapping.label}).`,
-      'OVERLAP'
-    );
-  }
-}
-
-const mockYears: MockAcademicYear[] = [
-  {
-    id: 'year_2026',
-    code: '2026-2027',
-    label: 'Année scolaire 2026-2027',
-    startsAt: new Date('2026-09-01T00:00:00.000Z'),
-    endsAt: new Date('2027-08-31T23:59:59.999Z'),
-  },
-  {
-    id: 'year_2027',
-    code: '2027-2028',
-    label: 'Année scolaire 2027-2028',
-    startsAt: new Date('2027-09-01T00:00:00.000Z'),
-    endsAt: new Date('2028-08-31T23:59:59.999Z'),
-  },
-];
-
-test('AcademicYear: résout l’année 2026-2027 pour une date en octobre 2026', () => {
+test('AcademicYear (réel): résout 2026-2027 pour une date en milieu d’année', async () => {
   const date = new Date('2026-10-15T10:00:00.000Z');
-  const year = resolveActiveYearFromList(mockYears, date);
+  const year = await getActiveAcademicYear(date);
   assert.equal(year.code, '2026-2027');
   assert.equal(year.label, 'Année scolaire 2026-2027');
 });
 
-test('AcademicYear: résout l’année 2027-2028 pour une date en octobre 2027 (injection d’horloge)', () => {
-  const date = new Date('2027-10-15T10:00:00.000Z');
-  const year = resolveActiveYearFromList(mockYears, date);
-  assert.equal(year.code, '2027-2028');
-  assert.equal(year.label, 'Année scolaire 2027-2028');
+test('AcademicYear (réel): cas limite 1 - startsAt exact (2026-09-01T00:00:00.000Z) est ACTIF pour 2026-2027', async () => {
+  const date = new Date('2026-09-01T00:00:00.000Z');
+  const year = await getActiveAcademicYear(date);
+  assert.equal(year.code, '2026-2027');
 });
 
-test('AcademicYear: refuse avec NOT_FOUND si aucune année n’est configurée pour la date', () => {
-  const date = new Date('2025-05-01T00:00:00.000Z');
-  assert.throws(
-    () => resolveActiveYearFromList(mockYears, date),
+test('AcademicYear (réel): 1 ms avant endsAt (2027-08-31T23:59:59.999Z) est ACTIF pour 2026-2027', async () => {
+  const date = new Date('2027-08-31T23:59:59.999Z');
+  const year = await getActiveAcademicYear(date);
+  assert.equal(year.code, '2026-2027');
+});
+
+test('AcademicYear (réel): cas limite 2 - endsAt exact (2027-09-01T00:00:00.000Z) bascule sur 2027-2028 (intervalle semi-ouvert)', async () => {
+  const date = new Date('2027-09-01T00:00:00.000Z');
+  const year = await getActiveAcademicYear(date);
+  assert.equal(year.code, '2027-2028');
+});
+
+test('AcademicYear (réel): endsAt exact de la dernière année (2028-09-01T00:00:00.000Z) lève NOT_FOUND', async () => {
+  const date = new Date('2028-09-01T00:00:00.000Z');
+  await assert.rejects(
+    () => getActiveAcademicYear(date),
     (err: unknown) => {
       assert.ok(err instanceof AcademicYearError);
       assert.equal(err.code, 'NOT_FOUND');
@@ -99,36 +49,24 @@ test('AcademicYear: refuse avec NOT_FOUND si aucune année n’est configurée p
   );
 });
 
-test('AcademicYear: refuse avec MULTIPLE_ACTIVE si deux années se chevauchent pour la même date', () => {
-  const corruptedYears: MockAcademicYear[] = [
-    ...mockYears,
-    {
-      id: 'year_overlap',
-      code: '2026-BIS',
-      label: 'Année doublon',
-      startsAt: new Date('2026-01-01T00:00:00.000Z'),
-      endsAt: new Date('2026-12-31T23:59:59.999Z'),
-    },
-  ];
-
-  const date = new Date('2026-10-15T10:00:00.000Z');
-  assert.throws(
-    () => resolveActiveYearFromList(corruptedYears, date),
+test('AcademicYear (réel): refuse avec NOT_FOUND pour une date antérieure aux années configurées', async () => {
+  const date = new Date('2025-01-01T00:00:00.000Z');
+  await assert.rejects(
+    () => getActiveAcademicYear(date),
     (err: unknown) => {
       assert.ok(err instanceof AcademicYearError);
-      assert.equal(err.code, 'MULTIPLE_ACTIVE');
+      assert.equal(err.code, 'NOT_FOUND');
       return true;
     }
   );
 });
 
-test('AcademicYear: refuse la création d’une année si startsAt >= endsAt', () => {
-  assert.throws(
+test('AcademicYear (réel): ensureNoAcademicYearOverlap refuse si startsAt >= endsAt', async () => {
+  await assert.rejects(
     () =>
-      checkDateOverlap(
-        new Date('2028-09-01T00:00:00.000Z'),
-        new Date('2028-08-01T00:00:00.000Z'),
-        mockYears
+      ensureNoAcademicYearOverlap(
+        new Date('2029-09-01T00:00:00.000Z'),
+        new Date('2029-08-01T00:00:00.000Z')
       ),
     (err: unknown) => {
       assert.ok(err instanceof AcademicYearError);
@@ -138,13 +76,21 @@ test('AcademicYear: refuse la création d’une année si startsAt >= endsAt', (
   );
 });
 
-test('AcademicYear: refuse la création d’une année si elle chevauche une année existante', () => {
-  assert.throws(
+test('AcademicYear (réel): cas limite 3 - années contiguës [2028-09-01, 2029-09-01[ sont valides (aucun chevauchement)', async () => {
+  await assert.doesNotReject(() =>
+    ensureNoAcademicYearOverlap(
+      new Date('2028-09-01T00:00:00.000Z'),
+      new Date('2029-09-01T00:00:00.000Z')
+    )
+  );
+});
+
+test('AcademicYear (réel): cas limite 4 - chevauchement 1 ms (startsAt = 2028-08-31T23:59:59.999Z) lève OVERLAP', async () => {
+  await assert.rejects(
     () =>
-      checkDateOverlap(
-        new Date('2027-01-01T00:00:00.000Z'),
-        new Date('2027-12-31T23:59:59.999Z'),
-        mockYears
+      ensureNoAcademicYearOverlap(
+        new Date('2028-08-31T23:59:59.999Z'),
+        new Date('2029-09-01T00:00:00.000Z')
       ),
     (err: unknown) => {
       assert.ok(err instanceof AcademicYearError);
@@ -154,12 +100,28 @@ test('AcademicYear: refuse la création d’une année si elle chevauche une ann
   );
 });
 
-test('AcademicYear: autorise des années strictement consécutives sans chevauchement', () => {
-  assert.doesNotThrow(() => {
-    checkDateOverlap(
-      new Date('2028-09-01T00:00:00.000Z'),
-      new Date('2029-08-31T23:59:59.999Z'),
-      mockYears
-    );
+test('AcademicYear (réel): chevauchement interne avec 2026-2027 lève OVERLAP', async () => {
+  await assert.rejects(
+    () =>
+      ensureNoAcademicYearOverlap(
+        new Date('2026-11-01T00:00:00.000Z'),
+        new Date('2027-02-01T00:00:00.000Z')
+      ),
+    (err: unknown) => {
+      assert.ok(err instanceof AcademicYearError);
+      assert.equal(err.code, 'OVERLAP');
+      return true;
+    }
+  );
+});
+
+test('AcademicYear (réel): excludeId permet de mettre à jour une année sans s’auto-détecter en chevauchement', async () => {
+  const existing = await prisma.academicYear.findUnique({
+    where: { code: '2026-2027' },
   });
+  assert.ok(existing);
+
+  await assert.doesNotReject(() =>
+    ensureNoAcademicYearOverlap(existing.startsAt, existing.endsAt, existing.id)
+  );
 });

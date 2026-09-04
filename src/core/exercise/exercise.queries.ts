@@ -147,6 +147,72 @@ export interface SearchExercisesResult {
   pageSize: number;
 }
 
+export interface ExercisePublicDto {
+  id: string;
+  exerciseNumber: number;
+  label: string | null;
+  points: number | null;
+  exerciseType: ExerciseType | null;
+  title: string | null;
+  estimatedDuration: number | null;
+  estimatedDifficulty: number | null;
+  summary: string | null;
+  keywords: string[];
+
+  examPaper: {
+    id: string;
+    label: string;
+    sessionYear: number;
+    source: string;
+    diploma: {
+      id: string;
+      longDescription: string;
+      shortDescription: string;
+    };
+    division: {
+      id: string;
+      longDescription: string;
+      shortDescription: string;
+    } | null;
+    grade: {
+      id: string;
+      longDescription: string;
+      shortDescription: string;
+    };
+    teaching: {
+      id: string;
+      longDescription: string;
+      shortDescription: string | null;
+      subject: {
+        id: string;
+        longDescription: string;
+        shortDescription: string;
+      };
+    };
+  };
+
+  themes: Array<{
+    id: string;
+    title: string;
+    shortTitle: string | null;
+    chapters: Array<{
+      id: string;
+      title: string;
+      order: number;
+    }>;
+  }>;
+
+  hasCorrection: boolean;
+  correctionCount: number;
+}
+
+export interface SearchExercisesPublicResult {
+  items: ExercisePublicDto[];
+  total: number;
+  page: number;
+  pageSize: number;
+}
+
 const matchesExerciseTextFilters = (
   exercise: {
     examPaper: {
@@ -520,6 +586,348 @@ export async function searchExercises(
       .map((id) => themesById.get(id))
       .filter((t): t is NonNullable<typeof t> => t !== undefined),
   })) as unknown as ExerciseWithRelations[];
+
+  return { items, total, page: safePage, pageSize: safePageSize };
+}
+
+export const exercisePublicSelect = {
+  id: true,
+  exerciseNumber: true,
+  label: true,
+  points: true,
+  exerciseType: true,
+  title: true,
+  estimatedDuration: true,
+  estimatedDifficulty: true,
+  summary: true,
+  keywords: true,
+  themeIds: true,
+  examPaper: {
+    select: {
+      id: true,
+      label: true,
+      sessionYear: true,
+      source: true,
+      diploma: {
+        select: {
+          id: true,
+          longDescription: true,
+          shortDescription: true,
+        },
+      },
+      division: {
+        select: {
+          id: true,
+          longDescription: true,
+          shortDescription: true,
+        },
+      },
+      grade: {
+        select: {
+          id: true,
+          longDescription: true,
+          shortDescription: true,
+        },
+      },
+      teaching: {
+        select: {
+          id: true,
+          longDescription: true,
+          shortDescription: true,
+          subject: {
+            select: {
+              id: true,
+              longDescription: true,
+              shortDescription: true,
+            },
+          },
+        },
+      },
+    },
+  },
+  _count: {
+    select: {
+      corrections: true,
+    },
+  },
+} as const;
+
+type ExercisePublicRecord = Prisma.ExerciseGetPayload<{ select: typeof exercisePublicSelect }>;
+
+function mapToExercisePublicDto(
+  exercise: ExercisePublicRecord,
+  themesById: Map<
+    string,
+    {
+      id: string;
+      title: string;
+      shortTitle: string | null;
+      chapters: Array<{ id: string; title: string; order: number }>;
+    }
+  >
+): ExercisePublicDto {
+  return {
+    id: exercise.id,
+    exerciseNumber: exercise.exerciseNumber,
+    label: exercise.label,
+    points: exercise.points,
+    exerciseType: exercise.exerciseType,
+    title: exercise.title,
+    estimatedDuration: exercise.estimatedDuration,
+    estimatedDifficulty: exercise.estimatedDifficulty,
+    summary: exercise.summary,
+    keywords: exercise.keywords ?? [],
+    examPaper: {
+      id: exercise.examPaper.id,
+      label: exercise.examPaper.label,
+      sessionYear: exercise.examPaper.sessionYear,
+      source: exercise.examPaper.source,
+      diploma: {
+        id: exercise.examPaper.diploma.id,
+        longDescription: exercise.examPaper.diploma.longDescription,
+        shortDescription: exercise.examPaper.diploma.shortDescription,
+      },
+      division: exercise.examPaper.division
+        ? {
+            id: exercise.examPaper.division.id,
+            longDescription: exercise.examPaper.division.longDescription,
+            shortDescription: exercise.examPaper.division.shortDescription,
+          }
+        : null,
+      grade: {
+        id: exercise.examPaper.grade.id,
+        longDescription: exercise.examPaper.grade.longDescription,
+        shortDescription: exercise.examPaper.grade.shortDescription,
+      },
+      teaching: {
+        id: exercise.examPaper.teaching.id,
+        longDescription: exercise.examPaper.teaching.longDescription,
+        shortDescription: exercise.examPaper.teaching.shortDescription,
+        subject: {
+          id: exercise.examPaper.teaching.subject.id,
+          longDescription: exercise.examPaper.teaching.subject.longDescription,
+          shortDescription: exercise.examPaper.teaching.subject.shortDescription,
+        },
+      },
+    },
+    themes: exercise.themeIds
+      .map((id) => themesById.get(id))
+      .filter((t): t is NonNullable<typeof t> => t !== undefined),
+    hasCorrection: (exercise._count?.corrections ?? 0) > 0,
+    correctionCount: exercise._count?.corrections ?? 0,
+  };
+}
+
+/**
+ * Recherche publique d'exercices (Hard Wall).
+ * Utilise une projection Prisma 'select' explicite excluant statement, exerciseUrl,
+ * subjectUrl, sourceUrl et URLs de corrections.
+ * Aucun spread de modèle Prisma n'est utilisé.
+ */
+export async function searchExercisesPublic(
+  params: SearchExercisesParams = {}
+): Promise<SearchExercisesPublicResult> {
+  const {
+    diploma,
+    subject,
+    teachingId,
+    difficulty,
+    themes: themeFilters = [],
+    year,
+    search,
+    exerciseType,
+    sortBy = 'year',
+    sortOrder = 'desc',
+    limit,
+    page = 1,
+    pageSize = 10,
+  } = params;
+
+  const safePage = Math.max(1, page);
+  const safePageSize = Math.min(Math.max(1, pageSize), 50);
+  const offset = (safePage - 1) * safePageSize;
+
+  const baseWhere: Prisma.ExerciseWhereInput = {
+    enrichmentStatus: 'completed',
+  };
+
+  const examPaperFilter: Prisma.ExamPaperWhereInput = {};
+  const diplomaFilter: Prisma.DiplomaWhereInput = { isActive: true };
+  examPaperFilter.diploma = diplomaFilter;
+
+  const teachingFilter: Prisma.TeachingWhereInput = { isActive: true };
+  if (subject) {
+    teachingFilter.subject = { isActive: true };
+  }
+  if (teachingId) {
+    teachingFilter.id = teachingId;
+  }
+  if (Object.keys(teachingFilter).length > 0) {
+    examPaperFilter.teaching = teachingFilter;
+  }
+  if (year) {
+    examPaperFilter.sessionYear = year;
+  }
+  if (Object.keys(examPaperFilter).length > 0) {
+    baseWhere.examPaper = examPaperFilter;
+  }
+  if (difficulty) {
+    baseWhere.estimatedDifficulty = difficulty;
+  }
+  if (exerciseType) {
+    baseWhere.exerciseType = exerciseType;
+  }
+
+  const themeFilterWhere: Prisma.ExerciseWhereInput | undefined =
+    themeFilters.length > 0
+      ? {
+          themeIds: {
+            hasEvery: themeFilters,
+          },
+        }
+      : undefined;
+
+  const where: Prisma.ExerciseWhereInput = themeFilterWhere
+    ? { ...baseWhere, ...themeFilterWhere }
+    : baseWhere;
+
+  const hasSearch = Boolean(search && search.trim());
+  if (hasSearch) {
+    const searchTerm = search!.trim();
+
+    const [commandResult, allThemes] = await Promise.all([
+      prisma.$runCommandRaw({
+        aggregate: 'Exercise',
+        pipeline: [
+          {
+            $match: {
+              $text: { $search: searchTerm },
+              enrichmentStatus: 'completed',
+              ...(difficulty ? { estimatedDifficulty: difficulty } : {}),
+              ...(exerciseType ? { exerciseType } : {}),
+              ...(themeFilters.length > 0 ? { themeIds: { $all: themeFilters } } : {}),
+            },
+          },
+          {
+            $addFields: { score: { $meta: 'textScore' } },
+          },
+          {
+            $sort: { score: -1 },
+          },
+          {
+            $project: { _id: 1, score: 1 },
+          },
+          {
+            $limit: 500,
+          },
+        ],
+        cursor: {},
+      }),
+      prisma.theme.findMany({
+        select: {
+          id: true,
+          title: true,
+          shortTitle: true,
+        },
+      }),
+    ]);
+
+    const rawResults =
+      (commandResult as any)?.cursor?.firstBatch ?? (commandResult as any)?.documents ?? [];
+
+    const idsWithScore = (rawResults as Array<{ _id: any; score: number }>).map((doc) => ({
+      id: typeof doc._id === 'string' ? doc._id : doc._id?.$oid ?? String(doc._id),
+      score: doc.score ?? 0,
+    }));
+    const idsOrdered = idsWithScore.map((d) => d.id);
+
+    const themeIdsFromSearch = allThemes
+      .filter((theme) =>
+        includesNormalizedSearch([theme.title, theme.shortTitle], searchTerm)
+      )
+      .map((theme) => theme.id);
+
+    let themeExerciseIds: string[] = [];
+    if (themeIdsFromSearch.length > 0) {
+      const themeExercises = await prisma.exercise.findMany({
+        where: {
+          enrichmentStatus: 'completed',
+          themeIds: { hasSome: themeIdsFromSearch },
+          ...(difficulty ? { estimatedDifficulty: difficulty } : {}),
+          ...(exerciseType ? { exerciseType } : {}),
+        },
+        select: { id: true },
+        take: 200,
+      });
+      themeExerciseIds = themeExercises.map((e) => e.id);
+    }
+
+    const seenIds = new Set(idsOrdered);
+    const combinedIds = [
+      ...idsOrdered,
+      ...themeExerciseIds.filter((id) => !seenIds.has(id)),
+    ];
+
+    if (combinedIds.length === 0) {
+      return { items: [], total: 0, page: safePage, pageSize: safePageSize };
+    }
+
+    const filteredExercises = await prisma.exercise.findMany({
+      where: {
+        id: { in: combinedIds },
+        ...where,
+      },
+      select: exercisePublicSelect,
+    });
+
+    const byId = new Map(filteredExercises.map((ex) => [ex.id, ex]));
+    const sorted = combinedIds
+      .map((id) => byId.get(id))
+      .filter((ex): ex is NonNullable<typeof ex> => ex !== undefined)
+      .filter((exercise) => matchesExerciseTextFilters(exercise, { diploma, subject }));
+
+    const total = sorted.length;
+    const paginated = sorted.slice(offset, offset + safePageSize);
+
+    const allThemeIds = paginated.flatMap((ex) => ex.themeIds);
+    const uniqueThemeIds = [...new Set(allThemeIds)];
+
+    const themesList = await prisma.theme.findMany({
+      where: { id: { in: uniqueThemeIds } },
+      include: themeDomainsInclude,
+    });
+    const themesById = new Map(themesList.map((t) => [t.id, t]));
+
+    const items = paginated.map((exercise) => mapToExercisePublicDto(exercise, themesById));
+
+    return { items, total, page: safePage, pageSize: safePageSize };
+  }
+
+  // Cas sans recherche textuelle
+  const exercises = await prisma.exercise.findMany({
+    where,
+    select: exercisePublicSelect,
+  });
+
+  const filteredExercises = exercises.filter((exercise) =>
+    matchesExerciseTextFilters(exercise, { diploma, subject })
+  );
+  const sortedExercises = sortExercises(filteredExercises, sortBy, sortOrder);
+  const total = sortedExercises.length;
+  const paginatedExercises = limit
+    ? sortedExercises.slice(0, limit)
+    : sortedExercises.slice(offset, offset + safePageSize);
+
+  const allThemeIds = paginatedExercises.flatMap((ex) => ex.themeIds);
+  const uniqueThemeIds = [...new Set(allThemeIds)];
+
+  const themesList = await prisma.theme.findMany({
+    where: { id: { in: uniqueThemeIds } },
+    include: themeDomainsInclude,
+  });
+  const themesById = new Map(themesList.map((t) => [t.id, t]));
+
+  const items = paginatedExercises.map((exercise) => mapToExercisePublicDto(exercise, themesById));
 
   return { items, total, page: safePage, pageSize: safePageSize };
 }

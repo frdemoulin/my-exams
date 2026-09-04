@@ -129,22 +129,25 @@ export async function assertUserCanAccessHealthContent(params: {
     );
   }
 
-  // Règle de parcours :
-  // 1. Si l'UE est commune à tous les parcours (isCommonToAllPathways = true), elle est autorisée.
-  // 2. Si l'UE n'a pas de pathway spécifique (pathwayId == null), elle est autorisée.
-  // 3. Si l'utilisateur n'a pas de parcours restreint, il a accès à la maquette.
-  // 4. Si l'UE est restreinte à un parcours spécifique et que l'utilisateur en a un, ils doivent correspondre.
-  if (
-    !params.isCommonToAllPathways &&
-    params.pathwayId &&
-    enrollment.healthPathwayId &&
-    enrollment.healthPathwayId !== params.pathwayId
-  ) {
-    throw new PedagogicalAccessError(
-      'Accès non autorisé aux contenus de ce parcours spécifique.',
-      'FORBIDDEN_SCOPE',
-      403
-    );
+  // Règle de parcours (fail-closed strict) :
+  // Si isCommonToAllPathways === true -> autorisé, sous réserve de la bonne ProgramVersion.
+  // Sinon :
+  // - params.pathwayId doit être non null ;
+  // - enrollment.healthPathwayId doit être non null ;
+  // - les deux doivent être strictement égaux.
+  // Dans tous les autres cas -> FORBIDDEN_SCOPE.
+  if (!params.isCommonToAllPathways) {
+    if (
+      !params.pathwayId ||
+      !enrollment.healthPathwayId ||
+      enrollment.healthPathwayId !== params.pathwayId
+    ) {
+      throw new PedagogicalAccessError(
+        'Accès non autorisé aux contenus de ce parcours spécifique.',
+        'FORBIDDEN_SCOPE',
+        403
+      );
+    }
   }
 
   return enrollment;
@@ -178,26 +181,45 @@ export async function assertUserCanAccessChapter(params: {
   );
 
   if (chapter.vertical === 'HEALTH' || healthAssignment) {
-    const courseUnitId = healthAssignment?.contextId;
-    if (courseUnitId) {
-      const courseUnit = await prisma.healthCourseUnit.findUnique({
-        where: { id: courseUnitId },
+    let courseUnit: {
+      programVersionId: string;
+      pathwayId: string | null;
+      isCommonToAllPathways: boolean;
+    } | null = null;
+
+    if (healthAssignment?.contextType === 'HEALTH_COURSE_UNIT') {
+      courseUnit = await prisma.healthCourseUnit.findUnique({
+        where: { id: healthAssignment.contextId },
         select: {
           programVersionId: true,
           pathwayId: true,
           isCommonToAllPathways: true,
         },
       });
+    } else if (healthAssignment?.contextType === 'HEALTH_TEACHING_ELEMENT') {
+      const teachingElement = await prisma.healthTeachingElement.findUnique({
+        where: { id: healthAssignment.contextId },
+        select: {
+          courseUnit: {
+            select: {
+              programVersionId: true,
+              pathwayId: true,
+              isCommonToAllPathways: true,
+            },
+          },
+        },
+      });
+      courseUnit = teachingElement?.courseUnit ?? null;
+    }
 
-      if (courseUnit) {
-        return assertUserCanAccessHealthContent({
-          userId: params.userId,
-          programVersionId: courseUnit.programVersionId,
-          pathwayId: courseUnit.pathwayId,
-          isCommonToAllPathways: courseUnit.isCommonToAllPathways,
-          date: params.date,
-        });
-      }
+    if (courseUnit) {
+      return assertUserCanAccessHealthContent({
+        userId: params.userId,
+        programVersionId: courseUnit.programVersionId,
+        pathwayId: courseUnit.pathwayId,
+        isCommonToAllPathways: courseUnit.isCommonToAllPathways,
+        date: params.date,
+      });
     }
   }
 

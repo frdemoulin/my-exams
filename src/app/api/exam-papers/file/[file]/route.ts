@@ -43,28 +43,42 @@ export async function GET(
     }
   }
 
-  const filePath = path.join(getExamPapersUploadDir(), safeName);
+  const candidatePaths = [
+    path.join(getExamPapersUploadDir(), safeName),
+    path.join(process.cwd(), "public", "uploads", "exam-papers", safeName),
+    path.join(process.cwd(), "uploads", "exam-papers", safeName),
+  ];
 
-  try {
-    const buffer = await fs.readFile(filePath);
-    return new Response(buffer, {
+  let buffer: Buffer | null = null;
+  for (const filePath of candidatePaths) {
+    try {
+      buffer = await fs.readFile(filePath);
+      break;
+    } catch {
+      // continuer la recherche
+    }
+  }
+
+  if (buffer) {
+    return new Response(new Uint8Array(buffer), {
       headers: {
         "Content-Type": "application/pdf",
-        "Cache-Control": "public, max-age=31536000, immutable",
+        "Cache-Control": "private, no-cache, no-store, must-revalidate",
       },
     });
-  } catch {
-    try {
-      await prisma.errorLog.create({
-        data: {
-          type: "PDF_404",
-          path: safeName,
-          statusCode: 404,
-        },
-      });
-    } catch (error) {
-      console.error("Error logging PDF 404:", error);
-    }
-    return new Response("Fichier introuvable", { status: 404 });
   }
+
+  try {
+    await prisma.errorLog.create({
+      data: {
+        type: "PDF_404",
+        path: safeName,
+        statusCode: 404,
+      },
+    });
+  } catch (error) {
+    console.error("Erreur lors de l'enregistrement du log PDF 404 :", error);
+  }
+
+  return new Response("Fichier introuvable", { status: 404 });
 }

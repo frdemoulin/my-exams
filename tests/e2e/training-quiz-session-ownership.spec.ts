@@ -111,6 +111,7 @@ test.describe("Sécurité et ownership des sessions Training & Server Actions", 
         healthProgramVersionId: quiz.chapter.vertical === "HEALTH" ? version?.id : null,
         secondaryGradeId: quiz.chapter.vertical === "SECONDARY" ? grade?.id : null,
         lockedAt: new Date(),
+        createdBy: "SELF_ONBOARDING",
       },
     });
 
@@ -156,10 +157,10 @@ test.describe("Sécurité et ownership des sessions Training & Server Actions", 
         }
       );
 
-      expect(anonAttackResponse.status()).toBe(403);
+      expect(anonAttackResponse.status()).toBe(401);
       const anonBody = await anonAttackResponse.json();
       expect(anonBody.success).toBe(false);
-      expect(anonBody.message).toContain("Session introuvable ou accès non autorisé");
+      expect(anonBody.code).toBe("UNAUTHENTICATED");
 
       // 4. Attaque 2 : Utilisateur B (authentifié) soumet l'ID de session de A
       const payloadB = buildAppSessionTokenPayload({

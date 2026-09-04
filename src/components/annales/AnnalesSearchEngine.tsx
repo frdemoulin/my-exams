@@ -25,7 +25,7 @@ import {
   CardContent,
 } from '@/components/ui/card';
 import { ExerciseCard } from '@/components/exercises/ExerciseCard';
-import type { ExerciseWithRelations } from '@/core/exercise';
+import type { ExercisePublicDto } from '@/core/exercise';
 import { normalizeExamPaperLabel } from '@/lib/utils';
 import { RESUME_ACTIVITY_TTL_DAYS } from '@/config/app';
 
@@ -79,7 +79,7 @@ export function AnnalesSearchEngine({
   >([]);
   const [themeSearch, setThemeSearch] = useState('');
   const [isDomainsLoading, setIsDomainsLoading] = useState(false);
-  const [filteredExercises, setFilteredExercises] = useState<ExerciseWithRelations[]>([]);
+  const [filteredExercises, setFilteredExercises] = useState<ExercisePublicDto[]>([]);
   const [loading, setLoading] = useState(true);
   const [isSearching, setIsSearching] = useState(false);
   const [searchError, setSearchError] = useState<string | null>(null);

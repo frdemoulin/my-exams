@@ -7,6 +7,18 @@ export async function POST(request: Request) {
   try {
     const session = await auth();
     const userId = getSessionEffectiveUserId(session);
+
+    if (!userId) {
+      return NextResponse.json(
+        {
+          success: false,
+          code: 'UNAUTHENTICATED',
+          message: 'Authentification requise pour soumettre un quiz.',
+        },
+        { status: 401 },
+      );
+    }
+
     const body = await request.json();
 
     const { sessionId, answers, targetScore } = body ?? {};

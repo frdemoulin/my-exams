@@ -4,7 +4,7 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { searchExercises } from '@/core/exercise';
+import { searchExercisesPublic } from '@/core/exercise';
 import prisma from '@/lib/db/prisma';
 
 const MAX_SEARCH_TERM_LENGTH = 120;
@@ -53,7 +53,7 @@ export async function GET(request: NextRequest) {
     const themes = themesParam ? themesParam.split(',') : undefined;
 
     // Recherche des exercices
-    const result = await searchExercises({
+    const result = await searchExercisesPublic({
       diploma,
       subject,
       teachingId,
