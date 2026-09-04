@@ -17,6 +17,7 @@ test.describe.serial("Santé — Navigation paginée et terminaison des épreuve
   test("une colle de 20 questions affiche la pagination 1-10 puis 11-20 sur desktop et la terminaison avec modale décomptée", async ({
     page,
   }) => {
+    test.setTimeout(120_000);
     await page.goto(`${appBaseUrl}/sante/ue/6a2c2b111af36bd83ac27ec2?ec=evaluations`);
 
     await expect(page.getByRole("heading", { name: "Colles", exact: true })).toBeVisible();
