@@ -1,43 +1,25 @@
 "use server";
 
 import { auth } from "@/lib/auth/auth";
-import { getSessionEffectiveUserId } from "@/lib/auth/session";
 import {
-  createAndLockUserAcademicEnrollment,
+  createAcademicEnrollmentFromSession,
   correctUserAcademicEnrollmentByAdmin,
   deleteUserAcademicEnrollmentByAdmin,
-  AcademicEnrollmentError,
   type OnboardingEnrollmentChoicesInput,
   type AdminCorrectEnrollmentInput,
 } from "./academic-enrollment.service";
 
 /**
- * Intention utilisateur dédiée : crée l'affectation annuelle lors de l'onboarding.
- * Résout la session serveur et l'effectiveUserId, l'année active courante,
- * et force createdBy = 'SELF_ONBOARDING'.
+ * Server Action publique d'onboarding exportée au client.
+ * Contrat public strictement limité aux choix pédagogiques (OnboardingEnrollmentChoicesInput).
+ * N'accepte aucun argument de session, userId, date, academicYearId, createdBy ou lockedAt.
+ * Résout obligatoirement la session côté serveur via auth().
  */
 export async function createCurrentUserAcademicEnrollmentFromOnboarding(
   input: OnboardingEnrollmentChoicesInput
 ) {
   const session = await auth();
-  const effectiveUserId = getSessionEffectiveUserId(session);
-  if (!effectiveUserId) {
-    throw new AcademicEnrollmentError(
-      "Authentification requise pour effectuer son affectation pédagogique.",
-      "UNAUTHENTICATED"
-    );
-  }
-
-  return createAndLockUserAcademicEnrollment({
-    userId: effectiveUserId,
-    audience: input.audience,
-    secondaryGradeId: input.secondaryGradeId,
-    secondaryTeachingIds: input.secondaryTeachingIds,
-    healthProgramVersionId: input.healthProgramVersionId,
-    healthPathwayId: input.healthPathwayId,
-    date: input.date,
-    createdBy: "SELF_ONBOARDING",
-  });
+  return createAcademicEnrollmentFromSession(session, input);
 }
 
 /**

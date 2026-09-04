@@ -446,3 +446,56 @@ export async function fetchUserPedagogicalProfileContext(
     options,
   };
 }
+
+export async function fetchAuthorizedRecentExercisesForEnrollment(
+  userId: string,
+  enrollment: { audience: string; secondaryGradeId?: string | null } | null,
+  take: number = 5
+) {
+  if (!enrollment || enrollment.audience !== 'SECONDARY' || !enrollment.secondaryGradeId) {
+    return [];
+  }
+
+  return prisma.userExerciseHistory.findMany({
+    where: {
+      userId,
+      exercise: {
+        examPaper: {
+          gradeId: enrollment.secondaryGradeId,
+        },
+      },
+    },
+    orderBy: { lastViewedAt: 'desc' },
+    take,
+    select: {
+      lastViewedAt: true,
+      exercise: {
+        select: {
+          id: true,
+          title: true,
+          label: true,
+          exerciseNumber: true,
+          examPaper: {
+            select: {
+              label: true,
+              sessionYear: true,
+              diplomaId: true,
+              teaching: {
+                select: {
+                  subject: {
+                    select: {
+                      id: true,
+                      longDescription: true,
+                      shortDescription: true,
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  });
+}
+

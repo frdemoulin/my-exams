@@ -6,6 +6,7 @@ import { ChevronLeft } from 'lucide-react';
 import getSession from '@/lib/auth/get-session';
 import { getSessionEffectiveUserId } from '@/lib/auth/session';
 import { assertUserCanAccessChapter } from '@/lib/auth/assert-pedagogical-access';
+import { handlePedagogicalPageAccessError } from '@/core/academic-enrollment';
 import {
   fetchSciencePhysicsTrainingChapterBySlug,
   fetchSciencePhysicsTrainingPathProgressForChapter,
@@ -130,8 +131,11 @@ export default async function SciencePhysicsTrainingChapterPage({
   if (userId) {
     try {
       await assertUserCanAccessChapter({ userId, chapterId: chapter.id });
-    } catch {
-      redirect('/dashboard');
+    } catch (err) {
+      handlePedagogicalPageAccessError(
+        err,
+        `/entrainement/sciences-physiques/${chapterSlug}`
+      );
     }
   }
 

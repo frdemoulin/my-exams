@@ -113,8 +113,8 @@ test('createAndLockUserAcademicEnrollment: crée une affectation immédiatement 
   assert.equal(enrollment.createdBy, 'SELF_ONBOARDING');
 });
 
-test('createAndLockUserAcademicEnrollment: refuse une seconde affectation pour la même année (ALREADY_ENROLLED)', async () => {
-  const { gradeTle, userA } = await setupTestContext();
+test('createAndLockUserAcademicEnrollment: refuse une seconde affectation contradictoire pour la même année (ALREADY_ENROLLED)', async () => {
+  const { gradeTle, grade1re, userA } = await setupTestContext();
 
   await createAndLockUserAcademicEnrollment({
     userId: userA.id,
@@ -128,7 +128,7 @@ test('createAndLockUserAcademicEnrollment: refuse une seconde affectation pour l
       createAndLockUserAcademicEnrollment({
         userId: userA.id,
         audience: 'SECONDARY',
-        secondaryGradeId: gradeTle.id,
+        secondaryGradeId: grade1re.id,
         createdBy: 'SELF_ONBOARDING',
       }),
     (err: unknown) => {

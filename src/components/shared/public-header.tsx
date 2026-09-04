@@ -11,9 +11,12 @@ import UserButton from '@/components/shared/user-button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { APP_NAME } from '@/config/app';
 
+type ViewerState = 'loading' | 'anonymous' | 'noEnrollment' | 'secondary' | 'health';
+
 export function PublicHeader() {
-  const { data: session } = useSession();
-  const [viewerAudience, setViewerAudience] = useState<'SECONDARY' | 'HEALTH' | null>(null);
+  const { data: session, status } = useSession();
+  const [viewerState, setViewerState] = useState<ViewerState>('loading');
+  const [secondarySegment, setSecondarySegment] = useState<'COLLEGE' | 'LYCEE' | null>(null);
   const pathname = usePathname();
 
   const isCollegeActive = pathname === '/college' || pathname?.startsWith('/college/');
@@ -43,46 +46,80 @@ export function PublicHeader() {
 
   const topbarIconButtonClass =
     'inline-flex items-center justify-center rounded-base border border-default bg-neutral-primary-soft text-body shadow-xs text-sm font-semibold transition-colors hover:bg-neutral-secondary-soft hover:text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1';
-  const canAccessHealth = viewerAudience !== 'SECONDARY';
 
   useEffect(() => {
+    if (status === 'loading') {
+      setViewerState('loading');
+      return;
+    }
+
     if (!session?.user) {
-      setViewerAudience(null);
+      setViewerState('anonymous');
+      setSecondarySegment(null);
       return;
     }
 
     let isMounted = true;
+    setViewerState('loading');
 
-    const loadViewerAudience = async () => {
+    const loadViewerProfile = async () => {
       try {
         const response = await fetch('/api/me/viewer-profile');
         const payload = (await response.json().catch(() => null)) as
-          | { audience?: 'SECONDARY' | 'HEALTH' | null }
+          | {
+              audience?: 'SECONDARY' | 'HEALTH' | null;
+              segment?: 'COLLEGE' | 'LYCEE' | null;
+            }
           | null;
 
-        if (!isMounted) {
+        if (!isMounted) return;
+
+        if (!response.ok || !payload?.audience) {
+          setViewerState('noEnrollment');
+          setSecondarySegment(null);
           return;
         }
 
-        if (!response.ok) {
-          setViewerAudience(null);
-          return;
+        if (payload.audience === 'HEALTH') {
+          setViewerState('health');
+          setSecondarySegment(null);
+        } else if (payload.audience === 'SECONDARY') {
+          setViewerState('secondary');
+          setSecondarySegment(payload.segment ?? null);
+        } else {
+          setViewerState('noEnrollment');
+          setSecondarySegment(null);
         }
-
-        setViewerAudience(payload?.audience ?? null);
       } catch {
         if (isMounted) {
-          setViewerAudience(null);
+          setViewerState('noEnrollment');
+          setSecondarySegment(null);
         }
       }
     };
 
-    void loadViewerAudience();
+    void loadViewerProfile();
 
     return () => {
       isMounted = false;
     };
-  }, [session?.user]);
+  }, [session?.user, status]);
+
+  // Déterminer les liens autorisés selon l'univers
+  const showCollege =
+    viewerState === 'anonymous' ||
+    viewerState === 'noEnrollment' ||
+    (viewerState === 'secondary' && secondarySegment === 'COLLEGE');
+
+  const showLycee =
+    viewerState === 'anonymous' ||
+    viewerState === 'noEnrollment' ||
+    (viewerState === 'secondary' && secondarySegment === 'LYCEE');
+
+  const showHealth =
+    viewerState === 'anonymous' ||
+    viewerState === 'noEnrollment' ||
+    viewerState === 'health';
 
   return (
     <header className="sticky top-0 z-20 border-b border-border bg-background/80 backdrop-blur">
@@ -100,37 +137,49 @@ export function PublicHeader() {
         </Link>
 
         <div className="flex items-center gap-3">
+          {/* Navigation Desktop */}
           <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-            <Link
-              href="/college"
-              className={collegeLinkClass}
-              aria-current={isCollegeActive ? 'page' : undefined}
-            >
-              Collège
-            </Link>
-            <Link
-              href="/lycee"
-              className={lyceeLinkClass}
-              aria-current={isLyceeActive ? 'page' : undefined}
-            >
-              Lycée
-            </Link>
-            {canAccessHealth ? (
-              <Link
-                href="/sante"
-                className={healthLinkClass}
-                aria-current={isHealthActive ? 'page' : undefined}
-              >
-                L1 Santé
-              </Link>
-            ) : null}
-            {!session?.user ? (
-              <Link href="/contact" className="hover:text-foreground">
-                Contact
-              </Link>
-            ) : null}
+            {viewerState === 'loading' ? (
+              <div className="h-4 w-28 animate-pulse rounded bg-neutral-primary-soft" />
+            ) : (
+              <>
+                {showCollege && (
+                  <Link
+                    href="/college"
+                    className={collegeLinkClass}
+                    aria-current={isCollegeActive ? 'page' : undefined}
+                  >
+                    Collège
+                  </Link>
+                )}
+                {showLycee && (
+                  <Link
+                    href="/lycee"
+                    className={lyceeLinkClass}
+                    aria-current={isLyceeActive ? 'page' : undefined}
+                  >
+                    Lycée
+                  </Link>
+                )}
+                {showHealth && (
+                  <Link
+                    href="/sante"
+                    className={healthLinkClass}
+                    aria-current={isHealthActive ? 'page' : undefined}
+                  >
+                    L1 Santé
+                  </Link>
+                )}
+                {!session?.user ? (
+                  <Link href="/contact" className="hover:text-foreground">
+                    Contact
+                  </Link>
+                ) : null}
+              </>
+            )}
           </nav>
 
+          {/* Contrôles Desktop */}
           <div className="hidden items-center gap-3 md:flex">
             <TooltipProvider>
               <Tooltip>
@@ -160,33 +209,44 @@ export function PublicHeader() {
             {session?.user ? <UserButton user={session.user} /> : null}
           </div>
 
+          {/* Navigation & Contrôles Mobile */}
           <div className="flex items-center gap-1.5 sm:gap-3 md:hidden">
-            <Link
-              href="/college"
-              className={`${topbarIconButtonClass} h-9 w-9 p-2 sm:h-10 sm:w-10 sm:p-2.5 ${collegeIconClass}`}
-              aria-current={isCollegeActive ? 'page' : undefined}
-            >
-              <GraduationCap className="h-4 w-4" />
-              <span className="sr-only">Collège</span>
-            </Link>
-            <Link
-              href="/lycee"
-              className={`${topbarIconButtonClass} h-9 w-9 p-2 sm:h-10 sm:w-10 sm:p-2.5 ${lyceeIconClass}`}
-              aria-current={isLyceeActive ? 'page' : undefined}
-            >
-              <BookOpen className="h-4 w-4" />
-              <span className="sr-only">Lycée</span>
-            </Link>
-            {canAccessHealth ? (
-              <Link
-                href="/sante"
-                className={`${topbarIconButtonClass} h-9 w-9 p-2 sm:h-10 sm:w-10 sm:p-2.5 ${healthIconClass}`}
-                aria-current={isHealthActive ? 'page' : undefined}
-              >
-                <Stethoscope className="h-4 w-4" />
-                <span className="sr-only">L1 Santé</span>
-              </Link>
-            ) : null}
+            {viewerState === 'loading' ? (
+              <div className="h-9 w-16 animate-pulse rounded-base bg-neutral-primary-soft" />
+            ) : (
+              <>
+                {showCollege && (
+                  <Link
+                    href="/college"
+                    className={`${topbarIconButtonClass} h-9 w-9 p-2 sm:h-10 sm:w-10 sm:p-2.5 ${collegeIconClass}`}
+                    aria-current={isCollegeActive ? 'page' : undefined}
+                  >
+                    <GraduationCap className="h-4 w-4" />
+                    <span className="sr-only">Collège</span>
+                  </Link>
+                )}
+                {showLycee && (
+                  <Link
+                    href="/lycee"
+                    className={`${topbarIconButtonClass} h-9 w-9 p-2 sm:h-10 sm:w-10 sm:p-2.5 ${lyceeIconClass}`}
+                    aria-current={isLyceeActive ? 'page' : undefined}
+                  >
+                    <BookOpen className="h-4 w-4" />
+                    <span className="sr-only">Lycée</span>
+                  </Link>
+                )}
+                {showHealth && (
+                  <Link
+                    href="/sante"
+                    className={`${topbarIconButtonClass} h-9 w-9 p-2 sm:h-10 sm:w-10 sm:p-2.5 ${healthIconClass}`}
+                    aria-current={isHealthActive ? 'page' : undefined}
+                  >
+                    <Stethoscope className="h-4 w-4" />
+                    <span className="sr-only">L1 Santé</span>
+                  </Link>
+                )}
+              </>
+            )}
 
             <ThemeToggle className={`${topbarIconButtonClass} h-9 w-9 p-2 sm:h-10 sm:w-10 sm:p-2.5`} />
 

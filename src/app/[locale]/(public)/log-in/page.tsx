@@ -1,6 +1,11 @@
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
 import getSession from "@/lib/auth/get-session";
+import { getSessionEffectiveUserId } from "@/lib/auth/session";
+import {
+    getSafeCallbackUrl,
+    resolvePostAuthenticationDestination,
+} from "@/core/academic-enrollment";
 import { LogIn } from "./_components/log-in";
 
 export const metadata: Metadata = {
@@ -15,30 +20,24 @@ type LogInPageProps = {
     searchParams: Promise<{ callbackUrl?: string | string[] }>;
 };
 
-function getSafeCallbackPath(value?: string | string[]) {
-    const callbackUrl = Array.isArray(value) ? value[0] : value;
-    if (!callbackUrl?.startsWith("/")) return "/";
-
-    try {
-        const url = new URL(callbackUrl, "http://callback.local");
-        return url.origin === "http://callback.local"
-            ? `${url.pathname}${url.search}${url.hash}`
-            : "/";
-    } catch {
-        return "/";
-    }
-}
-
 const LogInPage = async ({ searchParams }: LogInPageProps) => {
     const session = await getSession();
     const { callbackUrl } = await searchParams;
-    const safeCallbackPath = getSafeCallbackPath(callbackUrl);
+    const safeCallbackPath = getSafeCallbackUrl(callbackUrl) ?? "/";
 
     if (session?.user) {
-        redirect(safeCallbackPath)
+        const effectiveUserId = getSessionEffectiveUserId(session);
+        if (effectiveUserId) {
+            const { destination } = await resolvePostAuthenticationDestination({
+                userId: effectiveUserId,
+                callbackUrl: safeCallbackPath,
+            });
+            redirect(destination);
+        }
+        redirect(safeCallbackPath);
     }
 
-    return <LogIn callbackPath={safeCallbackPath} />
-}
+    return <LogIn callbackPath={safeCallbackPath} />;
+};
 
 export default LogInPage;

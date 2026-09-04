@@ -12,6 +12,7 @@ import { fetchHealthMockExamTakingState } from "@/core/health-mock-exam/health-m
 import { auth } from "@/lib/auth/auth";
 import { getSessionEffectiveUserId } from "@/lib/auth/session";
 import { assertUserCanAccessHealthCourseUnit } from "@/lib/auth/assert-pedagogical-access";
+import { handlePedagogicalPageAccessError } from "@/core/academic-enrollment";
 
 type PageProps = {
   params: Promise<{ courseUnitId: string; examSlug: string }>;
@@ -34,9 +35,10 @@ export default async function HealthMockExamPage({ params }: PageProps) {
       userId,
       courseUnitId,
     });
-  } catch {
-    redirect('/dashboard');
+  } catch (err) {
+    handlePedagogicalPageAccessError(err, href);
   }
+
 
   const state = await fetchHealthMockExamTakingState({
     courseUnitId,

@@ -7,6 +7,7 @@ import prisma from '@/lib/db/prisma';
 import { auth } from '@/lib/auth/auth';
 import { getSessionEffectiveUserId } from '@/lib/auth/session';
 import { assertUserCanAccessSecondaryContent } from '@/lib/auth/assert-pedagogical-access';
+import { handlePedagogicalPageAccessError } from '@/core/academic-enrollment';
 import {
   fetchSciencePhysicsTrainingLevelBySlug,
   getSciencePhysicsTrainingLevelPath,
@@ -81,8 +82,11 @@ export default async function SciencePhysicsTrainingLevelPage({ params }: PagePr
           userId: effectiveUserId,
           gradeId: grade.id,
         });
-      } catch {
-        redirect('/dashboard');
+      } catch (err) {
+        handlePedagogicalPageAccessError(
+          err,
+          `/entrainement/sciences-physiques/niveaux/${levelSlug}`
+        );
       }
     }
   }

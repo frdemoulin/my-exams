@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { notFound, redirect } from 'next/navigation';
+import { redirect } from 'next/navigation';
 
 import { PublicBreadcrumb } from '@/components/shared/public-breadcrumb';
 import { PublicHeader } from '@/components/shared/public-header';
@@ -8,19 +8,22 @@ import { SiteFooter } from '@/components/shared/site-footer';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { fetchUserPedagogicalProfileContext } from '@/core/user';
+import {
+  fetchAuthorizedRecentExercisesForEnrollment,
+  fetchUserPedagogicalProfileContext,
+} from '@/core/user';
+import { getCurrentUserAcademicEnrollment } from '@/core/academic-enrollment';
 import { auth } from '@/lib/auth/auth';
-import { isAdminRole } from '@/lib/auth/roles';
-import prisma from '@/lib/db/prisma';
+import { getSessionEffectiveUserId } from '@/lib/auth/session';
 import { buildCanonicalUrl } from '@/lib/seo';
 
 import { PedagogicalProfileCard } from './_components/pedagogical-profile-card';
 
-const canonical = buildCanonicalUrl("/dashboard");
+const canonical = buildCanonicalUrl('/dashboard');
 
 export const metadata: Metadata = {
-  title: "Tableau de bord",
-  description: "Tableau de bord My Exams (bêta).",
+  title: 'Tableau de bord — My Exams',
+  description: 'Tableau de bord et suivi de votre affectation pédagogique.',
   alternates: canonical ? { canonical } : undefined,
   robots: {
     index: false,
@@ -32,62 +35,23 @@ const DashboardPage = async () => {
   const session = await auth();
 
   if (!session?.user) {
-    redirect("/log-in");
+    redirect('/log-in?callbackUrl=%2Fdashboard');
   }
 
-  const role = (session.user as any).role;
-  const email = session.user.email?.toLowerCase() ?? null;
-  const allowlist = process.env.DASHBOARD_BETA_EMAILS?.split(",")
-    .map((entry) => entry.trim().toLowerCase())
-    .filter(Boolean) ?? [];
-  const isAllowed = isAdminRole(role) || (email ? allowlist.includes(email) : false);
-
-  if (!isAllowed) {
-    notFound();
+  const effectiveUserId = getSessionEffectiveUserId(session);
+  if (!effectiveUserId) {
+    redirect('/log-in?callbackUrl=%2Fdashboard');
   }
 
-  const userId = session.user.id;
-
-  if (!userId) {
-    redirect('/log-in');
+  // Vérification de l'affectation active pour l'année scolaire
+  const enrollment = await getCurrentUserAcademicEnrollment(effectiveUserId);
+  if (!enrollment) {
+    redirect('/onboarding?callbackUrl=%2Fdashboard');
   }
 
   const [recentExercises, pedagogicalProfileContext] = await Promise.all([
-    prisma.userExerciseHistory.findMany({
-      where: { userId },
-      orderBy: { lastViewedAt: 'desc' },
-      take: 5,
-      select: {
-        lastViewedAt: true,
-        exercise: {
-          select: {
-            id: true,
-            title: true,
-            label: true,
-            exerciseNumber: true,
-            examPaper: {
-              select: {
-                label: true,
-                sessionYear: true,
-                diplomaId: true,
-                teaching: {
-                  select: {
-                    subject: {
-                      select: {
-                        id: true,
-                        longDescription: true,
-                        shortDescription: true,
-                      },
-                    },
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
-    }),
-    fetchUserPedagogicalProfileContext(userId),
+    fetchAuthorizedRecentExercisesForEnrollment(effectiveUserId, enrollment, 5),
+    fetchUserPedagogicalProfileContext(effectiveUserId),
   ]);
 
   const exerciseHistory = recentExercises
@@ -113,8 +77,8 @@ const DashboardPage = async () => {
         subjectLabel,
         examPaperLabel,
         sessionYear ? `Session ${sessionYear}` : '',
-      ]
-        .filter(Boolean);
+      ].filter(Boolean);
+
       return {
         href,
         title,
@@ -134,8 +98,7 @@ const DashboardPage = async () => {
           <div className="space-y-2">
             <h1 className="text-2xl font-semibold text-heading">Tableau de bord</h1>
             <p className="text-sm text-muted-foreground">
-              Premiers réglages du compte pour personnaliser les contenus
-              pédagogiques visibles côté utilisateur.
+              Gestion de votre profil et suivi personnalisé de vos révisions.
             </p>
           </div>
 
@@ -172,7 +135,7 @@ const DashboardPage = async () => {
                   </ul>
                 ) : (
                   <p className="text-sm text-muted-foreground">
-                    Pas encore d&apos;exercice consulté.
+                    Pas encore d&apos;exercice consulté pour votre niveau actuel.
                   </p>
                 )}
               </CardContent>
@@ -184,16 +147,16 @@ const DashboardPage = async () => {
                   Accès rapide
                 </Badge>
                 <CardTitle className="text-xl text-heading">
-                  Prochaine zone à vérifier
+                  Votre univers
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4 text-sm leading-6 text-muted-foreground">
                 <p>
                   {pedagogicalProfileContext.summary.audience === 'HEALTH'
-                    ? 'Le profil santé permet déjà de vérifier un premier rendu contextualisé selon la faculté et la structure choisies.'
+                    ? 'Accédez directement à vos UE, colles régulières et examens blancs.'
                     : pedagogicalProfileContext.summary.audience === 'SECONDARY'
-                      ? 'Le profil secondaire permet de revenir directement vers les annales adaptées au niveau déclaré.'
-                      : 'Le profil pédagogique peut encore être ajusté manuellement pour activer le bon ciblage de contenus.'}
+                      ? 'Accédez aux annales officielles et aux parcours d’entraînement par quiz pour votre classe.'
+                      : 'Complétez votre affectation pour activer vos contenus personnalisés.'}
                 </p>
                 <Button asChild variant="outline">
                   <Link href={pedagogicalProfileContext.summary.primaryHref}>

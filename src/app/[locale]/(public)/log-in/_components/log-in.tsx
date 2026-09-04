@@ -56,7 +56,8 @@ function getClientIp(headerList: Headers) {
 export async function LogIn({ callbackPath = "/" }: { callbackPath?: string }) {
   const hasMagicLink = providerMap.some((provider) => provider.id === "email");
   const oauthProviders = providerMap.filter((provider) => provider.id !== "email");
-  const callbackUrl = await getAbsoluteCallbackUrl(callbackPath);
+  const continuationPath = `/auth/continue?callbackUrl=${encodeURIComponent(callbackPath)}`;
+  const callbackUrl = await getAbsoluteCallbackUrl(continuationPath);
 
   return (
     <div className="flex min-h-screen items-center justify-center px-4 py-10">

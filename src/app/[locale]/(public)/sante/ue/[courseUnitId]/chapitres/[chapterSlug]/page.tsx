@@ -25,6 +25,7 @@ import {
   getTrainingQuizStageStarsCount,
 } from '@/core/training/training-stage';
 import { assertUserCanAccessHealthCourseUnit } from '@/lib/auth/assert-pedagogical-access';
+import { handlePedagogicalPageAccessError } from '@/core/academic-enrollment';
 import { auth } from '@/lib/auth/auth';
 import { isAdminRole } from '@/lib/auth/roles';
 import { getSessionActorRole, getSessionEffectiveUserId } from '@/lib/auth/session';
@@ -92,8 +93,11 @@ export default async function HealthChapterDetailPage({
         userId: effectiveUserId,
         courseUnitId,
       });
-    } catch {
-      redirect('/dashboard');
+    } catch (err) {
+      handlePedagogicalPageAccessError(
+        err,
+        `/sante/ue/${courseUnitId}/chapitres/${chapterSlug}`
+      );
     }
   }
 

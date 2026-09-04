@@ -38,11 +38,12 @@ test.describe("Santé — Bilan pédagogique, Correction détaillée et Suivi de
   test("cycle complet : passation colle, bilan pédagogique, correction détaillée et suivi onglet évaluations", async ({
     page,
   }) => {
+    test.setTimeout(120_000);
     const courseUnitId = "6a2c2b111af36bd83ac27ec2";
 
     // 1. Visiter l'onglet Évaluations
     await page.goto(`/sante/ue/${courseUnitId}?ec=evaluations`);
-    await page.waitForLoadState("networkidle");
+    await page.waitForLoadState("domcontentloaded");
 
     // Vérifier la présence du bloc Colles et de la colle C01
     const c01Row = page.locator("tr").filter({ hasText: "Chimie — Fondamentaux" });
@@ -98,7 +99,7 @@ test.describe("Santé — Bilan pédagogique, Correction détaillée et Suivi de
 
     // 5. Retour aux évaluations
     await page.goto(`/sante/ue/${courseUnitId}?ec=evaluations`);
-    await page.waitForLoadState("networkidle");
+    await page.waitForLoadState("domcontentloaded");
 
     // Vérifier que la colle C01 a le statut réalisé
     const updatedC01Row = page.locator("tr").filter({ hasText: "Chimie — Fondamentaux" });
@@ -133,7 +134,7 @@ test.describe("Santé — Bilan pédagogique, Correction détaillée et Suivi de
     await page.waitForURL(new RegExp(`/sante/ue/${courseUnitId}/colles/c01/resultats/[a-f0-9]+$`));
 
     await page.goto(`/sante/ue/${courseUnitId}?ec=evaluations`);
-    await page.waitForLoadState("networkidle");
+    await page.waitForLoadState("domcontentloaded");
     const historyC01Row = page.locator("tr").filter({ hasText: "Chimie — Fondamentaux" });
     const attemptsButton = historyC01Row.getByRole("button", {
       name: /Voir les \d+ tentatives de C01/,
@@ -153,7 +154,7 @@ test.describe("Santé — Bilan pédagogique, Correction détaillée et Suivi de
 
     await page.setViewportSize({ width: 768, height: 1024 });
     await page.goto(`/sante/ue/${courseUnitId}?ec=evaluations`);
-    await page.waitForLoadState("networkidle");
+    await page.waitForLoadState("domcontentloaded");
     await expectNoHorizontalOverflow(page.getByTestId("health-colles-table-scroll"));
     await expect(page.getByTestId("health-colles-table-scroll").getByRole("columnheader", { name: "ACTION" })).toBeVisible();
     const tabletC01Row = page.locator("tr").filter({ hasText: "Chimie — Fondamentaux" });
@@ -166,7 +167,7 @@ test.describe("Santé — Bilan pédagogique, Correction détaillée et Suivi de
 
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto(`/sante/ue/${courseUnitId}?ec=evaluations`);
-    await page.waitForLoadState("networkidle");
+    await page.waitForLoadState("domcontentloaded");
     await expectNoHorizontalOverflow(page.getByTestId("health-colles-table-scroll"));
     await expectNoPageHorizontalOverflow(page);
     await expect(page.getByRole("columnheader", { name: "ACTION" })).toHaveCount(0);

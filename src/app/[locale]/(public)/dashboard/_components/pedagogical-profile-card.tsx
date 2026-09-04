@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { PencilLine } from 'lucide-react';
+import { Lock } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -32,12 +32,10 @@ export function PedagogicalProfileCard({
               {context.summary.title}
             </p>
           </div>
-          <Button asChild variant="outline" className="shrink-0">
-            <Link href="/dashboard/profil-pedagogique">
-              <PencilLine className="h-4 w-4" />
-              Modifier
-            </Link>
-          </Button>
+          <Badge variant="outline" className="gap-1.5 shrink-0 border-muted-foreground/30 text-muted-foreground py-1 px-2.5">
+            <Lock className="h-3.5 w-3.5" />
+            Niveau verrouillé pour l&apos;année
+          </Badge>
         </div>
       </CardHeader>
 
@@ -52,8 +50,16 @@ export function PedagogicalProfileCard({
           </div>
         ) : null}
 
-        <div className="flex justify-end">
-          <Button asChild variant="ghost">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2 border-t border-border/50 text-xs text-muted-foreground">
+          <p>
+            Vous avez fait une erreur lors du choix de votre niveau ?{' '}
+            <Link href="/contact" className="underline hover:text-foreground">
+              Contactez-nous
+            </Link>
+            .
+          </p>
+
+          <Button asChild variant="ghost" size="sm" className="self-end sm:self-auto">
             <Link href={context.summary.primaryHref}>{context.summary.primaryLabel}</Link>
           </Button>
         </div>

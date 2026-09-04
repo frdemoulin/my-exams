@@ -10,6 +10,7 @@ import { fetchHealthStudentCourseUnitDetail } from '@/core/health';
 import { fetchHealthCourseUnitEvaluationsProgress } from '@/core/health-mock-exam/health-mock-exam.service';
 import { fetchHealthCourseUnitProgressSummary } from '@/core/health/health-progress.service';
 import { assertUserCanAccessHealthCourseUnit } from '@/lib/auth/assert-pedagogical-access';
+import { handlePedagogicalPageAccessError } from '@/core/academic-enrollment';
 import { auth } from '@/lib/auth/auth';
 import { getSessionEffectiveUserId } from '@/lib/auth/session';
 
@@ -68,8 +69,8 @@ export default async function HealthCourseUnitDetailPage({
         userId: effectiveUserId,
         courseUnitId,
       });
-    } catch {
-      redirect('/dashboard');
+    } catch (err) {
+      handlePedagogicalPageAccessError(err, `/sante/ue/${courseUnitId}`);
     }
   }
 
