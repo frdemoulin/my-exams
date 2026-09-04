@@ -540,80 +540,103 @@ test('Scénario Année N (Terminale) -> Année N+1 (Santé) : changement de vert
   const dateN = new Date('2026-10-15');
   const dateNPlus1 = new Date('2027-10-15');
 
-  // 1. Année N : Terminale
-  const enrollmentN = await createAndLockUserAcademicEnrollment({
-    userId: user.id,
-    audience: 'SECONDARY',
-    secondaryGradeId: gradeTle.id,
-    createdBy: 'SELF_ONBOARDING',
-    date: dateN,
-  });
+  try {
+    // 1. Année N : Terminale
+    const enrollmentN = await createAndLockUserAcademicEnrollment({
+      userId: user.id,
+      audience: 'SECONDARY',
+      secondaryGradeId: gradeTle.id,
+      createdBy: 'SELF_ONBOARDING',
+      date: dateN,
+    });
 
-  // Insérer un exercice de Terminale dans l'historique
-  const tleExercise = await prisma.exercise.findFirst({
-    where: { examPaper: { gradeId: gradeTle.id } },
-    select: { id: true },
-  });
-  if (tleExercise) {
-    await prisma.userExerciseHistory.create({
-      data: {
-        userId: user.id,
-        exerciseId: tleExercise.id,
-        lastViewedAt: dateN,
+    // Insérer un exercice de Terminale dans l'historique
+    const tleExercise = await prisma.exercise.findFirst({
+      where: { examPaper: { gradeId: gradeTle.id } },
+      select: { id: true },
+    });
+    if (tleExercise) {
+      await prisma.userExerciseHistory.create({
+        data: {
+          userId: user.id,
+          exerciseId: tleExercise.id,
+          lastViewedAt: dateN,
+        },
+      });
+    }
+
+    // 2. Année N+1 : Tentative invalide — réutiliser la maquette 2026-2027 en année active 2027-2028
+    await assert.rejects(
+      () =>
+        createAndLockUserAcademicEnrollment({
+          userId: user.id,
+          audience: 'HEALTH',
+          healthProgramVersionId: programVersion.id, // version 2026-2027
+          createdBy: 'SELF_ONBOARDING',
+          date: dateNPlus1, // active year 2027-2028
+        }),
+      (err: any) => {
+        assert.equal(err.code, 'INVALID_SCOPE');
+        return true;
+      }
+    );
+
+    // 3. Année N+1 : Création d'une version Santé 2027-2028 isolée pour le test
+    const versionNPlus1 = await prisma.healthProgramVersion.upsert({
+      where: {
+        institutionId_slug: {
+          institutionId: programVersion.institutionId,
+          slug: 'fixture-l1-sante-2027',
+        },
+      },
+      update: {},
+      create: {
+        institutionId: programVersion.institutionId,
+        programId: programVersion.programId,
+        label: 'Fixture L1 Santé - 2027',
+        slug: 'fixture-l1-sante-2027',
+        academicYear: '2027-2028',
+        studyLevel: 'L1',
+        isActive: true,
+        isPublished: true,
       },
     });
+
+    const enrollmentNPlus1 = await createAndLockUserAcademicEnrollment({
+      userId: user.id,
+      audience: 'HEALTH',
+      healthProgramVersionId: versionNPlus1.id,
+      createdBy: 'SELF_ONBOARDING',
+      date: dateNPlus1,
+    });
+
+    // 4. En N+1, le home d'univers est /sante
+    const homeNPlus1 = await resolveEnrollmentHomePath(enrollmentNPlus1);
+    assert.equal(homeNPlus1, '/sante');
+
+    // 5. En N+1, un callback vers /lycee n'est PAS compatible
+    const isCompatibleLycee = await isPathCompatibleWithEnrollment({
+      path: '/lycee',
+      enrollment: enrollmentNPlus1,
+    });
+    assert.equal(isCompatibleLycee, false);
+
+    // 6. En N+1, l'historique d'exercices récents ne restitue AUCUN exercice de Terminale
+    const recentExercisesNPlus1 = await fetchAuthorizedRecentExercisesForEnrollment(
+      user.id,
+      enrollmentNPlus1
+    );
+    assert.equal(
+      recentExercisesNPlus1.length,
+      0,
+      'Aucun exercice Terminale de l’année N ne doit fuiter dans le dashboard Santé N+1'
+    );
+  } finally {
+    await prisma.userAcademicEnrollment.deleteMany({ where: { userId: user.id } });
+    await prisma.healthProgramVersion.deleteMany({
+      where: { slug: 'fixture-l1-sante-2027' },
+    });
+    await cleanupTestUsers([emailChangement]);
   }
-
-  // 2. Année N+1 : Inscription en Santé
-  const versionNPlus1 = await prisma.healthProgramVersion.upsert({
-    where: {
-      institutionId_slug: {
-        institutionId: programVersion.institutionId,
-        slug: 'fixture-l1-sante-2027',
-      },
-    },
-    update: {},
-    create: {
-      institutionId: programVersion.institutionId,
-      programId: programVersion.programId,
-      label: 'Fixture L1 Santé - 2027',
-      slug: 'fixture-l1-sante-2027',
-      academicYear: '2027-2028',
-      studyLevel: 'L1',
-      isActive: true,
-      isPublished: true,
-    },
-  });
-
-  const enrollmentNPlus1 = await createAndLockUserAcademicEnrollment({
-    userId: user.id,
-    audience: 'HEALTH',
-    healthProgramVersionId: versionNPlus1.id,
-    createdBy: 'SELF_ONBOARDING',
-    date: dateNPlus1,
-  });
-
-  // 3. En N+1, le home d'univers est /sante
-  const homeNPlus1 = await resolveEnrollmentHomePath(enrollmentNPlus1);
-  assert.equal(homeNPlus1, '/sante');
-
-  // 4. En N+1, un callback vers /lycee n'est PAS compatible
-  const isCompatibleLycee = await isPathCompatibleWithEnrollment({
-    path: '/lycee',
-    enrollment: enrollmentNPlus1,
-  });
-  assert.equal(isCompatibleLycee, false);
-
-  // 5. En N+1, l'historique d'exercices récents ne restitue AUCUN exercice de Terminale
-  const recentExercisesNPlus1 = await fetchAuthorizedRecentExercisesForEnrollment(
-    user.id,
-    enrollmentNPlus1
-  );
-  assert.equal(
-    recentExercisesNPlus1.length,
-    0,
-    'Aucun exercice Terminale de l’année N ne doit fuiter dans le dashboard Santé N+1'
-  );
-
-  await cleanupTestUsers([emailChangement]);
 });
+
