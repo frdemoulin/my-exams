@@ -1,6 +1,29 @@
 import { isAdminRole } from '@/lib/auth/roles';
 import { getSessionActorId, getSessionActorRole } from '@/lib/auth/session';
 
+import type { Session } from 'next-auth';
+
+export type SessionContextLike = {
+  user?: {
+    id?: string | null;
+    role?: string | null;
+    roles?: string | null;
+    email?: string | null;
+    name?: string | null;
+  } | null;
+  actor?: {
+    id?: string | null;
+    role?: string | null;
+    email?: string | null;
+    name?: string | null;
+  } | null;
+  impersonation?: {
+    isActive?: boolean;
+    viewerId?: string | null;
+    viewerRole?: string | null;
+  } | null;
+};
+
 export class UnauthorizedAdminError extends Error {
   readonly statusCode: 401 | 403;
 
@@ -20,17 +43,19 @@ export class UnauthorizedAdminError extends Error {
  *   (Un ADMIN impersonnant un USER conserve ses droits d'administration CMS).
  * - Lève une exception UnauthorizedAdminError avec le code HTTP correspondant (401 ou 403).
  */
-export function assertAdminFromSession(session?: any): { actorId: string; session: any } {
+export function assertAdminFromSession(
+  session?: Session | SessionContextLike | null
+): { actorId: string; session: Session | SessionContextLike } {
   if (!session?.user) {
     throw new UnauthorizedAdminError('Non authentifié.', 401);
   }
 
-  const actorId = getSessionActorId(session);
+  const actorId = getSessionActorId(session as Session | null);
   if (!actorId) {
     throw new UnauthorizedAdminError('Identité de session invalide.', 401);
   }
 
-  const actorRole = getSessionActorRole(session);
+  const actorRole = getSessionActorRole(session as Session | null);
   if (!isAdminRole(actorRole)) {
     throw new UnauthorizedAdminError('Accès administrateur requis.', 403);
   }

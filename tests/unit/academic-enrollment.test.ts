@@ -192,6 +192,9 @@ test('correctUserAcademicEnrollmentByAdmin: refuse si l’acteur n’est pas ADM
       correctUserAcademicEnrollmentByAdmin(
         {
           enrollmentId: enrollment.id,
+          expectedUpdatedAt: enrollment.updatedAt.toISOString(),
+          audience: 'SECONDARY',
+          secondaryGradeId: gradeTle.id,
           reason: 'Correction sans droits',
         },
         nonAdminSession
@@ -219,6 +222,9 @@ test('correctUserAcademicEnrollmentByAdmin: refuse si motif manquant (REASON_REQ
       correctUserAcademicEnrollmentByAdmin(
         {
           enrollmentId: enrollment.id,
+          expectedUpdatedAt: enrollment.updatedAt.toISOString(),
+          audience: 'SECONDARY',
+          secondaryGradeId: gradeTle.id,
           reason: '   ',
         },
         adminSession
@@ -244,9 +250,10 @@ test('correctUserAcademicEnrollmentByAdmin: rectification ADMIN avec traçabilit
   const corrected = await correctUserAcademicEnrollmentByAdmin(
     {
       enrollmentId: enrollment.id,
+      expectedUpdatedAt: enrollment.updatedAt.toISOString(),
+      audience: 'SECONDARY',
       secondaryGradeId: grade1re.id,
       reason: 'Erreur d’inscription saisie par l’étudiant',
-      actorAdminId: 'spoofed_admin_id_ignored',
     },
     adminSession
   );

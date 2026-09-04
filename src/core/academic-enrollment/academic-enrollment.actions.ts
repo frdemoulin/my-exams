@@ -4,9 +4,11 @@ import { auth } from "@/lib/auth/auth";
 import {
   createAcademicEnrollmentFromSession,
   correctUserAcademicEnrollmentByAdmin,
+  createUserAcademicEnrollmentByAdmin,
   deleteUserAcademicEnrollmentByAdmin,
   type OnboardingEnrollmentChoicesInput,
   type AdminCorrectEnrollmentInput,
+  type AdminCreateEnrollmentInput,
 } from "./academic-enrollment.service";
 
 /**
@@ -31,6 +33,17 @@ export async function correctUserAcademicEnrollmentByAdminAction(
 ) {
   const session = await auth();
   return correctUserAcademicEnrollmentByAdmin(input, session);
+}
+
+/**
+ * Action serveur de création administrative d'affectation (ADMIN uniquement).
+ * Résout la session serveur et applique la vérification de rôle.
+ */
+export async function createUserAcademicEnrollmentByAdminAction(
+  input: AdminCreateEnrollmentInput
+) {
+  const session = await auth();
+  return createUserAcademicEnrollmentByAdmin(input, session);
 }
 
 /**

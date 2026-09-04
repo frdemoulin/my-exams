@@ -1569,6 +1569,7 @@ model UserAcademicEnrollment {
 
   lockedAt  DateTime?
   createdBy AcademicEnrollmentSource
+  createdByActorId String? @db.ObjectId
 
   user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
   academicYear AcademicYear @relation(fields: [academicYearId], references: [id], onDelete: Cascade)
