@@ -238,7 +238,7 @@ export function HealthHomePage({
           <>
             {/* HERO SECTION */}
             <section className="overflow-hidden rounded-3xl border border-border bg-card p-6 md:p-10">
-              <div className="grid gap-8 md:grid-cols-[minmax(0,1fr)_340px] md:items-center">
+              <div className="grid gap-8 md:grid-cols-[minmax(0,1fr)_260px]">
                 <div className="space-y-4">
                   <div className="flex flex-wrap items-center gap-2">
                     <Badge variant="secondary">L1 Santé</Badge>
@@ -253,50 +253,28 @@ export function HealthHomePage({
                     Quiz par chapitre, corrections détaillées, colles et examens blancs pour progresser régulièrement, avec des contenus pouvant être adaptés au programme de ton université.
                   </p>
 
-                  <div className="pt-2">
+                  <div className="flex flex-wrap items-center gap-3 pt-2">
+                    <Button asChild size="lg" className="font-semibold">
+                      <Link href="/log-in?callbackUrl=%2Fsante">
+                        Créer mon compte gratuit <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
                     <Button asChild variant="outline" size="lg">
                       <a href="#fonctionnalites">Découvrir les fonctionnalités</a>
                     </Button>
                   </div>
+
+                  <p className="text-xs text-muted-foreground">
+                    Compte gratuit requis pour accéder aux quiz, colles, examens blancs et à ta progression.
+                  </p>
                 </div>
 
-                {/* ACCESS CARD */}
-                <div className="flex flex-col justify-between rounded-2xl border border-border bg-background p-6 shadow-xs md:p-7">
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-fg-brand">
-                        <Stethoscope className="h-5 w-5" aria-hidden="true" />
-                      </div>
-                      <Badge variant="secondary" className="border-brand/20 text-xs font-medium text-fg-brand">
-                        Accès gratuit
-                      </Badge>
-                    </div>
-
-                    <div className="space-y-2">
-                      <h2 className="text-xl font-bold tracking-tight text-heading">
-                        Ton espace L1 Santé
-                      </h2>
-                      <p className="text-sm leading-relaxed text-muted-foreground">
-                        Crée gratuitement ton compte pour accéder aux contenus adaptés à ton université, à tes quiz, colles, examens blancs et à ta progression.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="mt-6 space-y-3">
-                    <Button asChild size="lg" className="w-full font-semibold">
-                      <Link href="/log-in">
-                        Créer mon compte gratuit <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-
-                    <div className="text-center">
-                      <Link
-                        href="/log-in"
-                        className="text-xs text-muted-foreground transition-colors hover:text-foreground underline-offset-4 hover:underline"
-                      >
-                        Déjà un compte ? Se connecter
-                      </Link>
-                    </div>
+                <div
+                  className="flex items-center justify-center rounded-2xl border border-border bg-background p-6"
+                  data-testid="hero-universe-illustration"
+                >
+                  <div className="flex h-28 w-28 items-center justify-center rounded-full bg-brand/10 text-fg-brand">
+                    <Stethoscope className="h-14 w-14" aria-hidden="true" />
                   </div>
                 </div>
               </div>

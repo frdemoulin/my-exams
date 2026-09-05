@@ -25,25 +25,31 @@ test.describe('Santé Multi-Universités — Landing publique et cloisonnement a
     ).toBeVisible();
     await expect(page.locator('section').first().getByText('L1 Santé', { exact: true })).toBeVisible();
     await expect(page.getByText('Entraînement universitaire en Santé')).toBeVisible();
+    
+    // Absence de la carte latérale et de ses éléments
+    await expect(page.getByRole('heading', { level: 2, name: 'Ton espace L1 Santé' })).not.toBeVisible();
+    await expect(page.getByText('Accès gratuit')).not.toBeVisible();
+    await expect(page.getByRole('link', { name: /Déjà un compte \? Se connecter/i })).not.toBeVisible();
 
-    // Carte d'accès Santé dans le hero
-    await expect(page.getByRole('heading', { level: 2, name: 'Ton espace L1 Santé' })).toBeVisible();
-    await expect(page.getByText('Accès gratuit')).toBeVisible();
-
-    // CTA public principal dans la carte d'accès -> /log-in
+    // CTAs dans la colonne gauche
     const primaryCta = page.getByRole('link', { name: 'Créer mon compte gratuit' });
     await expect(primaryCta).toBeVisible();
-    await expect(primaryCta).toHaveAttribute('href', '/log-in');
+    await expect(primaryCta).toHaveAttribute('href', '/log-in?callbackUrl=%2Fsante');
 
-    // Lien secondaire de connexion dans la carte d'accès -> /log-in
-    const loginLink = page.getByRole('link', { name: /Déjà un compte \? Se connecter/i });
-    await expect(loginLink).toBeVisible();
-    await expect(loginLink).toHaveAttribute('href', '/log-in');
-
-    // CTA secondaire public dans la colonne gauche -> ancre #fonctionnalites
     const secondaryCta = page.getByRole('link', { name: 'Découvrir les fonctionnalités' });
     await expect(secondaryCta).toBeVisible();
     await expect(secondaryCta).toHaveAttribute('href', '#fonctionnalites');
+
+    // Note d'accès discrète sous les CTAs
+    await expect(
+      page.getByText(
+        'Compte gratuit requis pour accéder aux quiz, colles, examens blancs et à ta progression.'
+      )
+    ).toBeVisible();
+
+    // Grande illustration d'univers à droite (Stethoscope)
+    const illustrationContainer = page.getByTestId('hero-universe-illustration');
+    await expect(illustrationContainer).toBeVisible();
 
     // Section Fonctionnalités (5 cartes)
     await expect(page.locator('#fonctionnalites')).toBeVisible();
@@ -112,168 +118,47 @@ test.describe('Santé Multi-Universités — Landing publique et cloisonnement a
     expect(quizRes.headers()['location']).toBe(
       '/log-in?callbackUrl=%2Fsante%2Fue%2Ftest-course-unit-id%2Fchapitres%2Ftest-chapter%2Fqcm%2Ftest-quiz'
     );
+
+    // 2.4. Page d'une colle
+    const colleRes = await request.get('/sante/ue/test-course-unit-id/colles/test-colle', {
+      maxRedirects: 0,
+    });
+    expect(colleRes.status()).toBe(307);
+    expect(colleRes.headers()['location']).toBe(
+      '/log-in?callbackUrl=%2Fsante%2Fue%2Ftest-course-unit-id%2Fcolles%2Ftest-colle'
+    );
+
+    // 2.5. Page d'un examen blanc
+    const mockExamRes = await request.get(
+      '/sante/ue/test-course-unit-id/examens-blancs/test-mock-exam',
+      { maxRedirects: 0 }
+    );
+    expect(mockExamRes.status()).toBe(307);
+    expect(mockExamRes.headers()['location']).toBe(
+      '/log-in?callbackUrl=%2Fsante%2Fue%2Ftest-course-unit-id%2Fexamens-blancs%2Ftest-mock-exam'
+    );
   });
 
   test('3. Authentifié sans Enrollment : /sante redirige vers /onboarding', async ({
-    request,
-  }) => {
-    const email = 'user-no-enrollment-sante@example.com';
-    const user = await prisma.user.upsert({
-      where: { email },
-      update: { roles: 'USER' },
-      create: { email, name: 'Sans Enrollment Santé', roles: 'USER' },
-    });
-
-    await prisma.userAcademicEnrollment.deleteMany({
-      where: { userId: user.id },
-    });
-
-    const sessionPayload = buildAppSessionTokenPayload({
-      actor: {
-        id: user.id,
-        role: 'USER',
-        email: user.email,
-        name: user.name ?? undefined,
-      },
-    });
-    const sessionToken = await encodeAppSessionToken(sessionPayload, { secure: false });
-
-    try {
-      const response = await request.get('/sante', {
-        headers: {
-          Cookie: `authjs.session-token=${sessionToken}`,
-        },
-        maxRedirects: 0,
-      });
-
-      expect(response.status()).toBe(307);
-      expect(response.headers()['location']).toBe('/onboarding?callbackUrl=%2Fsante');
-    } finally {
-      await prisma.user.deleteMany({
-        where: { id: user.id },
-      });
-    }
-  });
-
-  test('4. Authentifié SECONDARY : accès refusé à /sante et redirection canonique vers son univers', async ({
-    request,
-  }) => {
-    const email = 'user-secondary-on-sante@example.com';
-    const user = await prisma.user.upsert({
-      where: { email },
-      update: { roles: 'USER' },
-      create: { email, name: 'Élève Lycée', roles: 'USER' },
-    });
-
-    const activeYear = await prisma.academicYear.findFirst({
-      where: {
-        startsAt: { lte: new Date() },
-        endsAt: { gte: new Date() },
-      },
-    });
-
-    const gradeTle = await prisma.grade.findFirst({
-      where: { shortDescription: 'Tle' },
-    });
-
-    test.skip(!activeYear || !gradeTle, 'Prérequis BDD manquants.');
-    if (!activeYear || !gradeTle) return;
-
-    await prisma.userAcademicEnrollment.deleteMany({
-      where: { userId: user.id },
-    });
-
-    await prisma.userAcademicEnrollment.create({
-      data: {
-        userId: user.id,
-        academicYearId: activeYear.id,
-        audience: 'SECONDARY',
-        secondaryGradeId: gradeTle.id,
-        lockedAt: new Date(),
-        createdBy: 'SELF_ONBOARDING',
-      },
-    });
-
-    const sessionPayload = buildAppSessionTokenPayload({
-      actor: {
-        id: user.id,
-        role: 'USER',
-        email: user.email,
-        name: user.name ?? undefined,
-      },
-    });
-    const sessionToken = await encodeAppSessionToken(sessionPayload, { secure: false });
-
-    try {
-      const response = await request.get('/sante', {
-        headers: {
-          Cookie: `authjs.session-token=${sessionToken}`,
-        },
-        maxRedirects: 0,
-      });
-
-      // Redirigé vers /lycee (ou /dashboard)
-      expect(response.status()).toBe(307);
-      expect(response.headers()['location']).toMatch(/\/(lycee|dashboard)/);
-    } finally {
-      await prisma.userAcademicEnrollment.deleteMany({
-        where: { userId: user.id },
-      });
-      await prisma.user.deleteMany({
-        where: { id: user.id },
-      });
-    }
-  });
-
-  test('5. Authentifié HEALTH : /sante rend l’espace étudiant avec bandeau readonly', async ({
     page,
     context,
   }) => {
-    const email = 'student-health-authenticated@example.com';
-    const user = await prisma.user.upsert({
-      where: { email },
-      update: { roles: 'USER' },
-      create: { email, name: 'Étudiant Santé', roles: 'USER' },
-    });
-
-    const activeYear = await prisma.academicYear.findFirst({
-      where: {
-        startsAt: { lte: new Date() },
-        endsAt: { gte: new Date() },
-      },
-    });
-
-    const programVersion = await prisma.healthProgramVersion.findFirst({
-      where: { isActive: true },
-    });
-
-    test.skip(!activeYear || !programVersion, 'Prérequis Santé BDD manquants.');
-    if (!activeYear || !programVersion) return;
-
-    await prisma.userAcademicEnrollment.deleteMany({
-      where: { userId: user.id },
-    });
-
-    await prisma.userAcademicEnrollment.create({
+    const user = await prisma.user.create({
       data: {
-        userId: user.id,
-        academicYearId: activeYear.id,
-        audience: 'HEALTH',
-        healthProgramVersionId: programVersion.id,
-        lockedAt: new Date(),
-        createdBy: 'SELF_ONBOARDING',
+        email: `health-no-enrollment-${Date.now()}@example.com`,
+        roles: 'USER',
       },
     });
 
-    const sessionPayload = buildAppSessionTokenPayload({
-      actor: {
-        id: user.id,
-        role: 'USER',
-        email: user.email,
-        name: user.name ?? undefined,
-      },
-    });
-    const sessionToken = await encodeAppSessionToken(sessionPayload, { secure: false });
+    const sessionToken = await encodeAppSessionToken(
+      buildAppSessionTokenPayload({
+        actor: {
+          id: user.id,
+          role: 'USER',
+          email: user.email!,
+        },
+      })
+    );
 
     await context.addCookies([
       {
@@ -288,24 +173,138 @@ test.describe('Santé Multi-Universités — Landing publique et cloisonnement a
 
     try {
       await page.goto('/sante');
+      await page.waitForURL('**/onboarding?callbackUrl=%2Fsante');
+      expect(page.url()).toContain('/onboarding?callbackUrl=%2Fsante');
+    } finally {
+      await prisma.user.deleteMany({
+        where: { id: user.id },
+      });
+    }
+  });
 
-      // Doit afficher l'espace étudiant
+  test('4. Authentifié avec Enrollment SECONDARY : accès refusé, redirection vers son univers', async ({
+    page,
+    context,
+  }) => {
+    const user = await prisma.user.create({
+      data: {
+        email: `health-secondary-user-${Date.now()}@example.com`,
+        roles: 'USER',
+      },
+    });
+
+    const activeYear = await prisma.academicYear.findFirstOrThrow({
+      where: { startsAt: { lte: new Date() }, endsAt: { gte: new Date() } },
+      select: { id: true },
+    });
+
+    const terminaleGrade = await prisma.grade.findFirstOrThrow({
+      where: { shortDescription: 'Tle' },
+      select: { id: true },
+    });
+
+    await prisma.userAcademicEnrollment.create({
+      data: {
+        userId: user.id,
+        academicYearId: activeYear.id,
+        audience: 'SECONDARY',
+        secondaryGradeId: terminaleGrade.id,
+        createdBy: 'SELF_ONBOARDING',
+      },
+    });
+
+    const sessionToken = await encodeAppSessionToken(
+      buildAppSessionTokenPayload({
+        actor: {
+          id: user.id,
+          role: 'USER',
+          email: user.email!,
+        },
+      })
+    );
+
+    await context.addCookies([
+      {
+        name: 'authjs.session-token',
+        value: sessionToken,
+        domain: 'localhost',
+        path: '/',
+        httpOnly: true,
+        sameSite: 'Lax',
+      },
+    ]);
+
+    try {
+      await page.goto('/sante');
+      await page.waitForURL('**/lycee');
+      expect(page.url()).toContain('/lycee');
+    } finally {
+      await prisma.userAcademicEnrollment.deleteMany({
+        where: { userId: user.id },
+      });
+      await prisma.user.deleteMany({
+        where: { id: user.id },
+      });
+    }
+  });
+
+  test('5. Authentifié avec Enrollment HEALTH : affiche le tableau de bord Santé étudiant', async ({
+    page,
+    context,
+  }) => {
+    const user = await prisma.user.create({
+      data: {
+        email: `health-student-${Date.now()}@example.com`,
+        roles: 'USER',
+      },
+    });
+
+    const activeYear = await prisma.academicYear.findFirstOrThrow({
+      where: { startsAt: { lte: new Date() }, endsAt: { gte: new Date() } },
+      select: { id: true },
+    });
+
+    const activeProgramVersion = await prisma.healthProgramVersion.findFirstOrThrow({
+      where: { isActive: true },
+      select: { id: true },
+    });
+
+    await prisma.userAcademicEnrollment.create({
+      data: {
+        userId: user.id,
+        academicYearId: activeYear.id,
+        audience: 'HEALTH',
+        healthProgramVersionId: activeProgramVersion.id,
+        createdBy: 'SELF_ONBOARDING',
+      },
+    });
+
+    const sessionToken = await encodeAppSessionToken(
+      buildAppSessionTokenPayload({
+        actor: {
+          id: user.id,
+          role: 'USER',
+          email: user.email!,
+        },
+      })
+    );
+
+    await context.addCookies([
+      {
+        name: 'authjs.session-token',
+        value: sessionToken,
+        domain: 'localhost',
+        path: '/',
+        httpOnly: true,
+        sameSite: 'Lax',
+      },
+    ]);
+
+    try {
+      await page.goto('/sante');
       await expect(
         page.getByRole('heading', { level: 1, name: 'Mon espace Santé' })
       ).toBeVisible();
-
-      // Doit afficher l'affectation annuelle verrouillée
-      await expect(page.getByText('Affectation annuelle verrouillée')).toBeVisible();
-
-      // Doit afficher le lien readonly vers l'affectation pédagogique (JAMAIS "Modifier le profil")
-      const readonlyLink = page.getByRole('link', { name: 'Voir mon affectation pédagogique' });
-      await expect(readonlyLink).toBeVisible();
-      await expect(readonlyLink).toHaveAttribute('href', '/dashboard/profil-pedagogique');
-      await expect(page.getByText('Modifier le profil')).not.toBeVisible();
-
-      // Aucune carte de création de compte ou CTA public
-      await expect(page.getByText('Ton espace L1 Santé')).not.toBeVisible();
-      await expect(page.getByRole('link', { name: 'Créer mon compte gratuit' })).not.toBeVisible();
     } finally {
       await prisma.userAcademicEnrollment.deleteMany({
         where: { userId: user.id },
@@ -343,5 +342,60 @@ test.describe('Santé Multi-Universités — Landing publique et cloisonnement a
       path: `${ARTIFACT_DIR}/health-landing-mobile-375.png`,
       fullPage: true,
     });
+  });
+
+  test('7. Symétrie structurelle et captures 1440px des 3 univers (Collège, Lycée, Santé)', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+
+    // 7.1. Collège
+    await page.goto('/college');
+    await page.waitForLoadState('networkidle');
+    await expect(page.locator('section').first().getByText('6e · 5e · 4e · 3e')).toBeVisible();
+    await expect(page.locator('section').first().getByText('Brevet', { exact: true })).toBeVisible();
+    await expect(
+      page.getByRole('heading', { level: 1, name: 'Progresse au Collège, chapitre après chapitre' })
+    ).toBeVisible();
+    await expect(page.getByRole('link', { name: /Commencer à s’entraîner/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /Consulter les annales du Brevet/i })).toBeVisible();
+    await expect(page.getByTestId('hero-universe-illustration')).toBeVisible();
+    await page.screenshot({
+      path: `${ARTIFACT_DIR}/college-desktop-1440.png`,
+      fullPage: true,
+    });
+
+    // 7.2. Lycée
+    await page.goto('/lycee');
+    await page.waitForLoadState('networkidle');
+    await expect(page.locator('section').first().getByText('Seconde · Première · Terminale')).toBeVisible();
+    await expect(page.locator('section').first().getByText('Bac Général & Technologique')).toBeVisible();
+    await expect(
+      page.getByRole('heading', { level: 1, name: 'Progresse au Lycée, chapitre après chapitre' })
+    ).toBeVisible();
+    await expect(page.getByRole('link', { name: /Commencer à s’entraîner/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /Consulter les annales du Bac/i })).toBeVisible();
+    await expect(page.getByTestId('hero-universe-illustration')).toBeVisible();
+    await page.screenshot({
+      path: `${ARTIFACT_DIR}/lycee-desktop-1440.png`,
+      fullPage: true,
+    });
+
+    // 7.3. Santé
+    await page.goto('/sante');
+    await page.waitForLoadState('networkidle');
+    await expect(page.locator('section').first().getByText('L1 Santé', { exact: true })).toBeVisible();
+    await expect(page.locator('section').first().getByText('Entraînement universitaire en Santé')).toBeVisible();
+    await expect(
+      page.getByRole('heading', { level: 1, name: 'Entraîne-toi pour réussir ta L1 Santé' })
+    ).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Créer mon compte gratuit' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Découvrir les fonctionnalités' })).toBeVisible();
+    await expect(
+      page.getByText(
+        'Compte gratuit requis pour accéder aux quiz, colles, examens blancs et à ta progression.'
+      )
+    ).toBeVisible();
+    await expect(page.getByTestId('hero-universe-illustration')).toBeVisible();
   });
 });

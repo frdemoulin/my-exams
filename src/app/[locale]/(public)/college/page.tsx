@@ -99,9 +99,12 @@ export default function CollegePage() {
               </div>
             </div>
 
-            <div className="flex items-center justify-center rounded-2xl border border-border bg-background p-6">
+            <div
+              className="flex items-center justify-center rounded-2xl border border-border bg-background p-6"
+              data-testid="hero-universe-illustration"
+            >
               <div className="flex h-28 w-28 items-center justify-center rounded-full bg-brand/10 text-fg-brand">
-                <School className="h-14 w-14" />
+                <School className="h-14 w-14" aria-hidden="true" />
               </div>
             </div>
           </div>
