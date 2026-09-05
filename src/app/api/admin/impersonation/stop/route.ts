@@ -16,7 +16,7 @@ export async function POST(request: Request) {
   }
 
   // 2. Contexte de session DB interne
-  const sessionContext = await getCurrentInternalSessionContext();
+  const sessionContext = await getCurrentInternalSessionContext(request);
   if (!sessionContext || !canImpersonateRole(sessionContext.actorRole)) {
     return NextResponse.json({ error: 'Accès refusé.' }, { status: 403 });
   }

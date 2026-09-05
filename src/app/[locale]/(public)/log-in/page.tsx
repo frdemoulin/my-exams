@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
 import getSession from "@/lib/auth/get-session";
-import { getSessionEffectiveUserId } from "@/lib/auth/session";
+import { getSessionEffectiveRole, getSessionEffectiveUserId } from "@/lib/auth/session";
 import {
   getSafeCallbackUrl,
   resolvePostAuthenticationDestination,
@@ -33,6 +33,7 @@ const LogInPage = async ({ searchParams }: LogInPageProps) => {
     if (effectiveUserId) {
       const { destination } = await resolvePostAuthenticationDestination({
         userId: effectiveUserId,
+        role: getSessionEffectiveRole(session),
         callbackUrl: safeCallbackPath,
       });
       redirect(destination);

@@ -15,18 +15,14 @@ import {
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import type {
   AvailableAcademicEnrollmentOptions,
   AvailableGradeOption,
-  AvailableHealthInstitutionOption,
-  AvailableHealthProgramVersionOption,
-  AvailableHealthPathwayOption,
   OnboardingEnrollmentChoicesInput,
 } from '@/core/academic-enrollment';
 import { createCurrentUserAcademicEnrollmentFromOnboarding } from '@/core/academic-enrollment/academic-enrollment.actions';
+import { OnboardingShell } from './onboarding-shell';
 
 type OnboardingWizardProps = {
   initialOptions: AvailableAcademicEnrollmentOptions;
@@ -158,128 +154,162 @@ export function OnboardingWizard({ initialOptions, callbackUrl }: OnboardingWiza
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto space-y-8">
-      {/* INDICATEUR D'ÉTAPE */}
-      <div className="space-y-2">
-        <div className="flex items-center justify-between text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-          <span>Étape {step} sur 3</span>
-          <span>Année scolaire {initialOptions.academicYear.code}</span>
-        </div>
-        <div className="w-full bg-border rounded-full h-1.5 overflow-hidden">
-          <div
-            className="bg-brand h-full transition-all duration-300"
-            style={{ width: `${(step / 3) * 100}%` }}
-          />
-        </div>
-      </div>
-
+    <>
       {/* ÉTAPE 1 : SITUATION SCOLAIRE */}
       {step === 1 && (
-        <Card className="border-border bg-card">
-          <CardHeader className="space-y-2">
-            <Badge variant="secondary" className="w-fit">
-              Première connexion
-            </Badge>
-            <CardTitle className="text-2xl font-bold text-heading">
-              Quelle est votre situation pour l&apos;année {initialOptions.academicYear.code} ?
-            </CardTitle>
-            <CardDescription className="text-sm">
-              Sélectionnez votre univers d&apos;études. Cette affectation permettra de vous proposer les contenus adaptés à votre niveau.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="grid gap-4 pt-2">
+        <OnboardingShell
+          step={1}
+          academicYearCode={initialOptions.academicYear.code}
+          badge="Affectation annuelle"
+          badgeVariant="secondary"
+          title={`Quelle est votre situation pour l'année ${initialOptions.academicYear.code} ?`}
+          description="Sélectionnez votre univers d'études. Cette affectation permettra de vous proposer les contenus adaptés à votre niveau."
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 pt-2">
             <button
               type="button"
               onClick={() => handleSelectVertical('COLLEGE')}
-              className="group flex items-start gap-4 p-5 rounded-2xl border border-border bg-background hover:border-brand hover:bg-brand/5 transition-all text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+              className="group flex flex-col justify-between p-6 rounded-2xl border border-border bg-background hover:border-brand hover:bg-brand/5 transition-all text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand shadow-xs hover:shadow-sm"
             >
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-fg-brand group-hover:scale-105 transition-transform">
-                <GraduationCap className="h-6 w-6" />
-              </div>
-              <div className="flex-1 space-y-1">
+              <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-base font-semibold text-heading group-hover:text-fg-brand">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-fg-brand group-hover:scale-105 transition-transform">
+                    <GraduationCap className="h-6 w-6" />
+                  </div>
+                  <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-fg-brand group-hover:translate-x-1 transition-all" />
+                </div>
+                <div className="space-y-1.5">
+                  <h3 className="text-lg font-semibold text-heading group-hover:text-fg-brand">
                     Collège
                   </h3>
-                  <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:translate-x-1 transition-transform" />
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    Classes de 6e, 5e, 4e et 3e — Préparation au Diplôme National du Brevet (DNB).
+                  </p>
                 </div>
-                <p className="text-xs text-muted-foreground">
-                  Classes de 6e, 5e, 4e et 3e — Préparation au Diplôme National du Brevet (DNB).
-                </p>
+              </div>
+              <div className="mt-5 pt-4 border-t border-border/50 flex items-center gap-2 text-xs font-medium text-muted-foreground group-hover:text-fg-brand">
+                <span>Choisir le Collège</span>
+                <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
               </div>
             </button>
 
             <button
               type="button"
               onClick={() => handleSelectVertical('LYCEE')}
-              className="group flex items-start gap-4 p-5 rounded-2xl border border-border bg-background hover:border-brand hover:bg-brand/5 transition-all text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+              className="group flex flex-col justify-between p-6 rounded-2xl border border-border bg-background hover:border-brand hover:bg-brand/5 transition-all text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand shadow-xs hover:shadow-sm"
             >
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-fg-brand group-hover:scale-105 transition-transform">
-                <BookOpen className="h-6 w-6" />
-              </div>
-              <div className="flex-1 space-y-1">
+              <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-base font-semibold text-heading group-hover:text-fg-brand">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-fg-brand group-hover:scale-105 transition-transform">
+                    <BookOpen className="h-6 w-6" />
+                  </div>
+                  <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-fg-brand group-hover:translate-x-1 transition-all" />
+                </div>
+                <div className="space-y-1.5">
+                  <h3 className="text-lg font-semibold text-heading group-hover:text-fg-brand">
                     Lycée
                   </h3>
-                  <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:translate-x-1 transition-transform" />
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    Classes de Seconde, Première et Terminale — Annales et quiz du Baccalauréat.
+                  </p>
                 </div>
-                <p className="text-xs text-muted-foreground">
-                  Classes de Seconde, Première et Terminale — Annales et quiz du Baccalauréat.
-                </p>
+              </div>
+              <div className="mt-5 pt-4 border-t border-border/50 flex items-center gap-2 text-xs font-medium text-muted-foreground group-hover:text-fg-brand">
+                <span>Choisir le Lycée</span>
+                <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
               </div>
             </button>
 
             <button
               type="button"
               onClick={() => handleSelectVertical('HEALTH')}
-              className="group flex items-start gap-4 p-5 rounded-2xl border border-border bg-background hover:border-brand hover:bg-brand/5 transition-all text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+              className="group flex flex-col justify-between p-6 rounded-2xl border border-border bg-background hover:border-brand hover:bg-brand/5 transition-all text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand shadow-xs hover:shadow-sm md:col-span-2 lg:col-span-1"
             >
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-fg-brand group-hover:scale-105 transition-transform">
-                <Stethoscope className="h-6 w-6" />
-              </div>
-              <div className="flex-1 space-y-1">
+              <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-base font-semibold text-heading group-hover:text-fg-brand">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-fg-brand group-hover:scale-105 transition-transform">
+                    <Stethoscope className="h-6 w-6" />
+                  </div>
+                  <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-fg-brand group-hover:translate-x-1 transition-all" />
+                </div>
+                <div className="space-y-1.5">
+                  <h3 className="text-lg font-semibold text-heading group-hover:text-fg-brand">
                     L1 Santé
                   </h3>
-                  <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:translate-x-1 transition-transform" />
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    PASS et L.AS — Entraînements par UE, colles régulières et examens blancs.
+                  </p>
                 </div>
-                <p className="text-xs text-muted-foreground">
-                  PASS et L.AS — Entraînements par UE, colles régulières et examens blancs.
-                </p>
+              </div>
+              <div className="mt-5 pt-4 border-t border-border/50 flex items-center gap-2 text-xs font-medium text-muted-foreground group-hover:text-fg-brand">
+                <span>Choisir la L1 Santé</span>
+                <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
               </div>
             </button>
-          </CardContent>
-        </Card>
+          </div>
+        </OnboardingShell>
       )}
 
       {/* ÉTAPE 2 : CHOIX DU NIVEAU OU CURSUS */}
       {step === 2 && (
-        <Card className="border-border bg-card">
-          <CardHeader className="space-y-2">
-            <Badge variant="outline" className="w-fit">
-              {vertical === 'COLLEGE'
-                ? 'Collège'
-                : vertical === 'LYCEE'
-                  ? 'Lycée'
-                  : 'L1 Santé'}
-            </Badge>
-            <CardTitle className="text-2xl font-bold text-heading">
-              {vertical === 'COLLEGE' || vertical === 'LYCEE'
-                ? 'Choisissez votre classe'
-                : 'Choisissez votre formation Santé'}
-            </CardTitle>
-            <CardDescription className="text-sm">
-              {vertical === 'COLLEGE' || vertical === 'LYCEE'
-                ? 'Sélectionnez votre niveau scolaire pour accéder aux épreuves et entraînements dédiés.'
-                : 'Indiquez votre université, votre programme (PASS / L.AS) et votre parcours.'}
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-6 pt-2">
+        <OnboardingShell
+          step={2}
+          academicYearCode={initialOptions.academicYear.code}
+          badge={
+            vertical === 'COLLEGE'
+              ? 'Collège'
+              : vertical === 'LYCEE'
+                ? 'Lycée'
+                : 'L1 Santé'
+          }
+          badgeVariant="outline"
+          title={
+            vertical === 'COLLEGE' || vertical === 'LYCEE'
+              ? 'Choisissez votre classe'
+              : 'Choisissez votre formation Santé'
+          }
+          description={
+            vertical === 'COLLEGE' || vertical === 'LYCEE'
+              ? 'Sélectionnez votre niveau scolaire pour accéder aux épreuves et entraînements dédiés.'
+              : 'Indiquez votre université, votre programme (PASS / L.AS) et votre parcours.'
+          }
+          footer={
+            <div className="flex items-center justify-between">
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => setStep(1)}
+                className="gap-2"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                Retour
+              </Button>
+
+              <Button
+                type="button"
+                onClick={handleProceedToConfirmation}
+                disabled={
+                  vertical === 'COLLEGE' || vertical === 'LYCEE'
+                    ? !selectedGradeId
+                    : !selectedProgramVersionId ||
+                      (availablePathways.length > 1 && !selectedPathwayId)
+                }
+                className="gap-2 font-semibold"
+              >
+                Continuer
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </div>
+          }
+        >
+          <div className="space-y-6">
             {/* Cas Secondaire : Choix de classe */}
             {(vertical === 'COLLEGE' || vertical === 'LYCEE') && (
-              <div className="grid gap-3 sm:grid-cols-2">
+              <div
+                className={`grid gap-3 sm:grid-cols-2 ${
+                  vertical === 'COLLEGE' ? 'lg:grid-cols-4' : 'lg:grid-cols-3'
+                }`}
+              >
                 {(vertical === 'COLLEGE'
                   ? initialOptions.secondary.collegeGrades
                   : initialOptions.secondary.lyceeGrades
@@ -305,9 +335,9 @@ export function OnboardingWizard({ initialOptions, callbackUrl }: OnboardingWiza
                         </span>
                       </div>
                       {isSelected ? (
-                        <CheckCircle2 className="h-5 w-5 text-brand" />
+                        <CheckCircle2 className="h-5 w-5 text-brand shrink-0 ml-2" />
                       ) : (
-                        <div className="h-5 w-5 rounded-full border border-border" />
+                        <div className="h-5 w-5 rounded-full border border-border shrink-0 ml-2" />
                       )}
                     </button>
                   );
@@ -317,13 +347,13 @@ export function OnboardingWizard({ initialOptions, callbackUrl }: OnboardingWiza
 
             {/* Cas Santé : Établissement -> Programme -> Parcours */}
             {vertical === 'HEALTH' && (
-              <div className="space-y-5">
+              <div className="space-y-6">
                 {/* 1. Établissement */}
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                     1. Établissement
                   </label>
-                  <div className="grid gap-2">
+                  <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                     {initialOptions.health.institutions.map((inst) => {
                       const isSelected = selectedInstitutionId === inst.id;
                       return (
@@ -335,7 +365,7 @@ export function OnboardingWizard({ initialOptions, callbackUrl }: OnboardingWiza
                             setSelectedProgramVersionId(null);
                             setSelectedPathwayId(null);
                           }}
-                          className={`p-3 rounded-xl border text-left transition-all flex items-center justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${
+                          className={`p-3.5 rounded-xl border text-left transition-all flex items-center justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${
                             isSelected
                               ? 'border-brand bg-brand/10 ring-1 ring-brand'
                               : 'border-border bg-background hover:bg-neutral-primary-soft'
@@ -344,7 +374,7 @@ export function OnboardingWizard({ initialOptions, callbackUrl }: OnboardingWiza
                           <span className="font-medium text-sm text-heading">
                             {inst.name}
                           </span>
-                          {isSelected && <CheckCircle2 className="h-4 w-4 text-brand" />}
+                          {isSelected && <CheckCircle2 className="h-4 w-4 text-brand shrink-0 ml-2" />}
                         </button>
                       );
                     })}
@@ -353,7 +383,7 @@ export function OnboardingWizard({ initialOptions, callbackUrl }: OnboardingWiza
 
                 {/* 2. Formation / Programme */}
                 {currentInstitution && (
-                  <div className="space-y-2">
+                  <div className="space-y-2.5">
                     <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                       2. Formation / Programme
                     </label>
@@ -362,7 +392,7 @@ export function OnboardingWizard({ initialOptions, callbackUrl }: OnboardingWiza
                         Aucune maquette disponible pour cette université sur l&apos;année {initialOptions.academicYear.code}.
                       </p>
                     ) : (
-                      <div className="grid gap-2">
+                      <div className="grid gap-3 sm:grid-cols-2">
                         {availableVersions.map((version) => {
                           const isSelected = selectedProgramVersionId === version.id;
                           return (
@@ -377,7 +407,7 @@ export function OnboardingWizard({ initialOptions, callbackUrl }: OnboardingWiza
                                   setSelectedPathwayId(null);
                                 }
                               }}
-                              className={`p-3 rounded-xl border text-left transition-all flex items-center justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${
+                              className={`p-3.5 rounded-xl border text-left transition-all flex items-center justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${
                                 isSelected
                                   ? 'border-brand bg-brand/10 ring-1 ring-brand'
                                   : 'border-border bg-background hover:bg-neutral-primary-soft'
@@ -391,7 +421,7 @@ export function OnboardingWizard({ initialOptions, callbackUrl }: OnboardingWiza
                                   {version.studyLevel} · Année {version.academicYear}
                                 </span>
                               </div>
-                              {isSelected && <CheckCircle2 className="h-4 w-4 text-brand" />}
+                              {isSelected && <CheckCircle2 className="h-4 w-4 text-brand shrink-0 ml-2" />}
                             </button>
                           );
                         })}
@@ -402,11 +432,11 @@ export function OnboardingWizard({ initialOptions, callbackUrl }: OnboardingWiza
 
                 {/* 3. Parcours éventuel */}
                 {currentVersion && availablePathways.length > 1 && (
-                  <div className="space-y-2">
+                  <div className="space-y-2.5">
                     <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                       3. Parcours / Option
                     </label>
-                    <div className="grid gap-2">
+                    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                       {availablePathways.map((pathway) => {
                         const isSelected = selectedPathwayId === pathway.id;
                         return (
@@ -414,7 +444,7 @@ export function OnboardingWizard({ initialOptions, callbackUrl }: OnboardingWiza
                             key={pathway.id}
                             type="button"
                             onClick={() => setSelectedPathwayId(pathway.id)}
-                            className={`p-3 rounded-xl border text-left transition-all flex items-center justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${
+                            className={`p-3.5 rounded-xl border text-left transition-all flex items-center justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${
                               isSelected
                                 ? 'border-brand bg-brand/10 ring-1 ring-brand'
                                 : 'border-border bg-background hover:bg-neutral-primary-soft'
@@ -423,7 +453,7 @@ export function OnboardingWizard({ initialOptions, callbackUrl }: OnboardingWiza
                             <span className="text-sm font-medium text-heading">
                               {pathway.campus ? `${pathway.name} — ${pathway.campus}` : pathway.name}
                             </span>
-                            {isSelected && <CheckCircle2 className="h-4 w-4 text-brand" />}
+                            {isSelected && <CheckCircle2 className="h-4 w-4 text-brand shrink-0 ml-2" />}
                           </button>
                         );
                       })}
@@ -432,58 +462,26 @@ export function OnboardingWizard({ initialOptions, callbackUrl }: OnboardingWiza
                 )}
               </div>
             )}
-
-            {/* BOUTONS DE NAVIGATION ÉTAPE 2 */}
-            <div className="flex items-center justify-between pt-4 border-t border-border">
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => setStep(1)}
-                className="gap-2"
-              >
-                <ArrowLeft className="h-4 w-4" />
-                Retour
-              </Button>
-
-              <Button
-                type="button"
-                onClick={handleProceedToConfirmation}
-                disabled={
-                  (vertical === 'COLLEGE' || vertical === 'LYCEE')
-                    ? !selectedGradeId
-                    : !selectedProgramVersionId ||
-                      (availablePathways.length > 1 && !selectedPathwayId)
-                }
-                className="gap-2 font-semibold"
-              >
-                Continuer
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
+          </div>
+        </OnboardingShell>
       )}
 
       {/* ÉTAPE 3 : CONFIRMATION OBLIGATOIRE */}
       {step === 3 && (
-        <Card className="border-border bg-card">
-          <CardHeader className="space-y-2">
-            <Badge variant="secondary" className="w-fit">
-              Dernière étape
-            </Badge>
-            <CardTitle className="text-2xl font-bold text-heading">
-              Confirmez votre affectation
-            </CardTitle>
-            <CardDescription className="text-sm">
-              Veuillez vérifier les informations ci-dessous avant de valider votre inscription pédagogique.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-6 pt-2">
+        <OnboardingShell
+          step={3}
+          academicYearCode={initialOptions.academicYear.code}
+          badge="Dernière étape"
+          badgeVariant="secondary"
+          title="Confirmez votre affectation"
+          description="Veuillez vérifier les informations ci-dessous avant de valider votre inscription pédagogique."
+        >
+          <div className="space-y-6">
             {/* RÉCAPITULATIF */}
-            <div className="p-5 rounded-2xl border border-border bg-background space-y-4">
+            <div className="p-6 rounded-2xl border border-border bg-background space-y-4">
               <div className="flex items-center justify-between border-b border-border pb-3">
                 <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                  Année scolaire
+                  Année
                 </span>
                 <span className="text-sm font-bold text-heading">
                   {initialOptions.academicYear.label || initialOptions.academicYear.code}
@@ -537,14 +535,14 @@ export function OnboardingWizard({ initialOptions, callbackUrl }: OnboardingWiza
             </div>
 
             {/* AVERTISSEMENT DE VERROUILLAGE */}
-            <div className="p-4 rounded-2xl border border-warning/30 bg-warning/10 flex items-start gap-3 text-sm">
+            <div className="p-4 sm:p-5 rounded-2xl border border-warning/30 bg-warning/10 flex items-start gap-3 text-sm">
               <AlertTriangle className="h-5 w-5 text-warning shrink-0 mt-0.5" />
               <div className="space-y-1 text-warning-foreground">
                 <p className="font-semibold text-xs uppercase tracking-wider text-heading">
                   Verrouillage annuel
                 </p>
                 <p className="text-xs leading-relaxed text-muted-foreground">
-                  Ce choix détermine les contenus auxquels vous aurez accès pendant toute l&apos;année scolaire. <strong>Vous ne pourrez pas le modifier vous-même après validation.</strong>
+                  Ce choix détermine les contenus auxquels vous aurez accès pendant toute l&apos;année. <strong>Vous ne pourrez pas le modifier vous-même après validation.</strong>
                 </p>
               </div>
             </div>
@@ -591,9 +589,9 @@ export function OnboardingWizard({ initialOptions, callbackUrl }: OnboardingWiza
                 .
               </p>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </OnboardingShell>
       )}
-    </div>
+    </>
   );
 }

@@ -13,7 +13,11 @@ import { fetchUserPedagogicalProfileContext } from '@/core/user';
 import { getCurrentUserAcademicEnrollment } from '@/core/academic-enrollment';
 import { getActiveAcademicYear } from '@/core/academic-year';
 import { auth } from '@/lib/auth/auth';
-import { getSessionEffectiveUserId } from '@/lib/auth/session';
+import {
+  getSessionActorRole,
+  getSessionEffectiveUserId,
+  isSessionImpersonating,
+} from '@/lib/auth/session';
 
 export const metadata: Metadata = {
   title: 'Mon profil pédagogique — My Exams',
@@ -34,6 +38,13 @@ export default async function DashboardPedagogicalProfilePage() {
   const effectiveUserId = getSessionEffectiveUserId(session);
   if (!effectiveUserId) {
     redirect('/log-in?callbackUrl=%2Fdashboard%2Fprofil-pedagogique');
+  }
+
+  const actorRole = getSessionActorRole(session);
+  const isImpersonating = isSessionImpersonating(session);
+
+  if (actorRole === 'ADMIN' && !isImpersonating) {
+    redirect('/admin');
   }
 
   const enrollment = await getCurrentUserAcademicEnrollment(effectiveUserId);

@@ -43,7 +43,16 @@ export type InternalSessionContext = {
  * Récupère le sessionToken depuis les cookies de la requête (HTTPS en priorité, puis HTTP).
  * Utilise la liste canonique définie dans session-cookie.ts sans duplication de chaînes.
  */
-export async function getRawSessionTokenFromCookies(): Promise<string | null> {
+export async function getRawSessionTokenFromCookies(request?: Request): Promise<string | null> {
+  if (request?.headers) {
+    const cookieHeader = request.headers.get('cookie');
+    if (cookieHeader) {
+      for (const cookieName of ALL_AUTH_SESSION_COOKIE_NAMES) {
+        const match = cookieHeader.match(new RegExp(`(?:^|;\\s*)${cookieName}=([^;]+)`));
+        if (match?.[1]) return decodeURIComponent(match[1].trim());
+      }
+    }
+  }
   try {
     const cookieStore = await cookies();
     for (const cookieName of ALL_AUTH_SESSION_COOKIE_NAMES) {
@@ -60,9 +69,14 @@ export async function getRawSessionTokenFromCookies(): Promise<string | null> {
  * Résout le contexte complet de la session DB courante sans jamais exposer le sessionToken au client.
  */
 export async function getCurrentInternalSessionContext(
-  explicitToken?: string | null
+  explicitTokenOrRequest?: string | Request | null
 ): Promise<InternalSessionContext | null> {
-  const token = explicitToken ?? (await getRawSessionTokenFromCookies());
+  const token =
+    typeof explicitTokenOrRequest === 'string'
+      ? explicitTokenOrRequest
+      : await getRawSessionTokenFromCookies(
+          explicitTokenOrRequest instanceof Request ? explicitTokenOrRequest : undefined
+        );
 
   if (!token) {
     return null;

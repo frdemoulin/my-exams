@@ -6,7 +6,11 @@ import { getCurrentUserAcademicEnrollment } from '@/core/academic-enrollment';
 import { resolveEnrollmentHomePath } from '@/core/academic-enrollment/academic-enrollment.routing';
 import { fetchHealthStudentHomeContext } from '@/core/health';
 import { auth } from '@/lib/auth/auth';
-import { getSessionEffectiveUserId } from '@/lib/auth/session';
+import {
+  getSessionActorRole,
+  getSessionEffectiveUserId,
+  isSessionImpersonating,
+} from '@/lib/auth/session';
 import { HealthHomePage } from '@/components/health/HealthHomePage';
 import { buildCanonicalUrl } from '@/lib/seo';
 
@@ -23,10 +27,27 @@ export const metadata: Metadata = {
 export default async function HealthPage() {
   const session = await auth();
   const effectiveUserId = getSessionEffectiveUserId(session);
+  const actorRole = getSessionActorRole(session);
+  const isImpersonating = isSessionImpersonating(session);
 
   // 1. Visiteur non authentifié : landing publique multi-universités pure
   if (!effectiveUserId) {
-    return <HealthHomePage isAuthenticated={false} />;
+    return (
+      <HealthHomePage
+        isAuthenticated={false}
+        hasHealthPedagogicalAccess={false}
+      />
+    );
+  }
+
+  // 1.1. ADMIN hors impersonation : landing / présentation Santé sans onboarding ni contenu étudiant
+  if (actorRole === 'ADMIN' && !isImpersonating) {
+    return (
+      <HealthHomePage
+        isAuthenticated={true}
+        hasHealthPedagogicalAccess={false}
+      />
+    );
   }
 
   // 2. Utilisateur authentifié : autorité stricte de l'affectation annuelle
@@ -62,6 +83,7 @@ export default async function HealthPage() {
   return (
     <HealthHomePage
       isAuthenticated={true}
+      hasHealthPedagogicalAccess={true}
       enrollment={enrollment}
       studentHome={studentHome}
     />

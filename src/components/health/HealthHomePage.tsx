@@ -38,6 +38,7 @@ type HealthHomePageProps = {
   enrollment?: UserAcademicEnrollment | null;
   studentHome?: HealthStudentHomeContext | null;
   isAuthenticated?: boolean;
+  hasHealthPedagogicalAccess?: boolean;
 };
 
 const blockTypeLabels: Record<HealthStudentHomeBlock['type'], string> = {
@@ -111,7 +112,12 @@ export function HealthHomePage({
   enrollment,
   studentHome,
   isAuthenticated = false,
+  hasHealthPedagogicalAccess,
 }: HealthHomePageProps) {
+  const effectivePedagogicalAccess =
+    hasHealthPedagogicalAccess !== undefined
+      ? hasHealthPedagogicalAccess
+      : Boolean(isAuthenticated && (enrollment?.audience === 'HEALTH' || viewerProfile?.audience === 'HEALTH'));
   const isHealthProfile = enrollment?.audience === 'HEALTH' || viewerProfile?.audience === 'HEALTH';
   const hasSpecificContent = Boolean(studentHome?.hasSpecificContent);
   const studentBlocks = studentHome?.blocks ?? [];
@@ -140,7 +146,7 @@ export function HealthHomePage({
           ]}
         />
 
-        {isAuthenticated ? (
+        {effectivePedagogicalAccess ? (
           /* ================================================================= */
           /* AUTHENTICATED STUDENT SPACE                                       */
           /* ================================================================= */
@@ -249,15 +255,26 @@ export function HealthHomePage({
               ]}
               title="Entraîne-toi pour réussir ta L1 Santé"
               description="Quiz par chapitre, corrections détaillées, colles et examens blancs pour progresser régulièrement, avec des contenus pouvant être adaptés au programme de ton université."
-              primaryCta={{
-                label: 'Créer mon compte gratuit',
-                href: '/log-in?callbackUrl=%2Fsante',
-              }}
+              primaryCta={
+                isAuthenticated
+                  ? {
+                      label: "Retour à l'administration",
+                      href: '/admin',
+                    }
+                  : {
+                      label: 'Créer mon compte gratuit',
+                      href: '/log-in?callbackUrl=%2Fsante',
+                    }
+              }
               secondaryCta={{
                 label: 'Découvrir les fonctionnalités',
                 href: '#fonctionnalites',
               }}
-              note="Compte gratuit requis pour accéder aux quiz, colles, examens blancs et à ta progression."
+              note={
+                isAuthenticated
+                  ? undefined
+                  : 'Compte gratuit requis pour accéder aux quiz, colles, examens blancs et à ta progression.'
+              }
               icon={Stethoscope}
             />
 

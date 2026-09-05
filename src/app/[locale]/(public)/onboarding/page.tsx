@@ -4,7 +4,12 @@ import Link from 'next/link';
 import { AlertCircle } from 'lucide-react';
 
 import { auth } from '@/lib/auth/auth';
-import { getSessionEffectiveUserId } from '@/lib/auth/session';
+import {
+  getSessionActorRole,
+  getSessionEffectiveRole,
+  getSessionEffectiveUserId,
+  isSessionImpersonating,
+} from '@/lib/auth/session';
 import {
   getCurrentUserAcademicEnrollment,
   getAvailableAcademicEnrollmentOptions,
@@ -34,6 +39,8 @@ type OnboardingPageProps = {
 export default async function OnboardingPage({ searchParams }: OnboardingPageProps) {
   const session = await auth();
   const effectiveUserId = getSessionEffectiveUserId(session);
+  const actorRole = getSessionActorRole(session);
+  const isImpersonating = isSessionImpersonating(session);
   const { callbackUrl } = await searchParams;
   const safeCallback = getSafeCallbackUrl(callbackUrl);
 
@@ -44,11 +51,17 @@ export default async function OnboardingPage({ searchParams }: OnboardingPagePro
     redirect(loginTarget);
   }
 
+  // Un ADMIN hors impersonation ne doit jamais accéder au formulaire d'onboarding
+  if (actorRole === 'ADMIN' && !isImpersonating) {
+    redirect('/admin');
+  }
+
   // Vérifier si l'utilisateur a déjà une affectation active
   const existingEnrollment = await getCurrentUserAcademicEnrollment(effectiveUserId);
   if (existingEnrollment) {
     const { destination } = await resolvePostAuthenticationDestination({
       userId: effectiveUserId,
+      role: getSessionEffectiveRole(session),
       callbackUrl: safeCallback,
     });
     redirect(destination);
@@ -99,7 +112,7 @@ export default async function OnboardingPage({ searchParams }: OnboardingPagePro
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <PublicHeader />
-      <main className="mx-auto flex w-full max-w-4xl flex-1 flex-col items-center justify-center px-4 py-12">
+      <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         <OnboardingWizard initialOptions={options} callbackUrl={safeCallback} />
       </main>
       <SiteFooter />

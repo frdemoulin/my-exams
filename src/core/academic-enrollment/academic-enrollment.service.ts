@@ -1,7 +1,11 @@
 import prisma from '@/lib/db/prisma';
 import { getActiveAcademicYear } from '@/core/academic-year';
 import { assertAdminFromSession, type SessionContextLike } from '@/lib/auth/assert-admin-session';
-import { getSessionEffectiveUserId, isSessionImpersonating } from '@/lib/auth/session';
+import {
+  getSessionActorRole,
+  getSessionEffectiveUserId,
+  isSessionImpersonating,
+} from '@/lib/auth/session';
 import type { Session } from 'next-auth';
 import type {
   AcademicEnrollmentSource,
@@ -885,6 +889,13 @@ export async function createAcademicEnrollmentFromSession(
   if (isSessionImpersonating(session)) {
     throw new AcademicEnrollmentError(
       "L'onboarding personnel ne peut pas être validé sous impersonation administrative.",
+      'INVALID_SCOPE'
+    );
+  }
+
+  if (getSessionActorRole(session) === 'ADMIN') {
+    throw new AcademicEnrollmentError(
+      "Les administrateurs ne créent pas d'affectation pédagogique d'onboarding.",
       'INVALID_SCOPE'
     );
   }

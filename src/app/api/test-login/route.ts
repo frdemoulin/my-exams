@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 import crypto from "crypto";
 
 import prisma from "@/lib/db/prisma";
+import { DEMO_ACCOUNT_EMAIL_SET } from "@/lib/auth/demo-accounts";
 import {
   getAuthSessionCookieConfig,
   ADMIN_SESSION_MAX_AGE_SECONDS,
@@ -37,9 +38,7 @@ export async function POST(req: Request) {
     const adminE2EEmail = (process.env.E2E_TEST_EMAIL || "admin-e2e@example.com").toLowerCase();
     const ALLOWED_TEST_LOGIN_EMAILS = new Set([
       adminE2EEmail,
-      "demo-college@my-exams.local",
-      "demo-lycee@my-exams.local",
-      "demo-sante@my-exams.local",
+      ...DEMO_ACCOUNT_EMAIL_SET,
     ]);
 
     if (!ALLOWED_TEST_LOGIN_EMAILS.has(email)) {

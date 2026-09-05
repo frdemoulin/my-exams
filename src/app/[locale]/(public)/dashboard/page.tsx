@@ -14,7 +14,11 @@ import {
 } from '@/core/user';
 import { getCurrentUserAcademicEnrollment } from '@/core/academic-enrollment';
 import { auth } from '@/lib/auth/auth';
-import { getSessionEffectiveUserId } from '@/lib/auth/session';
+import {
+  getSessionActorRole,
+  getSessionEffectiveUserId,
+  isSessionImpersonating,
+} from '@/lib/auth/session';
 import { buildCanonicalUrl } from '@/lib/seo';
 
 import { PedagogicalProfileCard } from './_components/pedagogical-profile-card';
@@ -41,6 +45,14 @@ const DashboardPage = async () => {
   const effectiveUserId = getSessionEffectiveUserId(session);
   if (!effectiveUserId) {
     redirect('/log-in?callbackUrl=%2Fdashboard');
+  }
+
+  const actorRole = getSessionActorRole(session);
+  const isImpersonating = isSessionImpersonating(session);
+
+  // Un compte ADMIN hors impersonation est orienté vers l'espace d'administration
+  if (actorRole === 'ADMIN' && !isImpersonating) {
+    redirect('/admin');
   }
 
   // Vérification de l'affectation active pour l'année scolaire

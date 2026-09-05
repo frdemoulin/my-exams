@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth/auth";
-import { getSessionEffectiveUserId } from "@/lib/auth/session";
+import { getSessionEffectiveRole, getSessionEffectiveUserId } from "@/lib/auth/session";
 import {
   getSafeCallbackUrl,
   resolvePostAuthenticationDestination,
@@ -24,6 +24,7 @@ export default async function AuthContinuePage({ searchParams }: AuthContinuePag
 
   const { destination } = await resolvePostAuthenticationDestination({
     userId: effectiveUserId,
+    role: getSessionEffectiveRole(session),
     callbackUrl: safeCallback,
   });
 

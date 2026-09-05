@@ -1,5 +1,5 @@
 import prisma from '@/lib/db/prisma';
-import type { UserAcademicEnrollment } from '@prisma/client';
+import type { Role, UserAcademicEnrollment } from '@prisma/client';
 import { resolveSecondarySchoolSegment } from './academic-enrollment.segments';
 import { getCurrentUserAcademicEnrollment } from './academic-enrollment.service';
 import { redirect } from 'next/navigation';
@@ -117,10 +117,24 @@ export async function resolveEnrollmentHomePath(
  */
 export async function resolveHomeTrainingCtaDestination(params: {
   userId?: string | null;
+  role?: Role | null;
   date?: Date;
 }): Promise<string> {
   if (!params.userId) {
     return '/entrainement';
+  }
+
+  let role = params.role;
+  if (!role) {
+    const user = await prisma.user.findUnique({
+      where: { id: params.userId },
+      select: { roles: true },
+    });
+    role = user?.roles ?? 'USER';
+  }
+
+  if (role === 'ADMIN') {
+    return '/admin';
   }
 
   const enrollment = await getCurrentUserAcademicEnrollment(params.userId, params.date);
@@ -333,11 +347,42 @@ export async function isPathCompatibleWithEnrollment(params: {
  */
 export async function resolvePostAuthenticationDestination(params: {
   userId: string;
+  role?: Role | null;
   callbackUrl?: string | null;
   date?: Date;
 }): Promise<{ destination: string; isOnboardingRequired: boolean }> {
-  const enrollment = await getCurrentUserAcademicEnrollment(params.userId, params.date);
+  let role = params.role;
+  if (!role) {
+    const user = await prisma.user.findUnique({
+      where: { id: params.userId },
+      select: { roles: true },
+    });
+    role = user?.roles ?? 'USER';
+  }
+
   const safeCallback = getSafeCallbackUrl(params.callbackUrl);
+
+  // Un compte ADMIN ne doit jamais être orienté vers l'onboarding
+  if (role === 'ADMIN') {
+    if (safeCallback && (safeCallback === '/admin' || safeCallback.startsWith('/admin/'))) {
+      return {
+        destination: safeCallback,
+        isOnboardingRequired: false,
+      };
+    }
+    if (safeCallback && !safeCallback.startsWith('/onboarding') && !safeCallback.startsWith('/dashboard')) {
+      return {
+        destination: safeCallback,
+        isOnboardingRequired: false,
+      };
+    }
+    return {
+      destination: '/admin',
+      isOnboardingRequired: false,
+    };
+  }
+
+  const enrollment = await getCurrentUserAcademicEnrollment(params.userId, params.date);
 
   if (!enrollment) {
     const onboardingUrl = safeCallback
