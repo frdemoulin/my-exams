@@ -118,7 +118,7 @@ export default function LyceePage() {
                 Progresse au Lycée, chapitre après chapitre
               </h1>
 
-              <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
+              <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base text-balance">
                 De la Seconde à la Terminale, entraîne-toi avec des quiz par chapitre, des exercices progressifs et des corrections détaillées. En Première et Terminale, complète ta préparation avec les annales officielles du Bac.
               </p>
 
