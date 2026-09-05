@@ -213,3 +213,109 @@ export function isAllowedOrigin(origin?: string | null): boolean {
     return false;
   }
 }
+
+export function getAllowedHosts(): Set<string> {
+  const hosts = new Set<string>();
+  const origins = getAllowedOrigins();
+
+  for (const origin of origins) {
+    try {
+      const url = new URL(origin);
+      if (url.host) hosts.add(url.host.toLowerCase());
+      if (url.hostname) hosts.add(url.hostname.toLowerCase());
+    } catch {
+      // Ignorer URL invalide
+    }
+  }
+
+  if (process.env.HEALTH_HOST) {
+    hosts.add(process.env.HEALTH_HOST.trim().toLowerCase());
+  }
+
+  if (process.env.APP_HOST) {
+    hosts.add(process.env.APP_HOST.trim().toLowerCase());
+  }
+
+  if (process.env.NODE_ENV !== "production") {
+    hosts.add("localhost:3000");
+    hosts.add("localhost");
+    hosts.add("127.0.0.1:3000");
+    hosts.add("127.0.0.1");
+    hosts.add("sante.lvh.me:3000");
+    hosts.add("sante.lvh.me");
+    hosts.add("app.lvh.me:3000");
+    hosts.add("app.lvh.me");
+  }
+
+  return hosts;
+}
+
+export function isAllowedHost(host?: string | null): boolean {
+  if (!host) return false;
+  const cleanHost = host.trim().toLowerCase();
+  if (!cleanHost) return false;
+
+  const allowed = getAllowedHosts();
+  if (allowed.has(cleanHost)) return true;
+
+  const withoutPort = cleanHost.replace(/:\d+$/, "");
+  if (allowed.has(withoutPort)) return true;
+
+  return false;
+}
+
+export type SensitiveMutationValidationResult = {
+  isValid: boolean;
+  error?: string;
+};
+
+export function validateSensitiveMutationRequest(
+  request: Request,
+  isProduction?: boolean
+): SensitiveMutationValidationResult {
+  const effectiveIsProduction =
+    isProduction !== undefined
+      ? isProduction
+      : process.env.NODE_ENV === "production" && !isBuildPhase();
+
+  const origin = request.headers.get("origin");
+  const host = request.headers.get("host");
+  const forwardedHost = request.headers.get("x-forwarded-host");
+
+  // Protection Origin et Host
+  if (effectiveIsProduction) {
+    if (!origin || !isAllowedOrigin(origin)) {
+      return { isValid: false, error: "Origine non autorisée." };
+    }
+    if (!host || !isAllowedHost(host)) {
+      return { isValid: false, error: "Hôte non autorisé." };
+    }
+  } else {
+    if (origin && !isAllowedOrigin(origin)) {
+      return { isValid: false, error: "Origine non autorisée." };
+    }
+    if (host && !isAllowedHost(host)) {
+      return { isValid: false, error: "Hôte non autorisé." };
+    }
+  }
+
+  // Contrôle de x-forwarded-host (fail-closed si présent)
+  if (forwardedHost) {
+    const parts = forwardedHost
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean);
+
+    if (parts.length === 0 && effectiveIsProduction) {
+      return { isValid: false, error: "En-tête x-forwarded-host vide." };
+    }
+
+    for (const part of parts) {
+      if (!isAllowedHost(part)) {
+        return { isValid: false, error: "En-tête x-forwarded-host non autorisé." };
+      }
+    }
+  }
+
+  return { isValid: true };
+}

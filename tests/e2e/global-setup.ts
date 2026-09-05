@@ -5,6 +5,11 @@ import { execSync } from "child_process";
 import type { FullConfig } from "@playwright/test";
 import { loadProjectEnv } from "../../scripts/lib/load-env";
 
+import {
+  AUTH_SESSION_COOKIE_NAME_SECURE,
+  AUTH_SESSION_COOKIE_NAME_INSECURE,
+} from "../../src/lib/auth/session-cookie";
+
 loadProjectEnv();
 
 const prisma = require("../../src/lib/db/prisma").default;
@@ -192,7 +197,9 @@ export default async function globalSetup(_config: FullConfig) {
   ) {
     const url = new URL(urlValue);
     const secure = url.protocol === "https:";
-    const cookieName = secure ? "__Secure-authjs.session-token" : "authjs.session-token";
+    const cookieName = secure
+      ? AUTH_SESSION_COOKIE_NAME_SECURE
+      : AUTH_SESSION_COOKIE_NAME_INSECURE;
 
     const cookieBase = {
       name: cookieName,

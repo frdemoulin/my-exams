@@ -1,4 +1,3 @@
-import "server-only";
 import { cookies, headers } from "next/headers";
 import type { Role } from "@prisma/client";
 import prisma from "@/lib/db/prisma";
@@ -95,7 +94,10 @@ export async function getCurrentInternalSessionContext(
   const allowedLifetimeMs = isActorAdmin ? ADMIN_MAX_AGE_MS : USER_MAX_AGE_MS;
   const deadlineMs = createdAtMs + allowedLifetimeMs;
 
-  if (now >= deadlineMs) {
+  // Règle absolue P1D : effectiveExpiresMs = min(sessionRecord.expires, roleDeadline)
+  const effectiveExpiresMs = Math.min(sessionRecord.expires.getTime(), deadlineMs);
+
+  if (now >= effectiveExpiresMs) {
     // Session expirée : suppression immédiate côté serveur
     try {
       await prisma.session.delete({ where: { sessionToken: token } });
@@ -105,9 +107,8 @@ export async function getCurrentInternalSessionContext(
     return null;
   }
 
-  let effectiveExpires = sessionRecord.expires;
+  let effectiveExpires = new Date(effectiveExpiresMs);
   if (sessionRecord.expires.getTime() > deadlineMs) {
-    effectiveExpires = new Date(deadlineMs);
     // Mise à jour opportuniste pour que la DB reflète le capping strict
     try {
       await prisma.session.update({

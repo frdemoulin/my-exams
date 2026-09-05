@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 import prisma from '@/lib/db/prisma';
 import { canImpersonateRole, isAdminRole } from '@/lib/auth/roles';
 import { getCurrentInternalSessionContext } from '@/lib/auth/current-session';
-import { isAllowedOrigin } from '@/lib/auth/auth-config-validator';
+import { validateSensitiveMutationRequest } from '@/lib/auth/auth-config-validator';
 
 type StartImpersonationPayload = {
   userId?: string;
@@ -11,12 +11,13 @@ type StartImpersonationPayload = {
 };
 
 export async function POST(request: Request) {
-  // 1. Validation de l'Origin pour protection CSRF stricte
-  const origin = request.headers.get('origin');
-  if (process.env.NODE_ENV === 'production' && (!origin || !isAllowedOrigin(origin))) {
-    return NextResponse.json({ error: 'Origine non autorisée.' }, { status: 403 });
-  } else if (origin && !isAllowedOrigin(origin)) {
-    return NextResponse.json({ error: 'Origine non autorisée.' }, { status: 403 });
+  // 1. Validation de l'Origin, du Host et de x-forwarded-host (fail-closed en production)
+  const validation = validateSensitiveMutationRequest(request);
+  if (!validation.isValid) {
+    return NextResponse.json(
+      { error: validation.error ?? 'Requête non autorisée.' },
+      { status: 403 }
+    );
   }
 
   // 2. Contexte de session DB interne
@@ -81,25 +82,26 @@ export async function POST(request: Request) {
     );
   }
 
-  // 4. Mutation de la session DB spécifique à cet admin
-  await prisma.session.update({
-    where: { sessionToken: sessionContext.sessionToken },
-    data: {
-      impersonatedUserId: target.id,
-      impersonationStartedAt: new Date(),
-      impersonationReason: reason,
-    },
-  });
+  // 4. Mutation atomique de la session DB et de l'AuthLog
+  await prisma.$transaction(async (tx) => {
+    await tx.session.update({
+      where: { sessionToken: sessionContext.sessionToken },
+      data: {
+        impersonatedUserId: target.id,
+        impersonationStartedAt: new Date(),
+        impersonationReason: reason,
+      },
+    });
 
-  // 5. Journalisation d'audit AuthLog avec motif et cible
-  await prisma.authLog.create({
-    data: {
-      userId: actor.id,
-      action: 'IMPERSONATION_START',
-      targetUserId: target.id,
-      reason,
-      provider: null,
-    },
+    await tx.authLog.create({
+      data: {
+        userId: actor.id,
+        action: 'IMPERSONATION_START',
+        targetUserId: target.id,
+        reason,
+        provider: null,
+      },
+    });
   });
 
   return NextResponse.json({

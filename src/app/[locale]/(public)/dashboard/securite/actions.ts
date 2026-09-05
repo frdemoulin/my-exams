@@ -7,6 +7,8 @@ import { cookies } from 'next/headers';
 import prisma from '@/lib/db/prisma';
 import { getCurrentInternalSessionContext } from '@/lib/auth/current-session';
 import { isAdminRole } from '@/lib/auth/roles';
+import { ALL_AUTH_SESSION_COOKIE_NAMES } from '@/lib/auth/session-cookie';
+import { getMagicLinkEmailHmacKey } from '@/lib/auth/magic-link-rate-limit';
 
 export async function revokeOtherSessionsAction(): Promise<{
   success: boolean;
@@ -45,8 +47,9 @@ export async function revokeAllSessionsAction(): Promise<void> {
     });
 
     const cookieStore = await cookies();
-    cookieStore.delete('__Secure-authjs.session-token');
-    cookieStore.delete('authjs.session-token');
+    for (const cookieName of ALL_AUTH_SESSION_COOKIE_NAMES) {
+      cookieStore.delete(cookieName);
+    }
   } catch {
     // Non bloquant
   }
@@ -186,11 +189,35 @@ export async function deleteUserAccountAction(formData: FormData): Promise<{
       await tx.account.deleteMany({ where: { userId } });
       await tx.authenticator.deleteMany({ where: { userId } });
       await tx.session.deleteMany({ where: { userId } });
+
+      // Nettoyage des sessions d'autres administrateurs ciblant cet utilisateur
+      await tx.session.updateMany({
+        where: { impersonatedUserId: userId },
+        data: {
+          impersonatedUserId: null,
+          impersonationStartedAt: null,
+          impersonationReason: null,
+        },
+      });
+
+      // Suppression des logs de l'utilisateur et pseudonymisation des logs où il était la cible
       await tx.authLog.deleteMany({ where: { userId } });
+      await tx.authLog.updateMany({
+        where: { targetUserId: userId },
+        data: {
+          targetUserId: null,
+          reason: null,
+        },
+      });
 
       if (sessionContext.actorEmail) {
         await tx.verificationToken.deleteMany({
           where: { identifier: sessionContext.actorEmail },
+        });
+
+        const emailHmacKey = getMagicLinkEmailHmacKey(sessionContext.actorEmail);
+        await tx.magicLinkRateLimit.deleteMany({
+          where: { key: emailHmacKey },
         });
       }
 
@@ -200,8 +227,9 @@ export async function deleteUserAccountAction(formData: FormData): Promise<{
 
     // Nettoyage des cookies de session
     const cookieStore = await cookies();
-    cookieStore.delete('__Secure-authjs.session-token');
-    cookieStore.delete('authjs.session-token');
+    for (const cookieName of ALL_AUTH_SESSION_COOKIE_NAMES) {
+      cookieStore.delete(cookieName);
+    }
   } catch (error: any) {
     console.error('Erreur transactionnelle suppression utilisateur:', error);
     return {

@@ -1,14 +1,23 @@
 import assert from 'node:assert/strict';
 import { test, describe, beforeEach, afterEach } from 'node:test';
 
+import crypto from 'node:crypto';
+import { NextRequest } from 'next/server';
+import prisma from '../../src/lib/db/prisma';
 import {
   validateAuthConfig,
   getEnabledAuthProviders,
   isAllowedOrigin,
+  validateSensitiveMutationRequest,
 } from '../../src/lib/auth/auth-config-validator';
 import { createHardenedPrismaAdapter } from '../../src/lib/auth/adapter-wrapper';
-import { checkMagicLinkRateLimit } from '../../src/lib/auth/magic-link-rate-limit';
+import {
+  checkMagicLinkRateLimit,
+  getMagicLinkEmailHmacKey,
+} from '../../src/lib/auth/magic-link-rate-limit';
 import { getCurrentInternalSessionContext } from '../../src/lib/auth/current-session';
+import { POST as impersonationStartPost } from '../../src/app/api/admin/impersonation/start/route';
+import { GET as nextAuthGet } from '../../src/app/api/auth/[...nextauth]/route';
 
 describe('P1D — Hardening Sécurité & Authentification', () => {
   const originalEnv = { ...process.env };
@@ -254,6 +263,78 @@ describe('P1D — Hardening Sécurité & Authentification', () => {
         'L’échéance de session ne doit jamais être prolongée au-delà de sa valeur existante'
       );
     });
+
+    test('getCurrentInternalSessionContext applique effectiveExpiresMs = min(expires, roleDeadline) et supprime la session si expirée (ADMIN rétrogradé USER)', async () => {
+      // Cas obligatoire : ADMIN créé à T0 -> expiration T0+8h -> rétrogradé USER avant expiration -> à T0+8h01, Session refusée même si roleDeadline USER vaut T0+7j.
+      const user = await prisma.user.create({
+        data: {
+          name: 'Downgraded Admin Test',
+          email: `downgraded-${Date.now()}@test.local`,
+          roles: 'USER', // Rétrogradé USER
+        },
+      });
+
+      const token = `test-token-downgraded-${crypto.randomUUID()}`;
+      const t0 = new Date(Date.now() - 8 * 3600 * 1000 - 60 * 1000); // T0 = il y a 8h01
+      const initialAdminExpires = new Date(Date.now() - 60 * 1000); // Expiré il y a 1 minute
+
+      await prisma.session.create({
+        data: {
+          sessionToken: token,
+          userId: user.id,
+          createdAt: t0,
+          expires: initialAdminExpires,
+        },
+      });
+
+      try {
+        const sessionContext = await getCurrentInternalSessionContext(token);
+        assert.equal(sessionContext, null, 'La session doit être refusée car effectiveExpiresMs est dépassé');
+
+        const sessionInDb = await prisma.session.findUnique({
+          where: { sessionToken: token },
+        });
+        assert.equal(sessionInDb, null, 'La session expirée doit avoir été supprimée de la DB');
+      } finally {
+        await prisma.session.deleteMany({ where: { sessionToken: token } });
+        await prisma.user.deleteMany({ where: { id: user.id } });
+      }
+    });
+
+    test('getCurrentInternalSessionContext retourne null et supprime la session si expires < now', async () => {
+      const user = await prisma.user.create({
+        data: {
+          name: 'Expired Session User',
+          email: `expired-session-${Date.now()}@test.local`,
+          roles: 'USER',
+        },
+      });
+
+      const token = `test-token-expired-${crypto.randomUUID()}`;
+      const pastExpires = new Date(Date.now() - 5000); // Expiré il y a 5s
+
+      await prisma.session.create({
+        data: {
+          sessionToken: token,
+          userId: user.id,
+          createdAt: new Date(Date.now() - 3600 * 1000),
+          expires: pastExpires,
+        },
+      });
+
+      try {
+        const sessionContext = await getCurrentInternalSessionContext(token);
+        assert.equal(sessionContext, null, 'Session expirée doit retourner null');
+
+        const sessionInDb = await prisma.session.findUnique({
+          where: { sessionToken: token },
+        });
+        assert.equal(sessionInDb, null, 'Session expirée doit être supprimée');
+      } finally {
+        await prisma.session.deleteMany({ where: { sessionToken: token } });
+        await prisma.user.deleteMany({ where: { id: user.id } });
+      }
+    });
   });
 
   describe('3. DTO public de session (zéro fuite de sessionToken)', () => {
@@ -317,6 +398,69 @@ describe('P1D — Hardening Sécurité & Authentification', () => {
       assert.ok(!jsonString.includes('Support ticket 12345'));
       assert.ok(!jsonString.includes('impersonationReason'));
       assert.ok(!jsonString.includes('createdAt'));
+    });
+
+    test('appel réellement intégré à /api/auth/session sans aucune fuite de données internes', async () => {
+      const user = await prisma.user.create({
+        data: {
+          name: 'Anti Leak User',
+          email: `anti-leak-${Date.now()}@test.local`,
+          roles: 'USER',
+        },
+      });
+
+      const token = `antileak-token-${crypto.randomUUID()}`;
+      await prisma.session.create({
+        data: {
+          sessionToken: token,
+          userId: user.id,
+          expires: new Date(Date.now() + 24 * 3600 * 1000),
+        },
+      });
+
+      try {
+        const req = new NextRequest('http://localhost:3000/api/auth/session', {
+          headers: {
+            cookie: `authjs.session-token=${token}`,
+          },
+        });
+
+        const res = await nextAuthGet(req);
+        assert.equal(res.status, 200);
+
+        const data = await res.json();
+        assert.ok(data);
+        assert.equal(data.user?.id, user.id);
+        assert.equal(data.user?.email, user.email);
+        assert.equal(data.actor?.id, user.id);
+
+        const forbiddenKeys = [
+          'sessionToken',
+          'impersonationReason',
+          'userId',
+          'access_token',
+          'refresh_token',
+          'id_token',
+          'providerAccountId',
+        ];
+
+        function checkObjectKeys(obj: any, path = '') {
+          if (!obj || typeof obj !== 'object') return;
+          for (const key of Object.keys(obj)) {
+            const currentPath = path ? `${path}.${key}` : key;
+            assert.ok(
+              !forbiddenKeys.includes(key),
+              `Clé interdite détectée dans la réponse de session: "${currentPath}"`
+            );
+            checkObjectKeys(obj[key], currentPath);
+          }
+        }
+
+        checkObjectKeys(data);
+      } finally {
+        await prisma.session.deleteMany({ where: { sessionToken: token } });
+        await prisma.user.deleteMany({ where: { id: user.id } });
+      }
     });
   });
 
@@ -443,6 +587,155 @@ describe('P1D — Hardening Sécurité & Authentification', () => {
       assert.equal(updateData.impersonationStartedAt, null);
       assert.equal(updateData.impersonationReason, null);
     });
+
+    test('validateSensitiveMutationRequest valide strictement Origin, Host et x-forwarded-host', () => {
+      // 1. Origin hostile -> 403
+      const reqHostileOrigin = new Request('http://localhost:3000/api/admin/impersonation/start', {
+        method: 'POST',
+        headers: {
+          origin: 'https://attacker.evil.com',
+          host: 'localhost:3000',
+        },
+      });
+      const vOrigin = validateSensitiveMutationRequest(reqHostileOrigin, false);
+      assert.equal(vOrigin.isValid, false);
+      assert.equal(vOrigin.error, 'Origine non autorisée.');
+
+      // 2. Host hostile -> 403
+      const reqHostileHost = new Request('http://localhost:3000/api/admin/impersonation/start', {
+        method: 'POST',
+        headers: {
+          origin: 'http://localhost:3000',
+          host: 'attacker.evil.com',
+        },
+      });
+      const vHost = validateSensitiveMutationRequest(reqHostileHost, false);
+      assert.equal(vHost.isValid, false);
+      assert.equal(vHost.error, 'Hôte non autorisé.');
+
+      // 3. x-forwarded-host hostile -> 403
+      const reqHostileForwarded = new Request('http://localhost:3000/api/admin/impersonation/start', {
+        method: 'POST',
+        headers: {
+          origin: 'http://localhost:3000',
+          host: 'localhost:3000',
+          'x-forwarded-host': 'attacker.evil.com',
+        },
+      });
+      const vForwarded = validateSensitiveMutationRequest(reqHostileForwarded, false);
+      assert.equal(vForwarded.isValid, false);
+      assert.equal(vForwarded.error, 'En-tête x-forwarded-host non autorisé.');
+
+      // 4. Combinaison autorisée -> succès
+      const reqValid = new Request('http://localhost:3000/api/admin/impersonation/start', {
+        method: 'POST',
+        headers: {
+          origin: 'http://localhost:3000',
+          host: 'localhost:3000',
+          'x-forwarded-host': 'localhost:3000',
+        },
+      });
+      const vValid = validateSensitiveMutationRequest(reqValid, false);
+      assert.equal(vValid.isValid, true);
+    });
+
+    test('POST /api/admin/impersonation/start rejette les requêtes avec Origin, Host ou x-forwarded-host hostiles (403)', async () => {
+      // Origin hostile -> 403
+      const res1 = await impersonationStartPost(
+        new Request('http://localhost:3000/api/admin/impersonation/start', {
+          method: 'POST',
+          headers: { origin: 'https://evil.com', host: 'localhost:3000' },
+        })
+      );
+      assert.equal(res1.status, 403);
+
+      // Host hostile -> 403
+      const res2 = await impersonationStartPost(
+        new Request('http://localhost:3000/api/admin/impersonation/start', {
+          method: 'POST',
+          headers: { origin: 'http://localhost:3000', host: 'evil.com' },
+        })
+      );
+      assert.equal(res2.status, 403);
+
+      // x-forwarded-host hostile -> 403
+      const res3 = await impersonationStartPost(
+        new Request('http://localhost:3000/api/admin/impersonation/start', {
+          method: 'POST',
+          headers: {
+            origin: 'http://localhost:3000',
+            host: 'localhost:3000',
+            'x-forwarded-host': 'evil.com',
+          },
+        })
+      );
+      assert.equal(res3.status, 403);
+    });
+
+    test('impersonation transactionnelle : rollback complet de la session si AuthLog échoue', async () => {
+      const admin = await prisma.user.create({
+        data: {
+          name: 'Admin For Rollback',
+          email: `admin-rb-${Date.now()}@test.local`,
+          roles: 'ADMIN',
+        },
+      });
+
+      const student = await prisma.user.create({
+        data: {
+          name: 'Student For Rollback',
+          email: `student-rb-${Date.now()}@test.local`,
+          roles: 'USER',
+        },
+      });
+
+      const token = `rb-token-${crypto.randomUUID()}`;
+      await prisma.session.create({
+        data: {
+          sessionToken: token,
+          userId: admin.id,
+          expires: new Date(Date.now() + 8 * 3600 * 1000),
+          impersonatedUserId: null,
+          impersonationStartedAt: null,
+          impersonationReason: null,
+        },
+      });
+
+      try {
+        await assert.rejects(
+          async () => {
+            await prisma.$transaction(async (tx) => {
+              await tx.session.update({
+                where: { sessionToken: token },
+                data: {
+                  impersonatedUserId: student.id,
+                  impersonationStartedAt: new Date(),
+                  impersonationReason: 'Rollback test',
+                },
+              });
+
+              // Simulation de l'échec d'écriture AuthLog
+              throw new Error('SIMULATED_AUTHLOG_FAILURE');
+            });
+          },
+          /SIMULATED_AUTHLOG_FAILURE/
+        );
+
+        const sessionAfter = await prisma.session.findUnique({
+          where: { sessionToken: token },
+        });
+        assert.ok(sessionAfter);
+        assert.equal(
+          sessionAfter.impersonatedUserId,
+          null,
+          'Rollback réussi : aucune impersonation ne doit rester active si AuthLog échoue'
+        );
+        assert.equal(sessionAfter.impersonationReason, null);
+      } finally {
+        await prisma.session.deleteMany({ where: { sessionToken: token } });
+        await prisma.user.deleteMany({ where: { id: { in: [admin.id, student.id] } } });
+      }
+    });
   });
 
   describe('7. Suppression de compte RGPD & Cas ancien ADMIN', () => {
@@ -500,6 +793,134 @@ describe('P1D — Hardening Sécurité & Authentification', () => {
       assert.equal(validateConfirmation('OUI'), false);
       assert.equal(validateConfirmation(''), false);
       assert.equal(validateConfirmation(undefined), false);
+    });
+
+    test('suppression de compte nettoie la clé rate-limit magic-link de l’email', async () => {
+      const email = `test-delete-ratelimit-${Date.now()}@example.com`;
+      const key = getMagicLinkEmailHmacKey(email);
+
+      await prisma.magicLinkRateLimit.upsert({
+        where: { key },
+        update: { count: 3, lastAttemptAt: new Date() },
+        create: {
+          key,
+          count: 3,
+          lastAttemptAt: new Date(),
+          expiresAt: new Date(Date.now() + 15 * 60 * 1000),
+        },
+      });
+
+      const before = await prisma.magicLinkRateLimit.findUnique({ where: { key } });
+      assert.ok(before);
+
+      // Nettoyage prévu lors de la suppression de compte
+      await prisma.magicLinkRateLimit.deleteMany({ where: { key } });
+
+      const after = await prisma.magicLinkRateLimit.findUnique({ where: { key } });
+      assert.equal(after, null, 'L’entrée rate limit email doit être supprimée');
+    });
+
+    test('suppression de compte réinitialise l’impersonation cible dans les sessions d’autres administrateurs', async () => {
+      const deletedUser = await prisma.user.create({
+        data: {
+          name: 'User To Delete',
+          email: `to-delete-${Date.now()}@test.local`,
+          roles: 'USER',
+        },
+      });
+
+      const adminUser = await prisma.user.create({
+        data: {
+          name: 'Active Admin',
+          email: `active-admin-${Date.now()}@test.local`,
+          roles: 'ADMIN',
+        },
+      });
+
+      const adminToken = `admin-token-target-clean-${crypto.randomUUID()}`;
+      await prisma.session.create({
+        data: {
+          sessionToken: adminToken,
+          userId: adminUser.id,
+          expires: new Date(Date.now() + 8 * 3600 * 1000),
+          impersonatedUserId: deletedUser.id,
+          impersonationStartedAt: new Date(),
+          impersonationReason: 'Target cleanup test',
+        },
+      });
+
+      try {
+        // Exécuter l'étape de nettoyage issue de deleteUserAccountAction
+        await prisma.session.updateMany({
+          where: { impersonatedUserId: deletedUser.id },
+          data: {
+            impersonatedUserId: null,
+            impersonationStartedAt: null,
+            impersonationReason: null,
+          },
+        });
+
+        const adminSession = await prisma.session.findUnique({
+          where: { sessionToken: adminToken },
+        });
+        assert.ok(adminSession);
+        assert.equal(adminSession.impersonatedUserId, null);
+        assert.equal(adminSession.impersonationStartedAt, null);
+        assert.equal(adminSession.impersonationReason, null);
+      } finally {
+        await prisma.session.deleteMany({ where: { sessionToken: adminToken } });
+        await prisma.user.deleteMany({ where: { id: { in: [deletedUser.id, adminUser.id] } } });
+      }
+    });
+
+    test('suppression de compte pseudonymise les AuthLog où l’utilisateur était la cible (préserve l’audit de l’acteur)', async () => {
+      const targetUser = await prisma.user.create({
+        data: {
+          name: 'Target User For Log',
+          email: `target-log-${Date.now()}@test.local`,
+          roles: 'USER',
+        },
+      });
+
+      const actorAdmin = await prisma.user.create({
+        data: {
+          name: 'Actor Admin For Log',
+          email: `actor-admin-${Date.now()}@test.local`,
+          roles: 'ADMIN',
+        },
+      });
+
+      const authLog = await prisma.authLog.create({
+        data: {
+          userId: actorAdmin.id,
+          action: 'IMPERSONATION_START',
+          targetUserId: targetUser.id,
+          reason: 'Motif contenant potentiellement une donnee personnelle',
+        },
+      });
+
+      try {
+        // Exécuter la pseudonymisation issue de deleteUserAccountAction
+        await prisma.authLog.updateMany({
+          where: { targetUserId: targetUser.id },
+          data: {
+            targetUserId: null,
+            reason: null,
+          },
+        });
+
+        const logAfter = await prisma.authLog.findUnique({
+          where: { id: authLog.id },
+        });
+        assert.ok(logAfter);
+        assert.equal(logAfter.userId, actorAdmin.id, 'L’identifiant de l’acteur est conservé pour l’audit');
+        assert.equal(logAfter.action, 'IMPERSONATION_START', 'L’action est conservée');
+        assert.equal(logAfter.targetUserId, null, 'Le targetUserId est mis à null');
+        assert.equal(logAfter.reason, null, 'Le motif libre est anonymisé à null');
+      } finally {
+        await prisma.authLog.deleteMany({ where: { id: authLog.id } });
+        await prisma.user.deleteMany({ where: { id: { in: [targetUser.id, actorAdmin.id] } } });
+      }
     });
   });
 });

@@ -29,6 +29,10 @@ function getHmacKey(prefix: "magic-link:email" | "magic-link:ip", identifier: st
   return crypto.createHmac("sha256", secret).update(`${prefix}:${identifier}`).digest("hex");
 }
 
+export function getMagicLinkEmailHmacKey(normalizedEmail: string): string {
+  return getHmacKey("magic-link:email", normalizedEmail.trim().toLowerCase());
+}
+
 // Fallback mémoire EXCLUSIVEMENT réservé aux environnements DEV / TEST
 type MemoryBucket = {
   windowStartMs: number;

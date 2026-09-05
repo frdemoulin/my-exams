@@ -17,18 +17,17 @@ import {
   validateAuthConfig,
   isAllowedOrigin,
 } from "@/lib/auth/auth-config-validator";
+import {
+  normalizeHostname,
+  getSharedSessionCookieOptions,
+} from "@/lib/auth/session-cookie";
 
 const MAGIC_LINK_MAX_AGE_SECONDS = 15 * 60;
 const USER_SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 7;
 const ADMIN_SESSION_MAX_AGE_SECONDS = 60 * 60 * 8;
-const sharedCookieDomain = process.env.AUTH_COOKIE_DOMAIN?.trim() || undefined;
 
 // Validation de la configuration d'authentification au démarrage
 validateAuthConfig();
-
-function normalizeHostname(value?: string | null) {
-  return value?.split(",")[0]?.trim().toLowerCase().replace(/:\d+$/, "") ?? "";
-}
 
 async function getRequestHostname(request?: NextRequest) {
   if (request) return normalizeHostname(request.nextUrl.hostname);
@@ -41,18 +40,6 @@ async function getRequestHostname(request?: NextRequest) {
   } catch {
     return "";
   }
-}
-
-function getSharedSessionCookieOptions(hostname: string) {
-  if (!sharedCookieDomain) return undefined;
-
-  const parentDomain = sharedCookieDomain.replace(/^\./, "").toLowerCase();
-  const belongsToParentDomain =
-    hostname === parentDomain || hostname.endsWith(`.${parentDomain}`);
-
-  return belongsToParentDomain
-    ? { sessionToken: { options: { domain: sharedCookieDomain } } }
-    : undefined;
 }
 
 function getOrigin(value?: string) {
