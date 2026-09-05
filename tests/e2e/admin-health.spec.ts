@@ -9,7 +9,7 @@ const healthBaseUrl =
 
 async function startGoogleSignIn(page: import("@playwright/test").Page) {
   const googleButton = page.getByRole("button", {
-    name: "Se connecter avec Google",
+    name: "Continuer avec Google",
   });
 
   test.skip(
@@ -120,8 +120,34 @@ test.describe("Admin - Sous-domaine santé", () => {
 
     await expect(page).toHaveURL(new RegExp(`^${healthBaseUrl}/log-in`));
     await expect(
-      page.getByRole("heading", { name: "Connexion à l'application" }),
+      page.getByRole("heading", { name: "Connexion à My Exams" }),
     ).toBeVisible();
+    await expect(page.getByText("Pourquoi se connecter ?")).toBeVisible();
+    await expect(
+      page.getByText("un compte My Exams gratuit est automatiquement créé"),
+    ).toBeVisible();
+    await expect(
+      page.getByText("Recevoir un lien de connexion par email"),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("button", { name: "Continuer par email" }),
+    ).toBeVisible();
+
+    // Vérifier l'absence des anciens libellés
+    await expect(
+      page.getByRole("heading", { name: "Connexion à l'application" }),
+    ).toHaveCount(0);
+    await expect(
+      page.getByRole("button", { name: "Se connecter avec Google" }),
+    ).toHaveCount(0);
+    await expect(
+      page.getByRole("button", { name: "Envoyer l'email" }),
+    ).toHaveCount(0);
+
+    const googleButton = page.getByRole("button", { name: "Continuer avec Google" });
+    if ((await googleButton.count()) > 0) {
+      await expect(googleButton).toBeVisible();
+    }
     await context.close();
   });
 

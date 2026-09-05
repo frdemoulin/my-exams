@@ -72,7 +72,7 @@ export async function LogIn({
           <div className="flex justify-center">
             <div className="text-xl font-extrabold uppercase text-heading">{APP_NAME}</div>
           </div>
-          <CardTitle className="flex justify-center">Connexion à l&apos;application</CardTitle>
+          <CardTitle className="flex justify-center text-center">Connexion à My Exams</CardTitle>
         </CardHeader>
         <CardContent>
           {initialErrorMessage && (
@@ -86,15 +86,16 @@ export async function LogIn({
 
           <div className="mb-5 rounded-base border border-default bg-neutral-primary-soft p-3 text-xs text-muted-foreground">
             <div className="font-semibold text-heading">Pourquoi se connecter&nbsp;?</div>
-            <p className="mt-1">
-              Pour retrouver facilement tes sujets et exercices consult&eacute;s.
-            </p>
-            <p className="mt-1">
-              Compte gratuit, sans obligation, uniquement pour la continuit&eacute;.
+            <p className="mt-1 leading-relaxed">
+              Lors de votre première connexion réussie,{" "}
+              <strong className="font-semibold text-heading">
+                un compte My Exams gratuit est automatiquement créé
+              </strong>
+              . Il vous permet de retrouver votre progression, vos quiz et vos exercices d’une session à l’autre.
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-2">
-            <p className="text-sm text-body">Se connecter avec</p>
+            <p className="text-sm text-body">Continuer avec</p>
             <TooltipProvider>
               {oauthProviders.map((provider) => (
                 <form
@@ -116,7 +117,7 @@ export async function LogIn({
                         type="submit"
                         variant="outline"
                         size="icon"
-                        aria-label={`Se connecter avec ${provider.name}`}
+                        aria-label={`Continuer avec ${provider.name}`}
                       >
                         {provider.name === "Facebook" && <Image src={facebookIcon} width={20} alt="Facebook logo" />}
                         {provider.name === "Google" && <Image src={googleIcon} width={20} alt="Google logo" />}
@@ -201,7 +202,7 @@ export async function LogIn({
                     type="submit"
                     className="mt-2 w-full font-semibold"
                   >
-                    Envoyer l&apos;email
+                    Continuer par email
                   </Button>
                 </form>
               </div>
