@@ -1,79 +1,56 @@
 import { NextResponse } from 'next/server';
 
-import { auth } from '@/lib/auth/auth';
 import prisma from '@/lib/db/prisma';
 import { canImpersonateRole } from '@/lib/auth/roles';
-import {
-  applySessionTokenCookies,
-  buildAppSessionTokenPayload,
-  encodeAppSessionToken,
-  getAdminSessionExpiresAt,
-} from '@/lib/auth/session-cookie';
-import {
-  getSessionActorId,
-  getSessionActorRole,
-  isSessionImpersonating,
-} from '@/lib/auth/session';
+import { getCurrentInternalSessionContext } from '@/lib/auth/current-session';
+import { isAllowedOrigin } from '@/lib/auth/auth-config-validator';
 
 export async function POST(request: Request) {
-  const session = await auth();
-  const actorId = getSessionActorId(session);
-  const actorRole = getSessionActorRole(session);
+  // 1. Validation de l'Origin pour protection CSRF stricte
+  const origin = request.headers.get('origin');
+  if (process.env.NODE_ENV === 'production' && (!origin || !isAllowedOrigin(origin))) {
+    return NextResponse.json({ error: 'Origine non autorisée.' }, { status: 403 });
+  } else if (origin && !isAllowedOrigin(origin)) {
+    return NextResponse.json({ error: 'Origine non autorisée.' }, { status: 403 });
+  }
 
-  if (!session?.user || !actorId || !canImpersonateRole(actorRole)) {
+  // 2. Contexte de session DB interne
+  const sessionContext = await getCurrentInternalSessionContext();
+  if (!sessionContext || !canImpersonateRole(sessionContext.actorRole)) {
     return NextResponse.json({ error: 'Accès refusé.' }, { status: 403 });
   }
 
-  if (!isSessionImpersonating(session)) {
+  if (!sessionContext.impersonation?.isActive) {
     return NextResponse.json(
       { error: 'Aucune bascule active.' },
       { status: 400 }
     );
   }
 
-  const actor = await prisma.user.findUnique({
-    where: { id: actorId },
-    select: {
-      id: true,
-      roles: true,
-      name: true,
-      email: true,
-      image: true,
+  const targetUserId = sessionContext.impersonation.viewerId;
+
+  // 3. Réinitialisation des champs d'impersonation sur la Session DB courante
+  await prisma.session.update({
+    where: { sessionToken: sessionContext.sessionToken },
+    data: {
+      impersonatedUserId: null,
+      impersonationStartedAt: null,
+      impersonationReason: null,
     },
   });
 
-  if (!actor || !canImpersonateRole(actor.roles)) {
-    return NextResponse.json({ error: 'Acteur invalide.' }, { status: 403 });
-  }
-
-  const jwt = await encodeAppSessionToken(
-    buildAppSessionTokenPayload({
-      actor: {
-        id: actor.id,
-        role: actor.roles,
-        name: actor.name,
-        email: actor.email,
-        image: actor.image,
-      },
-      adminExpiresAt: session.actor?.adminExpiresAt ?? getAdminSessionExpiresAt(),
-    }),
-    request.url
-  );
-
-  const response = NextResponse.json({
-    success: true,
-  });
-
-  applySessionTokenCookies(response, jwt, request.url);
-
+  // 4. Journalisation d'audit AuthLog
   await prisma.authLog.create({
     data: {
-      userId: actor.id,
+      userId: sessionContext.actorId,
       action: 'IMPERSONATION_STOP',
-      provider:
-        session.impersonation?.viewerEmail ?? session.impersonation?.viewerId ?? null,
+      targetUserId,
+      reason: null,
+      provider: null,
     },
   });
 
-  return response;
+  return NextResponse.json({
+    success: true,
+  });
 }

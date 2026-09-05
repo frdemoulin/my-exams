@@ -1,34 +1,28 @@
 import assert from 'node:assert/strict';
 import { test, describe } from 'node:test';
 import { NextResponse } from 'next/server';
-import { decode } from 'next-auth/jwt';
 
 import {
   getAuthSessionCookieConfig,
-  encodeAppSessionToken,
-  applySessionTokenCookies,
-  buildAppSessionTokenPayload,
+  clearSessionCookie,
+  getAdminSessionExpiresAt,
 } from '../../src/lib/auth/session-cookie';
 
-const TEST_SECRET = 'test-secret-at-least-32-chars-long-security-token';
-
-describe('session-cookie configuration and encoding', () => {
-  test('développement (secure: false) génère le nom et sel authjs.session-token', () => {
+describe('session-cookie configuration et gestion des cookies', () => {
+  test('développement (secure: false) génère le nom authjs.session-token', () => {
     const config = getAuthSessionCookieConfig({ secure: false });
 
     assert.equal(config.name, 'authjs.session-token');
-    assert.equal(config.salt, 'authjs.session-token');
     assert.equal(config.options.secure, false);
     assert.equal(config.options.httpOnly, true);
     assert.equal(config.options.sameSite, 'lax');
     assert.equal(config.options.path, '/');
   });
 
-  test('production (secure: true) génère le nom et sel __Secure-authjs.session-token', () => {
+  test('production (secure: true) génère le nom __Secure-authjs.session-token', () => {
     const config = getAuthSessionCookieConfig({ secure: true });
 
     assert.equal(config.name, '__Secure-authjs.session-token');
-    assert.equal(config.salt, '__Secure-authjs.session-token');
     assert.equal(config.options.secure, true);
     assert.equal(config.options.httpOnly, true);
     assert.equal(config.options.sameSite, 'lax');
@@ -60,43 +54,27 @@ describe('session-cookie configuration and encoding', () => {
     }
   });
 
-  test('encodage et déchiffrement roundtrip en mode sécurisé (__Secure-authjs.session-token)', async () => {
-    const previousSecret = process.env.AUTH_SECRET;
-    process.env.AUTH_SECRET = TEST_SECRET;
+  test('clearSessionCookie efface les deux variantes de cookie de session', () => {
+    const response = NextResponse.json({ ok: true });
+    clearSessionCookie(response, { secure: true });
 
-    try {
-      const payload = buildAppSessionTokenPayload({
-        actor: { id: 'admin-1', role: 'ADMIN', name: 'Admin', email: 'admin@test.com' },
-        viewer: { id: 'demo-user-1', role: 'USER', name: 'Demo Student', email: 'demo@test.com' },
-      });
+    const secureCookie = response.cookies.get('__Secure-authjs.session-token');
+    const normalCookie = response.cookies.get('authjs.session-token');
 
-      const jwt = await encodeAppSessionToken(payload, { secure: true });
+    assert.ok(secureCookie);
+    assert.equal(secureCookie.value, '');
+    assert.equal(secureCookie.maxAge, 0);
 
-      const decoded = await decode({
-        token: jwt,
-        secret: TEST_SECRET,
-        salt: '__Secure-authjs.session-token',
-      });
-
-      assert.ok(decoded);
-      assert.equal(decoded.sub, 'demo-user-1');
-      assert.equal(decoded.actorId, 'admin-1');
-      assert.equal(decoded.impersonatedUserId, 'demo-user-1');
-    } finally {
-      process.env.AUTH_SECRET = previousSecret;
-    }
+    assert.ok(normalCookie);
+    assert.equal(normalCookie.value, '');
+    assert.equal(normalCookie.maxAge, 0);
   });
 
-  test('applySessionTokenCookies pose uniquement le cookie canonique unique', () => {
-    const response = NextResponse.json({ ok: true });
-    const fakeJwt = 'header.payload.signature';
+  test('getAdminSessionExpiresAt retourne un timestamp futur à 8 heures', () => {
+    const now = Date.now();
+    const expiresAt = getAdminSessionExpiresAt();
+    const diffHours = (expiresAt - now) / (1000 * 60 * 60);
 
-    applySessionTokenCookies(response, fakeJwt, { secure: true });
-
-    assert.ok(response.cookies.get('__Secure-authjs.session-token'));
-    assert.equal(response.cookies.get('__Secure-authjs.session-token')?.value, fakeJwt);
-    assert.equal(response.cookies.get('authjs.session-token'), undefined);
-    assert.equal(response.cookies.get('next-auth.session-token'), undefined);
-    assert.equal(response.cookies.get('__Secure-next-auth.session-token'), undefined);
+    assert.ok(diffHours >= 7.99 && diffHours <= 8.01);
   });
 });

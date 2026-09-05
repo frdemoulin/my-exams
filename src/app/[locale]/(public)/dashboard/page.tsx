@@ -95,11 +95,16 @@ const DashboardPage = async () => {
           <PublicBreadcrumb
             items={[{ label: 'Accueil', href: '/' }, { label: 'Tableau de bord' }]}
           />
-          <div className="space-y-2">
-            <h1 className="text-2xl font-semibold text-heading">Tableau de bord</h1>
-            <p className="text-sm text-muted-foreground">
-              Gestion de votre profil et suivi personnalisé de vos révisions.
-            </p>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="space-y-2">
+              <h1 className="text-2xl font-semibold text-heading">Tableau de bord</h1>
+              <p className="text-sm text-muted-foreground">
+                Gestion de votre profil et suivi personnalisé de vos révisions.
+              </p>
+            </div>
+            <Button asChild variant="outline" size="sm">
+              <Link href="/dashboard/securite">Compte & Sécurité</Link>
+            </Button>
           </div>
 
           <PedagogicalProfileCard context={pedagogicalProfileContext} />

@@ -12,7 +12,7 @@ const appBaseUrl =
   process.env.E2E_BASE_URL ?? `http://localhost:${process.env.E2E_PORT ?? "3000"}`;
 
 const screenshotsTmpDir = path.join(process.cwd(), "tmp", "screenshots");
-const artifactsDir = process.cwd();
+const artifactsDir = process.env.ARTIFACTS_DIR ?? "";
 
 test.describe.serial("Santé — Colle C09 Captures & Recette Visuelle", () => {
   test.use({ storageState: authFile });
@@ -174,11 +174,13 @@ test.describe.serial("Santé — Colle C09 Captures & Recette Visuelle", () => {
     }
 
 
-    for (const file of screenshotFiles) {
-      const src = path.join(screenshotsTmpDir, file);
-      const dest = path.join(artifactsDir, file);
-      if (fs.existsSync(src)) {
-        fs.copyFileSync(src, dest);
+    if (artifactsDir && fs.existsSync(artifactsDir)) {
+      for (const file of screenshotFiles) {
+        const src = path.join(screenshotsTmpDir, file);
+        const dest = path.join(artifactsDir, file);
+        if (fs.existsSync(src)) {
+          fs.copyFileSync(src, dest);
+        }
       }
     }
   });

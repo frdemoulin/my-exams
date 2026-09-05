@@ -64,6 +64,12 @@ export async function seedAcademicEnrollments(prisma: PrismaClient) {
     },
   });
 
+  // Seeding des affectations pour les comptes de test/démonstration (uniquement hors production avec SEED_DEV_FIXTURES=1)
+  if (process.env.NODE_ENV === 'production' || process.env.SEED_DEV_FIXTURES !== '1') {
+    console.log('   ⏭️ Affectations de test ignorées (activables avec SEED_DEV_FIXTURES=1 hors production)');
+    return;
+  }
+
   // Utilisateur de test E2E / Admin technique
   const adminE2E = await prisma.user.findUnique({
     where: { email: 'admin-e2e@example.com' },

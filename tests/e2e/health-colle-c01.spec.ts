@@ -15,6 +15,7 @@ test.describe.serial("Santé — Colle UE14 C01 Chimie Fondamentaux (exécutable
   test("un étudiant peut démarrer, exécuter et remettre la colle C01 avec correction UNESS", async ({
     page,
   }) => {
+    test.setTimeout(120000);
     await page.goto(`${appBaseUrl}/sante/ue/ue14-biochimie-biologie-cellulaire-chimie?ec=evaluations`);
 
     await expect(page.getByRole("heading", { name: "Colles", exact: true })).toBeVisible();

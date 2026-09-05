@@ -1,7 +1,7 @@
 "use server";
 
 import { NextResponse } from "next/server";
-import { encode } from "next-auth/jwt";
+import crypto from "crypto";
 
 import prisma from "@/lib/db/prisma";
 import { getAuthSessionCookieConfig } from "@/lib/auth/session-cookie";
@@ -52,25 +52,19 @@ export async function POST(req: Request) {
     }
 
     const cookieConfig = getAuthSessionCookieConfig({ requestUrl: req.url });
+    const sessionToken = crypto.randomUUID();
+    const expires = new Date(Date.now() + ADMIN_SESSION_MAX_AGE_SECONDS * 1000);
 
-    const jwt = await encode({
-      token: {
-        email: user.email || undefined,
-        name: user.name || undefined,
-        sub: user.id,
-        role: user.roles,
-        adminExpiresAt:
-          user.roles === "ADMIN"
-            ? Date.now() + ADMIN_SESSION_MAX_AGE_SECONDS * 1000
-            : undefined,
+    await prisma.session.create({
+      data: {
+        sessionToken,
+        userId: user.id,
+        expires,
       },
-      secret: authSecret,
-      salt: cookieConfig.salt,
-      maxAge: 60 * 60 * 24, // 1 jour
     });
 
     const res = NextResponse.json({ ok: true, user: { id: user.id, email: user.email } });
-    res.cookies.set(cookieConfig.name, jwt, cookieConfig.options);
+    res.cookies.set(cookieConfig.name, sessionToken, cookieConfig.options);
 
     return res;
   } catch (error) {

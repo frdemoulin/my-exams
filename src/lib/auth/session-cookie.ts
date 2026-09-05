@@ -1,6 +1,7 @@
+import crypto from 'node:crypto';
 import type { Role } from '@prisma/client';
-import { encode } from 'next-auth/jwt';
 import type { NextResponse } from 'next/server';
+import prisma from '@/lib/db/prisma';
 
 const USER_SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 7;
 const ADMIN_SESSION_MAX_AGE_SECONDS = 60 * 60 * 8;
@@ -12,7 +13,6 @@ export type SessionCookieOptions = {
 
 export type AuthSessionCookieConfig = {
   name: string;
-  salt: string;
   options: {
     httpOnly: boolean;
     sameSite: 'lax';
@@ -70,6 +70,13 @@ const getSharedCookieDomain = (hostname: string) => {
   return belongsToParentDomain ? sharedCookieDomain : undefined;
 };
 
+export const AUTH_SESSION_COOKIE_NAME_INSECURE = 'authjs.session-token';
+export const AUTH_SESSION_COOKIE_NAME_SECURE = '__Secure-authjs.session-token';
+export const ALL_AUTH_SESSION_COOKIE_NAMES = [
+  AUTH_SESSION_COOKIE_NAME_SECURE,
+  AUTH_SESSION_COOKIE_NAME_INSECURE,
+] as const;
+
 export function getAuthSessionCookieConfig(
   options?: SessionCookieOptions | string
 ): AuthSessionCookieConfig {
@@ -88,13 +95,12 @@ export function getAuthSessionCookieConfig(
     secure = process.env.NODE_ENV === 'production';
   }
 
-  const cookieName = secure ? '__Secure-authjs.session-token' : 'authjs.session-token';
+  const cookieName = secure ? AUTH_SESSION_COOKIE_NAME_SECURE : AUTH_SESSION_COOKIE_NAME_INSECURE;
   const hostname = opts.requestUrl ? normalizeHostname(new URL(opts.requestUrl).hostname) : '';
   const domain = getSharedCookieDomain(hostname);
 
   return {
     name: cookieName,
-    salt: cookieName,
     options: {
       httpOnly: true,
       sameSite: 'lax',
@@ -108,6 +114,21 @@ export function getAuthSessionCookieConfig(
 
 export function getAdminSessionExpiresAt() {
   return Date.now() + ADMIN_SESSION_MAX_AGE_SECONDS * 1000;
+}
+
+export function clearSessionCookie(
+  response: NextResponse,
+  options?: SessionCookieOptions | string
+) {
+  const config = getAuthSessionCookieConfig(options);
+  response.cookies.set(AUTH_SESSION_COOKIE_NAME_SECURE, '', {
+    ...config.options,
+    maxAge: 0,
+  });
+  response.cookies.set(AUTH_SESSION_COOKIE_NAME_INSECURE, '', {
+    ...config.options,
+    maxAge: 0,
+  });
 }
 
 export function buildAppSessionTokenPayload({
@@ -146,31 +167,54 @@ export function buildAppSessionTokenPayload({
   return payload;
 }
 
+/**
+ * Crée une session en base pour les tests E2E et retourne le sessionToken brut.
+ * Compatible avec la stratégie database de Auth.js.
+ */
 export async function encodeAppSessionToken(
   payload: AppSessionTokenPayload,
-  options?: SessionCookieOptions | string
-) {
-  const authSecret = process.env.AUTH_SECRET;
+  _options?: SessionCookieOptions | string
+): Promise<string> {
+  const userId = payload.sub || payload.actorId;
+  const sessionToken = crypto.randomUUID();
+  const isAdmin = (payload.actorRole ?? payload.role) === 'ADMIN';
+  const expires = new Date(
+    Date.now() + (isAdmin ? ADMIN_SESSION_MAX_AGE_SECONDS * 1000 : USER_SESSION_MAX_AGE_SECONDS * 1000)
+  );
 
-  if (!authSecret) {
-    throw new Error('AUTH_SECRET manquant.');
+  if (userId) {
+    // Upsert utilisateur test si nécessaire
+    try {
+      await prisma.user.upsert({
+        where: { id: userId },
+        update: {
+          roles: payload.role || 'USER',
+          name: payload.name || undefined,
+          email: payload.email || undefined,
+        },
+        create: {
+          id: userId,
+          roles: payload.role || 'USER',
+          name: payload.name || 'Test User',
+          email: payload.email || `${userId}@test.local`,
+        },
+      });
+
+      await prisma.session.create({
+        data: {
+          sessionToken,
+          userId,
+          expires,
+          impersonatedUserId: payload.impersonatedUserId || null,
+          impersonationStartedAt: payload.impersonationStartedAt
+            ? new Date(payload.impersonationStartedAt)
+            : null,
+        },
+      });
+    } catch {
+      // Ignorer si déjà existant
+    }
   }
 
-  const config = getAuthSessionCookieConfig(options);
-
-  return encode({
-    token: payload,
-    secret: authSecret,
-    salt: config.salt,
-    maxAge: USER_SESSION_MAX_AGE_SECONDS,
-  });
-}
-
-export function applySessionTokenCookies(
-  response: NextResponse,
-  jwt: string,
-  options?: SessionCookieOptions | string
-) {
-  const config = getAuthSessionCookieConfig(options);
-  response.cookies.set(config.name, jwt, config.options);
+  return sessionToken;
 }

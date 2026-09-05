@@ -1,26 +1,27 @@
 import { NextResponse } from 'next/server';
 
-import { auth } from '@/lib/auth/auth';
 import prisma from '@/lib/db/prisma';
-import { canImpersonateRole } from '@/lib/auth/roles';
-import {
-  applySessionTokenCookies,
-  buildAppSessionTokenPayload,
-  encodeAppSessionToken,
-  getAdminSessionExpiresAt,
-} from '@/lib/auth/session-cookie';
-import { getSessionActorId, getSessionActorRole } from '@/lib/auth/session';
+import { canImpersonateRole, isAdminRole } from '@/lib/auth/roles';
+import { getCurrentInternalSessionContext } from '@/lib/auth/current-session';
+import { isAllowedOrigin } from '@/lib/auth/auth-config-validator';
 
 type StartImpersonationPayload = {
   userId?: string;
+  reason?: string;
 };
 
 export async function POST(request: Request) {
-  const session = await auth();
-  const actorRole = getSessionActorRole(session);
-  const actorId = getSessionActorId(session);
+  // 1. Validation de l'Origin pour protection CSRF stricte
+  const origin = request.headers.get('origin');
+  if (process.env.NODE_ENV === 'production' && (!origin || !isAllowedOrigin(origin))) {
+    return NextResponse.json({ error: 'Origine non autorisée.' }, { status: 403 });
+  } else if (origin && !isAllowedOrigin(origin)) {
+    return NextResponse.json({ error: 'Origine non autorisée.' }, { status: 403 });
+  }
 
-  if (!session?.user || !actorId || !canImpersonateRole(actorRole)) {
+  // 2. Contexte de session DB interne
+  const sessionContext = await getCurrentInternalSessionContext();
+  if (!sessionContext || !canImpersonateRole(sessionContext.actorRole)) {
     return NextResponse.json({ error: 'Accès refusé.' }, { status: 403 });
   }
 
@@ -32,31 +33,28 @@ export async function POST(request: Request) {
   }
 
   const userId = payload?.userId?.trim();
+  const reason = payload?.reason?.trim();
 
   if (!userId) {
     return NextResponse.json({ error: 'Utilisateur manquant.' }, { status: 400 });
   }
 
+  // 3. Validation stricte du motif de support (5 à 500 caractères)
+  if (!reason || reason.length < 5 || reason.length > 500) {
+    return NextResponse.json(
+      { error: 'Un motif de support valide (entre 5 et 500 caractères) est obligatoire.' },
+      { status: 400 }
+    );
+  }
+
   const [actor, target] = await Promise.all([
     prisma.user.findUnique({
-      where: { id: actorId },
-      select: {
-        id: true,
-        roles: true,
-        name: true,
-        email: true,
-        image: true,
-      },
+      where: { id: sessionContext.actorId },
+      select: { id: true, roles: true },
     }),
     prisma.user.findUnique({
       where: { id: userId },
-      select: {
-        id: true,
-        roles: true,
-        name: true,
-        email: true,
-        image: true,
-      },
+      select: { id: true, roles: true, email: true },
     }),
   ]);
 
@@ -75,41 +73,37 @@ export async function POST(request: Request) {
     );
   }
 
-  const jwt = await encodeAppSessionToken(
-    buildAppSessionTokenPayload({
-      actor: {
-        id: actor.id,
-        role: actor.roles,
-        name: actor.name,
-        email: actor.email,
-        image: actor.image,
-      },
-      viewer: {
-        id: target.id,
-        role: target.roles,
-        name: target.name,
-        email: target.email,
-        image: target.image,
-      },
-      adminExpiresAt: session.actor?.adminExpiresAt ?? getAdminSessionExpiresAt(),
-    }),
-    request.url
-  );
+  // Interdiction d'élever vers un rôle ADMIN
+  if (isAdminRole(target.roles)) {
+    return NextResponse.json(
+      { error: "Impossible d'impersoner un compte administrateur." },
+      { status: 403 }
+    );
+  }
 
-  const response = NextResponse.json({
-    success: true,
-    redirectTo: '/dashboard',
+  // 4. Mutation de la session DB spécifique à cet admin
+  await prisma.session.update({
+    where: { sessionToken: sessionContext.sessionToken },
+    data: {
+      impersonatedUserId: target.id,
+      impersonationStartedAt: new Date(),
+      impersonationReason: reason,
+    },
   });
 
-  applySessionTokenCookies(response, jwt, request.url);
-
+  // 5. Journalisation d'audit AuthLog avec motif et cible
   await prisma.authLog.create({
     data: {
       userId: actor.id,
       action: 'IMPERSONATION_START',
-      provider: target.email ?? target.id,
+      targetUserId: target.id,
+      reason,
+      provider: null,
     },
   });
 
-  return response;
+  return NextResponse.json({
+    success: true,
+    redirectTo: '/dashboard',
+  });
 }

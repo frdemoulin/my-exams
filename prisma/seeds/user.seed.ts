@@ -1,7 +1,16 @@
 import type { PrismaClient } from '@prisma/client';
 
 export async function seedUsers(prisma: PrismaClient) {
-  console.log('👤 Seeding Users...');
+  if (process.env.NODE_ENV === 'production') {
+    throw new Error('Refus par sécurité : seedUsers est formellement interdit en environnement de production.');
+  }
+
+  if (process.env.SEED_DEV_FIXTURES !== '1') {
+    console.log('   ⏭️ seedUsers ignoré (fixtures désactivées par défaut, activer avec SEED_DEV_FIXTURES=1)');
+    return;
+  }
+
+  console.log('👤 Seeding Users (Fixtures DEV)...');
 
   const users = [
     { name: 'Admin', email: 'admin@example.com', image: null, roles: 'ADMIN' as const },
@@ -16,5 +25,5 @@ export async function seedUsers(prisma: PrismaClient) {
     });
   }
 
-  console.log(`✓ ${users.length} utilisateurs créés/mis à jour`);
+  console.log(`✓ ${users.length} utilisateurs fixtures créés/mis à jour`);
 }

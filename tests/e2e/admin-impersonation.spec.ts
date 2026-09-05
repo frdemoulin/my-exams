@@ -13,15 +13,23 @@ test.describe("Impersonation admin", () => {
     const usersResponse = await request.get("/api/admin/impersonation/users");
     expect(usersResponse.ok()).toBeTruthy();
 
-    const usersData = (await usersResponse.json()) as { users?: Array<{ id: string; email: string; name: string }> };
-    const targetUser = usersData.users?.[0];
+    const usersData = (await usersResponse.json()) as {
+      users?: Array<{ id: string; label: string; secondaryLabel: string | null; role: string }>;
+    };
+    const targetUser = usersData.users?.find((u) => u.role !== "ADMIN");
 
     test.skip(!targetUser, "Aucun utilisateur démo disponible pour l'impersonation.");
     if (!targetUser) return;
 
     // 2. Démarrage de l'impersonation
     const startResponse = await request.post("/api/admin/impersonation/start", {
-      data: { userId: targetUser.id },
+      headers: {
+        origin: "http://localhost:3000",
+      },
+      data: {
+        userId: targetUser.id,
+        reason: "Test Playwright E2E impersonation support",
+      },
     });
 
     expect(startResponse.ok()).toBeTruthy();
@@ -38,7 +46,11 @@ test.describe("Impersonation admin", () => {
     await expect(page.locator("body")).toBeVisible();
 
     // 4. Arrêt de l'impersonation
-    const stopResponse = await request.post("/api/admin/impersonation/stop");
+    const stopResponse = await request.post("/api/admin/impersonation/stop", {
+      headers: {
+        origin: "http://localhost:3000",
+      },
+    });
     expect(stopResponse.ok()).toBeTruthy();
 
     const updatedCookies = await request.storageState();

@@ -53,7 +53,13 @@ function getClientIp(headerList: Headers) {
   return headerList.get("x-real-ip") || headerList.get("cf-connecting-ip");
 }
 
-export async function LogIn({ callbackPath = "/" }: { callbackPath?: string }) {
+export async function LogIn({
+  callbackPath = "/",
+  initialErrorMessage = null,
+}: {
+  callbackPath?: string;
+  initialErrorMessage?: string | null;
+}) {
   const hasMagicLink = providerMap.some((provider) => provider.id === "email");
   const oauthProviders = providerMap.filter((provider) => provider.id !== "email");
   const continuationPath = `/auth/continue?callbackUrl=${encodeURIComponent(callbackPath)}`;
@@ -69,6 +75,15 @@ export async function LogIn({ callbackPath = "/" }: { callbackPath?: string }) {
           <CardTitle className="flex justify-center">Connexion à l&apos;application</CardTitle>
         </CardHeader>
         <CardContent>
+          {initialErrorMessage && (
+            <div
+              role="alert"
+              className="mb-4 rounded-base border border-amber-500/40 bg-amber-500/10 p-3 text-xs text-amber-800 dark:text-amber-200"
+            >
+              {initialErrorMessage}
+            </div>
+          )}
+
           <div className="mb-5 rounded-base border border-default bg-neutral-primary-soft p-3 text-xs text-muted-foreground">
             <div className="font-semibold text-heading">Pourquoi se connecter&nbsp;?</div>
             <p className="mt-1">
@@ -91,17 +106,6 @@ export async function LogIn({ callbackPath = "/" }: { callbackPath?: string }) {
                     try {
                       await signIn(provider.id, { redirectTo: callbackUrl });
                     } catch (error) {
-                      // Signin can fail for a number of reasons, such as the user
-                      // not existing, or the user not having the correct role.
-                      // In some cases, you may want to redirect to a custom error
-                      if (error instanceof AuthError) {
-                        // return redirect(`${SIGNIN_ERROR_URL}?error=${error.type}`)
-                      }
-
-                      // Otherwise if a redirects happens NextJS can handle it
-                      // so you can just re-thrown the error and let NextJS handle it.
-                      // Docs:
-                      // https://nextjs.org/docs/app/api-reference/functions/redirect#server-component
                       throw error;
                     }
                   }}
@@ -159,7 +163,7 @@ export async function LogIn({ callbackPath = "/" }: { callbackPath?: string }) {
                   try {
                     const headerList = await headers();
                     const ip = getClientIp(headerList);
-                    const rateLimit = checkMagicLinkRateLimit({ email, ip });
+                    const rateLimit = await checkMagicLinkRateLimit({ email, ip });
 
                     if (!rateLimit.allowed) {
                       await setToastCookie("success", successMessage);
@@ -173,13 +177,6 @@ export async function LogIn({ callbackPath = "/" }: { callbackPath?: string }) {
                     });
                     await setToastCookie("success", successMessage);
                   } catch (error) {
-                    // Signin can fail for a number of reasons, such as the user
-                    // not existing, or the user not having the correct role.
-                    // In some cases, you may want to redirect to a custom error
-                    if (error instanceof AuthError) {
-                      // return redirect(`${SIGNIN_ERROR_URL}?error=${error.type}`)
-                    }
-
                     await setToastCookie(
                       process.env.NODE_ENV === "production" ? "success" : "error",
                       process.env.NODE_ENV === "production"
@@ -213,5 +210,5 @@ export async function LogIn({ callbackPath = "/" }: { callbackPath?: string }) {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }

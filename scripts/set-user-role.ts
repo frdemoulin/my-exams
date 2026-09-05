@@ -101,15 +101,24 @@ async function main() {
       throw new Error(`Utilisateur introuvable (where=${JSON.stringify(where)}).`);
     }
 
+    if (existing.roles === opts.role) {
+      console.log(`ℹ️ L'utilisateur ${existing.email ?? existing.id} possède déjà le rôle ${opts.role}. Aucune modification.`);
+      return;
+    }
+
+    console.log(`\n⚠️ Modification de rôle demandée :`);
+    console.log(`- Cible       : ${existing.email ?? existing.id}`);
+    console.log(`- Ancien rôle : ${existing.roles}`);
+    console.log(`- Nouveau rôle: ${opts.role}`);
+
     const updated = await prisma.user.update({
       where,
       data: { roles: opts.role },
     });
 
-    console.log("✅ Rôle mis à jour");
-    console.log(`- email: ${updated.email ?? "(sans email)"}`);
-    console.log(`- id: ${updated.id}`);
-    console.log(`- roles: ${updated.roles}`);
+    console.log("\n✅ Rôle mis à jour avec succès");
+    console.log(`- Utilisateur : ${updated.email ?? updated.id}`);
+    console.log(`- Rôle actuel : ${updated.roles}`);
   } finally {
     await prisma.$disconnect();
   }

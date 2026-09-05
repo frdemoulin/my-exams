@@ -3,6 +3,10 @@ import { loadProjectEnv } from "../scripts/lib/load-env";
 loadProjectEnv();
 
 async function main() {
+    if (process.env.NODE_ENV === "production" && process.env.SEED_DEV_FIXTURES === "1") {
+        throw new Error("Sécurité critique : SEED_DEV_FIXTURES est formellement interdit en environnement de production.");
+    }
+
     console.log("🌱 Début du seeding...");
 
     const [

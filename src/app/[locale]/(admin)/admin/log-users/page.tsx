@@ -24,6 +24,8 @@ const LogUsersPage = async () => {
       userId: true,
       action: true,
       provider: true,
+      targetUserId: true,
+      reason: true,
       createdAt: true,
     },
     orderBy: { createdAt: "desc" },

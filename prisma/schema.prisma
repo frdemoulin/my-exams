@@ -754,13 +754,19 @@ enum ErrorDailyCategory {
 }
 
 model Session {
-  id           String   @id @default(auto()) @map("_id") @db.ObjectId
-  sessionToken String   @unique @map("session_token")
-  userId       String   @db.ObjectId
-  expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt    DateTime @default(now()) @map("created_at")
-  updatedAt    DateTime @updatedAt @map("updated_at")
+  id                     String    @id @default(auto()) @map("_id") @db.ObjectId
+  sessionToken           String    @unique @map("session_token")
+  userId                 String    @db.ObjectId
+  expires                DateTime
+  user                   User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  impersonatedUserId     String?   @db.ObjectId
+  impersonationStartedAt DateTime?
+  impersonationReason    String?
+  createdAt              DateTime  @default(now()) @map("created_at")
+  updatedAt              DateTime  @updatedAt @map("updated_at")
+
+  @@index([userId])
+  @@index([impersonatedUserId])
 }
 
 model Subject {
@@ -1438,16 +1444,30 @@ enum SubscriptionStatus {
 }
 
 model AuthLog {
-  id        String        @id @default(auto()) @map("_id") @db.ObjectId
-  userId    String        @db.ObjectId
-  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
-  action    AuthLogAction
-  provider  String?
-  createdAt DateTime      @default(now())
+  id           String        @id @default(auto()) @map("_id") @db.ObjectId
+  userId       String        @db.ObjectId
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  action       AuthLogAction
+  provider     String?
+  targetUserId String?       @db.ObjectId
+  reason       String?
+  createdAt    DateTime      @default(now())
 
   @@index([userId])
   @@index([action])
   @@index([createdAt])
+  @@index([targetUserId])
+}
+
+model MagicLinkRateLimit {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  key           String   @unique
+  count         Int      @default(1)
+  lastAttemptAt DateTime @default(now())
+  expiresAt     DateTime
+  createdAt     DateTime @default(now())
+
+  @@index([expiresAt])
 }
 
 model UsageEvent {

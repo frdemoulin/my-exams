@@ -124,11 +124,15 @@ async function main() {
   const skipPush = args.has("--skip-push");
   const skipSeed = args.has("--skip-seed");
 
+  // Sécurité absolue : interdiction formelle de tout flag de fixtures dev pour le seed de production
+  delete process.env.SEED_DEV_FIXTURES;
+  process.env.SEED_DEV_FIXTURES = "0";
+
   if (!skipGenerate) run("npx", ["prisma", "generate"]);
   if (!skipPush) run("npx", ["prisma", "db", "push"]);
   if (!skipSeed) run("npx", ["prisma", "db", "seed"]);
 
-  console.log("\n✅ Seed prod terminé.");
+  console.log("\n✅ Seed prod terminé (données de référence uniquement, zéro compte de test).");
 }
 
 main().catch((err) => {
