@@ -14,7 +14,6 @@ export async function seedUsers(prisma: PrismaClient) {
 
   const users = [
     { name: 'Admin', email: 'admin@example.com', image: null, roles: 'ADMIN' as const },
-    { name: 'Utilisateur démo', email: 'demo@example.com', image: null, roles: 'USER' as const },
   ];
 
   for (const u of users) {

@@ -35,6 +35,8 @@
     "audit:health:ue14-colle-themes": "tsx scripts/health-ue14-colle-theme-mapping-audit.ts",
     "db:fixture:health-mock-exam": "tsx scripts/seed-health-mock-exam-fixture.ts",
     "db:fixture:health": "tsx scripts/generate-health-parcoursup-fixture.ts",
+    "db:seed:demo-accounts": "tsx scripts/seed-demo-accounts.ts",
+    "db:reset:demo-accounts": "tsx scripts/seed-demo-accounts.ts --reset-progress",
     "db:seed:prod": "ts-node scripts/seed-prod.ts",
     "db:clear": "ts-node scripts/clear-database.ts",
     "db:clear-domains-themes": "tsx scripts/clear-domains-themes.ts",

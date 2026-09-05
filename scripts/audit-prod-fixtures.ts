@@ -14,8 +14,11 @@ import { loadProjectEnv } from "./lib/load-env";
 
 const FIXTURE_EMAILS = [
   "admin@example.com",
-  "demo@example.com",
   "admin-e2e@example.com",
+  "demo@example.com",
+  "demo-college@my-exams.local",
+  "demo-lycee@my-exams.local",
+  "demo-sante@my-exams.local",
 ];
 
 async function main() {

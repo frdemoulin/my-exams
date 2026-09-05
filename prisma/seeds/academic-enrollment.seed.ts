@@ -1,4 +1,5 @@
 import type { PrismaClient } from '@prisma/client';
+import { seedDemoAccounts } from '../../scripts/seed-demo-accounts';
 
 export async function seedAcademicEnrollments(prisma: PrismaClient) {
   console.log('📝 Seeding Academic Enrollments...');
@@ -149,37 +150,8 @@ export async function seedAcademicEnrollments(prisma: PrismaClient) {
     });
   }
 
-  // Compte de démonstration
-  const demoUser = await prisma.user.findUnique({
-    where: { email: 'demo@example.com' },
-  });
-
-  if (demoUser) {
-    await prisma.userAcademicEnrollment.upsert({
-      where: {
-        userId_academicYearId: {
-          userId: demoUser.id,
-          academicYearId: academicYear2026.id,
-        },
-      },
-      update: {
-        audience: 'HEALTH',
-        healthProgramVersionId: urcaVersion2026.id,
-        healthPathwayId: salsaPathway?.id ?? null,
-        lockedAt: new Date('2026-09-01T08:00:00.000Z'),
-        createdBy: 'SELF_ONBOARDING',
-      },
-      create: {
-        userId: demoUser.id,
-        academicYearId: academicYear2026.id,
-        audience: 'HEALTH',
-        healthProgramVersionId: urcaVersion2026.id,
-        healthPathwayId: salsaPathway?.id ?? null,
-        lockedAt: new Date('2026-09-01T08:00:00.000Z'),
-        createdBy: 'SELF_ONBOARDING',
-      },
-    });
-  }
+  // Comptes de démonstration (Collège, Lycée, Santé) via la source unique
+  await seedDemoAccounts(prisma);
 
   console.log('   ✓ Affectations pédagogiques initialisées (2025-2026 et 2026-2027 normalisées)');
 }

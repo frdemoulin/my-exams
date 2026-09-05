@@ -1,7 +1,7 @@
 import type { NextResponse } from 'next/server';
 
-const USER_SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 7;
-const ADMIN_SESSION_MAX_AGE_SECONDS = 60 * 60 * 8;
+export const USER_SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 7;
+export const ADMIN_SESSION_MAX_AGE_SECONDS = 60 * 60 * 8;
 
 export type SessionCookieOptions = {
   secure?: boolean;

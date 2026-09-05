@@ -4,17 +4,20 @@ import { NextResponse } from "next/server";
 import crypto from "crypto";
 
 import prisma from "@/lib/db/prisma";
-import { getAuthSessionCookieConfig } from "@/lib/auth/session-cookie";
+import {
+  getAuthSessionCookieConfig,
+  ADMIN_SESSION_MAX_AGE_SECONDS,
+  USER_SESSION_MAX_AGE_SECONDS,
+} from "@/lib/auth/session-cookie";
 
 const HEADER_NAME = "x-e2e-test-login";
-const ADMIN_SESSION_MAX_AGE_SECONDS = 60 * 60 * 8;
 
 export async function POST(req: Request) {
   const testSecret = process.env.E2E_TEST_LOGIN_SECRET;
   const authSecret = process.env.AUTH_SECRET;
 
-  if (!testSecret || !authSecret) {
-    console.error("E2E login disabled - missing secret(s)");
+  if (process.env.NODE_ENV === "production" || !testSecret || !authSecret) {
+    console.error("E2E login disabled - production or missing secret(s)");
     return NextResponse.json({ error: "E2E login disabled" }, { status: 404 });
   }
 
@@ -25,35 +28,48 @@ export async function POST(req: Request) {
 
   try {
     const body = (await req.json().catch(() => null)) as { email?: string; name?: string } | null;
-    const email = body?.email;
-    const name = body?.name || "E2E Admin";
+    const email = body?.email?.trim().toLowerCase();
 
     if (!email) {
       return NextResponse.json({ error: "Email manquant" }, { status: 400 });
     }
 
+    const adminE2EEmail = (process.env.E2E_TEST_EMAIL || "admin-e2e@example.com").toLowerCase();
+    const ALLOWED_TEST_LOGIN_EMAILS = new Set([
+      adminE2EEmail,
+      "demo-college@my-exams.local",
+      "demo-lycee@my-exams.local",
+      "demo-sante@my-exams.local",
+    ]);
+
+    if (!ALLOWED_TEST_LOGIN_EMAILS.has(email)) {
+      return NextResponse.json({ error: "Email non autorisé pour test-login" }, { status: 403 });
+    }
+
     let user = await prisma.user.findUnique({ where: { email } });
     if (!user) {
-      user = await prisma.user.create({
-        data: {
-          email,
-          name,
-          roles: "ADMIN",
-        },
-      });
-    } else if (user.roles !== "ADMIN" || user.name !== name) {
-      user = await prisma.user.update({
-        where: { id: user.id },
-        data: {
-          name,
-          roles: "ADMIN",
-        },
-      });
+      if (email === adminE2EEmail) {
+        user = await prisma.user.create({
+          data: {
+            email,
+            name: body?.name || "E2E Admin",
+            roles: "ADMIN",
+          },
+        });
+      } else {
+        return NextResponse.json(
+          { error: "Utilisateur non initialisé. Exécutez npm run db:seed:demo-accounts." },
+          { status: 404 }
+        );
+      }
     }
+
+    const isAdmin = user.roles === "ADMIN";
+    const maxAgeSeconds = isAdmin ? ADMIN_SESSION_MAX_AGE_SECONDS : USER_SESSION_MAX_AGE_SECONDS;
+    const expires = new Date(Date.now() + maxAgeSeconds * 1000);
 
     const cookieConfig = getAuthSessionCookieConfig({ requestUrl: req.url });
     const sessionToken = crypto.randomUUID();
-    const expires = new Date(Date.now() + ADMIN_SESSION_MAX_AGE_SECONDS * 1000);
 
     await prisma.session.create({
       data: {
@@ -63,8 +79,14 @@ export async function POST(req: Request) {
       },
     });
 
-    const res = NextResponse.json({ ok: true, user: { id: user.id, email: user.email } });
-    res.cookies.set(cookieConfig.name, sessionToken, cookieConfig.options);
+    const res = NextResponse.json({
+      ok: true,
+      user: { id: user.id, email: user.email, role: user.roles },
+    });
+    res.cookies.set(cookieConfig.name, sessionToken, {
+      ...cookieConfig.options,
+      maxAge: maxAgeSeconds,
+    });
 
     return res;
   } catch (error) {
