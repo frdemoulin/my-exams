@@ -10,7 +10,7 @@ const prisma = require("../../src/lib/db/prisma").default;
 import {
   buildAppSessionTokenPayload,
   encodeAppSessionToken,
-} from "../../src/lib/auth/session-cookie";
+} from "../helpers/session-fixture";
 
 const appBaseUrl =
   process.env.E2E_BASE_URL ?? `http://localhost:${process.env.E2E_PORT ?? "3000"}`;

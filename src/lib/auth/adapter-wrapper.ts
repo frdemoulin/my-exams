@@ -106,10 +106,30 @@ export function createHardenedPrismaAdapter(prisma: PrismaClient): Adapter {
         }
       }
 
-      // Nettoyage opportuniste d'une impersonation expirée (> 1h)
-      if (session.impersonatedUserId && session.impersonationStartedAt) {
-        const impersonationAgeMs = now - session.impersonationStartedAt.getTime();
-        if (impersonationAgeMs > IMPERSONATION_MAX_AGE_MS) {
+      // Nettoyage opportuniste d'une impersonation invalide (acteur non-admin, durée > 1h, ou cible inexistante)
+      if (session.impersonatedUserId) {
+        let shouldCleanImpersonation = false;
+
+        if (!isAdmin) {
+          shouldCleanImpersonation = true;
+        } else if (session.impersonationStartedAt) {
+          const impersonationAgeMs = now - session.impersonationStartedAt.getTime();
+          if (impersonationAgeMs > IMPERSONATION_MAX_AGE_MS) {
+            shouldCleanImpersonation = true;
+          }
+        }
+
+        if (!shouldCleanImpersonation) {
+          const targetExists = await prisma.user.findUnique({
+            where: { id: session.impersonatedUserId },
+            select: { id: true },
+          });
+          if (!targetExists) {
+            shouldCleanImpersonation = true;
+          }
+        }
+
+        if (shouldCleanImpersonation) {
           try {
             await prisma.session.update({
               where: { sessionToken },

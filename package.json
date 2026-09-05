@@ -50,8 +50,8 @@
     "auth:logs:cleanup": "tsx scripts/cleanup-auth-logs.ts",
     "usage:stats:rollup": "tsx scripts/usage-stats-rollup.ts",
     "user:role": "tsx scripts/set-user-role.ts",
-    "test:e2e": "playwright test",
-    "test:unit": "node --env-file=.env.local node_modules/.bin/tsx --test tests/unit/*.test.ts",
+    "test:e2e": "NODE_OPTIONS='--require ./tests/helpers/register-server-only.js' playwright test",
+    "test:unit": "NODE_OPTIONS='--require ./tests/helpers/register-server-only.js' node --env-file=.env.local node_modules/.bin/tsx --test tests/unit/*.test.ts",
     "prepare": "node -e \"process.env.CI ? process.exit(0) : require('child_process').execSync('husky', {stdio:'inherit'})\"",
     "semantic-release": "semantic-release"
   },
@@ -95,6 +95,7 @@
     "react-hook-form": "^7.71.2",
     "react-hot-toast": "^2.6.0",
     "react-icons": "^5.5.0",
+    "server-only": "^0.0.1",
     "tailwind-merge": "^2.6.1",
     "tsx": "^4.21.1",
     "write-excel-file": "^4.0.7",

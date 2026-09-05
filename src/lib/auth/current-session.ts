@@ -1,3 +1,4 @@
+import "server-only";
 import { cookies, headers } from "next/headers";
 import type { Role } from "@prisma/client";
 import prisma from "@/lib/db/prisma";
@@ -130,12 +131,9 @@ export async function getCurrentInternalSessionContext(
   let effectiveUserEmail = sessionRecord.user.email;
   let effectiveUserImage = sessionRecord.user.image;
 
-  if (sessionRecord.impersonatedUserId && isActorAdmin) {
-    const startMs = sessionRecord.impersonationStartedAt?.getTime() ?? 0;
-    const isImpersonationExpired = now - startMs > IMPERSONATION_MAX_AGE_MS;
-
-    if (isImpersonationExpired) {
-      // Expiration automatique de l'impersonation (> 1h)
+  if (sessionRecord.impersonatedUserId) {
+    if (!isActorAdmin) {
+      // Acteur non-admin : nettoyage immédiat en DB
       try {
         await prisma.session.update({
           where: { sessionToken: token },
@@ -149,6 +147,24 @@ export async function getCurrentInternalSessionContext(
         // Non bloquant
       }
     } else {
+      const startMs = sessionRecord.impersonationStartedAt?.getTime() ?? 0;
+      const isImpersonationExpired = now - startMs > IMPERSONATION_MAX_AGE_MS;
+
+      if (isImpersonationExpired) {
+        // Expiration automatique de l'impersonation (> 1h)
+        try {
+          await prisma.session.update({
+            where: { sessionToken: token },
+            data: {
+              impersonatedUserId: null,
+              impersonationStartedAt: null,
+              impersonationReason: null,
+            },
+          });
+        } catch {
+          // Non bloquant
+        }
+      } else {
       const viewer = await prisma.user.findUnique({
         where: { id: sessionRecord.impersonatedUserId },
         select: {
@@ -196,6 +212,7 @@ export async function getCurrentInternalSessionContext(
       }
     }
   }
+}
 
   return {
     sessionId: sessionRecord.id,

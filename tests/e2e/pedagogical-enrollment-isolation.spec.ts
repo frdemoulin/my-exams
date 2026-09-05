@@ -3,7 +3,7 @@ import prisma from "@/lib/db/prisma";
 import {
   buildAppSessionTokenPayload,
   encodeAppSessionToken,
-} from "@/lib/auth/session-cookie";
+} from "../helpers/session-fixture";
 
 test.describe("Cloisonnement pédagogique et affectation annuelle", () => {
   test("1. Utilisateur sans affectation annuelle : API refuse et signale ONBOARDING_REQUIRED", async ({

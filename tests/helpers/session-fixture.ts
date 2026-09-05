@@ -1,6 +1,13 @@
-import crypto from 'node:crypto';
-import type { Role } from '@prisma/client';
-import prisma from '@/lib/db/prisma';
+import "server-only";
+import crypto from "node:crypto";
+import type { Role } from "@prisma/client";
+import prisma from "@/lib/db/prisma";
+
+if (process.env.NODE_ENV === "production") {
+  throw new Error(
+    "Sécurité critique : les fixtures de session sont formellement interdites en environnement de production."
+  );
+}
 
 const USER_SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 7;
 const ADMIN_SESSION_MAX_AGE_SECONDS = 60 * 60 * 8;
@@ -82,11 +89,20 @@ export async function encodeAppSessionToken(
   payload: AppSessionTokenPayload,
   _options?: any
 ): Promise<string> {
+  if (process.env.NODE_ENV === "production") {
+    throw new Error(
+      "Sécurité critique : encodeAppSessionToken est formellement interdit en environnement de production."
+    );
+  }
+
   const userId = payload.sub || payload.actorId;
   const sessionToken = crypto.randomUUID();
-  const isAdmin = (payload.actorRole ?? payload.role) === 'ADMIN';
+  const isAdmin = (payload.actorRole ?? payload.role) === "ADMIN";
   const expires = new Date(
-    Date.now() + (isAdmin ? ADMIN_SESSION_MAX_AGE_SECONDS * 1000 : USER_SESSION_MAX_AGE_SECONDS * 1000)
+    Date.now() +
+      (isAdmin
+        ? ADMIN_SESSION_MAX_AGE_SECONDS * 1000
+        : USER_SESSION_MAX_AGE_SECONDS * 1000)
   );
 
   if (userId) {
@@ -94,14 +110,14 @@ export async function encodeAppSessionToken(
       await prisma.user.upsert({
         where: { id: userId },
         update: {
-          roles: payload.role || 'USER',
+          roles: payload.role || "USER",
           name: payload.name || undefined,
           email: payload.email || undefined,
         },
         create: {
           id: userId,
-          roles: payload.role || 'USER',
-          name: payload.name || 'Test User',
+          roles: payload.role || "USER",
+          name: payload.name || "Test User",
           email: payload.email || `${userId}@test.local`,
         },
       });

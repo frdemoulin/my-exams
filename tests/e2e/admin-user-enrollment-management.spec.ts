@@ -3,8 +3,8 @@ import prisma from "@/lib/db/prisma";
 import {
   buildAppSessionTokenPayload,
   encodeAppSessionToken,
-  getAdminSessionExpiresAt,
-} from "@/lib/auth/session-cookie";
+} from "../helpers/session-fixture";
+import { getAdminSessionExpiresAt } from "@/lib/auth/session-cookie";
 import { getActiveAcademicYear } from "@/core/academic-year";
 
 const appBaseUrl =

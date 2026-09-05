@@ -923,4 +923,164 @@ describe('P1D — Hardening Sécurité & Authentification', () => {
       }
     });
   });
+
+  describe('7. Isolation des fixtures, server-only et nettoyage de session d’impersonation', () => {
+    test('current-session.ts est explicitement marqué server-only en tête de fichier', async () => {
+      const fs = await import('node:fs/promises');
+      const content = await fs.readFile('src/lib/auth/current-session.ts', 'utf8');
+      const firstLine = content.split('\n')[0].trim();
+      assert.equal(firstLine, 'import "server-only";', 'La première ligne de current-session.ts doit être import "server-only";');
+    });
+
+    test('les fixtures de session sont isolées dans tests/helpers et bloquées en production', async () => {
+      const fs = await import('node:fs/promises');
+
+      // 1. src/lib/auth/session-fixture.ts n'existe plus
+      try {
+        await fs.access('src/lib/auth/session-fixture.ts');
+        assert.fail('src/lib/auth/session-fixture.ts ne doit plus exister');
+      } catch (err: any) {
+        assert.equal(err.code, 'ENOENT');
+      }
+
+      // 2. src/lib/auth/session-cookie.ts ne ré-exporte rien de session-fixture
+      const cookieCode = await fs.readFile('src/lib/auth/session-cookie.ts', 'utf8');
+      assert.ok(!cookieCode.includes('session-fixture'), 'session-cookie.ts ne doit plus ré-exporter session-fixture');
+
+      // 3. tests/helpers/session-fixture.ts est server-only et protégé par une garde production
+      const fixtureCode = await fs.readFile('tests/helpers/session-fixture.ts', 'utf8');
+      assert.ok(fixtureCode.includes('import "server-only";'));
+      assert.ok(fixtureCode.includes('process.env.NODE_ENV === "production"'));
+    });
+
+    test('Session ADMIN avec impersonatedUserId vers User supprimé -> appel /api/auth/session -> actor ADMIN normal, aucune impersonation exposée, DB nettoyée à null', async () => {
+      const adminUser = await prisma.user.create({
+        data: {
+          name: 'Admin Stale Target',
+          email: `admin-stale-target-${Date.now()}@test.local`,
+          roles: 'ADMIN',
+        },
+      });
+
+      const deletedTarget = await prisma.user.create({
+        data: {
+          name: 'Target Deleted User',
+          email: `target-del-${Date.now()}@test.local`,
+          roles: 'USER',
+        },
+      });
+
+      const token = `stale-target-token-${crypto.randomUUID()}`;
+      await prisma.session.create({
+        data: {
+          sessionToken: token,
+          userId: adminUser.id,
+          expires: new Date(Date.now() + 8 * 3600 * 1000),
+          impersonatedUserId: deletedTarget.id,
+          impersonationStartedAt: new Date(Date.now() - 5 * 60 * 1000),
+          impersonationReason: 'Support ticket',
+        },
+      });
+
+      // Supprimer le user cible
+      await prisma.user.delete({ where: { id: deletedTarget.id } });
+
+      try {
+        const req = new NextRequest('http://localhost:3000/api/auth/session', {
+          headers: {
+            cookie: `authjs.session-token=${token}`,
+          },
+        });
+
+        const res = await nextAuthGet(req);
+        assert.equal(res.status, 200);
+
+        const data = await res.json();
+        assert.ok(data);
+        assert.equal(data.user?.id, adminUser.id, 'Retour strict à l’identité actor');
+        assert.equal(data.user?.role, 'ADMIN');
+        assert.equal(data.actor?.id, adminUser.id);
+        assert.equal(data.impersonation, undefined, 'Aucune impersonation exposée dans le payload public');
+
+        // Vérifier que la Session en base a été nettoyée
+        const sessionInDb = await prisma.session.findUnique({
+          where: { sessionToken: token },
+        });
+        assert.ok(sessionInDb);
+        assert.equal(sessionInDb.impersonatedUserId, null, 'impersonatedUserId remis à null en DB');
+        assert.equal(sessionInDb.impersonationStartedAt, null, 'impersonationStartedAt remis à null en DB');
+        assert.equal(sessionInDb.impersonationReason, null, 'impersonationReason remis à null en DB');
+      } finally {
+        await prisma.session.deleteMany({ where: { sessionToken: token } });
+        await prisma.user.deleteMany({ where: { id: adminUser.id } });
+      }
+    });
+
+    test('Session avec impersonatedUserId mais acteur rétrogradé USER -> appel /api/auth/session -> actor USER normal, aucune impersonation exposée, DB nettoyée à null', async () => {
+      const formerAdmin = await prisma.user.create({
+        data: {
+          name: 'Former Admin Downgraded',
+          email: `former-admin-${Date.now()}@test.local`,
+          roles: 'ADMIN',
+        },
+      });
+
+      const targetStudent = await prisma.user.create({
+        data: {
+          name: 'Target Student For Downgraded',
+          email: `target-downgraded-${Date.now()}@test.local`,
+          roles: 'USER',
+        },
+      });
+
+      const token = `downgraded-actor-token-${crypto.randomUUID()}`;
+      await prisma.session.create({
+        data: {
+          sessionToken: token,
+          userId: formerAdmin.id,
+          expires: new Date(Date.now() + 8 * 3600 * 1000),
+          impersonatedUserId: targetStudent.id,
+          impersonationStartedAt: new Date(Date.now() - 5 * 60 * 1000),
+          impersonationReason: 'Auditing',
+        },
+      });
+
+      // Rétrograder l'administrateur en USER
+      await prisma.user.update({
+        where: { id: formerAdmin.id },
+        data: { roles: 'USER' },
+      });
+
+      try {
+        const req = new NextRequest('http://localhost:3000/api/auth/session', {
+          headers: {
+            cookie: `authjs.session-token=${token}`,
+          },
+        });
+
+        const res = await nextAuthGet(req);
+        assert.equal(res.status, 200);
+
+        const data = await res.json();
+        assert.ok(data);
+        assert.equal(data.user?.id, formerAdmin.id, 'Retour strict à l’identité actor');
+        assert.equal(data.user?.role, 'USER');
+        assert.equal(data.actor?.id, formerAdmin.id);
+        assert.equal(data.actor?.role, 'USER');
+        assert.equal(data.impersonation, undefined, 'Aucune impersonation exposée');
+
+        // Vérifier le nettoyage en DB
+        const sessionInDb = await prisma.session.findUnique({
+          where: { sessionToken: token },
+        });
+        assert.ok(sessionInDb);
+        assert.equal(sessionInDb.impersonatedUserId, null, 'impersonatedUserId remis à null en DB');
+        assert.equal(sessionInDb.impersonationStartedAt, null, 'impersonationStartedAt remis à null en DB');
+        assert.equal(sessionInDb.impersonationReason, null, 'impersonationReason remis à null en DB');
+      } finally {
+        await prisma.session.deleteMany({ where: { sessionToken: token } });
+        await prisma.user.deleteMany({ where: { id: { in: [formerAdmin.id, targetStudent.id] } } });
+      }
+    });
+  });
 });

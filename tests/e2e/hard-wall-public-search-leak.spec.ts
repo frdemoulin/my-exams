@@ -3,7 +3,7 @@ import prisma from "@/lib/db/prisma";
 import {
   buildAppSessionTokenPayload,
   encodeAppSessionToken,
-} from "@/lib/auth/session-cookie";
+} from "../helpers/session-fixture";
 import { getActiveAcademicYear } from "@/core/academic-year";
 
 /**

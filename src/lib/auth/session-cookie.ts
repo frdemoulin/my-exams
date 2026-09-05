@@ -101,6 +101,3 @@ export function clearSessionCookie(
     maxAge: 0,
   });
 }
-
-// Ré-exportation des helpers de fixtures E2E séparés
-export * from './session-fixture';

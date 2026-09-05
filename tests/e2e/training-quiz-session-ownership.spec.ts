@@ -3,7 +3,7 @@ import prisma from "@/lib/db/prisma";
 import {
   buildAppSessionTokenPayload,
   encodeAppSessionToken,
-} from "@/lib/auth/session-cookie";
+} from "../helpers/session-fixture";
 
 test.describe("Sécurité et ownership des sessions Training & Server Actions", () => {
   test("API upload PDF d'annales distingue 401 (anonyme) et 403 (non-admin)", async ({

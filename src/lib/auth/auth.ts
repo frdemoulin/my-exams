@@ -182,38 +182,75 @@ const authConfig = {
       let impersonationPayload: any = null;
 
       const impersonatedUserId = session.impersonatedUserId;
-      if (impersonatedUserId && isActorAdmin) {
-        const startedAtMs = session.impersonationStartedAt
-          ? new Date(session.impersonationStartedAt).getTime()
-          : null;
+      if (impersonatedUserId) {
+        let shouldCleanImpersonation = false;
 
-        const isExpired = startedAtMs && Date.now() - startedAtMs > 60 * 60 * 1000;
+        if (!isActorAdmin) {
+          shouldCleanImpersonation = true;
+        } else {
+          const startedAtMs = session.impersonationStartedAt
+            ? new Date(session.impersonationStartedAt).getTime()
+            : null;
 
-        if (!isExpired) {
-          const viewer = await prisma.user.findUnique({
-            where: { id: impersonatedUserId },
-            select: {
-              id: true,
-              name: true,
-              email: true,
-              image: true,
-              roles: true,
-            },
-          });
+          const isExpired = startedAtMs && Date.now() - startedAtMs > 60 * 60 * 1000;
 
-          if (viewer) {
-            effectiveUser = viewer;
-            impersonationPayload = {
-              isActive: true,
-              actorId: user.id,
-              actorRole: actorRole,
-              actorName: user.name ?? null,
-              viewerId: viewer.id,
-              viewerRole: normalizeRole(viewer.roles) ?? "USER",
-              viewerName: viewer.name ?? null,
-              viewerEmail: viewer.email ?? null,
-              startedAt: startedAtMs,
-            };
+          if (isExpired) {
+            shouldCleanImpersonation = true;
+          } else {
+            const viewer = await prisma.user.findUnique({
+              where: { id: impersonatedUserId },
+              select: {
+                id: true,
+                name: true,
+                email: true,
+                image: true,
+                roles: true,
+              },
+            });
+
+            if (viewer) {
+              effectiveUser = viewer;
+              impersonationPayload = {
+                isActive: true,
+                actorId: user.id,
+                actorRole: actorRole,
+                actorName: user.name ?? null,
+                viewerId: viewer.id,
+                viewerRole: normalizeRole(viewer.roles) ?? "USER",
+                viewerName: viewer.name ?? null,
+                viewerEmail: viewer.email ?? null,
+                startedAt: startedAtMs,
+              };
+            } else {
+              shouldCleanImpersonation = true;
+            }
+          }
+        }
+
+        if (shouldCleanImpersonation) {
+          const sessionToken = session.sessionToken;
+          try {
+            if (sessionToken) {
+              await prisma.session.update({
+                where: { sessionToken },
+                data: {
+                  impersonatedUserId: null,
+                  impersonationStartedAt: null,
+                  impersonationReason: null,
+                },
+              });
+            } else if (session.id) {
+              await prisma.session.update({
+                where: { id: session.id },
+                data: {
+                  impersonatedUserId: null,
+                  impersonationStartedAt: null,
+                  impersonationReason: null,
+                },
+              });
+            }
+          } catch {
+            // Non bloquant
           }
         }
       }
