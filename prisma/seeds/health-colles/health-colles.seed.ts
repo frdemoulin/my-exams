@@ -12,19 +12,31 @@ import { seedHealthColleUE14C10 } from "./ue14/c10-chimie-colle-cumulative-ec.se
 import { seedHealthColleUE14C11 } from "./ue14/c11-biochimie-colle-cumulative-ec.seed";
 import { seedHealthColleUE14C12 } from "./ue14/c12-grande-colle-ue14.seed";
 
-export async function seedHealthColles(prisma: PrismaClient) {
-  console.log("Seeding des colles Santé (UE14)...");
-  await seedHealthColleUE14C01(prisma);
-  await seedHealthColleUE14C02(prisma);
-  await seedHealthColleUE14C03(prisma);
-  await seedHealthColleUE14C04(prisma);
-  await seedHealthColleUE14C05(prisma);
-  await seedHealthColleUE14C06(prisma);
-  await seedHealthColleUE14C07(prisma);
-  await seedHealthColleUE14C08(prisma);
-  await seedHealthColleUE14C09(prisma);
-  await seedHealthColleUE14C10(prisma);
-  await seedHealthColleUE14C11(prisma);
-  await seedHealthColleUE14C12(prisma);
-  console.log("Seeding des colles Santé (UE14) terminé.");
+const collesSeeders = [
+  seedHealthColleUE14C01,
+  seedHealthColleUE14C02,
+  seedHealthColleUE14C03,
+  seedHealthColleUE14C04,
+  seedHealthColleUE14C05,
+  seedHealthColleUE14C06,
+  seedHealthColleUE14C07,
+  seedHealthColleUE14C08,
+  seedHealthColleUE14C09,
+  seedHealthColleUE14C10,
+  seedHealthColleUE14C11,
+  seedHealthColleUE14C12,
+];
+
+export async function seedHealthColles(prisma: PrismaClient, programVersionSlug?: string) {
+  const versions = programVersionSlug
+    ? [programVersionSlug]
+    : ["las-2025-2026", "las-sps-2026-2027"];
+
+  for (const version of versions) {
+    console.log(`Seeding des colles Santé (UE14) pour ${version}...`);
+    for (const seeder of collesSeeders) {
+      await seeder(prisma, version);
+    }
+    console.log(`Seeding des colles Santé (UE14) pour ${version} terminé.`);
+  }
 }

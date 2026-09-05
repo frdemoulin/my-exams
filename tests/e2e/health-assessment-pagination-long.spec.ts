@@ -11,6 +11,17 @@ const authFile = process.env.E2E_AUTH_STATE ?? "playwright/.auth/admin.json";
 const appBaseUrl =
   process.env.E2E_BASE_URL ?? `http://localhost:${process.env.E2E_PORT ?? "3000"}`;
 
+async function getActiveUe14Id(): Promise<string> {
+  const ue = await prisma.healthCourseUnit.findFirstOrThrow({
+    where: {
+      code: "UE14",
+      programVersion: { isCurrent: true, institution: { uaiCode: "0511296G" } },
+    },
+    select: { id: true },
+  });
+  return ue.id;
+}
+
 test.describe.serial("Santé — Navigation paginée et terminaison des épreuves (colles & examens blancs)", () => {
   test.use({ storageState: authFile });
 
@@ -18,7 +29,8 @@ test.describe.serial("Santé — Navigation paginée et terminaison des épreuve
     page,
   }) => {
     test.setTimeout(120_000);
-    await page.goto(`${appBaseUrl}/sante/ue/6a2c2b111af36bd83ac27ec2?ec=evaluations`);
+    const ue14Id = await getActiveUe14Id();
+    await page.goto(`${appBaseUrl}/sante/ue/${ue14Id}?ec=evaluations`);
 
     await expect(page.getByRole("heading", { name: "Colles", exact: true })).toBeVisible();
 
@@ -102,7 +114,8 @@ test.describe.serial("Santé — Navigation paginée et terminaison des épreuve
   }) => {
     await page.setViewportSize({ width: 375, height: 812 });
 
-    await page.goto(`${appBaseUrl}/sante/ue/6a2c2b111af36bd83ac27ec2?ec=evaluations`);
+    const ue14Id = await getActiveUe14Id();
+    await page.goto(`${appBaseUrl}/sante/ue/${ue14Id}?ec=evaluations`);
 
     const c01Row = page.locator("tr").filter({ hasText: "Chimie — Fondamentaux" });
     await openHealthColleStartDialog(page, c01Row);
@@ -133,7 +146,8 @@ test.describe.serial("Santé — Navigation paginée et terminaison des épreuve
     page,
   }) => {
     await page.setViewportSize({ width: 768, height: 1024 });
-    await page.goto(`${appBaseUrl}/sante/ue/6a2c2b111af36bd83ac27ec2?ec=evaluations`);
+    const ue14Id = await getActiveUe14Id();
+    await page.goto(`${appBaseUrl}/sante/ue/${ue14Id}?ec=evaluations`);
 
     const c01Row = page.locator("tr").filter({ hasText: "Chimie — Fondamentaux" });
     await openHealthColleStartDialog(page, c01Row);

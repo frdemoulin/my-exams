@@ -1,8 +1,24 @@
 import { test, expect, type Locator } from "@playwright/test";
 
 import { openHealthColleStartDialog } from "./health-colle-actions";
+import { loadProjectEnv } from "../../scripts/lib/load-env";
+
+loadProjectEnv();
+
+const prisma = require("../../src/lib/db/prisma").default;
 
 const authFile = process.env.E2E_AUTH_STATE ?? "playwright/.auth/admin.json";
+
+async function getActiveUe14Id(): Promise<string> {
+  const ue = await prisma.healthCourseUnit.findFirstOrThrow({
+    where: {
+      code: "UE14",
+      programVersion: { isCurrent: true, institution: { uaiCode: "0511296G" } },
+    },
+    select: { id: true },
+  });
+  return ue.id;
+}
 
 async function expectNoHorizontalOverflow(locator: Locator) {
   const dimensions = await locator.evaluate((element) => ({
@@ -39,7 +55,7 @@ test.describe("Santé — Bilan pédagogique, Correction détaillée et Suivi de
     page,
   }) => {
     test.setTimeout(120_000);
-    const courseUnitId = "6a2c2b111af36bd83ac27ec2";
+    const courseUnitId = await getActiveUe14Id();
 
     // 1. Visiter l'onglet Évaluations
     await page.goto(`/sante/ue/${courseUnitId}?ec=evaluations`);

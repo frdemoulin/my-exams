@@ -30,13 +30,27 @@ type PublishedSection = {
 };
 
 async function getQZoneFixture() {
+  const activeVersion = await prisma.healthProgramVersion.findFirstOrThrow({
+    where: { isCurrent: true, institution: { uaiCode: "0511296G" } },
+    select: { id: true },
+  });
+
+  const activeTeachingElements = await prisma.healthTeachingElement.findMany({
+    where: { courseUnit: { programVersionId: activeVersion.id } },
+    select: { id: true },
+  });
+  const activeTeIds = activeTeachingElements.map((te: { id: string }) => te.id);
+
   const chapter = await prisma.chapter.findFirst({
     where: { slug: chapterSlug },
     select: {
       id: true,
       title: true,
       assignments: {
-        where: { contextType: "HEALTH_TEACHING_ELEMENT" },
+        where: {
+          contextType: "HEALTH_TEACHING_ELEMENT",
+          contextId: { in: activeTeIds },
+        },
         select: { contextId: true },
         take: 1,
       },
@@ -118,6 +132,7 @@ async function getQZoneFixture() {
   return {
     courseUnitId: teachingElement.courseUnit.id,
     chapterTitle: chapter.title,
+    quizId: quiz.id,
     quizTitle: quiz.title,
     quizSlug: quiz.slug,
     quizQuestionCount: quiz.questionLinks.length,
@@ -169,8 +184,31 @@ async function answerAllQuizQuestions(
   }
 }
 
+async function resetQuizProgress(quizId: string) {
+  const user = await prisma.user.findUnique({
+    where: { email: "admin-e2e@example.com" },
+    select: { id: true },
+  });
+
+  if (!user) {
+    return;
+  }
+
+  await prisma.userTrainingQuizAttempt.deleteMany({
+    where: { userId: user.id, quizId },
+  });
+  await prisma.userTrainingQuizProgress.deleteMany({
+    where: { userId: user.id, quizId },
+  });
+}
+
 test.describe.serial("Player Santé V2 — QZONE en entraînement", () => {
   test.use({ storageState: authFile });
+
+  test.beforeEach(async () => {
+    const fixture = await getQZoneFixture();
+    await resetQuizProgress(fixture.quizId);
+  });
 
   test("Passation : sélection, affichage du marqueur, réinitialisation et validation", async ({
     page,

@@ -64,13 +64,23 @@ function requireObjectId(value: string, label: string) {
   }
 }
 
-async function resolveCourseUnitId(courseUnitIdOrSlug: string): Promise<string> {
+async function resolveCourseUnitId(courseUnitIdOrSlug: string, userId?: string | null): Promise<string> {
   if (objectIdPattern.test(courseUnitIdOrSlug)) {
     return courseUnitIdOrSlug;
   }
 
+  let scopedProgramVersionId: string | undefined;
+  if (userId) {
+    const { getCurrentUserAcademicEnrollment } = await import("@/core/academic-enrollment");
+    const userEnrollment = await getCurrentUserAcademicEnrollment(userId);
+    if (userEnrollment?.audience === "HEALTH" && userEnrollment.healthProgramVersionId) {
+      scopedProgramVersionId = userEnrollment.healthProgramVersionId;
+    }
+  }
+
   const courseUnit = await prisma.healthCourseUnit.findFirst({
     where: {
+      ...(scopedProgramVersionId ? { programVersionId: scopedProgramVersionId } : {}),
       OR: [
         { slug: courseUnitIdOrSlug },
         { slug: { startsWith: courseUnitIdOrSlug } },
@@ -394,7 +404,7 @@ export async function startOrResumeHealthMockExamAttempt(input: {
   examSlug: string;
   userId: string;
 }) {
-  const courseUnitId = await resolveCourseUnitId(input.courseUnitId);
+  const courseUnitId = await resolveCourseUnitId(input.courseUnitId, input.userId);
   const exam = await loadMockExamForStart(courseUnitId, input.examSlug);
 
   if (!exam) {
@@ -606,7 +616,7 @@ export async function fetchHealthMockExamTakingState(input: {
   | { kind: "completed"; attemptId: string }
   | { kind: "in-progress"; passage: HealthMockExamPassage }
 > {
-  const courseUnitId = await resolveCourseUnitId(input.courseUnitId);
+  const courseUnitId = await resolveCourseUnitId(input.courseUnitId, input.userId);
 
   const attempt = await prisma.userHealthMockExamAttempt.findFirst({
     where: {
@@ -1001,7 +1011,7 @@ export async function fetchHealthCourseUnitEvaluationsProgress(input: {
   courseUnitId: string;
   userId?: string | null;
 }): Promise<HealthCourseUnitEvaluationsProgress> {
-  const resolvedCourseUnitId = await resolveCourseUnitId(input.courseUnitId);
+  const resolvedCourseUnitId = await resolveCourseUnitId(input.courseUnitId, input.userId);
 
   const colles = await prisma.healthMockExam.findMany({
     where: {

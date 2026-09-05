@@ -35,7 +35,7 @@ async function upsertProgram(prisma: PrismaClient) {
       label: "Programme fixture My Exams Santé",
       description: "Programme technique réservé aux tests d'examen blanc.",
       isActive: true,
-      isPublished: true,
+      isPublished: false,
     },
     create: {
       type: HealthProgramType.OTHER,
@@ -43,7 +43,7 @@ async function upsertProgram(prisma: PrismaClient) {
       label: "Programme fixture My Exams Santé",
       description: "Programme technique réservé aux tests d'examen blanc.",
       isActive: true,
-      isPublished: true,
+      isPublished: false,
     },
   });
 }
@@ -58,7 +58,7 @@ async function upsertInstitution(prisma: PrismaClient) {
       region: "Fixture",
       department: "00",
       isActive: true,
-      isPublished: true,
+      isPublished: false,
     },
     create: {
       name: healthMockExamFixture.institutionName,
@@ -69,7 +69,7 @@ async function upsertInstitution(prisma: PrismaClient) {
       region: "Fixture",
       department: "00",
       isActive: true,
-      isPublished: true,
+      isPublished: false,
     },
   });
 }
@@ -89,9 +89,9 @@ async function upsertProgramVersion(
     academicYear: "2026-2027",
     studyLevel: HealthStudyLevel.L1,
     notes: "Maquette courte réservée aux tests automatisés d'examen blanc.",
-    isCurrent: true,
+    isCurrent: false,
     isActive: true,
-    isPublished: true,
+    isPublished: false,
   };
   const existingVersion = await prisma.healthProgramVersion.findFirst({
     where: {

@@ -32,6 +32,7 @@ async function main() {
         { seedHealthTrainingUe14 },
         { seedHealthMockExams },
         { seedHealthColles },
+        { seedHealthUrca2026 },
         { seedChapterAssignments },
         { seedAcademicYears },
         { seedAcademicEnrollments },
@@ -62,6 +63,7 @@ async function main() {
         import("./seeds/health-training-ue14.seed"),
         import("./seeds/health-mock-exams.seed"),
         import("./seeds/health-colles/health-colles.seed"),
+        import("./seeds/health-urca-2026.seed"),
         import("./seeds/chapter-assignments.seed"),
         import("./seeds/academic-year.seed"),
         import("./seeds/academic-enrollment.seed"),
@@ -103,6 +105,7 @@ async function main() {
         await seedHealthChapters(prisma);
         await seedHealthTrainingUe13HistologieContent(prisma);
         await seedHealthTrainingUe14(prisma);
+        await seedHealthUrca2026(prisma);
         await seedHealthMockExams(prisma);
         await seedHealthColles(prisma);
 

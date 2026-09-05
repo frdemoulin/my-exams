@@ -456,72 +456,106 @@ test('Scénario Année N (2026-2027) -> Année N+1 (2027-2028) : redoublement et
   const emailRedoublement = 'test-redoublement@example.com';
   await cleanupTestUsers([emailRedoublement]);
 
+  const ephemeral2027 = await prisma.academicYear.upsert({
+    where: { code: '2027-2028' },
+    update: {
+      label: 'Année scolaire 2027-2028 (Fixture)',
+      startsAt: new Date('2027-09-01T00:00:00.000Z'),
+      endsAt: new Date('2028-09-01T00:00:00.000Z'),
+    },
+    create: {
+      code: '2027-2028',
+      label: 'Année scolaire 2027-2028 (Fixture)',
+      startsAt: new Date('2027-09-01T00:00:00.000Z'),
+      endsAt: new Date('2028-09-01T00:00:00.000Z'),
+    },
+  });
+
   const user = await prisma.user.upsert({
     where: { email: emailRedoublement },
     update: {},
     create: { email: emailRedoublement, name: 'Redoublant Test' },
   });
 
-  const gradeTle = await prisma.grade.findFirst({ where: { shortDescription: 'Tle' } });
-  assert.ok(gradeTle);
+  try {
+    const gradeTle = await prisma.grade.findFirst({ where: { shortDescription: 'Tle' } });
+    assert.ok(gradeTle);
 
-  const dateN = new Date('2026-10-15');
-  const dateNPlus1 = new Date('2027-10-15');
+    const dateN = new Date('2026-10-15');
+    const dateNPlus1 = new Date('2027-10-15');
 
-  // 1. Année N : Choix de Terminale et verrouillage
-  const enrollmentN = await createAndLockUserAcademicEnrollment({
-    userId: user.id,
-    audience: 'SECONDARY',
-    secondaryGradeId: gradeTle.id,
-    createdBy: 'SELF_ONBOARDING',
-    date: dateN,
-  });
-  assert.ok(enrollmentN);
+    // 1. Année N : Choix de Terminale et verrouillage
+    const enrollmentN = await createAndLockUserAcademicEnrollment({
+      userId: user.id,
+      audience: 'SECONDARY',
+      secondaryGradeId: gradeTle.id,
+      createdBy: 'SELF_ONBOARDING',
+      date: dateN,
+    });
+    assert.ok(enrollmentN);
 
-  // Vérification de la présence en année N
-  const currentN = await getCurrentUserAcademicEnrollment(user.id, dateN);
-  assert.ok(currentN);
-  assert.equal(currentN.id, enrollmentN.id);
+    // Vérification de la présence en année N
+    const currentN = await getCurrentUserAcademicEnrollment(user.id, dateN);
+    assert.ok(currentN);
+    assert.equal(currentN.id, enrollmentN.id);
 
-  // 2. Rentrée N+1 : Aucun Enrollment actif pour 2027-2028
-  const currentNPlus1Before = await getCurrentUserAcademicEnrollment(user.id, dateNPlus1);
-  assert.equal(currentNPlus1Before, null, 'Doit retourner null en rentrée N+1 (déclencheur ONBOARDING_REQUIRED)');
+    // 2. Rentrée N+1 : Aucun Enrollment actif pour 2027-2028
+    const currentNPlus1Before = await getCurrentUserAcademicEnrollment(user.id, dateNPlus1);
+    assert.equal(currentNPlus1Before, null, 'Doit retourner null en rentrée N+1 (déclencheur ONBOARDING_REQUIRED)');
 
-  // Routage post-authentification en N+1 doit orienter vers l’onboarding
-  const { destination: destNPlus1, isOnboardingRequired } = await resolvePostAuthenticationDestination({
-    userId: user.id,
-    callbackUrl: '/lycee',
-    date: dateNPlus1,
-  });
-  assert.equal(isOnboardingRequired, true);
-  assert.equal(destNPlus1, '/onboarding?callbackUrl=%2Flycee');
+    // Routage post-authentification en N+1 doit orienter vers l’onboarding
+    const { destination: destNPlus1, isOnboardingRequired } = await resolvePostAuthenticationDestination({
+      userId: user.id,
+      callbackUrl: '/lycee',
+      date: dateNPlus1,
+    });
+    assert.equal(isOnboardingRequired, true);
+    assert.equal(destNPlus1, '/onboarding?callbackUrl=%2Flycee');
 
-  // 3. Choix en N+1 : Redoublement en Terminale
-  const enrollmentNPlus1 = await createAndLockUserAcademicEnrollment({
-    userId: user.id,
-    audience: 'SECONDARY',
-    secondaryGradeId: gradeTle.id,
-    createdBy: 'SELF_ONBOARDING',
-    date: dateNPlus1,
-  });
-  assert.ok(enrollmentNPlus1);
-  assert.notEqual(enrollmentNPlus1.id, enrollmentN.id);
+    // 3. Choix en N+1 : Redoublement en Terminale
+    const enrollmentNPlus1 = await createAndLockUserAcademicEnrollment({
+      userId: user.id,
+      audience: 'SECONDARY',
+      secondaryGradeId: gradeTle.id,
+      createdBy: 'SELF_ONBOARDING',
+      date: dateNPlus1,
+    });
+    assert.ok(enrollmentNPlus1);
+    assert.notEqual(enrollmentNPlus1.id, enrollmentN.id);
 
-  // 4. Les deux Enrollments distincts coexistent en base
-  const allEnrollments = await prisma.userAcademicEnrollment.findMany({
-    where: { userId: user.id },
-    orderBy: { createdAt: 'asc' },
-  });
-  assert.equal(allEnrollments.length, 2, 'Deux affectations distinctes doivent être conservées');
-  assert.equal(allEnrollments[0].id, enrollmentN.id, 'L’affectation N reste intacte et inchangée');
-  assert.equal(allEnrollments[1].id, enrollmentNPlus1.id, 'L’affectation N+1 est créée et active');
-
-  await cleanupTestUsers([emailRedoublement]);
+    // 4. Les deux Enrollments distincts coexistent en base
+    const allEnrollments = await prisma.userAcademicEnrollment.findMany({
+      where: { userId: user.id },
+      orderBy: { createdAt: 'asc' },
+    });
+    assert.equal(allEnrollments.length, 2, 'Deux affectations distinctes doivent être conservées');
+    assert.equal(allEnrollments[0].id, enrollmentN.id, 'L’affectation N reste intacte et inchangée');
+    assert.equal(allEnrollments[1].id, enrollmentNPlus1.id, 'L’affectation N+1 est créée et active');
+  } finally {
+    await prisma.userAcademicEnrollment.deleteMany({ where: { userId: user.id } });
+    await prisma.academicYear.deleteMany({ where: { id: ephemeral2027.id } });
+    await cleanupTestUsers([emailRedoublement]);
+  }
 });
 
 test('Scénario Année N (Terminale) -> Année N+1 (Santé) : changement de verticale, scope actif et étanchéité', async () => {
   const emailChangement = 'test-changement-verticale@example.com';
   await cleanupTestUsers([emailChangement]);
+
+  const ephemeral2027 = await prisma.academicYear.upsert({
+    where: { code: '2027-2028' },
+    update: {
+      label: 'Année scolaire 2027-2028 (Fixture)',
+      startsAt: new Date('2027-09-01T00:00:00.000Z'),
+      endsAt: new Date('2028-09-01T00:00:00.000Z'),
+    },
+    create: {
+      code: '2027-2028',
+      label: 'Année scolaire 2027-2028 (Fixture)',
+      startsAt: new Date('2027-09-01T00:00:00.000Z'),
+      endsAt: new Date('2028-09-01T00:00:00.000Z'),
+    },
+  });
 
   const user = await prisma.user.upsert({
     where: { email: emailChangement },
@@ -533,7 +567,7 @@ test('Scénario Année N (Terminale) -> Année N+1 (Santé) : changement de vert
   assert.ok(gradeTle);
 
   const programVersion = await prisma.healthProgramVersion.findFirst({
-    where: { slug: 'fixture-l1-sante-2026' },
+    where: { slug: 'las-sps-2026-2027' },
   });
   assert.ok(programVersion);
 
@@ -586,15 +620,15 @@ test('Scénario Année N (Terminale) -> Année N+1 (Santé) : changement de vert
       where: {
         institutionId_slug: {
           institutionId: programVersion.institutionId,
-          slug: 'fixture-l1-sante-2027',
+          slug: 'las-sps-2027-2028-test',
         },
       },
       update: {},
       create: {
         institutionId: programVersion.institutionId,
         programId: programVersion.programId,
-        label: 'Fixture L1 Santé - 2027',
-        slug: 'fixture-l1-sante-2027',
+        label: 'LAS SPS 2027-2028 (Fixture Test)',
+        slug: 'las-sps-2027-2028-test',
         academicYear: '2027-2028',
         studyLevel: 'L1',
         isActive: true,
@@ -632,10 +666,12 @@ test('Scénario Année N (Terminale) -> Année N+1 (Santé) : changement de vert
       'Aucun exercice Terminale de l’année N ne doit fuiter dans le dashboard Santé N+1'
     );
   } finally {
+    await prisma.userExerciseHistory.deleteMany({ where: { userId: user.id } });
     await prisma.userAcademicEnrollment.deleteMany({ where: { userId: user.id } });
     await prisma.healthProgramVersion.deleteMany({
-      where: { slug: 'fixture-l1-sante-2027' },
+      where: { slug: 'las-sps-2027-2028-test' },
     });
+    await prisma.academicYear.deleteMany({ where: { id: ephemeral2027.id } });
     await cleanupTestUsers([emailChangement]);
   }
 });

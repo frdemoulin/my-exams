@@ -6,12 +6,19 @@ import { UE14_COLLE_THEME_IDS_BY_QUESTION_STABLE_ID } from "./health-colle-ue14-
 const normalize = (value: string | null | undefined) =>
   (value ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
-export async function seedHealthColleUE14C02(prisma: PrismaClient) {
+export async function seedHealthColleUE14C02(prisma: PrismaClient, programVersionSlug = "las-sps-2026-2027") {
   const courseUnit = await prisma.healthCourseUnit.findFirst({
-    where: { OR: [{ slug: "ue14" }, { slug: { startsWith: "ue14" } }], isActive: true },
+    where: {
+      programVersion: {
+        slug: programVersionSlug,
+        institution: { uaiCode: "0511296G" },
+      },
+      OR: [{ slug: "ue14" }, { slug: { startsWith: "ue14" } }],
+      isActive: true,
+    },
     include: { teachingElements: true },
   });
-  if (!courseUnit) throw new Error("Impossible de trouver l'UE14 pour C02.");
+  if (!courseUnit) throw new Error(`Impossible de trouver l'UE14 pour C02 (${programVersionSlug}).`);
 
   const biochemistryElement = courseUnit.teachingElements.find((te) => {
     const hay = [te.slug, te.code, te.title].map(normalize).join(" ");

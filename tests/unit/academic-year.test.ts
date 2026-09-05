@@ -31,14 +31,26 @@ test('AcademicYear (réel): 1 ms avant endsAt (2027-08-31T23:59:59.999Z) est ACT
   assert.equal(year.code, '2026-2027');
 });
 
-test('AcademicYear (réel): cas limite 2 - endsAt exact (2027-09-01T00:00:00.000Z) bascule sur 2027-2028 (intervalle semi-ouvert)', async () => {
-  const date = new Date('2027-09-01T00:00:00.000Z');
-  const year = await getActiveAcademicYear(date);
-  assert.equal(year.code, '2027-2028');
+test('AcademicYear (réel): cas limite 2 - endsAt exact bascule sur l’année suivante avec intervalle semi-ouvert (fixture éphémère)', async () => {
+  const ephemeralYear = await prisma.academicYear.create({
+    data: {
+      code: '2027-2028',
+      label: 'Année scolaire 2027-2028 (Fixture)',
+      startsAt: new Date('2027-09-01T00:00:00.000Z'),
+      endsAt: new Date('2028-09-01T00:00:00.000Z'),
+    },
+  });
+  try {
+    const date = new Date('2027-09-01T00:00:00.000Z');
+    const year = await getActiveAcademicYear(date);
+    assert.equal(year.code, '2027-2028');
+  } finally {
+    await prisma.academicYear.delete({ where: { id: ephemeralYear.id } });
+  }
 });
 
-test('AcademicYear (réel): endsAt exact de la dernière année (2028-09-01T00:00:00.000Z) lève NOT_FOUND', async () => {
-  const date = new Date('2028-09-01T00:00:00.000Z');
+test('AcademicYear (réel): endsAt exact de la dernière année (2027-09-01T00:00:00.000Z) lève NOT_FOUND en l’absence de 2027-2028', async () => {
+  const date = new Date('2027-09-01T00:00:00.000Z');
   await assert.rejects(
     () => getActiveAcademicYear(date),
     (err: unknown) => {
@@ -76,21 +88,21 @@ test('AcademicYear (réel): ensureNoAcademicYearOverlap refuse si startsAt >= en
   );
 });
 
-test('AcademicYear (réel): cas limite 3 - années contiguës [2028-09-01, 2029-09-01[ sont valides (aucun chevauchement)', async () => {
+test('AcademicYear (réel): cas limite 3 - années contiguës [2027-09-01, 2028-09-01[ sont valides (aucun chevauchement)', async () => {
   await assert.doesNotReject(() =>
     ensureNoAcademicYearOverlap(
-      new Date('2028-09-01T00:00:00.000Z'),
-      new Date('2029-09-01T00:00:00.000Z')
+      new Date('2027-09-01T00:00:00.000Z'),
+      new Date('2028-09-01T00:00:00.000Z')
     )
   );
 });
 
-test('AcademicYear (réel): cas limite 4 - chevauchement 1 ms (startsAt = 2028-08-31T23:59:59.999Z) lève OVERLAP', async () => {
+test('AcademicYear (réel): cas limite 4 - chevauchement 1 ms (startsAt = 2027-08-31T23:59:59.999Z) lève OVERLAP', async () => {
   await assert.rejects(
     () =>
       ensureNoAcademicYearOverlap(
-        new Date('2028-08-31T23:59:59.999Z'),
-        new Date('2029-09-01T00:00:00.000Z')
+        new Date('2027-08-31T23:59:59.999Z'),
+        new Date('2028-09-01T00:00:00.000Z')
       ),
     (err: unknown) => {
       assert.ok(err instanceof AcademicYearError);

@@ -32,7 +32,8 @@ function normalizeAuthorQuestionForCompilation(q: any): any {
 function buildExamSeed(
   editorialSeed: any,
   themeMapping: ReadonlyArray<{ stableId: string; themeIds: readonly string[] }>,
-  order: number
+  order: number,
+  programVersionSlug = "las-2025-2026"
 ): HealthMockExamSeed {
   const questionsByStableId = new Map(
     editorialSeed.questions.map((q: any) => [q.stableId, q])
@@ -109,7 +110,7 @@ function buildExamSeed(
 
   return {
     institutionNameContains: "Reims Champagne-Ardenne",
-    programVersionSlug: "las-2025-2026",
+    programVersionSlug,
     courseUnitSlug: "ue14-biochimie-biologie-cellulaire-chimie",
     title: editorialSeed.exam.title,
     slug: editorialSeed.exam.slug,
@@ -123,6 +124,8 @@ function buildExamSeed(
 }
 
 export const reimsUe14MockExams: HealthMockExamSeed[] = [
-  buildExamSeed(UE14_EB01_EDITORIAL_SEED, UE14_EB01_THEME_MAPPING, 1),
-  buildExamSeed(UE14_EB02_EDITORIAL_SEED, UE14_EB02_THEME_MAPPING, 2),
+  buildExamSeed(UE14_EB01_EDITORIAL_SEED, UE14_EB01_THEME_MAPPING, 1, "las-2025-2026"),
+  buildExamSeed(UE14_EB02_EDITORIAL_SEED, UE14_EB02_THEME_MAPPING, 2, "las-2025-2026"),
+  buildExamSeed(UE14_EB01_EDITORIAL_SEED, UE14_EB01_THEME_MAPPING, 1, "las-sps-2026-2027"),
+  buildExamSeed(UE14_EB02_EDITORIAL_SEED, UE14_EB02_THEME_MAPPING, 2, "las-sps-2026-2027"),
 ];

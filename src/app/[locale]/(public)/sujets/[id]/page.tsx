@@ -235,7 +235,21 @@ export default async function ExamPaperPage({ params, searchParams }: PageProps)
           </div>
 
           <ExamPaperComposition
-            exercises={exercises ?? []}
+            exercises={
+              exercises?.map((ex) =>
+                canAccessFullPaper
+                  ? ex
+                  : {
+                      ...ex,
+                      examPaper: {
+                        ...ex.examPaper,
+                        subjectUrl: null,
+                        sourceUrl: null,
+                      },
+                      corrections: [],
+                    }
+              ) ?? []
+            }
             returnTo={`/sujets/${examPaper.id}`}
           />
         </div>

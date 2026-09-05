@@ -326,7 +326,7 @@ export function HealthCourseUnitTabs({
                 ? activeTeachingElementId === teachingElement.id
                 : courseUnit.teachingElements[0]?.id === teachingElement.id
             }
-            title={teachingElement.code ?? teachingElement.shortTitle ?? teachingElement.title}
+            title={teachingElement.shortTitle ?? teachingElement.title ?? teachingElement.code}
           >
             <div className="space-y-4">
               {teachingElement.chapters.length > 0 ? (

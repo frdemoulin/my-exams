@@ -14,6 +14,7 @@ export type AvailableHealthPathwayOption = {
   id: string;
   name: string;
   slug: string;
+  campus?: string | null;
   order: number;
 };
 
@@ -37,6 +38,7 @@ export type AvailableHealthInstitutionOption = {
   name: string;
   shortName: string | null;
   slug: string;
+  uaiCode?: string | null;
   programVersions: AvailableHealthProgramVersionOption[];
 };
 
@@ -125,6 +127,7 @@ export async function getAvailableAcademicEnrollmentOptions(
       name: true,
       shortName: true,
       slug: true,
+      uaiCode: true,
       programVersions: {
         where: {
           isActive: true,
@@ -159,6 +162,7 @@ export async function getAvailableAcademicEnrollmentOptions(
               id: true,
               name: true,
               slug: true,
+              campus: true,
               order: true,
             },
             orderBy: { order: 'asc' },

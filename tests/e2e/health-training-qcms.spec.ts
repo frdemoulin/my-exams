@@ -16,6 +16,7 @@ type HealthQcmFixture = {
   courseUnitId: string;
   courseUnitTitle: string;
   teachingElementTitle: string;
+  teachingElementShortTitle?: string | null;
   teachingElementCode: string | null;
   teachingElementOrder: number | null;
   chapterTitle: string;
@@ -35,12 +36,26 @@ type PublishedSection = {
 };
 
 async function getFixture(): Promise<HealthQcmFixture> {
+  const activeVersion = await prisma.healthProgramVersion.findFirstOrThrow({
+    where: { isCurrent: true, institution: { uaiCode: "0511296G" } },
+    select: { id: true },
+  });
+
+  const activeTeachingElements = await prisma.healthTeachingElement.findMany({
+    where: { courseUnit: { programVersionId: activeVersion.id } },
+    select: { id: true },
+  });
+  const activeTeIds = activeTeachingElements.map((te: { id: string }) => te.id);
+
   const chapter = await prisma.chapter.findFirst({
     where: { slug: chapterSlug },
     select: {
       title: true,
       assignments: {
-        where: { contextType: "HEALTH_TEACHING_ELEMENT" },
+        where: {
+          contextType: "HEALTH_TEACHING_ELEMENT",
+          contextId: { in: activeTeIds },
+        },
         select: { contextId: true },
         take: 1,
       },
@@ -66,7 +81,7 @@ async function getFixture(): Promise<HealthQcmFixture> {
   });
 
   if (!chapter?.assignments[0]) {
-    throw new Error(`Aucun rattachement HEALTH_TEACHING_ELEMENT trouvé pour ${chapterSlug}.`);
+    throw new Error(`Aucun rattachement HEALTH_TEACHING_ELEMENT actif trouvé pour ${chapterSlug}.`);
   }
 
   const teachingElement = await prisma.healthTeachingElement.findUnique({
@@ -74,6 +89,7 @@ async function getFixture(): Promise<HealthQcmFixture> {
     select: {
       code: true,
       title: true,
+      shortTitle: true,
       order: true,
       courseUnit: {
         select: {
@@ -100,6 +116,7 @@ async function getFixture(): Promise<HealthQcmFixture> {
     courseUnitId: teachingElement.courseUnit.id,
     courseUnitTitle: teachingElement.courseUnit.title,
     teachingElementTitle: teachingElement.title,
+    teachingElementShortTitle: teachingElement.shortTitle ?? null,
     teachingElementCode: teachingElement.code ?? null,
     teachingElementOrder: teachingElement.order ?? null,
     chapterTitle: chapter.title,
@@ -116,14 +133,14 @@ async function resetQuizProgress(quizId: string) {
   });
 
   if (!user) {
-    throw new Error(`Utilisateur e2e introuvable: ${e2eEmail}`);
+    return;
   }
 
+  await prisma.userTrainingQuizAttempt.deleteMany({
+    where: { userId: user.id, quizId },
+  });
   await prisma.userTrainingQuizProgress.deleteMany({
-    where: {
-      userId: user.id,
-      quizId,
-    },
+    where: { userId: user.id, quizId },
   });
 }
 
@@ -136,8 +153,9 @@ test.describe.serial("Santé - QCM publics", () => {
     await expect(
       page.getByRole("heading", { name: new RegExp(fixture.courseUnitTitle, "i") }),
     ).toBeVisible();
+    const expectedTabLabel = fixture.teachingElementShortTitle ?? fixture.teachingElementTitle;
     await expect(
-      page.getByRole("tab", { name: fixture.teachingElementTitle, exact: true }),
+      page.getByRole("tab", { name: expectedTabLabel, exact: true }),
     ).toBeVisible();
     await expect(page.getByRole("link", { name: fixture.chapterTitle })).toBeVisible();
     await expect(page.getByRole("link", { name: /^Voir$/i }).first()).toBeVisible();

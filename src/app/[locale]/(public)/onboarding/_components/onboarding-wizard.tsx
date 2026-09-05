@@ -421,7 +421,7 @@ export function OnboardingWizard({ initialOptions, callbackUrl }: OnboardingWiza
                             }`}
                           >
                             <span className="text-sm font-medium text-heading">
-                              {pathway.name}
+                              {pathway.campus ? `${pathway.name} — ${pathway.campus}` : pathway.name}
                             </span>
                             {isSelected && <CheckCircle2 className="h-4 w-4 text-brand" />}
                           </button>

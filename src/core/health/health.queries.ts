@@ -1318,10 +1318,22 @@ export async function fetchHealthStudentCourseUnitDetail(
 ): Promise<HealthStudentCourseUnitDetail | null> {
     const isObjectId = /^[a-f0-9]{24}$/i.test(courseUnitId);
 
+    let scopedProgramVersionId: string | undefined;
+    if (!isObjectId && options.userId) {
+        const { getCurrentUserAcademicEnrollment } = await import("@/core/academic-enrollment");
+        const userEnrollment = await getCurrentUserAcademicEnrollment(options.userId);
+        if (userEnrollment?.audience === "HEALTH" && userEnrollment.healthProgramVersionId) {
+            scopedProgramVersionId = userEnrollment.healthProgramVersionId;
+        }
+    }
+
     const courseUnit = await prisma.healthCourseUnit.findFirst({
         where: isObjectId
             ? { id: courseUnitId }
-            : { OR: [{ slug: courseUnitId }, { slug: { startsWith: courseUnitId } }] },
+            : {
+                  ...(scopedProgramVersionId ? { programVersionId: scopedProgramVersionId } : {}),
+                  OR: [{ slug: courseUnitId }, { slug: { startsWith: courseUnitId } }],
+              },
         include: {
             block: {
                 select: {

@@ -332,7 +332,7 @@ export function AdminEnrollmentCorrectionDialog({
                       <option value="">Sélectionnez un parcours...</option>
                       {pathwaysForVersion.map((path) => (
                         <option key={path.id} value={path.id}>
-                          {path.name}
+                          {path.campus ? `${path.name} — ${path.campus}` : path.name}
                         </option>
                       ))}
                     </select>

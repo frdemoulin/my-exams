@@ -3,9 +3,13 @@ import { UE14_COLLE_C01_CHIMIE_FONDAMENTAUX_QUESTIONS } from "../authoring/healt
 import { compileHealthTrainingAuthorQuestion } from "../../../../src/core/questions/health-author-question-compiler";
 import { UE14_COLLE_THEME_IDS_BY_QUESTION_STABLE_ID } from "./health-colle-ue14-theme-mapping.final";
 
-export async function seedHealthColleUE14C01(prisma: PrismaClient) {
+export async function seedHealthColleUE14C01(prisma: PrismaClient, programVersionSlug = "las-sps-2026-2027") {
   const courseUnit = await prisma.healthCourseUnit.findFirst({
     where: {
+      programVersion: {
+        slug: programVersionSlug,
+        institution: { uaiCode: "0511296G" },
+      },
       OR: [
         { slug: "ue14" },
         { slug: { startsWith: "ue14" } },
@@ -18,7 +22,7 @@ export async function seedHealthColleUE14C01(prisma: PrismaClient) {
   });
 
   if (!courseUnit) {
-    throw new Error("Impossible de trouver l'UE14 pour le seeding de la colle C01.");
+    throw new Error(`Impossible de trouver l'UE14 pour le seeding de la colle C01 (${programVersionSlug}).`);
   }
 
   const chemistryElement = courseUnit.teachingElements.find(

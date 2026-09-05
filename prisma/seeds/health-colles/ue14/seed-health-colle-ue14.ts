@@ -39,12 +39,19 @@ function findTeachingElement(courseUnit: any, key: ColleSectionInput["teachingEl
   });
 }
 
-export async function seedHealthColleUE14(prisma: PrismaClient, input: ColleInput) {
+export async function seedHealthColleUE14(prisma: PrismaClient, input: ColleInput, programVersionSlug = "las-sps-2026-2027") {
   const courseUnit = await prisma.healthCourseUnit.findFirst({
-    where: { OR: [{ slug: "ue14" }, { slug: { startsWith: "ue14" } }], isActive: true },
+    where: {
+      programVersion: {
+        slug: programVersionSlug,
+        institution: { uaiCode: "0511296G" },
+      },
+      OR: [{ slug: "ue14" }, { slug: { startsWith: "ue14" } }],
+      isActive: true,
+    },
     include: { teachingElements: true },
   });
-  if (!courseUnit) throw new Error(`Impossible de trouver l'UE14 pour ${input.code}.`);
+  if (!courseUnit) throw new Error(`Impossible de trouver l'UE14 pour ${input.code} (${programVersionSlug}).`);
 
   const existing = await prisma.healthMockExam.findFirst({ where: { courseUnitId: courseUnit.id, slug: input.code.toLowerCase() } });
   if (existing) {

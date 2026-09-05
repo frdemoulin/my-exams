@@ -1,7 +1,22 @@
 import { test, expect, type Page } from "@playwright/test";
+import { loadProjectEnv } from "../../scripts/lib/load-env";
+
+loadProjectEnv();
+
+const prisma = require("../../src/lib/db/prisma").default;
 
 const appBaseUrl = process.env.PLAYWRIGHT_TEST_BASE_URL || "http://localhost:3000";
-const courseUnitId = "6a2c2b111af36bd83ac27ec2";
+
+async function getActiveUe14Id(): Promise<string> {
+  const ue = await prisma.healthCourseUnit.findFirstOrThrow({
+    where: {
+      code: "UE14",
+      programVersion: { isCurrent: true, institution: { uaiCode: "0511296G" } },
+    },
+    select: { id: true },
+  });
+  return ue.id;
+}
 
 async function expectNoHorizontalOverflow(page: Page) {
   const hasOverflow = await page.evaluate(() => {
@@ -14,6 +29,7 @@ test.describe("Santé — Onglet Progression UE14", () => {
   test("cycle complet : navigation inter-onglets, popover d'aide, accès direct, dark mode et responsive 375px", async ({
     page,
   }) => {
+    const courseUnitId = await getActiveUe14Id();
     // 1. Navigation initiale sur l'UE (onglet par défaut: Chimie)
     await page.goto(`${appBaseUrl}/sante/ue/${courseUnitId}`);
 

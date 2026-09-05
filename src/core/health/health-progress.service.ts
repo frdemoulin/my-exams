@@ -312,7 +312,7 @@ export async function fetchHealthCourseUnitProgressSummary(
 
     return {
       teachingElementId: te.id,
-      code: te.code ?? te.shortTitle ?? te.title,
+      code: te.shortTitle ?? te.code ?? te.title,
       title: te.title,
       ...metrics,
     };

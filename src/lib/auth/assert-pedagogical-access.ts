@@ -161,6 +161,14 @@ export async function assertUserCanAccessChapter(params: {
   chapterId: string;
   date?: Date;
 }): Promise<UserAcademicEnrollment> {
+  if (!params.userId) {
+    throw new PedagogicalAccessError(
+      'Authentification requise.',
+      'UNAUTHENTICATED',
+      401
+    );
+  }
+
   const chapter = await prisma.chapter.findUnique({
     where: { id: params.chapterId },
     include: {
@@ -173,51 +181,84 @@ export async function assertUserCanAccessChapter(params: {
   }
 
   // Vérifier si le chapitre est rattaché à Santé
-  const healthAssignment = chapter.assignments.find(
+  const healthAssignments = chapter.assignments.filter(
     (a) =>
       a.vertical === 'HEALTH' &&
       (a.contextType === 'HEALTH_COURSE_UNIT' ||
         a.contextType === 'HEALTH_TEACHING_ELEMENT')
   );
 
-  if (chapter.vertical === 'HEALTH' || healthAssignment) {
-    let courseUnit: {
+  if (chapter.vertical === 'HEALTH' || healthAssignments.length > 0) {
+    const courseUnits: Array<{
       programVersionId: string;
       pathwayId: string | null;
       isCommonToAllPathways: boolean;
-    } | null = null;
+    }> = [];
 
-    if (healthAssignment?.contextType === 'HEALTH_COURSE_UNIT') {
-      courseUnit = await prisma.healthCourseUnit.findUnique({
-        where: { id: healthAssignment.contextId },
-        select: {
-          programVersionId: true,
-          pathwayId: true,
-          isCommonToAllPathways: true,
-        },
-      });
-    } else if (healthAssignment?.contextType === 'HEALTH_TEACHING_ELEMENT') {
-      const teachingElement = await prisma.healthTeachingElement.findUnique({
-        where: { id: healthAssignment.contextId },
-        select: {
-          courseUnit: {
-            select: {
-              programVersionId: true,
-              pathwayId: true,
-              isCommonToAllPathways: true,
+    for (const assignment of healthAssignments) {
+      if (assignment.contextType === 'HEALTH_COURSE_UNIT') {
+        const cu = await prisma.healthCourseUnit.findUnique({
+          where: { id: assignment.contextId },
+          select: {
+            programVersionId: true,
+            pathwayId: true,
+            isCommonToAllPathways: true,
+          },
+        });
+        if (cu) courseUnits.push(cu);
+      } else if (assignment.contextType === 'HEALTH_TEACHING_ELEMENT') {
+        const te = await prisma.healthTeachingElement.findUnique({
+          where: { id: assignment.contextId },
+          select: {
+            courseUnit: {
+              select: {
+                programVersionId: true,
+                pathwayId: true,
+                isCommonToAllPathways: true,
+              },
             },
           },
-        },
-      });
-      courseUnit = teachingElement?.courseUnit ?? null;
+        });
+        if (te?.courseUnit) courseUnits.push(te.courseUnit);
+      }
     }
 
-    if (courseUnit) {
+    if (courseUnits.length > 0) {
+      const enrollment = await getCurrentUserAcademicEnrollment(params.userId, params.date);
+      if (!enrollment) {
+        throw new PedagogicalAccessError(
+          'Affectation pédagogique requise pour accéder à cette ressource.',
+          'ONBOARDING_REQUIRED',
+          403
+        );
+      }
+
+      if (enrollment.audience !== 'HEALTH' || !enrollment.healthProgramVersionId) {
+        throw new PedagogicalAccessError(
+          'Accès réservé aux étudiants de la filière Santé.',
+          'FORBIDDEN_SCOPE',
+          403
+        );
+      }
+
+      // Chercher l'unité d'enseignement correspondant à la version de programme de l'inscription
+      const matchingCu = courseUnits.find(
+        (cu) => cu.programVersionId === enrollment.healthProgramVersionId
+      );
+
+      if (!matchingCu) {
+        throw new PedagogicalAccessError(
+          'Accès non autorisé aux contenus de cette formation Santé.',
+          'FORBIDDEN_SCOPE',
+          403
+        );
+      }
+
       return assertUserCanAccessHealthContent({
         userId: params.userId,
-        programVersionId: courseUnit.programVersionId,
-        pathwayId: courseUnit.pathwayId,
-        isCommonToAllPathways: courseUnit.isCommonToAllPathways,
+        programVersionId: matchingCu.programVersionId,
+        pathwayId: matchingCu.pathwayId,
+        isCommonToAllPathways: matchingCu.isCommonToAllPathways,
         date: params.date,
       });
     }
@@ -339,10 +380,19 @@ export async function assertUserCanAccessHealthCourseUnit(params: {
 }): Promise<UserAcademicEnrollment> {
   const isObjectId = /^[a-f0-9]{24}$/i.test(params.courseUnitId);
 
+  let scopedProgramVersionId: string | undefined;
+  if (!isObjectId && params.userId) {
+    const userEnrollment = await getCurrentUserAcademicEnrollment(params.userId, params.date);
+    if (userEnrollment?.audience === 'HEALTH' && userEnrollment.healthProgramVersionId) {
+      scopedProgramVersionId = userEnrollment.healthProgramVersionId;
+    }
+  }
+
   const courseUnit = await prisma.healthCourseUnit.findFirst({
     where: isObjectId
       ? { id: params.courseUnitId }
       : {
+          ...(scopedProgramVersionId ? { programVersionId: scopedProgramVersionId } : {}),
           OR: [
             { slug: params.courseUnitId },
             { slug: { startsWith: params.courseUnitId } },
@@ -379,10 +429,21 @@ export async function assertUserCanAccessHealthMockExam(params: {
 }): Promise<UserAcademicEnrollment> {
   const isObjectId = /^[a-f0-9]{24}$/i.test(params.mockExamId);
 
+  let scopedProgramVersionId: string | undefined;
+  if (!isObjectId && params.userId) {
+    const userEnrollment = await getCurrentUserAcademicEnrollment(params.userId, params.date);
+    if (userEnrollment?.audience === 'HEALTH' && userEnrollment.healthProgramVersionId) {
+      scopedProgramVersionId = userEnrollment.healthProgramVersionId;
+    }
+  }
+
   const mockExam = await prisma.healthMockExam.findFirst({
     where: isObjectId
       ? { id: params.mockExamId }
       : {
+          ...(scopedProgramVersionId
+            ? { courseUnit: { programVersionId: scopedProgramVersionId } }
+            : {}),
           OR: [
             { slug: params.mockExamId },
             { slug: { startsWith: params.mockExamId } },
