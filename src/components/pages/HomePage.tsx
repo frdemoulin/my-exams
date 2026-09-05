@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import {
-  GraduationCap,
+  School,
   BookOpen,
   FlaskConical,
   Stethoscope,
@@ -79,7 +79,7 @@ export default function HomePage({
               <CardHeader className="space-y-3">
                 <div className="flex items-center justify-between">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/10 text-fg-brand">
-                    <GraduationCap className="h-6 w-6" />
+                    <School className="h-6 w-6" />
                   </div>
                   <Badge variant="outline" className="text-xs font-semibold">
                     Coll&egrave;ge
@@ -89,21 +89,24 @@ export default function HomePage({
                 <div>
                   <CardTitle className="text-xl">Coll&egrave;ge</CardTitle>
                   <CardDescription className="text-xs mt-1">
-                    Dipl&ocirc;me National du Brevet (DNB) &bull; Classe de 3<sup>e</sup>
+                    6e &bull; 5e &bull; 4e &bull; 3e
                   </CardDescription>
                 </div>
 
                 <div className="flex flex-wrap gap-1.5 pt-1">
                   <Badge variant="secondary" className="text-2xs">
-                    Annales
+                    Quiz / entra&icirc;nements
                   </Badge>
                   <Badge variant="secondary" className="text-2xs">
                     Corrections
                   </Badge>
+                  <Badge variant="secondary" className="text-2xs">
+                    Annales du Brevet
+                  </Badge>
                 </div>
 
                 <p className="text-xs text-muted-foreground leading-relaxed">
-                  Sujets d&apos;examen officiels du Brevet et corrections d&eacute;taill&eacute;es pour consolider les acquis de 3<sup>e</sup> et aborder l&apos;&eacute;preuve en toute confiance.
+                  Quiz et entra&icirc;nements par chapitre de la 6e &agrave; la 3e, corrections d&eacute;taill&eacute;es et annales officielles pour pr&eacute;parer progressivement le Brevet.
                 </p>
               </CardHeader>
 
@@ -131,24 +134,24 @@ export default function HomePage({
                 <div>
                   <CardTitle className="text-xl">Lyc&eacute;e</CardTitle>
                   <CardDescription className="text-xs mt-1">
-                    Baccalaur&eacute;at G&eacute;n&eacute;ral &amp; Technologique
+                    Seconde &bull; Premi&egrave;re &bull; Terminale
                   </CardDescription>
                 </div>
 
                 <div className="flex flex-wrap gap-1.5 pt-1">
-                  <Badge variant="secondary" className="text-2xs">
-                    Annales
-                  </Badge>
                   <Badge variant="secondary" className="text-2xs">
                     Quiz / entra&icirc;nements
                   </Badge>
                   <Badge variant="secondary" className="text-2xs">
                     Corrections
                   </Badge>
+                  <Badge variant="secondary" className="text-2xs">
+                    Annales du Bac
+                  </Badge>
                 </div>
 
                 <p className="text-xs text-muted-foreground leading-relaxed">
-                  Exercices d&apos;annales index&eacute;s par sp&eacute;cialit&eacute;, m&eacute;thodes de r&eacute;solution compl&egrave;tes et entra&icirc;nements par quiz de chapitres.
+                  Quiz et entra&icirc;nements par chapitre de la Seconde &agrave; la Terminale, corrections d&eacute;taill&eacute;es et annales officielles pour pr&eacute;parer progressivement les &eacute;preuves du Bac.
                 </p>
               </CardHeader>
 
@@ -220,26 +223,6 @@ export default function HomePage({
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
-            {/* ANNALES */}
-            <Card className="flex flex-col justify-between">
-              <CardHeader className="space-y-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-fg-brand">
-                  <Search className="h-5 w-5" />
-                </div>
-                <CardTitle className="text-lg">Annales d&apos;examens</CardTitle>
-                <CardDescription className="text-xs leading-relaxed">
-                  Recherchez et filtrez facilement les exercices issus des &eacute;preuves officielles par dipl&ocirc;me, mati&egrave;re, session et th&egrave;me.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="pt-0">
-                <Button asChild variant="outline" size="sm" className="w-full justify-center text-xs">
-                  <Link href="/annales">
-                    Consulter les annales <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-
             {/* QUIZ & ENTRAÎNEMENTS */}
             <Card className="flex flex-col justify-between">
               <CardHeader className="space-y-3">
@@ -275,6 +258,26 @@ export default function HomePage({
                 <Button asChild variant="outline" size="sm" className="w-full justify-center text-xs">
                   <Link href="/annales">
                     Voir les corrig&eacute;s <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* ANNALES */}
+            <Card className="flex flex-col justify-between">
+              <CardHeader className="space-y-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-fg-brand">
+                  <Search className="h-5 w-5" />
+                </div>
+                <CardTitle className="text-lg">Annales d&apos;examens</CardTitle>
+                <CardDescription className="text-xs leading-relaxed">
+                  Recherchez et filtrez facilement les exercices issus des &eacute;preuves officielles par dipl&ocirc;me, mati&egrave;re, session et th&egrave;me.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="pt-0">
+                <Button asChild variant="outline" size="sm" className="w-full justify-center text-xs">
+                  <Link href="/annales">
+                    Consulter les annales <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
                   </Link>
                 </Button>
               </CardContent>

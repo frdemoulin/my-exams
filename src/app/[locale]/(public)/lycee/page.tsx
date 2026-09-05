@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { unstable_noStore as noStore } from 'next/cache';
 import Link from 'next/link';
-import { BookOpen, FlaskConical, ArrowRight, CheckCircle2, GraduationCap } from 'lucide-react';
+import { BookOpen, FlaskConical, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { PublicHeader } from '@/components/shared/public-header';
 import { SiteFooter } from '@/components/shared/site-footer';
 import { PublicBreadcrumb } from '@/components/shared/public-breadcrumb';
@@ -14,8 +14,8 @@ export const dynamic = 'force-dynamic';
 const canonical = buildCanonicalUrl('/lycee');
 
 export const metadata: Metadata = {
-  title: 'Lycée — Annales du Baccalauréat & Entraînement par Quiz',
-  description: 'Prépare le Baccalauréat (Première et Terminale) avec les sujets officiels, corrections et quiz d’entraînement de spécialité.',
+  title: 'Lycée — Quiz, entraînements et annales du Baccalauréat',
+  description: 'De la Seconde à la Terminale, entraîne-toi avec des quiz par chapitre, des exercices progressifs et des corrections détaillées. En Première et Terminale, complète ta préparation avec les annales officielles du Bac.',
   alternates: canonical ? { canonical } : undefined,
 };
 
@@ -24,28 +24,28 @@ export default function LyceePage() {
 
   const lyceeFeatures = [
     {
-      title: 'Annales officielles du Bac',
-      description: 'Sujets récents classés par session, spécialité et thème avec énoncés conformes aux épreuves.',
-      icon: BookOpen,
-      badge: 'Annales',
-      href: '/annales?diploma=Baccalaur%C3%A9at+g%C3%A9n%C3%A9ral',
-      cta: 'Explorer les annales',
-    },
-    {
-      title: 'Quiz & Entraînement par chapitre',
-      description: 'Quiz interactifs en Sciences physiques (Première et Terminale) avec validation progressive des notions.',
+      title: 'Quiz & Entraînements par chapitre',
+      description: 'Quiz interactifs de la Seconde à la Terminale pour consolider les notions et progresser chapitre après chapitre.',
       icon: FlaskConical,
       badge: 'Quiz & Entraînements',
-      href: '/entrainement/sciences-physiques',
+      href: '/entrainement',
       cta: 'Accéder aux entraînements',
     },
     {
       title: 'Corrections détaillées',
-      description: 'Méthodes pas-à-pas et résolutions complètes pour chaque exercice d’examen.',
+      description: 'Retrouve des résolutions détaillées et des explications étape par étape pour les exercices et sujets corrigés.',
       icon: CheckCircle2,
       badge: 'Corrections',
       href: '/annales',
       cta: 'Consulter les corrections',
+    },
+    {
+      title: 'Annales officielles du Bac',
+      description: 'En Première et Terminale, entraîne-toi sur des sujets officiels du Bac classés par session, spécialité et thème.',
+      icon: BookOpen,
+      badge: 'Annales',
+      href: '/annales?diploma=Baccalaur%C3%A9at+g%C3%A9n%C3%A9ral',
+      cta: 'Explorer les annales',
     },
   ];
 
@@ -110,27 +110,27 @@ export default function LyceePage() {
           <div className="grid gap-8 md:grid-cols-[minmax(0,1fr)_260px]">
             <div className="space-y-4">
               <div className="flex flex-wrap items-center gap-2">
-                <Badge variant="secondary">Niveau Lycée</Badge>
+                <Badge variant="secondary">Seconde · Première · Terminale</Badge>
                 <Badge variant="outline">Bac Général & Technologique</Badge>
               </div>
 
               <h1 className="text-3xl font-extrabold tracking-tight text-heading md:text-4xl">
-                Révisions du Baccalauréat
+                Progresse au Lycée, chapitre après chapitre
               </h1>
 
               <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-                Prépare les épreuves du Baccalauréat en Première et Terminale avec des exercices d’annales indexés, des corrections complètes et des parcours d’entraînement par quiz de chapitres.
+                De la Seconde à la Terminale, entraîne-toi avec des quiz par chapitre, des exercices progressifs et des corrections détaillées. En Première et Terminale, complète ta préparation avec les annales officielles du Bac.
               </p>
 
               <div className="flex flex-wrap items-center gap-3 pt-2">
                 <Button asChild size="lg" className="font-semibold">
-                  <Link href="/annales?diploma=Baccalaur%C3%A9at+g%C3%A9n%C3%A9ral">
-                    Rechercher les annales Bac <ArrowRight className="ml-2 h-4 w-4" />
+                  <Link href="/entrainement">
+                    Commencer à s’entraîner <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
-                  <Link href="/entrainement/sciences-physiques">
-                    Entraînement Sciences physiques
+                  <Link href="/annales?diploma=Baccalaur%C3%A9at+g%C3%A9n%C3%A9ral">
+                    Consulter les annales du Bac
                   </Link>
                 </Button>
               </div>
@@ -138,7 +138,7 @@ export default function LyceePage() {
 
             <div className="flex items-center justify-center rounded-2xl border border-border bg-background p-6">
               <div className="flex h-28 w-28 items-center justify-center rounded-full bg-brand/10 text-fg-brand">
-                <GraduationCap className="h-14 w-14" />
+                <BookOpen className="h-14 w-14" />
               </div>
             </div>
           </div>

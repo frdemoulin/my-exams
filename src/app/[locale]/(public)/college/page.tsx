@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { unstable_noStore as noStore } from 'next/cache';
 import Link from 'next/link';
-import { BookOpen, GraduationCap, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { BookOpen, FlaskConical, School, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { PublicHeader } from '@/components/shared/public-header';
 import { SiteFooter } from '@/components/shared/site-footer';
 import { PublicBreadcrumb } from '@/components/shared/public-breadcrumb';
@@ -14,8 +14,8 @@ export const dynamic = 'force-dynamic';
 const canonical = buildCanonicalUrl('/college');
 
 export const metadata: Metadata = {
-  title: 'Collège — Annales & Sujets Brevet des collèges',
-  description: 'Prépare le Diplôme National du Brevet (DNB) avec des sujets d’annales et corrections détaillées.',
+  title: 'Collège — Quiz, entraînements et annales du Brevet',
+  description: 'De la 6e à la 3e, entraîne-toi avec des quiz par chapitre, des exercices progressifs et des corrections détaillées. En 3e, complète ta préparation avec les annales officielles du Brevet.',
   alternates: canonical ? { canonical } : undefined,
 };
 
@@ -24,14 +24,28 @@ export default function CollegePage() {
 
   const collegeFeatures = [
     {
-      title: 'Annales officielles',
-      description: 'Accède aux sujets d’examen du Diplôme National du Brevet (DNB) pour t’entraîner en conditions réelles.',
-      icon: BookOpen,
+      title: 'Quiz & Entraînements par chapitre',
+      description: 'Quiz interactifs de la 6e à la 3e pour consolider les notions et progresser chapitre après chapitre.',
+      icon: FlaskConical,
+      badge: 'Quiz & Entraînements',
+      href: '/entrainement',
+      cta: 'Accéder aux entraînements',
     },
     {
       title: 'Corrections détaillées',
-      description: 'Chaque exercice est accompagné d’une proposition de correction pour comprendre la méthode attendue.',
+      description: 'Retrouve des résolutions détaillées et des explications étape par étape pour les exercices et sujets corrigés.',
       icon: CheckCircle2,
+      badge: 'Corrections',
+      href: '/annales',
+      cta: 'Consulter les corrections',
+    },
+    {
+      title: 'Annales officielles du Brevet',
+      description: 'En 3e, entraîne-toi sur des sujets officiels du Brevet pour te préparer progressivement aux conditions de l’examen.',
+      icon: BookOpen,
+      badge: 'Annales',
+      href: '/annales?diploma=Brevet+des+coll%C3%A8ges',
+      cta: 'Explorer les annales',
     },
   ];
 
@@ -59,27 +73,27 @@ export default function CollegePage() {
           <div className="grid gap-8 md:grid-cols-[minmax(0,1fr)_260px]">
             <div className="space-y-4">
               <div className="flex flex-wrap items-center gap-2">
-                <Badge variant="secondary">Niveau Collège</Badge>
-                <Badge variant="outline">Diplôme National du Brevet (DNB)</Badge>
+                <Badge variant="secondary">6e · 5e · 4e · 3e</Badge>
+                <Badge variant="outline">Brevet</Badge>
               </div>
 
               <h1 className="text-3xl font-extrabold tracking-tight text-heading md:text-4xl">
-                Révisions du Brevet des collèges
+                Progresse au Collège, chapitre après chapitre
               </h1>
 
               <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-                Retrouve les sujets d’annales officiels du Brevet et leurs corrections pour réviser efficacement ton année de 3<sup>e</sup> et aborder l’examen en toute sérénité.
+                De la 6e à la 3e, entraîne-toi avec des quiz par chapitre, des exercices progressifs et des corrections détaillées. En 3e, complète ta préparation avec les annales officielles du Brevet.
               </p>
 
               <div className="flex flex-wrap items-center gap-3 pt-2">
                 <Button asChild size="lg" className="font-semibold">
-                  <Link href="/annales?diploma=Brevet+des+coll%C3%A8ges">
-                    Rechercher les annales Brevet <ArrowRight className="ml-2 h-4 w-4" />
+                  <Link href="/entrainement">
+                    Commencer à s’entraîner <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
-                  <Link href="/diplomes">
-                    Parcourir par diplôme
+                  <Link href="/annales?diploma=Brevet+des+coll%C3%A8ges">
+                    Consulter les annales du Brevet
                   </Link>
                 </Button>
               </div>
@@ -87,7 +101,7 @@ export default function CollegePage() {
 
             <div className="flex items-center justify-center rounded-2xl border border-border bg-background p-6">
               <div className="flex h-28 w-28 items-center justify-center rounded-full bg-brand/10 text-fg-brand">
-                <GraduationCap className="h-14 w-14" />
+                <School className="h-14 w-14" />
               </div>
             </div>
           </div>
@@ -96,30 +110,35 @@ export default function CollegePage() {
         {/* FONCTIONNALITÉS DISPONIBLES */}
         <section className="space-y-4">
           <div className="space-y-1">
-            <h2 className="text-xl font-semibold text-heading">Ce qui est disponible pour le Collège</h2>
+            <h2 className="text-xl font-semibold text-heading">Fonctionnalités Collège</h2>
             <p className="text-sm text-muted-foreground">
-              Des ressources ciblées pour la préparation aux épreuves écrites.
+              Des outils complémentaires pour consolider le cours et réussir les épreuves.
             </p>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-3">
             {collegeFeatures.map((feature, idx) => {
               const Icon = feature.icon;
               return (
                 <Card key={idx} className="flex flex-col justify-between">
                   <CardHeader>
-                    <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-fg-brand">
-                      <Icon className="h-5 w-5" />
+                    <div className="mb-2 flex items-center justify-between">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-fg-brand">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <Badge variant="secondary" className="text-xs">
+                        {feature.badge}
+                      </Badge>
                     </div>
                     <CardTitle className="text-lg">{feature.title}</CardTitle>
                     <CardDescription className="text-sm leading-normal">
                       {feature.description}
                     </CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <Badge variant="secondary" className="text-xs">
-                      Disponible
-                    </Badge>
+                  <CardContent className="pt-0">
+                    <Button asChild variant="outline" size="sm" className="w-full justify-center">
+                      <Link href={feature.href}>{feature.cta} &rarr;</Link>
+                    </Button>
                   </CardContent>
                 </Card>
               );
