@@ -99,6 +99,57 @@ test.describe('Captures d’écran obligatoires — Refonte Home & Navigation', 
     copyToArtifact('footer-mobile.png');
   });
 
+  test('5. Hero repositionné - vérification des textes et navigation du CTA principal', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.goto('/');
+    // 0. Métadonnées SEO
+    await expect(page).toHaveTitle('My Exams — Plateforme d’entraînement du collège à la L1 Santé');
+    const metaDesc = page.locator('meta[name="description"]');
+    await expect(metaDesc).toHaveAttribute(
+      'content',
+      'Quiz, entraînements progressifs, corrections détaillées et annales officielles du collège à la L1 Santé.'
+    );
+
+    // 1. Badge supérieur
+    await expect(
+      page.getByText('Plateforme d’entraînement du collège à la L1 Santé')
+    ).toBeVisible();
+
+    // 2. H1
+    await expect(
+      page.getByRole('heading', { level: 1, name: /Des entraînements ciblés pour réussir vos épreuves/i })
+    ).toBeVisible();
+
+    // 3. Sous-titre du hero
+    await expect(
+      page.getByText('Quiz ciblés, corrections détaillées et parcours d’entraînement progressifs, complétés par des annales d’examens officielles.')
+    ).toBeVisible();
+
+    // 4. CTA principal
+    const primaryCta = page.getByRole('link', { name: /Commencer à s’entraîner/i });
+    await expect(primaryCta).toBeVisible();
+    await expect(primaryCta).toHaveAttribute('href', '/entrainement');
+
+    // 5. CTA secondaire
+    const secondaryCta = page.getByRole('link', { name: /Explorer par niveau/i });
+    await expect(secondaryCta).toBeVisible();
+
+    // 6. Navigation du CTA principal pour visiteur non connecté
+    await primaryCta.click();
+    await page.waitForLoadState('networkidle');
+    await expect(page).toHaveURL(/\/entrainement/);
+  });
+
+  test('6. Responsive tablette 768px - le hero et les CTAs restent parfaitement ordonnés', async ({ page }) => {
+    await page.setViewportSize({ width: 768, height: 1024 });
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+    await expect(page.getByRole('link', { name: /Commencer à s’entraîner/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /Explorer par niveau/i })).toBeVisible();
+  });
+
   test.describe('Menu utilisateur admin', () => {
     test.use({ storageState: authFile });
 

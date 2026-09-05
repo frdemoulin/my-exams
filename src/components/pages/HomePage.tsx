@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import {
   GraduationCap,
@@ -12,6 +10,7 @@ import {
   Award,
   Sparkles,
   Search,
+  Target,
 } from 'lucide-react';
 
 import { PublicHeader } from '@/components/shared/public-header';
@@ -20,32 +19,39 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
-export default function HomePage() {
+interface HomePageProps {
+  trainingDestination?: string;
+}
+
+export default function HomePage({
+  trainingDestination = '/entrainement',
+}: HomePageProps = {}) {
+
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <PublicHeader />
 
       <main className="mx-auto max-w-6xl w-full flex-1 space-y-16 px-4 py-10 md:py-16">
         {/* 1. HERO */}
-        <section className="text-center space-y-6 max-w-3xl mx-auto">
+        <section className="text-center space-y-6 max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-neutral-primary-soft px-3.5 py-1 text-xs font-semibold text-muted-foreground shadow-xs">
-            <Sparkles className="h-3.5 w-3.5 text-fg-brand" />
-            <span>Plateforme de r&eacute;vision du coll&egrave;ge &agrave; la L1 Sant&eacute;</span>
+            <Sparkles className="h-3.5 w-3.5 text-fg-brand" aria-hidden="true" />
+            <span>Plateforme d’entraînement du collège à la L1 Santé</span>
           </div>
 
           <h1 className="text-3xl font-extrabold tracking-tight text-heading sm:text-4xl md:text-5xl lg:text-6xl text-balance">
-            Des entra&icirc;nements cibl&eacute;s pour r&eacute;ussir vos{' '}
-            <span className="text-fg-brand">&eacute;preuves</span>
+            Des entraînements ciblés pour réussir vos{' '}
+            <span className="text-fg-brand">épreuves</span>
           </h1>
 
-          <p className="text-sm md:text-base text-muted-foreground text-balance max-w-2xl mx-auto leading-relaxed">
-            Annales d&apos;examens officielles, corrections d&eacute;taill&eacute;es et parcours d&apos;entra&icirc;nement adapt&eacute;s &agrave; chaque cycle d&apos;apprentissage.
+          <p className="text-sm md:text-base text-muted-foreground text-balance max-w-xl md:max-w-3xl mx-auto leading-relaxed">
+            Quiz ciblés, corrections détaillées et parcours d’entraînement progressifs, complétés par des annales d’examens officielles.
           </p>
 
           <div className="flex flex-wrap justify-center gap-3 pt-2">
             <Button asChild size="lg" className="font-semibold">
-              <Link href="/annales">
-                <Search className="mr-2 h-4 w-4" /> Consulter les annales
+              <Link href={trainingDestination}>
+                <Target className="mr-2 h-4 w-4" aria-hidden="true" /> Commencer à s’entraîner
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg">

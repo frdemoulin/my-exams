@@ -103,6 +103,55 @@ export async function resolveEnrollmentHomePath(
 }
 
 /**
+ * Résout canoniquement la destination du CTA principal d'entraînement de la page d'accueil.
+ *
+ * Règles :
+ * - visiteur non authentifié -> /entrainement
+ * - utilisateur authentifié sans Enrollment actif -> /onboarding
+ * - Enrollment HEALTH -> /sante
+ * - Enrollment SECONDARY collège -> /college
+ * - Enrollment SECONDARY lycée -> /lycee
+ *
+ * S'appuie strictement sur l'affectation annuelle active (UserAcademicEnrollment).
+ * Ne recourt JAMAIS au modèle historique UserPedagogicalProfile.
+ */
+export async function resolveHomeTrainingCtaDestination(params: {
+  userId?: string | null;
+  date?: Date;
+}): Promise<string> {
+  if (!params.userId) {
+    return '/entrainement';
+  }
+
+  const enrollment = await getCurrentUserAcademicEnrollment(params.userId, params.date);
+  if (!enrollment) {
+    return '/onboarding';
+  }
+
+  if (enrollment.audience === 'HEALTH') {
+    return '/sante';
+  }
+
+  if (enrollment.audience === 'SECONDARY' && enrollment.secondaryGradeId) {
+    const grade = await prisma.grade.findUnique({
+      where: { id: enrollment.secondaryGradeId },
+      select: { shortDescription: true },
+    });
+
+    const segment = resolveSecondarySchoolSegment(grade);
+    if (segment === 'COLLEGE') {
+      return '/college';
+    }
+    if (segment === 'LYCEE') {
+      return '/lycee';
+    }
+  }
+
+  return '/onboarding';
+}
+
+
+/**
  * Revalide rigoureusement l'autorisation d'accès d'une URL de callback pour une affectation donnée.
  * Appelle les guards P1A canoniques correspondants pour les ressources unitaires.
  * Échoue en fail-closed strict (retourne false).
