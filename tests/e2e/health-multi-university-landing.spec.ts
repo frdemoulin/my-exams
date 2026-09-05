@@ -52,17 +52,22 @@ test.describe('Santé Multi-Universités — Landing publique et cloisonnement a
     await expect(illustrationContainer).toBeVisible();
 
     // Section Fonctionnalités (5 cartes)
-    await expect(page.locator('#fonctionnalites')).toBeVisible();
+    const healthFeatures = page.locator('#fonctionnalites');
+    await expect(healthFeatures).toBeVisible();
+    await expect(healthFeatures.getByText('Fonctionnalités')).toBeVisible();
     await expect(
-      page.getByText(
+      healthFeatures.getByRole('heading', { level: 2, name: 'Tout ce dont tu as besoin pour réussir' })
+    ).toBeVisible();
+    await expect(
+      healthFeatures.getByText(
         'Une boîte à outils complète pour consolider tes connaissances et progresser tout au long du semestre.'
       )
     ).toBeVisible();
-    await expect(page.getByRole('heading', { name: 'Quiz & entraînements' })).toBeVisible();
-    await expect(page.getByRole('heading', { name: 'Corrections détaillées' })).toBeVisible();
-    await expect(page.getByRole('heading', { name: 'Colles' })).toBeVisible();
-    await expect(page.getByRole('heading', { name: 'Examens blancs' })).toBeVisible();
-    await expect(page.getByRole('heading', { name: 'Suivi de progression' })).toBeVisible();
+    await expect(healthFeatures.getByRole('heading', { level: 3, name: 'Quiz & entraînements' })).toBeVisible();
+    await expect(healthFeatures.getByRole('heading', { level: 3, name: 'Corrections détaillées' })).toBeVisible();
+    await expect(healthFeatures.getByRole('heading', { level: 3, name: 'Colles' })).toBeVisible();
+    await expect(healthFeatures.getByRole('heading', { level: 3, name: 'Examens blancs' })).toBeVisible();
+    await expect(healthFeatures.getByRole('heading', { level: 3, name: 'Suivi de progression' })).toBeVisible();
 
     // Section Personnalisation & multi-universités
     await expect(
@@ -357,9 +362,17 @@ test.describe('Santé Multi-Universités — Landing publique et cloisonnement a
     await expect(
       page.getByRole('heading', { level: 1, name: 'Progresse au Collège, chapitre après chapitre' })
     ).toBeVisible();
-    await expect(page.getByRole('link', { name: /Commencer à s’entraîner/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /Consulter les annales du Brevet/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Créer mon compte gratuit' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Découvrir les fonctionnalités' })).toBeVisible();
+    await expect(
+      page.getByText('Compte gratuit requis pour accéder aux quiz, exercices, annales et à ta progression.')
+    ).toBeVisible();
     await expect(page.getByTestId('hero-universe-illustration')).toBeVisible();
+    const collegeFeatures = page.locator('section').filter({ hasText: 'Tout ce dont tu as besoin pour progresser' });
+    await expect(collegeFeatures.getByText('Fonctionnalités')).toBeVisible();
+    await expect(
+      collegeFeatures.getByRole('heading', { level: 2, name: 'Tout ce dont tu as besoin pour progresser' })
+    ).toBeVisible();
     await page.screenshot({
       path: `${ARTIFACT_DIR}/college-desktop-1440.png`,
       fullPage: true,
@@ -373,9 +386,17 @@ test.describe('Santé Multi-Universités — Landing publique et cloisonnement a
     await expect(
       page.getByRole('heading', { level: 1, name: 'Progresse au Lycée, chapitre après chapitre' })
     ).toBeVisible();
-    await expect(page.getByRole('link', { name: /Commencer à s’entraîner/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /Consulter les annales du Bac/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Créer mon compte gratuit' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Découvrir les fonctionnalités' })).toBeVisible();
+    await expect(
+      page.getByText('Compte gratuit requis pour accéder aux quiz, exercices, annales et à ta progression.')
+    ).toBeVisible();
     await expect(page.getByTestId('hero-universe-illustration')).toBeVisible();
+    const lyceeFeatures = page.locator('section').filter({ hasText: 'Tout ce dont tu as besoin pour progresser' });
+    await expect(lyceeFeatures.getByText('Fonctionnalités')).toBeVisible();
+    await expect(
+      lyceeFeatures.getByRole('heading', { level: 2, name: 'Tout ce dont tu as besoin pour progresser' })
+    ).toBeVisible();
     await page.screenshot({
       path: `${ARTIFACT_DIR}/lycee-desktop-1440.png`,
       fullPage: true,
@@ -397,5 +418,14 @@ test.describe('Santé Multi-Universités — Landing publique et cloisonnement a
       )
     ).toBeVisible();
     await expect(page.getByTestId('hero-universe-illustration')).toBeVisible();
+    const santeFeatures = page.locator('#fonctionnalites');
+    await expect(santeFeatures.getByText('Fonctionnalités')).toBeVisible();
+    await expect(
+      santeFeatures.getByRole('heading', { level: 2, name: 'Tout ce dont tu as besoin pour réussir' })
+    ).toBeVisible();
+    await page.screenshot({
+      path: `${ARTIFACT_DIR}/health-landing-desktop-1440.png`,
+      fullPage: true,
+    });
   });
 });

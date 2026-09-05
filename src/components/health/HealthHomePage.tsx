@@ -24,6 +24,11 @@ import { SiteFooter } from '@/components/shared/site-footer';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  UniverseFeaturesSection,
+  type UniverseFeatureItem,
+} from '@/components/shared/universe-features-section';
+import { UniverseHero } from '@/components/shared/universe-hero';
 
 import { healthSectionDefinitions } from './health-content';
 import { HealthCourseUnitsTable } from './HealthCourseUnitsTable';
@@ -58,7 +63,7 @@ const quickLinks = [
   healthSectionDefinitions.annales,
 ];
 
-const publicFeatures = [
+const publicFeatures: UniverseFeatureItem[] = [
   {
     title: 'Quiz & entraînements',
     badge: 'Entraînements',
@@ -237,132 +242,33 @@ export function HealthHomePage({
           /* ================================================================= */
           <>
             {/* HERO SECTION */}
-            <section className="overflow-hidden rounded-3xl border border-border bg-card p-6 md:p-10">
-              <div className="grid gap-8 md:grid-cols-[minmax(0,1fr)_260px]">
-                <div className="space-y-4">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <Badge variant="secondary">L1 Santé</Badge>
-                    <Badge variant="outline">Entraînement universitaire en Santé</Badge>
-                  </div>
-
-                  <h1 className="text-3xl font-extrabold tracking-tight text-heading md:text-4xl">
-                    Entraîne-toi pour réussir ta L1 Santé
-                  </h1>
-
-                  <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base text-balance">
-                    Quiz par chapitre, corrections détaillées, colles et examens blancs pour progresser régulièrement, avec des contenus pouvant être adaptés au programme de ton université.
-                  </p>
-
-                  <div className="flex flex-wrap items-center gap-3 pt-2">
-                    <Button asChild size="lg" className="font-semibold">
-                      <Link href="/log-in?callbackUrl=%2Fsante">
-                        Créer mon compte gratuit <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                    <Button asChild variant="outline" size="lg">
-                      <a href="#fonctionnalites">Découvrir les fonctionnalités</a>
-                    </Button>
-                  </div>
-
-                  <p className="text-xs text-muted-foreground">
-                    Compte gratuit requis pour accéder aux quiz, colles, examens blancs et à ta progression.
-                  </p>
-                </div>
-
-                <div
-                  className="flex items-center justify-center rounded-2xl border border-border bg-background p-6"
-                  data-testid="hero-universe-illustration"
-                >
-                  <div className="flex h-28 w-28 items-center justify-center rounded-full bg-brand/10 text-fg-brand">
-                    <Stethoscope className="h-14 w-14" aria-hidden="true" />
-                  </div>
-                </div>
-              </div>
-            </section>
+            <UniverseHero
+              badges={[
+                { label: 'L1 Santé', variant: 'secondary' },
+                { label: 'Entraînement universitaire en Santé', variant: 'outline' },
+              ]}
+              title="Entraîne-toi pour réussir ta L1 Santé"
+              description="Quiz par chapitre, corrections détaillées, colles et examens blancs pour progresser régulièrement, avec des contenus pouvant être adaptés au programme de ton université."
+              primaryCta={{
+                label: 'Créer mon compte gratuit',
+                href: '/log-in?callbackUrl=%2Fsante',
+              }}
+              secondaryCta={{
+                label: 'Découvrir les fonctionnalités',
+                href: '#fonctionnalites',
+              }}
+              note="Compte gratuit requis pour accéder aux quiz, colles, examens blancs et à ta progression."
+              icon={Stethoscope}
+            />
 
             {/* FEATURES SECTION */}
-            <section id="fonctionnalites" className="space-y-6 pt-2 md:pt-4">
-              <div className="mx-auto max-w-3xl space-y-2 text-left md:text-center">
-                <div>
-                  <Badge variant="outline">Fonctionnalités</Badge>
-                </div>
-                <h2 className="text-2xl font-bold tracking-tight text-heading md:text-3xl">
-                  Tout ce dont tu as besoin pour réussir
-                </h2>
-                <p className="text-sm leading-relaxed text-muted-foreground md:text-base text-balance">
-                  Une boîte à outils complète pour consolider tes connaissances et progresser tout au long du semestre.
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                {/* Row 1: 3 cards */}
-                <div className="grid gap-4 md:grid-cols-3">
-                  {publicFeatures.slice(0, 3).map((feat) => {
-                    const Icon = feat.icon;
-                    return (
-                      <Card
-                        key={feat.title}
-                        className="flex flex-col justify-between rounded-3xl border-border bg-card"
-                      >
-                        <CardHeader className="space-y-3 pb-3">
-                          <div className="flex items-center justify-between">
-                            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-fg-brand">
-                              <Icon className="h-5 w-5" aria-hidden="true" />
-                            </div>
-                            <Badge variant="secondary" className="text-xs">
-                              {feat.badge}
-                            </Badge>
-                          </div>
-                          <CardTitle className="text-lg text-heading">{feat.title}</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          <CardDescription className="text-sm leading-relaxed text-muted-foreground">
-                            {feat.description}
-                          </CardDescription>
-                        </CardContent>
-                      </Card>
-                    );
-                  })}
-                </div>
-
-                {/* Row 2: 2 cards centered */}
-                <div className="health-features-second-row mx-auto grid w-full gap-4 md:grid-cols-2">
-                  {publicFeatures.slice(3, 5).map((feat) => {
-                    const Icon = feat.icon;
-                    return (
-                      <Card
-                        key={feat.title}
-                        className="flex flex-col justify-between rounded-3xl border-border bg-card"
-                      >
-                        <CardHeader className="space-y-3 pb-3">
-                          <div className="flex items-center justify-between">
-                            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-fg-brand">
-                              <Icon className="h-5 w-5" aria-hidden="true" />
-                            </div>
-                            <Badge variant="secondary" className="text-xs">
-                              {feat.badge}
-                            </Badge>
-                          </div>
-                          <CardTitle className="text-lg text-heading">{feat.title}</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          <CardDescription className="text-sm leading-relaxed text-muted-foreground">
-                            {feat.description}
-                          </CardDescription>
-                        </CardContent>
-                      </Card>
-                    );
-                  })}
-                </div>
-                <style>{`
-                  @media (min-width: 768px) {
-                    .health-features-second-row {
-                      max-width: calc((100% - 2rem) / 3 * 2 + 1rem);
-                    }
-                  }
-                `}</style>
-              </div>
-            </section>
+            <UniverseFeaturesSection
+              id="fonctionnalites"
+              title="Tout ce dont tu as besoin pour réussir"
+              description="Une boîte à outils complète pour consolider tes connaissances et progresser tout au long du semestre."
+              features={publicFeatures}
+              centerLastRow
+            />
 
             {/* ADAPTED PATHWAY & ARCHITECTURE SECTION */}
             <section className="space-y-6 pt-4">

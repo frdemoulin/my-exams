@@ -8,44 +8,59 @@ import { PublicBreadcrumb } from '@/components/shared/public-breadcrumb';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { UniverseHero } from '@/components/shared/universe-hero';
+import {
+  UniverseFeaturesSection,
+  type UniverseFeatureItem,
+} from '@/components/shared/universe-features-section';
 import { buildCanonicalUrl } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';
 const canonical = buildCanonicalUrl('/college');
 
 export const metadata: Metadata = {
-  title: 'Collège — Quiz, entraînements et annales du Brevet',
-  description: 'De la 6e à la 3e, entraîne-toi avec des quiz par chapitre, des exercices progressifs et des corrections détaillées. En 3e, complète ta préparation avec les annales officielles du Brevet.',
-  alternates: canonical ? { canonical } : undefined,
+  title: 'Collège — Quiz, entraînements et annales du Brevet | My Exams',
+  description:
+    'Révise et progresse au Collège de la 6e à la 3e : quiz interactifs par chapitre, résolutions détaillées et annales officielles du Brevet des collèges.',
+  alternates: { canonical },
 };
 
 export default function CollegePage() {
   noStore();
 
-  const collegeFeatures = [
+  const collegeFeatures: UniverseFeatureItem[] = [
     {
       title: 'Quiz & Entraînements par chapitre',
-      description: 'Quiz interactifs de la 6e à la 3e pour consolider les notions et progresser chapitre après chapitre.',
+      description:
+        'Quiz interactifs de la 6e à la 3e pour consolider les notions et progresser chapitre après chapitre.',
       icon: FlaskConical,
       badge: 'Quiz & Entraînements',
-      href: '/entrainement',
-      cta: 'Accéder aux entraînements',
+      cta: {
+        label: 'Accéder aux entraînements',
+        href: '/entrainement',
+      },
     },
     {
       title: 'Corrections détaillées',
-      description: 'Retrouve des résolutions détaillées et des explications étape par étape pour les exercices et sujets corrigés.',
+      description:
+        'Retrouve des résolutions détaillées et des explications étape par étape pour les exercices et sujets corrigés.',
       icon: CheckCircle2,
       badge: 'Corrections',
-      href: '/annales',
-      cta: 'Consulter les corrections',
+      cta: {
+        label: 'Consulter les corrections',
+        href: '/annales',
+      },
     },
     {
       title: 'Annales officielles du Brevet',
-      description: 'En 3e, entraîne-toi sur des sujets officiels du Brevet pour te préparer progressivement aux conditions de l’examen.',
+      description:
+        'En 3e, entraîne-toi sur des sujets officiels du Brevet pour te préparer progressivement aux conditions de l’examen.',
       icon: BookOpen,
       badge: 'Annales',
-      href: '/annales?diploma=Brevet+des+coll%C3%A8ges',
-      cta: 'Explorer les annales',
+      cta: {
+        label: 'Explorer les annales',
+        href: '/annales?diploma=Brevet+des+coll%C3%A8ges',
+      },
     },
   ];
 
@@ -69,85 +84,31 @@ export default function CollegePage() {
         />
 
         {/* HERO SECTION */}
-        <section className="overflow-hidden rounded-3xl border border-border bg-card p-6 md:p-10">
-          <div className="grid gap-8 md:grid-cols-[minmax(0,1fr)_260px]">
-            <div className="space-y-4">
-              <div className="flex flex-wrap items-center gap-2">
-                <Badge variant="secondary">6e · 5e · 4e · 3e</Badge>
-                <Badge variant="outline">Brevet</Badge>
-              </div>
-
-              <h1 className="text-3xl font-extrabold tracking-tight text-heading md:text-4xl">
-                Progresse au Collège, chapitre après chapitre
-              </h1>
-
-              <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base text-balance">
-                De la 6e à la 3e, entraîne-toi avec des quiz par chapitre, des exercices progressifs et des corrections détaillées. En 3e, complète ta préparation avec les annales officielles du Brevet.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-3 pt-2">
-                <Button asChild size="lg" className="font-semibold">
-                  <Link href="/entrainement">
-                    Commencer à s’entraîner <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button asChild variant="outline" size="lg">
-                  <Link href="/annales?diploma=Brevet+des+coll%C3%A8ges">
-                    Consulter les annales du Brevet
-                  </Link>
-                </Button>
-              </div>
-            </div>
-
-            <div
-              className="flex items-center justify-center rounded-2xl border border-border bg-background p-6"
-              data-testid="hero-universe-illustration"
-            >
-              <div className="flex h-28 w-28 items-center justify-center rounded-full bg-brand/10 text-fg-brand">
-                <School className="h-14 w-14" aria-hidden="true" />
-              </div>
-            </div>
-          </div>
-        </section>
+        <UniverseHero
+          badges={[
+            { label: '6e · 5e · 4e · 3e', variant: 'secondary' },
+            { label: 'Brevet', variant: 'outline' },
+          ]}
+          title="Progresse au Collège, chapitre après chapitre"
+          description="De la 6e à la 3e, entraîne-toi avec des quiz par chapitre, des exercices progressifs et des corrections détaillées. En 3e, complète ta préparation avec les annales officielles du Brevet."
+          primaryCta={{
+            label: 'Créer mon compte gratuit',
+            href: '/log-in?callbackUrl=%2Fcollege',
+          }}
+          secondaryCta={{
+            label: 'Découvrir les fonctionnalités',
+            href: '#fonctionnalites',
+          }}
+          note="Compte gratuit requis pour accéder aux quiz, exercices, annales et à ta progression."
+          icon={School}
+        />
 
         {/* FONCTIONNALITÉS DISPONIBLES */}
-        <section className="space-y-4">
-          <div className="space-y-1">
-            <h2 className="text-xl font-semibold text-heading">Fonctionnalités Collège</h2>
-            <p className="text-sm text-muted-foreground">
-              Des outils complémentaires pour consolider le cours et réussir les épreuves.
-            </p>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-3">
-            {collegeFeatures.map((feature, idx) => {
-              const Icon = feature.icon;
-              return (
-                <Card key={idx} className="flex flex-col justify-between">
-                  <CardHeader>
-                    <div className="mb-2 flex items-center justify-between">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-fg-brand">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <Badge variant="secondary" className="text-xs">
-                        {feature.badge}
-                      </Badge>
-                    </div>
-                    <CardTitle className="text-lg">{feature.title}</CardTitle>
-                    <CardDescription className="text-sm leading-normal">
-                      {feature.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="pt-0">
-                    <Button asChild variant="outline" size="sm" className="w-full justify-center">
-                      <Link href={feature.href}>{feature.cta} &rarr;</Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </section>
+        <UniverseFeaturesSection
+          title="Tout ce dont tu as besoin pour progresser"
+          description="Des outils complémentaires pour consolider tes connaissances de la 6e à la 3e et préparer progressivement le Brevet."
+          features={collegeFeatures}
+        />
 
         {/* MATIÈRES CLÉS */}
         <section className="space-y-4">

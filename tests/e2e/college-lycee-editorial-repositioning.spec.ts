@@ -87,18 +87,34 @@ test.describe('Repositionnement éditorial Collège & Lycée', () => {
     // Sous-titre
     await expect(page.getByText(/De la Seconde à la Terminale, entraîne-toi avec des quiz par chapitre/)).toBeVisible();
 
-    // CTA principal universel (non enfermé dans une matière spécifique)
-    const primaryCta = page.getByRole('link', { name: /Commencer à s’entraîner/i });
+    // CTA principal harmonisé
+    const primaryCta = page.getByRole('link', { name: 'Créer mon compte gratuit' });
     await expect(primaryCta).toBeVisible();
-    await expect(primaryCta).toHaveAttribute('href', '/entrainement');
+    await expect(primaryCta).toHaveAttribute('href', '/log-in?callbackUrl=%2Flycee');
 
-    // CTA secondaire annales
-    const secondaryCta = page.getByRole('link', { name: /Consulter les annales du Bac/i });
+    // CTA secondaire fonctionnalités
+    const secondaryCta = page.getByRole('link', { name: 'Découvrir les fonctionnalités' });
     await expect(secondaryCta).toBeVisible();
-    await expect(secondaryCta).toHaveAttribute('href', '/annales?diploma=Baccalaur%C3%A9at+g%C3%A9n%C3%A9ral');
+    await expect(secondaryCta).toHaveAttribute('href', '#fonctionnalites');
+
+    // Note d'accès
+    await expect(
+      page.getByText('Compte gratuit requis pour accéder aux quiz, exercices, annales et à ta progression.')
+    ).toBeVisible();
 
     // Fonctionnalités Lycée - ordre et contenu
-    const featuresSection = page.locator('section').filter({ hasText: 'Fonctionnalités Lycée' });
+    const featuresSection = page.locator('section').filter({ hasText: 'Tout ce dont tu as besoin pour progresser' });
+    await expect(featuresSection.getByText('Fonctionnalités')).toBeVisible();
+    await expect(
+      featuresSection.getByRole('heading', { level: 2, name: 'Tout ce dont tu as besoin pour progresser' })
+    ).toBeVisible();
+    await expect(
+      featuresSection.getByText(
+        'Des outils complémentaires pour progresser de la Seconde à la Terminale et préparer progressivement le Bac.'
+      )
+    ).toBeVisible();
+    await expect(page.getByRole('heading', { level: 2, name: 'Fonctionnalités Lycée' })).not.toBeVisible();
+
     const featureCards = featuresSection.locator('.grid > div');
     await expect(featureCards).toHaveCount(3);
 
@@ -151,18 +167,34 @@ test.describe('Repositionnement éditorial Collège & Lycée', () => {
     // Sous-titre
     await expect(page.getByText(/De la 6e à la 3e, entraîne-toi avec des quiz par chapitre/)).toBeVisible();
 
-    // CTA principal
-    const primaryCta = page.getByRole('link', { name: /Commencer à s’entraîner/i });
+    // CTA principal harmonisé
+    const primaryCta = page.getByRole('link', { name: 'Créer mon compte gratuit' });
     await expect(primaryCta).toBeVisible();
-    await expect(primaryCta).toHaveAttribute('href', '/entrainement');
+    await expect(primaryCta).toHaveAttribute('href', '/log-in?callbackUrl=%2Fcollege');
 
-    // CTA secondaire annales
-    const secondaryCta = page.getByRole('link', { name: /Consulter les annales du Brevet/i });
+    // CTA secondaire fonctionnalités
+    const secondaryCta = page.getByRole('link', { name: 'Découvrir les fonctionnalités' });
     await expect(secondaryCta).toBeVisible();
-    await expect(secondaryCta).toHaveAttribute('href', '/annales?diploma=Brevet+des+coll%C3%A8ges');
+    await expect(secondaryCta).toHaveAttribute('href', '#fonctionnalites');
+
+    // Note d'accès
+    await expect(
+      page.getByText('Compte gratuit requis pour accéder aux quiz, exercices, annales et à ta progression.')
+    ).toBeVisible();
 
     // Fonctionnalités Collège - ordre et contenu
-    const featuresSection = page.locator('section').filter({ hasText: 'Fonctionnalités Collège' });
+    const featuresSection = page.locator('section').filter({ hasText: 'Tout ce dont tu as besoin pour progresser' });
+    await expect(featuresSection.getByText('Fonctionnalités')).toBeVisible();
+    await expect(
+      featuresSection.getByRole('heading', { level: 2, name: 'Tout ce dont tu as besoin pour progresser' })
+    ).toBeVisible();
+    await expect(
+      featuresSection.getByText(
+        'Des outils complémentaires pour consolider tes connaissances de la 6e à la 3e et préparer progressivement le Brevet.'
+      )
+    ).toBeVisible();
+    await expect(page.getByRole('heading', { level: 2, name: 'Fonctionnalités Collège' })).not.toBeVisible();
+
     const featureCards = featuresSection.locator('.grid > div');
     await expect(featureCards).toHaveCount(3);
 
