@@ -5,6 +5,7 @@ loadProjectEnv();
 
 const prisma = require("../../src/lib/db/prisma").default;
 
+const authFile = process.env.E2E_AUTH_STATE ?? "playwright/.auth/admin.json";
 const appBaseUrl = process.env.PLAYWRIGHT_TEST_BASE_URL || "http://localhost:3000";
 
 async function getActiveUe14Id(): Promise<string> {
@@ -26,6 +27,8 @@ async function expectNoHorizontalOverflow(page: Page) {
 }
 
 test.describe("Santé — Onglet Progression UE14", () => {
+  test.use({ storageState: authFile });
+
   test("cycle complet : navigation inter-onglets, popover d'aide, accès direct, dark mode et responsive 375px", async ({
     page,
   }) => {

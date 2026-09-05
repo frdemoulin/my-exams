@@ -66,18 +66,19 @@ export default async function HealthChapterQuizPage({ params }: PageProps) {
   const effectiveUserId = getSessionEffectiveUserId(session);
   const canEditQuestions = isAdminRole(getSessionActorRole(session));
 
-  if (effectiveUserId) {
-    try {
-      await assertUserCanAccessHealthCourseUnit({
-        userId: effectiveUserId,
-        courseUnitId,
-      });
-    } catch (err) {
-      handlePedagogicalPageAccessError(
-        err,
-        `/sante/ue/${courseUnitId}/chapitres/${chapterSlug}/qcm/${quizSlug}`
-      );
-    }
+  const currentPath = `/sante/ue/${courseUnitId}/chapitres/${chapterSlug}/qcm/${quizSlug}`;
+
+  if (!effectiveUserId) {
+    redirect(`/log-in?callbackUrl=${encodeURIComponent(currentPath)}`);
+  }
+
+  try {
+    await assertUserCanAccessHealthCourseUnit({
+      userId: effectiveUserId,
+      courseUnitId,
+    });
+  } catch (err) {
+    handlePedagogicalPageAccessError(err, currentPath);
   }
 
   const chapter = await fetchHealthStudentChapterDetail({

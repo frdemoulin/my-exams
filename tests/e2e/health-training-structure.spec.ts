@@ -5,11 +5,12 @@ loadProjectEnv();
 
 const prisma = require("../../src/lib/db/prisma").default;
 
+const authFile = process.env.E2E_AUTH_STATE ?? "playwright/.auth/admin.json";
 const appBaseUrl =
   process.env.E2E_BASE_URL ?? `http://localhost:${process.env.E2E_PORT ?? "3000"}`;
 
 const ue13Slug = "ue13-anatomie-histologie-physiologie";
-const ue14Id = "6a2c2b111af36bd83ac27ec2";
+const ue14Id = "6a9b1f8fc5a705fc9366a0cc";
 const chapterOneSlug = "elements-chimiques-classification-periodique";
 const chapterTwoSlug = "formation-ions-electronegativite-liaisons-chimiques";
 const osidesChapterSlug = "osides";
@@ -112,6 +113,7 @@ type TeachingElementChapterSectionsFixture = {
 type TeachingElementChapterGroupsFixture = {
   id: string;
   title: string;
+  shortTitle?: string | null;
   groups: Array<{
     label: string;
     chapterTitles: string[];
@@ -123,12 +125,14 @@ type CourseUnitFixture = {
   title: string;
   teachingElements: Array<{
     title: string;
+    shortTitle?: string | null;
   }>;
 };
 
 type RawCourseUnitBySlug = CourseUnitFixture & {
   programVersion: {
     slug: string;
+    isCurrent: boolean;
     institution: {
       name: string;
       shortName: string | null;
@@ -243,6 +247,7 @@ async function getCourseUnitFixture(
         orderBy: [{ order: "asc" }, { title: "asc" }],
         select: {
           title: true,
+          shortTitle: true,
         },
       },
     },
@@ -267,6 +272,7 @@ async function getCourseUnitFixtureBySlug(
       programVersion: {
         select: {
           slug: true,
+          isCurrent: true,
           institution: {
             select: {
               name: true,
@@ -280,6 +286,7 @@ async function getCourseUnitFixtureBySlug(
         orderBy: [{ order: "asc" }, { title: "asc" }],
         select: {
           title: true,
+          shortTitle: true,
         },
       },
     },
@@ -290,7 +297,7 @@ async function getCourseUnitFixtureBySlug(
       entry.programVersion.institution.shortName?.toLocaleLowerCase("fr-FR") ?? "";
 
     return (
-      entry.programVersion.slug === "las-2025-2026" &&
+      (entry.programVersion.isCurrent || entry.programVersion.slug === "las-sps-2026-2027") &&
       (institutionName.includes("reims champagne-ardenne") ||
         institutionShortName.includes("reims"))
     );
@@ -447,6 +454,7 @@ async function getTeachingElementChapterGroupsFixture(
     select: {
       id: true,
       title: true,
+      shortTitle: true,
     },
   });
 
@@ -503,6 +511,7 @@ async function getTeachingElementChapterGroupsFixture(
   return {
     id: teachingElement.id,
     title: teachingElement.title,
+    shortTitle: teachingElement.shortTitle ?? null,
     groups: [...groups.values()]
       .sort((left, right) => left.order - right.order)
       .map((group) => ({
@@ -611,6 +620,8 @@ async function getTeachingElementChapterSectionsFixture({
 }
 
 test.describe("Santé - structure UE/EC/chapitres", () => {
+  test.use({ storageState: authFile });
+
   test("la page UE14 expose bien les trois EC attendus", async ({ page }) => {
     const courseUnit = await getCourseUnitFixture();
 
@@ -621,8 +632,9 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
     ).toBeVisible();
 
     for (const teachingElement of courseUnit.teachingElements) {
+      const tabLabel = teachingElement.shortTitle ?? teachingElement.title;
       await expect(
-        page.getByRole("tab", { name: teachingElement.title, exact: true }),
+        page.getByRole("tab", { name: tabLabel, exact: true }),
       ).toBeVisible();
     }
   });
@@ -630,7 +642,7 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
   test("la page UE13 expose bien les trois EC attendus", async ({ page }) => {
     const courseUnit = await getCourseUnitFixtureBySlug(ue13Slug, "UE13");
     const teachingElementTitles = courseUnit.teachingElements.map(
-      (teachingElement) => teachingElement.title,
+      (teachingElement) => teachingElement.shortTitle ?? teachingElement.title,
     );
 
     expect(teachingElementTitles).toEqual(["Anatomie", "Histologie", "Physiologie"]);
@@ -643,8 +655,9 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
     await expect(page.getByText("3 EC", { exact: true }).first()).toBeVisible();
 
     for (const teachingElement of courseUnit.teachingElements) {
+      const tabLabel = teachingElement.shortTitle ?? teachingElement.title;
       await expect(
-        page.getByRole("tab", { name: teachingElement.title, exact: true }),
+        page.getByRole("tab", { name: tabLabel, exact: true }),
       ).toBeVisible();
     }
   });
@@ -868,8 +881,9 @@ test.describe("Santé - structure UE/EC/chapitres", () => {
 
     await page.goto(`${appBaseUrl}/sante/ue/${ue14Id}?ec=${teachingElement.id}`);
 
+    const tabLabel = teachingElement.shortTitle ?? teachingElement.title;
     await expect(
-      page.getByRole("tab", { name: teachingElement.title, exact: true }),
+      page.getByRole("tab", { name: tabLabel, exact: true }),
     ).toBeVisible();
 
     for (const group of teachingElement.groups) {

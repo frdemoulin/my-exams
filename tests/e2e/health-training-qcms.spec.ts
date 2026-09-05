@@ -145,6 +145,8 @@ async function resetQuizProgress(quizId: string) {
 }
 
 test.describe.serial("Santé - QCM publics", () => {
+  test.use({ storageState: authFile });
+
   test("la page UE affiche l'EC et le chapitre de chimie", async ({ page }) => {
     const fixture = await getFixture();
 

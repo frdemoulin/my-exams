@@ -63,15 +63,17 @@ export default async function HealthCourseUnitDetailPage({
   const session = await auth();
   const effectiveUserId = getSessionEffectiveUserId(session);
 
-  if (effectiveUserId) {
-    try {
-      await assertUserCanAccessHealthCourseUnit({
-        userId: effectiveUserId,
-        courseUnitId,
-      });
-    } catch (err) {
-      handlePedagogicalPageAccessError(err, `/sante/ue/${courseUnitId}`);
-    }
+  if (!effectiveUserId) {
+    redirect(`/log-in?callbackUrl=${encodeURIComponent(`/sante/ue/${courseUnitId}`)}`);
+  }
+
+  try {
+    await assertUserCanAccessHealthCourseUnit({
+      userId: effectiveUserId,
+      courseUnitId,
+    });
+  } catch (err) {
+    handlePedagogicalPageAccessError(err, `/sante/ue/${courseUnitId}`);
   }
 
   const [courseUnit, evaluationsProgress] = await Promise.all([

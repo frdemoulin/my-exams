@@ -379,11 +379,17 @@ export function handlePedagogicalPageAccessError(
   error: unknown,
   currentPath: string
 ): never {
+  const safePath = getSafeCallbackUrl(currentPath) ?? currentPath;
+  if (
+    error instanceof PedagogicalAccessError &&
+    error.code === 'UNAUTHENTICATED'
+  ) {
+    redirect(`/log-in?callbackUrl=${encodeURIComponent(safePath)}`);
+  }
   if (
     error instanceof PedagogicalAccessError &&
     error.code === 'ONBOARDING_REQUIRED'
   ) {
-    const safePath = getSafeCallbackUrl(currentPath) ?? currentPath;
     redirect(`/onboarding?callbackUrl=${encodeURIComponent(safePath)}`);
   }
   redirect('/dashboard');

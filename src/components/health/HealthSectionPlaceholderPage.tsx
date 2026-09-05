@@ -29,7 +29,7 @@ export function HealthSectionPlaceholderPage({
         <PublicBreadcrumb
           items={[
             { label: 'Accueil', href: '/' },
-            { label: 'Santé', href: '/sante' },
+            { label: 'L1 Santé', href: '/sante' },
             { label: definition.title },
           ]}
         />

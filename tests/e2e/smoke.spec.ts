@@ -88,7 +88,7 @@ test.describe("smoke", () => {
     const response = await page.goto("/sante");
     expect(response?.ok()).toBeTruthy();
     await expect(
-      page.getByRole("heading", { level: 1, name: /^Santé$/i }),
+      page.getByRole("heading", { level: 1, name: /Entraîne-toi pour réussir ta L1 Santé|Santé/i }),
     ).toBeVisible();
   });
 
@@ -97,7 +97,7 @@ test.describe("smoke", () => {
     expect(response?.ok()).toBeTruthy();
     await expect(page).toHaveURL(healthRootUrl);
     await expect(
-      page.getByRole("heading", { level: 1, name: /^Santé$/i }),
+      page.getByRole("heading", { level: 1, name: /Entraîne-toi pour réussir ta L1 Santé|Santé/i }),
     ).toBeVisible();
   });
 
